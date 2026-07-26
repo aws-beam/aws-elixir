@@ -18,153 +18,6 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      timestamp_range() :: %{
-        "End" => non_neg_integer(),
-        "Start" => non_neg_integer()
-      }
-      
-  """
-  @type timestamp_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_acme_accounts_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()],
-        required("AcmeEndpointArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_acme_accounts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dns_prevalidation_options() :: %{
-        "DomainScope" => domain_scope(),
-        "HostedZoneId" => String.t() | atom()
-      }
-      
-  """
-  @type dns_prevalidation_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      distinguished_name() :: %{
-        "CommonName" => String.t() | atom(),
-        "Country" => String.t() | atom(),
-        "CustomAttributes" => list(custom_attribute()),
-        "DistinguishedNameQualifier" => String.t() | atom(),
-        "DomainComponents" => list(String.t() | atom()),
-        "GenerationQualifier" => String.t() | atom(),
-        "GivenName" => String.t() | atom(),
-        "Initials" => String.t() | atom(),
-        "Locality" => String.t() | atom(),
-        "Organization" => String.t() | atom(),
-        "OrganizationalUnit" => String.t() | atom(),
-        "Pseudonym" => String.t() | atom(),
-        "SerialNumber" => String.t() | atom(),
-        "State" => String.t() | atom(),
-        "Surname" => String.t() | atom(),
-        "Title" => String.t() | atom()
-      }
-      
-  """
-  @type distinguished_name() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resend_validation_email_request() :: %{
-        required("CertificateArn") => String.t() | atom(),
-        required("Domain") => String.t() | atom(),
-        required("ValidationDomain") => String.t() | atom()
-      }
-      
-  """
-  @type resend_validation_email_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_certificate_response() :: %{
-        "Certificate" => String.t() | atom(),
-        "CertificateChain" => String.t() | atom()
-      }
-      
-  """
-  @type get_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      renewal_summary() :: %{
-        "DomainValidationOptions" => list(domain_validation()),
-        "RenewalStatus" => list(any()),
-        "RenewalStatusReason" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type renewal_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_certificate_response() :: %{
-        "CertificateArn" => String.t() | atom()
-      }
-      
-  """
-  @type request_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "throttlingReasons" => list(throttling_reason())
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -176,379 +29,117 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      expiry_events_configuration() :: %{
-        "DaysBeforeExpiry" => integer()
-      }
-      
-  """
-  @type expiry_events_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_options() :: %{
-        "CertificateTransparencyLoggingPreference" => list(any()),
-        "Export" => list(any())
-      }
-      
-  """
-  @type certificate_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_search_result() :: %{
-        "CertificateArn" => String.t() | atom(),
-        "CertificateMetadata" => list(),
-        "X509Attributes" => x509_attributes()
-      }
-      
-  """
-  @type certificate_search_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filters() :: %{
-        "exportOption" => list(any()),
-        "extendedKeyUsage" => list(list(any())()),
-        "keyTypes" => list(list(any())()),
-        "keyUsage" => list(list(any())()),
-        "managedBy" => list(any())
-      }
-      
-  """
-  @type filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_acme_domain_validation_request() :: %{
-        optional("PrevalidationOptions") => list(),
-        required("AcmeDomainValidationArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_acme_domain_validation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_acme_domain_validations_response() :: %{
-        "AcmeDomainValidations" => list(acme_domain_validation_summary()),
-        "NextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_acme_domain_validations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_acme_endpoint_request() :: %{
-        optional("AuthorizationBehavior") => list(any()),
-        optional("CertificateAuthority") => list(),
-        optional("Contact") => list(any()),
-        required("AcmeEndpointArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_acme_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acme_external_account_binding_summary() :: %{
+      acm_certificate_metadata() :: %{
+        "AcmeAccountId" => String.t() | atom(),
         "AcmeEndpointArn" => String.t() | atom(),
+        "CertificateKeyPairOrigin" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "ExportOption" => list(any()),
+        "Exported" => boolean(),
+        "ImportedAt" => non_neg_integer(),
+        "InUse" => boolean(),
+        "IssuedAt" => non_neg_integer(),
+        "ManagedBy" => list(any()),
+        "RenewalEligibility" => list(any()),
+        "RenewalStatus" => list(any()),
+        "RevokedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "Type" => list(any()),
+        "ValidationMethod" => list(any())
+      }
+      
+  """
+  @type acm_certificate_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acme_account() :: %{
+        "AccountUrl" => [String.t() | atom()],
         "AcmeExternalAccountBindingArn" => String.t() | atom(),
+        "Contacts" => list([String.t() | atom()]()),
         "CreatedAt" => [non_neg_integer()],
-        "ExpiresAt" => [non_neg_integer()],
-        "LastUsedAt" => [non_neg_integer()],
-        "RevokedAt" => [non_neg_integer()],
-        "RoleArn" => String.t() | atom(),
+        "PublicKeyThumbprint" => [String.t() | atom()],
+        "Status" => list(any())
+      }
+      
+  """
+  @type acme_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acme_account_summary() :: %{
+        "AccountUrl" => [String.t() | atom()],
+        "AcmeExternalAccountBindingArn" => String.t() | atom(),
+        "Contacts" => list([String.t() | atom()]()),
+        "CreatedAt" => [non_neg_integer()],
+        "PublicKeyThumbprint" => [String.t() | atom()],
+        "Status" => list(any())
+      }
+      
+  """
+  @type acme_account_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acme_domain_validation() :: %{
+        "AcmeDomainValidationArn" => String.t() | atom(),
+        "AcmeEndpointArn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "DomainName" => String.t() | atom(),
+        "FailureDetails" => failure_details(),
+        "PrevalidationDetails" => list(),
+        "PrevalidationType" => list(any()),
+        "Status" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
       
   """
-  @type acme_external_account_binding_summary() :: %{(String.t() | atom()) => any()}
+  @type acme_domain_validation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_acme_external_account_bindings_response() :: %{
-        "ExternalAccountBindings" => list(acme_external_account_binding_summary()),
-        "NextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_acme_external_account_bindings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_args_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_args_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      http_redirect() :: %{
-        "RedirectFrom" => String.t() | atom(),
-        "RedirectTo" => String.t() | atom()
-      }
-      
-  """
-  @type http_redirect() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expiration() :: %{
-        "Type" => list(any()),
-        "Value" => [float()]
-      }
-      
-  """
-  @type expiration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_acme_endpoints_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_acme_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_acme_domain_validations_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()],
-        required("AcmeEndpointArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_acme_domain_validations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_acme_endpoint_request() :: %{
-        optional("CertificateTags") => list(tag()),
-        optional("Contact") => list(any()),
-        optional("IdempotencyToken") => [String.t() | atom()],
-        optional("Tags") => list(tag()),
-        required("AuthorizationBehavior") => list(any()),
-        required("CertificateAuthority") => list()
-      }
-      
-  """
-  @type create_acme_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_acme_domain_validation_response() :: %{
-        "AcmeDomainValidationArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_acme_domain_validation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_acme_external_account_binding_request() :: %{
-        required("AcmeExternalAccountBindingArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_acme_external_account_binding_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dns_name_filter() :: %{
-        "ComparisonOperator" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type dns_name_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      domain_validation() :: %{
+      acme_domain_validation_summary() :: %{
+        "AcmeDomainValidationArn" => String.t() | atom(),
+        "AcmeEndpointArn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
         "DomainName" => String.t() | atom(),
-        "HttpRedirect" => http_redirect(),
-        "ResourceRecord" => resource_record(),
-        "ValidationDomain" => String.t() | atom(),
-        "ValidationEmails" => list(String.t() | atom()),
-        "ValidationMethod" => list(any()),
-        "ValidationStatus" => list(any())
-      }
-      
-  """
-  @type domain_validation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      domain_scope() :: %{
-        "ExactDomain" => list(any()),
-        "Subdomains" => list(any()),
-        "Wildcards" => list(any())
-      }
-      
-  """
-  @type domain_scope() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_certificate_request() :: %{
-        optional("CertificateArn") => String.t() | atom(),
-        optional("CertificateChain") => binary(),
-        optional("Tags") => list(tag()),
-        required("Certificate") => binary(),
-        required("PrivateKey") => binary()
-      }
-      
-  """
-  @type import_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_certificates_request() :: %{
-        optional("CertificateKeyPairOrigins") => list(list(any())()),
-        optional("CertificateStatuses") => list(list(any())()),
-        optional("Includes") => filters(),
-        optional("MaxItems") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => list(any()),
-        optional("SortOrder") => list(any())
-      }
-      
-  """
-  @type list_certificates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_summary() :: %{
-        "CertificateArn" => String.t() | atom(),
-        "CertificateKeyPairOrigin" => list(any()),
-        "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t() | atom(),
-        "ExportOption" => list(any()),
-        "Exported" => boolean(),
-        "ExtendedKeyUsages" => list(list(any())()),
-        "HasAdditionalSubjectAlternativeNames" => boolean(),
-        "ImportedAt" => non_neg_integer(),
-        "InUse" => boolean(),
-        "IssuedAt" => non_neg_integer(),
-        "KeyAlgorithm" => list(any()),
-        "KeyUsages" => list(list(any())()),
-        "ManagedBy" => list(any()),
-        "NotAfter" => non_neg_integer(),
-        "NotBefore" => non_neg_integer(),
-        "RenewalEligibility" => list(any()),
-        "RevokedAt" => non_neg_integer(),
+        "FailureDetails" => failure_details(),
+        "PrevalidationDetails" => list(),
+        "PrevalidationType" => list(any()),
         "Status" => list(any()),
-        "SubjectAlternativeNameSummaries" => list(String.t() | atom()),
-        "Type" => list(any())
+        "UpdatedAt" => [non_neg_integer()]
       }
       
   """
-  @type certificate_summary() :: %{(String.t() | atom()) => any()}
+  @type acme_domain_validation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_acme_external_account_binding_response() :: %{
-        "ExternalAccountBinding" => acme_external_account_binding()
+      acme_endpoint() :: %{
+        "AcmeEndpointArn" => String.t() | atom(),
+        "AuthorizationBehavior" => list(any()),
+        "CertificateAuthority" => list(),
+        "CertificateTags" => list(tag()),
+        "Contact" => list(any()),
+        "CreatedAt" => [non_neg_integer()],
+        "EndpointUrl" => [String.t() | atom()],
+        "FailureReason" => [String.t() | atom()],
+        "Status" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
       }
       
   """
-  @type describe_acme_external_account_binding_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_acme_external_account_binding_request() :: %{
-        required("AcmeExternalAccountBindingArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_acme_external_account_binding_request() :: %{(String.t() | atom()) => any()}
+  @type acme_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -574,88 +165,49 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_acme_endpoint_request() :: %{
-        required("AcmeEndpointArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_acme_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_acme_external_account_binding_credentials_response() :: %{
-        "KeyId" => [String.t() | atom()],
-        "MacKey" => String.t() | atom()
-      }
-      
-  """
-  @type get_acme_external_account_binding_credentials_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failure_details() :: %{
-        "Message" => [String.t() | atom()],
-        "Reason" => list(any())
-      }
-      
-  """
-  @type failure_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acme_account() :: %{
-        "AccountUrl" => [String.t() | atom()],
+      acme_external_account_binding() :: %{
+        "AcmeEndpointArn" => String.t() | atom(),
         "AcmeExternalAccountBindingArn" => String.t() | atom(),
-        "Contacts" => list([String.t() | atom()]()),
         "CreatedAt" => [non_neg_integer()],
-        "PublicKeyThumbprint" => [String.t() | atom()],
-        "Status" => list(any())
+        "ExpiresAt" => [non_neg_integer()],
+        "LastUsedAt" => [non_neg_integer()],
+        "RevokedAt" => [non_neg_integer()],
+        "RoleArn" => String.t() | atom(),
+        "UpdatedAt" => [non_neg_integer()]
       }
       
   """
-  @type acme_account() :: %{(String.t() | atom()) => any()}
+  @type acme_external_account_binding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
+      acme_external_account_binding_summary() :: %{
+        "AcmeEndpointArn" => String.t() | atom(),
+        "AcmeExternalAccountBindingArn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "ExpiresAt" => [non_neg_integer()],
+        "LastUsedAt" => [non_neg_integer()],
+        "RevokedAt" => [non_neg_integer()],
+        "RoleArn" => String.t() | atom(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+      
+  """
+  @type acme_external_account_binding_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_tags_to_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type add_tags_to_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -701,68 +253,133 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      revoke_certificate_response() :: %{
-        "CertificateArn" => String.t() | atom()
+      certificate_options() :: %{
+        "CertificateTransparencyLoggingPreference" => list(any()),
+        "Export" => list(any())
       }
       
   """
-  @type revoke_certificate_response() :: %{(String.t() | atom()) => any()}
+  @type certificate_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom()
+      certificate_search_result() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "CertificateMetadata" => list(),
+        "X509Attributes" => x509_attributes()
       }
       
   """
-  @type get_certificate_request() :: %{(String.t() | atom()) => any()}
+  @type certificate_search_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_certificate_response() :: %{
-        "Certificate" => certificate_detail()
+      certificate_summary() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "CertificateKeyPairOrigin" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "DomainName" => String.t() | atom(),
+        "ExportOption" => list(any()),
+        "Exported" => boolean(),
+        "ExtendedKeyUsages" => list(list(any())()),
+        "HasAdditionalSubjectAlternativeNames" => boolean(),
+        "ImportedAt" => non_neg_integer(),
+        "InUse" => boolean(),
+        "IssuedAt" => non_neg_integer(),
+        "KeyAlgorithm" => list(any()),
+        "KeyUsages" => list(list(any())()),
+        "ManagedBy" => list(any()),
+        "NotAfter" => non_neg_integer(),
+        "NotBefore" => non_neg_integer(),
+        "RenewalEligibility" => list(any()),
+        "RevokedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "SubjectAlternativeNameSummaries" => list(String.t() | atom()),
+        "Type" => list(any())
       }
       
   """
-  @type describe_certificate_response() :: %{(String.t() | atom()) => any()}
+  @type certificate_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      throttling_reason() :: %{
-        "reason" => String.t() | atom(),
-        "resource" => String.t() | atom()
+      common_name_filter() :: %{
+        "ComparisonOperator" => list(any()),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type throttling_reason() :: %{(String.t() | atom()) => any()}
+  @type common_name_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_tag_exception() :: %{
+      conflict_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_in_use_exception() :: %{
-        "message" => String.t() | atom()
+      create_acme_domain_validation_request() :: %{
+        optional("IdempotencyToken") => [String.t() | atom()],
+        optional("Tags") => list(tag()),
+        required("AcmeEndpointArn") => String.t() | atom(),
+        required("DomainName") => String.t() | atom(),
+        required("PrevalidationOptions") => list()
       }
       
   """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+  @type create_acme_domain_validation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_acme_domain_validation_response() :: %{
+        "AcmeDomainValidationArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_acme_domain_validation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_acme_endpoint_request() :: %{
+        optional("CertificateTags") => list(tag()),
+        optional("Contact") => list(any()),
+        optional("IdempotencyToken") => [String.t() | atom()],
+        optional("Tags") => list(tag()),
+        required("AuthorizationBehavior") => list(any()),
+        required("CertificateAuthority") => list()
+      }
+      
+  """
+  @type create_acme_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_acme_endpoint_response() :: %{
+        "AcmeEndpointArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_acme_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -783,6 +400,73 @@ defmodule AWS.ACM do
 
   ## Example:
       
+      create_acme_external_account_binding_response() :: %{
+        "ExternalAccountBinding" => acme_external_account_binding()
+      }
+      
+  """
+  @type create_acme_external_account_binding_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_attribute() :: %{
+        "ObjectIdentifier" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type custom_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_acme_domain_validation_request() :: %{
+        required("AcmeDomainValidationArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_acme_domain_validation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_acme_endpoint_request() :: %{
+        required("AcmeEndpointArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_acme_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_acme_external_account_binding_request() :: %{
+        required("AcmeExternalAccountBindingArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_acme_external_account_binding_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_acme_account_request() :: %{
         required("AccountUrl") => [String.t() | atom()],
         required("AcmeEndpointArn") => String.t() | atom()
@@ -795,80 +479,78 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      update_certificate_options_request() :: %{
-        required("CertificateArn") => String.t() | atom(),
-        required("Options") => certificate_options()
+      describe_acme_account_response() :: %{
+        "AcmeAccount" => acme_account()
       }
       
   """
-  @type update_certificate_options_request() :: %{(String.t() | atom()) => any()}
+  @type describe_acme_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      search_certificates_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Results" => list(certificate_search_result())
+      describe_acme_domain_validation_request() :: %{
+        required("AcmeDomainValidationArn") => String.t() | atom()
       }
       
   """
-  @type search_certificates_response() :: %{(String.t() | atom()) => any()}
+  @type describe_acme_domain_validation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_domain_validation_options_exception() :: %{
-        "message" => String.t() | atom()
+      describe_acme_domain_validation_response() :: %{
+        "AcmeDomainValidation" => acme_domain_validation()
       }
       
   """
-  @type invalid_domain_validation_options_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_acme_domain_validation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
+      describe_acme_endpoint_request() :: %{
+        required("AcmeEndpointArn") => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_acme_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      public_certificate_authority() :: %{
-        "AllowedKeyAlgorithms" => list(list(any())())
+      describe_acme_endpoint_response() :: %{
+        "AcmeEndpoint" => acme_endpoint()
       }
       
   """
-  @type public_certificate_authority() :: %{(String.t() | atom()) => any()}
+  @type describe_acme_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      revoke_acme_external_account_binding_request() :: %{
+      describe_acme_external_account_binding_request() :: %{
         required("AcmeExternalAccountBindingArn") => String.t() | atom()
       }
       
   """
-  @type revoke_acme_external_account_binding_request() :: %{(String.t() | atom()) => any()}
+  @type describe_acme_external_account_binding_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_certificate_response() :: %{
-        "Tags" => list(tag())
+      describe_acme_external_account_binding_response() :: %{
+        "ExternalAccountBinding" => acme_external_account_binding()
       }
       
   """
-  @type list_tags_for_certificate_response() :: %{(String.t() | atom()) => any()}
+  @type describe_acme_external_account_binding_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -885,40 +567,152 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      search_certificates_request() :: %{
-        optional("FilterStatement") => list(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => list(any()),
-        optional("SortOrder") => list(any())
+      describe_certificate_response() :: %{
+        "Certificate" => certificate_detail()
       }
       
   """
-  @type search_certificates_request() :: %{(String.t() | atom()) => any()}
+  @type describe_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
+      distinguished_name() :: %{
+        "CommonName" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "CustomAttributes" => list(custom_attribute()),
+        "DistinguishedNameQualifier" => String.t() | atom(),
+        "DomainComponents" => list(String.t() | atom()),
+        "GenerationQualifier" => String.t() | atom(),
+        "GivenName" => String.t() | atom(),
+        "Initials" => String.t() | atom(),
+        "Locality" => String.t() | atom(),
+        "Organization" => String.t() | atom(),
+        "OrganizationalUnit" => String.t() | atom(),
+        "Pseudonym" => String.t() | atom(),
+        "SerialNumber" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "Surname" => String.t() | atom(),
+        "Title" => String.t() | atom()
       }
       
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type distinguished_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      revoke_acme_account_request() :: %{
-        required("AccountUrl") => [String.t() | atom()],
-        required("AcmeEndpointArn") => String.t() | atom()
+      dns_name_filter() :: %{
+        "ComparisonOperator" => list(any()),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type revoke_acme_account_request() :: %{(String.t() | atom()) => any()}
+  @type dns_name_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dns_prevalidation_details() :: %{
+        "DomainScope" => domain_scope(),
+        "HostedZoneId" => String.t() | atom(),
+        "ResourceRecord" => resource_record()
+      }
+      
+  """
+  @type dns_prevalidation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dns_prevalidation_options() :: %{
+        "DomainScope" => domain_scope(),
+        "HostedZoneId" => String.t() | atom()
+      }
+      
+  """
+  @type dns_prevalidation_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      domain_scope() :: %{
+        "ExactDomain" => list(any()),
+        "Subdomains" => list(any()),
+        "Wildcards" => list(any())
+      }
+      
+  """
+  @type domain_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      domain_validation() :: %{
+        "DomainName" => String.t() | atom(),
+        "HttpRedirect" => http_redirect(),
+        "ResourceRecord" => resource_record(),
+        "ValidationDomain" => String.t() | atom(),
+        "ValidationEmails" => list(String.t() | atom()),
+        "ValidationMethod" => list(any()),
+        "ValidationStatus" => list(any())
+      }
+      
+  """
+  @type domain_validation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      domain_validation_option() :: %{
+        "DomainName" => String.t() | atom(),
+        "ValidationDomain" => String.t() | atom()
+      }
+      
+  """
+  @type domain_validation_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expiration() :: %{
+        "Type" => list(any()),
+        "Value" => [float()]
+      }
+      
+  """
+  @type expiration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expiry_events_configuration() :: %{
+        "DaysBeforeExpiry" => integer()
+      }
+      
+  """
+  @type expiry_events_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom(),
+        required("Passphrase") => binary()
+      }
+      
+  """
+  @type export_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -932,6 +726,487 @@ defmodule AWS.ACM do
       
   """
   @type export_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extended_key_usage() :: %{
+        "Name" => list(any()),
+        "OID" => String.t() | atom()
+      }
+      
+  """
+  @type extended_key_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failure_details() :: %{
+        "Message" => [String.t() | atom()],
+        "Reason" => list(any())
+      }
+      
+  """
+  @type failure_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filters() :: %{
+        "exportOption" => list(any()),
+        "extendedKeyUsage" => list(list(any())()),
+        "keyTypes" => list(list(any())()),
+        "keyUsage" => list(list(any())()),
+        "managedBy" => list(any())
+      }
+      
+  """
+  @type filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_configuration_response() :: %{
+        "ExpiryEvents" => expiry_events_configuration()
+      }
+      
+  """
+  @type get_account_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_acme_external_account_binding_credentials_request() :: %{
+        required("AcmeExternalAccountBindingArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_acme_external_account_binding_credentials_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_acme_external_account_binding_credentials_response() :: %{
+        "KeyId" => [String.t() | atom()],
+        "MacKey" => String.t() | atom()
+      }
+      
+  """
+  @type get_acme_external_account_binding_credentials_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificate_response() :: %{
+        "Certificate" => String.t() | atom(),
+        "CertificateChain" => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_redirect() :: %{
+        "RedirectFrom" => String.t() | atom(),
+        "RedirectTo" => String.t() | atom()
+      }
+      
+  """
+  @type http_redirect() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_certificate_request() :: %{
+        optional("CertificateArn") => String.t() | atom(),
+        optional("CertificateChain") => binary(),
+        optional("Tags") => list(tag()),
+        required("Certificate") => binary(),
+        required("PrivateKey") => binary()
+      }
+      
+  """
+  @type import_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_certificate_response() :: %{
+        "CertificateArn" => String.t() | atom()
+      }
+      
+  """
+  @type import_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_args_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_args_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_arn_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_arn_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_domain_validation_options_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_domain_validation_options_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_state_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_tag_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_usage() :: %{
+        "Name" => list(any())
+      }
+      
+  """
+  @type key_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_acme_accounts_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()],
+        required("AcmeEndpointArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_acme_accounts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_acme_accounts_response() :: %{
+        "AcmeAccounts" => list(acme_account_summary()),
+        "NextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_acme_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_acme_domain_validations_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()],
+        required("AcmeEndpointArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_acme_domain_validations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_acme_domain_validations_response() :: %{
+        "AcmeDomainValidations" => list(acme_domain_validation_summary()),
+        "NextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_acme_domain_validations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_acme_endpoints_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_acme_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_acme_endpoints_response() :: %{
+        "AcmeEndpoints" => list(acme_endpoint_summary()),
+        "NextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_acme_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_acme_external_account_bindings_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()],
+        required("AcmeEndpointArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_acme_external_account_bindings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_acme_external_account_bindings_response() :: %{
+        "ExternalAccountBindings" => list(acme_external_account_binding_summary()),
+        "NextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_acme_external_account_bindings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_certificates_request() :: %{
+        optional("CertificateKeyPairOrigins") => list(list(any())()),
+        optional("CertificateStatuses") => list(list(any())()),
+        optional("Includes") => filters(),
+        optional("MaxItems") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
+  """
+  @type list_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_certificates_response() :: %{
+        "CertificateSummaryList" => list(certificate_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_certificates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_certificate_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      other_name() :: %{
+        "ObjectIdentifier" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type other_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      public_certificate_authority() :: %{
+        "AllowedKeyAlgorithms" => list(list(any())())
+      }
+      
+  """
+  @type public_certificate_authority() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_account_configuration_request() :: %{
+        optional("ExpiryEvents") => expiry_events_configuration(),
+        required("IdempotencyToken") => String.t() | atom()
+      }
+      
+  """
+  @type put_account_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_tags_from_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type remove_tags_from_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      renew_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom()
+      }
+      
+  """
+  @type renew_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      renewal_summary() :: %{
+        "DomainValidationOptions" => list(domain_validation()),
+        "RenewalStatus" => list(any()),
+        "RenewalStatusReason" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type renewal_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -957,45 +1232,12 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      add_tags_to_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom(),
-        required("Tags") => list(tag())
+      request_certificate_response() :: %{
+        "CertificateArn" => String.t() | atom()
       }
       
   """
-  @type add_tags_to_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom(),
-        required("Passphrase") => binary()
-      }
-      
-  """
-  @type export_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acme_endpoint() :: %{
-        "AcmeEndpointArn" => String.t() | atom(),
-        "AuthorizationBehavior" => list(any()),
-        "CertificateAuthority" => list(),
-        "CertificateTags" => list(tag()),
-        "Contact" => list(any()),
-        "CreatedAt" => [non_neg_integer()],
-        "EndpointUrl" => [String.t() | atom()],
-        "FailureReason" => [String.t() | atom()],
-        "Status" => list(any()),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-      
-  """
-  @type acme_endpoint() :: %{(String.t() | atom()) => any()}
+  @type request_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1012,175 +1254,36 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      create_acme_domain_validation_request() :: %{
-        optional("IdempotencyToken") => [String.t() | atom()],
-        optional("Tags") => list(tag()),
-        required("AcmeEndpointArn") => String.t() | atom(),
-        required("DomainName") => String.t() | atom(),
-        required("PrevalidationOptions") => list()
-      }
-      
-  """
-  @type create_acme_domain_validation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_account_configuration_request() :: %{
-        optional("ExpiryEvents") => expiry_events_configuration(),
-        required("IdempotencyToken") => String.t() | atom()
-      }
-      
-  """
-  @type put_account_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_acme_external_account_binding_credentials_request() :: %{
-        required("AcmeExternalAccountBindingArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_acme_external_account_binding_credentials_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      create_acme_endpoint_response() :: %{
-        "AcmeEndpointArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_acme_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      extended_key_usage() :: %{
-        "Name" => list(any()),
-        "OID" => String.t() | atom()
-      }
-      
-  """
-  @type extended_key_usage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      renew_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom()
-      }
-      
-  """
-  @type renew_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      revoke_certificate_request() :: %{
+      resend_validation_email_request() :: %{
         required("CertificateArn") => String.t() | atom(),
-        required("RevocationReason") => list(any())
+        required("Domain") => String.t() | atom(),
+        required("ValidationDomain") => String.t() | atom()
       }
       
   """
-  @type revoke_certificate_request() :: %{(String.t() | atom()) => any()}
+  @type resend_validation_email_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      acm_certificate_metadata() :: %{
-        "AcmeAccountId" => String.t() | atom(),
-        "AcmeEndpointArn" => String.t() | atom(),
-        "CertificateKeyPairOrigin" => list(any()),
-        "CreatedAt" => non_neg_integer(),
-        "ExportOption" => list(any()),
-        "Exported" => boolean(),
-        "ImportedAt" => non_neg_integer(),
-        "InUse" => boolean(),
-        "IssuedAt" => non_neg_integer(),
-        "ManagedBy" => list(any()),
-        "RenewalEligibility" => list(any()),
-        "RenewalStatus" => list(any()),
-        "RevokedAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "Type" => list(any()),
-        "ValidationMethod" => list(any())
-      }
-      
-  """
-  @type acm_certificate_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_tags_exception() :: %{
+      resource_in_use_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_acme_domain_validation_request() :: %{
-        required("AcmeDomainValidationArn") => String.t() | atom()
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type delete_acme_domain_validation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_acme_endpoint_response() :: %{
-        "AcmeEndpoint" => acme_endpoint()
-      }
-      
-  """
-  @type describe_acme_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acme_external_account_binding() :: %{
-        "AcmeEndpointArn" => String.t() | atom(),
-        "AcmeExternalAccountBindingArn" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "ExpiresAt" => [non_neg_integer()],
-        "LastUsedAt" => [non_neg_integer()],
-        "RevokedAt" => [non_neg_integer()],
-        "RoleArn" => String.t() | atom(),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-      
-  """
-  @type acme_external_account_binding() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1199,35 +1302,97 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      common_name_filter() :: %{
-        "ComparisonOperator" => list(any()),
-        "Value" => String.t() | atom()
+      revoke_acme_account_request() :: %{
+        required("AccountUrl") => [String.t() | atom()],
+        required("AcmeEndpointArn") => String.t() | atom()
       }
       
   """
-  @type common_name_filter() :: %{(String.t() | atom()) => any()}
+  @type revoke_acme_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_acme_external_account_binding_response() :: %{
-        "ExternalAccountBinding" => acme_external_account_binding()
+      revoke_acme_external_account_binding_request() :: %{
+        required("AcmeExternalAccountBindingArn") => String.t() | atom()
       }
       
   """
-  @type create_acme_external_account_binding_response() :: %{(String.t() | atom()) => any()}
+  @type revoke_acme_external_account_binding_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      import_certificate_response() :: %{
+      revoke_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom(),
+        required("RevocationReason") => list(any())
+      }
+      
+  """
+  @type revoke_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revoke_certificate_response() :: %{
         "CertificateArn" => String.t() | atom()
       }
       
   """
-  @type import_certificate_response() :: %{(String.t() | atom()) => any()}
+  @type revoke_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_certificates_request() :: %{
+        optional("FilterStatement") => list(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
+  """
+  @type search_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_certificates_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Results" => list(certificate_search_result())
+      }
+      
+  """
+  @type search_certificates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1244,116 +1409,121 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      other_name() :: %{
-        "ObjectIdentifier" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
       }
       
   """
-  @type other_name() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_account_configuration_response() :: %{
-        "ExpiryEvents" => expiry_events_configuration()
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "throttlingReasons" => list(throttling_reason())
       }
       
   """
-  @type get_account_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_state_exception() :: %{
+      throttling_reason() :: %{
+        "reason" => String.t() | atom(),
+        "resource" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      timestamp_range() :: %{
+        "End" => non_neg_integer(),
+        "Start" => non_neg_integer()
+      }
+      
+  """
+  @type timestamp_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_tags_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      acme_account_summary() :: %{
-        "AccountUrl" => [String.t() | atom()],
-        "AcmeExternalAccountBindingArn" => String.t() | atom(),
-        "Contacts" => list([String.t() | atom()]()),
-        "CreatedAt" => [non_neg_integer()],
-        "PublicKeyThumbprint" => [String.t() | atom()],
-        "Status" => list(any())
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type acme_account_summary() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_certificates_response() :: %{
-        "CertificateSummaryList" => list(certificate_summary()),
-        "NextToken" => String.t() | atom()
+      update_acme_domain_validation_request() :: %{
+        optional("PrevalidationOptions") => list(),
+        required("AcmeDomainValidationArn") => String.t() | atom()
       }
       
   """
-  @type list_certificates_response() :: %{(String.t() | atom()) => any()}
+  @type update_acme_domain_validation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      key_usage() :: %{
-        "Name" => list(any())
+      update_acme_endpoint_request() :: %{
+        optional("AuthorizationBehavior") => list(any()),
+        optional("CertificateAuthority") => list(),
+        optional("Contact") => list(any()),
+        required("AcmeEndpointArn") => String.t() | atom()
       }
       
   """
-  @type key_usage() :: %{(String.t() | atom()) => any()}
+  @type update_acme_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_parameter_exception() :: %{
+      update_certificate_options_request() :: %{
+        required("CertificateArn") => String.t() | atom(),
+        required("Options") => certificate_options()
+      }
+      
+  """
+  @type update_certificate_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acme_domain_validation_summary() :: %{
-        "AcmeDomainValidationArn" => String.t() | atom(),
-        "AcmeEndpointArn" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "DomainName" => String.t() | atom(),
-        "FailureDetails" => failure_details(),
-        "PrevalidationDetails" => list(),
-        "PrevalidationType" => list(any()),
-        "Status" => list(any()),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-      
-  """
-  @type acme_domain_validation_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_acme_accounts_response() :: %{
-        "AcmeAccounts" => list(acme_account_summary()),
-        "NextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_acme_accounts_response() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1374,433 +1544,263 @@ defmodule AWS.ACM do
   """
   @type x509_attributes() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-      
-      list_acme_external_account_bindings_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()],
-        required("AcmeEndpointArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_acme_external_account_bindings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dns_prevalidation_details() :: %{
-        "DomainScope" => domain_scope(),
-        "HostedZoneId" => String.t() | atom(),
-        "ResourceRecord" => resource_record()
-      }
-      
-  """
-  @type dns_prevalidation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_attribute() :: %{
-        "ObjectIdentifier" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type custom_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_tags_from_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type remove_tags_from_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acme_domain_validation() :: %{
-        "AcmeDomainValidationArn" => String.t() | atom(),
-        "AcmeEndpointArn" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "DomainName" => String.t() | atom(),
-        "FailureDetails" => failure_details(),
-        "PrevalidationDetails" => list(),
-        "PrevalidationType" => list(any()),
-        "Status" => list(any()),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-      
-  """
-  @type acme_domain_validation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_arn_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_arn_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_acme_domain_validation_response() :: %{
-        "AcmeDomainValidation" => acme_domain_validation()
-      }
-      
-  """
-  @type describe_acme_domain_validation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_acme_account_response() :: %{
-        "AcmeAccount" => acme_account()
-      }
-      
-  """
-  @type describe_acme_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      domain_validation_option() :: %{
-        "DomainName" => String.t() | atom(),
-        "ValidationDomain" => String.t() | atom()
-      }
-      
-  """
-  @type domain_validation_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_acme_endpoints_response() :: %{
-        "AcmeEndpoints" => list(acme_endpoint_summary()),
-        "NextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_acme_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_acme_domain_validation_request() :: %{
-        required("AcmeDomainValidationArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_acme_domain_validation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_acme_endpoint_request() :: %{
-        required("AcmeEndpointArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_acme_endpoint_request() :: %{(String.t() | atom()) => any()}
-
   @type add_tags_to_certificate_errors() ::
-          invalid_arn_exception()
-          | invalid_parameter_exception()
-          | tag_policy_exception()
+          validation_exception()
           | too_many_tags_exception()
-          | invalid_tag_exception()
-          | resource_not_found_exception()
-          | validation_exception()
           | throttling_exception()
+          | tag_policy_exception()
+          | resource_not_found_exception()
+          | invalid_tag_exception()
+          | invalid_parameter_exception()
+          | invalid_arn_exception()
 
   @type create_acme_domain_validation_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_acme_endpoint_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_acme_external_account_binding_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_acme_domain_validation_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_acme_endpoint_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_acme_external_account_binding_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_certificate_errors() ::
-          invalid_arn_exception()
-          | conflict_exception()
-          | resource_in_use_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_arn_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type describe_acme_account_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_acme_domain_validation_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_acme_endpoint_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_acme_external_account_binding_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_certificate_errors() ::
-          invalid_arn_exception() | resource_not_found_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | invalid_arn_exception()
 
   @type export_certificate_errors() ::
-          invalid_arn_exception()
-          | request_in_progress_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | request_in_progress_exception()
+          | invalid_arn_exception()
 
-  @type get_account_configuration_errors() :: access_denied_exception() | throttling_exception()
+  @type get_account_configuration_errors() :: throttling_exception() | access_denied_exception()
 
   @type get_acme_external_account_binding_credentials_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_certificate_errors() ::
-          invalid_arn_exception()
-          | request_in_progress_exception()
+          validation_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | request_in_progress_exception()
+          | invalid_arn_exception()
 
   @type import_certificate_errors() ::
-          invalid_arn_exception()
-          | invalid_parameter_exception()
-          | tag_policy_exception()
+          validation_exception()
           | too_many_tags_exception()
-          | conflict_exception()
-          | invalid_tag_exception()
+          | tag_policy_exception()
           | resource_not_found_exception()
-          | validation_exception()
           | limit_exceeded_exception()
+          | invalid_tag_exception()
+          | invalid_parameter_exception()
+          | invalid_arn_exception()
+          | conflict_exception()
 
   @type list_acme_accounts_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_acme_domain_validations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_acme_endpoints_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_acme_external_account_bindings_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_certificates_errors() :: validation_exception() | invalid_args_exception()
 
   @type list_tags_for_certificate_errors() ::
-          invalid_arn_exception() | resource_not_found_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | invalid_arn_exception()
 
-  @type list_tags_for_resource_errors() :: resource_not_found_exception() | validation_exception()
+  @type list_tags_for_resource_errors() :: validation_exception() | resource_not_found_exception()
 
   @type put_account_configuration_errors() ::
-          conflict_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type remove_tags_from_certificate_errors() ::
-          invalid_arn_exception()
-          | invalid_parameter_exception()
-          | tag_policy_exception()
-          | invalid_tag_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
+          | tag_policy_exception()
+          | resource_not_found_exception()
+          | invalid_tag_exception()
+          | invalid_parameter_exception()
+          | invalid_arn_exception()
 
   @type renew_certificate_errors() ::
-          invalid_arn_exception()
-          | request_in_progress_exception()
+          validation_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | request_in_progress_exception()
+          | invalid_arn_exception()
 
   @type request_certificate_errors() ::
-          invalid_arn_exception()
-          | invalid_parameter_exception()
+          too_many_tags_exception()
           | tag_policy_exception()
-          | too_many_tags_exception()
-          | invalid_domain_validation_options_exception()
-          | invalid_tag_exception()
           | limit_exceeded_exception()
+          | invalid_tag_exception()
+          | invalid_parameter_exception()
+          | invalid_domain_validation_options_exception()
+          | invalid_arn_exception()
 
   @type resend_validation_email_errors() ::
-          invalid_arn_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | invalid_state_exception()
           | invalid_domain_validation_options_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          | invalid_arn_exception()
 
   @type revoke_acme_account_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type revoke_acme_external_account_binding_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type revoke_certificate_errors() ::
-          invalid_arn_exception()
-          | conflict_exception()
-          | resource_in_use_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_arn_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type search_certificates_errors() ::
-          validation_exception() | access_denied_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | access_denied_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | validation_exception()
 
-  @type untag_resource_errors() :: resource_not_found_exception() | validation_exception()
+  @type untag_resource_errors() :: validation_exception() | resource_not_found_exception()
 
   @type update_acme_domain_validation_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_acme_endpoint_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_certificate_options_errors() ::
-          invalid_arn_exception()
-          | invalid_state_exception()
+          validation_exception()
           | resource_not_found_exception()
-          | validation_exception()
           | limit_exceeded_exception()
+          | invalid_state_exception()
+          | invalid_arn_exception()
 
   def metadata do
     %{

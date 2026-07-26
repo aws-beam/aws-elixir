@@ -419,29 +419,8 @@ defmodule AWS.SageMakerA2IRuntime do
     query_params = []
 
     query_params =
-      if !is_nil(sort_order) do
-        [{"SortOrder", sort_order} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(flow_definition_arn) do
-        [{"FlowDefinitionArn", flow_definition_arn} | query_params]
+      if !is_nil(creation_time_after) do
+        [{"CreationTimeAfter", creation_time_after} | query_params]
       else
         query_params
       end
@@ -454,8 +433,29 @@ defmodule AWS.SageMakerA2IRuntime do
       end
 
     query_params =
-      if !is_nil(creation_time_after) do
-        [{"CreationTimeAfter", creation_time_after} | query_params]
+      if !is_nil(flow_definition_arn) do
+        [{"FlowDefinitionArn", flow_definition_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"SortOrder", sort_order} | query_params]
       else
         query_params
       end

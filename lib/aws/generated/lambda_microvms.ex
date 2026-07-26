@@ -14,28 +14,302 @@ defmodule AWS.LambdaMicrovms do
 
   ## Example:
 
-      list_managed_microvm_image_versions_output() :: %{
-        "items" => list(managed_microvm_image_version()),
-        "nextToken" => String.t() | atom()
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type list_managed_microvm_image_versions_output() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resume_microvm_response() :: %{}
+      cloud_watch_logging() :: %{
+        "logGroup" => String.t() | atom(),
+        "logStream" => String.t() | atom()
+      }
 
   """
-  @type resume_microvm_response() :: %{}
+  @type cloud_watch_logging() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      run_microvm_response() :: %{
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cpu_configuration() :: %{
+        "architecture" => list(any())
+      }
+
+  """
+  @type cpu_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_microvm_auth_token_request() :: %{
+        required("allowedPorts") => list(list()),
+        required("expirationInMinutes") => integer()
+      }
+
+  """
+  @type create_microvm_auth_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_microvm_auth_token_response() :: %{
+        "authToken" => map()
+      }
+
+  """
+  @type create_microvm_auth_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_microvm_image_request() :: %{
+        optional("additionalOsCapabilities") => list(list(any())()),
+        optional("baseImageVersion") => String.t() | atom(),
+        optional("clientToken") => [String.t() | atom()],
+        optional("cpuConfigurations") => list(cpu_configuration()),
+        optional("description") => [String.t() | atom()],
+        optional("egressNetworkConnectors") => list(String.t() | atom()),
+        optional("environmentVariables") => map(),
+        optional("hooks") => hooks(),
+        optional("logging") => list(),
+        optional("resources") => list(resources()),
+        optional("tags") => map(),
+        required("baseImageArn") => String.t() | atom(),
+        required("buildRoleArn") => String.t() | atom(),
+        required("codeArtifact") => list(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_microvm_image_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_microvm_image_response() :: %{
+        "additionalOsCapabilities" => list(list(any())()),
+        "baseImageArn" => String.t() | atom(),
+        "baseImageVersion" => String.t() | atom(),
+        "buildRoleArn" => String.t() | atom(),
+        "codeArtifact" => list(),
+        "cpuConfigurations" => list(cpu_configuration()),
+        "createdAt" => [non_neg_integer()],
+        "description" => [String.t() | atom()],
+        "egressNetworkConnectors" => list(String.t() | atom()),
+        "environmentVariables" => map(),
+        "hooks" => hooks(),
+        "imageArn" => String.t() | atom(),
+        "imageVersion" => String.t() | atom(),
+        "latestActiveImageVersion" => String.t() | atom(),
+        "latestFailedImageVersion" => String.t() | atom(),
+        "logging" => list(),
+        "name" => String.t() | atom(),
+        "resources" => list(resources()),
+        "state" => list(any()),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type create_microvm_image_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_microvm_shell_auth_token_request() :: %{
+        required("expirationInMinutes") => integer()
+      }
+
+  """
+  @type create_microvm_shell_auth_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_microvm_shell_auth_token_response() :: %{
+        "authToken" => map()
+      }
+
+  """
+  @type create_microvm_shell_auth_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_microvm_image_input() :: %{}
+
+  """
+  @type delete_microvm_image_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_microvm_image_output() :: %{
+        "imageIdentifier" => String.t() | atom(),
+        "state" => list(any())
+      }
+
+  """
+  @type delete_microvm_image_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_microvm_image_version_input() :: %{}
+
+  """
+  @type delete_microvm_image_version_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_microvm_image_version_output() :: %{
+        "imageIdentifier" => String.t() | atom(),
+        "imageVersion" => String.t() | atom(),
+        "state" => list(any())
+      }
+
+  """
+  @type delete_microvm_image_version_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_microvm_image_build_input() :: %{}
+
+  """
+  @type get_microvm_image_build_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_microvm_image_build_output() :: %{
+        "architecture" => list(any()),
+        "buildId" => String.t() | atom(),
+        "buildState" => list(any()),
+        "chipset" => list(any()),
+        "chipsetGeneration" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "imageArn" => String.t() | atom(),
+        "imageVersion" => String.t() | atom(),
+        "snapshotBuild" => snapshot_build(),
+        "stateReason" => [String.t() | atom()]
+      }
+
+  """
+  @type get_microvm_image_build_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_microvm_image_input() :: %{}
+
+  """
+  @type get_microvm_image_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_microvm_image_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "imageArn" => String.t() | atom(),
+        "latestActiveImageVersion" => String.t() | atom(),
+        "latestFailedImageVersion" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "state" => list(any()),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_microvm_image_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_microvm_image_version_input() :: %{}
+
+  """
+  @type get_microvm_image_version_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_microvm_image_version_output() :: %{
+        "additionalOsCapabilities" => list(list(any())()),
+        "baseImageArn" => String.t() | atom(),
+        "baseImageVersion" => String.t() | atom(),
+        "buildRoleArn" => String.t() | atom(),
+        "codeArtifact" => list(),
+        "cpuConfigurations" => list(cpu_configuration()),
+        "createdAt" => [non_neg_integer()],
+        "description" => [String.t() | atom()],
+        "egressNetworkConnectors" => list(String.t() | atom()),
+        "environmentVariables" => map(),
+        "hooks" => hooks(),
+        "imageArn" => String.t() | atom(),
+        "imageVersion" => String.t() | atom(),
+        "logging" => list(),
+        "resources" => list(resources()),
+        "state" => list(any()),
+        "stateReason" => [String.t() | atom()],
+        "status" => list(any()),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_microvm_image_version_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_microvm_request() :: %{}
+
+  """
+  @type get_microvm_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_microvm_response() :: %{
         "egressNetworkConnectors" => list(String.t() | atom()),
         "endpoint" => [String.t() | atom()],
         "executionRoleArn" => String.t() | atom(),
@@ -52,30 +326,330 @@ defmodule AWS.LambdaMicrovms do
       }
 
   """
-  @type run_microvm_response() :: %{(String.t() | atom()) => any()}
+  @type get_microvm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_microvm_image_request() :: %{
-        optional("additionalOsCapabilities") => list(list(any())()),
-        optional("baseImageVersion") => String.t() | atom(),
-        optional("clientToken") => [String.t() | atom()],
-        optional("cpuConfigurations") => list(cpu_configuration()),
-        optional("description") => [String.t() | atom()],
-        optional("egressNetworkConnectors") => list(String.t() | atom()),
-        optional("environmentVariables") => map(),
-        optional("hooks") => hooks(),
-        optional("logging") => list(),
-        optional("resources") => list(resources()),
-        required("baseImageArn") => String.t() | atom(),
-        required("buildRoleArn") => String.t() | atom(),
-        required("codeArtifact") => list()
+      hooks() :: %{
+        "microvmHooks" => microvm_hooks(),
+        "microvmImageHooks" => microvm_image_hooks(),
+        "port" => [integer()]
       }
 
   """
-  @type update_microvm_image_request() :: %{(String.t() | atom()) => any()}
+  @type hooks() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      idle_policy() :: %{
+        "autoResumeEnabled" => [boolean()],
+        "maxIdleDurationSeconds" => [integer()],
+        "suspendedDurationSeconds" => [integer()]
+      }
+
+  """
+  @type idle_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_value_exception() :: %{
+        "Type" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_microvm_image_versions_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_managed_microvm_image_versions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_microvm_image_versions_output() :: %{
+        "items" => list(managed_microvm_image_version()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_managed_microvm_image_versions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_microvm_images_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_managed_microvm_images_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_microvm_images_output() :: %{
+        "items" => list(managed_microvm_image_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_managed_microvm_images_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_microvm_image_builds_input() :: %{
+        optional("architecture") => list(any()),
+        optional("chipset") => list(any()),
+        optional("chipsetGeneration") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_microvm_image_builds_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_microvm_image_builds_output() :: %{
+        "items" => list(microvm_image_build_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_microvm_image_builds_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_microvm_image_versions_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_microvm_image_versions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_microvm_image_versions_output() :: %{
+        "items" => list(microvm_image_version_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_microvm_image_versions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_microvm_images_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nameFilter") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_microvm_images_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_microvm_images_response() :: %{
+        "items" => list(microvm_image_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_microvm_images_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_microvms_request() :: %{
+        optional("imageIdentifier") => String.t() | atom(),
+        optional("imageVersion") => [String.t() | atom()],
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_microvms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_microvms_response() :: %{
+        "items" => list(microvm_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_microvms_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_request() :: %{}
+
+  """
+  @type list_tags_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_disabled() :: %{}
+
+  """
+  @type logging_disabled() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_microvm_image_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "imageArn" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type managed_microvm_image_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_microvm_image_version() :: %{
+        "createdAt" => [non_neg_integer()],
+        "imageArn" => String.t() | atom(),
+        "imageVersion" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type managed_microvm_image_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      microvm_hooks() :: %{
+        "resume" => list(any()),
+        "resumeTimeoutInSeconds" => [integer()],
+        "run" => list(any()),
+        "runTimeoutInSeconds" => [integer()],
+        "suspend" => list(any()),
+        "suspendTimeoutInSeconds" => [integer()],
+        "terminate" => list(any()),
+        "terminateTimeoutInSeconds" => [integer()]
+      }
+
+  """
+  @type microvm_hooks() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      microvm_image_build_summary() :: %{
+        "architecture" => list(any()),
+        "buildId" => String.t() | atom(),
+        "buildState" => list(any()),
+        "chipset" => list(any()),
+        "chipsetGeneration" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "imageArn" => String.t() | atom(),
+        "imageVersion" => String.t() | atom(),
+        "stateReason" => [String.t() | atom()]
+      }
+
+  """
+  @type microvm_image_build_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      microvm_image_hooks() :: %{
+        "ready" => list(any()),
+        "readyTimeoutInSeconds" => [integer()],
+        "validate" => list(any()),
+        "validateTimeoutInSeconds" => [integer()]
+      }
+
+  """
+  @type microvm_image_hooks() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      microvm_image_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "imageArn" => String.t() | atom(),
+        "latestActiveImageVersion" => String.t() | atom(),
+        "latestFailedImageVersion" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "state" => list(any())
+      }
+
+  """
+  @type microvm_image_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -106,6 +680,277 @@ defmodule AWS.LambdaMicrovms do
 
   """
   @type microvm_image_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      microvm_item() :: %{
+        "imageArn" => String.t() | atom(),
+        "imageVersion" => String.t() | atom(),
+        "microvmId" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
+        "state" => list(any())
+      }
+
+  """
+  @type microvm_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      port_range() :: %{
+        "endPort" => integer(),
+        "startPort" => integer()
+      }
+
+  """
+  @type port_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_conflict_exception() :: %{
+        "Type" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources() :: %{
+        "minimumMemoryInMiB" => [integer()]
+      }
+
+  """
+  @type resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resume_microvm_request() :: %{}
+
+  """
+  @type resume_microvm_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resume_microvm_response() :: %{}
+
+  """
+  @type resume_microvm_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      run_microvm_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("egressNetworkConnectors") => list(String.t() | atom()),
+        optional("executionRoleArn") => String.t() | atom(),
+        optional("idlePolicy") => idle_policy(),
+        optional("imageVersion") => String.t() | atom(),
+        optional("ingressNetworkConnectors") => list(String.t() | atom()),
+        optional("logging") => list(),
+        optional("maximumDurationInSeconds") => [integer()],
+        optional("runHookPayload") => [String.t() | atom()],
+        required("imageIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type run_microvm_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      run_microvm_response() :: %{
+        "egressNetworkConnectors" => list(String.t() | atom()),
+        "endpoint" => [String.t() | atom()],
+        "executionRoleArn" => String.t() | atom(),
+        "idlePolicy" => idle_policy(),
+        "imageArn" => String.t() | atom(),
+        "imageVersion" => String.t() | atom(),
+        "ingressNetworkConnectors" => list(String.t() | atom()),
+        "maximumDurationInSeconds" => [integer()],
+        "microvmId" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
+        "state" => list(any()),
+        "stateReason" => String.t() | atom(),
+        "terminatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type run_microvm_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_exception() :: %{
+        "Type" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snapshot_build() :: %{
+        "codeInstallSizeInBytes" => [float()],
+        "diskSnapshotSizeInBytes" => [float()],
+        "memorySnapshotSizeInBytes" => [float()]
+      }
+
+  """
+  @type snapshot_build() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suspend_microvm_request() :: %{}
+
+  """
+  @type suspend_microvm_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      suspend_microvm_response() :: %{}
+
+  """
+  @type suspend_microvm_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_microvm_request() :: %{}
+
+  """
+  @type terminate_microvm_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_microvm_response() :: %{}
+
+  """
+  @type terminate_microvm_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "Type" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_microvm_image_request() :: %{
+        optional("additionalOsCapabilities") => list(list(any())()),
+        optional("baseImageVersion") => String.t() | atom(),
+        optional("clientToken") => [String.t() | atom()],
+        optional("cpuConfigurations") => list(cpu_configuration()),
+        optional("description") => [String.t() | atom()],
+        optional("egressNetworkConnectors") => list(String.t() | atom()),
+        optional("environmentVariables") => map(),
+        optional("hooks") => hooks(),
+        optional("logging") => list(),
+        optional("resources") => list(resources()),
+        required("baseImageArn") => String.t() | atom(),
+        required("buildRoleArn") => String.t() | atom(),
+        required("codeArtifact") => list()
+      }
+
+  """
+  @type update_microvm_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -152,527 +997,6 @@ defmodule AWS.LambdaMicrovms do
 
   ## Example:
 
-      resume_microvm_request() :: %{}
-
-  """
-  @type resume_microvm_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_microvms_response() :: %{
-        "items" => list(microvm_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_microvms_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "Type" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_microvm_image_builds_output() :: %{
-        "items" => list(microvm_image_build_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_microvm_image_builds_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      microvm_item() :: %{
-        "imageArn" => String.t() | atom(),
-        "imageVersion" => String.t() | atom(),
-        "microvmId" => String.t() | atom(),
-        "startedAt" => [non_neg_integer()],
-        "state" => list(any())
-      }
-
-  """
-  @type microvm_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_microvm_image_input() :: %{}
-
-  """
-  @type delete_microvm_image_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      logging_disabled() :: %{}
-
-  """
-  @type logging_disabled() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_microvm_image_response() :: %{
-        "additionalOsCapabilities" => list(list(any())()),
-        "baseImageArn" => String.t() | atom(),
-        "baseImageVersion" => String.t() | atom(),
-        "buildRoleArn" => String.t() | atom(),
-        "codeArtifact" => list(),
-        "cpuConfigurations" => list(cpu_configuration()),
-        "createdAt" => [non_neg_integer()],
-        "description" => [String.t() | atom()],
-        "egressNetworkConnectors" => list(String.t() | atom()),
-        "environmentVariables" => map(),
-        "hooks" => hooks(),
-        "imageArn" => String.t() | atom(),
-        "imageVersion" => String.t() | atom(),
-        "latestActiveImageVersion" => String.t() | atom(),
-        "latestFailedImageVersion" => String.t() | atom(),
-        "logging" => list(),
-        "name" => String.t() | atom(),
-        "resources" => list(resources()),
-        "state" => list(any()),
-        "tags" => map(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type create_microvm_image_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      terminate_microvm_response() :: %{}
-
-  """
-  @type terminate_microvm_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_microvm_images_output() :: %{
-        "items" => list(managed_microvm_image_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_managed_microvm_images_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_microvm_auth_token_request() :: %{
-        required("allowedPorts") => list(list()),
-        required("expirationInMinutes") => integer()
-      }
-
-  """
-  @type create_microvm_auth_token_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_microvm_image_builds_input() :: %{
-        optional("architecture") => list(any()),
-        optional("chipset") => list(any()),
-        optional("chipsetGeneration") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_microvm_image_builds_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_microvm_image_versions_output() :: %{
-        "items" => list(microvm_image_version_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_microvm_image_versions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_microvm_shell_auth_token_response() :: %{
-        "authToken" => map()
-      }
-
-  """
-  @type create_microvm_shell_auth_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_parameter_value_exception() :: %{
-        "Type" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_microvm_image_versions_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_managed_microvm_image_versions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      microvm_image_build_summary() :: %{
-        "architecture" => list(any()),
-        "buildId" => String.t() | atom(),
-        "buildState" => list(any()),
-        "chipset" => list(any()),
-        "chipsetGeneration" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "imageArn" => String.t() | atom(),
-        "imageVersion" => String.t() | atom(),
-        "stateReason" => [String.t() | atom()]
-      }
-
-  """
-  @type microvm_image_build_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_microvm_image_version_input() :: %{}
-
-  """
-  @type delete_microvm_image_version_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_microvm_image_version_output() :: %{
-        "additionalOsCapabilities" => list(list(any())()),
-        "baseImageArn" => String.t() | atom(),
-        "baseImageVersion" => String.t() | atom(),
-        "buildRoleArn" => String.t() | atom(),
-        "codeArtifact" => list(),
-        "cpuConfigurations" => list(cpu_configuration()),
-        "createdAt" => [non_neg_integer()],
-        "description" => [String.t() | atom()],
-        "egressNetworkConnectors" => list(String.t() | atom()),
-        "environmentVariables" => map(),
-        "hooks" => hooks(),
-        "imageArn" => String.t() | atom(),
-        "imageVersion" => String.t() | atom(),
-        "logging" => list(),
-        "resources" => list(resources()),
-        "state" => list(any()),
-        "stateReason" => [String.t() | atom()],
-        "status" => list(any()),
-        "tags" => map(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type get_microvm_image_version_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_microvm_images_response() :: %{
-        "items" => list(microvm_image_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_microvm_images_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_microvm_images_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nameFilter") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_microvm_images_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_microvm_image_request() :: %{
-        optional("additionalOsCapabilities") => list(list(any())()),
-        optional("baseImageVersion") => String.t() | atom(),
-        optional("clientToken") => [String.t() | atom()],
-        optional("cpuConfigurations") => list(cpu_configuration()),
-        optional("description") => [String.t() | atom()],
-        optional("egressNetworkConnectors") => list(String.t() | atom()),
-        optional("environmentVariables") => map(),
-        optional("hooks") => hooks(),
-        optional("logging") => list(),
-        optional("resources") => list(resources()),
-        optional("tags") => map(),
-        required("baseImageArn") => String.t() | atom(),
-        required("buildRoleArn") => String.t() | atom(),
-        required("codeArtifact") => list(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_microvm_image_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_microvm_shell_auth_token_request() :: %{
-        required("expirationInMinutes") => integer()
-      }
-
-  """
-  @type create_microvm_shell_auth_token_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      run_microvm_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("egressNetworkConnectors") => list(String.t() | atom()),
-        optional("executionRoleArn") => String.t() | atom(),
-        optional("idlePolicy") => idle_policy(),
-        optional("imageVersion") => String.t() | atom(),
-        optional("ingressNetworkConnectors") => list(String.t() | atom()),
-        optional("logging") => list(),
-        optional("maximumDurationInSeconds") => [integer()],
-        optional("runHookPayload") => [String.t() | atom()],
-        required("imageIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type run_microvm_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suspend_microvm_response() :: %{}
-
-  """
-  @type suspend_microvm_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_microvm_images_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_managed_microvm_images_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resources() :: %{
-        "minimumMemoryInMiB" => [integer()]
-      }
-
-  """
-  @type resources() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_microvms_request() :: %{
-        optional("imageIdentifier") => String.t() | atom(),
-        optional("imageVersion") => [String.t() | atom()],
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_microvms_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_exception() :: %{
-        "Type" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_microvm_image_output() :: %{
-        "imageIdentifier" => String.t() | atom(),
-        "state" => list(any())
-      }
-
-  """
-  @type delete_microvm_image_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_microvm_image_versions_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_microvm_image_versions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       update_microvm_image_version_response() :: %{
         "additionalOsCapabilities" => list(list(any())()),
         "baseImageArn" => String.t() | atom(),
@@ -703,513 +1027,189 @@ defmodule AWS.LambdaMicrovms do
 
   ## Example:
 
-      resource_conflict_exception() :: %{
-        "Type" => [String.t() | atom()],
+      validation_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      microvm_image_hooks() :: %{
-        "ready" => list(any()),
-        "readyTimeoutInSeconds" => [integer()],
-        "validate" => list(any()),
-        "validateTimeoutInSeconds" => [integer()]
-      }
-
-  """
-  @type microvm_image_hooks() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_logging() :: %{
-        "logGroup" => String.t() | atom(),
-        "logStream" => String.t() | atom()
-      }
-
-  """
-  @type cloud_watch_logging() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      idle_policy() :: %{
-        "autoResumeEnabled" => [boolean()],
-        "maxIdleDurationSeconds" => [integer()],
-        "suspendedDurationSeconds" => [integer()]
-      }
-
-  """
-  @type idle_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_microvm_image_input() :: %{}
-
-  """
-  @type get_microvm_image_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_microvm_request() :: %{}
-
-  """
-  @type get_microvm_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_microvm_image_build_input() :: %{}
-
-  """
-  @type get_microvm_image_build_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_microvm_image_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "imageArn" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type managed_microvm_image_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_request() :: %{}
-
-  """
-  @type list_tags_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      microvm_hooks() :: %{
-        "resume" => list(any()),
-        "resumeTimeoutInSeconds" => [integer()],
-        "run" => list(any()),
-        "runTimeoutInSeconds" => [integer()],
-        "suspend" => list(any()),
-        "suspendTimeoutInSeconds" => [integer()],
-        "terminate" => list(any()),
-        "terminateTimeoutInSeconds" => [integer()]
-      }
-
-  """
-  @type microvm_hooks() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suspend_microvm_request() :: %{}
-
-  """
-  @type suspend_microvm_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_microvm_image_version_input() :: %{}
-
-  """
-  @type get_microvm_image_version_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cpu_configuration() :: %{
-        "architecture" => list(any())
-      }
-
-  """
-  @type cpu_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      terminate_microvm_request() :: %{}
-
-  """
-  @type terminate_microvm_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_microvm_auth_token_response() :: %{
-        "authToken" => map()
-      }
-
-  """
-  @type create_microvm_auth_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_microvm_response() :: %{
-        "egressNetworkConnectors" => list(String.t() | atom()),
-        "endpoint" => [String.t() | atom()],
-        "executionRoleArn" => String.t() | atom(),
-        "idlePolicy" => idle_policy(),
-        "imageArn" => String.t() | atom(),
-        "imageVersion" => String.t() | atom(),
-        "ingressNetworkConnectors" => list(String.t() | atom()),
-        "maximumDurationInSeconds" => [integer()],
-        "microvmId" => String.t() | atom(),
-        "startedAt" => [non_neg_integer()],
-        "state" => list(any()),
-        "stateReason" => String.t() | atom(),
-        "terminatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type get_microvm_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      microvm_image_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "imageArn" => String.t() | atom(),
-        "latestActiveImageVersion" => String.t() | atom(),
-        "latestFailedImageVersion" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "state" => list(any())
-      }
-
-  """
-  @type microvm_image_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_microvm_image_build_output() :: %{
-        "architecture" => list(any()),
-        "buildId" => String.t() | atom(),
-        "buildState" => list(any()),
-        "chipset" => list(any()),
-        "chipsetGeneration" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "imageArn" => String.t() | atom(),
-        "imageVersion" => String.t() | atom(),
-        "snapshotBuild" => snapshot_build(),
-        "stateReason" => [String.t() | atom()]
-      }
-
-  """
-  @type get_microvm_image_build_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_microvm_image_version_output() :: %{
-        "imageIdentifier" => String.t() | atom(),
-        "imageVersion" => String.t() | atom(),
-        "state" => list(any())
-      }
-
-  """
-  @type delete_microvm_image_version_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hooks() :: %{
-        "microvmHooks" => microvm_hooks(),
-        "microvmImageHooks" => microvm_image_hooks(),
-        "port" => [integer()]
-      }
-
-  """
-  @type hooks() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      snapshot_build() :: %{
-        "codeInstallSizeInBytes" => [float()],
-        "diskSnapshotSizeInBytes" => [float()],
-        "memorySnapshotSizeInBytes" => [float()]
-      }
-
-  """
-  @type snapshot_build() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_microvm_image_version() :: %{
-        "createdAt" => [non_neg_integer()],
-        "imageArn" => String.t() | atom(),
-        "imageVersion" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type managed_microvm_image_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      port_range() :: %{
-        "endPort" => integer(),
-        "startPort" => integer()
-      }
-
-  """
-  @type port_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_microvm_image_output() :: %{
-        "createdAt" => [non_neg_integer()],
-        "imageArn" => String.t() | atom(),
-        "latestActiveImageVersion" => String.t() | atom(),
-        "latestFailedImageVersion" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "state" => list(any()),
-        "tags" => map(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type get_microvm_image_output() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_microvm_auth_token_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_microvm_image_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_microvm_shell_auth_token_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_microvm_image_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_microvm_image_version_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_microvm_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_microvm_image_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_microvm_image_build_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_microvm_image_version_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_managed_microvm_image_versions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_managed_microvm_images_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_microvm_image_builds_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_microvm_image_versions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_microvm_images_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_microvms_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_errors() ::
-          service_exception()
+          too_many_requests_exception()
+          | service_exception()
           | resource_not_found_exception()
           | invalid_parameter_value_exception()
-          | too_many_requests_exception()
 
   @type resume_microvm_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type run_microvm_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type suspend_microvm_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          resource_conflict_exception()
+          too_many_requests_exception()
           | service_exception()
           | resource_not_found_exception()
+          | resource_conflict_exception()
           | invalid_parameter_value_exception()
-          | too_many_requests_exception()
 
   @type terminate_microvm_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          resource_conflict_exception()
+          too_many_requests_exception()
           | service_exception()
           | resource_not_found_exception()
+          | resource_conflict_exception()
           | invalid_parameter_value_exception()
-          | too_many_requests_exception()
 
   @type update_microvm_image_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_microvm_image_version_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{
@@ -1548,15 +1548,15 @@ defmodule AWS.LambdaMicrovms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1593,15 +1593,15 @@ defmodule AWS.LambdaMicrovms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1651,22 +1651,8 @@ defmodule AWS.LambdaMicrovms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(chipset_generation) do
-        [{"chipsetGeneration", chipset_generation} | query_params]
+      if !is_nil(architecture) do
+        [{"architecture", architecture} | query_params]
       else
         query_params
       end
@@ -1679,8 +1665,22 @@ defmodule AWS.LambdaMicrovms do
       end
 
     query_params =
-      if !is_nil(architecture) do
-        [{"architecture", architecture} | query_params]
+      if !is_nil(chipset_generation) do
+        [{"chipsetGeneration", chipset_generation} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1719,15 +1719,15 @@ defmodule AWS.LambdaMicrovms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1766,8 +1766,8 @@ defmodule AWS.LambdaMicrovms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -1780,8 +1780,8 @@ defmodule AWS.LambdaMicrovms do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1822,15 +1822,8 @@ defmodule AWS.LambdaMicrovms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(image_identifier) do
+        [{"imageIdentifier", image_identifier} | query_params]
       else
         query_params
       end
@@ -1843,8 +1836,15 @@ defmodule AWS.LambdaMicrovms do
       end
 
     query_params =
-      if !is_nil(image_identifier) do
-        [{"imageIdentifier", image_identifier} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

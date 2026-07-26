@@ -68,195 +68,6 @@ defmodule AWS.Budgets do
 
   ## Example:
       
-      describe_budget_action_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("ActionId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_budget_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_budget_performance_history_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("TimePeriod") => time_period(),
-        required("AccountId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_budget_performance_history_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_budget_request() :: %{
-        optional("NotificationsWithSubscribers") => list(notification_with_subscribers()),
-        optional("ResourceTags") => list(resource_tag()),
-        required("AccountId") => String.t() | atom(),
-        required("Budget") => budget()
-      }
-      
-  """
-  @type create_budget_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_budgets_response() :: %{
-        "Budgets" => list(budget()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_budgets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_subscribers_for_notification_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AccountId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom(),
-        required("Notification") => notification()
-      }
-      
-  """
-  @type describe_subscribers_for_notification_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_budget_response() :: %{}
-      
-  """
-  @type update_budget_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_subscriber_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom(),
-        required("NewSubscriber") => subscriber(),
-        required("Notification") => notification(),
-        required("OldSubscriber") => subscriber()
-      }
-      
-  """
-  @type update_subscriber_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_subscriber_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom(),
-        required("Notification") => notification(),
-        required("Subscriber") => subscriber()
-      }
-      
-  """
-  @type delete_subscriber_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execute_budget_action_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("ActionId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom(),
-        required("ExecutionType") => list(any())
-      }
-      
-  """
-  @type execute_budget_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cost_category_values() :: %{
-        "Key" => String.t() | atom(),
-        "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type cost_category_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_budget_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_budget_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      definition() :: %{
-        "IamActionDefinition" => iam_action_definition(),
-        "ScpActionDefinition" => scp_action_definition(),
-        "SsmActionDefinition" => ssm_action_definition()
-      }
-      
-  """
-  @type definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_budget_action_request() :: %{
-        optional("ActionThreshold") => action_threshold(),
-        optional("ApprovalModel") => list(any()),
-        optional("Definition") => definition(),
-        optional("ExecutionRoleArn") => String.t() | atom(),
-        optional("NotificationType") => list(any()),
-        optional("Subscribers") => list(subscriber()),
-        required("AccountId") => String.t() | atom(),
-        required("ActionId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom()
-      }
-      
-  """
-  @type update_budget_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -268,337 +79,21 @@ defmodule AWS.Budgets do
 
   ## Example:
       
-      describe_budget_action_histories_response() :: %{
-        "ActionHistories" => list(action_history()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_budget_action_histories_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_notifications_for_budget_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Notifications" => list(notification())
-      }
-      
-  """
-  @type describe_notifications_for_budget_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_budget_action_response() :: %{
-        "AccountId" => String.t() | atom(),
+      action() :: %{
+        "ActionId" => String.t() | atom(),
+        "ActionThreshold" => action_threshold(),
+        "ActionType" => list(any()),
+        "ApprovalModel" => list(any()),
         "BudgetName" => String.t() | atom(),
-        "NewAction" => action(),
-        "OldAction" => action()
-      }
-      
-  """
-  @type update_budget_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_budget_actions_for_budget_response() :: %{
-        "Actions" => list(action()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_budget_actions_for_budget_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      health_status() :: %{
-        "LastUpdatedTime" => non_neg_integer(),
+        "Definition" => definition(),
+        "ExecutionRoleArn" => String.t() | atom(),
+        "NotificationType" => list(any()),
         "Status" => list(any()),
-        "StatusReason" => list(any())
-      }
-      
-  """
-  @type health_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_budget_actions_for_account_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AccountId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_budget_actions_for_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_budget_action_request() :: %{
-        optional("ResourceTags") => list(resource_tag()),
-        required("AccountId") => String.t() | atom(),
-        required("ActionThreshold") => action_threshold(),
-        required("ActionType") => list(any()),
-        required("ApprovalModel") => list(any()),
-        required("BudgetName") => String.t() | atom(),
-        required("Definition") => definition(),
-        required("ExecutionRoleArn") => String.t() | atom(),
-        required("NotificationType") => list(any()),
-        required("Subscribers") => list(subscriber())
-      }
-      
-  """
-  @type create_budget_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_subscribers_for_notification_response() :: %{
-        "NextToken" => String.t() | atom(),
         "Subscribers" => list(subscriber())
       }
       
   """
-  @type describe_subscribers_for_notification_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expression() :: %{
-        "And" => list(expression()),
-        "CostCategories" => cost_category_values(),
-        "Dimensions" => expression_dimension_values(),
-        "Not" => expression(),
-        "Or" => list(expression()),
-        "Tags" => tag_values()
-      }
-      
-  """
-  @type expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_locked_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_locked_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_threshold() :: %{
-        "ActionThresholdType" => list(any()),
-        "ActionThresholdValue" => float()
-      }
-      
-  """
-  @type action_threshold() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      budget_performance_history() :: %{
-        "BillingViewArn" => String.t() | atom(),
-        "BudgetName" => String.t() | atom(),
-        "BudgetType" => list(any()),
-        "BudgetedAndActualAmountsList" => list(budgeted_and_actual_amounts()),
-        "CostFilters" => map(),
-        "CostTypes" => cost_types(),
-        "FilterExpression" => expression(),
-        "Metrics" => list(list(any())()),
-        "TimeUnit" => list(any())
-      }
-      
-  """
-  @type budget_performance_history() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_notification_response() :: %{}
-      
-  """
-  @type create_notification_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_budget_response() :: %{
-        "Budget" => budget()
-      }
-      
-  """
-  @type describe_budget_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_notification_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom(),
-        required("Notification") => notification()
-      }
-      
-  """
-  @type delete_notification_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_budget_action_response() :: %{
-        "AccountId" => String.t() | atom(),
-        "Action" => action(),
-        "BudgetName" => String.t() | atom()
-      }
-      
-  """
-  @type delete_budget_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      calculated_spend() :: %{
-        "ActualSpend" => spend(),
-        "ForecastedSpend" => spend()
-      }
-      
-  """
-  @type calculated_spend() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notification() :: %{
-        "ComparisonOperator" => list(any()),
-        "NotificationState" => list(any()),
-        "NotificationType" => list(any()),
-        "Threshold" => float(),
-        "ThresholdType" => list(any())
-      }
-      
-  """
-  @type notification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_notification_response() :: %{}
-      
-  """
-  @type delete_notification_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      budgeted_and_actual_amounts() :: %{
-        "ActualAmount" => spend(),
-        "BudgetedAmount" => spend(),
-        "TimePeriod" => time_period()
-      }
-      
-  """
-  @type budgeted_and_actual_amounts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_subscriber_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom(),
-        required("Notification") => notification(),
-        required("Subscriber") => subscriber()
-      }
-      
-  """
-  @type create_subscriber_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ssm_action_definition() :: %{
-        "ActionSubType" => list(any()),
-        "InstanceIds" => list(String.t() | atom()),
-        "Region" => String.t() | atom()
-      }
-      
-  """
-  @type ssm_action_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_budget_actions_for_budget_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AccountId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_budget_actions_for_budget_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("ResourceTags") => list(resource_tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_budget_action_response() :: %{
-        "AccountId" => String.t() | atom(),
-        "ActionId" => String.t() | atom(),
-        "BudgetName" => String.t() | atom()
-      }
-      
-  """
-  @type create_budget_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_subscriber_response() :: %{}
-      
-  """
-  @type delete_subscriber_response() :: %{}
+  @type action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -618,176 +113,6 @@ defmodule AWS.Budgets do
 
   ## Example:
       
-      subscriber() :: %{
-        "Address" => String.t() | atom(),
-        "SubscriptionType" => list(any())
-      }
-      
-  """
-  @type subscriber() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_notifications_for_budget_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AccountId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_notifications_for_budget_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_budget_action_response() :: %{
-        "AccountId" => String.t() | atom(),
-        "Action" => action(),
-        "BudgetName" => String.t() | atom()
-      }
-      
-  """
-  @type describe_budget_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type resource_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_notification_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom(),
-        required("Notification") => notification(),
-        required("Subscribers") => list(subscriber())
-      }
-      
-  """
-  @type create_notification_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_budget_request() :: %{
-        optional("ShowFilterExpression") => boolean(),
-        required("AccountId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_budget_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_budget_performance_history_response() :: %{
-        "BudgetPerformanceHistory" => budget_performance_history(),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_budget_performance_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_budget_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("NewBudget") => budget()
-      }
-      
-  """
-  @type update_budget_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expression_dimension_values() :: %{
-        "Key" => list(any()),
-        "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type expression_dimension_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_notification_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom(),
-        required("NewNotification") => notification(),
-        required("OldNotification") => notification()
-      }
-      
-  """
-  @type update_notification_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      budget_notifications_for_account() :: %{
-        "BudgetName" => String.t() | atom(),
-        "Notifications" => list(notification())
-      }
-      
-  """
-  @type budget_notifications_for_account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       action_history_details() :: %{
         "Action" => action(),
         "Message" => String.t() | atom()
@@ -800,25 +125,37 @@ defmodule AWS.Budgets do
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("ResourceTagKeys") => list(String.t() | atom())
+      action_threshold() :: %{
+        "ActionThresholdType" => list(any()),
+        "ActionThresholdValue" => float()
       }
       
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type action_threshold() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      scp_action_definition() :: %{
-        "PolicyId" => String.t() | atom(),
-        "TargetIds" => list(String.t() | atom())
+      auto_adjust_data() :: %{
+        "AutoAdjustType" => list(any()),
+        "HistoricalOptions" => historical_options(),
+        "LastAutoAdjustTime" => non_neg_integer()
       }
       
   """
-  @type scp_action_definition() :: %{(String.t() | atom()) => any()}
+  @type auto_adjust_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_view_health_status_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type billing_view_health_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -849,6 +186,75 @@ defmodule AWS.Budgets do
 
   ## Example:
       
+      budget_notifications_for_account() :: %{
+        "BudgetName" => String.t() | atom(),
+        "Notifications" => list(notification())
+      }
+      
+  """
+  @type budget_notifications_for_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      budget_performance_history() :: %{
+        "BillingViewArn" => String.t() | atom(),
+        "BudgetName" => String.t() | atom(),
+        "BudgetType" => list(any()),
+        "BudgetedAndActualAmountsList" => list(budgeted_and_actual_amounts()),
+        "CostFilters" => map(),
+        "CostTypes" => cost_types(),
+        "FilterExpression" => expression(),
+        "Metrics" => list(list(any())()),
+        "TimeUnit" => list(any())
+      }
+      
+  """
+  @type budget_performance_history() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      budgeted_and_actual_amounts() :: %{
+        "ActualAmount" => spend(),
+        "BudgetedAmount" => spend(),
+        "TimePeriod" => time_period()
+      }
+      
+  """
+  @type budgeted_and_actual_amounts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      calculated_spend() :: %{
+        "ActualSpend" => spend(),
+        "ForecastedSpend" => spend()
+      }
+      
+  """
+  @type calculated_spend() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_category_values() :: %{
+        "Key" => String.t() | atom(),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type cost_category_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cost_types() :: %{
         "IncludeCredit" => boolean(),
         "IncludeDiscount" => boolean(),
@@ -870,6 +276,224 @@ defmodule AWS.Budgets do
 
   ## Example:
       
+      create_budget_action_request() :: %{
+        optional("ResourceTags") => list(resource_tag()),
+        required("AccountId") => String.t() | atom(),
+        required("ActionThreshold") => action_threshold(),
+        required("ActionType") => list(any()),
+        required("ApprovalModel") => list(any()),
+        required("BudgetName") => String.t() | atom(),
+        required("Definition") => definition(),
+        required("ExecutionRoleArn") => String.t() | atom(),
+        required("NotificationType") => list(any()),
+        required("Subscribers") => list(subscriber())
+      }
+      
+  """
+  @type create_budget_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_budget_action_response() :: %{
+        "AccountId" => String.t() | atom(),
+        "ActionId" => String.t() | atom(),
+        "BudgetName" => String.t() | atom()
+      }
+      
+  """
+  @type create_budget_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_budget_request() :: %{
+        optional("NotificationsWithSubscribers") => list(notification_with_subscribers()),
+        optional("ResourceTags") => list(resource_tag()),
+        required("AccountId") => String.t() | atom(),
+        required("Budget") => budget()
+      }
+      
+  """
+  @type create_budget_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_budget_response() :: %{}
+      
+  """
+  @type create_budget_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_notification_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom(),
+        required("Notification") => notification(),
+        required("Subscribers") => list(subscriber())
+      }
+      
+  """
+  @type create_notification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_notification_response() :: %{}
+      
+  """
+  @type create_notification_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_subscriber_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom(),
+        required("Notification") => notification(),
+        required("Subscriber") => subscriber()
+      }
+      
+  """
+  @type create_subscriber_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_subscriber_response() :: %{}
+      
+  """
+  @type create_subscriber_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      creation_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type creation_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      definition() :: %{
+        "IamActionDefinition" => iam_action_definition(),
+        "ScpActionDefinition" => scp_action_definition(),
+        "SsmActionDefinition" => ssm_action_definition()
+      }
+      
+  """
+  @type definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_budget_action_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("ActionId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_budget_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_budget_action_response() :: %{
+        "AccountId" => String.t() | atom(),
+        "Action" => action(),
+        "BudgetName" => String.t() | atom()
+      }
+      
+  """
+  @type delete_budget_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_budget_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_budget_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_budget_response() :: %{}
+      
+  """
+  @type delete_budget_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_notification_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom(),
+        required("Notification") => notification()
+      }
+      
+  """
+  @type delete_notification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_notification_response() :: %{}
+      
+  """
+  @type delete_notification_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_subscriber_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom(),
+        required("Notification") => notification(),
+        required("Subscriber") => subscriber()
+      }
+      
+  """
+  @type delete_subscriber_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_subscriber_response() :: %{}
+      
+  """
+  @type delete_subscriber_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_budget_action_histories_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -886,46 +510,52 @@ defmodule AWS.Budgets do
 
   ## Example:
       
-      update_subscriber_response() :: %{}
+      describe_budget_action_histories_response() :: %{
+        "ActionHistories" => list(action_history()),
+        "NextToken" => String.t() | atom()
+      }
       
   """
-  @type update_subscriber_response() :: %{}
+  @type describe_budget_action_histories_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_next_token_exception() :: %{
-        "Message" => String.t() | atom()
+      describe_budget_action_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("ActionId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom()
       }
       
   """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_budget_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      iam_action_definition() :: %{
-        "Groups" => list(String.t() | atom()),
-        "PolicyArn" => String.t() | atom(),
-        "Roles" => list(String.t() | atom()),
-        "Users" => list(String.t() | atom())
+      describe_budget_action_response() :: %{
+        "AccountId" => String.t() | atom(),
+        "Action" => action(),
+        "BudgetName" => String.t() | atom()
       }
       
   """
-  @type iam_action_definition() :: %{(String.t() | atom()) => any()}
+  @type describe_budget_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "ResourceTags" => list(resource_tag())
+      describe_budget_actions_for_account_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type describe_budget_actions_for_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -943,43 +573,103 @@ defmodule AWS.Budgets do
 
   ## Example:
       
-      create_budget_response() :: %{}
+      describe_budget_actions_for_budget_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom()
+      }
       
   """
-  @type create_budget_response() :: %{}
+  @type describe_budget_actions_for_budget_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      duplicate_record_exception() :: %{
-        "Message" => String.t() | atom()
+      describe_budget_actions_for_budget_response() :: %{
+        "Actions" => list(action()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type duplicate_record_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_budget_actions_for_budget_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      expired_next_token_exception() :: %{
-        "Message" => String.t() | atom()
+      describe_budget_notifications_for_account_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
       
   """
-  @type expired_next_token_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_budget_notifications_for_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      creation_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
+      describe_budget_notifications_for_account_response() :: %{
+        "BudgetNotificationsForAccount" => list(budget_notifications_for_account()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type creation_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_budget_notifications_for_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_budget_performance_history_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TimePeriod") => time_period(),
+        required("AccountId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_budget_performance_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_budget_performance_history_response() :: %{
+        "BudgetPerformanceHistory" => budget_performance_history(),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_budget_performance_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_budget_request() :: %{
+        optional("ShowFilterExpression") => boolean(),
+        required("AccountId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_budget_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_budget_response() :: %{
+        "Budget" => budget()
+      }
+      
+  """
+  @type describe_budget_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -999,156 +689,91 @@ defmodule AWS.Budgets do
 
   ## Example:
       
-      describe_budget_notifications_for_account_response() :: %{
-        "BudgetNotificationsForAccount" => list(budget_notifications_for_account()),
+      describe_budgets_response() :: %{
+        "Budgets" => list(budget()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_budget_notifications_for_account_response() :: %{(String.t() | atom()) => any()}
+  @type describe_budgets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      billing_view_health_status_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type billing_view_health_status_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action() :: %{
-        "ActionId" => String.t() | atom(),
-        "ActionThreshold" => action_threshold(),
-        "ActionType" => list(any()),
-        "ApprovalModel" => list(any()),
-        "BudgetName" => String.t() | atom(),
-        "Definition" => definition(),
-        "ExecutionRoleArn" => String.t() | atom(),
-        "NotificationType" => list(any()),
-        "Status" => list(any()),
-        "Subscribers" => list(subscriber())
-      }
-      
-  """
-  @type action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_subscriber_response() :: %{}
-      
-  """
-  @type create_subscriber_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_error_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_values() :: %{
-        "Key" => String.t() | atom(),
-        "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type tag_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_notification_response() :: %{}
-      
-  """
-  @type update_notification_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      auto_adjust_data() :: %{
-        "AutoAdjustType" => list(any()),
-        "HistoricalOptions" => historical_options(),
-        "LastAutoAdjustTime" => non_neg_integer()
-      }
-      
-  """
-  @type auto_adjust_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_period() :: %{
-        "End" => non_neg_integer(),
-        "Start" => non_neg_integer()
-      }
-      
-  """
-  @type time_period() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_budget_notifications_for_account_request() :: %{
+      describe_notifications_for_budget_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        required("AccountId") => String.t() | atom()
+        required("AccountId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom()
       }
       
   """
-  @type describe_budget_notifications_for_account_request() :: %{(String.t() | atom()) => any()}
+  @type describe_notifications_for_budget_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_budget_response() :: %{}
+      describe_notifications_for_budget_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Notifications" => list(notification())
+      }
       
   """
-  @type delete_budget_response() :: %{}
+  @type describe_notifications_for_budget_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      notification_with_subscribers() :: %{
-        "Notification" => notification(),
+      describe_subscribers_for_notification_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom(),
+        required("Notification") => notification()
+      }
+      
+  """
+  @type describe_subscribers_for_notification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_subscribers_for_notification_response() :: %{
+        "NextToken" => String.t() | atom(),
         "Subscribers" => list(subscriber())
       }
       
   """
-  @type notification_with_subscribers() :: %{(String.t() | atom()) => any()}
+  @type describe_subscribers_for_notification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_record_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_record_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execute_budget_action_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("ActionId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom(),
+        required("ExecutionType") => list(any())
+      }
+      
+  """
+  @type execute_budget_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1168,37 +793,54 @@ defmodule AWS.Budgets do
 
   ## Example:
       
-      delete_budget_action_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("ActionId") => String.t() | atom(),
-        required("BudgetName") => String.t() | atom()
+      expired_next_token_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type delete_budget_action_request() :: %{(String.t() | atom()) => any()}
+  @type expired_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      spend() :: %{
-        "Amount" => String.t() | atom(),
-        "Unit" => String.t() | atom()
+      expression() :: %{
+        "And" => list(expression()),
+        "CostCategories" => cost_category_values(),
+        "Dimensions" => expression_dimension_values(),
+        "Not" => expression(),
+        "Or" => list(expression()),
+        "Tags" => tag_values()
       }
       
   """
-  @type spend() :: %{(String.t() | atom()) => any()}
+  @type expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
+      expression_dimension_values() :: %{
+        "Key" => list(any()),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type expression_dimension_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      health_status() :: %{
+        "LastUpdatedTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusReason" => list(any())
+      }
+      
+  """
+  @type health_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1216,6 +858,148 @@ defmodule AWS.Budgets do
 
   ## Example:
       
+      iam_action_definition() :: %{
+        "Groups" => list(String.t() | atom()),
+        "PolicyArn" => String.t() | atom(),
+        "Roles" => list(String.t() | atom()),
+        "Users" => list(String.t() | atom())
+      }
+      
+  """
+  @type iam_action_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_error_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_next_token_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "ResourceTags" => list(resource_tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notification() :: %{
+        "ComparisonOperator" => list(any()),
+        "NotificationState" => list(any()),
+        "NotificationType" => list(any()),
+        "Threshold" => float(),
+        "ThresholdType" => list(any())
+      }
+      
+  """
+  @type notification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notification_with_subscribers() :: %{
+        "Notification" => notification(),
+        "Subscribers" => list(subscriber())
+      }
+      
+  """
+  @type notification_with_subscribers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_locked_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_locked_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scp_action_definition() :: %{
+        "PolicyId" => String.t() | atom(),
+        "TargetIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type scp_action_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -1223,219 +1007,435 @@ defmodule AWS.Budgets do
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      spend() :: %{
+        "Amount" => String.t() | atom(),
+        "Unit" => String.t() | atom()
+      }
+      
+  """
+  @type spend() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ssm_action_definition() :: %{
+        "ActionSubType" => list(any()),
+        "InstanceIds" => list(String.t() | atom()),
+        "Region" => String.t() | atom()
+      }
+      
+  """
+  @type ssm_action_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subscriber() :: %{
+        "Address" => String.t() | atom(),
+        "SubscriptionType" => list(any())
+      }
+      
+  """
+  @type subscriber() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("ResourceTags") => list(resource_tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_values() :: %{
+        "Key" => String.t() | atom(),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type tag_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_period() :: %{
+        "End" => non_neg_integer(),
+        "Start" => non_neg_integer()
+      }
+      
+  """
+  @type time_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("ResourceTagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_budget_action_request() :: %{
+        optional("ActionThreshold") => action_threshold(),
+        optional("ApprovalModel") => list(any()),
+        optional("Definition") => definition(),
+        optional("ExecutionRoleArn") => String.t() | atom(),
+        optional("NotificationType") => list(any()),
+        optional("Subscribers") => list(subscriber()),
+        required("AccountId") => String.t() | atom(),
+        required("ActionId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom()
+      }
+      
+  """
+  @type update_budget_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_budget_action_response() :: %{
+        "AccountId" => String.t() | atom(),
+        "BudgetName" => String.t() | atom(),
+        "NewAction" => action(),
+        "OldAction" => action()
+      }
+      
+  """
+  @type update_budget_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_budget_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("NewBudget") => budget()
+      }
+      
+  """
+  @type update_budget_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_budget_response() :: %{}
+      
+  """
+  @type update_budget_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_notification_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom(),
+        required("NewNotification") => notification(),
+        required("OldNotification") => notification()
+      }
+      
+  """
+  @type update_notification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_notification_response() :: %{}
+      
+  """
+  @type update_notification_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_subscriber_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("BudgetName") => String.t() | atom(),
+        required("NewSubscriber") => subscriber(),
+        required("Notification") => notification(),
+        required("OldSubscriber") => subscriber()
+      }
+      
+  """
+  @type update_subscriber_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_subscriber_response() :: %{}
+      
+  """
+  @type update_subscriber_response() :: %{}
+
   @type create_budget_errors() ::
-          service_quota_exceeded_exception()
+          throttling_exception()
+          | service_quota_exceeded_exception()
+          | not_found_exception()
           | invalid_parameter_exception()
           | internal_error_exception()
-          | billing_view_health_status_exception()
-          | creation_limit_exceeded_exception()
           | duplicate_record_exception()
-          | not_found_exception()
+          | creation_limit_exceeded_exception()
+          | billing_view_health_status_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_budget_action_errors() ::
-          service_quota_exceeded_exception()
+          throttling_exception()
+          | service_quota_exceeded_exception()
+          | not_found_exception()
           | invalid_parameter_exception()
           | internal_error_exception()
-          | creation_limit_exceeded_exception()
           | duplicate_record_exception()
-          | not_found_exception()
+          | creation_limit_exceeded_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_notification_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | creation_limit_exceeded_exception()
-          | duplicate_record_exception()
+          throttling_exception()
           | not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | duplicate_record_exception()
+          | creation_limit_exceeded_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_subscriber_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | creation_limit_exceeded_exception()
-          | duplicate_record_exception()
+          throttling_exception()
           | not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | duplicate_record_exception()
+          | creation_limit_exceeded_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_budget_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
+          throttling_exception()
           | not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_budget_action_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_found_exception()
+          throttling_exception()
           | resource_locked_exception()
+          | not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_notification_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
+          throttling_exception()
           | not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_subscriber_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
+          throttling_exception()
           | not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_budget_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
+          throttling_exception()
           | not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_budget_action_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
+          throttling_exception()
           | not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_budget_action_histories_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | invalid_next_token_exception()
+          throttling_exception()
           | not_found_exception()
+          | invalid_parameter_exception()
+          | invalid_next_token_exception()
+          | internal_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_budget_actions_for_account_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
+          throttling_exception()
+          | invalid_parameter_exception()
           | invalid_next_token_exception()
+          | internal_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_budget_actions_for_budget_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | invalid_next_token_exception()
+          throttling_exception()
           | not_found_exception()
+          | invalid_parameter_exception()
+          | invalid_next_token_exception()
+          | internal_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_budget_notifications_for_account_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
+          | not_found_exception()
+          | invalid_parameter_exception()
+          | invalid_next_token_exception()
           | internal_error_exception()
           | expired_next_token_exception()
-          | invalid_next_token_exception()
-          | not_found_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_budget_performance_history_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | billing_view_health_status_exception()
-          | expired_next_token_exception()
-          | invalid_next_token_exception()
+          throttling_exception()
           | not_found_exception()
+          | invalid_parameter_exception()
+          | invalid_next_token_exception()
+          | internal_error_exception()
+          | expired_next_token_exception()
+          | billing_view_health_status_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_budgets_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
+          | not_found_exception()
+          | invalid_parameter_exception()
+          | invalid_next_token_exception()
           | internal_error_exception()
           | expired_next_token_exception()
-          | invalid_next_token_exception()
-          | not_found_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_notifications_for_budget_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
+          | not_found_exception()
+          | invalid_parameter_exception()
+          | invalid_next_token_exception()
           | internal_error_exception()
           | expired_next_token_exception()
-          | invalid_next_token_exception()
-          | not_found_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_subscribers_for_notification_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
+          | not_found_exception()
+          | invalid_parameter_exception()
+          | invalid_next_token_exception()
           | internal_error_exception()
           | expired_next_token_exception()
-          | invalid_next_token_exception()
-          | not_found_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type execute_budget_action_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_found_exception()
+          throttling_exception()
           | resource_locked_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_tags_for_resource_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
           | not_found_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
           | invalid_parameter_exception()
           | internal_error_exception()
-          | not_found_exception()
           | access_denied_exception()
-          | throttling_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | access_denied_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | service_quota_exceeded_exception()
+          | not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
+          throttling_exception()
           | not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_budget_errors() ::
-          service_quota_exceeded_exception()
+          throttling_exception()
+          | service_quota_exceeded_exception()
+          | not_found_exception()
           | invalid_parameter_exception()
           | internal_error_exception()
           | billing_view_health_status_exception()
-          | not_found_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_budget_action_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_found_exception()
+          throttling_exception()
           | resource_locked_exception()
+          | not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_notification_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
+          | not_found_exception()
+          | invalid_parameter_exception()
           | internal_error_exception()
           | duplicate_record_exception()
-          | not_found_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_subscriber_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
+          | not_found_exception()
+          | invalid_parameter_exception()
           | internal_error_exception()
           | duplicate_record_exception()
-          | not_found_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{

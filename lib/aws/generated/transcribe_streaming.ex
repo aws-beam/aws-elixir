@@ -57,48 +57,39 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
-      configuration_event() :: %{
-        "ChannelDefinitions" => list(channel_definition()),
-        "PostCallAnalyticsSettings" => post_call_analytics_settings()
+      audio_event() :: %{
+        "AudioChunk" => binary()
       }
 
   """
-  @type configuration_event() :: %{(String.t() | atom()) => any()}
+  @type audio_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      category_event() :: %{
-        "MatchedCategories" => list(String.t() | atom()),
-        "MatchedDetails" => map()
+      bad_request_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type category_event() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      timestamp_range() :: %{
+      call_analytics_entity() :: %{
         "BeginOffsetMillis" => float(),
-        "EndOffsetMillis" => float()
+        "Category" => String.t() | atom(),
+        "Confidence" => float(),
+        "Content" => String.t() | atom(),
+        "EndOffsetMillis" => float(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type timestamp_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      issue_detected() :: %{
-        "CharacterOffsets" => character_offsets()
-      }
-
-  """
-  @type issue_detected() :: %{(String.t() | atom()) => any()}
+  @type call_analytics_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,12 +112,37 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
-      service_unavailable_exception() :: %{
-        "Message" => String.t() | atom()
+      call_analytics_language_with_score() :: %{
+        "LanguageCode" => list(any()),
+        "Score" => float()
       }
 
   """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+  @type call_analytics_language_with_score() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      category_event() :: %{
+        "MatchedCategories" => list(String.t() | atom()),
+        "MatchedDetails" => map()
+      }
+
+  """
+  @type category_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_definition() :: %{
+        "ChannelId" => integer(),
+        "ParticipantRole" => list(any())
+      }
+
+  """
+  @type channel_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -144,6 +160,225 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
+      clinical_note_generation_result() :: %{
+        "ClinicalNoteOutputLocation" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "Status" => list(any()),
+        "TranscriptOutputLocation" => String.t() | atom()
+      }
+
+  """
+  @type clinical_note_generation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clinical_note_generation_settings() :: %{
+        "NoteTemplate" => list(any()),
+        "OutputBucketName" => String.t() | atom()
+      }
+
+  """
+  @type clinical_note_generation_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_event() :: %{
+        "ChannelDefinitions" => list(channel_definition()),
+        "PostCallAnalyticsSettings" => post_call_analytics_settings()
+      }
+
+  """
+  @type configuration_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      entity() :: %{
+        "Category" => String.t() | atom(),
+        "Confidence" => float(),
+        "Content" => String.t() | atom(),
+        "EndTime" => float(),
+        "StartTime" => float(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_medical_scribe_stream_request() :: %{}
+
+  """
+  @type get_medical_scribe_stream_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_medical_scribe_stream_response() :: %{
+        "MedicalScribeStreamDetails" => medical_scribe_stream_details()
+      }
+
+  """
+  @type get_medical_scribe_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      issue_detected() :: %{
+        "CharacterOffsets" => character_offsets()
+      }
+
+  """
+  @type issue_detected() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      item() :: %{
+        "Confidence" => float(),
+        "Content" => String.t() | atom(),
+        "EndTime" => float(),
+        "Speaker" => String.t() | atom(),
+        "Stable" => boolean(),
+        "StartTime" => float(),
+        "Type" => list(any()),
+        "VocabularyFilterMatch" => boolean()
+      }
+
+  """
+  @type item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      language_with_score() :: %{
+        "LanguageCode" => list(any()),
+        "Score" => float()
+      }
+
+  """
+  @type language_with_score() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_alternative() :: %{
+        "Entities" => list(medical_entity()),
+        "Items" => list(medical_item()),
+        "Transcript" => String.t() | atom()
+      }
+
+  """
+  @type medical_alternative() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_entity() :: %{
+        "Category" => String.t() | atom(),
+        "Confidence" => float(),
+        "Content" => String.t() | atom(),
+        "EndTime" => float(),
+        "StartTime" => float()
+      }
+
+  """
+  @type medical_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_item() :: %{
+        "Confidence" => float(),
+        "Content" => String.t() | atom(),
+        "EndTime" => float(),
+        "Speaker" => String.t() | atom(),
+        "StartTime" => float(),
+        "Type" => list(any())
+      }
+
+  """
+  @type medical_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_result() :: %{
+        "Alternatives" => list(medical_alternative()),
+        "ChannelId" => String.t() | atom(),
+        "EndTime" => float(),
+        "IsPartial" => boolean(),
+        "ResultId" => String.t() | atom(),
+        "StartTime" => float()
+      }
+
+  """
+  @type medical_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_audio_event() :: %{
+        "AudioChunk" => binary()
+      }
+
+  """
+  @type medical_scribe_audio_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       medical_scribe_channel_definition() :: %{
         "ChannelId" => integer(),
         "ParticipantRole" => list(any())
@@ -151,6 +386,417 @@ defmodule AWS.TranscribeStreaming do
 
   """
   @type medical_scribe_channel_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_configuration_event() :: %{
+        "ChannelDefinitions" => list(medical_scribe_channel_definition()),
+        "EncryptionSettings" => medical_scribe_encryption_settings(),
+        "MedicalScribeContext" => medical_scribe_context(),
+        "PostStreamAnalyticsSettings" => medical_scribe_post_stream_analytics_settings(),
+        "ResourceAccessRoleArn" => String.t() | atom(),
+        "VocabularyFilterMethod" => list(any()),
+        "VocabularyFilterName" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom()
+      }
+
+  """
+  @type medical_scribe_configuration_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_context() :: %{
+        "PatientContext" => medical_scribe_patient_context()
+      }
+
+  """
+  @type medical_scribe_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_encryption_settings() :: %{
+        "KmsEncryptionContext" => map(),
+        "KmsKeyId" => String.t() | atom()
+      }
+
+  """
+  @type medical_scribe_encryption_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_patient_context() :: %{
+        "Pronouns" => list(any())
+      }
+
+  """
+  @type medical_scribe_patient_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_post_stream_analytics_result() :: %{
+        "ClinicalNoteGenerationResult" => clinical_note_generation_result()
+      }
+
+  """
+  @type medical_scribe_post_stream_analytics_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_post_stream_analytics_settings() :: %{
+        "ClinicalNoteGenerationSettings" => clinical_note_generation_settings()
+      }
+
+  """
+  @type medical_scribe_post_stream_analytics_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_session_control_event() :: %{
+        "Type" => list(any())
+      }
+
+  """
+  @type medical_scribe_session_control_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_stream_details() :: %{
+        "ChannelDefinitions" => list(medical_scribe_channel_definition()),
+        "EncryptionSettings" => medical_scribe_encryption_settings(),
+        "LanguageCode" => list(any()),
+        "MediaEncoding" => list(any()),
+        "MediaSampleRateHertz" => integer(),
+        "MedicalScribeContextProvided" => boolean(),
+        "PostStreamAnalyticsResult" => medical_scribe_post_stream_analytics_result(),
+        "PostStreamAnalyticsSettings" => medical_scribe_post_stream_analytics_settings(),
+        "ResourceAccessRoleArn" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
+        "StreamCreatedAt" => non_neg_integer(),
+        "StreamEndedAt" => non_neg_integer(),
+        "StreamStatus" => list(any()),
+        "VocabularyFilterMethod" => list(any()),
+        "VocabularyFilterName" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom()
+      }
+
+  """
+  @type medical_scribe_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_transcript_event() :: %{
+        "TranscriptSegment" => medical_scribe_transcript_segment()
+      }
+
+  """
+  @type medical_scribe_transcript_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_transcript_item() :: %{
+        "BeginAudioTime" => float(),
+        "Confidence" => float(),
+        "Content" => String.t() | atom(),
+        "EndAudioTime" => float(),
+        "Type" => list(any()),
+        "VocabularyFilterMatch" => boolean()
+      }
+
+  """
+  @type medical_scribe_transcript_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_transcript_segment() :: %{
+        "BeginAudioTime" => float(),
+        "ChannelId" => String.t() | atom(),
+        "Content" => String.t() | atom(),
+        "EndAudioTime" => float(),
+        "IsPartial" => boolean(),
+        "Items" => list(medical_scribe_transcript_item()),
+        "SegmentId" => String.t() | atom()
+      }
+
+  """
+  @type medical_scribe_transcript_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_transcript() :: %{
+        "Results" => list(medical_result())
+      }
+
+  """
+  @type medical_transcript() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_transcript_event() :: %{
+        "Transcript" => medical_transcript()
+      }
+
+  """
+  @type medical_transcript_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      points_of_interest() :: %{
+        "TimestampRanges" => list(timestamp_range())
+      }
+
+  """
+  @type points_of_interest() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_call_analytics_settings() :: %{
+        "ContentRedactionOutput" => list(any()),
+        "DataAccessRoleArn" => String.t() | atom(),
+        "OutputEncryptionKMSKeyId" => String.t() | atom(),
+        "OutputLocation" => String.t() | atom()
+      }
+
+  """
+  @type post_call_analytics_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      result() :: %{
+        "Alternatives" => list(alternative()),
+        "ChannelId" => String.t() | atom(),
+        "EndTime" => float(),
+        "IsPartial" => boolean(),
+        "LanguageCode" => list(any()),
+        "LanguageIdentification" => list(language_with_score()),
+        "ResultId" => String.t() | atom(),
+        "StartTime" => float()
+      }
+
+  """
+  @type result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_call_analytics_stream_transcription_request() :: %{
+        optional("ContentIdentificationType") => list(any()),
+        optional("ContentRedactionType") => list(any()),
+        optional("EnablePartialResultsStabilization") => boolean(),
+        optional("IdentifyLanguage") => boolean(),
+        optional("LanguageCode") => list(any()),
+        optional("LanguageModelName") => String.t() | atom(),
+        optional("LanguageOptions") => String.t() | atom(),
+        optional("PartialResultsStability") => list(any()),
+        optional("PiiEntityTypes") => String.t() | atom(),
+        optional("PreferredLanguage") => list(any()),
+        optional("SessionId") => String.t() | atom(),
+        optional("VocabularyFilterMethod") => list(any()),
+        optional("VocabularyFilterName") => String.t() | atom(),
+        optional("VocabularyFilterNames") => String.t() | atom(),
+        optional("VocabularyName") => String.t() | atom(),
+        optional("VocabularyNames") => String.t() | atom(),
+        required("AudioStream") => list(),
+        required("MediaEncoding") => list(any()),
+        required("MediaSampleRateHertz") => integer()
+      }
+
+  """
+  @type start_call_analytics_stream_transcription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_call_analytics_stream_transcription_response() :: %{
+        "CallAnalyticsTranscriptResultStream" => list(),
+        "ContentIdentificationType" => list(any()),
+        "ContentRedactionType" => list(any()),
+        "EnablePartialResultsStabilization" => boolean(),
+        "IdentifyLanguage" => boolean(),
+        "LanguageCode" => list(any()),
+        "LanguageModelName" => String.t() | atom(),
+        "LanguageOptions" => String.t() | atom(),
+        "MediaEncoding" => list(any()),
+        "MediaSampleRateHertz" => integer(),
+        "PartialResultsStability" => list(any()),
+        "PiiEntityTypes" => String.t() | atom(),
+        "PreferredLanguage" => list(any()),
+        "RequestId" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
+        "VocabularyFilterMethod" => list(any()),
+        "VocabularyFilterName" => String.t() | atom(),
+        "VocabularyFilterNames" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom(),
+        "VocabularyNames" => String.t() | atom()
+      }
+
+  """
+  @type start_call_analytics_stream_transcription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_medical_scribe_stream_request() :: %{
+        optional("SessionId") => String.t() | atom(),
+        required("InputStream") => list(),
+        required("LanguageCode") => list(any()),
+        required("MediaEncoding") => list(any()),
+        required("MediaSampleRateHertz") => integer()
+      }
+
+  """
+  @type start_medical_scribe_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_medical_scribe_stream_response() :: %{
+        "LanguageCode" => list(any()),
+        "MediaEncoding" => list(any()),
+        "MediaSampleRateHertz" => integer(),
+        "RequestId" => String.t() | atom(),
+        "ResultStream" => list(),
+        "SessionId" => String.t() | atom()
+      }
+
+  """
+  @type start_medical_scribe_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_medical_stream_transcription_request() :: %{
+        optional("ContentIdentificationType") => list(any()),
+        optional("EnableChannelIdentification") => boolean(),
+        optional("NumberOfChannels") => integer(),
+        optional("SessionId") => String.t() | atom(),
+        optional("ShowSpeakerLabel") => boolean(),
+        optional("VocabularyName") => String.t() | atom(),
+        required("AudioStream") => list(),
+        required("LanguageCode") => list(any()),
+        required("MediaEncoding") => list(any()),
+        required("MediaSampleRateHertz") => integer(),
+        required("Specialty") => list(any()),
+        required("Type") => list(any())
+      }
+
+  """
+  @type start_medical_stream_transcription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_medical_stream_transcription_response() :: %{
+        "ContentIdentificationType" => list(any()),
+        "EnableChannelIdentification" => boolean(),
+        "LanguageCode" => list(any()),
+        "MediaEncoding" => list(any()),
+        "MediaSampleRateHertz" => integer(),
+        "NumberOfChannels" => integer(),
+        "RequestId" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
+        "ShowSpeakerLabel" => boolean(),
+        "Specialty" => list(any()),
+        "TranscriptResultStream" => list(),
+        "Type" => list(any()),
+        "VocabularyName" => String.t() | atom()
+      }
+
+  """
+  @type start_medical_stream_transcription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_stream_transcription_request() :: %{
+        optional("ContentIdentificationType") => list(any()),
+        optional("ContentRedactionType") => list(any()),
+        optional("EnableChannelIdentification") => boolean(),
+        optional("EnablePartialResultsStabilization") => boolean(),
+        optional("IdentifyLanguage") => boolean(),
+        optional("IdentifyMultipleLanguages") => boolean(),
+        optional("LanguageCode") => list(any()),
+        optional("LanguageModelName") => String.t() | atom(),
+        optional("LanguageOptions") => String.t() | atom(),
+        optional("NumberOfChannels") => integer(),
+        optional("PartialResultsStability") => list(any()),
+        optional("PiiEntityTypes") => String.t() | atom(),
+        optional("PreferredLanguage") => list(any()),
+        optional("SessionId") => String.t() | atom(),
+        optional("SessionResumeWindow") => integer(),
+        optional("ShowSpeakerLabel") => boolean(),
+        optional("VocabularyFilterMethod") => list(any()),
+        optional("VocabularyFilterName") => String.t() | atom(),
+        optional("VocabularyFilterNames") => String.t() | atom(),
+        optional("VocabularyName") => String.t() | atom(),
+        optional("VocabularyNames") => String.t() | atom(),
+        required("AudioStream") => list(),
+        required("MediaEncoding") => list(any()),
+        required("MediaSampleRateHertz") => integer()
+      }
+
+  """
+  @type start_stream_transcription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -191,115 +837,13 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
-      medical_alternative() :: %{
-        "Entities" => list(medical_entity()),
-        "Items" => list(medical_item()),
-        "Transcript" => String.t() | atom()
+      timestamp_range() :: %{
+        "BeginOffsetMillis" => float(),
+        "EndOffsetMillis" => float()
       }
 
   """
-  @type medical_alternative() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_failure_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_stream_details() :: %{
-        "ChannelDefinitions" => list(medical_scribe_channel_definition()),
-        "EncryptionSettings" => medical_scribe_encryption_settings(),
-        "LanguageCode" => list(any()),
-        "MediaEncoding" => list(any()),
-        "MediaSampleRateHertz" => integer(),
-        "MedicalScribeContextProvided" => boolean(),
-        "PostStreamAnalyticsResult" => medical_scribe_post_stream_analytics_result(),
-        "PostStreamAnalyticsSettings" => medical_scribe_post_stream_analytics_settings(),
-        "ResourceAccessRoleArn" => String.t() | atom(),
-        "SessionId" => String.t() | atom(),
-        "StreamCreatedAt" => non_neg_integer(),
-        "StreamEndedAt" => non_neg_integer(),
-        "StreamStatus" => list(any()),
-        "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t() | atom(),
-        "VocabularyName" => String.t() | atom()
-      }
-
-  """
-  @type medical_scribe_stream_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_medical_scribe_stream_response() :: %{
-        "MedicalScribeStreamDetails" => medical_scribe_stream_details()
-      }
-
-  """
-  @type get_medical_scribe_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      clinical_note_generation_result() :: %{
-        "ClinicalNoteOutputLocation" => String.t() | atom(),
-        "FailureReason" => String.t() | atom(),
-        "Status" => list(any()),
-        "TranscriptOutputLocation" => String.t() | atom()
-      }
-
-  """
-  @type clinical_note_generation_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_transcript_item() :: %{
-        "BeginAudioTime" => float(),
-        "Confidence" => float(),
-        "Content" => String.t() | atom(),
-        "EndAudioTime" => float(),
-        "Type" => list(any()),
-        "VocabularyFilterMatch" => boolean()
-      }
-
-  """
-  @type medical_scribe_transcript_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_encryption_settings() :: %{
-        "KmsEncryptionContext" => map(),
-        "KmsKeyId" => String.t() | atom()
-      }
-
-  """
-  @type medical_scribe_encryption_settings() :: %{(String.t() | atom()) => any()}
+  @type timestamp_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -316,57 +860,12 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
-      item() :: %{
-        "Confidence" => float(),
-        "Content" => String.t() | atom(),
-        "EndTime" => float(),
-        "Speaker" => String.t() | atom(),
-        "Stable" => boolean(),
-        "StartTime" => float(),
-        "Type" => list(any()),
-        "VocabularyFilterMatch" => boolean()
+      transcript_event() :: %{
+        "Transcript" => transcript()
       }
 
   """
-  @type item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_entity() :: %{
-        "Category" => String.t() | atom(),
-        "Confidence" => float(),
-        "Content" => String.t() | atom(),
-        "EndTime" => float(),
-        "StartTime" => float()
-      }
-
-  """
-  @type medical_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_definition() :: %{
-        "ChannelId" => integer(),
-        "ParticipantRole" => list(any())
-      }
-
-  """
-  @type channel_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type transcript_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -390,538 +889,39 @@ defmodule AWS.TranscribeStreaming do
   """
   @type utterance_event() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      language_with_score() :: %{
-        "LanguageCode" => list(any()),
-        "Score" => float()
-      }
-
-  """
-  @type language_with_score() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      entity() :: %{
-        "Category" => String.t() | atom(),
-        "Confidence" => float(),
-        "Content" => String.t() | atom(),
-        "EndTime" => float(),
-        "StartTime" => float(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      points_of_interest() :: %{
-        "TimestampRanges" => list(timestamp_range())
-      }
-
-  """
-  @type points_of_interest() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_call_analytics_stream_transcription_request() :: %{
-        optional("ContentIdentificationType") => list(any()),
-        optional("ContentRedactionType") => list(any()),
-        optional("EnablePartialResultsStabilization") => boolean(),
-        optional("IdentifyLanguage") => boolean(),
-        optional("LanguageCode") => list(any()),
-        optional("LanguageModelName") => String.t() | atom(),
-        optional("LanguageOptions") => String.t() | atom(),
-        optional("PartialResultsStability") => list(any()),
-        optional("PiiEntityTypes") => String.t() | atom(),
-        optional("PreferredLanguage") => list(any()),
-        optional("SessionId") => String.t() | atom(),
-        optional("VocabularyFilterMethod") => list(any()),
-        optional("VocabularyFilterName") => String.t() | atom(),
-        optional("VocabularyFilterNames") => String.t() | atom(),
-        optional("VocabularyName") => String.t() | atom(),
-        optional("VocabularyNames") => String.t() | atom(),
-        required("AudioStream") => list(),
-        required("MediaEncoding") => list(any()),
-        required("MediaSampleRateHertz") => integer()
-      }
-
-  """
-  @type start_call_analytics_stream_transcription_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      call_analytics_entity() :: %{
-        "BeginOffsetMillis" => float(),
-        "Category" => String.t() | atom(),
-        "Confidence" => float(),
-        "Content" => String.t() | atom(),
-        "EndOffsetMillis" => float(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type call_analytics_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_patient_context() :: %{
-        "Pronouns" => list(any())
-      }
-
-  """
-  @type medical_scribe_patient_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_call_analytics_stream_transcription_response() :: %{
-        "CallAnalyticsTranscriptResultStream" => list(),
-        "ContentIdentificationType" => list(any()),
-        "ContentRedactionType" => list(any()),
-        "EnablePartialResultsStabilization" => boolean(),
-        "IdentifyLanguage" => boolean(),
-        "LanguageCode" => list(any()),
-        "LanguageModelName" => String.t() | atom(),
-        "LanguageOptions" => String.t() | atom(),
-        "MediaEncoding" => list(any()),
-        "MediaSampleRateHertz" => integer(),
-        "PartialResultsStability" => list(any()),
-        "PiiEntityTypes" => String.t() | atom(),
-        "PreferredLanguage" => list(any()),
-        "RequestId" => String.t() | atom(),
-        "SessionId" => String.t() | atom(),
-        "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t() | atom(),
-        "VocabularyFilterNames" => String.t() | atom(),
-        "VocabularyName" => String.t() | atom(),
-        "VocabularyNames" => String.t() | atom()
-      }
-
-  """
-  @type start_call_analytics_stream_transcription_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_context() :: %{
-        "PatientContext" => medical_scribe_patient_context()
-      }
-
-  """
-  @type medical_scribe_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      call_analytics_language_with_score() :: %{
-        "LanguageCode" => list(any()),
-        "Score" => float()
-      }
-
-  """
-  @type call_analytics_language_with_score() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_configuration_event() :: %{
-        "ChannelDefinitions" => list(medical_scribe_channel_definition()),
-        "EncryptionSettings" => medical_scribe_encryption_settings(),
-        "MedicalScribeContext" => medical_scribe_context(),
-        "PostStreamAnalyticsSettings" => medical_scribe_post_stream_analytics_settings(),
-        "ResourceAccessRoleArn" => String.t() | atom(),
-        "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t() | atom(),
-        "VocabularyName" => String.t() | atom()
-      }
-
-  """
-  @type medical_scribe_configuration_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_post_stream_analytics_result() :: %{
-        "ClinicalNoteGenerationResult" => clinical_note_generation_result()
-      }
-
-  """
-  @type medical_scribe_post_stream_analytics_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_medical_scribe_stream_response() :: %{
-        "LanguageCode" => list(any()),
-        "MediaEncoding" => list(any()),
-        "MediaSampleRateHertz" => integer(),
-        "RequestId" => String.t() | atom(),
-        "ResultStream" => list(),
-        "SessionId" => String.t() | atom()
-      }
-
-  """
-  @type start_medical_scribe_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transcript_event() :: %{
-        "Transcript" => transcript()
-      }
-
-  """
-  @type transcript_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      post_call_analytics_settings() :: %{
-        "ContentRedactionOutput" => list(any()),
-        "DataAccessRoleArn" => String.t() | atom(),
-        "OutputEncryptionKMSKeyId" => String.t() | atom(),
-        "OutputLocation" => String.t() | atom()
-      }
-
-  """
-  @type post_call_analytics_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_stream_transcription_request() :: %{
-        optional("ContentIdentificationType") => list(any()),
-        optional("ContentRedactionType") => list(any()),
-        optional("EnableChannelIdentification") => boolean(),
-        optional("EnablePartialResultsStabilization") => boolean(),
-        optional("IdentifyLanguage") => boolean(),
-        optional("IdentifyMultipleLanguages") => boolean(),
-        optional("LanguageCode") => list(any()),
-        optional("LanguageModelName") => String.t() | atom(),
-        optional("LanguageOptions") => String.t() | atom(),
-        optional("NumberOfChannels") => integer(),
-        optional("PartialResultsStability") => list(any()),
-        optional("PiiEntityTypes") => String.t() | atom(),
-        optional("PreferredLanguage") => list(any()),
-        optional("SessionId") => String.t() | atom(),
-        optional("SessionResumeWindow") => integer(),
-        optional("ShowSpeakerLabel") => boolean(),
-        optional("VocabularyFilterMethod") => list(any()),
-        optional("VocabularyFilterName") => String.t() | atom(),
-        optional("VocabularyFilterNames") => String.t() | atom(),
-        optional("VocabularyName") => String.t() | atom(),
-        optional("VocabularyNames") => String.t() | atom(),
-        required("AudioStream") => list(),
-        required("MediaEncoding") => list(any()),
-        required("MediaSampleRateHertz") => integer()
-      }
-
-  """
-  @type start_stream_transcription_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      clinical_note_generation_settings() :: %{
-        "NoteTemplate" => list(any()),
-        "OutputBucketName" => String.t() | atom()
-      }
-
-  """
-  @type clinical_note_generation_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_session_control_event() :: %{
-        "Type" => list(any())
-      }
-
-  """
-  @type medical_scribe_session_control_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_result() :: %{
-        "Alternatives" => list(medical_alternative()),
-        "ChannelId" => String.t() | atom(),
-        "EndTime" => float(),
-        "IsPartial" => boolean(),
-        "ResultId" => String.t() | atom(),
-        "StartTime" => float()
-      }
-
-  """
-  @type medical_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_transcript() :: %{
-        "Results" => list(medical_result())
-      }
-
-  """
-  @type medical_transcript() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_medical_scribe_stream_request() :: %{
-        optional("SessionId") => String.t() | atom(),
-        required("InputStream") => list(),
-        required("LanguageCode") => list(any()),
-        required("MediaEncoding") => list(any()),
-        required("MediaSampleRateHertz") => integer()
-      }
-
-  """
-  @type start_medical_scribe_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_event() :: %{
-        "AudioChunk" => binary()
-      }
-
-  """
-  @type audio_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_medical_scribe_stream_request() :: %{}
-
-  """
-  @type get_medical_scribe_stream_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      result() :: %{
-        "Alternatives" => list(alternative()),
-        "ChannelId" => String.t() | atom(),
-        "EndTime" => float(),
-        "IsPartial" => boolean(),
-        "LanguageCode" => list(any()),
-        "LanguageIdentification" => list(language_with_score()),
-        "ResultId" => String.t() | atom(),
-        "StartTime" => float()
-      }
-
-  """
-  @type result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_medical_stream_transcription_request() :: %{
-        optional("ContentIdentificationType") => list(any()),
-        optional("EnableChannelIdentification") => boolean(),
-        optional("NumberOfChannels") => integer(),
-        optional("SessionId") => String.t() | atom(),
-        optional("ShowSpeakerLabel") => boolean(),
-        optional("VocabularyName") => String.t() | atom(),
-        required("AudioStream") => list(),
-        required("LanguageCode") => list(any()),
-        required("MediaEncoding") => list(any()),
-        required("MediaSampleRateHertz") => integer(),
-        required("Specialty") => list(any()),
-        required("Type") => list(any())
-      }
-
-  """
-  @type start_medical_stream_transcription_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_audio_event() :: %{
-        "AudioChunk" => binary()
-      }
-
-  """
-  @type medical_scribe_audio_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_post_stream_analytics_settings() :: %{
-        "ClinicalNoteGenerationSettings" => clinical_note_generation_settings()
-      }
-
-  """
-  @type medical_scribe_post_stream_analytics_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_transcript_segment() :: %{
-        "BeginAudioTime" => float(),
-        "ChannelId" => String.t() | atom(),
-        "Content" => String.t() | atom(),
-        "EndAudioTime" => float(),
-        "IsPartial" => boolean(),
-        "Items" => list(medical_scribe_transcript_item()),
-        "SegmentId" => String.t() | atom()
-      }
-
-  """
-  @type medical_scribe_transcript_segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_transcript_event() :: %{
-        "TranscriptSegment" => medical_scribe_transcript_segment()
-      }
-
-  """
-  @type medical_scribe_transcript_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_transcript_event() :: %{
-        "Transcript" => medical_transcript()
-      }
-
-  """
-  @type medical_transcript_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_item() :: %{
-        "Confidence" => float(),
-        "Content" => String.t() | atom(),
-        "EndTime" => float(),
-        "Speaker" => String.t() | atom(),
-        "StartTime" => float(),
-        "Type" => list(any())
-      }
-
-  """
-  @type medical_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_medical_stream_transcription_response() :: %{
-        "ContentIdentificationType" => list(any()),
-        "EnableChannelIdentification" => boolean(),
-        "LanguageCode" => list(any()),
-        "MediaEncoding" => list(any()),
-        "MediaSampleRateHertz" => integer(),
-        "NumberOfChannels" => integer(),
-        "RequestId" => String.t() | atom(),
-        "SessionId" => String.t() | atom(),
-        "ShowSpeakerLabel" => boolean(),
-        "Specialty" => list(any()),
-        "TranscriptResultStream" => list(),
-        "Type" => list(any()),
-        "VocabularyName" => String.t() | atom()
-      }
-
-  """
-  @type start_medical_stream_transcription_response() :: %{(String.t() | atom()) => any()}
-
   @type get_medical_scribe_stream_errors() ::
-          bad_request_exception()
-          | resource_not_found_exception()
-          | internal_failure_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
+          | internal_failure_exception()
+          | bad_request_exception()
 
   @type start_call_analytics_stream_transcription_errors() ::
-          bad_request_exception()
-          | conflict_exception()
-          | internal_failure_exception()
+          service_unavailable_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type start_medical_scribe_stream_errors() ::
-          bad_request_exception()
-          | conflict_exception()
-          | internal_failure_exception()
+          service_unavailable_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type start_medical_stream_transcription_errors() ::
-          bad_request_exception()
-          | conflict_exception()
-          | internal_failure_exception()
+          service_unavailable_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type start_stream_transcription_errors() ::
-          bad_request_exception()
-          | conflict_exception()
-          | internal_failure_exception()
+          service_unavailable_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   def metadata do
     %{

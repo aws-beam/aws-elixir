@@ -14,325 +14,12 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Example:
 
-      describe_cluster_response() :: %{
-        "Cluster" => cluster()
-      }
-
-  """
-  @type describe_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cluster() :: %{
-        "ClusterArn" => String.t() | atom(),
-        "ClusterEndpoints" => list(cluster_endpoint()),
-        "Name" => String.t() | atom(),
-        "NetworkType" => list(any()),
-        "Owner" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type cluster() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_routing_control_request() :: %{}
-
-  """
-  @type describe_routing_control_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rule() :: %{
-        "ASSERTION" => assertion_rule(),
-        "GATING" => gating_rule()
-      }
-
-  """
-  @type rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cluster_response() :: %{}
-
-  """
-  @type delete_cluster_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_control_panel_response() :: %{
-        "ControlPanel" => control_panel()
-      }
-
-  """
-  @type create_control_panel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cluster_response() :: %{
-        "Cluster" => cluster()
-      }
-
-  """
-  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cluster_request() :: %{
-        required("ClusterArn") => String.t() | atom(),
-        required("NetworkType") => list(any())
-      }
-
-  """
-  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_routing_control_response() :: %{}
-
-  """
-  @type delete_routing_control_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_control_panels_response() :: %{
-        "ControlPanels" => list(control_panel()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_control_panels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_safety_rule_response() :: %{}
-
-  """
-  @type delete_safety_rule_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_safety_rules_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_safety_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_routing_control_response() :: %{
-        "RoutingControl" => routing_control()
-      }
-
-  """
-  @type describe_routing_control_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_safety_rules_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SafetyRules" => list(rule())
-      }
-
-  """
-  @type list_safety_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      routing_control() :: %{
-        "ControlPanelArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Owner" => String.t() | atom(),
-        "RoutingControlArn" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type routing_control() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_request() :: %{}
-
-  """
-  @type get_resource_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_control_panel_response() :: %{}
-
-  """
-  @type delete_control_panel_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      gating_rule() :: %{
-        "ControlPanelArn" => String.t() | atom(),
-        "GatingControls" => list(String.t() | atom()),
-        "Name" => String.t() | atom(),
-        "Owner" => String.t() | atom(),
-        "RuleConfig" => rule_config(),
-        "SafetyRuleArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "TargetControls" => list(String.t() | atom()),
-        "WaitPeriodMs" => integer()
-      }
-
-  """
-  @type gating_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_associated_route53_health_checks_response() :: %{
-        "HealthCheckIds" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_associated_route53_health_checks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_safety_rule_request() :: %{
-        optional("AssertionRule") => new_assertion_rule(),
-        optional("ClientToken") => String.t() | atom(),
-        optional("GatingRule") => new_gating_rule(),
-        optional("Tags") => map()
-      }
-
-  """
-  @type create_safety_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_control_panel_response() :: %{
-        "ControlPanel" => control_panel()
-      }
-
-  """
-  @type describe_control_panel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_clusters_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_routing_controls_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RoutingControls" => list(routing_control())
-      }
-
-  """
-  @type list_routing_controls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,21 +43,30 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("Tags") => map()
+      assertion_rule_update() :: %{
+        "Name" => String.t() | atom(),
+        "SafetyRuleArn" => String.t() | atom(),
+        "WaitPeriodMs" => integer()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type assertion_rule_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_safety_rule_request() :: %{}
+      cluster() :: %{
+        "ClusterArn" => String.t() | atom(),
+        "ClusterEndpoints" => list(cluster_endpoint()),
+        "Name" => String.t() | atom(),
+        "NetworkType" => list(any()),
+        "Owner" => String.t() | atom(),
+        "Status" => list(any())
+      }
 
   """
-  @type describe_safety_rule_request() :: %{}
+  @type cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -388,122 +84,12 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Example:
 
-      delete_control_panel_request() :: %{}
-
-  """
-  @type delete_control_panel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cluster_response() :: %{
-        "Cluster" => cluster()
-      }
-
-  """
-  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_routing_control_response() :: %{
-        "RoutingControl" => routing_control()
-      }
-
-  """
-  @type create_routing_control_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       conflict_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
   @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_associated_route53_health_checks_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_associated_route53_health_checks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cluster_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("NetworkType") => list(any()),
-        optional("Tags") => map(),
-        required("ClusterName") => String.t() | atom()
-      }
-
-  """
-  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_clusters_response() :: %{
-        "Clusters" => list(cluster()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_clusters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_safety_rule_request() :: %{
-        optional("AssertionRuleUpdate") => assertion_rule_update(),
-        optional("GatingRuleUpdate") => gating_rule_update()
-      }
-
-  """
-  @type update_safety_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_response() :: %{
-        "Policy" => String.t() | atom()
-      }
-
-  """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -526,97 +112,26 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
+      create_cluster_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("NetworkType") => list(any()),
+        optional("Tags") => map(),
+        required("ClusterName") => String.t() | atom()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      new_assertion_rule() :: %{
-        "AssertedControls" => list(String.t() | atom()),
-        "ControlPanelArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RuleConfig" => rule_config(),
-        "WaitPeriodMs" => integer()
+      create_cluster_response() :: %{
+        "Cluster" => cluster()
       }
 
   """
-  @type new_assertion_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_control_panels_request() :: %{
-        optional("ClusterArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_control_panels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_config() :: %{
-        "Inverted" => boolean(),
-        "Threshold" => integer(),
-        "Type" => list(any())
-      }
-
-  """
-  @type rule_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_cluster_request() :: %{}
-
-  """
-  @type describe_cluster_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_control_panel_request() :: %{
-        required("ControlPanelArn") => String.t() | atom(),
-        required("ControlPanelName") => String.t() | atom()
-      }
-
-  """
-  @type update_control_panel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_routing_control_request() :: %{
-        required("RoutingControlArn") => String.t() | atom(),
-        required("RoutingControlName") => String.t() | atom()
-      }
-
-  """
-  @type update_routing_control_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -636,12 +151,51 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Example:
 
-      update_routing_control_response() :: %{
+      create_control_panel_response() :: %{
+        "ControlPanel" => control_panel()
+      }
+
+  """
+  @type create_control_panel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_routing_control_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ControlPanelArn") => String.t() | atom(),
+        required("ClusterArn") => String.t() | atom(),
+        required("RoutingControlName") => String.t() | atom()
+      }
+
+  """
+  @type create_routing_control_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_routing_control_response() :: %{
         "RoutingControl" => routing_control()
       }
 
   """
-  @type update_routing_control_response() :: %{(String.t() | atom()) => any()}
+  @type create_routing_control_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_safety_rule_request() :: %{
+        optional("AssertionRule") => new_assertion_rule(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("GatingRule") => new_gating_rule(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_safety_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -668,26 +222,28 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Example:
 
-      list_routing_controls_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
+      delete_cluster_response() :: %{}
 
   """
-  @type list_routing_controls_request() :: %{(String.t() | atom()) => any()}
+  @type delete_cluster_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      assertion_rule_update() :: %{
-        "Name" => String.t() | atom(),
-        "SafetyRuleArn" => String.t() | atom(),
-        "WaitPeriodMs" => integer()
-      }
+      delete_control_panel_request() :: %{}
 
   """
-  @type assertion_rule_update() :: %{(String.t() | atom()) => any()}
+  @type delete_control_panel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_control_panel_response() :: %{}
+
+  """
+  @type delete_control_panel_response() :: %{}
 
   @typedoc """
 
@@ -702,15 +258,128 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Example:
 
-      create_routing_control_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("ControlPanelArn") => String.t() | atom(),
-        required("ClusterArn") => String.t() | atom(),
-        required("RoutingControlName") => String.t() | atom()
+      delete_routing_control_response() :: %{}
+
+  """
+  @type delete_routing_control_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_safety_rule_request() :: %{}
+
+  """
+  @type delete_safety_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_safety_rule_response() :: %{}
+
+  """
+  @type delete_safety_rule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_cluster_request() :: %{}
+
+  """
+  @type describe_cluster_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_cluster_response() :: %{
+        "Cluster" => cluster()
       }
 
   """
-  @type create_routing_control_request() :: %{(String.t() | atom()) => any()}
+  @type describe_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_control_panel_request() :: %{}
+
+  """
+  @type describe_control_panel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_control_panel_response() :: %{
+        "ControlPanel" => control_panel()
+      }
+
+  """
+  @type describe_control_panel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_routing_control_request() :: %{}
+
+  """
+  @type describe_routing_control_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_routing_control_response() :: %{
+        "RoutingControl" => routing_control()
+      }
+
+  """
+  @type describe_routing_control_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_safety_rule_request() :: %{}
+
+  """
+  @type describe_safety_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_safety_rule_response() :: %{
+        "AssertionRule" => assertion_rule(),
+        "GatingRule" => gating_rule()
+      }
+
+  """
+  @type describe_safety_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gating_rule() :: %{
+        "ControlPanelArn" => String.t() | atom(),
+        "GatingControls" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "RuleConfig" => rule_config(),
+        "SafetyRuleArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "TargetControls" => list(String.t() | atom()),
+        "WaitPeriodMs" => integer()
+      }
+
+  """
+  @type gating_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -729,10 +398,188 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Example:
 
-      describe_control_panel_request() :: %{}
+      get_resource_policy_request() :: %{}
 
   """
-  @type describe_control_panel_request() :: %{}
+  @type get_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_response() :: %{
+        "Policy" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_associated_route53_health_checks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_associated_route53_health_checks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_associated_route53_health_checks_response() :: %{
+        "HealthCheckIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_associated_route53_health_checks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_clusters_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_clusters_response() :: %{
+        "Clusters" => list(cluster()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_clusters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_control_panels_request() :: %{
+        optional("ClusterArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_control_panels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_control_panels_response() :: %{
+        "ControlPanels" => list(control_panel()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_control_panels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_routing_controls_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_routing_controls_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_routing_controls_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RoutingControls" => list(routing_control())
+      }
+
+  """
+  @type list_routing_controls_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_safety_rules_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_safety_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_safety_rules_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SafetyRules" => list(rule())
+      }
+
+  """
+  @type list_safety_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      new_assertion_rule() :: %{
+        "AssertedControls" => list(String.t() | atom()),
+        "ControlPanelArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RuleConfig" => rule_config(),
+        "WaitPeriodMs" => integer()
+      }
+
+  """
+  @type new_assertion_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -754,31 +601,149 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Example:
 
-      update_safety_rule_response() :: %{
-        "AssertionRule" => assertion_rule(),
-        "GatingRule" => gating_rule()
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type update_safety_rule_response() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_safety_rule_request() :: %{}
+      routing_control() :: %{
+        "ControlPanelArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "RoutingControlArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
 
   """
-  @type delete_safety_rule_request() :: %{}
+  @type routing_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
+      rule() :: %{
+        "ASSERTION" => assertion_rule(),
+        "GATING" => gating_rule()
+      }
 
   """
-  @type list_tags_for_resource_request() :: %{}
+  @type rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_config() :: %{
+        "Inverted" => boolean(),
+        "Threshold" => integer(),
+        "Type" => list(any())
+      }
+
+  """
+  @type rule_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cluster_request() :: %{
+        required("ClusterArn") => String.t() | atom(),
+        required("NetworkType") => list(any())
+      }
+
+  """
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cluster_response() :: %{
+        "Cluster" => cluster()
+      }
+
+  """
+  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_control_panel_request() :: %{
+        required("ControlPanelArn") => String.t() | atom(),
+        required("ControlPanelName") => String.t() | atom()
+      }
+
+  """
+  @type update_control_panel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -795,176 +760,211 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Example:
 
-      describe_safety_rule_response() :: %{
-        "AssertionRule" => assertion_rule(),
-        "GatingRule" => gating_rule()
+      update_routing_control_request() :: %{
+        required("RoutingControlArn") => String.t() | atom(),
+        required("RoutingControlName") => String.t() | atom()
       }
 
   """
-  @type describe_safety_rule_response() :: %{(String.t() | atom()) => any()}
+  @type update_routing_control_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
+      update_routing_control_response() :: %{
+        "RoutingControl" => routing_control()
+      }
+
+  """
+  @type update_routing_control_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_safety_rule_request() :: %{
+        optional("AssertionRuleUpdate") => assertion_rule_update(),
+        optional("GatingRuleUpdate") => gating_rule_update()
+      }
+
+  """
+  @type update_safety_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_safety_rule_response() :: %{
+        "AssertionRule" => assertion_rule(),
+        "GatingRule" => gating_rule()
+      }
+
+  """
+  @type update_safety_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_cluster_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_control_panel_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_routing_control_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
-  @type create_safety_rule_errors() :: internal_server_exception() | validation_exception()
+  @type create_safety_rule_errors() :: validation_exception() | internal_server_exception()
 
   @type delete_cluster_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_control_panel_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_routing_control_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_safety_rule_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type describe_cluster_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_control_panel_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_routing_control_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
-  @type describe_safety_rule_errors() :: resource_not_found_exception() | validation_exception()
+  @type describe_safety_rule_errors() :: validation_exception() | resource_not_found_exception()
 
   @type get_resource_policy_errors() ::
           resource_not_found_exception() | internal_server_exception()
 
   @type list_associated_route53_health_checks_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_clusters_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_control_panels_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_routing_controls_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_safety_rules_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_cluster_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_control_panel_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_routing_control_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_safety_rule_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   def metadata do
     %{
@@ -1389,15 +1389,15 @@ defmodule AWS.Route53RecoveryControlConfig do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1421,15 +1421,15 @@ defmodule AWS.Route53RecoveryControlConfig do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1465,8 +1465,8 @@ defmodule AWS.Route53RecoveryControlConfig do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(cluster_arn) do
+        [{"ClusterArn", cluster_arn} | query_params]
       else
         query_params
       end
@@ -1479,8 +1479,8 @@ defmodule AWS.Route53RecoveryControlConfig do
       end
 
     query_params =
-      if !is_nil(cluster_arn) do
-        [{"ClusterArn", cluster_arn} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1521,15 +1521,15 @@ defmodule AWS.Route53RecoveryControlConfig do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1566,15 +1566,15 @@ defmodule AWS.Route53RecoveryControlConfig do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end

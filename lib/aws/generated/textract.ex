@@ -17,195 +17,51 @@ defmodule AWS.Textract do
 
   ## Example:
       
-      delete_adapter_version_request() :: %{
-        required("AdapterId") => String.t() | atom(),
-        required("AdapterVersion") => String.t() | atom()
+      access_denied_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type delete_adapter_version_request() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      bounding_box() :: %{
-        "Height" => float(),
-        "Left" => float(),
-        "Top" => float(),
-        "Width" => float()
-      }
-      
-  """
-  @type bounding_box() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      identity_document() :: %{
-        "Blocks" => list(block()),
-        "DocumentIndex" => integer(),
-        "IdentityDocumentFields" => list(identity_document_field())
-      }
-      
-  """
-  @type identity_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_document_text_detection_response() :: %{
-        "Blocks" => list(block()),
-        "DetectDocumentTextModelVersion" => String.t() | atom(),
-        "DocumentMetadata" => document_metadata(),
-        "JobStatus" => list(any()),
-        "NextToken" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom(),
-        "Warnings" => list(warning())
-      }
-      
-  """
-  @type get_document_text_detection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_expense_analysis_response() :: %{
-        "JobId" => String.t() | atom()
-      }
-      
-  """
-  @type start_expense_analysis_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_adapter_version_response() :: %{
+      adapter() :: %{
         "AdapterId" => String.t() | atom(),
-        "AdapterVersion" => String.t() | atom()
+        "Pages" => list(String.t() | atom()),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type create_adapter_version_response() :: %{(String.t() | atom()) => any()}
+  @type adapter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_document_text_detection_response() :: %{
-        "JobId" => String.t() | atom()
+      adapter_overview() :: %{
+        "AdapterId" => String.t() | atom(),
+        "AdapterName" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "FeatureTypes" => list(list(any())())
       }
       
   """
-  @type start_document_text_detection_response() :: %{(String.t() | atom()) => any()}
+  @type adapter_overview() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      output_config() :: %{
-        "S3Bucket" => String.t() | atom(),
-        "S3Prefix" => String.t() | atom()
+      adapter_version_dataset_config() :: %{
+        "ManifestS3Object" => s3_object()
       }
       
   """
-  @type output_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      identity_document_field() :: %{
-        "Type" => analyze_id_detections(),
-        "ValueDetection" => analyze_id_detections()
-      }
-      
-  """
-  @type identity_document_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_metadata() :: %{
-        "Pages" => integer()
-      }
-      
-  """
-  @type document_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_document_analysis_response() :: %{
-        "JobId" => String.t() | atom()
-      }
-      
-  """
-  @type start_document_analysis_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expense_field() :: %{
-        "Currency" => expense_currency(),
-        "GroupProperties" => list(expense_group_property()),
-        "LabelDetection" => expense_detection(),
-        "PageNumber" => integer(),
-        "Type" => expense_type(),
-        "ValueDetection" => expense_detection()
-      }
-      
-  """
-  @type expense_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_adapter_request() :: %{
-        optional("AutoUpdate") => list(any()),
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("AdapterName") => String.t() | atom(),
-        required("FeatureTypes") => list(list(any())())
-      }
-      
-  """
-  @type create_adapter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluation_metric() :: %{
-        "F1Score" => float(),
-        "Precision" => float(),
-        "Recall" => float()
-      }
-      
-  """
-  @type evaluation_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_document_text_detection_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_document_text_detection_request() :: %{(String.t() | atom()) => any()}
+  @type adapter_version_dataset_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -224,155 +80,129 @@ defmodule AWS.Textract do
 
   ## Example:
       
-      create_adapter_response() :: %{
-        "AdapterId" => String.t() | atom()
+      adapter_version_overview() :: %{
+        "AdapterId" => String.t() | atom(),
+        "AdapterVersion" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "FeatureTypes" => list(list(any())()),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type create_adapter_response() :: %{(String.t() | atom()) => any()}
+  @type adapter_version_overview() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_object() :: %{
-        "Bucket" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Version" => String.t() | atom()
+      adapters_config() :: %{
+        "Adapters" => list(adapter())
       }
       
   """
-  @type s3_object() :: %{(String.t() | atom()) => any()}
+  @type adapters_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      expense_currency() :: %{
-        "Code" => String.t() | atom(),
-        "Confidence" => float()
+      analyze_document_request() :: %{
+        optional("AdaptersConfig") => adapters_config(),
+        optional("HumanLoopConfig") => human_loop_config(),
+        optional("QueriesConfig") => queries_config(),
+        required("Document") => document(),
+        required("FeatureTypes") => list(list(any())())
       }
       
   """
-  @type expense_currency() :: %{(String.t() | atom()) => any()}
+  @type analyze_document_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      throttling_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      analyze_document_response() :: %{
+        "AnalyzeDocumentModelVersion" => String.t() | atom(),
+        "Blocks" => list(block()),
+        "DocumentMetadata" => document_metadata(),
+        "HumanLoopActivationOutput" => human_loop_activation_output()
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type analyze_document_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_adapter_version_response() :: %{}
-      
-  """
-  @type delete_adapter_version_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_adapter_request() :: %{
-        required("AdapterId") => String.t() | atom()
+      analyze_expense_request() :: %{
+        required("Document") => document()
       }
       
   """
-  @type delete_adapter_request() :: %{(String.t() | atom()) => any()}
+  @type analyze_expense_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      queries_config() :: %{
-        "Queries" => list(query())
+      analyze_expense_response() :: %{
+        "DocumentMetadata" => document_metadata(),
+        "ExpenseDocuments" => list(expense_document())
       }
       
   """
-  @type queries_config() :: %{(String.t() | atom()) => any()}
+  @type analyze_expense_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      human_loop_data_attributes() :: %{
-        "ContentClassifiers" => list(list(any())())
-      }
-      
-  """
-  @type human_loop_data_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lending_detection() :: %{
+      analyze_id_detections() :: %{
         "Confidence" => float(),
-        "Geometry" => geometry(),
-        "SelectionStatus" => list(any()),
+        "NormalizedValue" => normalized_value(),
         "Text" => String.t() | atom()
       }
       
   """
-  @type lending_detection() :: %{(String.t() | atom()) => any()}
+  @type analyze_id_detections() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_document_analysis_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("JobId") => String.t() | atom()
+      analyze_id_request() :: %{
+        required("DocumentPages") => list(document())
       }
       
   """
-  @type get_document_analysis_request() :: %{(String.t() | atom()) => any()}
+  @type analyze_id_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      prediction() :: %{
-        "Confidence" => float(),
-        "Value" => String.t() | atom()
+      analyze_id_response() :: %{
+        "AnalyzeIDModelVersion" => String.t() | atom(),
+        "DocumentMetadata" => document_metadata(),
+        "IdentityDocuments" => list(identity_document())
       }
       
   """
-  @type prediction() :: %{(String.t() | atom()) => any()}
+  @type analyze_id_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      lending_result() :: %{
-        "Extractions" => list(extraction()),
-        "Page" => integer(),
-        "PageClassification" => page_classification()
+      bad_document_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type lending_result() :: %{(String.t() | atom()) => any()}
+  @type bad_document_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -403,347 +233,134 @@ defmodule AWS.Textract do
 
   ## Example:
       
-      normalized_value() :: %{
-        "Value" => String.t() | atom(),
-        "ValueType" => list(any())
+      bounding_box() :: %{
+        "Height" => float(),
+        "Left" => float(),
+        "Top" => float(),
+        "Width" => float()
       }
       
   """
-  @type normalized_value() :: %{(String.t() | atom()) => any()}
+  @type bounding_box() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      analyze_expense_response() :: %{
-        "DocumentMetadata" => document_metadata(),
-        "ExpenseDocuments" => list(expense_document())
-      }
-      
-  """
-  @type analyze_expense_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
+      conflict_exception() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_adapter_request() :: %{
-        optional("AdapterName") => String.t() | atom(),
+      create_adapter_request() :: %{
         optional("AutoUpdate") => list(any()),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("AdapterName") => String.t() | atom(),
+        required("FeatureTypes") => list(list(any())())
+      }
+      
+  """
+  @type create_adapter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_adapter_response() :: %{
+        "AdapterId" => String.t() | atom()
+      }
+      
+  """
+  @type create_adapter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_adapter_version_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("KMSKeyId") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("AdapterId") => String.t() | atom(),
+        required("DatasetConfig") => adapter_version_dataset_config(),
+        required("OutputConfig") => output_config()
+      }
+      
+  """
+  @type create_adapter_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_adapter_version_response() :: %{
+        "AdapterId" => String.t() | atom(),
+        "AdapterVersion" => String.t() | atom()
+      }
+      
+  """
+  @type create_adapter_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_adapter_request() :: %{
         required("AdapterId") => String.t() | atom()
       }
       
   """
-  @type update_adapter_request() :: %{(String.t() | atom()) => any()}
+  @type delete_adapter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_document_text_detection_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("JobTag") => String.t() | atom(),
-        optional("KMSKeyId") => String.t() | atom(),
-        optional("NotificationChannel") => notification_channel(),
-        optional("OutputConfig") => output_config(),
-        required("DocumentLocation") => document_location()
-      }
+      delete_adapter_response() :: %{}
       
   """
-  @type start_document_text_detection_request() :: %{(String.t() | atom()) => any()}
+  @type delete_adapter_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      start_expense_analysis_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("JobTag") => String.t() | atom(),
-        optional("KMSKeyId") => String.t() | atom(),
-        optional("NotificationChannel") => notification_channel(),
-        optional("OutputConfig") => output_config(),
-        required("DocumentLocation") => document_location()
+      delete_adapter_version_request() :: %{
+        required("AdapterId") => String.t() | atom(),
+        required("AdapterVersion") => String.t() | atom()
       }
       
   """
-  @type start_expense_analysis_request() :: %{(String.t() | atom()) => any()}
+  @type delete_adapter_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      idempotent_parameter_mismatch_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
+      delete_adapter_version_response() :: %{}
       
   """
-  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_adapter_version_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      human_loop_activation_output() :: %{
-        "HumanLoopActivationConditionsEvaluationResults" => String.t() | atom(),
-        "HumanLoopActivationReasons" => list(String.t() | atom()),
-        "HumanLoopArn" => String.t() | atom()
+      detect_document_text_request() :: %{
+        required("Document") => document()
       }
       
   """
-  @type human_loop_activation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      adapters_config() :: %{
-        "Adapters" => list(adapter())
-      }
-      
-  """
-  @type adapters_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      analyze_document_response() :: %{
-        "AnalyzeDocumentModelVersion" => String.t() | atom(),
-        "Blocks" => list(block()),
-        "DocumentMetadata" => document_metadata(),
-        "HumanLoopActivationOutput" => human_loop_activation_output()
-      }
-      
-  """
-  @type analyze_document_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_error() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      line_item_group() :: %{
-        "LineItemGroupIndex" => integer(),
-        "LineItems" => list(line_item_fields())
-      }
-      
-  """
-  @type line_item_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_job_id_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_job_id_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_lending_analysis_response() :: %{
-        "JobId" => String.t() | atom()
-      }
-      
-  """
-  @type start_lending_analysis_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notification_channel() :: %{
-        "RoleArn" => String.t() | atom(),
-        "SNSTopicArn" => String.t() | atom()
-      }
-      
-  """
-  @type notification_channel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_adapter_response() :: %{
-        "AdapterId" => String.t() | atom(),
-        "AdapterName" => String.t() | atom(),
-        "AutoUpdate" => list(any()),
-        "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "FeatureTypes" => list(list(any())())
-      }
-      
-  """
-  @type update_adapter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_adapter_request() :: %{
-        required("AdapterId") => String.t() | atom()
-      }
-      
-  """
-  @type get_adapter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      adapter_overview() :: %{
-        "AdapterId" => String.t() | atom(),
-        "AdapterName" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "FeatureTypes" => list(list(any())())
-      }
-      
-  """
-  @type adapter_overview() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_adapters_request() :: %{
-        optional("AfterCreationTime") => non_neg_integer(),
-        optional("BeforeCreationTime") => non_neg_integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_adapters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_adapter_versions_request() :: %{
-        optional("AdapterId") => String.t() | atom(),
-        optional("AfterCreationTime") => non_neg_integer(),
-        optional("BeforeCreationTime") => non_neg_integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_adapter_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      extraction() :: %{
-        "ExpenseDocument" => expense_document(),
-        "IdentityDocument" => identity_document(),
-        "LendingDocument" => lending_document()
-      }
-      
-  """
-  @type extraction() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      relationship() :: %{
-        "Ids" => list(String.t() | atom()),
-        "Type" => list(any())
-      }
-      
-  """
-  @type relationship() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_document_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_document_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      point() :: %{
-        "X" => float(),
-        "Y" => float()
-      }
-      
-  """
-  @type point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      split_document() :: %{
-        "Index" => integer(),
-        "Pages" => list(integer())
-      }
-      
-  """
-  @type split_document() :: %{(String.t() | atom()) => any()}
+  @type detect_document_text_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -762,88 +379,264 @@ defmodule AWS.Textract do
 
   ## Example:
       
-      human_loop_config() :: %{
-        "DataAttributes" => human_loop_data_attributes(),
-        "FlowDefinitionArn" => String.t() | atom(),
-        "HumanLoopName" => String.t() | atom()
+      detected_signature() :: %{
+        "Page" => integer()
       }
       
   """
-  @type human_loop_config() :: %{(String.t() | atom()) => any()}
+  @type detected_signature() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => map()
+      document() :: %{
+        "Bytes" => binary(),
+        "S3Object" => s3_object()
       }
       
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      bad_document_exception() :: %{
+      document_group() :: %{
+        "DetectedSignatures" => list(detected_signature()),
+        "SplitDocuments" => list(split_document()),
+        "Type" => String.t() | atom(),
+        "UndetectedSignatures" => list(undetected_signature())
+      }
+      
+  """
+  @type document_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_location() :: %{
+        "S3Object" => s3_object()
+      }
+      
+  """
+  @type document_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_metadata() :: %{
+        "Pages" => integer()
+      }
+      
+  """
+  @type document_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_too_large_exception() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type bad_document_exception() :: %{(String.t() | atom()) => any()}
+  @type document_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_adapters_response() :: %{
-        "Adapters" => list(adapter_overview()),
-        "NextToken" => String.t() | atom()
+      evaluation_metric() :: %{
+        "F1Score" => float(),
+        "Precision" => float(),
+        "Recall" => float()
       }
       
   """
-  @type list_adapters_response() :: %{(String.t() | atom()) => any()}
+  @type evaluation_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_lending_analysis_request() :: %{
+      expense_currency() :: %{
+        "Code" => String.t() | atom(),
+        "Confidence" => float()
+      }
+      
+  """
+  @type expense_currency() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expense_detection() :: %{
+        "Confidence" => float(),
+        "Geometry" => geometry(),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type expense_detection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expense_document() :: %{
+        "Blocks" => list(block()),
+        "ExpenseIndex" => integer(),
+        "LineItemGroups" => list(line_item_group()),
+        "SummaryFields" => list(expense_field())
+      }
+      
+  """
+  @type expense_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expense_field() :: %{
+        "Currency" => expense_currency(),
+        "GroupProperties" => list(expense_group_property()),
+        "LabelDetection" => expense_detection(),
+        "PageNumber" => integer(),
+        "Type" => expense_type(),
+        "ValueDetection" => expense_detection()
+      }
+      
+  """
+  @type expense_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expense_group_property() :: %{
+        "Id" => String.t() | atom(),
+        "Types" => list(String.t() | atom())
+      }
+      
+  """
+  @type expense_group_property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expense_type() :: %{
+        "Confidence" => float(),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type expense_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extraction() :: %{
+        "ExpenseDocument" => expense_document(),
+        "IdentityDocument" => identity_document(),
+        "LendingDocument" => lending_document()
+      }
+      
+  """
+  @type extraction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      geometry() :: %{
+        "BoundingBox" => bounding_box(),
+        "Polygon" => list(point()),
+        "RotationAngle" => float()
+      }
+      
+  """
+  @type geometry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_adapter_request() :: %{
+        required("AdapterId") => String.t() | atom()
+      }
+      
+  """
+  @type get_adapter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_adapter_response() :: %{
+        "AdapterId" => String.t() | atom(),
+        "AdapterName" => String.t() | atom(),
+        "AutoUpdate" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "FeatureTypes" => list(list(any())()),
+        "Tags" => map()
+      }
+      
+  """
+  @type get_adapter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_adapter_version_request() :: %{
+        required("AdapterId") => String.t() | atom(),
+        required("AdapterVersion") => String.t() | atom()
+      }
+      
+  """
+  @type get_adapter_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_adapter_version_response() :: %{
+        "AdapterId" => String.t() | atom(),
+        "AdapterVersion" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "DatasetConfig" => adapter_version_dataset_config(),
+        "EvaluationMetrics" => list(adapter_version_evaluation_metric()),
+        "FeatureTypes" => list(list(any())()),
+        "KMSKeyId" => String.t() | atom(),
+        "OutputConfig" => output_config(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "Tags" => map()
+      }
+      
+  """
+  @type get_adapter_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_document_analysis_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_lending_analysis_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_adapter_version_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("KMSKeyId") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("AdapterId") => String.t() | atom(),
-        required("DatasetConfig") => adapter_version_dataset_config(),
-        required("OutputConfig") => output_config()
-      }
-      
-  """
-  @type create_adapter_version_request() :: %{(String.t() | atom()) => any()}
+  @type get_document_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -866,51 +659,155 @@ defmodule AWS.Textract do
 
   ## Example:
       
-      adapter() :: %{
-        "AdapterId" => String.t() | atom(),
-        "Pages" => list(String.t() | atom()),
-        "Version" => String.t() | atom()
+      get_document_text_detection_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type adapter() :: %{(String.t() | atom()) => any()}
+  @type get_document_text_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      provisioned_throughput_exceeded_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      get_document_text_detection_response() :: %{
+        "Blocks" => list(block()),
+        "DetectDocumentTextModelVersion" => String.t() | atom(),
+        "DocumentMetadata" => document_metadata(),
+        "JobStatus" => list(any()),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "Warnings" => list(warning())
       }
       
   """
-  @type provisioned_throughput_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type get_document_text_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      document_group() :: %{
-        "DetectedSignatures" => list(detected_signature()),
-        "SplitDocuments" => list(split_document()),
-        "Type" => String.t() | atom(),
-        "UndetectedSignatures" => list(undetected_signature())
+      get_expense_analysis_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type document_group() :: %{(String.t() | atom()) => any()}
+  @type get_expense_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      adapter_version_dataset_config() :: %{
-        "ManifestS3Object" => s3_object()
+      get_expense_analysis_response() :: %{
+        "AnalyzeExpenseModelVersion" => String.t() | atom(),
+        "DocumentMetadata" => document_metadata(),
+        "ExpenseDocuments" => list(expense_document()),
+        "JobStatus" => list(any()),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "Warnings" => list(warning())
       }
       
   """
-  @type adapter_version_dataset_config() :: %{(String.t() | atom()) => any()}
+  @type get_expense_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lending_analysis_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_lending_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lending_analysis_response() :: %{
+        "AnalyzeLendingModelVersion" => String.t() | atom(),
+        "DocumentMetadata" => document_metadata(),
+        "JobStatus" => list(any()),
+        "NextToken" => String.t() | atom(),
+        "Results" => list(lending_result()),
+        "StatusMessage" => String.t() | atom(),
+        "Warnings" => list(warning())
+      }
+      
+  """
+  @type get_lending_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lending_analysis_summary_request() :: %{
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_lending_analysis_summary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lending_analysis_summary_response() :: %{
+        "AnalyzeLendingModelVersion" => String.t() | atom(),
+        "DocumentMetadata" => document_metadata(),
+        "JobStatus" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "Summary" => lending_summary(),
+        "Warnings" => list(warning())
+      }
+      
+  """
+  @type get_lending_analysis_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      human_loop_activation_output() :: %{
+        "HumanLoopActivationConditionsEvaluationResults" => String.t() | atom(),
+        "HumanLoopActivationReasons" => list(String.t() | atom()),
+        "HumanLoopArn" => String.t() | atom()
+      }
+      
+  """
+  @type human_loop_activation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      human_loop_config() :: %{
+        "DataAttributes" => human_loop_data_attributes(),
+        "FlowDefinitionArn" => String.t() | atom(),
+        "HumanLoopName" => String.t() | atom()
+      }
+      
+  """
+  @type human_loop_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      human_loop_data_attributes() :: %{
+        "ContentClassifiers" => list(list(any())())
+      }
+      
+  """
+  @type human_loop_data_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -931,108 +828,62 @@ defmodule AWS.Textract do
 
   ## Example:
       
-      conflict_exception() :: %{
+      idempotent_parameter_mismatch_exception() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      expense_detection() :: %{
-        "Confidence" => float(),
-        "Geometry" => geometry(),
-        "Text" => String.t() | atom()
+      identity_document() :: %{
+        "Blocks" => list(block()),
+        "DocumentIndex" => integer(),
+        "IdentityDocumentFields" => list(identity_document_field())
       }
       
   """
-  @type expense_detection() :: %{(String.t() | atom()) => any()}
+  @type identity_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_expense_analysis_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("JobId") => String.t() | atom()
+      identity_document_field() :: %{
+        "Type" => analyze_id_detections(),
+        "ValueDetection" => analyze_id_detections()
       }
       
   """
-  @type get_expense_analysis_request() :: %{(String.t() | atom()) => any()}
+  @type identity_document_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      analyze_id_response() :: %{
-        "AnalyzeIDModelVersion" => String.t() | atom(),
-        "DocumentMetadata" => document_metadata(),
-        "IdentityDocuments" => list(identity_document())
+      internal_server_error() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type analyze_id_response() :: %{(String.t() | atom()) => any()}
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      lending_summary() :: %{
-        "DocumentGroups" => list(document_group()),
-        "UndetectedDocumentTypes" => list(String.t() | atom())
+      invalid_job_id_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type lending_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      analyze_id_request() :: %{
-        required("DocumentPages") => list(document())
-      }
-      
-  """
-  @type analyze_id_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      warning() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Pages" => list(integer())
-      }
-      
-  """
-  @type warning() :: %{(String.t() | atom()) => any()}
+  @type invalid_job_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1050,125 +901,39 @@ defmodule AWS.Textract do
 
   ## Example:
       
-      geometry() :: %{
-        "BoundingBox" => bounding_box(),
-        "Polygon" => list(point()),
-        "RotationAngle" => float()
+      invalid_parameter_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type geometry() :: %{(String.t() | atom()) => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      page_classification() :: %{
-        "PageNumber" => list(prediction()),
-        "PageType" => list(prediction())
+      invalid_s3_object_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type page_classification() :: %{(String.t() | atom()) => any()}
+  @type invalid_s3_object_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      undetected_signature() :: %{
-        "Page" => integer()
+      lending_detection() :: %{
+        "Confidence" => float(),
+        "Geometry" => geometry(),
+        "SelectionStatus" => list(any()),
+        "Text" => String.t() | atom()
       }
       
   """
-  @type undetected_signature() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      analyze_expense_request() :: %{
-        required("Document") => document()
-      }
-      
-  """
-  @type analyze_expense_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_location() :: %{
-        "S3Object" => s3_object()
-      }
-      
-  """
-  @type document_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_lending_analysis_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("JobTag") => String.t() | atom(),
-        optional("KMSKeyId") => String.t() | atom(),
-        optional("NotificationChannel") => notification_channel(),
-        optional("OutputConfig") => output_config(),
-        required("DocumentLocation") => document_location()
-      }
-      
-  """
-  @type start_lending_analysis_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_lending_analysis_summary_request() :: %{
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_lending_analysis_summary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_adapter_response() :: %{}
-      
-  """
-  @type delete_adapter_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_document_analysis_request() :: %{
-        optional("AdaptersConfig") => adapters_config(),
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("JobTag") => String.t() | atom(),
-        optional("KMSKeyId") => String.t() | atom(),
-        optional("NotificationChannel") => notification_channel(),
-        optional("OutputConfig") => output_config(),
-        optional("QueriesConfig") => queries_config(),
-        required("DocumentLocation") => document_location(),
-        required("FeatureTypes") => list(list(any())())
-      }
-      
-  """
-  @type start_document_analysis_request() :: %{(String.t() | atom()) => any()}
+  @type lending_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1199,46 +964,38 @@ defmodule AWS.Textract do
 
   ## Example:
       
-      get_lending_analysis_summary_response() :: %{
-        "AnalyzeLendingModelVersion" => String.t() | atom(),
-        "DocumentMetadata" => document_metadata(),
-        "JobStatus" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "Summary" => lending_summary(),
-        "Warnings" => list(warning())
+      lending_result() :: %{
+        "Extractions" => list(extraction()),
+        "Page" => integer(),
+        "PageClassification" => page_classification()
       }
       
   """
-  @type get_lending_analysis_summary_response() :: %{(String.t() | atom()) => any()}
+  @type lending_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      document() :: %{
-        "Bytes" => binary(),
-        "S3Object" => s3_object()
+      lending_summary() :: %{
+        "DocumentGroups" => list(document_group()),
+        "UndetectedDocumentTypes" => list(String.t() | atom())
       }
       
   """
-  @type document() :: %{(String.t() | atom()) => any()}
+  @type lending_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_adapter_response() :: %{
-        "AdapterId" => String.t() | atom(),
-        "AdapterName" => String.t() | atom(),
-        "AutoUpdate" => list(any()),
-        "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "FeatureTypes" => list(list(any())()),
-        "Tags" => map()
+      limit_exceeded_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type get_adapter_response() :: %{(String.t() | atom()) => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1255,120 +1012,183 @@ defmodule AWS.Textract do
 
   ## Example:
       
-      expense_group_property() :: %{
-        "Id" => String.t() | atom(),
-        "Types" => list(String.t() | atom())
+      line_item_group() :: %{
+        "LineItemGroupIndex" => integer(),
+        "LineItems" => list(line_item_fields())
       }
       
   """
-  @type expense_group_property() :: %{(String.t() | atom()) => any()}
+  @type line_item_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_expense_analysis_response() :: %{
-        "AnalyzeExpenseModelVersion" => String.t() | atom(),
-        "DocumentMetadata" => document_metadata(),
-        "ExpenseDocuments" => list(expense_document()),
-        "JobStatus" => list(any()),
-        "NextToken" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom(),
-        "Warnings" => list(warning())
+      list_adapter_versions_request() :: %{
+        optional("AdapterId") => String.t() | atom(),
+        optional("AfterCreationTime") => non_neg_integer(),
+        optional("BeforeCreationTime") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_expense_analysis_response() :: %{(String.t() | atom()) => any()}
+  @type list_adapter_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_adapter_version_response() :: %{
-        "AdapterId" => String.t() | atom(),
-        "AdapterVersion" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "DatasetConfig" => adapter_version_dataset_config(),
-        "EvaluationMetrics" => list(adapter_version_evaluation_metric()),
-        "FeatureTypes" => list(list(any())()),
-        "KMSKeyId" => String.t() | atom(),
-        "OutputConfig" => output_config(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
+      list_adapter_versions_response() :: %{
+        "AdapterVersions" => list(adapter_version_overview()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_adapter_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_adapters_request() :: %{
+        optional("AfterCreationTime") => non_neg_integer(),
+        optional("BeforeCreationTime") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_adapters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_adapters_response() :: %{
+        "Adapters" => list(adapter_overview()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_adapters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
       
   """
-  @type get_adapter_version_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      analyze_document_request() :: %{
-        optional("AdaptersConfig") => adapters_config(),
-        optional("HumanLoopConfig") => human_loop_config(),
-        optional("QueriesConfig") => queries_config(),
-        required("Document") => document(),
-        required("FeatureTypes") => list(list(any())())
+      normalized_value() :: %{
+        "Value" => String.t() | atom(),
+        "ValueType" => list(any())
       }
       
   """
-  @type analyze_document_request() :: %{(String.t() | atom()) => any()}
+  @type normalized_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      expense_document() :: %{
-        "Blocks" => list(block()),
-        "ExpenseIndex" => integer(),
-        "LineItemGroups" => list(line_item_group()),
-        "SummaryFields" => list(expense_field())
+      notification_channel() :: %{
+        "RoleArn" => String.t() | atom(),
+        "SNSTopicArn" => String.t() | atom()
       }
       
   """
-  @type expense_document() :: %{(String.t() | atom()) => any()}
+  @type notification_channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_parameter_exception() :: %{
+      output_config() :: %{
+        "S3Bucket" => String.t() | atom(),
+        "S3Prefix" => String.t() | atom()
+      }
+      
+  """
+  @type output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      page_classification() :: %{
+        "PageNumber" => list(prediction()),
+        "PageType" => list(prediction())
+      }
+      
+  """
+  @type page_classification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      point() :: %{
+        "X" => float(),
+        "Y" => float()
+      }
+      
+  """
+  @type point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      prediction() :: %{
+        "Confidence" => float(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type prediction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provisioned_throughput_exceeded_exception() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+  @type provisioned_throughput_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_s3_object_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      queries_config() :: %{
+        "Queries" => list(query())
       }
       
   """
-  @type invalid_s3_object_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      adapter_version_overview() :: %{
-        "AdapterId" => String.t() | atom(),
-        "AdapterVersion" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "FeatureTypes" => list(list(any())()),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-      
-  """
-  @type adapter_version_overview() :: %{(String.t() | atom()) => any()}
+  @type queries_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1387,113 +1207,38 @@ defmodule AWS.Textract do
 
   ## Example:
       
-      detected_signature() :: %{
-        "Page" => integer()
+      relationship() :: %{
+        "Ids" => list(String.t() | atom()),
+        "Type" => list(any())
       }
       
   """
-  @type detected_signature() :: %{(String.t() | atom()) => any()}
+  @type relationship() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_adapter_versions_response() :: %{
-        "AdapterVersions" => list(adapter_version_overview()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_adapter_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_too_large_exception() :: %{
+      resource_not_found_exception() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type document_too_large_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      expense_type() :: %{
-        "Confidence" => float(),
-        "Text" => String.t() | atom()
+      s3_object() :: %{
+        "Bucket" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type expense_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      signature_detection() :: %{
-        "Confidence" => float(),
-        "Geometry" => geometry()
-      }
-      
-  """
-  @type signature_detection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      analyze_id_detections() :: %{
-        "Confidence" => float(),
-        "NormalizedValue" => normalized_value(),
-        "Text" => String.t() | atom()
-      }
-      
-  """
-  @type analyze_id_detections() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_adapter_version_request() :: %{
-        required("AdapterId") => String.t() | atom(),
-        required("AdapterVersion") => String.t() | atom()
-      }
-      
-  """
-  @type get_adapter_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_lending_analysis_response() :: %{
-        "AnalyzeLendingModelVersion" => String.t() | atom(),
-        "DocumentMetadata" => document_metadata(),
-        "JobStatus" => list(any()),
-        "NextToken" => String.t() | atom(),
-        "Results" => list(lending_result()),
-        "StatusMessage" => String.t() | atom(),
-        "Warnings" => list(warning())
-      }
-      
-  """
-  @type get_lending_analysis_response() :: %{(String.t() | atom()) => any()}
+  @type s3_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1511,283 +1256,538 @@ defmodule AWS.Textract do
 
   ## Example:
       
-      detect_document_text_request() :: %{
-        required("Document") => document()
+      signature_detection() :: %{
+        "Confidence" => float(),
+        "Geometry" => geometry()
       }
       
   """
-  @type detect_document_text_request() :: %{(String.t() | atom()) => any()}
+  @type signature_detection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      split_document() :: %{
+        "Index" => integer(),
+        "Pages" => list(integer())
+      }
+      
+  """
+  @type split_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_document_analysis_request() :: %{
+        optional("AdaptersConfig") => adapters_config(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
+        optional("KMSKeyId") => String.t() | atom(),
+        optional("NotificationChannel") => notification_channel(),
+        optional("OutputConfig") => output_config(),
+        optional("QueriesConfig") => queries_config(),
+        required("DocumentLocation") => document_location(),
+        required("FeatureTypes") => list(list(any())())
+      }
+      
+  """
+  @type start_document_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_document_analysis_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type start_document_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_document_text_detection_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
+        optional("KMSKeyId") => String.t() | atom(),
+        optional("NotificationChannel") => notification_channel(),
+        optional("OutputConfig") => output_config(),
+        required("DocumentLocation") => document_location()
+      }
+      
+  """
+  @type start_document_text_detection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_document_text_detection_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type start_document_text_detection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_expense_analysis_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
+        optional("KMSKeyId") => String.t() | atom(),
+        optional("NotificationChannel") => notification_channel(),
+        optional("OutputConfig") => output_config(),
+        required("DocumentLocation") => document_location()
+      }
+      
+  """
+  @type start_expense_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_expense_analysis_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type start_expense_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_lending_analysis_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
+        optional("KMSKeyId") => String.t() | atom(),
+        optional("NotificationChannel") => notification_channel(),
+        optional("OutputConfig") => output_config(),
+        required("DocumentLocation") => document_location()
+      }
+      
+  """
+  @type start_lending_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_lending_analysis_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type start_lending_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => map()
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      undetected_signature() :: %{
+        "Page" => integer()
+      }
+      
+  """
+  @type undetected_signature() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_document_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_document_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_adapter_request() :: %{
+        optional("AdapterName") => String.t() | atom(),
+        optional("AutoUpdate") => list(any()),
+        optional("Description") => String.t() | atom(),
+        required("AdapterId") => String.t() | atom()
+      }
+      
+  """
+  @type update_adapter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_adapter_response() :: %{
+        "AdapterId" => String.t() | atom(),
+        "AdapterName" => String.t() | atom(),
+        "AutoUpdate" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "FeatureTypes" => list(list(any())())
+      }
+      
+  """
+  @type update_adapter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      warning() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Pages" => list(integer())
+      }
+      
+  """
+  @type warning() :: %{(String.t() | atom()) => any()}
 
   @type analyze_document_errors() ::
-          document_too_large_exception()
+          unsupported_document_exception()
+          | throttling_exception()
+          | provisioned_throughput_exceeded_exception()
           | invalid_s3_object_exception()
           | invalid_parameter_exception()
-          | human_loop_quota_exceeded_exception()
-          | provisioned_throughput_exceeded_exception()
-          | bad_document_exception()
-          | unsupported_document_exception()
           | internal_server_error()
+          | human_loop_quota_exceeded_exception()
+          | document_too_large_exception()
+          | bad_document_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type analyze_expense_errors() ::
-          document_too_large_exception()
+          unsupported_document_exception()
+          | throttling_exception()
+          | provisioned_throughput_exceeded_exception()
           | invalid_s3_object_exception()
           | invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | bad_document_exception()
-          | unsupported_document_exception()
           | internal_server_error()
+          | document_too_large_exception()
+          | bad_document_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type analyze_id_errors() ::
-          document_too_large_exception()
+          unsupported_document_exception()
+          | throttling_exception()
+          | provisioned_throughput_exceeded_exception()
           | invalid_s3_object_exception()
           | invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | bad_document_exception()
-          | unsupported_document_exception()
           | internal_server_error()
+          | document_too_large_exception()
+          | bad_document_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_adapter_errors() ::
-          service_quota_exceeded_exception()
-          | invalid_parameter_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | provisioned_throughput_exceeded_exception()
-          | validation_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_adapter_version_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
           | invalid_s3_object_exception()
           | invalid_parameter_exception()
           | invalid_kms_key_exception()
-          | conflict_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | validation_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_adapter_errors() ::
-          invalid_parameter_exception()
-          | conflict_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | internal_server_error()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_adapter_version_errors() ::
-          invalid_parameter_exception()
-          | conflict_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | internal_server_error()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type detect_document_text_errors() ::
-          document_too_large_exception()
+          unsupported_document_exception()
+          | throttling_exception()
+          | provisioned_throughput_exceeded_exception()
           | invalid_s3_object_exception()
           | invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | bad_document_exception()
-          | unsupported_document_exception()
           | internal_server_error()
+          | document_too_large_exception()
+          | bad_document_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_adapter_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_adapter_version_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_document_analysis_errors() ::
-          invalid_s3_object_exception()
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
           | invalid_parameter_exception()
           | invalid_kms_key_exception()
-          | provisioned_throughput_exceeded_exception()
           | invalid_job_id_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_document_text_detection_errors() ::
-          invalid_s3_object_exception()
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
           | invalid_parameter_exception()
           | invalid_kms_key_exception()
-          | provisioned_throughput_exceeded_exception()
           | invalid_job_id_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_expense_analysis_errors() ::
-          invalid_s3_object_exception()
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
           | invalid_parameter_exception()
           | invalid_kms_key_exception()
-          | provisioned_throughput_exceeded_exception()
           | invalid_job_id_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_lending_analysis_errors() ::
-          invalid_s3_object_exception()
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
           | invalid_parameter_exception()
           | invalid_kms_key_exception()
-          | provisioned_throughput_exceeded_exception()
           | invalid_job_id_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_lending_analysis_summary_errors() ::
-          invalid_s3_object_exception()
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
           | invalid_parameter_exception()
           | invalid_kms_key_exception()
-          | provisioned_throughput_exceeded_exception()
           | invalid_job_id_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_adapter_versions_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_adapters_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
+          | throttling_exception()
           | provisioned_throughput_exceeded_exception()
-          | validation_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_document_analysis_errors() ::
-          document_too_large_exception()
+          unsupported_document_exception()
+          | throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
           | invalid_s3_object_exception()
           | invalid_parameter_exception()
           | invalid_kms_key_exception()
-          | provisioned_throughput_exceeded_exception()
-          | bad_document_exception()
-          | unsupported_document_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
+          | document_too_large_exception()
+          | bad_document_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_document_text_detection_errors() ::
-          document_too_large_exception()
+          unsupported_document_exception()
+          | throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
           | invalid_s3_object_exception()
           | invalid_parameter_exception()
           | invalid_kms_key_exception()
-          | provisioned_throughput_exceeded_exception()
-          | bad_document_exception()
-          | unsupported_document_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
+          | document_too_large_exception()
+          | bad_document_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_expense_analysis_errors() ::
-          document_too_large_exception()
+          unsupported_document_exception()
+          | throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
           | invalid_s3_object_exception()
           | invalid_parameter_exception()
           | invalid_kms_key_exception()
-          | provisioned_throughput_exceeded_exception()
-          | bad_document_exception()
-          | unsupported_document_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
+          | document_too_large_exception()
+          | bad_document_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_lending_analysis_errors() ::
-          document_too_large_exception()
+          unsupported_document_exception()
+          | throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
           | invalid_s3_object_exception()
           | invalid_parameter_exception()
           | invalid_kms_key_exception()
-          | provisioned_throughput_exceeded_exception()
-          | bad_document_exception()
-          | unsupported_document_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
+          | document_too_large_exception()
+          | bad_document_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
-          | invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_adapter_errors() ::
-          invalid_parameter_exception()
-          | conflict_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | internal_server_error()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | conflict_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

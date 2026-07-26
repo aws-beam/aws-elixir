@@ -307,204 +307,103 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      bounding_box() :: %{
-        "Height" => float(),
-        "Left" => float(),
-        "Top" => float(),
-        "Width" => float()
+      access_denied_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type bounding_box() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_celebrity_recognition_response() :: %{
-        "Celebrities" => list(celebrity_recognition()),
-        "JobId" => String.t() | atom(),
-        "JobStatus" => list(any()),
-        "JobTag" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom(),
-        "Video" => video(),
-        "VideoMetadata" => video_metadata()
+      age_range() :: %{
+        "High" => integer(),
+        "Low" => integer()
       }
       
   """
-  @type get_celebrity_recognition_response() :: %{(String.t() | atom()) => any()}
+  @type age_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_project_policies_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ProjectArn") => String.t() | atom()
+      asset() :: %{
+        "GroundTruthManifest" => ground_truth_manifest()
       }
       
   """
-  @type list_project_policies_request() :: %{(String.t() | atom()) => any()}
+  @type asset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_face_detection_response() :: %{
-        "JobId" => String.t() | atom()
+      associate_faces_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("UserMatchThreshold") => float(),
+        required("CollectionId") => String.t() | atom(),
+        required("FaceIds") => list(String.t() | atom()),
+        required("UserId") => String.t() | atom()
       }
       
   """
-  @type start_face_detection_response() :: %{(String.t() | atom()) => any()}
+  @type associate_faces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      face_detection() :: %{
-        "Face" => face_detail(),
-        "Timestamp" => float()
+      associate_faces_response() :: %{
+        "AssociatedFaces" => list(associated_face()),
+        "UnsuccessfulFaceAssociations" => list(unsuccessful_face_association()),
+        "UserStatus" => list(any())
       }
       
   """
-  @type face_detection() :: %{(String.t() | atom()) => any()}
+  @type associate_faces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_project_response() :: %{
-        "Status" => list(any())
+      associated_face() :: %{
+        "FaceId" => String.t() | atom()
       }
       
   """
-  @type delete_project_response() :: %{(String.t() | atom()) => any()}
+  @type associated_face() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      dominant_color() :: %{
-        "Blue" => integer(),
-        "CSSColor" => String.t() | atom(),
-        "Green" => integer(),
-        "HexCode" => String.t() | atom(),
-        "PixelPercent" => float(),
-        "Red" => integer(),
-        "SimplifiedColor" => String.t() | atom()
+      audio_metadata() :: %{
+        "Codec" => String.t() | atom(),
+        "DurationMillis" => float(),
+        "NumberOfChannels" => float(),
+        "SampleRate" => float()
       }
       
   """
-  @type dominant_color() :: %{(String.t() | atom()) => any()}
+  @type audio_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_stream_processor_response() :: %{}
-      
-  """
-  @type delete_stream_processor_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_projects_request() :: %{
-        optional("Features") => list(list(any())()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ProjectNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_projects_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_media_analysis_jobs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_media_analysis_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_stream_processor_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_stream_processor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      distribute_dataset_entries_request() :: %{
-        required("Datasets") => list(distribute_dataset())
-      }
-      
-  """
-  @type distribute_dataset_entries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output_config() :: %{
-        "S3Bucket" => String.t() | atom(),
-        "S3KeyPrefix" => String.t() | atom()
-      }
-      
-  """
-  @type output_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ground_truth_manifest() :: %{
+      audit_image() :: %{
+        "BoundingBox" => bounding_box(),
+        "Bytes" => binary(),
         "S3Object" => s3_object()
       }
       
   """
-  @type ground_truth_manifest() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_media_analysis_job_request() :: %{
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_media_analysis_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_segment_detection_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Filters") => start_segment_detection_filters(),
-        optional("JobTag") => String.t() | atom(),
-        optional("NotificationChannel") => notification_channel(),
-        required("SegmentTypes") => list(list(any())()),
-        required("Video") => video()
-      }
-      
-  """
-  @type start_segment_detection_request() :: %{(String.t() | atom()) => any()}
+  @type audit_image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -522,508 +421,27 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      content_moderation_detection() :: %{
-        "ContentTypes" => list(content_type()),
-        "DurationMillis" => float(),
-        "EndTimestampMillis" => float(),
-        "ModerationLabel" => moderation_label(),
-        "StartTimestampMillis" => float(),
-        "Timestamp" => float()
+      black_frame() :: %{
+        "MaxPixelThreshold" => float(),
+        "MinCoveragePercentage" => float()
       }
       
   """
-  @type content_moderation_detection() :: %{(String.t() | atom()) => any()}
+  @type black_frame() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      index_faces_response() :: %{
-        "FaceModelVersion" => String.t() | atom(),
-        "FaceRecords" => list(face_record()),
-        "OrientationCorrection" => list(any()),
-        "UnindexedFaces" => list(unindexed_face())
+      bounding_box() :: %{
+        "Height" => float(),
+        "Left" => float(),
+        "Top" => float(),
+        "Width" => float()
       }
       
   """
-  @type index_faces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stream_processing_stop_selector() :: %{
-        "MaxDurationInSeconds" => float()
-      }
-      
-  """
-  @type stream_processing_stop_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_labels_image_background() :: %{
-        "DominantColors" => list(dominant_color()),
-        "Quality" => detect_labels_image_quality()
-      }
-      
-  """
-  @type detect_labels_image_background() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parent() :: %{
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type parent() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      face_record() :: %{
-        "Face" => face(),
-        "FaceDetail" => face_detail()
-      }
-      
-  """
-  @type face_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_collections_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_collections_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      general_labels_settings() :: %{
-        "LabelCategoryExclusionFilters" => list(String.t() | atom()),
-        "LabelCategoryInclusionFilters" => list(String.t() | atom()),
-        "LabelExclusionFilters" => list(String.t() | atom()),
-        "LabelInclusionFilters" => list(String.t() | atom())
-      }
-      
-  """
-  @type general_labels_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_object() :: %{
-        "Bucket" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-      
-  """
-  @type s3_object() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_project_policy_response() :: %{
-        "PolicyRevisionId" => String.t() | atom()
-      }
-      
-  """
-  @type put_project_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      known_gender() :: %{
-        "Type" => list(any())
-      }
-      
-  """
-  @type known_gender() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_faces_response() :: %{
-        "FaceModelVersion" => String.t() | atom(),
-        "Faces" => list(face()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_faces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dataset_changes() :: %{
-        "GroundTruth" => binary()
-      }
-      
-  """
-  @type dataset_changes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_data() :: %{
-        "Assets" => list(asset())
-      }
-      
-  """
-  @type validation_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_collection_request() :: %{
-        required("CollectionId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_collection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_face_liveness_session_response() :: %{
-        "SessionId" => String.t() | atom()
-      }
-      
-  """
-  @type create_face_liveness_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_project_request() :: %{
-        required("ProjectArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_project_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_project_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProjectVersionDescriptions" => list(project_version_description())
-      }
-      
-  """
-  @type describe_project_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_project_policy_request() :: %{
-        optional("PolicyRevisionId") => String.t() | atom(),
-        required("PolicyDocument") => String.t() | atom(),
-        required("PolicyName") => String.t() | atom(),
-        required("ProjectArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_project_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_data_stream() :: %{
-        "Arn" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_data_stream() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_stream_processor_response() :: %{
-        "SessionId" => String.t() | atom()
-      }
-      
-  """
-  @type start_stream_processor_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      index_faces_request() :: %{
-        optional("DetectionAttributes") => list(list(any())()),
-        optional("ExternalImageId") => String.t() | atom(),
-        optional("MaxFaces") => integer(),
-        optional("QualityFilter") => list(any()),
-        required("CollectionId") => String.t() | atom(),
-        required("Image") => image()
-      }
-      
-  """
-  @type index_faces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      label_category() :: %{
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type label_category() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      human_loop_data_attributes() :: %{
-        "ContentClassifiers" => list(list(any())())
-      }
-      
-  """
-  @type human_loop_data_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_dataset_request() :: %{
-        required("DatasetArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      challenge() :: %{
-        "Type" => list(any()),
-        "Version" => String.t() | atom()
-      }
-      
-  """
-  @type challenge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      project_description() :: %{
-        "AutoUpdate" => list(any()),
-        "CreationTimestamp" => non_neg_integer(),
-        "Datasets" => list(dataset_metadata()),
-        "Feature" => list(any()),
-        "ProjectArn" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type project_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      emotion() :: %{
-        "Confidence" => float(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type emotion() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      media_analysis_detect_moderation_labels_config() :: %{
-        "MinConfidence" => float(),
-        "ProjectVersion" => String.t() | atom()
-      }
-      
-  """
-  @type media_analysis_detect_moderation_labels_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_project_policy_response() :: %{}
-      
-  """
-  @type delete_project_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_labels_response() :: %{
-        "ImageProperties" => detect_labels_image_properties(),
-        "LabelModelVersion" => String.t() | atom(),
-        "Labels" => list(label()),
-        "OrientationCorrection" => list(any())
-      }
-      
-  """
-  @type detect_labels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_faces_by_image_request() :: %{
-        optional("FaceMatchThreshold") => float(),
-        optional("MaxFaces") => integer(),
-        optional("QualityFilter") => list(any()),
-        required("CollectionId") => String.t() | atom(),
-        required("Image") => image()
-      }
-      
-  """
-  @type search_faces_by_image_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      liveness_output_config() :: %{
-        "S3Bucket" => String.t() | atom(),
-        "S3KeyPrefix" => String.t() | atom()
-      }
-      
-  """
-  @type liveness_output_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      searched_face() :: %{
-        "FaceId" => String.t() | atom()
-      }
-      
-  """
-  @type searched_face() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      video_metadata() :: %{
-        "Codec" => String.t() | atom(),
-        "ColorRange" => list(any()),
-        "DurationMillis" => float(),
-        "Format" => String.t() | atom(),
-        "FrameHeight" => float(),
-        "FrameRate" => float(),
-        "FrameWidth" => float()
-      }
-      
-  """
-  @type video_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      person_detail() :: %{
-        "BoundingBox" => bounding_box(),
-        "Face" => face_detail(),
-        "Index" => float()
-      }
-      
-  """
-  @type person_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_project_policies_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProjectPolicies" => list(project_policy())
-      }
-      
-  """
-  @type list_project_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_labels_image_foreground() :: %{
-        "DominantColors" => list(dominant_color()),
-        "Quality" => detect_labels_image_quality()
-      }
-      
-  """
-  @type detect_labels_image_foreground() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_collection_request() :: %{
-        optional("Tags") => map(),
-        required("CollectionId") => String.t() | atom()
-      }
-      
-  """
-  @type create_collection_request() :: %{(String.t() | atom()) => any()}
+  @type bounding_box() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1045,192 +463,316 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      disassociate_faces_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("CollectionId") => String.t() | atom(),
-        required("FaceIds") => list(String.t() | atom()),
-        required("UserId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_faces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      text_detection() :: %{
+      celebrity_detail() :: %{
+        "BoundingBox" => bounding_box(),
         "Confidence" => float(),
-        "DetectedText" => String.t() | atom(),
-        "Geometry" => geometry(),
-        "Id" => integer(),
-        "ParentId" => integer(),
-        "Type" => list(any())
+        "Face" => face_detail(),
+        "Id" => String.t() | atom(),
+        "KnownGender" => known_gender(),
+        "Name" => String.t() | atom(),
+        "Urls" => list(String.t() | atom())
       }
       
   """
-  @type text_detection() :: %{(String.t() | atom()) => any()}
+  @type celebrity_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      detect_labels_image_properties_settings() :: %{
-        "MaxDominantColors" => integer()
+      celebrity_recognition() :: %{
+        "Celebrity" => celebrity_detail(),
+        "Timestamp" => float()
       }
       
   """
-  @type detect_labels_image_properties_settings() :: %{(String.t() | atom()) => any()}
+  @type celebrity_recognition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      detect_labels_image_quality() :: %{
-        "Brightness" => float(),
-        "Contrast" => float(),
-        "Sharpness" => float()
+      challenge() :: %{
+        "Type" => list(any()),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type detect_labels_image_quality() :: %{(String.t() | atom()) => any()}
+  @type challenge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_project_version_response() :: %{
-        "Status" => list(any())
+      challenge_preference() :: %{
+        "Type" => list(any()),
+        "Versions" => versions()
       }
       
   """
-  @type delete_project_version_response() :: %{(String.t() | atom()) => any()}
+  @type challenge_preference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_media_analysis_job_response() :: %{
-        "CompletionTimestamp" => non_neg_integer(),
-        "CreationTimestamp" => non_neg_integer(),
-        "FailureDetails" => media_analysis_job_failure_details(),
-        "Input" => media_analysis_input(),
-        "JobId" => String.t() | atom(),
-        "JobName" => String.t() | atom(),
-        "KmsKeyId" => String.t() | atom(),
-        "ManifestSummary" => media_analysis_manifest_summary(),
-        "OperationsConfig" => media_analysis_operations_config(),
-        "OutputConfig" => media_analysis_output_config(),
-        "Results" => media_analysis_results(),
-        "Status" => list(any())
+      compare_faces_match() :: %{
+        "Face" => compared_face(),
+        "Similarity" => float()
       }
       
   """
-  @type get_media_analysis_job_response() :: %{(String.t() | atom()) => any()}
+  @type compare_faces_match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      limit_exceeded_exception() :: %{
+      compare_faces_request() :: %{
+        optional("QualityFilter") => list(any()),
+        optional("SimilarityThreshold") => float(),
+        required("SourceImage") => image(),
+        required("TargetImage") => image()
+      }
+      
+  """
+  @type compare_faces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compare_faces_response() :: %{
+        "FaceMatches" => list(compare_faces_match()),
+        "SourceImageFace" => compared_source_image_face(),
+        "SourceImageOrientationCorrection" => list(any()),
+        "TargetImageOrientationCorrection" => list(any()),
+        "UnmatchedFaces" => list(compared_face())
+      }
+      
+  """
+  @type compare_faces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compared_face() :: %{
+        "BoundingBox" => bounding_box(),
+        "Confidence" => float(),
+        "Emotions" => list(emotion()),
+        "Landmarks" => list(landmark()),
+        "Pose" => pose(),
+        "Quality" => image_quality(),
+        "Smile" => smile()
+      }
+      
+  """
+  @type compared_face() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compared_source_image_face() :: %{
+        "BoundingBox" => bounding_box(),
+        "Confidence" => float()
+      }
+      
+  """
+  @type compared_source_image_face() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
         "Code" => String.t() | atom(),
         "Logref" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      protective_equipment_person() :: %{
-        "BodyParts" => list(protective_equipment_body_part()),
-        "BoundingBox" => bounding_box(),
+      connected_home_settings() :: %{
+        "Labels" => list(String.t() | atom()),
+        "MinConfidence" => float()
+      }
+      
+  """
+  @type connected_home_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connected_home_settings_for_update() :: %{
+        "Labels" => list(String.t() | atom()),
+        "MinConfidence" => float()
+      }
+      
+  """
+  @type connected_home_settings_for_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      content_moderation_detection() :: %{
+        "ContentTypes" => list(content_type()),
+        "DurationMillis" => float(),
+        "EndTimestampMillis" => float(),
+        "ModerationLabel" => moderation_label(),
+        "StartTimestampMillis" => float(),
+        "Timestamp" => float()
+      }
+      
+  """
+  @type content_moderation_detection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      content_type() :: %{
         "Confidence" => float(),
-        "Id" => integer()
-      }
-      
-  """
-  @type protective_equipment_person() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_faces_response() :: %{
-        "FaceMatches" => list(face_match()),
-        "FaceModelVersion" => String.t() | atom(),
-        "SearchedFaceId" => String.t() | atom()
-      }
-      
-  """
-  @type search_faces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_project_versions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("VersionNames") => list(String.t() | atom()),
-        required("ProjectArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_project_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recognize_celebrities_response() :: %{
-        "CelebrityFaces" => list(celebrity()),
-        "OrientationCorrection" => list(any()),
-        "UnrecognizedFaces" => list(compared_face())
-      }
-      
-  """
-  @type recognize_celebrities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      landmark() :: %{
-        "Type" => list(any()),
-        "X" => float(),
-        "Y" => float()
-      }
-      
-  """
-  @type landmark() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_label() :: %{
-        "Confidence" => float(),
-        "Geometry" => geometry(),
         "Name" => String.t() | atom()
       }
       
   """
-  @type custom_label() :: %{(String.t() | atom()) => any()}
+  @type content_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_project_response() :: %{
-        "ProjectArn" => String.t() | atom()
+      copy_project_version_request() :: %{
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("DestinationProjectArn") => String.t() | atom(),
+        required("OutputConfig") => output_config(),
+        required("SourceProjectArn") => String.t() | atom(),
+        required("SourceProjectVersionArn") => String.t() | atom(),
+        required("VersionName") => String.t() | atom()
       }
       
   """
-  @type create_project_response() :: %{(String.t() | atom()) => any()}
+  @type copy_project_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_project_version_response() :: %{
+        "ProjectVersionArn" => String.t() | atom()
+      }
+      
+  """
+  @type copy_project_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      covers_body_part() :: %{
+        "Confidence" => float(),
+        "Value" => boolean()
+      }
+      
+  """
+  @type covers_body_part() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_collection_request() :: %{
+        optional("Tags") => map(),
+        required("CollectionId") => String.t() | atom()
+      }
+      
+  """
+  @type create_collection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_collection_response() :: %{
+        "CollectionArn" => String.t() | atom(),
+        "FaceModelVersion" => String.t() | atom(),
+        "StatusCode" => integer()
+      }
+      
+  """
+  @type create_collection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_dataset_request() :: %{
+        optional("DatasetSource") => dataset_source(),
+        optional("Tags") => map(),
+        required("DatasetType") => list(any()),
+        required("ProjectArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_dataset_response() :: %{
+        "DatasetArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_face_liveness_session_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("Settings") => create_face_liveness_session_request_settings()
+      }
+      
+  """
+  @type create_face_liveness_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_face_liveness_session_request_settings() :: %{
+        "AuditImagesLimit" => integer(),
+        "ChallengePreferences" => list(challenge_preference()),
+        "OutputConfig" => liveness_output_config()
+      }
+      
+  """
+  @type create_face_liveness_session_request_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_face_liveness_session_response() :: %{
+        "SessionId" => String.t() | atom()
+      }
+      
+  """
+  @type create_face_liveness_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1250,6 +792,490 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
+      create_project_response() :: %{
+        "ProjectArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_project_version_request() :: %{
+        optional("FeatureConfig") => customization_feature_config(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("Tags") => map(),
+        optional("TestingData") => testing_data(),
+        optional("TrainingData") => training_data(),
+        optional("VersionDescription") => String.t() | atom(),
+        required("OutputConfig") => output_config(),
+        required("ProjectArn") => String.t() | atom(),
+        required("VersionName") => String.t() | atom()
+      }
+      
+  """
+  @type create_project_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_project_version_response() :: %{
+        "ProjectVersionArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_project_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_stream_processor_request() :: %{
+        optional("DataSharingPreference") => stream_processor_data_sharing_preference(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("NotificationChannel") => stream_processor_notification_channel(),
+        optional("RegionsOfInterest") => list(region_of_interest()),
+        optional("Tags") => map(),
+        required("Input") => stream_processor_input(),
+        required("Name") => String.t() | atom(),
+        required("Output") => stream_processor_output(),
+        required("RoleArn") => String.t() | atom(),
+        required("Settings") => stream_processor_settings()
+      }
+      
+  """
+  @type create_stream_processor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_stream_processor_response() :: %{
+        "StreamProcessorArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_stream_processor_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("CollectionId") => String.t() | atom(),
+        required("UserId") => String.t() | atom()
+      }
+      
+  """
+  @type create_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_response() :: %{}
+      
+  """
+  @type create_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_label() :: %{
+        "Confidence" => float(),
+        "Geometry" => geometry(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type custom_label() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customization_feature_config() :: %{
+        "ContentModeration" => customization_feature_content_moderation_config()
+      }
+      
+  """
+  @type customization_feature_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customization_feature_content_moderation_config() :: %{
+        "ConfidenceThreshold" => float()
+      }
+      
+  """
+  @type customization_feature_content_moderation_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dataset_changes() :: %{
+        "GroundTruth" => binary()
+      }
+      
+  """
+  @type dataset_changes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dataset_description() :: %{
+        "CreationTimestamp" => non_neg_integer(),
+        "DatasetStats" => dataset_stats(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "StatusMessageCode" => list(any())
+      }
+      
+  """
+  @type dataset_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dataset_label_description() :: %{
+        "LabelName" => String.t() | atom(),
+        "LabelStats" => dataset_label_stats()
+      }
+      
+  """
+  @type dataset_label_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dataset_label_stats() :: %{
+        "BoundingBoxCount" => integer(),
+        "EntryCount" => integer()
+      }
+      
+  """
+  @type dataset_label_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dataset_metadata() :: %{
+        "CreationTimestamp" => non_neg_integer(),
+        "DatasetArn" => String.t() | atom(),
+        "DatasetType" => list(any()),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "StatusMessageCode" => list(any())
+      }
+      
+  """
+  @type dataset_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dataset_source() :: %{
+        "DatasetArn" => String.t() | atom(),
+        "GroundTruthManifest" => ground_truth_manifest()
+      }
+      
+  """
+  @type dataset_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dataset_stats() :: %{
+        "ErrorEntries" => integer(),
+        "LabeledEntries" => integer(),
+        "TotalEntries" => integer(),
+        "TotalLabels" => integer()
+      }
+      
+  """
+  @type dataset_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_collection_request() :: %{
+        required("CollectionId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_collection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_collection_response() :: %{
+        "StatusCode" => integer()
+      }
+      
+  """
+  @type delete_collection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_dataset_request() :: %{
+        required("DatasetArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_dataset_response() :: %{}
+      
+  """
+  @type delete_dataset_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_faces_request() :: %{
+        required("CollectionId") => String.t() | atom(),
+        required("FaceIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_faces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_faces_response() :: %{
+        "DeletedFaces" => list(String.t() | atom()),
+        "UnsuccessfulFaceDeletions" => list(unsuccessful_face_deletion())
+      }
+      
+  """
+  @type delete_faces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_project_policy_request() :: %{
+        optional("PolicyRevisionId") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom(),
+        required("ProjectArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_project_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_project_policy_response() :: %{}
+      
+  """
+  @type delete_project_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_project_request() :: %{
+        required("ProjectArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_project_response() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type delete_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_project_version_request() :: %{
+        required("ProjectVersionArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_project_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_project_version_response() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type delete_project_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_stream_processor_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_stream_processor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_stream_processor_response() :: %{}
+      
+  """
+  @type delete_stream_processor_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("CollectionId") => String.t() | atom(),
+        required("UserId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_response() :: %{}
+      
+  """
+  @type delete_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_collection_request() :: %{
+        required("CollectionId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_collection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_collection_response() :: %{
+        "CollectionARN" => String.t() | atom(),
+        "CreationTimestamp" => non_neg_integer(),
+        "FaceCount" => float(),
+        "FaceModelVersion" => String.t() | atom(),
+        "UserCount" => float()
+      }
+      
+  """
+  @type describe_collection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_dataset_request() :: %{
+        required("DatasetArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_dataset_response() :: %{
+        "DatasetDescription" => dataset_description()
+      }
+      
+  """
+  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_project_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("VersionNames") => list(String.t() | atom()),
+        required("ProjectArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_project_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_project_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProjectVersionDescriptions" => list(project_version_description())
+      }
+      
+  """
+  @type describe_project_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_projects_request() :: %{
+        optional("Features") => list(list(any())()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProjectNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_projects_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_projects_response() :: %{
         "NextToken" => String.t() | atom(),
         "ProjectDescriptions" => list(project_description())
@@ -1262,130 +1288,12 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      list_collections_response() :: %{
-        "CollectionIds" => list(String.t() | atom()),
-        "FaceModelVersions" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
+      describe_stream_processor_request() :: %{
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type list_collections_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      face() :: %{
-        "BoundingBox" => bounding_box(),
-        "Confidence" => float(),
-        "ExternalImageId" => String.t() | atom(),
-        "FaceId" => String.t() | atom(),
-        "ImageId" => String.t() | atom(),
-        "IndexFacesModelVersion" => String.t() | atom(),
-        "UserId" => String.t() | atom()
-      }
-      
-  """
-  @type face() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_content_moderation_request_metadata() :: %{
-        "AggregateBy" => list(any()),
-        "SortBy" => list(any())
-      }
-      
-  """
-  @type get_content_moderation_request_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protective_equipment_summary() :: %{
-        "PersonsIndeterminate" => list(integer()),
-        "PersonsWithRequiredEquipment" => list(integer()),
-        "PersonsWithoutRequiredEquipment" => list(integer())
-      }
-      
-  """
-  @type protective_equipment_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_faces_request() :: %{
-        optional("Attributes") => list(list(any())()),
-        required("Image") => image()
-      }
-      
-  """
-  @type detect_faces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      idempotent_parameter_mismatch_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_ready_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_ready_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stream_processor_input() :: %{
-        "KinesisVideoStream" => kinesis_video_stream()
-      }
-      
-  """
-  @type stream_processor_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_text_detection_filters() :: %{
-        "RegionsOfInterest" => list(region_of_interest()),
-        "WordFilter" => detection_filter()
-      }
-      
-  """
-  @type start_text_detection_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      human_loop_activation_output() :: %{
-        "HumanLoopActivationConditionsEvaluationResults" => String.t() | atom(),
-        "HumanLoopActivationReasons" => list(String.t() | atom()),
-        "HumanLoopArn" => String.t() | atom()
-      }
-      
-  """
-  @type human_loop_activation_output() :: %{(String.t() | atom()) => any()}
+  @type describe_stream_processor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1415,267 +1323,141 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      copy_project_version_request() :: %{
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("DestinationProjectArn") => String.t() | atom(),
-        required("OutputConfig") => output_config(),
-        required("SourceProjectArn") => String.t() | atom(),
-        required("SourceProjectVersionArn") => String.t() | atom(),
-        required("VersionName") => String.t() | atom()
-      }
-      
-  """
-  @type copy_project_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_error() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      smile() :: %{
-        "Confidence" => float(),
-        "Value" => boolean()
-      }
-      
-  """
-  @type smile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      segment_type_info() :: %{
-        "ModelVersion" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type segment_type_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      eyeglasses() :: %{
-        "Confidence" => float(),
-        "Value" => boolean()
-      }
-      
-  """
-  @type eyeglasses() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_stream_processor_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type stop_stream_processor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_image_format_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_image_format_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_dataset_response() :: %{}
-      
-  """
-  @type delete_dataset_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_media_analysis_job_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("JobName") => String.t() | atom(),
-        optional("KmsKeyId") => String.t() | atom(),
-        required("Input") => media_analysis_input(),
-        required("OperationsConfig") => media_analysis_operations_config(),
-        required("OutputConfig") => media_analysis_output_config()
-      }
-      
-  """
-  @type start_media_analysis_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      testing_data_result() :: %{
-        "Input" => testing_data(),
-        "Output" => testing_data(),
-        "Validation" => validation_data()
-      }
-      
-  """
-  @type testing_data_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notification_channel() :: %{
-        "RoleArn" => String.t() | atom(),
-        "SNSTopicArn" => String.t() | atom()
-      }
-      
-  """
-  @type notification_channel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_faces_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("UserMatchThreshold") => float(),
-        required("CollectionId") => String.t() | atom(),
-        required("FaceIds") => list(String.t() | atom()),
-        required("UserId") => String.t() | atom()
-      }
-      
-  """
-  @type associate_faces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_shot_detection_filter() :: %{
-        "MinSegmentConfidence" => float()
-      }
-      
-  """
-  @type start_shot_detection_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_collection_response() :: %{
-        "CollectionArn" => String.t() | atom(),
-        "FaceModelVersion" => String.t() | atom(),
-        "StatusCode" => integer()
-      }
-      
-  """
-  @type create_collection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      project_policy() :: %{
-        "CreationTimestamp" => non_neg_integer(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "PolicyDocument" => String.t() | atom(),
-        "PolicyName" => String.t() | atom(),
-        "PolicyRevisionId" => String.t() | atom(),
-        "ProjectArn" => String.t() | atom()
-      }
-      
-  """
-  @type project_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_faces_by_image_response() :: %{
-        "FaceMatches" => list(face_match()),
-        "FaceModelVersion" => String.t() | atom(),
-        "SearchedFaceBoundingBox" => bounding_box(),
-        "SearchedFaceConfidence" => float()
-      }
-      
-  """
-  @type search_faces_by_image_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_label_detection_request() :: %{
-        optional("AggregateBy") => list(any()),
+      detect_custom_labels_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => list(any()),
-        required("JobId") => String.t() | atom()
+        optional("MinConfidence") => float(),
+        required("Image") => image(),
+        required("ProjectVersionArn") => String.t() | atom()
       }
       
   """
-  @type get_label_detection_request() :: %{(String.t() | atom()) => any()}
+  @type detect_custom_labels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      person_match() :: %{
-        "FaceMatches" => list(face_match()),
-        "Person" => person_detail(),
-        "Timestamp" => float()
+      detect_custom_labels_response() :: %{
+        "CustomLabels" => list(custom_label())
       }
       
   """
-  @type person_match() :: %{(String.t() | atom()) => any()}
+  @type detect_custom_labels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      matched_user() :: %{
-        "UserId" => String.t() | atom(),
-        "UserStatus" => list(any())
+      detect_faces_request() :: %{
+        optional("Attributes") => list(list(any())()),
+        required("Image") => image()
       }
       
   """
-  @type matched_user() :: %{(String.t() | atom()) => any()}
+  @type detect_faces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      compared_face() :: %{
-        "BoundingBox" => bounding_box(),
-        "Confidence" => float(),
-        "Emotions" => list(emotion()),
-        "Landmarks" => list(landmark()),
-        "Pose" => pose(),
-        "Quality" => image_quality(),
-        "Smile" => smile()
+      detect_faces_response() :: %{
+        "FaceDetails" => list(face_detail()),
+        "OrientationCorrection" => list(any())
       }
       
   """
-  @type compared_face() :: %{(String.t() | atom()) => any()}
+  @type detect_faces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detect_labels_image_background() :: %{
+        "DominantColors" => list(dominant_color()),
+        "Quality" => detect_labels_image_quality()
+      }
+      
+  """
+  @type detect_labels_image_background() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detect_labels_image_foreground() :: %{
+        "DominantColors" => list(dominant_color()),
+        "Quality" => detect_labels_image_quality()
+      }
+      
+  """
+  @type detect_labels_image_foreground() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detect_labels_image_properties() :: %{
+        "Background" => detect_labels_image_background(),
+        "DominantColors" => list(dominant_color()),
+        "Foreground" => detect_labels_image_foreground(),
+        "Quality" => detect_labels_image_quality()
+      }
+      
+  """
+  @type detect_labels_image_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detect_labels_image_properties_settings() :: %{
+        "MaxDominantColors" => integer()
+      }
+      
+  """
+  @type detect_labels_image_properties_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detect_labels_image_quality() :: %{
+        "Brightness" => float(),
+        "Contrast" => float(),
+        "Sharpness" => float()
+      }
+      
+  """
+  @type detect_labels_image_quality() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detect_labels_request() :: %{
+        optional("Features") => list(list(any())()),
+        optional("MaxLabels") => integer(),
+        optional("MinConfidence") => float(),
+        optional("Settings") => detect_labels_settings(),
+        required("Image") => image()
+      }
+      
+  """
+  @type detect_labels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detect_labels_response() :: %{
+        "ImageProperties" => detect_labels_image_properties(),
+        "LabelModelVersion" => String.t() | atom(),
+        "Labels" => list(label()),
+        "OrientationCorrection" => list(any())
+      }
+      
+  """
+  @type detect_labels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1693,78 +1475,490 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      invalid_pagination_token_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      detect_moderation_labels_request() :: %{
+        optional("HumanLoopConfig") => human_loop_config(),
+        optional("MinConfidence") => float(),
+        optional("ProjectVersion") => String.t() | atom(),
+        required("Image") => image()
       }
       
   """
-  @type invalid_pagination_token_exception() :: %{(String.t() | atom()) => any()}
+  @type detect_moderation_labels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_face_search_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("FaceMatchThreshold") => float(),
-        optional("JobTag") => String.t() | atom(),
-        optional("NotificationChannel") => notification_channel(),
-        required("CollectionId") => String.t() | atom(),
-        required("Video") => video()
+      detect_moderation_labels_response() :: %{
+        "ContentTypes" => list(content_type()),
+        "HumanLoopActivationOutput" => human_loop_activation_output(),
+        "ModerationLabels" => list(moderation_label()),
+        "ModerationModelVersion" => String.t() | atom(),
+        "ProjectVersion" => String.t() | atom()
       }
       
   """
-  @type start_face_search_request() :: %{(String.t() | atom()) => any()}
+  @type detect_moderation_labels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      connected_home_settings() :: %{
-        "Labels" => list(String.t() | atom()),
+      detect_protective_equipment_request() :: %{
+        optional("SummarizationAttributes") => protective_equipment_summarization_attributes(),
+        required("Image") => image()
+      }
+      
+  """
+  @type detect_protective_equipment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detect_protective_equipment_response() :: %{
+        "Persons" => list(protective_equipment_person()),
+        "ProtectiveEquipmentModelVersion" => String.t() | atom(),
+        "Summary" => protective_equipment_summary()
+      }
+      
+  """
+  @type detect_protective_equipment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detect_text_filters() :: %{
+        "RegionsOfInterest" => list(region_of_interest()),
+        "WordFilter" => detection_filter()
+      }
+      
+  """
+  @type detect_text_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detect_text_request() :: %{
+        optional("Filters") => detect_text_filters(),
+        required("Image") => image()
+      }
+      
+  """
+  @type detect_text_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detect_text_response() :: %{
+        "TextDetections" => list(text_detection()),
+        "TextModelVersion" => String.t() | atom()
+      }
+      
+  """
+  @type detect_text_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detection_filter() :: %{
+        "MinBoundingBoxHeight" => float(),
+        "MinBoundingBoxWidth" => float(),
         "MinConfidence" => float()
       }
       
   """
-  @type connected_home_settings() :: %{(String.t() | atom()) => any()}
+  @type detection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unsuccessful_face_deletion() :: %{
+      disassociate_faces_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("CollectionId") => String.t() | atom(),
+        required("FaceIds") => list(String.t() | atom()),
+        required("UserId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_faces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_faces_response() :: %{
+        "DisassociatedFaces" => list(disassociated_face()),
+        "UnsuccessfulFaceDisassociations" => list(unsuccessful_face_disassociation()),
+        "UserStatus" => list(any())
+      }
+      
+  """
+  @type disassociate_faces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociated_face() :: %{
+        "FaceId" => String.t() | atom()
+      }
+      
+  """
+  @type disassociated_face() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      distribute_dataset() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type distribute_dataset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      distribute_dataset_entries_request() :: %{
+        required("Datasets") => list(distribute_dataset())
+      }
+      
+  """
+  @type distribute_dataset_entries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      distribute_dataset_entries_response() :: %{}
+      
+  """
+  @type distribute_dataset_entries_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      dominant_color() :: %{
+        "Blue" => integer(),
+        "CSSColor" => String.t() | atom(),
+        "Green" => integer(),
+        "HexCode" => String.t() | atom(),
+        "PixelPercent" => float(),
+        "Red" => integer(),
+        "SimplifiedColor" => String.t() | atom()
+      }
+      
+  """
+  @type dominant_color() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      emotion() :: %{
+        "Confidence" => float(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type emotion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      equipment_detection() :: %{
+        "BoundingBox" => bounding_box(),
+        "Confidence" => float(),
+        "CoversBodyPart" => covers_body_part(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type equipment_detection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluation_result() :: %{
+        "F1Score" => float(),
+        "Summary" => summary()
+      }
+      
+  """
+  @type evaluation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      eye_direction() :: %{
+        "Confidence" => float(),
+        "Pitch" => float(),
+        "Yaw" => float()
+      }
+      
+  """
+  @type eye_direction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      eye_open() :: %{
+        "Confidence" => float(),
+        "Value" => boolean()
+      }
+      
+  """
+  @type eye_open() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      eyeglasses() :: %{
+        "Confidence" => float(),
+        "Value" => boolean()
+      }
+      
+  """
+  @type eyeglasses() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      face() :: %{
+        "BoundingBox" => bounding_box(),
+        "Confidence" => float(),
+        "ExternalImageId" => String.t() | atom(),
         "FaceId" => String.t() | atom(),
-        "Reasons" => list(list(any())()),
+        "ImageId" => String.t() | atom(),
+        "IndexFacesModelVersion" => String.t() | atom(),
         "UserId" => String.t() | atom()
       }
       
   """
-  @type unsuccessful_face_deletion() :: %{(String.t() | atom()) => any()}
+  @type face() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      person_detection() :: %{
-        "Person" => person_detail(),
+      face_detail() :: %{
+        "AgeRange" => age_range(),
+        "Beard" => beard(),
+        "BoundingBox" => bounding_box(),
+        "Confidence" => float(),
+        "Emotions" => list(emotion()),
+        "EyeDirection" => eye_direction(),
+        "Eyeglasses" => eyeglasses(),
+        "EyesOpen" => eye_open(),
+        "FaceOccluded" => face_occluded(),
+        "Gender" => gender(),
+        "Landmarks" => list(landmark()),
+        "MouthOpen" => mouth_open(),
+        "Mustache" => mustache(),
+        "Pose" => pose(),
+        "Quality" => image_quality(),
+        "Smile" => smile(),
+        "Sunglasses" => sunglasses()
+      }
+      
+  """
+  @type face_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      face_detection() :: %{
+        "Face" => face_detail(),
         "Timestamp" => float()
       }
       
   """
-  @type person_detection() :: %{(String.t() | atom()) => any()}
+  @type face_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_stream_processor_response() :: %{
-        "StreamProcessorArn" => String.t() | atom()
+      face_match() :: %{
+        "Face" => face(),
+        "Similarity" => float()
       }
       
   """
-  @type create_stream_processor_response() :: %{(String.t() | atom()) => any()}
+  @type face_match() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      face_occluded() :: %{
+        "Confidence" => float(),
+        "Value" => boolean()
+      }
+      
+  """
+  @type face_occluded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      face_record() :: %{
+        "Face" => face(),
+        "FaceDetail" => face_detail()
+      }
+      
+  """
+  @type face_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      face_search_settings() :: %{
+        "CollectionId" => String.t() | atom(),
+        "FaceMatchThreshold" => float()
+      }
+      
+  """
+  @type face_search_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gender() :: %{
+        "Confidence" => float(),
+        "Value" => list(any())
+      }
+      
+  """
+  @type gender() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      general_labels_settings() :: %{
+        "LabelCategoryExclusionFilters" => list(String.t() | atom()),
+        "LabelCategoryInclusionFilters" => list(String.t() | atom()),
+        "LabelExclusionFilters" => list(String.t() | atom()),
+        "LabelInclusionFilters" => list(String.t() | atom())
+      }
+      
+  """
+  @type general_labels_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      geometry() :: %{
+        "BoundingBox" => bounding_box(),
+        "Polygon" => list(point())
+      }
+      
+  """
+  @type geometry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_celebrity_info_request() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type get_celebrity_info_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_celebrity_info_response() :: %{
+        "KnownGender" => known_gender(),
+        "Name" => String.t() | atom(),
+        "Urls" => list(String.t() | atom())
+      }
+      
+  """
+  @type get_celebrity_info_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_celebrity_recognition_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_celebrity_recognition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_celebrity_recognition_response() :: %{
+        "Celebrities" => list(celebrity_recognition()),
+        "JobId" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "JobTag" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "Video" => video(),
+        "VideoMetadata" => video_metadata()
+      }
+      
+  """
+  @type get_celebrity_recognition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_content_moderation_request() :: %{
+        optional("AggregateBy") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_content_moderation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_content_moderation_request_metadata() :: %{
+        "AggregateBy" => list(any()),
+        "SortBy" => list(any())
+      }
+      
+  """
+  @type get_content_moderation_request_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1790,77 +1984,216 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      start_content_moderation_response() :: %{
-        "JobId" => String.t() | atom()
-      }
-      
-  """
-  @type start_content_moderation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      challenge_preference() :: %{
-        "Type" => list(any()),
-        "Versions" => versions()
-      }
-      
-  """
-  @type challenge_preference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_faces_request() :: %{
-        optional("FaceIds") => list(String.t() | atom()),
+      get_face_detection_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        optional("UserId") => String.t() | atom(),
-        required("CollectionId") => String.t() | atom()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type list_faces_request() :: %{(String.t() | atom()) => any()}
+  @type get_face_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      dataset_label_stats() :: %{
-        "BoundingBoxCount" => integer(),
-        "EntryCount" => integer()
+      get_face_detection_response() :: %{
+        "Faces" => list(face_detection()),
+        "JobId" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "JobTag" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "Video" => video(),
+        "VideoMetadata" => video_metadata()
       }
       
   """
-  @type dataset_label_stats() :: %{(String.t() | atom()) => any()}
+  @type get_face_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      age_range() :: %{
-        "High" => integer(),
-        "Low" => integer()
+      get_face_liveness_session_results_request() :: %{
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type age_range() :: %{(String.t() | atom()) => any()}
+  @type get_face_liveness_session_results_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      detect_moderation_labels_request() :: %{
-        optional("HumanLoopConfig") => human_loop_config(),
-        optional("MinConfidence") => float(),
-        optional("ProjectVersion") => String.t() | atom(),
-        required("Image") => image()
+      get_face_liveness_session_results_response() :: %{
+        "AuditImages" => list(audit_image()),
+        "Challenge" => challenge(),
+        "Confidence" => float(),
+        "ReferenceImage" => audit_image(),
+        "SessionId" => String.t() | atom(),
+        "Status" => list(any())
       }
       
   """
-  @type detect_moderation_labels_request() :: %{(String.t() | atom()) => any()}
+  @type get_face_liveness_session_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_face_search_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_face_search_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_face_search_response() :: %{
+        "JobId" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "JobTag" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Persons" => list(person_match()),
+        "StatusMessage" => String.t() | atom(),
+        "Video" => video(),
+        "VideoMetadata" => video_metadata()
+      }
+      
+  """
+  @type get_face_search_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_label_detection_request() :: %{
+        optional("AggregateBy") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_label_detection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_label_detection_request_metadata() :: %{
+        "AggregateBy" => list(any()),
+        "SortBy" => list(any())
+      }
+      
+  """
+  @type get_label_detection_request_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_label_detection_response() :: %{
+        "GetRequestMetadata" => get_label_detection_request_metadata(),
+        "JobId" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "JobTag" => String.t() | atom(),
+        "LabelModelVersion" => String.t() | atom(),
+        "Labels" => list(label_detection()),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "Video" => video(),
+        "VideoMetadata" => video_metadata()
+      }
+      
+  """
+  @type get_label_detection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_media_analysis_job_request() :: %{
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_media_analysis_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_media_analysis_job_response() :: %{
+        "CompletionTimestamp" => non_neg_integer(),
+        "CreationTimestamp" => non_neg_integer(),
+        "FailureDetails" => media_analysis_job_failure_details(),
+        "Input" => media_analysis_input(),
+        "JobId" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "ManifestSummary" => media_analysis_manifest_summary(),
+        "OperationsConfig" => media_analysis_operations_config(),
+        "OutputConfig" => media_analysis_output_config(),
+        "Results" => media_analysis_results(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type get_media_analysis_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_person_tracking_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_person_tracking_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_person_tracking_response() :: %{
+        "JobId" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "JobTag" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Persons" => list(person_detection()),
+        "StatusMessage" => String.t() | atom(),
+        "Video" => video(),
+        "VideoMetadata" => video_metadata()
+      }
+      
+  """
+  @type get_person_tracking_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_segment_detection_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_segment_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1886,159 +2219,326 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      customization_feature_content_moderation_config() :: %{
-        "ConfidenceThreshold" => float()
+      get_text_detection_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type customization_feature_content_moderation_config() :: %{(String.t() | atom()) => any()}
+  @type get_text_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      connected_home_settings_for_update() :: %{
-        "Labels" => list(String.t() | atom()),
-        "MinConfidence" => float()
+      get_text_detection_response() :: %{
+        "JobId" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "JobTag" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "TextDetections" => list(text_detection_result()),
+        "TextModelVersion" => String.t() | atom(),
+        "Video" => video(),
+        "VideoMetadata" => video_metadata()
       }
       
   """
-  @type connected_home_settings_for_update() :: %{(String.t() | atom()) => any()}
+  @type get_text_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      black_frame() :: %{
-        "MaxPixelThreshold" => float(),
-        "MinCoveragePercentage" => float()
-      }
-      
-  """
-  @type black_frame() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      training_data() :: %{
-        "Assets" => list(asset())
-      }
-      
-  """
-  @type training_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_text_filters() :: %{
-        "RegionsOfInterest" => list(region_of_interest()),
-        "WordFilter" => detection_filter()
-      }
-      
-  """
-  @type detect_text_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_technical_cue_detection_filter() :: %{
-        "BlackFrame" => black_frame(),
-        "MinSegmentConfidence" => float()
-      }
-      
-  """
-  @type start_technical_cue_detection_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_celebrity_recognition_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("JobTag") => String.t() | atom(),
-        optional("NotificationChannel") => notification_channel(),
-        required("Video") => video()
-      }
-      
-  """
-  @type start_celebrity_recognition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_project_policy_request() :: %{
-        optional("PolicyRevisionId") => String.t() | atom(),
-        required("PolicyName") => String.t() | atom(),
-        required("ProjectArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_project_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      point() :: %{
-        "X" => float(),
-        "Y" => float()
-      }
-      
-  """
-  @type point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      eye_direction() :: %{
-        "Confidence" => float(),
-        "Pitch" => float(),
-        "Yaw" => float()
-      }
-      
-  """
-  @type eye_direction() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      media_analysis_results() :: %{
-        "ModelVersions" => media_analysis_model_versions(),
+      ground_truth_manifest() :: %{
         "S3Object" => s3_object()
       }
       
   """
-  @type media_analysis_results() :: %{(String.t() | atom()) => any()}
+  @type ground_truth_manifest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stream_processing_start_selector() :: %{
-        "KVSStreamStartSelector" => kinesis_video_stream_start_selector()
+      human_loop_activation_output() :: %{
+        "HumanLoopActivationConditionsEvaluationResults" => String.t() | atom(),
+        "HumanLoopActivationReasons" => list(String.t() | atom()),
+        "HumanLoopArn" => String.t() | atom()
       }
       
   """
-  @type stream_processing_start_selector() :: %{(String.t() | atom()) => any()}
+  @type human_loop_activation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_not_found_exception() :: %{
+      human_loop_config() :: %{
+        "DataAttributes" => human_loop_data_attributes(),
+        "FlowDefinitionArn" => String.t() | atom(),
+        "HumanLoopName" => String.t() | atom()
+      }
+      
+  """
+  @type human_loop_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      human_loop_data_attributes() :: %{
+        "ContentClassifiers" => list(list(any())())
+      }
+      
+  """
+  @type human_loop_data_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      human_loop_quota_exceeded_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
+      }
+      
+  """
+  @type human_loop_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idempotent_parameter_mismatch_exception() :: %{
         "Code" => String.t() | atom(),
         "Logref" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image() :: %{
+        "Bytes" => binary(),
+        "S3Object" => s3_object()
+      }
+      
+  """
+  @type image() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_quality() :: %{
+        "Brightness" => float(),
+        "Sharpness" => float()
+      }
+      
+  """
+  @type image_quality() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_too_large_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type image_too_large_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      index_faces_request() :: %{
+        optional("DetectionAttributes") => list(list(any())()),
+        optional("ExternalImageId") => String.t() | atom(),
+        optional("MaxFaces") => integer(),
+        optional("QualityFilter") => list(any()),
+        required("CollectionId") => String.t() | atom(),
+        required("Image") => image()
+      }
+      
+  """
+  @type index_faces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      index_faces_response() :: %{
+        "FaceModelVersion" => String.t() | atom(),
+        "FaceRecords" => list(face_record()),
+        "OrientationCorrection" => list(any()),
+        "UnindexedFaces" => list(unindexed_face())
+      }
+      
+  """
+  @type index_faces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance() :: %{
+        "BoundingBox" => bounding_box(),
+        "Confidence" => float(),
+        "DominantColors" => list(dominant_color())
+      }
+      
+  """
+  @type instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_error() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_image_format_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_image_format_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_manifest_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_manifest_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_pagination_token_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_pagination_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_policy_revision_id_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_policy_revision_id_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_s3_object_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_s3_object_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_data_stream() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_data_stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_video_stream() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_video_stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_video_stream_start_selector() :: %{
+        "FragmentNumber" => String.t() | atom(),
+        "ProducerTimestamp" => float()
+      }
+      
+  """
+  @type kinesis_video_stream_start_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      known_gender() :: %{
+        "Type" => list(any())
+      }
+      
+  """
+  @type known_gender() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2060,160 +2560,23 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      label_detection_settings() :: %{
-        "GeneralLabels" => general_labels_settings()
+      label_alias() :: %{
+        "Name" => String.t() | atom()
       }
       
   """
-  @type label_detection_settings() :: %{(String.t() | atom()) => any()}
+  @type label_alias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      detect_faces_response() :: %{
-        "FaceDetails" => list(face_detail()),
-        "OrientationCorrection" => list(any())
+      label_category() :: %{
+        "Name" => String.t() | atom()
       }
       
   """
-  @type detect_faces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stream_processor_settings() :: %{
-        "ConnectedHome" => connected_home_settings(),
-        "FaceSearch" => face_search_settings()
-      }
-      
-  """
-  @type stream_processor_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_text_detection_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_text_detection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      searched_user() :: %{
-        "UserId" => String.t() | atom()
-      }
-      
-  """
-  @type searched_user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_face_liveness_session_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("Settings") => create_face_liveness_session_request_settings()
-      }
-      
-  """
-  @type create_face_liveness_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user() :: %{
-        "UserId" => String.t() | atom(),
-        "UserStatus" => list(any())
-      }
-      
-  """
-  @type user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      human_loop_config() :: %{
-        "DataAttributes" => human_loop_data_attributes(),
-        "FlowDefinitionArn" => String.t() | atom(),
-        "HumanLoopName" => String.t() | atom()
-      }
-      
-  """
-  @type human_loop_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => map()
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_dataset_response() :: %{
-        "DatasetDescription" => dataset_description()
-      }
-      
-  """
-  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_dataset_entries_response() :: %{
-        "DatasetEntries" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_dataset_entries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      celebrity_recognition() :: %{
-        "Celebrity" => celebrity_detail(),
-        "Timestamp" => float()
-      }
-      
-  """
-  @type celebrity_recognition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_moderation_labels_response() :: %{
-        "ContentTypes" => list(content_type()),
-        "HumanLoopActivationOutput" => human_loop_activation_output(),
-        "ModerationLabels" => list(moderation_label()),
-        "ModerationModelVersion" => String.t() | atom(),
-        "ProjectVersion" => String.t() | atom()
-      }
-      
-  """
-  @type detect_moderation_labels_response() :: %{(String.t() | atom()) => any()}
+  @type label_category() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2234,34 +2597,325 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      detect_text_response() :: %{
-        "TextDetections" => list(text_detection()),
-        "TextModelVersion" => String.t() | atom()
+      label_detection_settings() :: %{
+        "GeneralLabels" => general_labels_settings()
       }
       
   """
-  @type detect_text_response() :: %{(String.t() | atom()) => any()}
+  @type label_detection_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_user_response() :: %{}
+      landmark() :: %{
+        "Type" => list(any()),
+        "X" => float(),
+        "Y" => float()
+      }
       
   """
-  @type delete_user_response() :: %{}
+  @type landmark() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unindexed_face() :: %{
-        "FaceDetail" => face_detail(),
-        "Reasons" => list(list(any())())
+      limit_exceeded_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type unindexed_face() :: %{(String.t() | atom()) => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_collections_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_collections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_collections_response() :: %{
+        "CollectionIds" => list(String.t() | atom()),
+        "FaceModelVersions" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_collections_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dataset_entries_request() :: %{
+        optional("ContainsLabels") => list(String.t() | atom()),
+        optional("HasErrors") => boolean(),
+        optional("Labeled") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SourceRefContains") => String.t() | atom(),
+        required("DatasetArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_dataset_entries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dataset_entries_response() :: %{
+        "DatasetEntries" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_dataset_entries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dataset_labels_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("DatasetArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_dataset_labels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dataset_labels_response() :: %{
+        "DatasetLabelDescriptions" => list(dataset_label_description()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_dataset_labels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_faces_request() :: %{
+        optional("FaceIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("UserId") => String.t() | atom(),
+        required("CollectionId") => String.t() | atom()
+      }
+      
+  """
+  @type list_faces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_faces_response() :: %{
+        "FaceModelVersion" => String.t() | atom(),
+        "Faces" => list(face()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_faces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_media_analysis_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_media_analysis_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_media_analysis_jobs_response() :: %{
+        "MediaAnalysisJobs" => list(media_analysis_job_description()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_media_analysis_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_project_policies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ProjectArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_project_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_project_policies_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProjectPolicies" => list(project_policy())
+      }
+      
+  """
+  @type list_project_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_stream_processors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_stream_processors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_stream_processors_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "StreamProcessors" => list(stream_processor())
+      }
+      
+  """
+  @type list_stream_processors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_users_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("CollectionId") => String.t() | atom()
+      }
+      
+  """
+  @type list_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_users_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Users" => list(user())
+      }
+      
+  """
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      liveness_output_config() :: %{
+        "S3Bucket" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type liveness_output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      malformed_policy_document_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      matched_user() :: %{
+        "UserId" => String.t() | atom(),
+        "UserStatus" => list(any())
+      }
+      
+  """
+  @type matched_user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      media_analysis_detect_moderation_labels_config() :: %{
+        "MinConfidence" => float(),
+        "ProjectVersion" => String.t() | atom()
+      }
+      
+  """
+  @type media_analysis_detect_moderation_labels_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      media_analysis_input() :: %{
+        "S3Object" => s3_object()
+      }
+      
+  """
+  @type media_analysis_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2289,26 +2943,70 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      get_celebrity_recognition_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => list(any()),
-        required("JobId") => String.t() | atom()
+      media_analysis_job_failure_details() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type get_celebrity_recognition_request() :: %{(String.t() | atom()) => any()}
+  @type media_analysis_job_failure_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_collection_response() :: %{
-        "StatusCode" => integer()
+      media_analysis_manifest_summary() :: %{
+        "S3Object" => s3_object()
       }
       
   """
-  @type delete_collection_response() :: %{(String.t() | atom()) => any()}
+  @type media_analysis_manifest_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      media_analysis_model_versions() :: %{
+        "Moderation" => String.t() | atom()
+      }
+      
+  """
+  @type media_analysis_model_versions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      media_analysis_operations_config() :: %{
+        "DetectModerationLabels" => media_analysis_detect_moderation_labels_config()
+      }
+      
+  """
+  @type media_analysis_operations_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      media_analysis_output_config() :: %{
+        "S3Bucket" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type media_analysis_output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      media_analysis_results() :: %{
+        "ModelVersions" => media_analysis_model_versions(),
+        "S3Object" => s3_object()
+      }
+      
+  """
+  @type media_analysis_results() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2328,400 +3026,110 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      media_analysis_manifest_summary() :: %{
-        "S3Object" => s3_object()
-      }
-      
-  """
-  @type media_analysis_manifest_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_match() :: %{
-        "Similarity" => float(),
-        "User" => matched_user()
-      }
-      
-  """
-  @type user_match() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      content_type() :: %{
+      mouth_open() :: %{
         "Confidence" => float(),
+        "Value" => boolean()
+      }
+      
+  """
+  @type mouth_open() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mustache() :: %{
+        "Confidence" => float(),
+        "Value" => boolean()
+      }
+      
+  """
+  @type mustache() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notification_channel() :: %{
+        "RoleArn" => String.t() | atom(),
+        "SNSTopicArn" => String.t() | atom()
+      }
+      
+  """
+  @type notification_channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_config() :: %{
+        "S3Bucket" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parent() :: %{
         "Name" => String.t() | atom()
       }
       
   """
-  @type content_type() :: %{(String.t() | atom()) => any()}
+  @type parent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      media_analysis_input() :: %{
-        "S3Object" => s3_object()
-      }
-      
-  """
-  @type media_analysis_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_dataset_labels_response() :: %{
-        "DatasetLabelDescriptions" => list(dataset_label_description()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_dataset_labels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      compared_source_image_face() :: %{
+      person_detail() :: %{
         "BoundingBox" => bounding_box(),
-        "Confidence" => float()
+        "Face" => face_detail(),
+        "Index" => float()
       }
       
   """
-  @type compared_source_image_face() :: %{(String.t() | atom()) => any()}
+  @type person_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_manifest_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      person_detection() :: %{
+        "Person" => person_detail(),
+        "Timestamp" => float()
       }
       
   """
-  @type invalid_manifest_exception() :: %{(String.t() | atom()) => any()}
+  @type person_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      image_quality() :: %{
-        "Brightness" => float(),
-        "Sharpness" => float()
+      person_match() :: %{
+        "FaceMatches" => list(face_match()),
+        "Person" => person_detail(),
+        "Timestamp" => float()
       }
       
   """
-  @type image_quality() :: %{(String.t() | atom()) => any()}
+  @type person_match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      instance() :: %{
-        "BoundingBox" => bounding_box(),
-        "Confidence" => float(),
-        "DominantColors" => list(dominant_color())
+      point() :: %{
+        "X" => float(),
+        "Y" => float()
       }
       
   """
-  @type instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dataset_request() :: %{
-        optional("DatasetSource") => dataset_source(),
-        optional("Tags") => map(),
-        required("DatasetType") => list(any()),
-        required("ProjectArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_users_response() :: %{
-        "FaceModelVersion" => String.t() | atom(),
-        "SearchedFace" => searched_face(),
-        "SearchedUser" => searched_user(),
-        "UserMatches" => list(user_match())
-      }
-      
-  """
-  @type search_users_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compare_faces_response() :: %{
-        "FaceMatches" => list(compare_faces_match()),
-        "SourceImageFace" => compared_source_image_face(),
-        "SourceImageOrientationCorrection" => list(any()),
-        "TargetImageOrientationCorrection" => list(any()),
-        "UnmatchedFaces" => list(compared_face())
-      }
-      
-  """
-  @type compare_faces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_in_use_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stream_processor() :: %{
-        "Name" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type stream_processor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioned_throughput_exceeded_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type provisioned_throughput_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_too_large_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type image_too_large_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      media_analysis_operations_config() :: %{
-        "DetectModerationLabels" => media_analysis_detect_moderation_labels_config()
-      }
-      
-  """
-  @type media_analysis_operations_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_face_liveness_session_request_settings() :: %{
-        "AuditImagesLimit" => integer(),
-        "ChallengePreferences" => list(challenge_preference()),
-        "OutputConfig" => liveness_output_config()
-      }
-      
-  """
-  @type create_face_liveness_session_request_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      asset() :: %{
-        "GroundTruthManifest" => ground_truth_manifest()
-      }
-      
-  """
-  @type asset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_collection_request() :: %{
-        required("CollectionId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_collection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      segment_detection() :: %{
-        "DurationFrames" => float(),
-        "DurationMillis" => float(),
-        "DurationSMPTE" => String.t() | atom(),
-        "EndFrameNumber" => float(),
-        "EndTimecodeSMPTE" => String.t() | atom(),
-        "EndTimestampMillis" => float(),
-        "ShotSegment" => shot_segment(),
-        "StartFrameNumber" => float(),
-        "StartTimecodeSMPTE" => String.t() | atom(),
-        "StartTimestampMillis" => float(),
-        "TechnicalCueSegment" => technical_cue_segment(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type segment_detection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stream_processor_data_sharing_preference() :: %{
-        "OptIn" => boolean()
-      }
-      
-  """
-  @type stream_processor_data_sharing_preference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_text_request() :: %{
-        optional("Filters") => detect_text_filters(),
-        required("Image") => image()
-      }
-      
-  """
-  @type detect_text_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      summary() :: %{
-        "S3Object" => s3_object()
-      }
-      
-  """
-  @type summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      malformed_policy_document_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsuccessful_face_association() :: %{
-        "Confidence" => float(),
-        "FaceId" => String.t() | atom(),
-        "Reasons" => list(list(any())()),
-        "UserId" => String.t() | atom()
-      }
-      
-  """
-  @type unsuccessful_face_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_response() :: %{}
-      
-  """
-  @type create_user_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      face_match() :: %{
-        "Face" => face(),
-        "Similarity" => float()
-      }
-      
-  """
-  @type face_match() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      human_loop_quota_exceeded_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "QuotaCode" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "ServiceCode" => String.t() | atom()
-      }
-      
-  """
-  @type human_loop_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
+  @type point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2740,765 +3148,33 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      customization_feature_config() :: %{
-        "ContentModeration" => customization_feature_content_moderation_config()
-      }
-      
-  """
-  @type customization_feature_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      gender() :: %{
-        "Confidence" => float(),
-        "Value" => list(any())
-      }
-      
-  """
-  @type gender() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_labels_request() :: %{
-        optional("Features") => list(list(any())()),
-        optional("MaxLabels") => integer(),
-        optional("MinConfidence") => float(),
-        optional("Settings") => detect_labels_settings(),
-        required("Image") => image()
-      }
-      
-  """
-  @type detect_labels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_project_version_response() :: %{
-        "ProjectVersionArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_project_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_project_version_request() :: %{
-        required("ProjectVersionArn") => String.t() | atom()
-      }
-      
-  """
-  @type stop_project_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dataset_source() :: %{
-        "DatasetArn" => String.t() | atom(),
-        "GroundTruthManifest" => ground_truth_manifest()
-      }
-      
-  """
-  @type dataset_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_stream_processor_response() :: %{}
-      
-  """
-  @type update_stream_processor_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      shot_segment() :: %{
-        "Confidence" => float(),
-        "Index" => float()
-      }
-      
-  """
-  @type shot_segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_media_analysis_job_response() :: %{
-        "JobId" => String.t() | atom()
-      }
-      
-  """
-  @type start_media_analysis_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_dataset_entries_request() :: %{
-        required("Changes") => dataset_changes(),
-        required("DatasetArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_dataset_entries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_text_detection_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Filters") => start_text_detection_filters(),
-        optional("JobTag") => String.t() | atom(),
-        optional("NotificationChannel") => notification_channel(),
-        required("Video") => video()
-      }
-      
-  """
-  @type start_text_detection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_users_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("CollectionId") => String.t() | atom()
-      }
-      
-  """
-  @type list_users_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      video_too_large_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type video_too_large_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_person_tracking_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => list(any()),
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_person_tracking_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_labels_image_properties() :: %{
-        "Background" => detect_labels_image_background(),
-        "DominantColors" => list(dominant_color()),
-        "Foreground" => detect_labels_image_foreground(),
-        "Quality" => detect_labels_image_quality()
-      }
-      
-  """
-  @type detect_labels_image_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_person_tracking_response() :: %{
-        "JobId" => String.t() | atom()
-      }
-      
-  """
-  @type start_person_tracking_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("CollectionId") => String.t() | atom(),
-        required("UserId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stream_processor_output() :: %{
-        "KinesisDataStream" => kinesis_data_stream(),
-        "S3Destination" => s3_destination()
-      }
-      
-  """
-  @type stream_processor_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_video_stream_start_selector() :: %{
-        "FragmentNumber" => String.t() | atom(),
-        "ProducerTimestamp" => float()
-      }
-      
-  """
-  @type kinesis_video_stream_start_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      testing_data() :: %{
-        "Assets" => list(asset()),
-        "AutoCreate" => boolean()
-      }
-      
-  """
-  @type testing_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_label_detection_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Features") => list(list(any())()),
-        optional("JobTag") => String.t() | atom(),
-        optional("MinConfidence") => float(),
-        optional("NotificationChannel") => notification_channel(),
-        optional("Settings") => label_detection_settings(),
-        required("Video") => video()
-      }
-      
-  """
-  @type start_label_detection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluation_result() :: %{
-        "F1Score" => float(),
-        "Summary" => summary()
-      }
-      
-  """
-  @type evaluation_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_video_stream() :: %{
-        "Arn" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_video_stream() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_faces_response() :: %{
-        "DisassociatedFaces" => list(disassociated_face()),
-        "UnsuccessfulFaceDisassociations" => list(unsuccessful_face_disassociation()),
-        "UserStatus" => list(any())
-      }
-      
-  """
-  @type disassociate_faces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image() :: %{
-        "Bytes" => binary(),
-        "S3Object" => s3_object()
-      }
-      
-  """
-  @type image() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      geometry() :: %{
-        "BoundingBox" => bounding_box(),
-        "Polygon" => list(point())
-      }
-      
-  """
-  @type geometry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_face_liveness_session_results_response() :: %{
-        "AuditImages" => list(audit_image()),
-        "Challenge" => challenge(),
-        "Confidence" => float(),
-        "ReferenceImage" => audit_image(),
-        "SessionId" => String.t() | atom(),
+      project_description() :: %{
+        "AutoUpdate" => list(any()),
+        "CreationTimestamp" => non_neg_integer(),
+        "Datasets" => list(dataset_metadata()),
+        "Feature" => list(any()),
+        "ProjectArn" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type get_face_liveness_session_results_response() :: %{(String.t() | atom()) => any()}
+  @type project_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      dataset_stats() :: %{
-        "ErrorEntries" => integer(),
-        "LabeledEntries" => integer(),
-        "TotalEntries" => integer(),
-        "TotalLabels" => integer()
-      }
-      
-  """
-  @type dataset_stats() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_label_detection_response() :: %{
-        "JobId" => String.t() | atom()
-      }
-      
-  """
-  @type start_label_detection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_faces_request() :: %{
-        optional("FaceMatchThreshold") => float(),
-        optional("MaxFaces") => integer(),
-        required("CollectionId") => String.t() | atom(),
-        required("FaceId") => String.t() | atom()
-      }
-      
-  """
-  @type search_faces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      celebrity_detail() :: %{
-        "BoundingBox" => bounding_box(),
-        "Confidence" => float(),
-        "Face" => face_detail(),
-        "Id" => String.t() | atom(),
-        "KnownGender" => known_gender(),
-        "Name" => String.t() | atom(),
-        "Urls" => list(String.t() | atom())
-      }
-      
-  """
-  @type celebrity_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_stream_processor_response() :: %{}
-      
-  """
-  @type stop_stream_processor_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      face_search_settings() :: %{
-        "CollectionId" => String.t() | atom(),
-        "FaceMatchThreshold" => float()
-      }
-      
-  """
-  @type face_search_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_person_tracking_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("JobTag") => String.t() | atom(),
-        optional("NotificationChannel") => notification_channel(),
-        required("Video") => video()
-      }
-      
-  """
-  @type start_person_tracking_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associated_face() :: %{
-        "FaceId" => String.t() | atom()
-      }
-      
-  """
-  @type associated_face() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dataset_description() :: %{
+      project_policy() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "DatasetStats" => dataset_stats(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "StatusMessageCode" => list(any())
+        "PolicyDocument" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
+        "PolicyRevisionId" => String.t() | atom(),
+        "ProjectArn" => String.t() | atom()
       }
       
   """
-  @type dataset_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      versions() :: %{
-        "Maximum" => String.t() | atom(),
-        "Minimum" => String.t() | atom()
-      }
-      
-  """
-  @type versions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociated_face() :: %{
-        "FaceId" => String.t() | atom()
-      }
-      
-  """
-  @type disassociated_face() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_stream_processor_request() :: %{
-        optional("DataSharingPreference") => stream_processor_data_sharing_preference(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("NotificationChannel") => stream_processor_notification_channel(),
-        optional("RegionsOfInterest") => list(region_of_interest()),
-        optional("Tags") => map(),
-        required("Input") => stream_processor_input(),
-        required("Name") => String.t() | atom(),
-        required("Output") => stream_processor_output(),
-        required("RoleArn") => String.t() | atom(),
-        required("Settings") => stream_processor_settings()
-      }
-      
-  """
-  @type create_stream_processor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      equipment_detection() :: %{
-        "BoundingBox" => bounding_box(),
-        "Confidence" => float(),
-        "CoversBodyPart" => covers_body_part(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type equipment_detection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_label_detection_response() :: %{
-        "GetRequestMetadata" => get_label_detection_request_metadata(),
-        "JobId" => String.t() | atom(),
-        "JobStatus" => list(any()),
-        "JobTag" => String.t() | atom(),
-        "LabelModelVersion" => String.t() | atom(),
-        "Labels" => list(label_detection()),
-        "NextToken" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom(),
-        "Video" => video(),
-        "VideoMetadata" => video_metadata()
-      }
-      
-  """
-  @type get_label_detection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_text_detection_response() :: %{
-        "JobId" => String.t() | atom()
-      }
-      
-  """
-  @type start_text_detection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_users_by_image_request() :: %{
-        optional("MaxUsers") => integer(),
-        optional("QualityFilter") => list(any()),
-        optional("UserMatchThreshold") => float(),
-        required("CollectionId") => String.t() | atom(),
-        required("Image") => image()
-      }
-      
-  """
-  @type search_users_by_image_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_label_detection_request_metadata() :: %{
-        "AggregateBy" => list(any()),
-        "SortBy" => list(any())
-      }
-      
-  """
-  @type get_label_detection_request_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_dataset_entries_response() :: %{}
-      
-  """
-  @type update_dataset_entries_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_faces_request() :: %{
-        required("CollectionId") => String.t() | atom(),
-        required("FaceIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type delete_faces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_content_moderation_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("JobTag") => String.t() | atom(),
-        optional("MinConfidence") => float(),
-        optional("NotificationChannel") => notification_channel(),
-        required("Video") => video()
-      }
-      
-  """
-  @type start_content_moderation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      region_of_interest() :: %{
-        "BoundingBox" => bounding_box(),
-        "Polygon" => list(point())
-      }
-      
-  """
-  @type region_of_interest() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      video() :: %{
-        "S3Object" => s3_object()
-      }
-      
-  """
-  @type video() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protective_equipment_body_part() :: %{
-        "Confidence" => float(),
-        "EquipmentDetections" => list(equipment_detection()),
-        "Name" => list(any())
-      }
-      
-  """
-  @type protective_equipment_body_part() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      text_detection_result() :: %{
-        "TextDetection" => text_detection(),
-        "Timestamp" => float()
-      }
-      
-  """
-  @type text_detection_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_text_detection_response() :: %{
-        "JobId" => String.t() | atom(),
-        "JobStatus" => list(any()),
-        "JobTag" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom(),
-        "TextDetections" => list(text_detection_result()),
-        "TextModelVersion" => String.t() | atom(),
-        "Video" => video(),
-        "VideoMetadata" => video_metadata()
-      }
-      
-  """
-  @type get_text_detection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_face_liveness_session_results_request() :: %{
-        required("SessionId") => String.t() | atom()
-      }
-      
-  """
-  @type get_face_liveness_session_results_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      searched_face_details() :: %{
-        "FaceDetail" => face_detail()
-      }
-      
-  """
-  @type searched_face_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_stream_processors_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "StreamProcessors" => list(stream_processor())
-      }
-      
-  """
-  @type list_stream_processors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detection_filter() :: %{
-        "MinBoundingBoxHeight" => float(),
-        "MinBoundingBoxWidth" => float(),
-        "MinConfidence" => float()
-      }
-      
-  """
-  @type detection_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      distribute_dataset_entries_response() :: %{}
-      
-  """
-  @type distribute_dataset_entries_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      media_analysis_model_versions() :: %{
-        "Moderation" => String.t() | atom()
-      }
-      
-  """
-  @type media_analysis_model_versions() :: %{(String.t() | atom()) => any()}
+  @type project_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3533,47 +3209,127 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      get_segment_detection_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("JobId") => String.t() | atom()
+      protective_equipment_body_part() :: %{
+        "Confidence" => float(),
+        "EquipmentDetections" => list(equipment_detection()),
+        "Name" => list(any())
       }
       
   """
-  @type get_segment_detection_request() :: %{(String.t() | atom()) => any()}
+  @type protective_equipment_body_part() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_face_search_response() :: %{
-        "JobId" => String.t() | atom()
+      protective_equipment_person() :: %{
+        "BodyParts" => list(protective_equipment_body_part()),
+        "BoundingBox" => bounding_box(),
+        "Confidence" => float(),
+        "Id" => integer()
       }
       
   """
-  @type start_face_search_response() :: %{(String.t() | atom()) => any()}
+  @type protective_equipment_person() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_project_version_request() :: %{
-        required("ProjectVersionArn") => String.t() | atom()
+      protective_equipment_summarization_attributes() :: %{
+        "MinConfidence" => float(),
+        "RequiredEquipmentTypes" => list(list(any())())
       }
       
   """
-  @type delete_project_version_request() :: %{(String.t() | atom()) => any()}
+  @type protective_equipment_summarization_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_dataset_response() :: %{
-        "DatasetArn" => String.t() | atom()
+      protective_equipment_summary() :: %{
+        "PersonsIndeterminate" => list(integer()),
+        "PersonsWithRequiredEquipment" => list(integer()),
+        "PersonsWithoutRequiredEquipment" => list(integer())
       }
       
   """
-  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
+  @type protective_equipment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provisioned_throughput_exceeded_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type provisioned_throughput_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_project_policy_request() :: %{
+        optional("PolicyRevisionId") => String.t() | atom(),
+        required("PolicyDocument") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom(),
+        required("ProjectArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_project_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_project_policy_response() :: %{
+        "PolicyRevisionId" => String.t() | atom()
+      }
+      
+  """
+  @type put_project_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recognize_celebrities_request() :: %{
+        required("Image") => image()
+      }
+      
+  """
+  @type recognize_celebrities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recognize_celebrities_response() :: %{
+        "CelebrityFaces" => list(celebrity()),
+        "OrientationCorrection" => list(any()),
+        "UnrecognizedFaces" => list(compared_face())
+      }
+      
+  """
+  @type recognize_celebrities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      region_of_interest() :: %{
+        "BoundingBox" => bounding_box(),
+        "Polygon" => list(point())
+      }
+      
+  """
+  @type region_of_interest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3592,259 +3348,150 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      list_users_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Users" => list(user())
-      }
-      
-  """
-  @type list_users_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_faces_response() :: %{
-        "DeletedFaces" => list(String.t() | atom()),
-        "UnsuccessfulFaceDeletions" => list(unsuccessful_face_deletion())
-      }
-      
-  """
-  @type delete_faces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_custom_labels_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("MinConfidence") => float(),
-        required("Image") => image(),
-        required("ProjectVersionArn") => String.t() | atom()
-      }
-      
-  """
-  @type detect_custom_labels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_face_detection_response() :: %{
-        "Faces" => list(face_detection()),
-        "JobId" => String.t() | atom(),
-        "JobStatus" => list(any()),
-        "JobTag" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom(),
-        "Video" => video(),
-        "VideoMetadata" => video_metadata()
-      }
-      
-  """
-  @type get_face_detection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      training_data_result() :: %{
-        "Input" => training_data(),
-        "Output" => training_data(),
-        "Validation" => validation_data()
-      }
-      
-  """
-  @type training_data_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      eye_open() :: %{
-        "Confidence" => float(),
-        "Value" => boolean()
-      }
-      
-  """
-  @type eye_open() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mouth_open() :: %{
-        "Confidence" => float(),
-        "Value" => boolean()
-      }
-      
-  """
-  @type mouth_open() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_stream_processor_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type describe_stream_processor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_segment_detection_response() :: %{
-        "JobId" => String.t() | atom()
-      }
-      
-  """
-  @type start_segment_detection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      media_analysis_job_failure_details() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type media_analysis_job_failure_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_celebrity_info_request() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type get_celebrity_info_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_protective_equipment_response() :: %{
-        "Persons" => list(protective_equipment_person()),
-        "ProtectiveEquipmentModelVersion" => String.t() | atom(),
-        "Summary" => protective_equipment_summary()
-      }
-      
-  """
-  @type detect_protective_equipment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_dataset_entries_request() :: %{
-        optional("ContainsLabels") => list(String.t() | atom()),
-        optional("HasErrors") => boolean(),
-        optional("Labeled") => boolean(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SourceRefContains") => String.t() | atom(),
-        required("DatasetArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_dataset_entries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_protective_equipment_request() :: %{
-        optional("SummarizationAttributes") => protective_equipment_summarization_attributes(),
-        required("Image") => image()
-      }
-      
-  """
-  @type detect_protective_equipment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protective_equipment_summarization_attributes() :: %{
-        "MinConfidence" => float(),
-        "RequiredEquipmentTypes" => list(list(any())())
-      }
-      
-  """
-  @type protective_equipment_summarization_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_stream_processors_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_stream_processors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_stream_processor_request() :: %{
-        optional("DataSharingPreferenceForUpdate") => stream_processor_data_sharing_preference(),
-        optional("ParametersToDelete") => list(list(any())()),
-        optional("RegionsOfInterestForUpdate") => list(region_of_interest()),
-        optional("SettingsForUpdate") => stream_processor_settings_for_update(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type update_stream_processor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compare_faces_request() :: %{
-        optional("QualityFilter") => list(any()),
-        optional("SimilarityThreshold") => float(),
-        required("SourceImage") => image(),
-        required("TargetImage") => image()
-      }
-      
-  """
-  @type compare_faces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      covers_body_part() :: %{
-        "Confidence" => float(),
-        "Value" => boolean()
-      }
-      
-  """
-  @type covers_body_part() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
+      resource_in_use_exception() :: %{
         "Code" => String.t() | atom(),
         "Logref" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_ready_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_destination() :: %{
+        "Bucket" => String.t() | atom(),
+        "KeyPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type s3_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_object() :: %{
+        "Bucket" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+      
+  """
+  @type s3_object() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_faces_by_image_request() :: %{
+        optional("FaceMatchThreshold") => float(),
+        optional("MaxFaces") => integer(),
+        optional("QualityFilter") => list(any()),
+        required("CollectionId") => String.t() | atom(),
+        required("Image") => image()
+      }
+      
+  """
+  @type search_faces_by_image_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_faces_by_image_response() :: %{
+        "FaceMatches" => list(face_match()),
+        "FaceModelVersion" => String.t() | atom(),
+        "SearchedFaceBoundingBox" => bounding_box(),
+        "SearchedFaceConfidence" => float()
+      }
+      
+  """
+  @type search_faces_by_image_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_faces_request() :: %{
+        optional("FaceMatchThreshold") => float(),
+        optional("MaxFaces") => integer(),
+        required("CollectionId") => String.t() | atom(),
+        required("FaceId") => String.t() | atom()
+      }
+      
+  """
+  @type search_faces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_faces_response() :: %{
+        "FaceMatches" => list(face_match()),
+        "FaceModelVersion" => String.t() | atom(),
+        "SearchedFaceId" => String.t() | atom()
+      }
+      
+  """
+  @type search_faces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_users_by_image_request() :: %{
+        optional("MaxUsers") => integer(),
+        optional("QualityFilter") => list(any()),
+        optional("UserMatchThreshold") => float(),
+        required("CollectionId") => String.t() | atom(),
+        required("Image") => image()
+      }
+      
+  """
+  @type search_users_by_image_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_users_by_image_response() :: %{
+        "FaceModelVersion" => String.t() | atom(),
+        "SearchedFace" => searched_face_details(),
+        "UnsearchedFaces" => list(unsearched_face()),
+        "UserMatches" => list(user_match())
+      }
+      
+  """
+  @type search_users_by_image_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3865,12 +3512,95 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      stop_project_version_response() :: %{
-        "Status" => list(any())
+      search_users_response() :: %{
+        "FaceModelVersion" => String.t() | atom(),
+        "SearchedFace" => searched_face(),
+        "SearchedUser" => searched_user(),
+        "UserMatches" => list(user_match())
       }
       
   """
-  @type stop_project_version_response() :: %{(String.t() | atom()) => any()}
+  @type search_users_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      searched_face() :: %{
+        "FaceId" => String.t() | atom()
+      }
+      
+  """
+  @type searched_face() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      searched_face_details() :: %{
+        "FaceDetail" => face_detail()
+      }
+      
+  """
+  @type searched_face_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      searched_user() :: %{
+        "UserId" => String.t() | atom()
+      }
+      
+  """
+  @type searched_user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      segment_detection() :: %{
+        "DurationFrames" => float(),
+        "DurationMillis" => float(),
+        "DurationSMPTE" => String.t() | atom(),
+        "EndFrameNumber" => float(),
+        "EndTimecodeSMPTE" => String.t() | atom(),
+        "EndTimestampMillis" => float(),
+        "ShotSegment" => shot_segment(),
+        "StartFrameNumber" => float(),
+        "StartTimecodeSMPTE" => String.t() | atom(),
+        "StartTimestampMillis" => float(),
+        "TechnicalCueSegment" => technical_cue_segment(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type segment_detection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      segment_type_info() :: %{
+        "ModelVersion" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type segment_type_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3889,99 +3619,39 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      get_face_search_response() :: %{
-        "JobId" => String.t() | atom(),
-        "JobStatus" => list(any()),
-        "JobTag" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "Persons" => list(person_match()),
-        "StatusMessage" => String.t() | atom(),
-        "Video" => video(),
-        "VideoMetadata" => video_metadata()
-      }
-      
-  """
-  @type get_face_search_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_content_moderation_request() :: %{
-        optional("AggregateBy") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => list(any()),
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_content_moderation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_users_by_image_response() :: %{
-        "FaceModelVersion" => String.t() | atom(),
-        "SearchedFace" => searched_face_details(),
-        "UnsearchedFaces" => list(unsearched_face()),
-        "UserMatches" => list(user_match())
-      }
-      
-  """
-  @type search_users_by_image_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      technical_cue_segment() :: %{
+      shot_segment() :: %{
         "Confidence" => float(),
-        "Type" => list(any())
+        "Index" => float()
       }
       
   """
-  @type technical_cue_segment() :: %{(String.t() | atom()) => any()}
+  @type shot_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_project_version_request() :: %{
-        optional("MaxInferenceUnits") => integer(),
-        required("MinInferenceUnits") => integer(),
-        required("ProjectVersionArn") => String.t() | atom()
+      smile() :: %{
+        "Confidence" => float(),
+        "Value" => boolean()
       }
       
   """
-  @type start_project_version_request() :: %{(String.t() | atom()) => any()}
+  @type smile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_s3_object_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      start_celebrity_recognition_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
+        optional("NotificationChannel") => notification_channel(),
+        required("Video") => video()
       }
       
   """
-  @type invalid_s3_object_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_stream_processor_request() :: %{
-        optional("StartSelector") => stream_processing_start_selector(),
-        optional("StopSelector") => stream_processing_stop_selector(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type start_stream_processor_request() :: %{(String.t() | atom()) => any()}
+  @type start_celebrity_recognition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3998,126 +3668,27 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      invalid_policy_revision_id_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Logref" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      start_content_moderation_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
+        optional("MinConfidence") => float(),
+        optional("NotificationChannel") => notification_channel(),
+        required("Video") => video()
       }
       
   """
-  @type invalid_policy_revision_id_exception() :: %{(String.t() | atom()) => any()}
+  @type start_content_moderation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stream_processor_notification_channel() :: %{
-        "SNSTopicArn" => String.t() | atom()
+      start_content_moderation_response() :: %{
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type stream_processor_notification_channel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      audit_image() :: %{
-        "BoundingBox" => bounding_box(),
-        "Bytes" => binary(),
-        "S3Object" => s3_object()
-      }
-      
-  """
-  @type audit_image() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_segment_detection_filters() :: %{
-        "ShotFilter" => start_shot_detection_filter(),
-        "TechnicalCueFilter" => start_technical_cue_detection_filter()
-      }
-      
-  """
-  @type start_segment_detection_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compare_faces_match() :: %{
-        "Face" => compared_face(),
-        "Similarity" => float()
-      }
-      
-  """
-  @type compare_faces_match() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      face_detail() :: %{
-        "AgeRange" => age_range(),
-        "Beard" => beard(),
-        "BoundingBox" => bounding_box(),
-        "Confidence" => float(),
-        "Emotions" => list(emotion()),
-        "EyeDirection" => eye_direction(),
-        "Eyeglasses" => eyeglasses(),
-        "EyesOpen" => eye_open(),
-        "FaceOccluded" => face_occluded(),
-        "Gender" => gender(),
-        "Landmarks" => list(landmark()),
-        "MouthOpen" => mouth_open(),
-        "Mustache" => mustache(),
-        "Pose" => pose(),
-        "Quality" => image_quality(),
-        "Smile" => smile(),
-        "Sunglasses" => sunglasses()
-      }
-      
-  """
-  @type face_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      media_analysis_output_config() :: %{
-        "S3Bucket" => String.t() | atom(),
-        "S3KeyPrefix" => String.t() | atom()
-      }
-      
-  """
-  @type media_analysis_output_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recognize_celebrities_request() :: %{
-        required("Image") => image()
-      }
-      
-  """
-  @type recognize_celebrities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_face_search_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => list(any()),
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_face_search_request() :: %{(String.t() | atom()) => any()}
+  @type start_content_moderation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4138,6 +3709,405 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
+      start_face_detection_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type start_face_detection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_face_search_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("FaceMatchThreshold") => float(),
+        optional("JobTag") => String.t() | atom(),
+        optional("NotificationChannel") => notification_channel(),
+        required("CollectionId") => String.t() | atom(),
+        required("Video") => video()
+      }
+      
+  """
+  @type start_face_search_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_face_search_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type start_face_search_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_label_detection_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Features") => list(list(any())()),
+        optional("JobTag") => String.t() | atom(),
+        optional("MinConfidence") => float(),
+        optional("NotificationChannel") => notification_channel(),
+        optional("Settings") => label_detection_settings(),
+        required("Video") => video()
+      }
+      
+  """
+  @type start_label_detection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_label_detection_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type start_label_detection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_media_analysis_job_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobName") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
+        required("Input") => media_analysis_input(),
+        required("OperationsConfig") => media_analysis_operations_config(),
+        required("OutputConfig") => media_analysis_output_config()
+      }
+      
+  """
+  @type start_media_analysis_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_media_analysis_job_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type start_media_analysis_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_person_tracking_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
+        optional("NotificationChannel") => notification_channel(),
+        required("Video") => video()
+      }
+      
+  """
+  @type start_person_tracking_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_person_tracking_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type start_person_tracking_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_project_version_request() :: %{
+        optional("MaxInferenceUnits") => integer(),
+        required("MinInferenceUnits") => integer(),
+        required("ProjectVersionArn") => String.t() | atom()
+      }
+      
+  """
+  @type start_project_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_project_version_response() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type start_project_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_segment_detection_filters() :: %{
+        "ShotFilter" => start_shot_detection_filter(),
+        "TechnicalCueFilter" => start_technical_cue_detection_filter()
+      }
+      
+  """
+  @type start_segment_detection_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_segment_detection_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Filters") => start_segment_detection_filters(),
+        optional("JobTag") => String.t() | atom(),
+        optional("NotificationChannel") => notification_channel(),
+        required("SegmentTypes") => list(list(any())()),
+        required("Video") => video()
+      }
+      
+  """
+  @type start_segment_detection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_segment_detection_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type start_segment_detection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_shot_detection_filter() :: %{
+        "MinSegmentConfidence" => float()
+      }
+      
+  """
+  @type start_shot_detection_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_stream_processor_request() :: %{
+        optional("StartSelector") => stream_processing_start_selector(),
+        optional("StopSelector") => stream_processing_stop_selector(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type start_stream_processor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_stream_processor_response() :: %{
+        "SessionId" => String.t() | atom()
+      }
+      
+  """
+  @type start_stream_processor_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_technical_cue_detection_filter() :: %{
+        "BlackFrame" => black_frame(),
+        "MinSegmentConfidence" => float()
+      }
+      
+  """
+  @type start_technical_cue_detection_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_text_detection_filters() :: %{
+        "RegionsOfInterest" => list(region_of_interest()),
+        "WordFilter" => detection_filter()
+      }
+      
+  """
+  @type start_text_detection_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_text_detection_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Filters") => start_text_detection_filters(),
+        optional("JobTag") => String.t() | atom(),
+        optional("NotificationChannel") => notification_channel(),
+        required("Video") => video()
+      }
+      
+  """
+  @type start_text_detection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_text_detection_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type start_text_detection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_project_version_request() :: %{
+        required("ProjectVersionArn") => String.t() | atom()
+      }
+      
+  """
+  @type stop_project_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_project_version_response() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type stop_project_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_stream_processor_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type stop_stream_processor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_stream_processor_response() :: %{}
+      
+  """
+  @type stop_stream_processor_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      stream_processing_start_selector() :: %{
+        "KVSStreamStartSelector" => kinesis_video_stream_start_selector()
+      }
+      
+  """
+  @type stream_processing_start_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stream_processing_stop_selector() :: %{
+        "MaxDurationInSeconds" => float()
+      }
+      
+  """
+  @type stream_processing_stop_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stream_processor() :: %{
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type stream_processor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stream_processor_data_sharing_preference() :: %{
+        "OptIn" => boolean()
+      }
+      
+  """
+  @type stream_processor_data_sharing_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stream_processor_input() :: %{
+        "KinesisVideoStream" => kinesis_video_stream()
+      }
+      
+  """
+  @type stream_processor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stream_processor_notification_channel() :: %{
+        "SNSTopicArn" => String.t() | atom()
+      }
+      
+  """
+  @type stream_processor_notification_channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stream_processor_output() :: %{
+        "KinesisDataStream" => kinesis_data_stream(),
+        "S3Destination" => s3_destination()
+      }
+      
+  """
+  @type stream_processor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stream_processor_settings() :: %{
+        "ConnectedHome" => connected_home_settings(),
+        "FaceSearch" => face_search_settings()
+      }
+      
+  """
+  @type stream_processor_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stream_processor_settings_for_update() :: %{
         "ConnectedHomeForUpdate" => connected_home_settings_for_update()
       }
@@ -4149,71 +4119,198 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      distribute_dataset() :: %{
-        "Arn" => String.t() | atom()
+      summary() :: %{
+        "S3Object" => s3_object()
       }
       
   """
-  @type distribute_dataset() :: %{(String.t() | atom()) => any()}
+  @type summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_project_version_request() :: %{
-        optional("FeatureConfig") => customization_feature_config(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("Tags") => map(),
-        optional("TestingData") => testing_data(),
-        optional("TrainingData") => training_data(),
-        optional("VersionDescription") => String.t() | atom(),
-        required("OutputConfig") => output_config(),
-        required("ProjectArn") => String.t() | atom(),
-        required("VersionName") => String.t() | atom()
+      sunglasses() :: %{
+        "Confidence" => float(),
+        "Value" => boolean()
       }
       
   """
-  @type create_project_version_request() :: %{(String.t() | atom()) => any()}
+  @type sunglasses() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_dataset_request() :: %{
-        required("DatasetArn") => String.t() | atom()
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => map()
       }
       
   """
-  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      label_alias() :: %{
-        "Name" => String.t() | atom()
-      }
+      tag_resource_response() :: %{}
       
   """
-  @type label_alias() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      get_person_tracking_response() :: %{
-        "JobId" => String.t() | atom(),
-        "JobStatus" => list(any()),
-        "JobTag" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "Persons" => list(person_detection()),
-        "StatusMessage" => String.t() | atom(),
-        "Video" => video(),
-        "VideoMetadata" => video_metadata()
+      technical_cue_segment() :: %{
+        "Confidence" => float(),
+        "Type" => list(any())
       }
       
   """
-  @type get_person_tracking_response() :: %{(String.t() | atom()) => any()}
+  @type technical_cue_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      testing_data() :: %{
+        "Assets" => list(asset()),
+        "AutoCreate" => boolean()
+      }
+      
+  """
+  @type testing_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      testing_data_result() :: %{
+        "Input" => testing_data(),
+        "Output" => testing_data(),
+        "Validation" => validation_data()
+      }
+      
+  """
+  @type testing_data_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      text_detection() :: %{
+        "Confidence" => float(),
+        "DetectedText" => String.t() | atom(),
+        "Geometry" => geometry(),
+        "Id" => integer(),
+        "ParentId" => integer(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type text_detection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      text_detection_result() :: %{
+        "TextDetection" => text_detection(),
+        "Timestamp" => float()
+      }
+      
+  """
+  @type text_detection_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_data() :: %{
+        "Assets" => list(asset())
+      }
+      
+  """
+  @type training_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_data_result() :: %{
+        "Input" => training_data(),
+        "Output" => training_data(),
+        "Validation" => validation_data()
+      }
+      
+  """
+  @type training_data_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unindexed_face() :: %{
+        "FaceDetail" => face_detail(),
+        "Reasons" => list(list(any())())
+      }
+      
+  """
+  @type unindexed_face() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsearched_face() :: %{
+        "FaceDetails" => face_detail(),
+        "Reasons" => list(list(any())())
+      }
+      
+  """
+  @type unsearched_face() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsuccessful_face_association() :: %{
+        "Confidence" => float(),
+        "FaceId" => String.t() | atom(),
+        "Reasons" => list(list(any())()),
+        "UserId" => String.t() | atom()
+      }
+      
+  """
+  @type unsuccessful_face_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsuccessful_face_deletion() :: %{
+        "FaceId" => String.t() | atom(),
+        "Reasons" => list(list(any())()),
+        "UserId" => String.t() | atom()
+      }
+      
+  """
+  @type unsuccessful_face_deletion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4232,976 +4329,879 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
-      dataset_metadata() :: %{
-        "CreationTimestamp" => non_neg_integer(),
-        "DatasetArn" => String.t() | atom(),
-        "DatasetType" => list(any()),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "StatusMessageCode" => list(any())
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type dataset_metadata() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_user_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("CollectionId") => String.t() | atom(),
-        required("UserId") => String.t() | atom()
-      }
+      untag_resource_response() :: %{}
       
   """
-  @type create_user_request() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      unsearched_face() :: %{
-        "FaceDetails" => face_detail(),
-        "Reasons" => list(list(any())())
-      }
-      
-  """
-  @type unsearched_face() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_project_version_response() :: %{
-        "Status" => list(any())
-      }
-      
-  """
-  @type start_project_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_media_analysis_jobs_response() :: %{
-        "MediaAnalysisJobs" => list(media_analysis_job_description()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_media_analysis_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      audio_metadata() :: %{
-        "Codec" => String.t() | atom(),
-        "DurationMillis" => float(),
-        "NumberOfChannels" => float(),
-        "SampleRate" => float()
-      }
-      
-  """
-  @type audio_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_project_version_response() :: %{
-        "ProjectVersionArn" => String.t() | atom()
-      }
-      
-  """
-  @type copy_project_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_faces_response() :: %{
-        "AssociatedFaces" => list(associated_face()),
-        "UnsuccessfulFaceAssociations" => list(unsuccessful_face_association()),
-        "UserStatus" => list(any())
-      }
-      
-  """
-  @type associate_faces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_face_detection_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_face_detection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_celebrity_info_response() :: %{
-        "KnownGender" => known_gender(),
-        "Name" => String.t() | atom(),
-        "Urls" => list(String.t() | atom())
-      }
-      
-  """
-  @type get_celebrity_info_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dataset_label_description() :: %{
-        "LabelName" => String.t() | atom(),
-        "LabelStats" => dataset_label_stats()
-      }
-      
-  """
-  @type dataset_label_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      face_occluded() :: %{
-        "Confidence" => float(),
-        "Value" => boolean()
-      }
-      
-  """
-  @type face_occluded() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_dataset_labels_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
+      update_dataset_entries_request() :: %{
+        required("Changes") => dataset_changes(),
         required("DatasetArn") => String.t() | atom()
       }
       
   """
-  @type list_dataset_labels_request() :: %{(String.t() | atom()) => any()}
+  @type update_dataset_entries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      service_quota_exceeded_exception() :: %{
+      update_dataset_entries_response() :: %{}
+      
+  """
+  @type update_dataset_entries_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_stream_processor_request() :: %{
+        optional("DataSharingPreferenceForUpdate") => stream_processor_data_sharing_preference(),
+        optional("ParametersToDelete") => list(list(any())()),
+        optional("RegionsOfInterestForUpdate") => list(region_of_interest()),
+        optional("SettingsForUpdate") => stream_processor_settings_for_update(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type update_stream_processor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_stream_processor_response() :: %{}
+      
+  """
+  @type update_stream_processor_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      user() :: %{
+        "UserId" => String.t() | atom(),
+        "UserStatus" => list(any())
+      }
+      
+  """
+  @type user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_match() :: %{
+        "Similarity" => float(),
+        "User" => matched_user()
+      }
+      
+  """
+  @type user_match() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_data() :: %{
+        "Assets" => list(asset())
+      }
+      
+  """
+  @type validation_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      versions() :: %{
+        "Maximum" => String.t() | atom(),
+        "Minimum" => String.t() | atom()
+      }
+      
+  """
+  @type versions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      video() :: %{
+        "S3Object" => s3_object()
+      }
+      
+  """
+  @type video() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      video_metadata() :: %{
+        "Codec" => String.t() | atom(),
+        "ColorRange" => list(any()),
+        "DurationMillis" => float(),
+        "Format" => String.t() | atom(),
+        "FrameHeight" => float(),
+        "FrameRate" => float(),
+        "FrameWidth" => float()
+      }
+      
+  """
+  @type video_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      video_too_large_exception() :: %{
         "Code" => String.t() | atom(),
         "Logref" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mustache() :: %{
-        "Confidence" => float(),
-        "Value" => boolean()
-      }
-      
-  """
-  @type mustache() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_collection_response() :: %{
-        "CollectionARN" => String.t() | atom(),
-        "CreationTimestamp" => non_neg_integer(),
-        "FaceCount" => float(),
-        "FaceModelVersion" => String.t() | atom(),
-        "UserCount" => float()
-      }
-      
-  """
-  @type describe_collection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_destination() :: %{
-        "Bucket" => String.t() | atom(),
-        "KeyPrefix" => String.t() | atom()
-      }
-      
-  """
-  @type s3_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sunglasses() :: %{
-        "Confidence" => float(),
-        "Value" => boolean()
-      }
-      
-  """
-  @type sunglasses() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detect_custom_labels_response() :: %{
-        "CustomLabels" => list(custom_label())
-      }
-      
-  """
-  @type detect_custom_labels_response() :: %{(String.t() | atom()) => any()}
+  @type video_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @type associate_faces_errors() ::
-          service_quota_exceeded_exception()
-          | invalid_parameter_exception()
-          | conflict_exception()
-          | provisioned_throughput_exceeded_exception()
+          throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type compare_faces_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | image_too_large_exception()
+          throttling_exception()
           | provisioned_throughput_exceeded_exception()
-          | invalid_image_format_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type copy_project_version_errors() ::
-          service_quota_exceeded_exception()
-          | invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type create_collection_errors() ::
-          service_quota_exceeded_exception()
-          | invalid_parameter_exception()
-          | resource_already_exists_exception()
-          | provisioned_throughput_exceeded_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type create_dataset_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | resource_already_exists_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type create_face_liveness_session_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type create_project_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
-          | internal_server_error()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type create_project_version_errors() ::
-          service_quota_exceeded_exception()
-          | invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type create_stream_processor_errors() ::
-          service_quota_exceeded_exception()
-          | invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
-          | internal_server_error()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type create_user_errors() ::
-          service_quota_exceeded_exception()
-          | invalid_parameter_exception()
-          | conflict_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | idempotent_parameter_mismatch_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type delete_collection_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type delete_dataset_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type delete_faces_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type delete_project_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type delete_project_policy_errors() ::
-          invalid_policy_revision_id_exception()
-          | invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type delete_project_version_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type delete_stream_processor_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type delete_user_errors() ::
-          invalid_parameter_exception()
-          | conflict_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | idempotent_parameter_mismatch_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type describe_collection_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type describe_dataset_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type describe_project_versions_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type describe_projects_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type describe_stream_processor_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type detect_custom_labels_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | image_too_large_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_image_format_exception()
-          | internal_server_error()
-          | resource_not_ready_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type detect_faces_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | image_too_large_exception()
-          | provisioned_throughput_exceeded_exception()
-          | invalid_image_format_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type detect_labels_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | image_too_large_exception()
-          | provisioned_throughput_exceeded_exception()
-          | invalid_image_format_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type detect_moderation_labels_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | human_loop_quota_exceeded_exception()
-          | image_too_large_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_image_format_exception()
-          | internal_server_error()
-          | resource_not_ready_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type detect_protective_equipment_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | image_too_large_exception()
-          | provisioned_throughput_exceeded_exception()
-          | invalid_image_format_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type detect_text_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | image_too_large_exception()
-          | provisioned_throughput_exceeded_exception()
-          | invalid_image_format_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type disassociate_faces_errors() ::
-          invalid_parameter_exception()
-          | conflict_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | idempotent_parameter_mismatch_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type distribute_dataset_entries_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | resource_not_ready_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_celebrity_info_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_celebrity_recognition_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_content_moderation_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_face_detection_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_face_liveness_session_results_errors() ::
-          session_not_found_exception()
-          | invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_face_search_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_label_detection_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_media_analysis_job_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_person_tracking_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_segment_detection_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_text_detection_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type index_faces_errors() ::
-          service_quota_exceeded_exception()
           | invalid_s3_object_exception()
           | invalid_parameter_exception()
-          | image_too_large_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
           | invalid_image_format_exception()
           | internal_server_error()
+          | image_too_large_exception()
           | access_denied_exception()
-          | throttling_exception()
 
-  @type list_collections_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+  @type copy_project_version_errors() ::
+          throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_dataset_entries_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
           | resource_in_use_exception()
-          | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | resource_not_ready_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_dataset_labels_errors() ::
-          invalid_parameter_exception()
           | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type create_collection_errors() ::
+          throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_already_exists_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type create_dataset_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | resource_already_exists_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type create_face_liveness_session_errors() ::
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type create_project_errors() ::
+          throttling_exception()
           | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type create_project_version_errors() ::
+          throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | resource_not_ready_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_faces_errors() ::
-          invalid_parameter_exception()
+          | resource_in_use_exception()
           | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type create_stream_processor_errors() ::
+          throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type create_user_errors() ::
+          throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_media_analysis_jobs_errors() ::
-          invalid_parameter_exception()
           | provisioned_throughput_exceeded_exception()
-          | invalid_pagination_token_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
+          | idempotent_parameter_mismatch_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
-  @type list_project_policies_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+  @type delete_collection_errors() ::
+          throttling_exception()
           | resource_not_found_exception()
-          | invalid_pagination_token_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
-  @type list_stream_processors_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | invalid_pagination_token_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_tags_for_resource_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+  @type delete_dataset_errors() ::
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_server_error()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_users_errors() ::
-          invalid_parameter_exception()
+          | resource_in_use_exception()
           | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_pagination_token_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
-  @type put_project_policy_errors() ::
-          service_quota_exceeded_exception()
+  @type delete_faces_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type delete_project_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type delete_project_policy_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
           | invalid_policy_revision_id_exception()
           | invalid_parameter_exception()
-          | resource_already_exists_exception()
-          | malformed_policy_document_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_not_found_exception()
           | internal_server_error()
-          | limit_exceeded_exception()
           | access_denied_exception()
-          | throttling_exception()
+
+  @type delete_project_version_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type delete_stream_processor_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type delete_user_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | idempotent_parameter_mismatch_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type describe_collection_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type describe_dataset_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type describe_project_versions_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type describe_projects_errors() ::
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type describe_stream_processor_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type detect_custom_labels_errors() ::
+          throttling_exception()
+          | resource_not_ready_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
+          | invalid_image_format_exception()
+          | internal_server_error()
+          | image_too_large_exception()
+          | access_denied_exception()
+
+  @type detect_faces_errors() ::
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
+          | invalid_image_format_exception()
+          | internal_server_error()
+          | image_too_large_exception()
+          | access_denied_exception()
+
+  @type detect_labels_errors() ::
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
+          | invalid_image_format_exception()
+          | internal_server_error()
+          | image_too_large_exception()
+          | access_denied_exception()
+
+  @type detect_moderation_labels_errors() ::
+          throttling_exception()
+          | resource_not_ready_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
+          | invalid_image_format_exception()
+          | internal_server_error()
+          | image_too_large_exception()
+          | human_loop_quota_exceeded_exception()
+          | access_denied_exception()
+
+  @type detect_protective_equipment_errors() ::
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
+          | invalid_image_format_exception()
+          | internal_server_error()
+          | image_too_large_exception()
+          | access_denied_exception()
+
+  @type detect_text_errors() ::
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
+          | invalid_image_format_exception()
+          | internal_server_error()
+          | image_too_large_exception()
+          | access_denied_exception()
+
+  @type disassociate_faces_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | idempotent_parameter_mismatch_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type distribute_dataset_entries_errors() ::
+          throttling_exception()
+          | resource_not_ready_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type get_celebrity_info_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type get_celebrity_recognition_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type get_content_moderation_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type get_face_detection_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type get_face_liveness_session_results_errors() ::
+          throttling_exception()
+          | session_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type get_face_search_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type get_label_detection_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type get_media_analysis_job_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type get_person_tracking_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type get_segment_detection_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type get_text_detection_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type index_faces_errors() ::
+          throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
+          | invalid_image_format_exception()
+          | internal_server_error()
+          | image_too_large_exception()
+          | access_denied_exception()
+
+  @type list_collections_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type list_dataset_entries_errors() ::
+          throttling_exception()
+          | resource_not_ready_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type list_dataset_labels_errors() ::
+          throttling_exception()
+          | resource_not_ready_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type list_faces_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type list_media_analysis_jobs_errors() ::
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type list_project_policies_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type list_stream_processors_errors() ::
+          throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type list_users_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_pagination_token_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type put_project_policy_errors() ::
+          throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | resource_already_exists_exception()
+          | provisioned_throughput_exceeded_exception()
+          | malformed_policy_document_exception()
+          | limit_exceeded_exception()
+          | invalid_policy_revision_id_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
 
   @type recognize_celebrities_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | image_too_large_exception()
+          throttling_exception()
           | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
           | invalid_image_format_exception()
           | internal_server_error()
+          | image_too_large_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type search_faces_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type search_faces_by_image_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | image_too_large_exception()
-          | provisioned_throughput_exceeded_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
           | invalid_image_format_exception()
           | internal_server_error()
+          | image_too_large_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type search_users_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type search_users_by_image_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | image_too_large_exception()
-          | provisioned_throughput_exceeded_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
           | invalid_image_format_exception()
           | internal_server_error()
+          | image_too_large_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_celebrity_recognition_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | video_too_large_exception()
+          video_too_large_exception()
+          | throttling_exception()
           | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_content_moderation_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | video_too_large_exception()
+          video_too_large_exception()
+          | throttling_exception()
           | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_face_detection_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | video_too_large_exception()
+          video_too_large_exception()
+          | throttling_exception()
           | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_face_search_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | video_too_large_exception()
-          | provisioned_throughput_exceeded_exception()
+          video_too_large_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_label_detection_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | video_too_large_exception()
+          video_too_large_exception()
+          | throttling_exception()
           | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_media_analysis_job_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | invalid_manifest_exception()
-          | resource_not_found_exception()
-          | internal_server_error()
+          throttling_exception()
           | resource_not_ready_exception()
-          | idempotent_parameter_mismatch_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
           | limit_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
+          | invalid_manifest_exception()
+          | internal_server_error()
+          | idempotent_parameter_mismatch_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_person_tracking_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | video_too_large_exception()
+          video_too_large_exception()
+          | throttling_exception()
           | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_project_version_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_server_error()
+          | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
           | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_segment_detection_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | video_too_large_exception()
+          video_too_large_exception()
+          | throttling_exception()
           | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_stream_processor_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_text_detection_errors() ::
-          invalid_s3_object_exception()
-          | invalid_parameter_exception()
-          | video_too_large_exception()
+          video_too_large_exception()
+          | throttling_exception()
           | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_s3_object_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | idempotent_parameter_mismatch_exception()
-          | limit_exceeded_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type stop_project_version_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type stop_stream_processor_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
-          | invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+          throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_dataset_entries_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_server_error()
+          | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
           | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_stream_processor_errors() ::
-          invalid_parameter_exception()
-          | provisioned_throughput_exceeded_exception()
-          | resource_in_use_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{

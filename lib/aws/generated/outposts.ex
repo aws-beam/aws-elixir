@@ -23,26 +23,294 @@ defmodule AWS.Outposts do
 
   ## Example:
 
-      list_catalog_items_output() :: %{
-        "CatalogItems" => list(catalog_item()),
-        "NextToken" => String.t() | atom()
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type list_catalog_items_output() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_site_address_output() :: %{
-        "Address" => address(),
-        "AddressType" => list(any()),
-        "SiteId" => String.t() | atom()
+      address() :: %{
+        "AddressLine1" => String.t() | atom(),
+        "AddressLine2" => String.t() | atom(),
+        "AddressLine3" => String.t() | atom(),
+        "City" => String.t() | atom(),
+        "ContactName" => String.t() | atom(),
+        "ContactPhoneNumber" => String.t() | atom(),
+        "CountryCode" => String.t() | atom(),
+        "DistrictOrCounty" => String.t() | atom(),
+        "Municipality" => String.t() | atom(),
+        "PostalCode" => String.t() | atom(),
+        "StateOrRegion" => String.t() | atom()
       }
 
   """
-  @type get_site_address_output() :: %{(String.t() | atom()) => any()}
+  @type address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_info() :: %{
+        "AssetId" => String.t() | atom(),
+        "AssetLocation" => asset_location(),
+        "AssetType" => list(any()),
+        "ComputeAttributes" => compute_attributes(),
+        "RackId" => String.t() | atom()
+      }
+
+  """
+  @type asset_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_instance() :: %{
+        "AccountId" => String.t() | atom(),
+        "AssetId" => String.t() | atom(),
+        "AwsServiceName" => list(any()),
+        "InstanceId" => String.t() | atom(),
+        "InstanceType" => String.t() | atom()
+      }
+
+  """
+  @type asset_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_instance_type_capacity() :: %{
+        "Count" => integer(),
+        "InstanceType" => String.t() | atom()
+      }
+
+  """
+  @type asset_instance_type_capacity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_location() :: %{
+        "RackElevation" => float()
+      }
+
+  """
+  @type asset_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blocking_instance() :: %{
+        "AccountId" => String.t() | atom(),
+        "AwsServiceName" => list(any()),
+        "InstanceId" => String.t() | atom()
+      }
+
+  """
+  @type blocking_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_capacity_task_input() :: %{}
+
+  """
+  @type cancel_capacity_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_capacity_task_output() :: %{}
+
+  """
+  @type cancel_capacity_task_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_order_input() :: %{}
+
+  """
+  @type cancel_order_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_order_output() :: %{}
+
+  """
+  @type cancel_order_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_summary() :: %{
+        "CapacityChange" => list(quote_capacity()),
+        "ExistingCapacities" => list(quote_capacity()),
+        "FinalCapacities" => list(quote_capacity())
+      }
+
+  """
+  @type capacity_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_task_failure() :: %{
+        "Reason" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type capacity_task_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_task_summary() :: %{
+        "AssetId" => String.t() | atom(),
+        "CapacityTaskId" => String.t() | atom(),
+        "CapacityTaskStatus" => list(any()),
+        "CompletionDate" => non_neg_integer(),
+        "CreationDate" => non_neg_integer(),
+        "LastModifiedDate" => non_neg_integer(),
+        "OrderId" => String.t() | atom(),
+        "OutpostId" => String.t() | atom()
+      }
+
+  """
+  @type capacity_task_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      catalog_item() :: %{
+        "CatalogItemId" => String.t() | atom(),
+        "EC2Capacities" => list(ec2_capacity()),
+        "ItemStatus" => list(any()),
+        "PowerKva" => float(),
+        "SupportedStorage" => list(list(any())()),
+        "SupportedUplinkGbps" => list(integer()),
+        "WeightLbs" => integer()
+      }
+
+  """
+  @type catalog_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compute_attributes() :: %{
+        "HostId" => String.t() | atom(),
+        "InstanceFamilies" => list(String.t() | atom()),
+        "InstanceTypeCapacities" => list(asset_instance_type_capacity()),
+        "MaxVcpus" => integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type compute_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => list(any())
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_details() :: %{
+        "AllowedIps" => list(String.t() | atom()),
+        "ClientPublicKey" => String.t() | atom(),
+        "ClientTunnelAddress" => String.t() | atom(),
+        "ServerEndpoint" => String.t() | atom(),
+        "ServerPublicKey" => String.t() | atom(),
+        "ServerTunnelAddress" => String.t() | atom()
+      }
+
+  """
+  @type connection_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_order_input() :: %{
+        optional("LineItems") => list(line_item_request()),
+        optional("PaymentTerm") => list(any()),
+        optional("QuoteIdentifier") => String.t() | atom(),
+        optional("QuoteOptionIdentifier") => String.t() | atom(),
+        required("OutpostIdentifier") => String.t() | atom(),
+        required("PaymentOption") => list(any())
+      }
+
+  """
+  @type create_order_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_order_output() :: %{
+        "Order" => order()
+      }
+
+  """
+  @type create_order_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_outpost_input() :: %{
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("AvailabilityZoneId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("SupportedHardwareType") => list(any()),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom(),
+        required("SiteId") => String.t() | atom()
+      }
+
+  """
+  @type create_outpost_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_outpost_output() :: %{
+        "Outpost" => outpost()
+      }
+
+  """
+  @type create_outpost_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -65,6 +333,262 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      create_quote_output() :: %{
+        "Quote" => quote()
+      }
+
+  """
+  @type create_quote_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_renewal_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("OutpostIdentifier") => String.t() | atom(),
+        required("PaymentOption") => list(any()),
+        required("PaymentTerm") => list(any())
+      }
+
+  """
+  @type create_renewal_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_renewal_output() :: %{
+        "Currency" => list(any()),
+        "MonthlyRecurringPrice" => float(),
+        "OutpostId" => String.t() | atom(),
+        "PaymentOption" => list(any()),
+        "PaymentTerm" => list(any()),
+        "UpfrontPrice" => float()
+      }
+
+  """
+  @type create_renewal_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_site_input() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Notes") => String.t() | atom(),
+        optional("OperatingAddress") => address(),
+        optional("RackPhysicalProperties") => rack_physical_properties(),
+        optional("ShippingAddress") => address(),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_site_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_site_output() :: %{
+        "Site" => site()
+      }
+
+  """
+  @type create_site_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_outpost_input() :: %{}
+
+  """
+  @type delete_outpost_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_outpost_output() :: %{}
+
+  """
+  @type delete_outpost_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_quote_input() :: %{}
+
+  """
+  @type delete_quote_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_quote_output() :: %{}
+
+  """
+  @type delete_quote_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_site_input() :: %{}
+
+  """
+  @type delete_site_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_site_output() :: %{}
+
+  """
+  @type delete_site_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      detailed_instance_type_item() :: %{
+        "FormFactorConfigs" => list(form_factor_config()),
+        "InstanceType" => String.t() | atom(),
+        "MemoryInMib" => integer(),
+        "NetworkPerformance" => String.t() | atom(),
+        "VCPUs" => integer()
+      }
+
+  """
+  @type detailed_instance_type_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ec2_capacity() :: %{
+        "Family" => String.t() | atom(),
+        "MaxSize" => String.t() | atom(),
+        "Quantity" => String.t() | atom()
+      }
+
+  """
+  @type ec2_capacity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      form_factor_config() :: %{
+        "FormFactor" => list(any()),
+        "OutpostGeneration" => list(any())
+      }
+
+  """
+  @type form_factor_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_capacity_task_input() :: %{}
+
+  """
+  @type get_capacity_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_capacity_task_output() :: %{
+        "AssetId" => String.t() | atom(),
+        "CapacityTaskId" => String.t() | atom(),
+        "CapacityTaskStatus" => list(any()),
+        "CompletionDate" => non_neg_integer(),
+        "CreationDate" => non_neg_integer(),
+        "DryRun" => boolean(),
+        "Failed" => capacity_task_failure(),
+        "InstancesToExclude" => instances_to_exclude(),
+        "LastModifiedDate" => non_neg_integer(),
+        "OrderId" => String.t() | atom(),
+        "OutpostId" => String.t() | atom(),
+        "RequestedInstancePools" => list(instance_type_capacity()),
+        "TaskActionOnBlockingInstances" => list(any())
+      }
+
+  """
+  @type get_capacity_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_catalog_item_input() :: %{}
+
+  """
+  @type get_catalog_item_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_catalog_item_output() :: %{
+        "CatalogItem" => catalog_item()
+      }
+
+  """
+  @type get_catalog_item_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connection_request() :: %{}
+
+  """
+  @type get_connection_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connection_response() :: %{
+        "ConnectionDetails" => connection_details(),
+        "ConnectionId" => String.t() | atom()
+      }
+
+  """
+  @type get_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_order_input() :: %{}
+
+  """
+  @type get_order_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_order_output() :: %{
+        "Order" => order()
+      }
+
+  """
+  @type get_order_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_outpost_billing_information_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -72,6 +596,93 @@ defmodule AWS.Outposts do
 
   """
   @type get_outpost_billing_information_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_outpost_billing_information_output() :: %{
+        "ContractEndDate" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "PaymentOption" => list(any()),
+        "PaymentTerm" => list(any()),
+        "Subscriptions" => list(subscription())
+      }
+
+  """
+  @type get_outpost_billing_information_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_outpost_input() :: %{}
+
+  """
+  @type get_outpost_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_outpost_instance_types_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_outpost_instance_types_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_outpost_instance_types_output() :: %{
+        "InstanceTypes" => list(instance_type_item()),
+        "NextToken" => String.t() | atom(),
+        "OutpostArn" => String.t() | atom(),
+        "OutpostId" => String.t() | atom()
+      }
+
+  """
+  @type get_outpost_instance_types_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_outpost_output() :: %{
+        "Outpost" => outpost()
+      }
+
+  """
+  @type get_outpost_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_outpost_supported_instance_types_input() :: %{
+        optional("AssetId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OrderId") => String.t() | atom()
+      }
+
+  """
+  @type get_outpost_supported_instance_types_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_outpost_supported_instance_types_output() :: %{
+        "InstanceTypes" => list(instance_type_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_outpost_supported_instance_types_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -86,28 +697,195 @@ defmodule AWS.Outposts do
 
   ## Example:
 
-      list_blocking_instances_for_capacity_task_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      get_quote_output() :: %{
+        "Quote" => quote()
       }
 
   """
-  @type list_blocking_instances_for_capacity_task_input() :: %{(String.t() | atom()) => any()}
+  @type get_quote_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_sites_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OperatingAddressCityFilter") => list(String.t() | atom()),
-        optional("OperatingAddressCountryCodeFilter") => list(String.t() | atom()),
-        optional("OperatingAddressStateOrRegionFilter") => list(String.t() | atom())
+      get_renewal_pricing_input() :: %{}
+
+  """
+  @type get_renewal_pricing_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_renewal_pricing_output() :: %{
+        "PricingOptions" => list(pricing_option()),
+        "PricingResult" => list(any())
       }
 
   """
-  @type list_sites_input() :: %{(String.t() | atom()) => any()}
+  @type get_renewal_pricing_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_site_address_input() :: %{
+        required("AddressType") => list(any())
+      }
+
+  """
+  @type get_site_address_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_site_address_output() :: %{
+        "Address" => address(),
+        "AddressType" => list(any()),
+        "SiteId" => String.t() | atom()
+      }
+
+  """
+  @type get_site_address_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_site_input() :: %{}
+
+  """
+  @type get_site_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_site_output() :: %{
+        "Site" => site()
+      }
+
+  """
+  @type get_site_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_type_capacity() :: %{
+        "Count" => integer(),
+        "InstanceType" => String.t() | atom()
+      }
+
+  """
+  @type instance_type_capacity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_type_item() :: %{
+        "InstanceType" => String.t() | atom(),
+        "VCPUs" => integer()
+      }
+
+  """
+  @type instance_type_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instances_to_exclude() :: %{
+        "AccountIds" => list(String.t() | atom()),
+        "Instances" => list(String.t() | atom()),
+        "Services" => list(list(any())())
+      }
+
+  """
+  @type instances_to_exclude() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      line_item() :: %{
+        "AssetInformationList" => list(line_item_asset_information()),
+        "CatalogItemId" => String.t() | atom(),
+        "LineItemId" => String.t() | atom(),
+        "PreviousLineItemId" => String.t() | atom(),
+        "PreviousOrderId" => String.t() | atom(),
+        "Quantity" => integer(),
+        "ShipmentInformation" => shipment_information(),
+        "Status" => list(any())
+      }
+
+  """
+  @type line_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      line_item_asset_information() :: %{
+        "AssetId" => String.t() | atom(),
+        "MacAddressList" => list(String.t() | atom())
+      }
+
+  """
+  @type line_item_asset_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      line_item_request() :: %{
+        "CatalogItemId" => String.t() | atom(),
+        "Quantity" => integer()
+      }
+
+  """
+  @type line_item_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_instances_input() :: %{
+        optional("AccountIdFilter") => list(String.t() | atom()),
+        optional("AssetIdFilter") => list(String.t() | atom()),
+        optional("AwsServiceFilter") => list(list(any())()),
+        optional("InstanceTypeFilter") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_asset_instances_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_instances_output() :: %{
+        "AssetInstances" => list(asset_instance()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_asset_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -128,12 +906,155 @@ defmodule AWS.Outposts do
 
   ## Example:
 
-      get_site_address_input() :: %{
-        required("AddressType") => list(any())
+      list_assets_output() :: %{
+        "Assets" => list(asset_info()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_site_address_input() :: %{(String.t() | atom()) => any()}
+  @type list_assets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_blocking_instances_for_capacity_task_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_blocking_instances_for_capacity_task_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_blocking_instances_for_capacity_task_output() :: %{
+        "BlockingInstances" => list(blocking_instance()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_blocking_instances_for_capacity_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_capacity_tasks_input() :: %{
+        optional("CapacityTaskStatusFilter") => list(list(any())()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OutpostIdentifierFilter") => String.t() | atom()
+      }
+
+  """
+  @type list_capacity_tasks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_capacity_tasks_output() :: %{
+        "CapacityTasks" => list(capacity_task_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_capacity_tasks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_catalog_items_input() :: %{
+        optional("EC2FamilyFilter") => list(String.t() | atom()),
+        optional("ItemClassFilter") => list(list(any())()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SupportedStorageFilter") => list(list(any())())
+      }
+
+  """
+  @type list_catalog_items_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_catalog_items_output() :: %{
+        "CatalogItems" => list(catalog_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_catalog_items_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_orderable_instance_types_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OutpostGenerationFilter") => list(any())
+      }
+
+  """
+  @type list_orderable_instance_types_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_orderable_instance_types_output() :: %{
+        "InstanceTypes" => list(detailed_instance_type_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_orderable_instance_types_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_orders_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OutpostIdentifierFilter") => String.t() | atom()
+      }
+
+  """
+  @type list_orders_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_orders_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "Orders" => list(order_summary())
+      }
+
+  """
+  @type list_orders_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_outposts_input() :: %{
+        optional("AvailabilityZoneFilter") => list(String.t() | atom()),
+        optional("AvailabilityZoneIdFilter") => list(String.t() | atom()),
+        optional("LifeCycleStatusFilter") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_outposts_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,122 +1084,6 @@ defmodule AWS.Outposts do
 
   ## Example:
 
-      instance_type_item() :: %{
-        "InstanceType" => String.t() | atom(),
-        "VCPUs" => integer()
-      }
-
-  """
-  @type instance_type_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_site_input() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Notes") => String.t() | atom()
-      }
-
-  """
-  @type update_site_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_renewal_pricing_input() :: %{}
-
-  """
-  @type get_renewal_pricing_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ordering_requirement() :: %{
-        "OrderingRequirementType" => list(any()),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type ordering_requirement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_outpost_supported_instance_types_input() :: %{
-        optional("AssetId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OrderId") => String.t() | atom()
-      }
-
-  """
-  @type get_outpost_supported_instance_types_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscription_pricing_details() :: %{
-        "Currency" => list(any()),
-        "MonthlyRecurringPrice" => float(),
-        "PaymentOption" => list(any()),
-        "PaymentTerm" => list(any()),
-        "UpfrontPrice" => float()
-      }
-
-  """
-  @type subscription_pricing_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_instances_input() :: %{
-        optional("AccountIdFilter") => list(String.t() | atom()),
-        optional("AssetIdFilter") => list(String.t() | atom()),
-        optional("AwsServiceFilter") => list(list(any())()),
-        optional("InstanceTypeFilter") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_asset_instances_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      quote_constraint() :: %{
-        "QuoteConstraintType" => list(any()),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type quote_constraint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_site_address_input() :: %{
-        required("Address") => address(),
-        required("AddressType") => list(any())
-      }
-
-  """
-  @type update_site_address_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_quotes_output() :: %{
         "NextToken" => String.t() | atom(),
         "Quotes" => list(quote_summary())
@@ -291,216 +1096,59 @@ defmodule AWS.Outposts do
 
   ## Example:
 
-      cancel_order_output() :: %{}
-
-  """
-  @type cancel_order_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      line_item_asset_information() :: %{
-        "AssetId" => String.t() | atom(),
-        "MacAddressList" => list(String.t() | atom())
+      list_sites_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OperatingAddressCityFilter") => list(String.t() | atom()),
+        optional("OperatingAddressCountryCodeFilter") => list(String.t() | atom()),
+        optional("OperatingAddressStateOrRegionFilter") => list(String.t() | atom())
       }
 
   """
-  @type line_item_asset_information() :: %{(String.t() | atom()) => any()}
+  @type list_sites_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
+      list_sites_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "Sites" => list(site())
+      }
+
+  """
+  @type list_sites_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_site_input() :: %{}
-
-  """
-  @type get_site_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rack_specification_details() :: %{
-        "EC2Capacities" => list(ec2_capacity()),
-        "RackDepthInches" => float(),
-        "RackHeightInches" => float(),
-        "RackId" => String.t() | atom(),
-        "RackPowerDrawKva" => float(),
-        "RackUnitHeight" => list(any()),
-        "RackUse" => list(any()),
-        "RackWeightLbs" => float(),
-        "RackWidthInches" => float()
-      }
-
-  """
-  @type rack_specification_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscription() :: %{
-        "BeginDate" => non_neg_integer(),
-        "Currency" => list(any()),
-        "EndDate" => non_neg_integer(),
-        "MonthlyRecurringPrice" => float(),
-        "OrderIds" => list(String.t() | atom()),
-        "SubscriptionId" => String.t() | atom(),
-        "SubscriptionStatus" => list(any()),
-        "SubscriptionType" => list(any()),
-        "UpfrontPrice" => float()
-      }
-
-  """
-  @type subscription() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_order_input() :: %{}
-
-  """
-  @type cancel_order_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      quote_summary() :: %{
-        "AccountId" => String.t() | atom(),
-        "CountryCode" => String.t() | atom(),
-        "CreatedDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ExpirationDate" => non_neg_integer(),
-        "OutpostArn" => String.t() | atom(),
-        "QuoteId" => String.t() | atom(),
-        "QuoteOptions" => list(quote_option()),
-        "QuoteStatus" => list(any()),
-        "RequestedCapacities" => list(quote_capacity()),
-        "RequestedConstraints" => list(quote_constraint()),
-        "RequestedPaymentOptions" => list(list(any())()),
-        "RequestedPaymentTerms" => list(list(any())()),
-        "StatusMessage" => String.t() | atom(),
-        "SubmittedOrderId" => String.t() | atom()
-      }
-
-  """
-  @type quote_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_capacity_task_input() :: %{}
-
-  """
-  @type cancel_capacity_task_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_outpost_output() :: %{
-        "Outpost" => outpost()
-      }
-
-  """
-  @type get_outpost_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_site_input() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Notes") => String.t() | atom(),
-        optional("OperatingAddress") => address(),
-        optional("RackPhysicalProperties") => rack_physical_properties(),
-        optional("ShippingAddress") => address(),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_site_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      order_summary() :: %{
-        "LineItemCountsByStatus" => map(),
-        "OrderFulfilledDate" => non_neg_integer(),
-        "OrderId" => String.t() | atom(),
-        "OrderSubmissionDate" => non_neg_integer(),
-        "OrderType" => list(any()),
-        "OutpostId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type order_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_outposts_input() :: %{
-        optional("AvailabilityZoneFilter") => list(String.t() | atom()),
-        optional("AvailabilityZoneIdFilter") => list(String.t() | atom()),
-        optional("LifeCycleStatusFilter") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_outposts_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_order_output() :: %{
-        "Order" => order()
-      }
-
-  """
-  @type get_order_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_site_output() :: %{}
-
-  """
-  @type delete_site_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      capacity_summary() :: %{
-        "CapacityChange" => list(quote_capacity()),
-        "ExistingCapacities" => list(quote_capacity()),
-        "FinalCapacities" => list(quote_capacity())
-      }
-
-  """
-  @type capacity_summary() :: %{(String.t() | atom()) => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -527,250 +1175,31 @@ defmodule AWS.Outposts do
 
   ## Example:
 
-      get_renewal_pricing_output() :: %{
-        "PricingOptions" => list(pricing_option()),
-        "PricingResult" => list(any())
-      }
-
-  """
-  @type get_renewal_pricing_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_outpost_input() :: %{
-        optional("AvailabilityZone") => String.t() | atom(),
-        optional("AvailabilityZoneId") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("SupportedHardwareType") => list(any()),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom(),
-        required("SiteId") => String.t() | atom()
-      }
-
-  """
-  @type create_outpost_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      address() :: %{
-        "AddressLine1" => String.t() | atom(),
-        "AddressLine2" => String.t() | atom(),
-        "AddressLine3" => String.t() | atom(),
-        "City" => String.t() | atom(),
-        "ContactName" => String.t() | atom(),
-        "ContactPhoneNumber" => String.t() | atom(),
-        "CountryCode" => String.t() | atom(),
-        "DistrictOrCounty" => String.t() | atom(),
-        "Municipality" => String.t() | atom(),
-        "PostalCode" => String.t() | atom(),
-        "StateOrRegion" => String.t() | atom()
-      }
-
-  """
-  @type address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_outpost_input() :: %{}
-
-  """
-  @type delete_outpost_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_quote_input() :: %{
-        optional("CountryCode") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("OutpostIdentifier") => String.t() | atom(),
-        optional("RequestedCapacities") => list(quote_capacity()),
-        optional("RequestedConstraints") => list(quote_constraint()),
-        optional("RequestedPaymentOptions") => list(list(any())()),
-        optional("RequestedPaymentTerms") => list(list(any())())
-      }
-
-  """
-  @type update_quote_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_outpost_decommission_output() :: %{
-        "BlockingResourceTypes" => list(list(any())()),
+      order_summary() :: %{
+        "LineItemCountsByStatus" => map(),
+        "OrderFulfilledDate" => non_neg_integer(),
+        "OrderId" => String.t() | atom(),
+        "OrderSubmissionDate" => non_neg_integer(),
+        "OrderType" => list(any()),
+        "OutpostId" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type start_outpost_decommission_output() :: %{(String.t() | atom()) => any()}
+  @type order_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      site() :: %{
-        "AccountId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Notes" => String.t() | atom(),
-        "OperatingAddressCity" => String.t() | atom(),
-        "OperatingAddressCountryCode" => String.t() | atom(),
-        "OperatingAddressStateOrRegion" => String.t() | atom(),
-        "RackPhysicalProperties" => rack_physical_properties(),
-        "SiteArn" => String.t() | atom(),
-        "SiteId" => String.t() | atom(),
-        "Tags" => map()
+      ordering_requirement() :: %{
+        "OrderingRequirementType" => list(any()),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type site() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_order_output() :: %{
-        "Order" => order()
-      }
-
-  """
-  @type create_order_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ec2_capacity() :: %{
-        "Family" => String.t() | atom(),
-        "MaxSize" => String.t() | atom(),
-        "Quantity" => String.t() | atom()
-      }
-
-  """
-  @type ec2_capacity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sites_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "Sites" => list(site())
-      }
-
-  """
-  @type list_sites_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_quote_input() :: %{}
-
-  """
-  @type delete_quote_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_instance_type_capacity() :: %{
-        "Count" => integer(),
-        "InstanceType" => String.t() | atom()
-      }
-
-  """
-  @type asset_instance_type_capacity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assets_output() :: %{
-        "Assets" => list(asset_info()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_assets_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_orderable_instance_types_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OutpostGenerationFilter") => list(any())
-      }
-
-  """
-  @type list_orderable_instance_types_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_order_input() :: %{}
-
-  """
-  @type get_order_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_order_input() :: %{
-        optional("LineItems") => list(line_item_request()),
-        optional("PaymentTerm") => list(any()),
-        optional("QuoteIdentifier") => String.t() | atom(),
-        optional("QuoteOptionIdentifier") => String.t() | atom(),
-        required("OutpostIdentifier") => String.t() | atom(),
-        required("PaymentOption") => list(any())
-      }
-
-  """
-  @type create_order_input() :: %{(String.t() | atom()) => any()}
+  @type ordering_requirement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -798,627 +1227,6 @@ defmodule AWS.Outposts do
 
   ## Example:
 
-      list_capacity_tasks_output() :: %{
-        "CapacityTasks" => list(capacity_task_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_capacity_tasks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      line_item() :: %{
-        "AssetInformationList" => list(line_item_asset_information()),
-        "CatalogItemId" => String.t() | atom(),
-        "LineItemId" => String.t() | atom(),
-        "PreviousLineItemId" => String.t() | atom(),
-        "PreviousOrderId" => String.t() | atom(),
-        "Quantity" => integer(),
-        "ShipmentInformation" => shipment_information(),
-        "Status" => list(any())
-      }
-
-  """
-  @type line_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      quote_specification() :: %{
-        "ExistingRackSpecificationDetails" => rack_specification_details(),
-        "FinalRackSpecificationDetails" => rack_specification_details(),
-        "QuoteSpecificationType" => list(any()),
-        "ServerSpecificationDetails" => server_specification_details()
-      }
-
-  """
-  @type quote_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_outpost_input() :: %{}
-
-  """
-  @type get_outpost_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      detailed_instance_type_item() :: %{
-        "FormFactorConfigs" => list(form_factor_config()),
-        "InstanceType" => String.t() | atom(),
-        "MemoryInMib" => integer(),
-        "NetworkPerformance" => String.t() | atom(),
-        "VCPUs" => integer()
-      }
-
-  """
-  @type detailed_instance_type_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_instances_output() :: %{
-        "AssetInstances" => list(asset_instance()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_asset_instances_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_outpost_output() :: %{
-        "Outpost" => outpost()
-      }
-
-  """
-  @type update_outpost_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instance_type_capacity() :: %{
-        "Count" => integer(),
-        "InstanceType" => String.t() | atom()
-      }
-
-  """
-  @type instance_type_capacity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_connection_request() :: %{
-        optional("DeviceSerialNumber") => String.t() | atom(),
-        required("AssetId") => String.t() | atom(),
-        required("ClientPublicKey") => String.t() | atom(),
-        required("NetworkInterfaceDeviceIndex") => integer()
-      }
-
-  """
-  @type start_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_quote_output() :: %{}
-
-  """
-  @type delete_quote_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => list(any())
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_site_address_output() :: %{
-        "Address" => address(),
-        "AddressType" => list(any())
-      }
-
-  """
-  @type update_site_address_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      blocking_instance() :: %{
-        "AccountId" => String.t() | atom(),
-        "AwsServiceName" => list(any()),
-        "InstanceId" => String.t() | atom()
-      }
-
-  """
-  @type blocking_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_site_output() :: %{
-        "Site" => site()
-      }
-
-  """
-  @type create_site_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      line_item_request() :: %{
-        "CatalogItemId" => String.t() | atom(),
-        "Quantity" => integer()
-      }
-
-  """
-  @type line_item_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      server_specification_details() :: %{
-        "EC2Capacities" => list(ec2_capacity()),
-        "RackUnitHeight" => list(any()),
-        "ServerDepthInches" => float(),
-        "ServerHeightInches" => float(),
-        "ServerPowerDrawKva" => float(),
-        "ServerWeightLbs" => float(),
-        "ServerWidthInches" => float()
-      }
-
-  """
-  @type server_specification_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_orders_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "Orders" => list(order_summary())
-      }
-
-  """
-  @type list_orders_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instances_to_exclude() :: %{
-        "AccountIds" => list(String.t() | atom()),
-        "Instances" => list(String.t() | atom()),
-        "Services" => list(list(any())())
-      }
-
-  """
-  @type instances_to_exclude() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connection_details() :: %{
-        "AllowedIps" => list(String.t() | atom()),
-        "ClientPublicKey" => String.t() | atom(),
-        "ClientTunnelAddress" => String.t() | atom(),
-        "ServerEndpoint" => String.t() | atom(),
-        "ServerPublicKey" => String.t() | atom(),
-        "ServerTunnelAddress" => String.t() | atom()
-      }
-
-  """
-  @type connection_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      shipment_information() :: %{
-        "ShipmentCarrier" => list(any()),
-        "ShipmentTrackingNumber" => String.t() | atom()
-      }
-
-  """
-  @type shipment_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_orders_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OutpostIdentifierFilter") => String.t() | atom()
-      }
-
-  """
-  @type list_orders_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      quote_capacity() :: %{
-        "Quantity" => float(),
-        "QuoteCapacityType" => list(any()),
-        "Unit" => String.t() | atom()
-      }
-
-  """
-  @type quote_capacity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_site_input() :: %{}
-
-  """
-  @type delete_site_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rack_physical_properties() :: %{
-        "FiberOpticCableType" => list(any()),
-        "MaximumSupportedWeightLbs" => list(any()),
-        "OpticalStandard" => list(any()),
-        "PowerConnector" => list(any()),
-        "PowerDrawKva" => list(any()),
-        "PowerFeedDrop" => list(any()),
-        "PowerPhase" => list(any()),
-        "UplinkCount" => list(any()),
-        "UplinkGbps" => list(any())
-      }
-
-  """
-  @type rack_physical_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_capacity_task_input() :: %{}
-
-  """
-  @type get_capacity_task_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_quote_output() :: %{
-        "Quote" => quote()
-      }
-
-  """
-  @type update_quote_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_orderable_instance_types_output() :: %{
-        "InstanceTypes" => list(detailed_instance_type_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_orderable_instance_types_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capacity_task_failure() :: %{
-        "Reason" => String.t() | atom(),
-        "Type" => list(any())
-      }
-
-  """
-  @type capacity_task_failure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_info() :: %{
-        "AssetId" => String.t() | atom(),
-        "AssetLocation" => asset_location(),
-        "AssetType" => list(any()),
-        "ComputeAttributes" => compute_attributes(),
-        "RackId" => String.t() | atom()
-      }
-
-  """
-  @type asset_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_renewal_input() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("OutpostIdentifier") => String.t() | atom(),
-        required("PaymentOption") => list(any()),
-        required("PaymentTerm") => list(any())
-      }
-
-  """
-  @type create_renewal_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_outpost_input() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("SupportedHardwareType") => list(any())
-      }
-
-  """
-  @type update_outpost_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_capacity_task_input() :: %{
-        optional("AssetId") => String.t() | atom(),
-        optional("DryRun") => boolean(),
-        optional("InstancesToExclude") => instances_to_exclude(),
-        optional("OrderId") => String.t() | atom(),
-        optional("TaskActionOnBlockingInstances") => list(any()),
-        required("InstancePools") => list(instance_type_capacity())
-      }
-
-  """
-  @type start_capacity_task_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_quote_output() :: %{
-        "Quote" => quote()
-      }
-
-  """
-  @type get_quote_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_location() :: %{
-        "RackElevation" => float()
-      }
-
-  """
-  @type asset_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_capacity_tasks_input() :: %{
-        optional("CapacityTaskStatusFilter") => list(list(any())()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OutpostIdentifierFilter") => String.t() | atom()
-      }
-
-  """
-  @type list_capacity_tasks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_catalog_items_input() :: %{
-        optional("EC2FamilyFilter") => list(String.t() | atom()),
-        optional("ItemClassFilter") => list(list(any())()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SupportedStorageFilter") => list(list(any())())
-      }
-
-  """
-  @type list_catalog_items_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      form_factor_config() :: %{
-        "FormFactor" => list(any()),
-        "OutpostGeneration" => list(any())
-      }
-
-  """
-  @type form_factor_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_capacity_task_output() :: %{
-        "AssetId" => String.t() | atom(),
-        "CapacityTaskId" => String.t() | atom(),
-        "CapacityTaskStatus" => list(any()),
-        "CompletionDate" => non_neg_integer(),
-        "CreationDate" => non_neg_integer(),
-        "DryRun" => boolean(),
-        "Failed" => capacity_task_failure(),
-        "InstancesToExclude" => instances_to_exclude(),
-        "LastModifiedDate" => non_neg_integer(),
-        "OrderId" => String.t() | atom(),
-        "OutpostId" => String.t() | atom(),
-        "RequestedInstancePools" => list(instance_type_capacity()),
-        "TaskActionOnBlockingInstances" => list(any())
-      }
-
-  """
-  @type get_capacity_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      compute_attributes() :: %{
-        "HostId" => String.t() | atom(),
-        "InstanceFamilies" => list(String.t() | atom()),
-        "InstanceTypeCapacities" => list(asset_instance_type_capacity()),
-        "MaxVcpus" => integer(),
-        "State" => list(any())
-      }
-
-  """
-  @type compute_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_outpost_output() :: %{
-        "Outpost" => outpost()
-      }
-
-  """
-  @type create_outpost_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_quote_output() :: %{
-        "Quote" => quote()
-      }
-
-  """
-  @type create_quote_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      quote_option() :: %{
-        "Capacities" => list(quote_capacity()),
-        "CapacitySummary" => capacity_summary(),
-        "PricingOptions" => list(pricing_option()),
-        "QuoteOptionIdentifier" => String.t() | atom(),
-        "Specifications" => list(quote_specification())
-      }
-
-  """
-  @type quote_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_site_rack_physical_properties_input() :: %{
-        optional("FiberOpticCableType") => list(any()),
-        optional("MaximumSupportedWeightLbs") => list(any()),
-        optional("OpticalStandard") => list(any()),
-        optional("PowerConnector") => list(any()),
-        optional("PowerDrawKva") => list(any()),
-        optional("PowerFeedDrop") => list(any()),
-        optional("PowerPhase") => list(any()),
-        optional("UplinkCount") => list(any()),
-        optional("UplinkGbps") => list(any())
-      }
-
-  """
-  @type update_site_rack_physical_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       pricing_option() :: %{
         "PricingType" => list(any()),
         "SubscriptionPricingDetails" => subscription_pricing_details()
@@ -1426,270 +1234,6 @@ defmodule AWS.Outposts do
 
   """
   @type pricing_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_catalog_item_input() :: %{}
-
-  """
-  @type get_catalog_item_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_capacity_task_output() :: %{}
-
-  """
-  @type cancel_capacity_task_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_site_output() :: %{
-        "Site" => site()
-      }
-
-  """
-  @type get_site_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_capacity_task_output() :: %{
-        "AssetId" => String.t() | atom(),
-        "CapacityTaskId" => String.t() | atom(),
-        "CapacityTaskStatus" => list(any()),
-        "CompletionDate" => non_neg_integer(),
-        "CreationDate" => non_neg_integer(),
-        "DryRun" => boolean(),
-        "Failed" => capacity_task_failure(),
-        "InstancesToExclude" => instances_to_exclude(),
-        "LastModifiedDate" => non_neg_integer(),
-        "OrderId" => String.t() | atom(),
-        "OutpostId" => String.t() | atom(),
-        "RequestedInstancePools" => list(instance_type_capacity()),
-        "TaskActionOnBlockingInstances" => list(any())
-      }
-
-  """
-  @type start_capacity_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_outpost_billing_information_output() :: %{
-        "ContractEndDate" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "PaymentOption" => list(any()),
-        "PaymentTerm" => list(any()),
-        "Subscriptions" => list(subscription())
-      }
-
-  """
-  @type get_outpost_billing_information_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_outpost_supported_instance_types_output() :: %{
-        "InstanceTypes" => list(instance_type_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_outpost_supported_instance_types_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_site_output() :: %{
-        "Site" => site()
-      }
-
-  """
-  @type update_site_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_instance() :: %{
-        "AccountId" => String.t() | atom(),
-        "AssetId" => String.t() | atom(),
-        "AwsServiceName" => list(any()),
-        "InstanceId" => String.t() | atom(),
-        "InstanceType" => String.t() | atom()
-      }
-
-  """
-  @type asset_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connection_request() :: %{}
-
-  """
-  @type get_connection_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      capacity_task_summary() :: %{
-        "AssetId" => String.t() | atom(),
-        "CapacityTaskId" => String.t() | atom(),
-        "CapacityTaskStatus" => list(any()),
-        "CompletionDate" => non_neg_integer(),
-        "CreationDate" => non_neg_integer(),
-        "LastModifiedDate" => non_neg_integer(),
-        "OrderId" => String.t() | atom(),
-        "OutpostId" => String.t() | atom()
-      }
-
-  """
-  @type capacity_task_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_blocking_instances_for_capacity_task_output() :: %{
-        "BlockingInstances" => list(blocking_instance()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_blocking_instances_for_capacity_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connection_response() :: %{
-        "ConnectionDetails" => connection_details(),
-        "ConnectionId" => String.t() | atom()
-      }
-
-  """
-  @type get_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_outpost_decommission_input() :: %{
-        optional("ValidateOnly") => boolean()
-      }
-
-  """
-  @type start_outpost_decommission_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_connection_response() :: %{
-        "ConnectionId" => String.t() | atom(),
-        "UnderlayIpAddress" => String.t() | atom()
-      }
-
-  """
-  @type start_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_outpost_instance_types_output() :: %{
-        "InstanceTypes" => list(instance_type_item()),
-        "NextToken" => String.t() | atom(),
-        "OutpostArn" => String.t() | atom(),
-        "OutpostId" => String.t() | atom()
-      }
-
-  """
-  @type get_outpost_instance_types_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_outpost_instance_types_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_outpost_instance_types_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      catalog_item() :: %{
-        "CatalogItemId" => String.t() | atom(),
-        "EC2Capacities" => list(ec2_capacity()),
-        "ItemStatus" => list(any()),
-        "PowerKva" => float(),
-        "SupportedStorage" => list(list(any())()),
-        "SupportedUplinkGbps" => list(integer()),
-        "WeightLbs" => integer()
-      }
-
-  """
-  @type catalog_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_site_rack_physical_properties_output() :: %{
-        "Site" => site()
-      }
-
-  """
-  @type update_site_rack_physical_properties_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_catalog_item_output() :: %{
-        "CatalogItem" => catalog_item()
-      }
-
-  """
-  @type get_catalog_item_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1721,273 +1265,729 @@ defmodule AWS.Outposts do
 
   ## Example:
 
-      delete_outpost_output() :: %{}
+      quote_capacity() :: %{
+        "Quantity" => float(),
+        "QuoteCapacityType" => list(any()),
+        "Unit" => String.t() | atom()
+      }
 
   """
-  @type delete_outpost_output() :: %{}
+  @type quote_capacity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_renewal_output() :: %{
+      quote_constraint() :: %{
+        "QuoteConstraintType" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type quote_constraint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quote_option() :: %{
+        "Capacities" => list(quote_capacity()),
+        "CapacitySummary" => capacity_summary(),
+        "PricingOptions" => list(pricing_option()),
+        "QuoteOptionIdentifier" => String.t() | atom(),
+        "Specifications" => list(quote_specification())
+      }
+
+  """
+  @type quote_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quote_specification() :: %{
+        "ExistingRackSpecificationDetails" => rack_specification_details(),
+        "FinalRackSpecificationDetails" => rack_specification_details(),
+        "QuoteSpecificationType" => list(any()),
+        "ServerSpecificationDetails" => server_specification_details()
+      }
+
+  """
+  @type quote_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quote_summary() :: %{
+        "AccountId" => String.t() | atom(),
+        "CountryCode" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ExpirationDate" => non_neg_integer(),
+        "OutpostArn" => String.t() | atom(),
+        "QuoteId" => String.t() | atom(),
+        "QuoteOptions" => list(quote_option()),
+        "QuoteStatus" => list(any()),
+        "RequestedCapacities" => list(quote_capacity()),
+        "RequestedConstraints" => list(quote_constraint()),
+        "RequestedPaymentOptions" => list(list(any())()),
+        "RequestedPaymentTerms" => list(list(any())()),
+        "StatusMessage" => String.t() | atom(),
+        "SubmittedOrderId" => String.t() | atom()
+      }
+
+  """
+  @type quote_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rack_physical_properties() :: %{
+        "FiberOpticCableType" => list(any()),
+        "MaximumSupportedWeightLbs" => list(any()),
+        "OpticalStandard" => list(any()),
+        "PowerConnector" => list(any()),
+        "PowerDrawKva" => list(any()),
+        "PowerFeedDrop" => list(any()),
+        "PowerPhase" => list(any()),
+        "UplinkCount" => list(any()),
+        "UplinkGbps" => list(any())
+      }
+
+  """
+  @type rack_physical_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rack_specification_details() :: %{
+        "EC2Capacities" => list(ec2_capacity()),
+        "RackDepthInches" => float(),
+        "RackHeightInches" => float(),
+        "RackId" => String.t() | atom(),
+        "RackPowerDrawKva" => float(),
+        "RackUnitHeight" => list(any()),
+        "RackUse" => list(any()),
+        "RackWeightLbs" => float(),
+        "RackWidthInches" => float()
+      }
+
+  """
+  @type rack_specification_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_specification_details() :: %{
+        "EC2Capacities" => list(ec2_capacity()),
+        "RackUnitHeight" => list(any()),
+        "ServerDepthInches" => float(),
+        "ServerHeightInches" => float(),
+        "ServerPowerDrawKva" => float(),
+        "ServerWeightLbs" => float(),
+        "ServerWidthInches" => float()
+      }
+
+  """
+  @type server_specification_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      shipment_information() :: %{
+        "ShipmentCarrier" => list(any()),
+        "ShipmentTrackingNumber" => String.t() | atom()
+      }
+
+  """
+  @type shipment_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      site() :: %{
+        "AccountId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Notes" => String.t() | atom(),
+        "OperatingAddressCity" => String.t() | atom(),
+        "OperatingAddressCountryCode" => String.t() | atom(),
+        "OperatingAddressStateOrRegion" => String.t() | atom(),
+        "RackPhysicalProperties" => rack_physical_properties(),
+        "SiteArn" => String.t() | atom(),
+        "SiteId" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type site() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_capacity_task_input() :: %{
+        optional("AssetId") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("InstancesToExclude") => instances_to_exclude(),
+        optional("OrderId") => String.t() | atom(),
+        optional("TaskActionOnBlockingInstances") => list(any()),
+        required("InstancePools") => list(instance_type_capacity())
+      }
+
+  """
+  @type start_capacity_task_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_capacity_task_output() :: %{
+        "AssetId" => String.t() | atom(),
+        "CapacityTaskId" => String.t() | atom(),
+        "CapacityTaskStatus" => list(any()),
+        "CompletionDate" => non_neg_integer(),
+        "CreationDate" => non_neg_integer(),
+        "DryRun" => boolean(),
+        "Failed" => capacity_task_failure(),
+        "InstancesToExclude" => instances_to_exclude(),
+        "LastModifiedDate" => non_neg_integer(),
+        "OrderId" => String.t() | atom(),
+        "OutpostId" => String.t() | atom(),
+        "RequestedInstancePools" => list(instance_type_capacity()),
+        "TaskActionOnBlockingInstances" => list(any())
+      }
+
+  """
+  @type start_capacity_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_connection_request() :: %{
+        optional("DeviceSerialNumber") => String.t() | atom(),
+        required("AssetId") => String.t() | atom(),
+        required("ClientPublicKey") => String.t() | atom(),
+        required("NetworkInterfaceDeviceIndex") => integer()
+      }
+
+  """
+  @type start_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_connection_response() :: %{
+        "ConnectionId" => String.t() | atom(),
+        "UnderlayIpAddress" => String.t() | atom()
+      }
+
+  """
+  @type start_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_outpost_decommission_input() :: %{
+        optional("ValidateOnly") => boolean()
+      }
+
+  """
+  @type start_outpost_decommission_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_outpost_decommission_output() :: %{
+        "BlockingResourceTypes" => list(list(any())()),
+        "Status" => list(any())
+      }
+
+  """
+  @type start_outpost_decommission_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription() :: %{
+        "BeginDate" => non_neg_integer(),
+        "Currency" => list(any()),
+        "EndDate" => non_neg_integer(),
+        "MonthlyRecurringPrice" => float(),
+        "OrderIds" => list(String.t() | atom()),
+        "SubscriptionId" => String.t() | atom(),
+        "SubscriptionStatus" => list(any()),
+        "SubscriptionType" => list(any()),
+        "UpfrontPrice" => float()
+      }
+
+  """
+  @type subscription() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription_pricing_details() :: %{
         "Currency" => list(any()),
         "MonthlyRecurringPrice" => float(),
-        "OutpostId" => String.t() | atom(),
         "PaymentOption" => list(any()),
         "PaymentTerm" => list(any()),
         "UpfrontPrice" => float()
       }
 
   """
-  @type create_renewal_output() :: %{(String.t() | atom()) => any()}
+  @type subscription_pricing_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_outpost_input() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("SupportedHardwareType") => list(any())
+      }
+
+  """
+  @type update_outpost_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_outpost_output() :: %{
+        "Outpost" => outpost()
+      }
+
+  """
+  @type update_outpost_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_quote_input() :: %{
+        optional("CountryCode") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("OutpostIdentifier") => String.t() | atom(),
+        optional("RequestedCapacities") => list(quote_capacity()),
+        optional("RequestedConstraints") => list(quote_constraint()),
+        optional("RequestedPaymentOptions") => list(list(any())()),
+        optional("RequestedPaymentTerms") => list(list(any())())
+      }
+
+  """
+  @type update_quote_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_quote_output() :: %{
+        "Quote" => quote()
+      }
+
+  """
+  @type update_quote_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_site_address_input() :: %{
+        required("Address") => address(),
+        required("AddressType") => list(any())
+      }
+
+  """
+  @type update_site_address_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_site_address_output() :: %{
+        "Address" => address(),
+        "AddressType" => list(any())
+      }
+
+  """
+  @type update_site_address_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_site_input() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Notes") => String.t() | atom()
+      }
+
+  """
+  @type update_site_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_site_output() :: %{
+        "Site" => site()
+      }
+
+  """
+  @type update_site_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_site_rack_physical_properties_input() :: %{
+        optional("FiberOpticCableType") => list(any()),
+        optional("MaximumSupportedWeightLbs") => list(any()),
+        optional("OpticalStandard") => list(any()),
+        optional("PowerConnector") => list(any()),
+        optional("PowerDrawKva") => list(any()),
+        optional("PowerFeedDrop") => list(any()),
+        optional("PowerPhase") => list(any()),
+        optional("UplinkCount") => list(any()),
+        optional("UplinkGbps") => list(any())
+      }
+
+  """
+  @type update_site_rack_physical_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_site_rack_physical_properties_output() :: %{
+        "Site" => site()
+      }
+
+  """
+  @type update_site_rack_physical_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type cancel_capacity_task_errors() ::
-          not_found_exception()
-          | conflict_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type cancel_order_errors() ::
-          not_found_exception()
-          | conflict_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_order_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_outpost_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_quote_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type create_renewal_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type create_site_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_outpost_errors() ::
-          not_found_exception()
-          | conflict_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_quote_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type delete_site_errors() ::
-          not_found_exception()
-          | conflict_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type get_capacity_task_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_catalog_item_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_connection_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_order_errors() ::
-          not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | not_found_exception() | internal_server_exception()
 
   @type get_outpost_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_outpost_billing_information_errors() ::
           not_found_exception() | internal_server_exception() | access_denied_exception()
 
   @type get_outpost_instance_types_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_outpost_supported_instance_types_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_quote_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_renewal_pricing_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_site_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_site_address_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_asset_instances_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_assets_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_blocking_instances_for_capacity_task_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_capacity_tasks_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_catalog_items_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_orderable_instance_types_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_orders_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_outposts_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_quotes_errors() :: internal_server_exception() | access_denied_exception()
 
   @type list_sites_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | not_found_exception() | internal_server_exception()
 
   @type start_capacity_task_errors() ::
-          not_found_exception()
-          | conflict_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type start_connection_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type start_outpost_decommission_errors() ::
-          not_found_exception()
-          | conflict_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type tag_resource_errors() ::
-          not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | not_found_exception() | internal_server_exception()
 
   @type untag_resource_errors() ::
-          not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | not_found_exception() | internal_server_exception()
 
   @type update_outpost_errors() ::
-          not_found_exception()
-          | conflict_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_quote_errors() ::
-          not_found_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type update_site_errors() ::
-          not_found_exception()
-          | conflict_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_site_address_errors() ::
-          not_found_exception()
-          | conflict_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_site_rack_physical_properties_errors() ::
-          not_found_exception()
-          | conflict_exception()
+          validation_exception()
+          | not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   def metadata do
@@ -2450,15 +2450,15 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2494,15 +2494,15 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2546,15 +2546,8 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(order_id) do
-        [{"OrderId", order_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(asset_id) do
+        [{"AssetId", asset_id} | query_params]
       else
         query_params
       end
@@ -2567,8 +2560,15 @@ defmodule AWS.Outposts do
       end
 
     query_params =
-      if !is_nil(asset_id) do
-        [{"AssetId", asset_id} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(order_id) do
+        [{"OrderId", order_id} | query_params]
       else
         query_params
       end
@@ -2694,29 +2694,8 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(instance_type_filter) do
-        [{"InstanceTypeFilter", instance_type_filter} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(aws_service_filter) do
-        [{"AwsServiceFilter", aws_service_filter} | query_params]
+      if !is_nil(account_id_filter) do
+        [{"AccountIdFilter", account_id_filter} | query_params]
       else
         query_params
       end
@@ -2729,8 +2708,29 @@ defmodule AWS.Outposts do
       end
 
     query_params =
-      if !is_nil(account_id_filter) do
-        [{"AccountIdFilter", account_id_filter} | query_params]
+      if !is_nil(aws_service_filter) do
+        [{"AwsServiceFilter", aws_service_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(instance_type_filter) do
+        [{"InstanceTypeFilter", instance_type_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2778,22 +2778,8 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(status_filter) do
-        [{"StatusFilter", status_filter} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(asset_type_filter) do
+        [{"AssetTypeFilter", asset_type_filter} | query_params]
       else
         query_params
       end
@@ -2806,8 +2792,22 @@ defmodule AWS.Outposts do
       end
 
     query_params =
-      if !is_nil(asset_type_filter) do
-        [{"AssetTypeFilter", asset_type_filter} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status_filter) do
+        [{"StatusFilter", status_filter} | query_params]
       else
         query_params
       end
@@ -2852,15 +2852,15 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2904,15 +2904,8 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(outpost_identifier_filter) do
-        [{"OutpostIdentifierFilter", outpost_identifier_filter} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(capacity_task_status_filter) do
+        [{"CapacityTaskStatusFilter", capacity_task_status_filter} | query_params]
       else
         query_params
       end
@@ -2925,8 +2918,15 @@ defmodule AWS.Outposts do
       end
 
     query_params =
-      if !is_nil(capacity_task_status_filter) do
-        [{"CapacityTaskStatusFilter", capacity_task_status_filter} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(outpost_identifier_filter) do
+        [{"OutpostIdentifierFilter", outpost_identifier_filter} | query_params]
       else
         query_params
       end
@@ -2972,22 +2972,8 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(supported_storage_filter) do
-        [{"SupportedStorageFilter", supported_storage_filter} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(ec2_family_filter) do
+        [{"EC2FamilyFilter", ec2_family_filter} | query_params]
       else
         query_params
       end
@@ -3000,8 +2986,22 @@ defmodule AWS.Outposts do
       end
 
     query_params =
-      if !is_nil(ec2_family_filter) do
-        [{"EC2FamilyFilter", ec2_family_filter} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(supported_storage_filter) do
+        [{"SupportedStorageFilter", supported_storage_filter} | query_params]
       else
         query_params
       end
@@ -3040,8 +3040,8 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(outpost_generation_filter) do
-        [{"OutpostGenerationFilter", outpost_generation_filter} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
@@ -3054,8 +3054,8 @@ defmodule AWS.Outposts do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(outpost_generation_filter) do
+        [{"OutpostGenerationFilter", outpost_generation_filter} | query_params]
       else
         query_params
       end
@@ -3091,8 +3091,8 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(outpost_identifier_filter) do
-        [{"OutpostIdentifierFilter", outpost_identifier_filter} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
@@ -3105,8 +3105,8 @@ defmodule AWS.Outposts do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(outpost_identifier_filter) do
+        [{"OutpostIdentifierFilter", outpost_identifier_filter} | query_params]
       else
         query_params
       end
@@ -3152,22 +3152,8 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(life_cycle_status_filter) do
-        [{"LifeCycleStatusFilter", life_cycle_status_filter} | query_params]
+      if !is_nil(availability_zone_filter) do
+        [{"AvailabilityZoneFilter", availability_zone_filter} | query_params]
       else
         query_params
       end
@@ -3180,8 +3166,22 @@ defmodule AWS.Outposts do
       end
 
     query_params =
-      if !is_nil(availability_zone_filter) do
-        [{"AvailabilityZoneFilter", availability_zone_filter} | query_params]
+      if !is_nil(life_cycle_status_filter) do
+        [{"LifeCycleStatusFilter", life_cycle_status_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -3205,15 +3205,15 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -3262,11 +3262,22 @@ defmodule AWS.Outposts do
     query_params = []
 
     query_params =
-      if !is_nil(operating_address_state_or_region_filter) do
-        [
-          {"OperatingAddressStateOrRegionFilter", operating_address_state_or_region_filter}
-          | query_params
-        ]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(operating_address_city_filter) do
+        [{"OperatingAddressCityFilter", operating_address_city_filter} | query_params]
       else
         query_params
       end
@@ -3282,22 +3293,11 @@ defmodule AWS.Outposts do
       end
 
     query_params =
-      if !is_nil(operating_address_city_filter) do
-        [{"OperatingAddressCityFilter", operating_address_city_filter} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(operating_address_state_or_region_filter) do
+        [
+          {"OperatingAddressStateOrRegionFilter", operating_address_state_or_region_filter}
+          | query_params
+        ]
       else
         query_params
       end

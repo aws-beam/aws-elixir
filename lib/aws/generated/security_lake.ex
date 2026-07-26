@@ -67,159 +67,6 @@ defmodule AWS.SecurityLake do
 
   ## Example:
 
-      list_subscribers_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_subscribers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_lake_response() :: %{}
-
-  """
-  @type delete_data_lake_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscriber_request() :: %{}
-
-  """
-  @type get_subscriber_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_replication_configuration() :: %{
-        "regions" => list(String.t() | atom()),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type data_lake_replication_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      https_notification_configuration() :: %{
-        "authorizationApiKeyName" => [String.t() | atom()],
-        "authorizationApiKeyValue" => [String.t() | atom()],
-        "endpoint" => [String.t() | atom()],
-        "httpMethod" => list(any()),
-        "targetRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type https_notification_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_subscriber_request() :: %{
-        optional("sources") => list(list()),
-        optional("subscriberDescription") => String.t() | atom(),
-        optional("subscriberIdentity") => aws_identity(),
-        optional("subscriberName") => String.t() | atom()
-      }
-
-  """
-  @type update_subscriber_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_subscriber_request() :: %{}
-
-  """
-  @type delete_subscriber_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_lake_exceptions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("regions") => list(String.t() | atom())
-      }
-
-  """
-  @type list_data_lake_exceptions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_lifecycle_configuration() :: %{
-        "expiration" => data_lake_lifecycle_expiration(),
-        "transitions" => list(data_lake_lifecycle_transition())
-      }
-
-  """
-  @type data_lake_lifecycle_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_lifecycle_transition() :: %{
-        "days" => [integer()],
-        "storageClass" => String.t() | atom()
-      }
-
-  """
-  @type data_lake_lifecycle_transition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_aws_log_source_request() :: %{
-        required("sources") => list(aws_log_source_configuration())
-      }
-
-  """
-  @type create_aws_log_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscriber_notification_response() :: %{
-        "subscriberEndpoint" => String.t() | atom()
-      }
-
-  """
-  @type create_subscriber_notification_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       access_denied_exception() :: %{
         "errorCode" => [String.t() | atom()],
         "message" => [String.t() | atom()]
@@ -232,84 +79,13 @@ defmodule AWS.SecurityLake do
 
   ## Example:
 
-      update_data_lake_exception_subscription_request() :: %{
-        optional("exceptionTimeToLive") => [float()],
-        required("notificationEndpoint") => String.t() | atom(),
-        required("subscriptionProtocol") => String.t() | atom()
+      aws_identity() :: %{
+        "externalId" => String.t() | atom(),
+        "principal" => String.t() | atom()
       }
 
   """
-  @type update_data_lake_exception_subscription_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_lake_organization_configuration_response() :: %{}
-
-  """
-  @type create_data_lake_organization_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_log_source_attributes() :: %{
-        "crawlerArn" => String.t() | atom(),
-        "databaseArn" => String.t() | atom(),
-        "tableArn" => String.t() | atom()
-      }
-
-  """
-  @type custom_log_source_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_log_sources_request() :: %{
-        optional("accounts") => list(String.t() | atom()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("regions") => list(String.t() | atom()),
-        optional("sources") => list(list())
-      }
-
-  """
-  @type list_log_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_lake_request() :: %{
-        optional("metaStoreManagerRoleArn") => String.t() | atom(),
-        required("configurations") => list(data_lake_configuration())
-      }
-
-  """
-  @type update_data_lake_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_lake_exception_subscription_response() :: %{}
-
-  """
-  @type update_data_lake_exception_subscription_response() :: %{}
+  @type aws_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -329,21 +105,359 @@ defmodule AWS.SecurityLake do
 
   ## Example:
 
-      sqs_notification_configuration() :: %{}
+      aws_log_source_resource() :: %{
+        "sourceName" => list(any()),
+        "sourceVersion" => String.t() | atom()
+      }
 
   """
-  @type sqs_notification_configuration() :: %{}
+  @type aws_log_source_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_subscriber_notification_request() :: %{
+      bad_request_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceName" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_aws_log_source_request() :: %{
+        required("sources") => list(aws_log_source_configuration())
+      }
+
+  """
+  @type create_aws_log_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_aws_log_source_response() :: %{
+        "failed" => list(String.t() | atom())
+      }
+
+  """
+  @type create_aws_log_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_log_source_request() :: %{
+        optional("eventClasses") => list(String.t() | atom()),
+        optional("sourceVersion") => String.t() | atom(),
+        required("configuration") => custom_log_source_configuration(),
+        required("sourceName") => String.t() | atom()
+      }
+
+  """
+  @type create_custom_log_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_log_source_response() :: %{
+        "source" => custom_log_source_resource()
+      }
+
+  """
+  @type create_custom_log_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_lake_exception_subscription_request() :: %{
+        optional("exceptionTimeToLive") => [float()],
+        required("notificationEndpoint") => String.t() | atom(),
+        required("subscriptionProtocol") => String.t() | atom()
+      }
+
+  """
+  @type create_data_lake_exception_subscription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_lake_exception_subscription_response() :: %{}
+
+  """
+  @type create_data_lake_exception_subscription_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_lake_organization_configuration_request() :: %{
+        optional("autoEnableNewAccount") => list(data_lake_auto_enable_new_account_configuration())
+      }
+
+  """
+  @type create_data_lake_organization_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_lake_organization_configuration_response() :: %{}
+
+  """
+  @type create_data_lake_organization_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_lake_request() :: %{
+        optional("tags") => list(tag()),
+        required("configurations") => list(data_lake_configuration()),
+        required("metaStoreManagerRoleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_data_lake_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_lake_response() :: %{
+        "dataLakes" => list(data_lake_resource())
+      }
+
+  """
+  @type create_data_lake_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_subscriber_notification_request() :: %{
         required("configuration") => list()
       }
 
   """
-  @type update_subscriber_notification_request() :: %{(String.t() | atom()) => any()}
+  @type create_subscriber_notification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_subscriber_notification_response() :: %{
+        "subscriberEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type create_subscriber_notification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_subscriber_request() :: %{
+        optional("accessTypes") => list(list(any())()),
+        optional("subscriberDescription") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("sources") => list(list()),
+        required("subscriberIdentity") => aws_identity(),
+        required("subscriberName") => [String.t() | atom()]
+      }
+
+  """
+  @type create_subscriber_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_subscriber_response() :: %{
+        "subscriber" => subscriber_resource()
+      }
+
+  """
+  @type create_subscriber_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_log_source_attributes() :: %{
+        "crawlerArn" => String.t() | atom(),
+        "databaseArn" => String.t() | atom(),
+        "tableArn" => String.t() | atom()
+      }
+
+  """
+  @type custom_log_source_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_log_source_configuration() :: %{
+        "crawlerConfiguration" => custom_log_source_crawler_configuration(),
+        "providerIdentity" => aws_identity()
+      }
+
+  """
+  @type custom_log_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_log_source_crawler_configuration() :: %{
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type custom_log_source_crawler_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_log_source_provider() :: %{
+        "location" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type custom_log_source_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_log_source_resource() :: %{
+        "attributes" => custom_log_source_attributes(),
+        "provider" => custom_log_source_provider(),
+        "sourceName" => String.t() | atom(),
+        "sourceVersion" => String.t() | atom()
+      }
+
+  """
+  @type custom_log_source_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_auto_enable_new_account_configuration() :: %{
+        "region" => String.t() | atom(),
+        "sources" => list(aws_log_source_resource())
+      }
+
+  """
+  @type data_lake_auto_enable_new_account_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_configuration() :: %{
+        "encryptionConfiguration" => data_lake_encryption_configuration(),
+        "lifecycleConfiguration" => data_lake_lifecycle_configuration(),
+        "region" => String.t() | atom(),
+        "replicationConfiguration" => data_lake_replication_configuration()
+      }
+
+  """
+  @type data_lake_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_encryption_configuration() :: %{
+        "kmsKeyId" => [String.t() | atom()]
+      }
+
+  """
+  @type data_lake_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_exception() :: %{
+        "exception" => String.t() | atom(),
+        "region" => String.t() | atom(),
+        "remediation" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type data_lake_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_lifecycle_configuration() :: %{
+        "expiration" => data_lake_lifecycle_expiration(),
+        "transitions" => list(data_lake_lifecycle_transition())
+      }
+
+  """
+  @type data_lake_lifecycle_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_lifecycle_expiration() :: %{
+        "days" => [integer()]
+      }
+
+  """
+  @type data_lake_lifecycle_expiration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_lifecycle_transition() :: %{
+        "days" => [integer()],
+        "storageClass" => String.t() | atom()
+      }
+
+  """
+  @type data_lake_lifecycle_transition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_replication_configuration() :: %{
+        "regions" => list(String.t() | atom()),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type data_lake_replication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -367,10 +481,15 @@ defmodule AWS.SecurityLake do
 
   ## Example:
 
-      delete_subscriber_notification_response() :: %{}
+      data_lake_source() :: %{
+        "account" => [String.t() | atom()],
+        "eventClasses" => list(String.t() | atom()),
+        "sourceName" => [String.t() | atom()],
+        "sourceStatuses" => list(data_lake_source_status())
+      }
 
   """
-  @type delete_subscriber_notification_response() :: %{}
+  @type data_lake_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -388,488 +507,6 @@ defmodule AWS.SecurityLake do
 
   ## Example:
 
-      custom_log_source_provider() :: %{
-        "location" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type custom_log_source_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscriber_response() :: %{
-        "subscriber" => subscriber_resource()
-      }
-
-  """
-  @type get_subscriber_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_lakes_response() :: %{
-        "dataLakes" => list(data_lake_resource())
-      }
-
-  """
-  @type list_data_lakes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_aws_log_source_response() :: %{
-        "failed" => list(String.t() | atom())
-      }
-
-  """
-  @type delete_aws_log_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_lake_response() :: %{
-        "dataLakes" => list(data_lake_resource())
-      }
-
-  """
-  @type update_data_lake_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_identity() :: %{
-        "externalId" => String.t() | atom(),
-        "principal" => String.t() | atom()
-      }
-
-  """
-  @type aws_identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_custom_log_source_request() :: %{
-        optional("eventClasses") => list(String.t() | atom()),
-        optional("sourceVersion") => String.t() | atom(),
-        required("configuration") => custom_log_source_configuration(),
-        required("sourceName") => String.t() | atom()
-      }
-
-  """
-  @type create_custom_log_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_lake_exception_subscription_response() :: %{}
-
-  """
-  @type create_data_lake_exception_subscription_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_custom_log_source_response() :: %{
-        "source" => custom_log_source_resource()
-      }
-
-  """
-  @type create_custom_log_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscriber_request() :: %{
-        optional("accessTypes") => list(list(any())()),
-        optional("subscriberDescription") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("sources") => list(list()),
-        required("subscriberIdentity") => aws_identity(),
-        required("subscriberName") => [String.t() | atom()]
-      }
-
-  """
-  @type create_subscriber_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_log_sources_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "sources" => list(log_source())
-      }
-
-  """
-  @type list_log_sources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_lake_exception_subscription_response() :: %{
-        "exceptionTimeToLive" => [float()],
-        "notificationEndpoint" => String.t() | atom(),
-        "subscriptionProtocol" => String.t() | atom()
-      }
-
-  """
-  @type get_data_lake_exception_subscription_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceName" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_lake_request() :: %{
-        required("regions") => list(String.t() | atom())
-      }
-
-  """
-  @type delete_data_lake_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_data_lake_delegated_administrator_request() :: %{
-        required("accountId") => String.t() | atom()
-      }
-
-  """
-  @type register_data_lake_delegated_administrator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_lake_exception_subscription_request() :: %{}
-
-  """
-  @type delete_data_lake_exception_subscription_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_data_lake_delegated_administrator_request() :: %{}
-
-  """
-  @type deregister_data_lake_delegated_administrator_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_subscriber_response() :: %{}
-
-  """
-  @type delete_subscriber_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_source() :: %{
-        "account" => [String.t() | atom()],
-        "eventClasses" => list(String.t() | atom()),
-        "sourceName" => [String.t() | atom()],
-        "sourceStatuses" => list(data_lake_source_status())
-      }
-
-  """
-  @type data_lake_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_lake_exception_subscription_request() :: %{
-        optional("exceptionTimeToLive") => [float()],
-        required("notificationEndpoint") => String.t() | atom(),
-        required("subscriptionProtocol") => String.t() | atom()
-      }
-
-  """
-  @type create_data_lake_exception_subscription_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_source() :: %{
-        "account" => String.t() | atom(),
-        "region" => String.t() | atom(),
-        "sources" => list(list())
-      }
-
-  """
-  @type log_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_lake_sources_request() :: %{
-        optional("accounts") => list(String.t() | atom()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_data_lake_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_lake_organization_configuration_request() :: %{}
-
-  """
-  @type get_data_lake_organization_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_aws_log_source_response() :: %{
-        "failed" => list(String.t() | atom())
-      }
-
-  """
-  @type create_aws_log_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_lake_organization_configuration_response() :: %{}
-
-  """
-  @type delete_data_lake_organization_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceName" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_lake_response() :: %{
-        "dataLakes" => list(data_lake_resource())
-      }
-
-  """
-  @type create_data_lake_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_log_source_resource() :: %{
-        "sourceName" => list(any()),
-        "sourceVersion" => String.t() | atom()
-      }
-
-  """
-  @type aws_log_source_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_lake_exception_subscription_request() :: %{}
-
-  """
-  @type get_data_lake_exception_subscription_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_log_source_request() :: %{
-        optional("sourceVersion") => String.t() | atom()
-      }
-
-  """
-  @type delete_custom_log_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_lake_exception_subscription_response() :: %{}
-
-  """
-  @type delete_data_lake_exception_subscription_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscriber_notification_request() :: %{
-        required("configuration") => list()
-      }
-
-  """
-  @type create_subscriber_notification_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_lake_exceptions_response() :: %{
-        "exceptions" => list(data_lake_exception()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_lake_exceptions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_subscriber_response() :: %{
-        "subscriber" => subscriber_resource()
-      }
-
-  """
-  @type update_subscriber_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_subscriber_notification_request() :: %{}
-
-  """
-  @type delete_subscriber_notification_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_subscriber_notification_response() :: %{
-        "subscriberEndpoint" => String.t() | atom()
-      }
-
-  """
-  @type update_subscriber_notification_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_lake_request() :: %{
-        optional("tags") => list(tag()),
-        required("configurations") => list(data_lake_configuration()),
-        required("metaStoreManagerRoleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_data_lake_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_auto_enable_new_account_configuration() :: %{
-        "region" => String.t() | atom(),
-        "sources" => list(aws_log_source_resource())
-      }
-
-  """
-  @type data_lake_auto_enable_new_account_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       data_lake_update_exception() :: %{
         "code" => [String.t() | atom()],
         "reason" => [String.t() | atom()]
@@ -877,53 +514,6 @@ defmodule AWS.SecurityLake do
 
   """
   @type data_lake_update_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_configuration() :: %{
-        "encryptionConfiguration" => data_lake_encryption_configuration(),
-        "lifecycleConfiguration" => data_lake_lifecycle_configuration(),
-        "region" => String.t() | atom(),
-        "replicationConfiguration" => data_lake_replication_configuration()
-      }
-
-  """
-  @type data_lake_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_encryption_configuration() :: %{
-        "kmsKeyId" => [String.t() | atom()]
-      }
-
-  """
-  @type data_lake_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_lake_organization_configuration_response() :: %{
-        "autoEnableNewAccount" => list(data_lake_auto_enable_new_account_configuration())
-      }
-
-  """
-  @type get_data_lake_organization_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -942,26 +532,61 @@ defmodule AWS.SecurityLake do
 
   ## Example:
 
-      data_lake_lifecycle_expiration() :: %{
-        "days" => [integer()]
+      delete_aws_log_source_request() :: %{
+        required("sources") => list(aws_log_source_configuration())
       }
 
   """
-  @type data_lake_lifecycle_expiration() :: %{(String.t() | atom()) => any()}
+  @type delete_aws_log_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      custom_log_source_resource() :: %{
-        "attributes" => custom_log_source_attributes(),
-        "provider" => custom_log_source_provider(),
-        "sourceName" => String.t() | atom(),
-        "sourceVersion" => String.t() | atom()
+      delete_aws_log_source_response() :: %{
+        "failed" => list(String.t() | atom())
       }
 
   """
-  @type custom_log_source_resource() :: %{(String.t() | atom()) => any()}
+  @type delete_aws_log_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_log_source_request() :: %{
+        optional("sourceVersion") => String.t() | atom()
+      }
+
+  """
+  @type delete_custom_log_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_log_source_response() :: %{}
+
+  """
+  @type delete_custom_log_source_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_lake_exception_subscription_request() :: %{}
+
+  """
+  @type delete_data_lake_exception_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_lake_exception_subscription_response() :: %{}
+
+  """
+  @type delete_data_lake_exception_subscription_response() :: %{}
 
   @typedoc """
 
@@ -978,35 +603,284 @@ defmodule AWS.SecurityLake do
 
   ## Example:
 
-      bad_request_exception() :: %{
+      delete_data_lake_organization_configuration_response() :: %{}
+
+  """
+  @type delete_data_lake_organization_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_lake_request() :: %{
+        required("regions") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_data_lake_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_lake_response() :: %{}
+
+  """
+  @type delete_data_lake_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_subscriber_notification_request() :: %{}
+
+  """
+  @type delete_subscriber_notification_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_subscriber_notification_response() :: %{}
+
+  """
+  @type delete_subscriber_notification_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_subscriber_request() :: %{}
+
+  """
+  @type delete_subscriber_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_subscriber_response() :: %{}
+
+  """
+  @type delete_subscriber_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_data_lake_delegated_administrator_request() :: %{}
+
+  """
+  @type deregister_data_lake_delegated_administrator_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_data_lake_delegated_administrator_response() :: %{}
+
+  """
+  @type deregister_data_lake_delegated_administrator_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_lake_exception_subscription_request() :: %{}
+
+  """
+  @type get_data_lake_exception_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_lake_exception_subscription_response() :: %{
+        "exceptionTimeToLive" => [float()],
+        "notificationEndpoint" => String.t() | atom(),
+        "subscriptionProtocol" => String.t() | atom()
+      }
+
+  """
+  @type get_data_lake_exception_subscription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_lake_organization_configuration_request() :: %{}
+
+  """
+  @type get_data_lake_organization_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_lake_organization_configuration_response() :: %{
+        "autoEnableNewAccount" => list(data_lake_auto_enable_new_account_configuration())
+      }
+
+  """
+  @type get_data_lake_organization_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_lake_sources_request() :: %{
+        optional("accounts") => list(String.t() | atom()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_data_lake_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_lake_sources_response() :: %{
+        "dataLakeArn" => String.t() | atom(),
+        "dataLakeSources" => list(data_lake_source()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_data_lake_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscriber_request() :: %{}
+
+  """
+  @type get_subscriber_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscriber_response() :: %{
+        "subscriber" => subscriber_resource()
+      }
+
+  """
+  @type get_subscriber_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      https_notification_configuration() :: %{
+        "authorizationApiKeyName" => [String.t() | atom()],
+        "authorizationApiKeyValue" => [String.t() | atom()],
+        "endpoint" => [String.t() | atom()],
+        "httpMethod" => list(any()),
+        "targetRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type https_notification_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_aws_log_source_request() :: %{
-        required("sources") => list(aws_log_source_configuration())
+      list_data_lake_exceptions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("regions") => list(String.t() | atom())
       }
 
   """
-  @type delete_aws_log_source_request() :: %{(String.t() | atom()) => any()}
+  @type list_data_lake_exceptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      custom_log_source_configuration() :: %{
-        "crawlerConfiguration" => custom_log_source_crawler_configuration(),
-        "providerIdentity" => aws_identity()
+      list_data_lake_exceptions_response() :: %{
+        "exceptions" => list(data_lake_exception()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type custom_log_source_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_data_lake_exceptions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_lakes_request() :: %{
+        optional("regions") => list(String.t() | atom())
+      }
+
+  """
+  @type list_data_lakes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_lakes_response() :: %{
+        "dataLakes" => list(data_lake_resource())
+      }
+
+  """
+  @type list_data_lakes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_log_sources_request() :: %{
+        optional("accounts") => list(String.t() | atom()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("regions") => list(String.t() | atom()),
+        optional("sources") => list(list())
+      }
+
+  """
+  @type list_log_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_log_sources_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "sources" => list(log_source())
+      }
+
+  """
+  @type list_log_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscribers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_subscribers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1024,12 +898,76 @@ defmodule AWS.SecurityLake do
 
   ## Example:
 
-      create_subscriber_response() :: %{
-        "subscriber" => subscriber_resource()
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag())
       }
 
   """
-  @type create_subscriber_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_source() :: %{
+        "account" => String.t() | atom(),
+        "region" => String.t() | atom(),
+        "sources" => list(list())
+      }
+
+  """
+  @type log_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_data_lake_delegated_administrator_request() :: %{
+        required("accountId") => String.t() | atom()
+      }
+
+  """
+  @type register_data_lake_delegated_administrator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_data_lake_delegated_administrator_response() :: %{}
+
+  """
+  @type register_data_lake_delegated_administrator_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceName" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sqs_notification_configuration() :: %{}
+
+  """
+  @type sqs_notification_configuration() :: %{}
 
   @typedoc """
 
@@ -1060,345 +998,407 @@ defmodule AWS.SecurityLake do
 
   ## Example:
 
-      create_data_lake_organization_configuration_request() :: %{
-        optional("autoEnableNewAccount") => list(data_lake_auto_enable_new_account_configuration())
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type create_data_lake_organization_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      deregister_data_lake_delegated_administrator_response() :: %{}
-
-  """
-  @type deregister_data_lake_delegated_administrator_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      register_data_lake_delegated_administrator_response() :: %{}
-
-  """
-  @type register_data_lake_delegated_administrator_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_exception() :: %{
-        "exception" => String.t() | atom(),
-        "region" => String.t() | atom(),
-        "remediation" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()]
+      tag_resource_request() :: %{
+        required("tags") => list(tag())
       }
 
   """
-  @type data_lake_exception() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
+      tag_resource_response() :: %{}
 
   """
-  @type list_tags_for_resource_request() :: %{}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_data_lake_sources_response() :: %{
-        "dataLakeArn" => String.t() | atom(),
-        "dataLakeSources" => list(data_lake_source()),
-        "nextToken" => String.t() | atom()
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type get_data_lake_sources_response() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_custom_log_source_response() :: %{}
-
-  """
-  @type delete_custom_log_source_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_lakes_request() :: %{
-        optional("regions") => list(String.t() | atom())
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type list_data_lakes_request() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      custom_log_source_crawler_configuration() :: %{
-        "roleArn" => String.t() | atom()
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_lake_exception_subscription_request() :: %{
+        optional("exceptionTimeToLive") => [float()],
+        required("notificationEndpoint") => String.t() | atom(),
+        required("subscriptionProtocol") => String.t() | atom()
       }
 
   """
-  @type custom_log_source_crawler_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_data_lake_exception_subscription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_lake_exception_subscription_response() :: %{}
+
+  """
+  @type update_data_lake_exception_subscription_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_lake_request() :: %{
+        optional("metaStoreManagerRoleArn") => String.t() | atom(),
+        required("configurations") => list(data_lake_configuration())
+      }
+
+  """
+  @type update_data_lake_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_lake_response() :: %{
+        "dataLakes" => list(data_lake_resource())
+      }
+
+  """
+  @type update_data_lake_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_subscriber_notification_request() :: %{
+        required("configuration") => list()
+      }
+
+  """
+  @type update_subscriber_notification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_subscriber_notification_response() :: %{
+        "subscriberEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type update_subscriber_notification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_subscriber_request() :: %{
+        optional("sources") => list(list()),
+        optional("subscriberDescription") => String.t() | atom(),
+        optional("subscriberIdentity") => aws_identity(),
+        optional("subscriberName") => String.t() | atom()
+      }
+
+  """
+  @type update_subscriber_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_subscriber_response() :: %{
+        "subscriber" => subscriber_resource()
+      }
+
+  """
+  @type update_subscriber_response() :: %{(String.t() | atom()) => any()}
 
   @type create_aws_log_source_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_custom_log_source_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_data_lake_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_data_lake_exception_subscription_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_data_lake_organization_configuration_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_subscriber_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_subscriber_notification_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_aws_log_source_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_custom_log_source_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_data_lake_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_data_lake_exception_subscription_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_data_lake_organization_configuration_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_subscriber_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_subscriber_notification_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type deregister_data_lake_delegated_administrator_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_data_lake_exception_subscription_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_data_lake_organization_configuration_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_data_lake_sources_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_subscriber_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_data_lake_exceptions_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_data_lakes_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_log_sources_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_subscribers_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type register_data_lake_delegated_administrator_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_data_lake_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_data_lake_exception_subscription_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_subscriber_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_subscriber_notification_errors() ::
-          bad_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{
@@ -2224,15 +2224,15 @@ defmodule AWS.SecurityLake do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

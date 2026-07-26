@@ -20,114 +20,12 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
-      list_statements_request() :: %{
-        optional("ClusterIdentifier") => String.t() | atom(),
-        optional("Database") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RoleLevel") => [boolean()],
-        optional("StatementName") => String.t() | atom(),
-        optional("Status") => String.t() | atom(),
-        optional("WorkgroupName") => String.t() | atom()
-      }
-      
-  """
-  @type list_statements_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_timeout_exception() :: %{
+      active_sessions_exceeded_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type query_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execute_statement_output() :: %{
-        "ClusterIdentifier" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "Database" => String.t() | atom(),
-        "DbGroups" => list(String.t() | atom()),
-        "DbUser" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "SecretArn" => String.t() | atom(),
-        "SessionId" => String.t() | atom(),
-        "WorkgroupName" => String.t() | atom()
-      }
-      
-  """
-  @type execute_statement_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_schemas_request() :: %{
-        optional("ClusterIdentifier") => String.t() | atom(),
-        optional("ConnectedDatabase") => String.t() | atom(),
-        optional("DbUser") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SchemaPattern") => String.t() | atom(),
-        optional("SecretArn") => String.t() | atom(),
-        optional("WorkgroupName") => String.t() | atom(),
-        required("Database") => String.t() | atom()
-      }
-      
-  """
-  @type list_schemas_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_statement_result_v2_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type get_statement_result_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_statements_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Statements" => list(statement_data())
-      }
-      
-  """
-  @type list_statements_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      statement_data() :: %{
-        "CreatedAt" => [non_neg_integer()],
-        "Id" => String.t() | atom(),
-        "IsBatchStatement" => [boolean()],
-        "QueryParameters" => list(sql_parameter()),
-        "QueryString" => String.t() | atom(),
-        "QueryStrings" => list(String.t() | atom()),
-        "ResultFormat" => String.t() | atom(),
-        "SecretArn" => String.t() | atom(),
-        "SessionId" => String.t() | atom(),
-        "StatementName" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-      
-  """
-  @type statement_data() :: %{(String.t() | atom()) => any()}
+  @type active_sessions_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -144,44 +42,93 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
-      describe_statement_response() :: %{
-        "ClusterIdentifier" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "Database" => String.t() | atom(),
-        "DbUser" => String.t() | atom(),
-        "Duration" => float(),
-        "Error" => String.t() | atom(),
-        "HasResultSet" => [boolean()],
-        "Id" => String.t() | atom(),
-        "QueryParameters" => list(sql_parameter()),
-        "QueryString" => String.t() | atom(),
-        "RedshiftPid" => float(),
-        "RedshiftQueryId" => float(),
-        "ResultFormat" => String.t() | atom(),
-        "ResultRows" => float(),
-        "ResultSize" => float(),
-        "SecretArn" => String.t() | atom(),
-        "SessionId" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "SubStatements" => list(sub_statement_data()),
-        "UpdatedAt" => [non_neg_integer()],
-        "WorkgroupName" => String.t() | atom()
+      active_waiting_requests_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type describe_statement_response() :: %{(String.t() | atom()) => any()}
+  @type active_waiting_requests_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_statement_result_request() :: %{
-        optional("NextToken") => String.t() | atom(),
+      batch_execute_statement_exception() :: %{
+        "Message" => String.t() | atom(),
+        "StatementId" => String.t() | atom()
+      }
+      
+  """
+  @type batch_execute_statement_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_execute_statement_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ClusterIdentifier") => String.t() | atom(),
+        optional("Database") => String.t() | atom(),
+        optional("DbUser") => String.t() | atom(),
+        optional("ExecutionMode") => String.t() | atom(),
+        optional("Parameters") => list(sql_parameter()),
+        optional("ResultFormat") => String.t() | atom(),
+        optional("SecretArn") => String.t() | atom(),
+        optional("SessionId") => String.t() | atom(),
+        optional("SessionKeepAliveSeconds") => integer(),
+        optional("StatementName") => String.t() | atom(),
+        optional("WaitTimeSeconds") => integer(),
+        optional("WithEvent") => [boolean()],
+        optional("WorkgroupName") => String.t() | atom(),
+        required("Sqls") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_execute_statement_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_execute_statement_output() :: %{
+        "ClusterIdentifier" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Database" => String.t() | atom(),
+        "DbGroups" => list(String.t() | atom()),
+        "DbUser" => String.t() | atom(),
+        "HasResultSet" => boolean(),
+        "Id" => String.t() | atom(),
+        "RedshiftPid" => float(),
+        "SecretArn" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "WorkgroupName" => String.t() | atom()
+      }
+      
+  """
+  @type batch_execute_statement_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_statement_request() :: %{
         required("Id") => String.t() | atom()
       }
       
   """
-  @type get_statement_result_request() :: %{(String.t() | atom()) => any()}
+  @type cancel_statement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_statement_response() :: %{
+        "Status" => [boolean()]
+      }
+      
+  """
+  @type cancel_statement_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -210,12 +157,56 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
-      validation_exception() :: %{
+      database_connection_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type database_connection_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_statement_request() :: %{
+        optional("WaitTimeSeconds") => integer(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type describe_statement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_statement_response() :: %{
+        "ClusterIdentifier" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Database" => String.t() | atom(),
+        "DbUser" => String.t() | atom(),
+        "Duration" => float(),
+        "Error" => String.t() | atom(),
+        "ExecutionMode" => String.t() | atom(),
+        "HasResultSet" => [boolean()],
+        "Id" => String.t() | atom(),
+        "QueryParameters" => list(sql_parameter()),
+        "QueryString" => String.t() | atom(),
+        "RedshiftPid" => float(),
+        "RedshiftQueryId" => float(),
+        "ResultFormat" => String.t() | atom(),
+        "ResultRows" => float(),
+        "ResultSize" => float(),
+        "SecretArn" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "SubStatements" => list(sub_statement_data()),
+        "UpdatedAt" => [non_neg_integer()],
+        "WorkgroupName" => String.t() | atom()
+      }
+      
+  """
+  @type describe_statement_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -241,24 +232,26 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
-      database_connection_exception() :: %{
-        "Message" => String.t() | atom()
+      describe_table_response() :: %{
+        "ColumnList" => list(column_metadata()),
+        "NextToken" => String.t() | atom(),
+        "TableName" => String.t() | atom()
       }
       
   """
-  @type database_connection_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_databases_response() :: %{
-        "Databases" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
+      execute_statement_exception() :: %{
+        "Message" => String.t() | atom(),
+        "StatementId" => String.t() | atom()
       }
       
   """
-  @type list_databases_response() :: %{(String.t() | atom()) => any()}
+  @type execute_statement_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -275,6 +268,7 @@ defmodule AWS.RedshiftData do
         optional("SessionId") => String.t() | atom(),
         optional("SessionKeepAliveSeconds") => integer(),
         optional("StatementName") => String.t() | atom(),
+        optional("WaitTimeSeconds") => integer(),
         optional("WithEvent") => [boolean()],
         optional("WorkgroupName") => String.t() | atom(),
         required("Sql") => String.t() | atom()
@@ -282,6 +276,68 @@ defmodule AWS.RedshiftData do
       
   """
   @type execute_statement_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execute_statement_output() :: %{
+        "ClusterIdentifier" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Database" => String.t() | atom(),
+        "DbGroups" => list(String.t() | atom()),
+        "DbUser" => String.t() | atom(),
+        "HasResultSet" => boolean(),
+        "Id" => String.t() | atom(),
+        "RedshiftPid" => float(),
+        "SecretArn" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "WorkgroupName" => String.t() | atom()
+      }
+      
+  """
+  @type execute_statement_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_statement_result_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("WaitTimeSeconds") => integer(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type get_statement_result_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_statement_result_response() :: %{
+        "ColumnMetadata" => list(column_metadata()),
+        "NextToken" => String.t() | atom(),
+        "Records" => list(list(list())()),
+        "TotalNumRows" => float()
+      }
+      
+  """
+  @type get_statement_result_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_statement_result_v2_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("WaitTimeSeconds") => integer(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type get_statement_result_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -313,6 +369,126 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
+      list_databases_request() :: %{
+        optional("ClusterIdentifier") => String.t() | atom(),
+        optional("DbUser") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SecretArn") => String.t() | atom(),
+        optional("WorkgroupName") => String.t() | atom(),
+        required("Database") => String.t() | atom()
+      }
+      
+  """
+  @type list_databases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_databases_response() :: %{
+        "Databases" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_databases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_schemas_request() :: %{
+        optional("ClusterIdentifier") => String.t() | atom(),
+        optional("ConnectedDatabase") => String.t() | atom(),
+        optional("DbUser") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SchemaPattern") => String.t() | atom(),
+        optional("SecretArn") => String.t() | atom(),
+        optional("WorkgroupName") => String.t() | atom(),
+        required("Database") => String.t() | atom()
+      }
+      
+  """
+  @type list_schemas_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_schemas_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Schemas" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_schemas_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sessions_request() :: %{
+        optional("ClusterIdentifier") => String.t() | atom(),
+        optional("Database") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RoleLevel") => [boolean()],
+        optional("SessionId") => String.t() | atom(),
+        optional("Status") => String.t() | atom(),
+        optional("WorkgroupName") => String.t() | atom()
+      }
+      
+  """
+  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sessions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Sessions" => list(session_data())
+      }
+      
+  """
+  @type list_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_statements_request() :: %{
+        optional("ClusterIdentifier") => String.t() | atom(),
+        optional("Database") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RoleLevel") => [boolean()],
+        optional("StatementName") => String.t() | atom(),
+        optional("Status") => String.t() | atom(),
+        optional("WorkgroupName") => String.t() | atom()
+      }
+      
+  """
+  @type list_statements_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_statements_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Statements" => list(statement_data())
+      }
+      
+  """
+  @type list_statements_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tables_request() :: %{
         optional("ClusterIdentifier") => String.t() | atom(),
         optional("ConnectedDatabase") => String.t() | atom(),
@@ -333,6 +509,29 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
+      list_tables_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tables" => list(table_member())
+      }
+      
+  """
+  @type list_tables_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_timeout_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type query_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "Message" => String.t() | atom(),
         "ResourceId" => String.t() | atom()
@@ -345,132 +544,56 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
-      active_sessions_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
+      session_data() :: %{
+        "ClusterIdentifier" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "CurrentStatementId" => String.t() | atom(),
+        "Database" => String.t() | atom(),
+        "DbUser" => String.t() | atom(),
+        "SessionAliveSeconds" => integer(),
+        "SessionId" => String.t() | atom(),
+        "SessionTtl" => [non_neg_integer()],
+        "Status" => String.t() | atom(),
+        "UpdatedAt" => [non_neg_integer()],
+        "WorkgroupName" => String.t() | atom()
       }
       
   """
-  @type active_sessions_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type session_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cancel_statement_request() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_statement_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_statement_result_response() :: %{
-        "ColumnMetadata" => list(column_metadata()),
-        "NextToken" => String.t() | atom(),
-        "Records" => list(list(list())()),
-        "TotalNumRows" => float()
-      }
-      
-  """
-  @type get_statement_result_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_statement_response() :: %{
-        "Status" => [boolean()]
-      }
-      
-  """
-  @type cancel_statement_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_execute_statement_exception() :: %{
-        "Message" => String.t() | atom(),
-        "StatementId" => String.t() | atom()
-      }
-      
-  """
-  @type batch_execute_statement_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      table_member() :: %{
+      sql_parameter() :: %{
         "name" => String.t() | atom(),
-        "schema" => String.t() | atom(),
-        "type" => String.t() | atom()
+        "value" => String.t() | atom()
       }
       
   """
-  @type table_member() :: %{(String.t() | atom()) => any()}
+  @type sql_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_schemas_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Schemas" => list(String.t() | atom())
+      statement_data() :: %{
+        "CreatedAt" => [non_neg_integer()],
+        "Id" => String.t() | atom(),
+        "IsBatchStatement" => [boolean()],
+        "QueryParameters" => list(sql_parameter()),
+        "QueryString" => String.t() | atom(),
+        "QueryStrings" => list(String.t() | atom()),
+        "ResultFormat" => String.t() | atom(),
+        "SecretArn" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
+        "StatementName" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "UpdatedAt" => [non_neg_integer()]
       }
       
   """
-  @type list_schemas_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_table_response() :: %{
-        "ColumnList" => list(column_metadata()),
-        "NextToken" => String.t() | atom(),
-        "TableName" => String.t() | atom()
-      }
-      
-  """
-  @type describe_table_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_execute_statement_input() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("ClusterIdentifier") => String.t() | atom(),
-        optional("Database") => String.t() | atom(),
-        optional("DbUser") => String.t() | atom(),
-        optional("Parameters") => list(sql_parameter()),
-        optional("ResultFormat") => String.t() | atom(),
-        optional("SecretArn") => String.t() | atom(),
-        optional("SessionId") => String.t() | atom(),
-        optional("SessionKeepAliveSeconds") => integer(),
-        optional("StatementName") => String.t() | atom(),
-        optional("WithEvent") => [boolean()],
-        optional("WorkgroupName") => String.t() | atom(),
-        required("Sqls") => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_execute_statement_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_statement_request() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type describe_statement_request() :: %{(String.t() | atom()) => any()}
+  @type statement_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -497,136 +620,100 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
-      list_databases_request() :: %{
-        optional("ClusterIdentifier") => String.t() | atom(),
-        optional("DbUser") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SecretArn") => String.t() | atom(),
-        optional("WorkgroupName") => String.t() | atom(),
-        required("Database") => String.t() | atom()
-      }
-      
-  """
-  @type list_databases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execute_statement_exception() :: %{
-        "Message" => String.t() | atom(),
-        "StatementId" => String.t() | atom()
-      }
-      
-  """
-  @type execute_statement_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sql_parameter() :: %{
+      table_member() :: %{
         "name" => String.t() | atom(),
-        "value" => String.t() | atom()
+        "schema" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type sql_parameter() :: %{(String.t() | atom()) => any()}
+  @type table_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_execute_statement_output() :: %{
-        "ClusterIdentifier" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "Database" => String.t() | atom(),
-        "DbGroups" => list(String.t() | atom()),
-        "DbUser" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "SecretArn" => String.t() | atom(),
-        "SessionId" => String.t() | atom(),
-        "WorkgroupName" => String.t() | atom()
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type batch_execute_statement_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tables_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tables" => list(table_member())
-      }
-      
-  """
-  @type list_tables_response() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type batch_execute_statement_errors() ::
-          batch_execute_statement_exception()
-          | active_sessions_exceeded_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | batch_execute_statement_exception()
           | active_statements_exceeded_exception()
+          | active_sessions_exceeded_exception()
 
   @type cancel_statement_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
+          | query_timeout_exception()
           | internal_server_exception()
           | database_connection_exception()
-          | validation_exception()
-          | query_timeout_exception()
 
   @type describe_statement_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
-
-  @type describe_table_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | database_connection_exception()
-          | validation_exception()
-          | query_timeout_exception()
-
-  @type execute_statement_errors() ::
-          execute_statement_exception()
-          | active_sessions_exceeded_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | active_waiting_requests_exceeded_exception()
+
+  @type describe_table_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | query_timeout_exception()
+          | internal_server_exception()
+          | database_connection_exception()
+
+  @type execute_statement_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | execute_statement_exception()
           | active_statements_exceeded_exception()
+          | active_sessions_exceeded_exception()
 
   @type get_statement_result_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | active_waiting_requests_exceeded_exception()
 
   @type get_statement_result_v2_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | active_waiting_requests_exceeded_exception()
 
   @type list_databases_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
+          | query_timeout_exception()
           | internal_server_exception()
           | database_connection_exception()
-          | validation_exception()
-          | query_timeout_exception()
 
   @type list_schemas_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
+          | query_timeout_exception()
           | internal_server_exception()
           | database_connection_exception()
-          | validation_exception()
-          | query_timeout_exception()
+
+  @type list_sessions_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_statements_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_tables_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
+          | query_timeout_exception()
           | internal_server_exception()
           | database_connection_exception()
-          | validation_exception()
-          | query_timeout_exception()
 
   def metadata do
     %{
@@ -987,6 +1074,33 @@ defmodule AWS.RedshiftData do
       metadata()
 
     Request.request_post(client, meta, "ListSchemas", input, options)
+  end
+
+  @doc """
+  Lists the sessions that the caller created in the last 24 hours.
+
+  By default, only sessions with a status of `AVAILABLE` or `BUSY` are returned.
+  You can filter the results by session status, compute target (cluster or
+  serverless workgroup), or database. To retrieve the metadata for a single
+  session, provide the `SessionId` parameter. Use `NextToken` to page through the
+  session list.
+
+  Returns only the sessions that the caller created. When identity-enhanced role
+  sessions are used, you must provide either the `ClusterIdentifier` or
+  `WorkgroupName` parameter to ensure that the AWS IAM Identity Center user can
+  only access the Amazon Redshift IAM Identity Center applications they are
+  assigned. For more information, see [ Trusted identity propagation overview](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html).
+  """
+  @spec list_sessions(map(), list_sessions_request(), list()) ::
+          {:ok, list_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_sessions_errors()}
+  def list_sessions(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListSessions", input, options)
   end
 
   @doc """

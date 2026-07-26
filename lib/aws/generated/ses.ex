@@ -40,48 +40,293 @@ defmodule AWS.SES do
 
   ## Example:
       
-      update_configuration_set_event_destination_response() :: %{}
-      
-  """
-  @type update_configuration_set_event_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_domain_identity_request() :: %{
-        required("Domain") => String.t() | atom()
-      }
-      
-  """
-  @type verify_domain_identity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      identity_dkim_attributes() :: %{
-        "DkimEnabled" => boolean(),
-        "DkimTokens" => list(String.t() | atom()),
-        "DkimVerificationStatus" => list(any())
-      }
-      
-  """
-  @type identity_dkim_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_verification_email_template_already_exists_exception() :: %{
-        "CustomVerificationEmailTemplateName" => String.t() | atom(),
+      account_sending_paused_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type custom_verification_email_template_already_exists_exception() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type account_sending_paused_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_header_action() :: %{
+        "HeaderName" => String.t() | atom(),
+        "HeaderValue" => String.t() | atom()
+      }
+      
+  """
+  @type add_header_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      already_exists_exception() :: %{
+        "Name" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      body() :: %{
+        "Html" => content(),
+        "Text" => content()
+      }
+      
+  """
+  @type body() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bounce_action() :: %{
+        "Message" => String.t() | atom(),
+        "Sender" => String.t() | atom(),
+        "SmtpReplyCode" => String.t() | atom(),
+        "StatusCode" => String.t() | atom(),
+        "TopicArn" => String.t() | atom()
+      }
+      
+  """
+  @type bounce_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bounced_recipient_info() :: %{
+        "BounceType" => list(any()),
+        "Recipient" => String.t() | atom(),
+        "RecipientArn" => String.t() | atom(),
+        "RecipientDsnFields" => recipient_dsn_fields()
+      }
+      
+  """
+  @type bounced_recipient_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bulk_email_destination() :: %{
+        "Destination" => destination(),
+        "ReplacementTags" => list(message_tag()),
+        "ReplacementTemplateData" => String.t() | atom()
+      }
+      
+  """
+  @type bulk_email_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bulk_email_destination_status() :: %{
+        "Error" => String.t() | atom(),
+        "MessageId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type bulk_email_destination_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cannot_delete_exception() :: %{
+        "Name" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cannot_delete_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      clone_receipt_rule_set_request() :: %{
+        required("OriginalRuleSetName") => String.t() | atom(),
+        required("RuleSetName") => String.t() | atom()
+      }
+      
+  """
+  @type clone_receipt_rule_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      clone_receipt_rule_set_response() :: %{}
+      
+  """
+  @type clone_receipt_rule_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_destination() :: %{
+        "DimensionConfigurations" => list(cloud_watch_dimension_configuration())
+      }
+      
+  """
+  @type cloud_watch_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_dimension_configuration() :: %{
+        "DefaultDimensionValue" => String.t() | atom(),
+        "DimensionName" => String.t() | atom(),
+        "DimensionValueSource" => list(any())
+      }
+      
+  """
+  @type cloud_watch_dimension_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configuration_set() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type configuration_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configuration_set_already_exists_exception() :: %{
+        "ConfigurationSetName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type configuration_set_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configuration_set_does_not_exist_exception() :: %{
+        "ConfigurationSetName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type configuration_set_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configuration_set_sending_paused_exception() :: %{
+        "ConfigurationSetName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type configuration_set_sending_paused_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connect_action() :: %{
+        "IAMRoleARN" => String.t() | atom(),
+        "InstanceARN" => String.t() | atom()
+      }
+      
+  """
+  @type connect_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      content() :: %{
+        "Charset" => String.t() | atom(),
+        "Data" => String.t() | atom()
+      }
+      
+  """
+  @type content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_configuration_set_event_destination_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("EventDestination") => event_destination()
+      }
+      
+  """
+  @type create_configuration_set_event_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_configuration_set_event_destination_response() :: %{}
+      
+  """
+  @type create_configuration_set_event_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_configuration_set_request() :: %{
+        required("ConfigurationSet") => configuration_set()
+      }
+      
+  """
+  @type create_configuration_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_configuration_set_response() :: %{}
+      
+  """
+  @type create_configuration_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_configuration_set_tracking_options_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("TrackingOptions") => tracking_options()
+      }
+      
+  """
+  @type create_configuration_set_tracking_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_configuration_set_tracking_options_response() :: %{}
+      
+  """
+  @type create_configuration_set_tracking_options_response() :: %{}
 
   @typedoc """
 
@@ -103,131 +348,137 @@ defmodule AWS.SES do
 
   ## Example:
       
-      update_receipt_rule_request() :: %{
+      create_receipt_filter_request() :: %{
+        required("Filter") => receipt_filter()
+      }
+      
+  """
+  @type create_receipt_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_receipt_filter_response() :: %{}
+      
+  """
+  @type create_receipt_filter_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_receipt_rule_request() :: %{
+        optional("After") => String.t() | atom(),
         required("Rule") => receipt_rule(),
         required("RuleSetName") => String.t() | atom()
       }
       
   """
-  @type update_receipt_rule_request() :: %{(String.t() | atom()) => any()}
+  @type create_receipt_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_custom_verification_email_template_request() :: %{
-        optional("FailureRedirectionURL") => String.t() | atom(),
-        optional("FromEmailAddress") => String.t() | atom(),
-        optional("SuccessRedirectionURL") => String.t() | atom(),
-        optional("TemplateContent") => String.t() | atom(),
-        optional("TemplateSubject") => String.t() | atom(),
-        required("TemplateName") => String.t() | atom()
-      }
+      create_receipt_rule_response() :: %{}
       
   """
-  @type update_custom_verification_email_template_request() :: %{(String.t() | atom()) => any()}
+  @type create_receipt_rule_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      update_configuration_set_sending_enabled_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("Enabled") => boolean()
-      }
-      
-  """
-  @type update_configuration_set_sending_enabled_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      receipt_rule_set_metadata() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type receipt_rule_set_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_identity_policy_response() :: %{}
-      
-  """
-  @type put_identity_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_receipt_rule_position_request() :: %{
-        optional("After") => String.t() | atom(),
-        required("RuleName") => String.t() | atom(),
+      create_receipt_rule_set_request() :: %{
         required("RuleSetName") => String.t() | atom()
       }
       
   """
-  @type set_receipt_rule_position_request() :: %{(String.t() | atom()) => any()}
+  @type create_receipt_rule_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      bulk_email_destination_status() :: %{
-        "Error" => String.t() | atom(),
-        "MessageId" => String.t() | atom(),
-        "Status" => list(any())
+      create_receipt_rule_set_response() :: %{}
+      
+  """
+  @type create_receipt_rule_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_template_request() :: %{
+        required("Template") => template()
       }
       
   """
-  @type bulk_email_destination_status() :: %{(String.t() | atom()) => any()}
+  @type create_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      set_identity_mail_from_domain_request() :: %{
-        optional("BehaviorOnMXFailure") => list(any()),
-        optional("MailFromDomain") => String.t() | atom(),
-        required("Identity") => String.t() | atom()
+      create_template_response() :: %{}
+      
+  """
+  @type create_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_verification_email_invalid_content_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type set_identity_mail_from_domain_request() :: %{(String.t() | atom()) => any()}
+  @type custom_verification_email_invalid_content_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      reorder_receipt_rule_set_response() :: %{}
-      
-  """
-  @type reorder_receipt_rule_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_set_request() :: %{
-        optional("ConfigurationSetAttributeNames") => list(list(any())()),
-        required("ConfigurationSetName") => String.t() | atom()
+      custom_verification_email_template() :: %{
+        "FailureRedirectionURL" => String.t() | atom(),
+        "FromEmailAddress" => String.t() | atom(),
+        "SuccessRedirectionURL" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateSubject" => String.t() | atom()
       }
       
   """
-  @type describe_configuration_set_request() :: %{(String.t() | atom()) => any()}
+  @type custom_verification_email_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_configuration_set_response() :: %{}
+      custom_verification_email_template_already_exists_exception() :: %{
+        "CustomVerificationEmailTemplateName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
       
   """
-  @type delete_configuration_set_response() :: %{}
+  @type custom_verification_email_template_already_exists_exception() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_verification_email_template_does_not_exist_exception() :: %{
+        "CustomVerificationEmailTemplateName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type custom_verification_email_template_does_not_exist_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -245,10 +496,1261 @@ defmodule AWS.SES do
 
   ## Example:
       
-      update_configuration_set_tracking_options_response() :: %{}
+      delete_configuration_set_event_destination_response() :: %{}
       
   """
-  @type update_configuration_set_tracking_options_response() :: %{}
+  @type delete_configuration_set_event_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_configuration_set_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_configuration_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_configuration_set_response() :: %{}
+      
+  """
+  @type delete_configuration_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_configuration_set_tracking_options_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_configuration_set_tracking_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_configuration_set_tracking_options_response() :: %{}
+      
+  """
+  @type delete_configuration_set_tracking_options_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_custom_verification_email_template_request() :: %{
+        required("TemplateName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_custom_verification_email_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_identity_policy_request() :: %{
+        required("Identity") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_identity_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_identity_policy_response() :: %{}
+      
+  """
+  @type delete_identity_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_identity_request() :: %{
+        required("Identity") => String.t() | atom()
+      }
+      
+  """
+  @type delete_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_identity_response() :: %{}
+      
+  """
+  @type delete_identity_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_receipt_filter_request() :: %{
+        required("FilterName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_receipt_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_receipt_filter_response() :: %{}
+      
+  """
+  @type delete_receipt_filter_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_receipt_rule_request() :: %{
+        required("RuleName") => String.t() | atom(),
+        required("RuleSetName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_receipt_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_receipt_rule_response() :: %{}
+      
+  """
+  @type delete_receipt_rule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_receipt_rule_set_request() :: %{
+        required("RuleSetName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_receipt_rule_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_receipt_rule_set_response() :: %{}
+      
+  """
+  @type delete_receipt_rule_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_template_request() :: %{
+        required("TemplateName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_template_response() :: %{}
+      
+  """
+  @type delete_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_verified_email_address_request() :: %{
+        required("EmailAddress") => String.t() | atom()
+      }
+      
+  """
+  @type delete_verified_email_address_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delivery_options() :: %{
+        "TlsPolicy" => list(any())
+      }
+      
+  """
+  @type delivery_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_active_receipt_rule_set_request() :: %{}
+      
+  """
+  @type describe_active_receipt_rule_set_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_active_receipt_rule_set_response() :: %{
+        "Metadata" => receipt_rule_set_metadata(),
+        "Rules" => list(receipt_rule())
+      }
+      
+  """
+  @type describe_active_receipt_rule_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_set_request() :: %{
+        optional("ConfigurationSetAttributeNames") => list(list(any())()),
+        required("ConfigurationSetName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_configuration_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_set_response() :: %{
+        "ConfigurationSet" => configuration_set(),
+        "DeliveryOptions" => delivery_options(),
+        "EventDestinations" => list(event_destination()),
+        "ReputationOptions" => reputation_options(),
+        "TrackingOptions" => tracking_options()
+      }
+      
+  """
+  @type describe_configuration_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_receipt_rule_request() :: %{
+        required("RuleName") => String.t() | atom(),
+        required("RuleSetName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_receipt_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_receipt_rule_response() :: %{
+        "Rule" => receipt_rule()
+      }
+      
+  """
+  @type describe_receipt_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_receipt_rule_set_request() :: %{
+        required("RuleSetName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_receipt_rule_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_receipt_rule_set_response() :: %{
+        "Metadata" => receipt_rule_set_metadata(),
+        "Rules" => list(receipt_rule())
+      }
+      
+  """
+  @type describe_receipt_rule_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination() :: %{
+        "BccAddresses" => list(String.t() | atom()),
+        "CcAddresses" => list(String.t() | atom()),
+        "ToAddresses" => list(String.t() | atom())
+      }
+      
+  """
+  @type destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_destination() :: %{
+        "CloudWatchDestination" => cloud_watch_destination(),
+        "Enabled" => boolean(),
+        "KinesisFirehoseDestination" => kinesis_firehose_destination(),
+        "MatchingEventTypes" => list(list(any())()),
+        "Name" => String.t() | atom(),
+        "SNSDestination" => s_n_s_destination()
+      }
+      
+  """
+  @type event_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_destination_already_exists_exception() :: %{
+        "ConfigurationSetName" => String.t() | atom(),
+        "EventDestinationName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type event_destination_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_destination_does_not_exist_exception() :: %{
+        "ConfigurationSetName" => String.t() | atom(),
+        "EventDestinationName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type event_destination_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extension_field() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type extension_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      from_email_address_not_verified_exception() :: %{
+        "FromEmailAddress" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type from_email_address_not_verified_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_sending_enabled_response() :: %{
+        "Enabled" => boolean()
+      }
+      
+  """
+  @type get_account_sending_enabled_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_custom_verification_email_template_request() :: %{
+        required("TemplateName") => String.t() | atom()
+      }
+      
+  """
+  @type get_custom_verification_email_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_custom_verification_email_template_response() :: %{
+        "FailureRedirectionURL" => String.t() | atom(),
+        "FromEmailAddress" => String.t() | atom(),
+        "SuccessRedirectionURL" => String.t() | atom(),
+        "TemplateContent" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateSubject" => String.t() | atom()
+      }
+      
+  """
+  @type get_custom_verification_email_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_dkim_attributes_request() :: %{
+        required("Identities") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_identity_dkim_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_dkim_attributes_response() :: %{
+        "DkimAttributes" => map()
+      }
+      
+  """
+  @type get_identity_dkim_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_mail_from_domain_attributes_request() :: %{
+        required("Identities") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_identity_mail_from_domain_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_mail_from_domain_attributes_response() :: %{
+        "MailFromDomainAttributes" => map()
+      }
+      
+  """
+  @type get_identity_mail_from_domain_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_notification_attributes_request() :: %{
+        required("Identities") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_identity_notification_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_notification_attributes_response() :: %{
+        "NotificationAttributes" => map()
+      }
+      
+  """
+  @type get_identity_notification_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_policies_request() :: %{
+        required("Identity") => String.t() | atom(),
+        required("PolicyNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_identity_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_policies_response() :: %{
+        "Policies" => map()
+      }
+      
+  """
+  @type get_identity_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_verification_attributes_request() :: %{
+        required("Identities") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_identity_verification_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_verification_attributes_response() :: %{
+        "VerificationAttributes" => map()
+      }
+      
+  """
+  @type get_identity_verification_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_send_quota_response() :: %{
+        "Max24HourSend" => float(),
+        "MaxSendRate" => float(),
+        "SentLast24Hours" => float()
+      }
+      
+  """
+  @type get_send_quota_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_send_statistics_response() :: %{
+        "SendDataPoints" => list(send_data_point())
+      }
+      
+  """
+  @type get_send_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_template_request() :: %{
+        required("TemplateName") => String.t() | atom()
+      }
+      
+  """
+  @type get_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_template_response() :: %{
+        "Template" => template()
+      }
+      
+  """
+  @type get_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      identity_dkim_attributes() :: %{
+        "DkimEnabled" => boolean(),
+        "DkimTokens" => list(String.t() | atom()),
+        "DkimVerificationStatus" => list(any())
+      }
+      
+  """
+  @type identity_dkim_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      identity_mail_from_domain_attributes() :: %{
+        "BehaviorOnMXFailure" => list(any()),
+        "MailFromDomain" => String.t() | atom(),
+        "MailFromDomainStatus" => list(any())
+      }
+      
+  """
+  @type identity_mail_from_domain_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      identity_notification_attributes() :: %{
+        "BounceTopic" => String.t() | atom(),
+        "ComplaintTopic" => String.t() | atom(),
+        "DeliveryTopic" => String.t() | atom(),
+        "ForwardingEnabled" => boolean(),
+        "HeadersInBounceNotificationsEnabled" => boolean(),
+        "HeadersInComplaintNotificationsEnabled" => boolean(),
+        "HeadersInDeliveryNotificationsEnabled" => boolean()
+      }
+      
+  """
+  @type identity_notification_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      identity_verification_attributes() :: %{
+        "VerificationStatus" => list(any()),
+        "VerificationToken" => String.t() | atom()
+      }
+      
+  """
+  @type identity_verification_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_cloud_watch_destination_exception() :: %{
+        "ConfigurationSetName" => String.t() | atom(),
+        "EventDestinationName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_cloud_watch_destination_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_configuration_set_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_configuration_set_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_delivery_options_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_delivery_options_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_firehose_destination_exception() :: %{
+        "ConfigurationSetName" => String.t() | atom(),
+        "EventDestinationName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_firehose_destination_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_lambda_function_exception() :: %{
+        "FunctionArn" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_lambda_function_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_policy_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_rendering_parameter_exception() :: %{
+        "TemplateName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_rendering_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_s3_configuration_exception() :: %{
+        "Bucket" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_s3_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_s_n_s_destination_exception() :: %{
+        "ConfigurationSetName" => String.t() | atom(),
+        "EventDestinationName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_s_n_s_destination_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_sns_topic_exception() :: %{
+        "Topic" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_sns_topic_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_template_exception() :: %{
+        "TemplateName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_template_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_tracking_options_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_tracking_options_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_destination() :: %{
+        "DeliveryStreamARN" => String.t() | atom(),
+        "IAMRoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_action() :: %{
+        "FunctionArn" => String.t() | atom(),
+        "InvocationType" => list(any()),
+        "TopicArn" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_configuration_sets_request() :: %{
+        optional("MaxItems") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_configuration_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_configuration_sets_response() :: %{
+        "ConfigurationSets" => list(configuration_set()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_configuration_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_custom_verification_email_templates_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_custom_verification_email_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_custom_verification_email_templates_response() :: %{
+        "CustomVerificationEmailTemplates" => list(custom_verification_email_template()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_custom_verification_email_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_identities_request() :: %{
+        optional("IdentityType") => list(any()),
+        optional("MaxItems") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_identities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_identities_response() :: %{
+        "Identities" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_identities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_identity_policies_request() :: %{
+        required("Identity") => String.t() | atom()
+      }
+      
+  """
+  @type list_identity_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_identity_policies_response() :: %{
+        "PolicyNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_identity_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_receipt_filters_request() :: %{}
+      
+  """
+  @type list_receipt_filters_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_receipt_filters_response() :: %{
+        "Filters" => list(receipt_filter())
+      }
+      
+  """
+  @type list_receipt_filters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_receipt_rule_sets_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_receipt_rule_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_receipt_rule_sets_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RuleSets" => list(receipt_rule_set_metadata())
+      }
+      
+  """
+  @type list_receipt_rule_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_templates_request() :: %{
+        optional("MaxItems") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_templates_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TemplatesMetadata" => list(template_metadata())
+      }
+      
+  """
+  @type list_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_verified_email_addresses_response() :: %{
+        "VerifiedEmailAddresses" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_verified_email_addresses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mail_from_domain_not_verified_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type mail_from_domain_not_verified_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      message() :: %{
+        "Body" => body(),
+        "Subject" => content()
+      }
+      
+  """
+  @type message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      message_dsn() :: %{
+        "ArrivalDate" => non_neg_integer(),
+        "ExtensionFields" => list(extension_field()),
+        "ReportingMta" => String.t() | atom()
+      }
+      
+  """
+  @type message_dsn() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      message_rejected() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type message_rejected() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      message_tag() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type message_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      missing_rendering_attribute_exception() :: %{
+        "TemplateName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type missing_rendering_attribute_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      production_access_not_granted_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type production_access_not_granted_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_configuration_set_delivery_options_request() :: %{
+        optional("DeliveryOptions") => delivery_options(),
+        required("ConfigurationSetName") => String.t() | atom()
+      }
+      
+  """
+  @type put_configuration_set_delivery_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_configuration_set_delivery_options_response() :: %{}
+      
+  """
+  @type put_configuration_set_delivery_options_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_identity_policy_request() :: %{
+        required("Identity") => String.t() | atom(),
+        required("Policy") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom()
+      }
+      
+  """
+  @type put_identity_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_identity_policy_response() :: %{}
+      
+  """
+  @type put_identity_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      raw_message() :: %{
+        "Data" => binary()
+      }
+      
+  """
+  @type raw_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      receipt_action() :: %{
+        "AddHeaderAction" => add_header_action(),
+        "BounceAction" => bounce_action(),
+        "ConnectAction" => connect_action(),
+        "LambdaAction" => lambda_action(),
+        "S3Action" => s3_action(),
+        "SNSAction" => s_n_s_action(),
+        "StopAction" => stop_action(),
+        "WorkmailAction" => workmail_action()
+      }
+      
+  """
+  @type receipt_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      receipt_filter() :: %{
+        "IpFilter" => receipt_ip_filter(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type receipt_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      receipt_ip_filter() :: %{
+        "Cidr" => String.t() | atom(),
+        "Policy" => list(any())
+      }
+      
+  """
+  @type receipt_ip_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      receipt_rule() :: %{
+        "Actions" => list(receipt_action()),
+        "Enabled" => boolean(),
+        "Name" => String.t() | atom(),
+        "Recipients" => list(String.t() | atom()),
+        "ScanEnabled" => boolean(),
+        "TlsPolicy" => list(any())
+      }
+      
+  """
+  @type receipt_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      receipt_rule_set_metadata() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type receipt_rule_set_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recipient_dsn_fields() :: %{
+        "Action" => list(any()),
+        "DiagnosticCode" => String.t() | atom(),
+        "ExtensionFields" => list(extension_field()),
+        "FinalRecipient" => String.t() | atom(),
+        "LastAttemptDate" => non_neg_integer(),
+        "RemoteMta" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type recipient_dsn_fields() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reorder_receipt_rule_set_request() :: %{
+        required("RuleNames") => list(String.t() | atom()),
+        required("RuleSetName") => String.t() | atom()
+      }
+      
+  """
+  @type reorder_receipt_rule_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reorder_receipt_rule_set_response() :: %{}
+      
+  """
+  @type reorder_receipt_rule_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      reputation_options() :: %{
+        "LastFreshStart" => non_neg_integer(),
+        "ReputationMetricsEnabled" => boolean(),
+        "SendingEnabled" => boolean()
+      }
+      
+  """
+  @type reputation_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_does_not_exist_exception() :: %{
+        "Name" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type rule_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_set_does_not_exist_exception() :: %{
+        "Name" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type rule_set_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -269,123 +1771,141 @@ defmodule AWS.SES do
 
   ## Example:
       
-      event_destination_already_exists_exception() :: %{
-        "ConfigurationSetName" => String.t() | atom(),
-        "EventDestinationName" => String.t() | atom(),
-        "message" => String.t() | atom()
+      s_n_s_action() :: %{
+        "Encoding" => list(any()),
+        "TopicArn" => String.t() | atom()
       }
       
   """
-  @type event_destination_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type s_n_s_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      body() :: %{
-        "Html" => content(),
-        "Text" => content()
+      s_n_s_destination() :: %{
+        "TopicARN" => String.t() | atom()
       }
       
   """
-  @type body() :: %{(String.t() | atom()) => any()}
+  @type s_n_s_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      verify_email_identity_response() :: %{}
-      
-  """
-  @type verify_email_identity_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      tracking_options_already_exists_exception() :: %{
-        "ConfigurationSetName" => String.t() | atom(),
-        "message" => String.t() | atom()
+      send_bounce_request() :: %{
+        optional("BounceSenderArn") => String.t() | atom(),
+        optional("Explanation") => String.t() | atom(),
+        optional("MessageDsn") => message_dsn(),
+        required("BounceSender") => String.t() | atom(),
+        required("BouncedRecipientInfoList") => list(bounced_recipient_info()),
+        required("OriginalMessageId") => String.t() | atom()
       }
       
   """
-  @type tracking_options_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type send_bounce_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_receipt_filter_response() :: %{}
-      
-  """
-  @type create_receipt_filter_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_identities_response() :: %{
-        "Identities" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_identities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_identity_policy_request() :: %{
-        required("Identity") => String.t() | atom(),
-        required("Policy") => String.t() | atom(),
-        required("PolicyName") => String.t() | atom()
-      }
-      
-  """
-  @type put_identity_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_raw_email_response() :: %{
+      send_bounce_response() :: %{
         "MessageId" => String.t() | atom()
       }
       
   """
-  @type send_raw_email_response() :: %{(String.t() | atom()) => any()}
+  @type send_bounce_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_tracking_options_exception() :: %{
-        "message" => String.t() | atom()
+      send_bulk_templated_email_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        optional("DefaultTags") => list(message_tag()),
+        optional("ReplyToAddresses") => list(String.t() | atom()),
+        optional("ReturnPath") => String.t() | atom(),
+        optional("ReturnPathArn") => String.t() | atom(),
+        optional("SourceArn") => String.t() | atom(),
+        optional("TemplateArn") => String.t() | atom(),
+        required("DefaultTemplateData") => String.t() | atom(),
+        required("Destinations") => list(bulk_email_destination()),
+        required("Source") => String.t() | atom(),
+        required("Template") => String.t() | atom()
       }
       
   """
-  @type invalid_tracking_options_exception() :: %{(String.t() | atom()) => any()}
+  @type send_bulk_templated_email_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_identity_notification_attributes_request() :: %{
-        required("Identities") => list(String.t() | atom())
+      send_bulk_templated_email_response() :: %{
+        "Status" => list(bulk_email_destination_status())
       }
       
   """
-  @type get_identity_notification_attributes_request() :: %{(String.t() | atom()) => any()}
+  @type send_bulk_templated_email_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_receipt_rule_response() :: %{}
+      send_custom_verification_email_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        required("EmailAddress") => String.t() | atom(),
+        required("TemplateName") => String.t() | atom()
+      }
       
   """
-  @type update_receipt_rule_response() :: %{}
+  @type send_custom_verification_email_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_custom_verification_email_response() :: %{
+        "MessageId" => String.t() | atom()
+      }
+      
+  """
+  @type send_custom_verification_email_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_data_point() :: %{
+        "Bounces" => float(),
+        "Complaints" => float(),
+        "DeliveryAttempts" => float(),
+        "Rejects" => float(),
+        "Timestamp" => non_neg_integer()
+      }
+      
+  """
+  @type send_data_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_email_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        optional("ReplyToAddresses") => list(String.t() | atom()),
+        optional("ReturnPath") => String.t() | atom(),
+        optional("ReturnPathArn") => String.t() | atom(),
+        optional("SourceArn") => String.t() | atom(),
+        optional("Tags") => list(message_tag()),
+        required("Destination") => destination(),
+        required("Message") => message(),
+        required("Source") => String.t() | atom()
+      }
+      
+  """
+  @type send_email_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -420,1682 +1940,12 @@ defmodule AWS.SES do
 
   ## Example:
       
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_identity_dkim_enabled_request() :: %{
-        required("DkimEnabled") => boolean(),
-        required("Identity") => String.t() | atom()
-      }
-      
-  """
-  @type set_identity_dkim_enabled_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      clone_receipt_rule_set_request() :: %{
-        required("OriginalRuleSetName") => String.t() | atom(),
-        required("RuleSetName") => String.t() | atom()
-      }
-      
-  """
-  @type clone_receipt_rule_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_receipt_rule_set_request() :: %{
-        required("RuleSetName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_receipt_rule_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_s_n_s_destination_exception() :: %{
-        "ConfigurationSetName" => String.t() | atom(),
-        "EventDestinationName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_s_n_s_destination_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_mail_from_domain_attributes_request() :: %{
-        required("Identities") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_identity_mail_from_domain_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_active_receipt_rule_set_request() :: %{
-        optional("RuleSetName") => String.t() | atom()
-      }
-      
-  """
-  @type set_active_receipt_rule_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_domain_dkim_request() :: %{
-        required("Domain") => String.t() | atom()
-      }
-      
-  """
-  @type verify_domain_dkim_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reputation_options() :: %{
-        "LastFreshStart" => non_neg_integer(),
-        "ReputationMetricsEnabled" => boolean(),
-        "SendingEnabled" => boolean()
-      }
-      
-  """
-  @type reputation_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recipient_dsn_fields() :: %{
-        "Action" => list(any()),
-        "DiagnosticCode" => String.t() | atom(),
-        "ExtensionFields" => list(extension_field()),
-        "FinalRecipient" => String.t() | atom(),
-        "LastAttemptDate" => non_neg_integer(),
-        "RemoteMta" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type recipient_dsn_fields() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_configuration_set_tracking_options_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("TrackingOptions") => tracking_options()
-      }
-      
-  """
-  @type update_configuration_set_tracking_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_header_action() :: %{
-        "HeaderName" => String.t() | atom(),
-        "HeaderValue" => String.t() | atom()
-      }
-      
-  """
-  @type add_header_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_dkim_attributes_response() :: %{
-        "DkimAttributes" => map()
-      }
-      
-  """
-  @type get_identity_dkim_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_templates_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "TemplatesMetadata" => list(template_metadata())
-      }
-      
-  """
-  @type list_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_template_response() :: %{
-        "Template" => template()
-      }
-      
-  """
-  @type get_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      configuration_set() :: %{
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type configuration_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_verification_email_template_does_not_exist_exception() :: %{
-        "CustomVerificationEmailTemplateName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type custom_verification_email_template_does_not_exist_exception() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      list_receipt_rule_sets_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_receipt_rule_sets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_active_receipt_rule_set_response() :: %{}
-      
-  """
-  @type set_active_receipt_rule_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_active_receipt_rule_set_response() :: %{
-        "Metadata" => receipt_rule_set_metadata(),
-        "Rules" => list(receipt_rule())
-      }
-      
-  """
-  @type describe_active_receipt_rule_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_destination() :: %{
-        "DimensionConfigurations" => list(cloud_watch_dimension_configuration())
-      }
-      
-  """
-  @type cloud_watch_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_identity_headers_in_notifications_enabled_response() :: %{}
-      
-  """
-  @type set_identity_headers_in_notifications_enabled_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_sending_paused_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type account_sending_paused_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_send_quota_response() :: %{
-        "Max24HourSend" => float(),
-        "MaxSendRate" => float(),
-        "SentLast24Hours" => float()
-      }
-      
-  """
-  @type get_send_quota_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      identity_mail_from_domain_attributes() :: %{
-        "BehaviorOnMXFailure" => list(any()),
-        "MailFromDomain" => String.t() | atom(),
-        "MailFromDomainStatus" => list(any())
-      }
-      
-  """
-  @type identity_mail_from_domain_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_policies_request() :: %{
-        required("Identity") => String.t() | atom(),
-        required("PolicyNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_identity_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      configuration_set_does_not_exist_exception() :: %{
-        "ConfigurationSetName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type configuration_set_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_configuration_set_event_destination_response() :: %{}
-      
-  """
-  @type delete_configuration_set_event_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_identity_dkim_enabled_response() :: %{}
-      
-  """
-  @type set_identity_dkim_enabled_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_configuration_set_reputation_metrics_enabled_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("Enabled") => boolean()
-      }
-      
-  """
-  @type update_configuration_set_reputation_metrics_enabled_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      extension_field() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type extension_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_receipt_rule_set_response() :: %{}
-      
-  """
-  @type create_receipt_rule_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_dkim_attributes_request() :: %{
-        required("Identities") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_identity_dkim_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      configuration_set_already_exists_exception() :: %{
-        "ConfigurationSetName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type configuration_set_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      receipt_rule() :: %{
-        "Actions" => list(receipt_action()),
-        "Enabled" => boolean(),
-        "Name" => String.t() | atom(),
-        "Recipients" => list(String.t() | atom()),
-        "ScanEnabled" => boolean(),
-        "TlsPolicy" => list(any())
-      }
-      
-  """
-  @type receipt_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_receipt_filters_request() :: %{}
-      
-  """
-  @type list_receipt_filters_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      production_access_not_granted_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type production_access_not_granted_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_receipt_rule_response() :: %{}
-      
-  """
-  @type delete_receipt_rule_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_identity_feedback_forwarding_enabled_request() :: %{
-        required("ForwardingEnabled") => boolean(),
-        required("Identity") => String.t() | atom()
-      }
-      
-  """
-  @type set_identity_feedback_forwarding_enabled_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_receipt_rule_set_response() :: %{
-        "Metadata" => receipt_rule_set_metadata(),
-        "Rules" => list(receipt_rule())
-      }
-      
-  """
-  @type describe_receipt_rule_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_action() :: %{
-        "Scope" => list(any()),
-        "TopicArn" => String.t() | atom()
-      }
-      
-  """
-  @type stop_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_notification_attributes_response() :: %{
-        "NotificationAttributes" => map()
-      }
-      
-  """
-  @type get_identity_notification_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cannot_delete_exception() :: %{
-        "Name" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cannot_delete_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_bounce_response() :: %{
+      send_raw_email_response() :: %{
         "MessageId" => String.t() | atom()
       }
       
   """
-  @type send_bounce_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_identity_policies_response() :: %{
-        "PolicyNames" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_identity_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      already_exists_exception() :: %{
-        "Name" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_configuration_set_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_configuration_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tracking_options_does_not_exist_exception() :: %{
-        "ConfigurationSetName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type tracking_options_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tracking_options() :: %{
-        "CustomRedirectDomain" => String.t() | atom()
-      }
-      
-  """
-  @type tracking_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_verification_email_invalid_content_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type custom_verification_email_invalid_content_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_sns_topic_exception() :: %{
-        "Topic" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_sns_topic_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_receipt_filters_response() :: %{
-        "Filters" => list(receipt_filter())
-      }
-      
-  """
-  @type list_receipt_filters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_dimension_configuration() :: %{
-        "DefaultDimensionValue" => String.t() | atom(),
-        "DimensionName" => String.t() | atom(),
-        "DimensionValueSource" => list(any())
-      }
-      
-  """
-  @type cloud_watch_dimension_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_render_template_request() :: %{
-        required("TemplateData") => String.t() | atom(),
-        required("TemplateName") => String.t() | atom()
-      }
-      
-  """
-  @type test_render_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_configuration_set_tracking_options_response() :: %{}
-      
-  """
-  @type create_configuration_set_tracking_options_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_action() :: %{
-        "FunctionArn" => String.t() | atom(),
-        "InvocationType" => list(any()),
-        "TopicArn" => String.t() | atom()
-      }
-      
-  """
-  @type lambda_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      receipt_filter() :: %{
-        "IpFilter" => receipt_ip_filter(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type receipt_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_receipt_rule_response() :: %{}
-      
-  """
-  @type create_receipt_rule_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_email_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom(),
-        optional("ReplyToAddresses") => list(String.t() | atom()),
-        optional("ReturnPath") => String.t() | atom(),
-        optional("ReturnPathArn") => String.t() | atom(),
-        optional("SourceArn") => String.t() | atom(),
-        optional("Tags") => list(message_tag()),
-        required("Destination") => destination(),
-        required("Message") => message(),
-        required("Source") => String.t() | atom()
-      }
-      
-  """
-  @type send_email_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_receipt_filter_request() :: %{
-        required("FilterName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_receipt_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_set_does_not_exist_exception() :: %{
-        "Name" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type rule_set_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_receipt_filter_response() :: %{}
-      
-  """
-  @type delete_receipt_filter_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_templated_email_response() :: %{
-        "MessageId" => String.t() | atom()
-      }
-      
-  """
-  @type send_templated_email_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      bulk_email_destination() :: %{
-        "Destination" => destination(),
-        "ReplacementTags" => list(message_tag()),
-        "ReplacementTemplateData" => String.t() | atom()
-      }
-      
-  """
-  @type bulk_email_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_bulk_templated_email_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom(),
-        optional("DefaultTags") => list(message_tag()),
-        optional("ReplyToAddresses") => list(String.t() | atom()),
-        optional("ReturnPath") => String.t() | atom(),
-        optional("ReturnPathArn") => String.t() | atom(),
-        optional("SourceArn") => String.t() | atom(),
-        optional("TemplateArn") => String.t() | atom(),
-        required("DefaultTemplateData") => String.t() | atom(),
-        required("Destinations") => list(bulk_email_destination()),
-        required("Source") => String.t() | atom(),
-        required("Template") => String.t() | atom()
-      }
-      
-  """
-  @type send_bulk_templated_email_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_destination_does_not_exist_exception() :: %{
-        "ConfigurationSetName" => String.t() | atom(),
-        "EventDestinationName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type event_destination_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_custom_verification_email_template_request() :: %{
-        required("TemplateName") => String.t() | atom()
-      }
-      
-  """
-  @type get_custom_verification_email_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_identity_policy_request() :: %{
-        required("Identity") => String.t() | atom(),
-        required("PolicyName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_identity_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      message_dsn() :: %{
-        "ArrivalDate" => non_neg_integer(),
-        "ExtensionFields" => list(extension_field()),
-        "ReportingMta" => String.t() | atom()
-      }
-      
-  """
-  @type message_dsn() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_configuration_set_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_configuration_set_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      message_tag() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type message_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_configuration_set_delivery_options_response() :: %{}
-      
-  """
-  @type put_configuration_set_delivery_options_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_verified_email_address_request() :: %{
-        required("EmailAddress") => String.t() | atom()
-      }
-      
-  """
-  @type delete_verified_email_address_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_cloud_watch_destination_exception() :: %{
-        "ConfigurationSetName" => String.t() | atom(),
-        "EventDestinationName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_cloud_watch_destination_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_custom_verification_email_templates_response() :: %{
-        "CustomVerificationEmailTemplates" => list(custom_verification_email_template()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_custom_verification_email_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_rendering_parameter_exception() :: %{
-        "TemplateName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_rendering_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_domain_identity_response() :: %{
-        "VerificationToken" => String.t() | atom()
-      }
-      
-  """
-  @type verify_domain_identity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_template_request() :: %{
-        required("Template") => template()
-      }
-      
-  """
-  @type create_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_domain_dkim_response() :: %{
-        "DkimTokens" => list(String.t() | atom())
-      }
-      
-  """
-  @type verify_domain_dkim_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      destination() :: %{
-        "BccAddresses" => list(String.t() | atom()),
-        "CcAddresses" => list(String.t() | atom()),
-        "ToAddresses" => list(String.t() | atom())
-      }
-      
-  """
-  @type destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connect_action() :: %{
-        "IAMRoleARN" => String.t() | atom(),
-        "InstanceARN" => String.t() | atom()
-      }
-      
-  """
-  @type connect_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_configuration_set_tracking_options_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_configuration_set_tracking_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_custom_verification_email_templates_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_custom_verification_email_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      configuration_set_sending_paused_exception() :: %{
-        "ConfigurationSetName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type configuration_set_sending_paused_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_custom_verification_email_template_response() :: %{
-        "FailureRedirectionURL" => String.t() | atom(),
-        "FromEmailAddress" => String.t() | atom(),
-        "SuccessRedirectionURL" => String.t() | atom(),
-        "TemplateContent" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateSubject" => String.t() | atom()
-      }
-      
-  """
-  @type get_custom_verification_email_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_verification_attributes_request() :: %{
-        required("Identities") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_identity_verification_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      workmail_action() :: %{
-        "OrganizationArn" => String.t() | atom(),
-        "TopicArn" => String.t() | atom()
-      }
-      
-  """
-  @type workmail_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_identities_request() :: %{
-        optional("IdentityType") => list(any()),
-        optional("MaxItems") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_identities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      clone_receipt_rule_set_response() :: %{}
-      
-  """
-  @type clone_receipt_rule_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_configuration_set_response() :: %{}
-      
-  """
-  @type create_configuration_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_bulk_templated_email_response() :: %{
-        "Status" => list(bulk_email_destination_status())
-      }
-      
-  """
-  @type send_bulk_templated_email_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_identity_policy_response() :: %{}
-      
-  """
-  @type delete_identity_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_template_response() :: %{}
-      
-  """
-  @type update_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_receipt_rule_position_response() :: %{}
-      
-  """
-  @type set_receipt_rule_position_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_receipt_rule_request() :: %{
-        required("RuleName") => String.t() | atom(),
-        required("RuleSetName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_receipt_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_s3_configuration_exception() :: %{
-        "Bucket" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_s3_configuration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_identity_mail_from_domain_response() :: %{}
-      
-  """
-  @type set_identity_mail_from_domain_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_does_not_exist_exception() :: %{
-        "Name" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type rule_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_configuration_set_delivery_options_request() :: %{
-        optional("DeliveryOptions") => delivery_options(),
-        required("ConfigurationSetName") => String.t() | atom()
-      }
-      
-  """
-  @type put_configuration_set_delivery_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      receipt_action() :: %{
-        "AddHeaderAction" => add_header_action(),
-        "BounceAction" => bounce_action(),
-        "ConnectAction" => connect_action(),
-        "LambdaAction" => lambda_action(),
-        "S3Action" => s3_action(),
-        "SNSAction" => s_n_s_action(),
-        "StopAction" => stop_action(),
-        "WorkmailAction" => workmail_action()
-      }
-      
-  """
-  @type receipt_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_identity_response() :: %{}
-      
-  """
-  @type delete_identity_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      from_email_address_not_verified_exception() :: %{
-        "FromEmailAddress" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type from_email_address_not_verified_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_set_response() :: %{
-        "ConfigurationSet" => configuration_set(),
-        "DeliveryOptions" => delivery_options(),
-        "EventDestinations" => list(event_destination()),
-        "ReputationOptions" => reputation_options(),
-        "TrackingOptions" => tracking_options()
-      }
-      
-  """
-  @type describe_configuration_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_firehose_destination_exception() :: %{
-        "ConfigurationSetName" => String.t() | atom(),
-        "EventDestinationName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_firehose_destination_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      content() :: %{
-        "Charset" => String.t() | atom(),
-        "Data" => String.t() | atom()
-      }
-      
-  """
-  @type content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      bounced_recipient_info() :: %{
-        "BounceType" => list(any()),
-        "Recipient" => String.t() | atom(),
-        "RecipientArn" => String.t() | atom(),
-        "RecipientDsnFields" => recipient_dsn_fields()
-      }
-      
-  """
-  @type bounced_recipient_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_configuration_set_tracking_options_response() :: %{}
-      
-  """
-  @type delete_configuration_set_tracking_options_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_configuration_set_event_destination_response() :: %{}
-      
-  """
-  @type create_configuration_set_event_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_verification_attributes_response() :: %{
-        "VerificationAttributes" => map()
-      }
-      
-  """
-  @type get_identity_verification_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_custom_verification_email_response() :: %{
-        "MessageId" => String.t() | atom()
-      }
-      
-  """
-  @type send_custom_verification_email_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      template_metadata() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type template_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_verified_email_addresses_response() :: %{
-        "VerifiedEmailAddresses" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_verified_email_addresses_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_configuration_set_tracking_options_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("TrackingOptions") => tracking_options()
-      }
-      
-  """
-  @type create_configuration_set_tracking_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_receipt_rule_request() :: %{
-        required("RuleName") => String.t() | atom(),
-        required("RuleSetName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_receipt_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_identity_feedback_forwarding_enabled_response() :: %{}
-      
-  """
-  @type set_identity_feedback_forwarding_enabled_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_receipt_rule_sets_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RuleSets" => list(receipt_rule_set_metadata())
-      }
-      
-  """
-  @type list_receipt_rule_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_email_identity_request() :: %{
-        required("EmailAddress") => String.t() | atom()
-      }
-      
-  """
-  @type verify_email_identity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mail_from_domain_not_verified_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type mail_from_domain_not_verified_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_lambda_function_exception() :: %{
-        "FunctionArn" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_lambda_function_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_identity_notification_topic_request() :: %{
-        optional("SnsTopic") => String.t() | atom(),
-        required("Identity") => String.t() | atom(),
-        required("NotificationType") => list(any())
-      }
-      
-  """
-  @type set_identity_notification_topic_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delivery_options() :: %{
-        "TlsPolicy" => list(any())
-      }
-      
-  """
-  @type delivery_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      identity_notification_attributes() :: %{
-        "BounceTopic" => String.t() | atom(),
-        "ComplaintTopic" => String.t() | atom(),
-        "DeliveryTopic" => String.t() | atom(),
-        "ForwardingEnabled" => boolean(),
-        "HeadersInBounceNotificationsEnabled" => boolean(),
-        "HeadersInComplaintNotificationsEnabled" => boolean(),
-        "HeadersInDeliveryNotificationsEnabled" => boolean()
-      }
-      
-  """
-  @type identity_notification_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      receipt_ip_filter() :: %{
-        "Cidr" => String.t() | atom(),
-        "Policy" => list(any())
-      }
-      
-  """
-  @type receipt_ip_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_template_response() :: %{}
-      
-  """
-  @type create_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_active_receipt_rule_set_request() :: %{}
-      
-  """
-  @type describe_active_receipt_rule_set_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      template_does_not_exist_exception() :: %{
-        "TemplateName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type template_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s_n_s_action() :: %{
-        "Encoding" => list(any()),
-        "TopicArn" => String.t() | atom()
-      }
-      
-  """
-  @type s_n_s_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_custom_verification_email_template_request() :: %{
-        required("TemplateName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_custom_verification_email_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      raw_message() :: %{
-        "Data" => binary()
-      }
-      
-  """
-  @type raw_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_template_request() :: %{
-        required("TemplateName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_account_sending_enabled_response() :: %{
-        "Enabled" => boolean()
-      }
-      
-  """
-  @type get_account_sending_enabled_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      message_rejected() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type message_rejected() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_send_statistics_response() :: %{
-        "SendDataPoints" => list(send_data_point())
-      }
-      
-  """
-  @type get_send_statistics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_identity_request() :: %{
-        required("Identity") => String.t() | atom()
-      }
-      
-  """
-  @type delete_identity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_configuration_set_event_destination_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("EventDestination") => event_destination()
-      }
-      
-  """
-  @type update_configuration_set_event_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_configuration_sets_response() :: %{
-        "ConfigurationSets" => list(configuration_set()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_configuration_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_verification_email_template() :: %{
-        "FailureRedirectionURL" => String.t() | atom(),
-        "FromEmailAddress" => String.t() | atom(),
-        "SuccessRedirectionURL" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateSubject" => String.t() | atom()
-      }
-      
-  """
-  @type custom_verification_email_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      template() :: %{
-        "HtmlPart" => String.t() | atom(),
-        "SubjectPart" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TextPart" => String.t() | atom()
-      }
-      
-  """
-  @type template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      missing_rendering_attribute_exception() :: %{
-        "TemplateName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type missing_rendering_attribute_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_receipt_rule_set_request() :: %{
-        required("RuleSetName") => String.t() | atom()
-      }
-      
-  """
-  @type create_receipt_rule_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_firehose_destination() :: %{
-        "DeliveryStreamARN" => String.t() | atom(),
-        "IAMRoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_firehose_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_template_exception() :: %{
-        "TemplateName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_template_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_templates_request() :: %{
-        optional("MaxItems") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_receipt_rule_response() :: %{
-        "Rule" => receipt_rule()
-      }
-      
-  """
-  @type describe_receipt_rule_response() :: %{(String.t() | atom()) => any()}
+  @type send_raw_email_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2122,134 +1972,74 @@ defmodule AWS.SES do
 
   ## Example:
       
-      create_configuration_set_event_destination_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("EventDestination") => event_destination()
+      send_templated_email_response() :: %{
+        "MessageId" => String.t() | atom()
       }
       
   """
-  @type create_configuration_set_event_destination_request() :: %{(String.t() | atom()) => any()}
+  @type send_templated_email_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_configuration_sets_request() :: %{
-        optional("MaxItems") => integer(),
-        optional("NextToken") => String.t() | atom()
+      set_active_receipt_rule_set_request() :: %{
+        optional("RuleSetName") => String.t() | atom()
       }
       
   """
-  @type list_configuration_sets_request() :: %{(String.t() | atom()) => any()}
+  @type set_active_receipt_rule_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_identity_policies_request() :: %{
+      set_active_receipt_rule_set_response() :: %{}
+      
+  """
+  @type set_active_receipt_rule_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_identity_dkim_enabled_request() :: %{
+        required("DkimEnabled") => boolean(),
         required("Identity") => String.t() | atom()
       }
       
   """
-  @type list_identity_policies_request() :: %{(String.t() | atom()) => any()}
+  @type set_identity_dkim_enabled_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      test_render_template_response() :: %{
-        "RenderedTemplate" => String.t() | atom()
+      set_identity_dkim_enabled_response() :: %{}
+      
+  """
+  @type set_identity_dkim_enabled_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_identity_feedback_forwarding_enabled_request() :: %{
+        required("ForwardingEnabled") => boolean(),
+        required("Identity") => String.t() | atom()
       }
       
   """
-  @type test_render_template_response() :: %{(String.t() | atom()) => any()}
+  @type set_identity_feedback_forwarding_enabled_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_identity_mail_from_domain_attributes_response() :: %{
-        "MailFromDomainAttributes" => map()
-      }
+      set_identity_feedback_forwarding_enabled_response() :: %{}
       
   """
-  @type get_identity_mail_from_domain_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reorder_receipt_rule_set_request() :: %{
-        required("RuleNames") => list(String.t() | atom()),
-        required("RuleSetName") => String.t() | atom()
-      }
-      
-  """
-  @type reorder_receipt_rule_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_identity_notification_topic_response() :: %{}
-      
-  """
-  @type set_identity_notification_topic_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_template_request() :: %{
-        required("Template") => template()
-      }
-      
-  """
-  @type update_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_delivery_options_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_delivery_options_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_template_response() :: %{}
-      
-  """
-  @type delete_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_policy_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_receipt_rule_request() :: %{
-        optional("After") => String.t() | atom(),
-        required("Rule") => receipt_rule(),
-        required("RuleSetName") => String.t() | atom()
-      }
-      
-  """
-  @type create_receipt_rule_request() :: %{(String.t() | atom()) => any()}
+  @type set_identity_feedback_forwarding_enabled_response() :: %{}
 
   @typedoc """
 
@@ -2270,106 +2060,184 @@ defmodule AWS.SES do
 
   ## Example:
       
-      create_configuration_set_request() :: %{
-        required("ConfigurationSet") => configuration_set()
-      }
+      set_identity_headers_in_notifications_enabled_response() :: %{}
       
   """
-  @type create_configuration_set_request() :: %{(String.t() | atom()) => any()}
+  @type set_identity_headers_in_notifications_enabled_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      send_custom_verification_email_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom(),
-        required("EmailAddress") => String.t() | atom(),
+      set_identity_mail_from_domain_request() :: %{
+        optional("BehaviorOnMXFailure") => list(any()),
+        optional("MailFromDomain") => String.t() | atom(),
+        required("Identity") => String.t() | atom()
+      }
+      
+  """
+  @type set_identity_mail_from_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_identity_mail_from_domain_response() :: %{}
+      
+  """
+  @type set_identity_mail_from_domain_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_identity_notification_topic_request() :: %{
+        optional("SnsTopic") => String.t() | atom(),
+        required("Identity") => String.t() | atom(),
+        required("NotificationType") => list(any())
+      }
+      
+  """
+  @type set_identity_notification_topic_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_identity_notification_topic_response() :: %{}
+      
+  """
+  @type set_identity_notification_topic_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_receipt_rule_position_request() :: %{
+        optional("After") => String.t() | atom(),
+        required("RuleName") => String.t() | atom(),
+        required("RuleSetName") => String.t() | atom()
+      }
+      
+  """
+  @type set_receipt_rule_position_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_receipt_rule_position_response() :: %{}
+      
+  """
+  @type set_receipt_rule_position_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_action() :: %{
+        "Scope" => list(any()),
+        "TopicArn" => String.t() | atom()
+      }
+      
+  """
+  @type stop_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      template() :: %{
+        "HtmlPart" => String.t() | atom(),
+        "SubjectPart" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TextPart" => String.t() | atom()
+      }
+      
+  """
+  @type template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      template_does_not_exist_exception() :: %{
+        "TemplateName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type template_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      template_metadata() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type template_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_render_template_request() :: %{
+        required("TemplateData") => String.t() | atom(),
         required("TemplateName") => String.t() | atom()
       }
       
   """
-  @type send_custom_verification_email_request() :: %{(String.t() | atom()) => any()}
+  @type test_render_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      send_data_point() :: %{
-        "Bounces" => float(),
-        "Complaints" => float(),
-        "DeliveryAttempts" => float(),
-        "Rejects" => float(),
-        "Timestamp" => non_neg_integer()
+      test_render_template_response() :: %{
+        "RenderedTemplate" => String.t() | atom()
       }
       
   """
-  @type send_data_point() :: %{(String.t() | atom()) => any()}
+  @type test_render_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      send_bounce_request() :: %{
-        optional("BounceSenderArn") => String.t() | atom(),
-        optional("Explanation") => String.t() | atom(),
-        optional("MessageDsn") => message_dsn(),
-        required("BounceSender") => String.t() | atom(),
-        required("BouncedRecipientInfoList") => list(bounced_recipient_info()),
-        required("OriginalMessageId") => String.t() | atom()
+      tracking_options() :: %{
+        "CustomRedirectDomain" => String.t() | atom()
       }
       
   """
-  @type send_bounce_request() :: %{(String.t() | atom()) => any()}
+  @type tracking_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      event_destination() :: %{
-        "CloudWatchDestination" => cloud_watch_destination(),
-        "Enabled" => boolean(),
-        "KinesisFirehoseDestination" => kinesis_firehose_destination(),
-        "MatchingEventTypes" => list(list(any())()),
-        "Name" => String.t() | atom(),
-        "SNSDestination" => s_n_s_destination()
+      tracking_options_already_exists_exception() :: %{
+        "ConfigurationSetName" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
       
   """
-  @type event_destination() :: %{(String.t() | atom()) => any()}
+  @type tracking_options_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_receipt_filter_request() :: %{
-        required("Filter") => receipt_filter()
+      tracking_options_does_not_exist_exception() :: %{
+        "ConfigurationSetName" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
       
   """
-  @type create_receipt_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      message() :: %{
-        "Body" => body(),
-        "Subject" => content()
-      }
-      
-  """
-  @type message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_policies_response() :: %{
-        "Policies" => map()
-      }
-      
-  """
-  @type get_identity_policies_response() :: %{(String.t() | atom()) => any()}
+  @type tracking_options_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2386,70 +2254,170 @@ defmodule AWS.SES do
 
   ## Example:
       
-      identity_verification_attributes() :: %{
-        "VerificationStatus" => list(any()),
-        "VerificationToken" => String.t() | atom()
+      update_configuration_set_event_destination_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("EventDestination") => event_destination()
       }
       
   """
-  @type identity_verification_attributes() :: %{(String.t() | atom()) => any()}
+  @type update_configuration_set_event_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_receipt_rule_set_request() :: %{
-        required("RuleSetName") => String.t() | atom()
+      update_configuration_set_event_destination_response() :: %{}
+      
+  """
+  @type update_configuration_set_event_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_configuration_set_reputation_metrics_enabled_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("Enabled") => boolean()
       }
       
   """
-  @type delete_receipt_rule_set_request() :: %{(String.t() | atom()) => any()}
+  @type update_configuration_set_reputation_metrics_enabled_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
-      delete_receipt_rule_set_response() :: %{}
-      
-  """
-  @type delete_receipt_rule_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      s_n_s_destination() :: %{
-        "TopicARN" => String.t() | atom()
+      update_configuration_set_sending_enabled_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("Enabled") => boolean()
       }
       
   """
-  @type s_n_s_destination() :: %{(String.t() | atom()) => any()}
+  @type update_configuration_set_sending_enabled_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_template_request() :: %{
+      update_configuration_set_tracking_options_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("TrackingOptions") => tracking_options()
+      }
+      
+  """
+  @type update_configuration_set_tracking_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_configuration_set_tracking_options_response() :: %{}
+      
+  """
+  @type update_configuration_set_tracking_options_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_custom_verification_email_template_request() :: %{
+        optional("FailureRedirectionURL") => String.t() | atom(),
+        optional("FromEmailAddress") => String.t() | atom(),
+        optional("SuccessRedirectionURL") => String.t() | atom(),
+        optional("TemplateContent") => String.t() | atom(),
+        optional("TemplateSubject") => String.t() | atom(),
         required("TemplateName") => String.t() | atom()
       }
       
   """
-  @type get_template_request() :: %{(String.t() | atom()) => any()}
+  @type update_custom_verification_email_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      bounce_action() :: %{
-        "Message" => String.t() | atom(),
-        "Sender" => String.t() | atom(),
-        "SmtpReplyCode" => String.t() | atom(),
-        "StatusCode" => String.t() | atom(),
-        "TopicArn" => String.t() | atom()
+      update_receipt_rule_request() :: %{
+        required("Rule") => receipt_rule(),
+        required("RuleSetName") => String.t() | atom()
       }
       
   """
-  @type bounce_action() :: %{(String.t() | atom()) => any()}
+  @type update_receipt_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_receipt_rule_response() :: %{}
+      
+  """
+  @type update_receipt_rule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_template_request() :: %{
+        required("Template") => template()
+      }
+      
+  """
+  @type update_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_template_response() :: %{}
+      
+  """
+  @type update_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_domain_dkim_request() :: %{
+        required("Domain") => String.t() | atom()
+      }
+      
+  """
+  @type verify_domain_dkim_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_domain_dkim_response() :: %{
+        "DkimTokens" => list(String.t() | atom())
+      }
+      
+  """
+  @type verify_domain_dkim_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_domain_identity_request() :: %{
+        required("Domain") => String.t() | atom()
+      }
+      
+  """
+  @type verify_domain_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_domain_identity_response() :: %{
+        "VerificationToken" => String.t() | atom()
+      }
+      
+  """
+  @type verify_domain_identity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2462,51 +2430,83 @@ defmodule AWS.SES do
   """
   @type verify_email_address_request() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      verify_email_identity_request() :: %{
+        required("EmailAddress") => String.t() | atom()
+      }
+      
+  """
+  @type verify_email_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_email_identity_response() :: %{}
+      
+  """
+  @type verify_email_identity_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      workmail_action() :: %{
+        "OrganizationArn" => String.t() | atom(),
+        "TopicArn" => String.t() | atom()
+      }
+      
+  """
+  @type workmail_action() :: %{(String.t() | atom()) => any()}
+
   @type clone_receipt_rule_set_errors() ::
           rule_set_does_not_exist_exception()
-          | already_exists_exception()
           | limit_exceeded_exception()
+          | already_exists_exception()
 
   @type create_configuration_set_errors() ::
-          invalid_configuration_set_exception()
+          limit_exceeded_exception()
+          | invalid_configuration_set_exception()
           | configuration_set_already_exists_exception()
-          | limit_exceeded_exception()
 
   @type create_configuration_set_event_destination_errors() ::
-          invalid_firehose_destination_exception()
-          | invalid_cloud_watch_destination_exception()
-          | configuration_set_does_not_exist_exception()
+          limit_exceeded_exception()
           | invalid_s_n_s_destination_exception()
-          | limit_exceeded_exception()
+          | invalid_firehose_destination_exception()
+          | invalid_cloud_watch_destination_exception()
           | event_destination_already_exists_exception()
+          | configuration_set_does_not_exist_exception()
 
   @type create_configuration_set_tracking_options_errors() ::
-          configuration_set_does_not_exist_exception()
+          tracking_options_already_exists_exception()
           | invalid_tracking_options_exception()
-          | tracking_options_already_exists_exception()
+          | configuration_set_does_not_exist_exception()
 
   @type create_custom_verification_email_template_errors() ::
-          from_email_address_not_verified_exception()
-          | custom_verification_email_invalid_content_exception()
-          | limit_exceeded_exception()
+          limit_exceeded_exception()
+          | from_email_address_not_verified_exception()
           | custom_verification_email_template_already_exists_exception()
+          | custom_verification_email_invalid_content_exception()
 
-  @type create_receipt_filter_errors() :: already_exists_exception() | limit_exceeded_exception()
+  @type create_receipt_filter_errors() :: limit_exceeded_exception() | already_exists_exception()
 
   @type create_receipt_rule_errors() ::
-          invalid_lambda_function_exception()
+          rule_set_does_not_exist_exception()
           | rule_does_not_exist_exception()
-          | invalid_s3_configuration_exception()
-          | rule_set_does_not_exist_exception()
-          | invalid_sns_topic_exception()
-          | already_exists_exception()
           | limit_exceeded_exception()
+          | invalid_sns_topic_exception()
+          | invalid_s3_configuration_exception()
+          | invalid_lambda_function_exception()
+          | already_exists_exception()
 
   @type create_receipt_rule_set_errors() ::
-          already_exists_exception() | limit_exceeded_exception()
+          limit_exceeded_exception() | already_exists_exception()
 
   @type create_template_errors() ::
-          invalid_template_exception() | already_exists_exception() | limit_exceeded_exception()
+          limit_exceeded_exception() | invalid_template_exception() | already_exists_exception()
 
   @type delete_configuration_set_errors() :: configuration_set_does_not_exist_exception()
 
@@ -2525,7 +2525,7 @@ defmodule AWS.SES do
   @type describe_configuration_set_errors() :: configuration_set_does_not_exist_exception()
 
   @type describe_receipt_rule_errors() ::
-          rule_does_not_exist_exception() | rule_set_does_not_exist_exception()
+          rule_set_does_not_exist_exception() | rule_does_not_exist_exception()
 
   @type describe_receipt_rule_set_errors() :: rule_set_does_not_exist_exception()
 
@@ -2540,24 +2540,24 @@ defmodule AWS.SES do
   @type put_identity_policy_errors() :: invalid_policy_exception()
 
   @type reorder_receipt_rule_set_errors() ::
-          rule_does_not_exist_exception() | rule_set_does_not_exist_exception()
+          rule_set_does_not_exist_exception() | rule_does_not_exist_exception()
 
   @type send_bounce_errors() :: message_rejected()
 
   @type send_bulk_templated_email_errors() ::
-          message_rejected()
-          | template_does_not_exist_exception()
+          template_does_not_exist_exception()
+          | message_rejected()
           | mail_from_domain_not_verified_exception()
           | configuration_set_sending_paused_exception()
           | configuration_set_does_not_exist_exception()
           | account_sending_paused_exception()
 
   @type send_custom_verification_email_errors() ::
-          message_rejected()
+          production_access_not_granted_exception()
+          | message_rejected()
           | from_email_address_not_verified_exception()
-          | production_access_not_granted_exception()
-          | configuration_set_does_not_exist_exception()
           | custom_verification_email_template_does_not_exist_exception()
+          | configuration_set_does_not_exist_exception()
 
   @type send_email_errors() ::
           message_rejected()
@@ -2574,8 +2574,8 @@ defmodule AWS.SES do
           | account_sending_paused_exception()
 
   @type send_templated_email_errors() ::
-          message_rejected()
-          | template_does_not_exist_exception()
+          template_does_not_exist_exception()
+          | message_rejected()
           | mail_from_domain_not_verified_exception()
           | configuration_set_sending_paused_exception()
           | configuration_set_does_not_exist_exception()
@@ -2584,19 +2584,19 @@ defmodule AWS.SES do
   @type set_active_receipt_rule_set_errors() :: rule_set_does_not_exist_exception()
 
   @type set_receipt_rule_position_errors() ::
-          rule_does_not_exist_exception() | rule_set_does_not_exist_exception()
+          rule_set_does_not_exist_exception() | rule_does_not_exist_exception()
 
   @type test_render_template_errors() ::
-          missing_rendering_attribute_exception()
-          | template_does_not_exist_exception()
+          template_does_not_exist_exception()
+          | missing_rendering_attribute_exception()
           | invalid_rendering_parameter_exception()
 
   @type update_configuration_set_event_destination_errors() ::
-          invalid_firehose_destination_exception()
+          invalid_s_n_s_destination_exception()
+          | invalid_firehose_destination_exception()
           | invalid_cloud_watch_destination_exception()
           | event_destination_does_not_exist_exception()
           | configuration_set_does_not_exist_exception()
-          | invalid_s_n_s_destination_exception()
 
   @type update_configuration_set_reputation_metrics_enabled_errors() ::
           configuration_set_does_not_exist_exception()
@@ -2606,24 +2606,24 @@ defmodule AWS.SES do
 
   @type update_configuration_set_tracking_options_errors() ::
           tracking_options_does_not_exist_exception()
-          | configuration_set_does_not_exist_exception()
           | invalid_tracking_options_exception()
+          | configuration_set_does_not_exist_exception()
 
   @type update_custom_verification_email_template_errors() ::
           from_email_address_not_verified_exception()
-          | custom_verification_email_invalid_content_exception()
           | custom_verification_email_template_does_not_exist_exception()
+          | custom_verification_email_invalid_content_exception()
 
   @type update_receipt_rule_errors() ::
-          invalid_lambda_function_exception()
+          rule_set_does_not_exist_exception()
           | rule_does_not_exist_exception()
-          | invalid_s3_configuration_exception()
-          | rule_set_does_not_exist_exception()
-          | invalid_sns_topic_exception()
           | limit_exceeded_exception()
+          | invalid_sns_topic_exception()
+          | invalid_s3_configuration_exception()
+          | invalid_lambda_function_exception()
 
   @type update_template_errors() ::
-          invalid_template_exception() | template_does_not_exist_exception()
+          template_does_not_exist_exception() | invalid_template_exception()
 
   def metadata do
     %{

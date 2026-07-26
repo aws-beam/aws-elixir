@@ -20,200 +20,6 @@ defmodule AWS.Tnb do
 
   ## Example:
 
-      problem_details() :: %{
-        "detail" => [String.t() | atom()],
-        "title" => [String.t() | atom()]
-      }
-
-  """
-  @type problem_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sol_network_operation_output() :: %{
-        "arn" => String.t() | atom(),
-        "error" => problem_details(),
-        "id" => String.t() | atom(),
-        "lcmOperationType" => list(any()),
-        "metadata" => get_sol_network_operation_metadata(),
-        "nsInstanceId" => String.t() | atom(),
-        "operationState" => list(any()),
-        "tags" => map(),
-        "tasks" => list(get_sol_network_operation_task_details()),
-        "updateType" => list(any())
-      }
-
-  """
-  @type get_sol_network_operation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_sol_network_package_content_metadata() :: %{
-        "nsd" => network_artifact_meta()
-      }
-
-  """
-  @type put_sol_network_package_content_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ns_metadata() :: %{
-        "additionalParamsForNs" => [any()],
-        "nsdInfoId" => String.t() | atom()
-      }
-
-  """
-  @type update_ns_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sol_function_packages_output() :: %{
-        "functionPackages" => list(list_sol_function_package_info()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_sol_function_packages_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sol_network_operation_input() :: %{}
-
-  """
-  @type get_sol_network_operation_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sol_network_package_info() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "metadata" => list_sol_network_package_metadata(),
-        "nsdDesigner" => [String.t() | atom()],
-        "nsdId" => [String.t() | atom()],
-        "nsdInvariantId" => [String.t() | atom()],
-        "nsdName" => [String.t() | atom()],
-        "nsdOnboardingState" => list(any()),
-        "nsdOperationalState" => list(any()),
-        "nsdUsageState" => list(any()),
-        "nsdVersion" => [String.t() | atom()],
-        "vnfPkgIds" => list(String.t() | atom())
-      }
-
-  """
-  @type list_sol_network_package_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sol_network_instance_input() :: %{
-        optional("modifyVnfInfoData") => update_sol_network_modify(),
-        optional("tags") => map(),
-        optional("updateNs") => update_sol_network_service_data(),
-        required("updateType") => list(any())
-      }
-
-  """
-  @type update_sol_network_instance_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_sol_network_package_content_output() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "metadata" => put_sol_network_package_content_metadata(),
-        "nsdId" => String.t() | atom(),
-        "nsdName" => [String.t() | atom()],
-        "nsdVersion" => [String.t() | atom()],
-        "vnfPkgIds" => list(String.t() | atom())
-      }
-
-  """
-  @type put_sol_network_package_content_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sol_vnf_info() :: %{
-        "vnfState" => list(any()),
-        "vnfcResourceInfo" => list(get_sol_vnfc_resource_info())
-      }
-
-  """
-  @type get_sol_vnf_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sol_network_package_descriptor_input() :: %{}
-
-  """
-  @type get_sol_network_package_descriptor_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sol_network_package_input() :: %{
-        required("nsdOperationalState") => list(any())
-      }
-
-  """
-  @type update_sol_network_package_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      terminate_sol_network_instance_input() :: %{
-        optional("tags") => map()
-      }
-
-  """
-  @type terminate_sol_network_instance_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       access_denied_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -225,113 +31,37 @@ defmodule AWS.Tnb do
 
   ## Example:
 
-      tag_resource_output() :: %{}
+      cancel_sol_network_operation_input() :: %{}
 
   """
-  @type tag_resource_output() :: %{}
+  @type cancel_sol_network_operation_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_sol_function_package_input() :: %{}
-
-  """
-  @type delete_sol_function_package_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sol_network_package_input() :: %{
+      create_sol_function_package_input() :: %{
         optional("tags") => map()
       }
 
   """
-  @type create_sol_network_package_input() :: %{(String.t() | atom()) => any()}
+  @type create_sol_function_package_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validate_sol_function_package_content_metadata() :: %{
-        "vnfd" => function_artifact_meta()
-      }
-
-  """
-  @type validate_sol_function_package_content_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_sol_network_package_content_output() :: %{
+      create_sol_function_package_output() :: %{
         "arn" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "metadata" => validate_sol_network_package_content_metadata(),
-        "nsdId" => String.t() | atom(),
-        "nsdName" => [String.t() | atom()],
-        "nsdVersion" => [String.t() | atom()],
-        "vnfPkgIds" => list(String.t() | atom())
+        "onboardingState" => list(any()),
+        "operationalState" => list(any()),
+        "tags" => map(),
+        "usageState" => list(any())
       }
 
   """
-  @type validate_sol_network_package_content_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instantiate_sol_network_instance_output() :: %{
-        "nsLcmOpOccId" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type instantiate_sol_network_instance_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sol_function_instance_info() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "instantiatedVnfInfo" => get_sol_instantiated_vnf_info(),
-        "instantiationState" => list(any()),
-        "metadata" => list_sol_function_instance_metadata(),
-        "nsInstanceId" => String.t() | atom(),
-        "vnfPkgId" => String.t() | atom(),
-        "vnfPkgName" => [String.t() | atom()]
-      }
-
-  """
-  @type list_sol_function_instance_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_sol_function_package_content_input() :: %{
-        optional("contentType") => list(any()),
-        required("file") => binary()
-      }
-
-  """
-  @type validate_sol_function_package_content_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sol_network_package_metadata() :: %{
-        "createdAt" => [non_neg_integer()],
-        "lastModified" => [non_neg_integer()],
-        "nsd" => network_artifact_meta()
-      }
-
-  """
-  @type get_sol_network_package_metadata() :: %{(String.t() | atom()) => any()}
+  @type create_sol_function_package_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -351,100 +81,52 @@ defmodule AWS.Tnb do
 
   ## Example:
 
-      list_sol_function_packages_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_sol_function_packages_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sol_network_instance_info() :: %{
+      create_sol_network_instance_output() :: %{
         "arn" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "metadata" => list_sol_network_instance_metadata(),
-        "nsInstanceDescription" => [String.t() | atom()],
         "nsInstanceName" => [String.t() | atom()],
-        "nsState" => list(any()),
-        "nsdId" => String.t() | atom(),
-        "nsdInfoId" => String.t() | atom()
+        "nsdInfoId" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type list_sol_network_instance_info() :: %{(String.t() | atom()) => any()}
+  @type create_sol_network_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_sol_function_package_info() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "metadata" => list_sol_function_package_metadata(),
-        "onboardingState" => list(any()),
-        "operationalState" => list(any()),
-        "usageState" => list(any()),
-        "vnfProductName" => [String.t() | atom()],
-        "vnfProvider" => [String.t() | atom()],
-        "vnfdId" => [String.t() | atom()],
-        "vnfdVersion" => [String.t() | atom()]
-      }
-
-  """
-  @type list_sol_function_package_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sol_function_package_input() :: %{
+      create_sol_network_package_input() :: %{
         optional("tags") => map()
       }
 
   """
-  @type create_sol_function_package_input() :: %{(String.t() | atom()) => any()}
+  @type create_sol_network_package_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      modify_vnf_info_metadata() :: %{
-        "vnfConfigurableProperties" => [any()],
-        "vnfInstanceId" => String.t() | atom()
+      create_sol_network_package_output() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "nsdOnboardingState" => list(any()),
+        "nsdOperationalState" => list(any()),
+        "nsdUsageState" => list(any()),
+        "tags" => map()
       }
 
   """
-  @type modify_vnf_info_metadata() :: %{(String.t() | atom()) => any()}
+  @type create_sol_network_package_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_sol_function_instances_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
+      delete_sol_function_package_input() :: %{}
 
   """
-  @type list_sol_function_instances_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sol_network_operations_metadata() :: %{
-        "createdAt" => [non_neg_integer()],
-        "lastModified" => [non_neg_integer()],
-        "nsdInfoId" => String.t() | atom(),
-        "vnfInstanceId" => String.t() | atom()
-      }
-
-  """
-  @type list_sol_network_operations_metadata() :: %{(String.t() | atom()) => any()}
+  @type delete_sol_function_package_input() :: %{}
 
   @typedoc """
 
@@ -459,35 +141,54 @@ defmodule AWS.Tnb do
 
   ## Example:
 
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
+      delete_sol_network_package_input() :: %{}
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_sol_network_package_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      network_artifact_meta() :: %{
+      error_info() :: %{
+        "cause" => String.t() | atom(),
+        "details" => String.t() | atom()
+      }
+
+  """
+  @type error_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_artifact_meta() :: %{
         "overrides" => list(tosca_override())
       }
 
   """
-  @type network_artifact_meta() :: %{(String.t() | atom()) => any()}
+  @type function_artifact_meta() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_sol_network_packages_output() :: %{
-        "networkPackages" => list(list_sol_network_package_info()),
-        "nextToken" => String.t() | atom()
+      get_sol_function_instance_input() :: %{}
+
+  """
+  @type get_sol_function_instance_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_function_instance_metadata() :: %{
+        "createdAt" => [non_neg_integer()],
+        "lastModified" => [non_neg_integer()]
       }
 
   """
-  @type list_sol_network_packages_output() :: %{(String.t() | atom()) => any()}
+  @type get_sol_function_instance_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -515,6 +216,74 @@ defmodule AWS.Tnb do
 
   ## Example:
 
+      get_sol_function_package_content_input() :: %{
+        required("accept") => list(any())
+      }
+
+  """
+  @type get_sol_function_package_content_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_function_package_content_output() :: %{
+        "contentType" => list(any()),
+        "packageContent" => [binary()]
+      }
+
+  """
+  @type get_sol_function_package_content_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_function_package_descriptor_input() :: %{
+        required("accept") => list(any())
+      }
+
+  """
+  @type get_sol_function_package_descriptor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_function_package_descriptor_output() :: %{
+        "contentType" => list(any()),
+        "vnfd" => [binary()]
+      }
+
+  """
+  @type get_sol_function_package_descriptor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_function_package_input() :: %{}
+
+  """
+  @type get_sol_function_package_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_function_package_metadata() :: %{
+        "createdAt" => [non_neg_integer()],
+        "lastModified" => [non_neg_integer()],
+        "vnfd" => function_artifact_meta()
+      }
+
+  """
+  @type get_sol_function_package_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_sol_function_package_output() :: %{
         "arn" => String.t() | atom(),
         "id" => String.t() | atom(),
@@ -536,103 +305,179 @@ defmodule AWS.Tnb do
 
   ## Example:
 
-      tag_resource_input() :: %{
-        required("tags") => map()
+      get_sol_instantiated_vnf_info() :: %{
+        "vnfState" => list(any())
       }
 
   """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+  @type get_sol_instantiated_vnf_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_sol_function_package_output() :: %{
-        "operationalState" => list(any())
-      }
+      get_sol_network_instance_input() :: %{}
 
   """
-  @type update_sol_function_package_output() :: %{(String.t() | atom()) => any()}
+  @type get_sol_network_instance_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      terminate_sol_network_instance_output() :: %{
-        "nsLcmOpOccId" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type terminate_sol_network_instance_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_sol_function_package_content_metadata() :: %{
-        "vnfd" => function_artifact_meta()
-      }
-
-  """
-  @type put_sol_function_package_content_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sol_function_package_content_input() :: %{
-        required("accept") => list(any())
-      }
-
-  """
-  @type get_sol_function_package_content_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lcm_operation_info() :: %{
-        "nsLcmOpOccId" => String.t() | atom()
-      }
-
-  """
-  @type lcm_operation_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sol_network_instances_output() :: %{
-        "networkInstances" => list(list_sol_network_instance_info()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_sol_network_instances_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sol_function_package_metadata() :: %{
+      get_sol_network_instance_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
       }
 
   """
-  @type list_sol_function_package_metadata() :: %{(String.t() | atom()) => any()}
+  @type get_sol_network_instance_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_network_instance_output() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lcmOpInfo" => lcm_operation_info(),
+        "metadata" => get_sol_network_instance_metadata(),
+        "nsInstanceDescription" => [String.t() | atom()],
+        "nsInstanceName" => [String.t() | atom()],
+        "nsState" => list(any()),
+        "nsdId" => String.t() | atom(),
+        "nsdInfoId" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type get_sol_network_instance_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_network_operation_input() :: %{}
+
+  """
+  @type get_sol_network_operation_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_network_operation_metadata() :: %{
+        "createdAt" => [non_neg_integer()],
+        "instantiateMetadata" => instantiate_metadata(),
+        "lastModified" => [non_neg_integer()],
+        "modifyVnfInfoMetadata" => modify_vnf_info_metadata(),
+        "updateNsMetadata" => update_ns_metadata()
+      }
+
+  """
+  @type get_sol_network_operation_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_network_operation_output() :: %{
+        "arn" => String.t() | atom(),
+        "error" => problem_details(),
+        "id" => String.t() | atom(),
+        "lcmOperationType" => list(any()),
+        "metadata" => get_sol_network_operation_metadata(),
+        "nsInstanceId" => String.t() | atom(),
+        "operationState" => list(any()),
+        "tags" => map(),
+        "tasks" => list(get_sol_network_operation_task_details()),
+        "updateType" => list(any())
+      }
+
+  """
+  @type get_sol_network_operation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_network_operation_task_details() :: %{
+        "taskContext" => map(),
+        "taskEndTime" => [non_neg_integer()],
+        "taskErrorDetails" => error_info(),
+        "taskName" => [String.t() | atom()],
+        "taskStartTime" => [non_neg_integer()],
+        "taskStatus" => list(any())
+      }
+
+  """
+  @type get_sol_network_operation_task_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_network_package_content_input() :: %{
+        required("accept") => list(any())
+      }
+
+  """
+  @type get_sol_network_package_content_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_network_package_content_output() :: %{
+        "contentType" => list(any()),
+        "nsdContent" => [binary()]
+      }
+
+  """
+  @type get_sol_network_package_content_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_network_package_descriptor_input() :: %{}
+
+  """
+  @type get_sol_network_package_descriptor_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_network_package_descriptor_output() :: %{
+        "contentType" => list(any()),
+        "nsd" => [binary()]
+      }
+
+  """
+  @type get_sol_network_package_descriptor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_network_package_input() :: %{}
+
+  """
+  @type get_sol_network_package_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_network_package_metadata() :: %{
+        "createdAt" => [non_neg_integer()],
+        "lastModified" => [non_neg_integer()],
+        "nsd" => network_artifact_meta()
+      }
+
+  """
+  @type get_sol_network_package_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -659,91 +504,114 @@ defmodule AWS.Tnb do
 
   ## Example:
 
-      resource_not_found_exception() :: %{
+      get_sol_vnf_info() :: %{
+        "vnfState" => list(any()),
+        "vnfcResourceInfo" => list(get_sol_vnfc_resource_info())
+      }
+
+  """
+  @type get_sol_vnf_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_vnfc_resource_info() :: %{
+        "metadata" => get_sol_vnfc_resource_info_metadata()
+      }
+
+  """
+  @type get_sol_vnfc_resource_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sol_vnfc_resource_info_metadata() :: %{
+        "cluster" => [String.t() | atom()],
+        "helmChart" => [String.t() | atom()],
+        "nodeGroup" => [String.t() | atom()]
+      }
+
+  """
+  @type get_sol_vnfc_resource_info_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instantiate_metadata() :: %{
+        "additionalParamsForNs" => [any()],
+        "nsdInfoId" => String.t() | atom()
+      }
+
+  """
+  @type instantiate_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instantiate_sol_network_instance_input() :: %{
+        optional("additionalParamsForNs") => [any()],
+        optional("dryRun") => [boolean()],
+        optional("tags") => map()
+      }
+
+  """
+  @type instantiate_sol_network_instance_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instantiate_sol_network_instance_output() :: %{
+        "nsLcmOpOccId" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type instantiate_sol_network_instance_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | atom())
+      lcm_operation_info() :: %{
+        "nsLcmOpOccId" => String.t() | atom()
       }
 
   """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+  @type lcm_operation_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_network_package_content_output() :: %{
-        "contentType" => list(any()),
-        "nsdContent" => [binary()]
-      }
-
-  """
-  @type get_sol_network_package_content_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sol_network_operation_task_details() :: %{
-        "taskContext" => map(),
-        "taskEndTime" => [non_neg_integer()],
-        "taskErrorDetails" => error_info(),
-        "taskName" => [String.t() | atom()],
-        "taskStartTime" => [non_neg_integer()],
-        "taskStatus" => list(any())
-      }
-
-  """
-  @type get_sol_network_operation_task_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sol_network_packages_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_sol_network_packages_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_info() :: %{
-        "cause" => String.t() | atom(),
-        "details" => String.t() | atom()
-      }
-
-  """
-  @type error_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_sol_function_package_content_output() :: %{
+      list_sol_function_instance_info() :: %{
+        "arn" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "metadata" => validate_sol_function_package_content_metadata(),
-        "vnfProductName" => [String.t() | atom()],
-        "vnfProvider" => [String.t() | atom()],
-        "vnfdId" => String.t() | atom(),
-        "vnfdVersion" => [String.t() | atom()]
+        "instantiatedVnfInfo" => get_sol_instantiated_vnf_info(),
+        "instantiationState" => list(any()),
+        "metadata" => list_sol_function_instance_metadata(),
+        "nsInstanceId" => String.t() | atom(),
+        "vnfPkgId" => String.t() | atom(),
+        "vnfPkgName" => [String.t() | atom()]
       }
 
   """
-  @type validate_sol_function_package_content_output() :: %{(String.t() | atom()) => any()}
+  @type list_sol_function_instance_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -761,163 +629,135 @@ defmodule AWS.Tnb do
 
   ## Example:
 
-      put_sol_network_package_content_input() :: %{
-        optional("contentType") => list(any()),
-        required("file") => binary()
+      list_sol_function_instances_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type put_sol_network_package_content_input() :: %{(String.t() | atom()) => any()}
+  @type list_sol_function_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_function_package_input() :: %{}
-
-  """
-  @type get_sol_function_package_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_sol_network_operation_input() :: %{}
-
-  """
-  @type cancel_sol_network_operation_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_sol_network_package_content_input() :: %{
-        optional("contentType") => list(any()),
-        required("file") => binary()
+      list_sol_function_instances_output() :: %{
+        "functionInstances" => list(list_sol_function_instance_info()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type validate_sol_network_package_content_input() :: %{(String.t() | atom()) => any()}
+  @type list_sol_function_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_network_package_descriptor_output() :: %{
-        "contentType" => list(any()),
-        "nsd" => [binary()]
-      }
-
-  """
-  @type get_sol_network_package_descriptor_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_sol_function_package_content_output() :: %{
+      list_sol_function_package_info() :: %{
+        "arn" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "metadata" => put_sol_function_package_content_metadata(),
+        "metadata" => list_sol_function_package_metadata(),
+        "onboardingState" => list(any()),
+        "operationalState" => list(any()),
+        "usageState" => list(any()),
         "vnfProductName" => [String.t() | atom()],
         "vnfProvider" => [String.t() | atom()],
-        "vnfdId" => String.t() | atom(),
+        "vnfdId" => [String.t() | atom()],
         "vnfdVersion" => [String.t() | atom()]
       }
 
   """
-  @type put_sol_function_package_content_output() :: %{(String.t() | atom()) => any()}
+  @type list_sol_function_package_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_sol_network_operations_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("nsInstanceId") => String.t() | atom()
-      }
-
-  """
-  @type list_sol_network_operations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sol_network_package_metadata() :: %{
+      list_sol_function_package_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
       }
 
   """
-  @type list_sol_network_package_metadata() :: %{(String.t() | atom()) => any()}
+  @type list_sol_function_package_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_instantiated_vnf_info() :: %{
-        "vnfState" => list(any())
+      list_sol_function_packages_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_sol_instantiated_vnf_info() :: %{(String.t() | atom()) => any()}
+  @type list_sol_function_packages_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      function_artifact_meta() :: %{
-        "overrides" => list(tosca_override())
+      list_sol_function_packages_output() :: %{
+        "functionPackages" => list(list_sol_function_package_info()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type function_artifact_meta() :: %{(String.t() | atom()) => any()}
+  @type list_sol_function_packages_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_function_package_metadata() :: %{
+      list_sol_network_instance_info() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "metadata" => list_sol_network_instance_metadata(),
+        "nsInstanceDescription" => [String.t() | atom()],
+        "nsInstanceName" => [String.t() | atom()],
+        "nsState" => list(any()),
+        "nsdId" => String.t() | atom(),
+        "nsdInfoId" => String.t() | atom()
+      }
+
+  """
+  @type list_sol_network_instance_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sol_network_instance_metadata() :: %{
         "createdAt" => [non_neg_integer()],
-        "lastModified" => [non_neg_integer()],
-        "vnfd" => function_artifact_meta()
+        "lastModified" => [non_neg_integer()]
       }
 
   """
-  @type get_sol_function_package_metadata() :: %{(String.t() | atom()) => any()}
+  @type list_sol_network_instance_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_sol_function_package_input() :: %{
-        required("operationalState") => list(any())
+      list_sol_network_instances_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type update_sol_function_package_input() :: %{(String.t() | atom()) => any()}
+  @type list_sol_network_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_sol_network_package_input() :: %{}
-
-  """
-  @type delete_sol_network_package_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_sol_function_package_content_input() :: %{
-        optional("contentType") => list(any()),
-        required("file") => binary()
+      list_sol_network_instances_output() :: %{
+        "networkInstances" => list(list_sol_network_instance_info()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type put_sol_function_package_content_input() :: %{(String.t() | atom()) => any()}
+  @type list_sol_network_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -941,57 +781,28 @@ defmodule AWS.Tnb do
 
   ## Example:
 
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sol_function_instances_output() :: %{
-        "functionInstances" => list(list_sol_function_instance_info()),
-        "nextToken" => String.t() | atom()
+      list_sol_network_operations_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("nsInstanceId") => String.t() | atom()
       }
 
   """
-  @type list_sol_function_instances_output() :: %{(String.t() | atom()) => any()}
+  @type list_sol_network_operations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_sol_network_package_output() :: %{
-        "nsdOperationalState" => list(any())
-      }
-
-  """
-  @type update_sol_network_package_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sol_network_modify() :: %{
-        "vnfConfigurableProperties" => [any()],
+      list_sol_network_operations_metadata() :: %{
+        "createdAt" => [non_neg_integer()],
+        "lastModified" => [non_neg_integer()],
+        "nsdInfoId" => String.t() | atom(),
         "vnfInstanceId" => String.t() | atom()
       }
 
   """
-  @type update_sol_network_modify() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sol_function_package_content_output() :: %{
-        "contentType" => list(any()),
-        "packageContent" => [binary()]
-      }
-
-  """
-  @type get_sol_function_package_content_output() :: %{(String.t() | atom()) => any()}
+  @type list_sol_network_operations_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1009,188 +820,269 @@ defmodule AWS.Tnb do
 
   ## Example:
 
-      get_sol_function_package_descriptor_input() :: %{
-        required("accept") => list(any())
-      }
-
-  """
-  @type get_sol_function_package_descriptor_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sol_network_instance_output() :: %{
+      list_sol_network_package_info() :: %{
         "arn" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "nsInstanceName" => [String.t() | atom()],
-        "nsdInfoId" => String.t() | atom(),
-        "tags" => map()
+        "metadata" => list_sol_network_package_metadata(),
+        "nsdDesigner" => [String.t() | atom()],
+        "nsdId" => [String.t() | atom()],
+        "nsdInvariantId" => [String.t() | atom()],
+        "nsdName" => [String.t() | atom()],
+        "nsdOnboardingState" => list(any()),
+        "nsdOperationalState" => list(any()),
+        "nsdUsageState" => list(any()),
+        "nsdVersion" => [String.t() | atom()],
+        "vnfPkgIds" => list(String.t() | atom())
       }
 
   """
-  @type create_sol_network_instance_output() :: %{(String.t() | atom()) => any()}
+  @type list_sol_network_package_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_network_instance_metadata() :: %{
+      list_sol_network_package_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
       }
 
   """
-  @type get_sol_network_instance_metadata() :: %{(String.t() | atom()) => any()}
+  @type list_sol_network_package_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_network_operation_metadata() :: %{
-        "createdAt" => [non_neg_integer()],
-        "instantiateMetadata" => instantiate_metadata(),
-        "lastModified" => [non_neg_integer()],
-        "modifyVnfInfoMetadata" => modify_vnf_info_metadata(),
-        "updateNsMetadata" => update_ns_metadata()
+      list_sol_network_packages_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_sol_network_operation_metadata() :: %{(String.t() | atom()) => any()}
+  @type list_sol_network_packages_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_vnfc_resource_info() :: %{
-        "metadata" => get_sol_vnfc_resource_info_metadata()
+      list_sol_network_packages_output() :: %{
+        "networkPackages" => list(list_sol_network_package_info()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_sol_vnfc_resource_info() :: %{(String.t() | atom()) => any()}
+  @type list_sol_network_packages_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_sol_network_service_data() :: %{
-        "additionalParamsForNs" => [any()],
-        "nsdInfoId" => String.t() | atom()
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
       }
 
   """
-  @type update_sol_network_service_data() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_function_package_descriptor_output() :: %{
-        "contentType" => list(any()),
-        "vnfd" => [binary()]
+      modify_vnf_info_metadata() :: %{
+        "vnfConfigurableProperties" => [any()],
+        "vnfInstanceId" => String.t() | atom()
       }
 
   """
-  @type get_sol_function_package_descriptor_output() :: %{(String.t() | atom()) => any()}
+  @type modify_vnf_info_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_network_package_content_input() :: %{
-        required("accept") => list(any())
+      network_artifact_meta() :: %{
+        "overrides" => list(tosca_override())
       }
 
   """
-  @type get_sol_network_package_content_input() :: %{(String.t() | atom()) => any()}
+  @type network_artifact_meta() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_vnfc_resource_info_metadata() :: %{
-        "cluster" => [String.t() | atom()],
-        "helmChart" => [String.t() | atom()],
-        "nodeGroup" => [String.t() | atom()]
+      problem_details() :: %{
+        "detail" => [String.t() | atom()],
+        "title" => [String.t() | atom()]
       }
 
   """
-  @type get_sol_vnfc_resource_info_metadata() :: %{(String.t() | atom()) => any()}
+  @type problem_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_network_instance_input() :: %{}
-
-  """
-  @type get_sol_network_instance_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      instantiate_metadata() :: %{
-        "additionalParamsForNs" => [any()],
-        "nsdInfoId" => String.t() | atom()
+      put_sol_function_package_content_input() :: %{
+        optional("contentType") => list(any()),
+        required("file") => binary()
       }
 
   """
-  @type instantiate_metadata() :: %{(String.t() | atom()) => any()}
+  @type put_sol_function_package_content_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_network_instance_output() :: %{
+      put_sol_function_package_content_metadata() :: %{
+        "vnfd" => function_artifact_meta()
+      }
+
+  """
+  @type put_sol_function_package_content_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_sol_function_package_content_output() :: %{
+        "id" => String.t() | atom(),
+        "metadata" => put_sol_function_package_content_metadata(),
+        "vnfProductName" => [String.t() | atom()],
+        "vnfProvider" => [String.t() | atom()],
+        "vnfdId" => String.t() | atom(),
+        "vnfdVersion" => [String.t() | atom()]
+      }
+
+  """
+  @type put_sol_function_package_content_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_sol_network_package_content_input() :: %{
+        optional("contentType") => list(any()),
+        required("file") => binary()
+      }
+
+  """
+  @type put_sol_network_package_content_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_sol_network_package_content_metadata() :: %{
+        "nsd" => network_artifact_meta()
+      }
+
+  """
+  @type put_sol_network_package_content_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_sol_network_package_content_output() :: %{
         "arn" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "lcmOpInfo" => lcm_operation_info(),
-        "metadata" => get_sol_network_instance_metadata(),
-        "nsInstanceDescription" => [String.t() | atom()],
-        "nsInstanceName" => [String.t() | atom()],
-        "nsState" => list(any()),
+        "metadata" => put_sol_network_package_content_metadata(),
         "nsdId" => String.t() | atom(),
-        "nsdInfoId" => String.t() | atom(),
-        "tags" => map()
+        "nsdName" => [String.t() | atom()],
+        "nsdVersion" => [String.t() | atom()],
+        "vnfPkgIds" => list(String.t() | atom())
       }
 
   """
-  @type get_sol_network_instance_output() :: %{(String.t() | atom()) => any()}
+  @type put_sol_network_package_content_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_function_instance_metadata() :: %{
-        "createdAt" => [non_neg_integer()],
-        "lastModified" => [non_neg_integer()]
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type get_sol_function_instance_metadata() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      instantiate_sol_network_instance_input() :: %{
-        optional("additionalParamsForNs") => [any()],
-        optional("dryRun") => [boolean()],
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_sol_network_instance_input() :: %{
         optional("tags") => map()
       }
 
   """
-  @type instantiate_sol_network_instance_input() :: %{(String.t() | atom()) => any()}
+  @type terminate_sol_network_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_output() :: %{}
+      terminate_sol_network_instance_output() :: %{
+        "nsLcmOpOccId" => String.t() | atom(),
+        "tags" => map()
+      }
 
   """
-  @type untag_resource_output() :: %{}
+  @type terminate_sol_network_instance_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1208,42 +1100,69 @@ defmodule AWS.Tnb do
 
   ## Example:
 
-      create_sol_function_package_output() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "onboardingState" => list(any()),
-        "operationalState" => list(any()),
-        "tags" => map(),
-        "usageState" => list(any())
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type create_sol_function_package_output() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_sol_network_package_output() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "nsdOnboardingState" => list(any()),
-        "nsdOperationalState" => list(any()),
-        "nsdUsageState" => list(any()),
-        "tags" => map()
-      }
+      untag_resource_output() :: %{}
 
   """
-  @type create_sol_network_package_output() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_network_package_input() :: %{}
+      update_ns_metadata() :: %{
+        "additionalParamsForNs" => [any()],
+        "nsdInfoId" => String.t() | atom()
+      }
 
   """
-  @type get_sol_network_package_input() :: %{}
+  @type update_ns_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sol_function_package_input() :: %{
+        required("operationalState") => list(any())
+      }
+
+  """
+  @type update_sol_function_package_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sol_function_package_output() :: %{
+        "operationalState" => list(any())
+      }
+
+  """
+  @type update_sol_function_package_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sol_network_instance_input() :: %{
+        optional("modifyVnfInfoData") => update_sol_network_modify(),
+        optional("tags") => map(),
+        optional("updateNs") => update_sol_network_service_data(),
+        required("updateType") => list(any())
+      }
+
+  """
+  @type update_sol_network_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1261,33 +1180,98 @@ defmodule AWS.Tnb do
 
   ## Example:
 
-      list_sol_network_instances_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
+      update_sol_network_modify() :: %{
+        "vnfConfigurableProperties" => [any()],
+        "vnfInstanceId" => String.t() | atom()
       }
 
   """
-  @type list_sol_network_instances_input() :: %{(String.t() | atom()) => any()}
+  @type update_sol_network_modify() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sol_function_instance_input() :: %{}
+      update_sol_network_package_input() :: %{
+        required("nsdOperationalState") => list(any())
+      }
 
   """
-  @type get_sol_function_instance_input() :: %{}
+  @type update_sol_network_package_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
+      update_sol_network_package_output() :: %{
+        "nsdOperationalState" => list(any())
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type update_sol_network_package_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sol_network_service_data() :: %{
+        "additionalParamsForNs" => [any()],
+        "nsdInfoId" => String.t() | atom()
+      }
+
+  """
+  @type update_sol_network_service_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_sol_function_package_content_input() :: %{
+        optional("contentType") => list(any()),
+        required("file") => binary()
+      }
+
+  """
+  @type validate_sol_function_package_content_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_sol_function_package_content_metadata() :: %{
+        "vnfd" => function_artifact_meta()
+      }
+
+  """
+  @type validate_sol_function_package_content_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_sol_function_package_content_output() :: %{
+        "id" => String.t() | atom(),
+        "metadata" => validate_sol_function_package_content_metadata(),
+        "vnfProductName" => [String.t() | atom()],
+        "vnfProvider" => [String.t() | atom()],
+        "vnfdId" => String.t() | atom(),
+        "vnfdVersion" => [String.t() | atom()]
+      }
+
+  """
+  @type validate_sol_function_package_content_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_sol_network_package_content_input() :: %{
+        optional("contentType") => list(any()),
+        required("file") => binary()
+      }
+
+  """
+  @type validate_sol_network_package_content_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1304,243 +1288,259 @@ defmodule AWS.Tnb do
 
   ## Example:
 
-      list_sol_network_instance_metadata() :: %{
-        "createdAt" => [non_neg_integer()],
-        "lastModified" => [non_neg_integer()]
+      validate_sol_network_package_content_output() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "metadata" => validate_sol_network_package_content_metadata(),
+        "nsdId" => String.t() | atom(),
+        "nsdName" => [String.t() | atom()],
+        "nsdVersion" => [String.t() | atom()],
+        "vnfPkgIds" => list(String.t() | atom())
       }
 
   """
-  @type list_sol_network_instance_metadata() :: %{(String.t() | atom()) => any()}
+  @type validate_sol_network_package_content_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type cancel_sol_network_operation_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_sol_function_package_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_sol_network_instance_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_sol_network_package_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_sol_function_package_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_sol_network_instance_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_sol_network_package_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_sol_function_instance_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_sol_function_package_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_sol_function_package_content_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_sol_function_package_descriptor_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_sol_network_instance_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_sol_network_operation_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_sol_network_package_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_sol_network_package_content_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_sol_network_package_descriptor_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type instantiate_sol_network_instance_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_sol_function_instances_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_sol_function_packages_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_sol_network_instances_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_sol_network_operations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_sol_network_packages_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_sol_function_package_content_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_sol_network_package_content_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type terminate_sol_network_instance_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type update_sol_function_package_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type update_sol_network_instance_errors() ::
-          service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type update_sol_function_package_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_sol_network_instance_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_sol_network_package_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type validate_sol_function_package_content_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type validate_sol_network_package_content_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -2198,15 +2198,15 @@ defmodule AWS.Tnb do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextpage_opaque_marker", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextpage_opaque_marker", next_token} | query_params]
       else
         query_params
       end
@@ -2245,15 +2245,15 @@ defmodule AWS.Tnb do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextpage_opaque_marker", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextpage_opaque_marker", next_token} | query_params]
       else
         query_params
       end
@@ -2291,15 +2291,15 @@ defmodule AWS.Tnb do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextpage_opaque_marker", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextpage_opaque_marker", next_token} | query_params]
       else
         query_params
       end
@@ -2340,8 +2340,8 @@ defmodule AWS.Tnb do
     query_params = []
 
     query_params =
-      if !is_nil(ns_instance_id) do
-        [{"nsInstanceId", ns_instance_id} | query_params]
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
       else
         query_params
       end
@@ -2354,8 +2354,8 @@ defmodule AWS.Tnb do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if !is_nil(ns_instance_id) do
+        [{"nsInstanceId", ns_instance_id} | query_params]
       else
         query_params
       end
@@ -2393,15 +2393,15 @@ defmodule AWS.Tnb do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextpage_opaque_marker", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextpage_opaque_marker", next_token} | query_params]
       else
         query_params
       end

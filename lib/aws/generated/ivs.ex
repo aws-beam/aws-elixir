@@ -121,317 +121,6 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      playback_key_pair_summary() :: %{
-        "arn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type playback_key_pair_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_request() :: %{
-        optional("filterByAdConfigurationArn") => String.t() | atom(),
-        optional("filterByName") => String.t() | atom(),
-        optional("filterByPlaybackRestrictionPolicyArn") => String.t() | atom(),
-        optional("filterByRecordingConfigurationArn") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_channels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rendition_configuration() :: %{
-        "renditionSelection" => String.t() | atom(),
-        "renditions" => list(list(any())())
-      }
-
-  """
-  @type rendition_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_playback_key_pair_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type get_playback_key_pair_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_response() :: %{
-        optional("channel") => channel(),
-        optional("streamKey") => stream_key()
-      }
-
-  """
-  @type create_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_stream_sessions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("channelArn") => String.t() | atom()
-      }
-
-  """
-  @type list_stream_sessions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_key_summary() :: %{
-        "arn" => String.t() | atom(),
-        "channelArn" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type stream_key_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_playback_key_pairs_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("keyPairs") => list(playback_key_pair_summary())
-      }
-
-  """
-  @type list_playback_key_pairs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ingest_configurations() :: %{
-        "audioConfigurations" => list(audio_configuration()),
-        "videoConfigurations" => list(video_configuration())
-      }
-
-  """
-  @type ingest_configurations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_request() :: %{
-        optional("adConfigurationArn") => String.t() | atom(),
-        optional("authorized") => boolean(),
-        optional("containerFormat") => String.t() | atom(),
-        optional("insecureIngest") => boolean(),
-        optional("latencyMode") => String.t() | atom(),
-        optional("multitrackInputConfiguration") => multitrack_input_configuration(),
-        optional("name") => String.t() | atom(),
-        optional("playbackRestrictionPolicyArn") => String.t() | atom(),
-        optional("preset") => list(any()),
-        optional("recordingConfigurationArn") => String.t() | atom(),
-        optional("type") => list(any()),
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type update_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_stream_session_request() :: %{
-        optional("streamId") => String.t() | atom(),
-        required("channelArn") => String.t() | atom()
-      }
-
-  """
-  @type get_stream_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ad_configuration_request() :: %{
-        optional("mediaTailorPlaybackConfigurations") => list(media_tailor_playback_configuration()),
-        optional("name") => String.t() | atom(),
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type update_ad_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_playback_restriction_policies_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "playbackRestrictionPolicies" => list(playback_restriction_policy_summary())
-      }
-
-  """
-  @type list_playback_restriction_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_stream_request() :: %{
-        required("channelArn") => String.t() | atom()
-      }
-
-  """
-  @type stop_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_playback_key_pair_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type delete_playback_key_pair_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_playback_restriction_policy_response() :: %{
-        "playbackRestrictionPolicy" => playback_restriction_policy()
-      }
-
-  """
-  @type create_playback_restriction_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_playback_restriction_policy_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type get_playback_restriction_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_unavailable() :: %{
-        "accessControlAllowOrigin" => String.t() | atom(),
-        "accessControlExposeHeaders" => String.t() | atom(),
-        "cacheControl" => String.t() | atom(),
-        "contentSecurityPolicy" => String.t() | atom(),
-        "exceptionMessage" => String.t() | atom(),
-        "strictTransportSecurity" => String.t() | atom(),
-        "xAmznErrorType" => String.t() | atom(),
-        "xContentTypeOptions" => String.t() | atom(),
-        "xFrameOptions" => String.t() | atom()
-      }
-
-  """
-  @type stream_unavailable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recording_configuration_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type get_recording_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ad_configuration_summary() :: %{
-        "arn" => String.t() | atom(),
-        "mediaTailorPlaybackConfigurations" => list(media_tailor_playback_configuration()),
-        "name" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type ad_configuration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_stream_response() :: %{}
-
-  """
-  @type stop_stream_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      media_tailor_playback_configuration() :: %{
-        "playbackConfigurationArn" => String.t() | atom()
-      }
-
-  """
-  @type media_tailor_playback_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "accessControlAllowOrigin" => String.t() | atom(),
-        "accessControlExposeHeaders" => String.t() | atom(),
-        "cacheControl" => String.t() | atom(),
-        "contentSecurityPolicy" => String.t() | atom(),
-        "exceptionMessage" => String.t() | atom(),
-        "strictTransportSecurity" => String.t() | atom(),
-        "xAmznErrorType" => String.t() | atom(),
-        "xContentTypeOptions" => String.t() | atom(),
-        "xFrameOptions" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_channel_request() :: %{
-        required("arns") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       access_denied_exception() :: %{
         "accessControlAllowOrigin" => String.t() | atom(),
         "accessControlExposeHeaders" => String.t() | atom(),
@@ -451,108 +140,11 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      delete_playback_key_pair_response() :: %{}
-
-  """
-  @type delete_playback_key_pair_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_destination_configuration() :: %{
-        "bucketName" => String.t() | atom()
-      }
-
-  """
-  @type s3_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination_configuration() :: %{
-        "s3" => s3_destination_configuration()
-      }
-
-  """
-  @type destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_playback_key_pairs_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_playback_key_pairs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_key() :: %{
-        "arn" => String.t() | atom(),
-        "channelArn" => String.t() | atom(),
-        "tags" => map(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type stream_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recording_configuration_summary() :: %{
-        "arn" => String.t() | atom(),
-        "destinationConfiguration" => destination_configuration(),
-        "name" => String.t() | atom(),
-        "state" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type recording_configuration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_playback_restriction_policy_response() :: %{
-        "playbackRestrictionPolicy" => playback_restriction_policy()
-      }
-
-  """
-  @type get_playback_restriction_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_playback_restriction_policy_request() :: %{
-        optional("allowedCountries") => list(String.t() | atom()),
-        optional("allowedOrigins") => list(String.t() | atom()),
-        optional("enableStrictOriginEnforcement") => boolean(),
-        optional("name") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_playback_restriction_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       ad_configuration() :: %{
         "arn" => String.t() | atom(),
         "mediaTailorPlaybackConfigurations" => list(media_tailor_playback_configuration()),
         "name" => String.t() | atom(),
+        "postRollConfiguration" => post_roll_configuration(),
         "tags" => map()
       }
 
@@ -563,13 +155,85 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      list_recording_configurations_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("recordingConfigurations") => list(recording_configuration_summary())
+      ad_configuration_summary() :: %{
+        "arn" => String.t() | atom(),
+        "mediaTailorPlaybackConfigurations" => list(media_tailor_playback_configuration()),
+        "name" => String.t() | atom(),
+        "postRollConfiguration" => post_roll_configuration(),
+        "tags" => map()
       }
 
   """
-  @type list_recording_configurations_response() :: %{(String.t() | atom()) => any()}
+  @type ad_configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_configuration() :: %{
+        "channels" => float(),
+        "codec" => String.t() | atom(),
+        "sampleRate" => float(),
+        "targetBitrate" => float(),
+        "track" => String.t() | atom()
+      }
+
+  """
+  @type audio_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_error() :: %{
+        "arn" => String.t() | atom(),
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type batch_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_channel_request() :: %{
+        required("arns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_channel_response() :: %{
+        optional("accessControlAllowOrigin") => String.t() | atom(),
+        optional("accessControlExposeHeaders") => String.t() | atom(),
+        optional("cacheControl") => String.t() | atom(),
+        optional("channels") => list(channel()),
+        optional("contentSecurityPolicy") => String.t() | atom(),
+        optional("errors") => list(batch_error()),
+        optional("strictTransportSecurity") => String.t() | atom(),
+        optional("xContentTypeOptions") => String.t() | atom(),
+        optional("xFrameOptions") => String.t() | atom()
+      }
+
+  """
+  @type batch_get_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_stream_key_request() :: %{
+        required("arns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_stream_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -594,388 +258,6 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      get_ad_configuration_response() :: %{
-        "adConfiguration" => ad_configuration()
-      }
-
-  """
-  @type get_ad_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_configuration() :: %{
-        "channels" => float(),
-        "codec" => String.t() | atom(),
-        "sampleRate" => float(),
-        "targetBitrate" => float(),
-        "track" => String.t() | atom()
-      }
-
-  """
-  @type audio_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ad_configurations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_ad_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "accessControlAllowOrigin" => String.t() | atom(),
-        "accessControlExposeHeaders" => String.t() | atom(),
-        "cacheControl" => String.t() | atom(),
-        "contentSecurityPolicy" => String.t() | atom(),
-        "exceptionMessage" => String.t() | atom(),
-        "strictTransportSecurity" => String.t() | atom(),
-        "xAmznErrorType" => String.t() | atom(),
-        "xContentTypeOptions" => String.t() | atom(),
-        "xFrameOptions" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recording_configuration_response() :: %{
-        optional("recordingConfiguration") => recording_configuration()
-      }
-
-  """
-  @type create_recording_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insert_ad_break_request() :: %{
-        required("channelArn") => String.t() | atom(),
-        required("durationSeconds") => integer()
-      }
-
-  """
-  @type insert_ad_break_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      thumbnail_configuration() :: %{
-        "recordingMode" => String.t() | atom(),
-        "resolution" => list(any()),
-        "storage" => list(String.t() | atom()),
-        "targetIntervalSeconds" => float()
-      }
-
-  """
-  @type thumbnail_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_ad_configuration_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type delete_ad_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_channel_response() :: %{
-        optional("channel") => channel()
-      }
-
-  """
-  @type get_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_stream_key_response() :: %{
-        optional("streamKey") => stream_key()
-      }
-
-  """
-  @type get_stream_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "accessControlAllowOrigin" => String.t() | atom(),
-        "accessControlExposeHeaders" => String.t() | atom(),
-        "cacheControl" => String.t() | atom(),
-        "contentSecurityPolicy" => String.t() | atom(),
-        "exceptionMessage" => String.t() | atom(),
-        "strictTransportSecurity" => String.t() | atom(),
-        "xAmznErrorType" => String.t() | atom(),
-        "xContentTypeOptions" => String.t() | atom(),
-        "xFrameOptions" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      playback_restriction_policy_summary() :: %{
-        "allowedCountries" => list(String.t() | atom()),
-        "allowedOrigins" => list(String.t() | atom()),
-        "arn" => String.t() | atom(),
-        "enableStrictOriginEnforcement" => boolean(),
-        "name" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type playback_restriction_policy_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_stream_keys_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("streamKeys") => list(stream_key_summary())
-      }
-
-  """
-  @type list_stream_keys_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "accessControlAllowOrigin" => String.t() | atom(),
-        "accessControlExposeHeaders" => String.t() | atom(),
-        "cacheControl" => String.t() | atom(),
-        "contentSecurityPolicy" => String.t() | atom(),
-        "exceptionMessage" => String.t() | atom(),
-        "strictTransportSecurity" => String.t() | atom(),
-        "xAmznErrorType" => String.t() | atom(),
-        "xContentTypeOptions" => String.t() | atom(),
-        "xFrameOptions" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ingest_configuration() :: %{
-        "audio" => audio_configuration(),
-        "video" => video_configuration()
-      }
-
-  """
-  @type ingest_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insert_ad_break_response() :: %{
-        "adBreakId" => String.t() | atom()
-      }
-
-  """
-  @type insert_ad_break_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_channel_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type get_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      playback_restriction_policy() :: %{
-        "allowedCountries" => list(String.t() | atom()),
-        "allowedOrigins" => list(String.t() | atom()),
-        "arn" => String.t() | atom(),
-        "enableStrictOriginEnforcement" => boolean(),
-        "name" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type playback_restriction_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pending_verification() :: %{
-        "accessControlAllowOrigin" => String.t() | atom(),
-        "accessControlExposeHeaders" => String.t() | atom(),
-        "cacheControl" => String.t() | atom(),
-        "contentSecurityPolicy" => String.t() | atom(),
-        "exceptionMessage" => String.t() | atom(),
-        "strictTransportSecurity" => String.t() | atom(),
-        "xAmznErrorType" => String.t() | atom(),
-        "xContentTypeOptions" => String.t() | atom(),
-        "xFrameOptions" => String.t() | atom()
-      }
-
-  """
-  @type pending_verification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ad_configuration_response() :: %{
-        "adConfiguration" => ad_configuration()
-      }
-
-  """
-  @type update_ad_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_not_broadcasting() :: %{
-        "accessControlAllowOrigin" => String.t() | atom(),
-        "accessControlExposeHeaders" => String.t() | atom(),
-        "cacheControl" => String.t() | atom(),
-        "contentSecurityPolicy" => String.t() | atom(),
-        "exceptionMessage" => String.t() | atom(),
-        "strictTransportSecurity" => String.t() | atom(),
-        "xAmznErrorType" => String.t() | atom(),
-        "xContentTypeOptions" => String.t() | atom(),
-        "xFrameOptions" => String.t() | atom()
-      }
-
-  """
-  @type channel_not_broadcasting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_session_summary() :: %{
-        "endTime" => non_neg_integer(),
-        "hasErrorEvent" => boolean(),
-        "startTime" => non_neg_integer(),
-        "streamId" => String.t() | atom()
-      }
-
-  """
-  @type stream_session_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type delete_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_request() :: %{
-        optional("adConfigurationArn") => String.t() | atom(),
-        optional("authorized") => boolean(),
-        optional("containerFormat") => String.t() | atom(),
-        optional("insecureIngest") => boolean(),
-        optional("latencyMode") => String.t() | atom(),
-        optional("multitrackInputConfiguration") => multitrack_input_configuration(),
-        optional("name") => String.t() | atom(),
-        optional("playbackRestrictionPolicyArn") => String.t() | atom(),
-        optional("preset") => list(any()),
-        optional("recordingConfigurationArn") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("type") => list(any())
-      }
-
-  """
-  @type create_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_playback_key_pair_response() :: %{
-        optional("keyPair") => playback_key_pair()
-      }
-
-  """
-  @type import_playback_key_pair_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_streams_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("streams") => list(stream_summary())
-      }
-
-  """
-  @type list_streams_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       batch_start_viewer_session_revocation_error() :: %{
         "channelArn" => String.t() | atom(),
         "code" => String.t() | atom(),
@@ -990,64 +272,45 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      channel_summary() :: %{
-        "adConfigurationArn" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "authorized" => boolean(),
-        "insecureIngest" => boolean(),
-        "latencyMode" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "playbackRestrictionPolicyArn" => String.t() | atom(),
-        "preset" => list(any()),
-        "recordingConfigurationArn" => String.t() | atom(),
-        "tags" => map(),
-        "type" => list(any())
+      batch_start_viewer_session_revocation_request() :: %{
+        required("viewerSessions") => list(batch_start_viewer_session_revocation_viewer_session())
       }
 
   """
-  @type channel_summary() :: %{(String.t() | atom()) => any()}
+  @type batch_start_viewer_session_revocation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_recording_configuration_request() :: %{
-        required("arn") => String.t() | atom()
+      batch_start_viewer_session_revocation_response() :: %{
+        optional("accessControlAllowOrigin") => String.t() | atom(),
+        optional("accessControlExposeHeaders") => String.t() | atom(),
+        optional("cacheControl") => String.t() | atom(),
+        optional("contentSecurityPolicy") => String.t() | atom(),
+        optional("errors") => list(batch_start_viewer_session_revocation_error()),
+        optional("strictTransportSecurity") => String.t() | atom(),
+        optional("xContentTypeOptions") => String.t() | atom(),
+        optional("xFrameOptions") => String.t() | atom()
       }
 
   """
-  @type delete_recording_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type batch_start_viewer_session_revocation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_ad_configurations_response() :: %{
-        "adConfigurations" => list(ad_configuration_summary()),
-        "nextToken" => String.t() | atom()
+      batch_start_viewer_session_revocation_viewer_session() :: %{
+        "channelArn" => String.t() | atom(),
+        "viewerId" => String.t() | atom(),
+        "viewerSessionVersionsLessThanOrEqualTo" => integer()
       }
 
   """
-  @type list_ad_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable() :: %{
-        "accessControlAllowOrigin" => String.t() | atom(),
-        "accessControlExposeHeaders" => String.t() | atom(),
-        "cacheControl" => String.t() | atom(),
-        "contentSecurityPolicy" => String.t() | atom(),
-        "exceptionMessage" => String.t() | atom(),
-        "strictTransportSecurity" => String.t() | atom(),
-        "xAmznErrorType" => String.t() | atom(),
-        "xContentTypeOptions" => String.t() | atom(),
-        "xFrameOptions" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable() :: %{(String.t() | atom()) => any()}
+  @type batch_start_viewer_session_revocation_viewer_session() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1079,20 +342,41 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      batch_get_channel_response() :: %{
-        optional("accessControlAllowOrigin") => String.t() | atom(),
-        optional("accessControlExposeHeaders") => String.t() | atom(),
-        optional("cacheControl") => String.t() | atom(),
-        optional("channels") => list(channel()),
-        optional("contentSecurityPolicy") => String.t() | atom(),
-        optional("errors") => list(batch_error()),
-        optional("strictTransportSecurity") => String.t() | atom(),
-        optional("xContentTypeOptions") => String.t() | atom(),
-        optional("xFrameOptions") => String.t() | atom()
+      channel_not_broadcasting() :: %{
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
-  @type batch_get_channel_response() :: %{(String.t() | atom()) => any()}
+  @type channel_not_broadcasting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_summary() :: %{
+        "adConfigurationArn" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "authorized" => boolean(),
+        "insecureIngest" => boolean(),
+        "latencyMode" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "playbackRestrictionPolicyArn" => String.t() | atom(),
+        "preset" => list(any()),
+        "recordingConfigurationArn" => String.t() | atom(),
+        "tags" => map(),
+        "type" => list(any())
+      }
+
+  """
+  @type channel_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1117,72 +401,321 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      stream() :: %{
-        "channelArn" => String.t() | atom(),
-        "health" => String.t() | atom(),
-        "playbackUrl" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "state" => String.t() | atom(),
-        "streamId" => String.t() | atom(),
-        "viewerCount" => float()
+      create_ad_configuration_request() :: %{
+        optional("name") => String.t() | atom(),
+        optional("postRollConfiguration") => post_roll_configuration(),
+        optional("tags") => map(),
+        required("mediaTailorPlaybackConfigurations") => list(media_tailor_playback_configuration())
       }
 
   """
-  @type stream() :: %{(String.t() | atom()) => any()}
+  @type create_ad_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
+      create_ad_configuration_response() :: %{
+        "adConfiguration" => ad_configuration()
+      }
 
   """
-  @type untag_resource_response() :: %{}
+  @type create_ad_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stream_summary() :: %{
-        "channelArn" => String.t() | atom(),
-        "health" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "state" => String.t() | atom(),
-        "streamId" => String.t() | atom(),
-        "viewerCount" => float()
+      create_channel_request() :: %{
+        optional("adConfigurationArn") => String.t() | atom(),
+        optional("authorized") => boolean(),
+        optional("containerFormat") => String.t() | atom(),
+        optional("insecureIngest") => boolean(),
+        optional("latencyMode") => String.t() | atom(),
+        optional("multitrackInputConfiguration") => multitrack_input_configuration(),
+        optional("name") => String.t() | atom(),
+        optional("playbackRestrictionPolicyArn") => String.t() | atom(),
+        optional("preset") => list(any()),
+        optional("recordingConfigurationArn") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("type") => list(any())
       }
 
   """
-  @type stream_summary() :: %{(String.t() | atom()) => any()}
+  @type create_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
+      create_channel_response() :: %{
+        optional("channel") => channel(),
+        optional("streamKey") => stream_key()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type create_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_start_viewer_session_revocation_response() :: %{
-        optional("accessControlAllowOrigin") => String.t() | atom(),
-        optional("accessControlExposeHeaders") => String.t() | atom(),
-        optional("cacheControl") => String.t() | atom(),
-        optional("contentSecurityPolicy") => String.t() | atom(),
-        optional("errors") => list(batch_start_viewer_session_revocation_error()),
-        optional("strictTransportSecurity") => String.t() | atom(),
-        optional("xContentTypeOptions") => String.t() | atom(),
-        optional("xFrameOptions") => String.t() | atom()
+      create_playback_restriction_policy_request() :: %{
+        optional("allowedCountries") => list(String.t() | atom()),
+        optional("allowedOrigins") => list(String.t() | atom()),
+        optional("enableStrictOriginEnforcement") => boolean(),
+        optional("name") => String.t() | atom(),
+        optional("tags") => map()
       }
 
   """
-  @type batch_start_viewer_session_revocation_response() :: %{(String.t() | atom()) => any()}
+  @type create_playback_restriction_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_playback_restriction_policy_response() :: %{
+        "playbackRestrictionPolicy" => playback_restriction_policy()
+      }
+
+  """
+  @type create_playback_restriction_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recording_configuration_request() :: %{
+        optional("name") => String.t() | atom(),
+        optional("recordingReconnectWindowSeconds") => integer(),
+        optional("renditionConfiguration") => rendition_configuration(),
+        optional("tags") => map(),
+        optional("thumbnailConfiguration") => thumbnail_configuration(),
+        required("destinationConfiguration") => destination_configuration()
+      }
+
+  """
+  @type create_recording_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recording_configuration_response() :: %{
+        optional("recordingConfiguration") => recording_configuration()
+      }
+
+  """
+  @type create_recording_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stream_key_request() :: %{
+        optional("tags") => map(),
+        required("channelArn") => String.t() | atom()
+      }
+
+  """
+  @type create_stream_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stream_key_response() :: %{
+        optional("streamKey") => stream_key()
+      }
+
+  """
+  @type create_stream_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ad_configuration_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type delete_ad_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type delete_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_playback_key_pair_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type delete_playback_key_pair_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_playback_key_pair_response() :: %{}
+
+  """
+  @type delete_playback_key_pair_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_playback_restriction_policy_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type delete_playback_restriction_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recording_configuration_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type delete_recording_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_stream_key_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type delete_stream_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_configuration() :: %{
+        "s3" => s3_destination_configuration()
+      }
+
+  """
+  @type destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ad_configuration_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type get_ad_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ad_configuration_response() :: %{
+        "adConfiguration" => ad_configuration()
+      }
+
+  """
+  @type get_ad_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type get_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_response() :: %{
+        optional("channel") => channel()
+      }
+
+  """
+  @type get_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_playback_key_pair_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type get_playback_key_pair_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_playback_key_pair_response() :: %{
+        optional("keyPair") => playback_key_pair()
+      }
+
+  """
+  @type get_playback_key_pair_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_playback_restriction_policy_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type get_playback_restriction_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_playback_restriction_policy_response() :: %{
+        "playbackRestrictionPolicy" => playback_restriction_policy()
+      }
+
+  """
+  @type get_playback_restriction_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recording_configuration_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type get_recording_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1199,44 +732,68 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      stream_filters() :: %{
-        "health" => String.t() | atom()
-      }
-
-  """
-  @type stream_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_configuration() :: %{
-        "avcLevel" => String.t() | atom(),
-        "avcProfile" => String.t() | atom(),
-        "codec" => String.t() | atom(),
-        "encoder" => String.t() | atom(),
-        "level" => String.t() | atom(),
-        "profile" => String.t() | atom(),
-        "targetBitrate" => float(),
-        "targetFramerate" => float(),
-        "track" => String.t() | atom(),
-        "videoHeight" => float(),
-        "videoWidth" => float()
-      }
-
-  """
-  @type video_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ad_configuration_request() :: %{
+      get_stream_key_request() :: %{
         required("arn") => String.t() | atom()
       }
 
   """
-  @type get_ad_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type get_stream_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stream_key_response() :: %{
+        optional("streamKey") => stream_key()
+      }
+
+  """
+  @type get_stream_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stream_request() :: %{
+        required("channelArn") => String.t() | atom()
+      }
+
+  """
+  @type get_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stream_response() :: %{
+        optional("stream") => stream()
+      }
+
+  """
+  @type get_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stream_session_request() :: %{
+        optional("streamId") => String.t() | atom(),
+        required("channelArn") => String.t() | atom()
+      }
+
+  """
+  @type get_stream_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stream_session_response() :: %{
+        optional("streamSession") => stream_session()
+      }
+
+  """
+  @type get_stream_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1255,14 +812,240 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      create_ad_configuration_request() :: %{
-        optional("name") => String.t() | atom(),
-        optional("tags") => map(),
-        required("mediaTailorPlaybackConfigurations") => list(media_tailor_playback_configuration())
+      import_playback_key_pair_response() :: %{
+        optional("keyPair") => playback_key_pair()
       }
 
   """
-  @type create_ad_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type import_playback_key_pair_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingest_configuration() :: %{
+        "audio" => audio_configuration(),
+        "video" => video_configuration()
+      }
+
+  """
+  @type ingest_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingest_configurations() :: %{
+        "audioConfigurations" => list(audio_configuration()),
+        "videoConfigurations" => list(video_configuration())
+      }
+
+  """
+  @type ingest_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insert_ad_break_request() :: %{
+        required("channelArn") => String.t() | atom(),
+        required("durationSeconds") => integer()
+      }
+
+  """
+  @type insert_ad_break_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insert_ad_break_response() :: %{
+        "adBreakId" => String.t() | atom()
+      }
+
+  """
+  @type insert_ad_break_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ad_configurations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_ad_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ad_configurations_response() :: %{
+        "adConfigurations" => list(ad_configuration_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_ad_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_request() :: %{
+        optional("filterByAdConfigurationArn") => String.t() | atom(),
+        optional("filterByName") => String.t() | atom(),
+        optional("filterByPlaybackRestrictionPolicyArn") => String.t() | atom(),
+        optional("filterByRecordingConfigurationArn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_channels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("channels") => list(channel_summary())
+      }
+
+  """
+  @type list_channels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_playback_key_pairs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_playback_key_pairs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_playback_key_pairs_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("keyPairs") => list(playback_key_pair_summary())
+      }
+
+  """
+  @type list_playback_key_pairs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_playback_restriction_policies_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_playback_restriction_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_playback_restriction_policies_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "playbackRestrictionPolicies" => list(playback_restriction_policy_summary())
+      }
+
+  """
+  @type list_playback_restriction_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recording_configurations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_recording_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recording_configurations_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("recordingConfigurations") => list(recording_configuration_summary())
+      }
+
+  """
+  @type list_recording_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_stream_keys_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("channelArn") => String.t() | atom()
+      }
+
+  """
+  @type list_stream_keys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_stream_keys_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("streamKeys") => list(stream_key_summary())
+      }
+
+  """
+  @type list_stream_keys_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_stream_sessions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("channelArn") => String.t() | atom()
+      }
+
+  """
+  @type list_stream_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1280,24 +1063,89 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      get_stream_response() :: %{
-        optional("stream") => stream()
+      list_streams_request() :: %{
+        optional("filterBy") => stream_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_stream_response() :: %{(String.t() | atom()) => any()}
+  @type list_streams_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      srt() :: %{
-        "endpoint" => String.t() | atom(),
-        "passphrase" => String.t() | atom()
+      list_streams_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("streams") => list(stream_summary())
       }
 
   """
-  @type srt() :: %{(String.t() | atom()) => any()}
+  @type list_streams_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_tailor_playback_configuration() :: %{
+        "playbackConfigurationArn" => String.t() | atom()
+      }
+
+  """
+  @type media_tailor_playback_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multitrack_input_configuration() :: %{
+        "enabled" => boolean(),
+        "maximumResolution" => list(any()),
+        "policy" => list(any())
+      }
+
+  """
+  @type multitrack_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pending_verification() :: %{
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
+      }
+
+  """
+  @type pending_verification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1317,35 +1165,70 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      list_playback_restriction_policies_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      playback_key_pair_summary() :: %{
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type list_playback_restriction_policies_request() :: %{(String.t() | atom()) => any()}
+  @type playback_key_pair_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_response() :: %{
-        required("tags") => map()
+      playback_restriction_policy() :: %{
+        "allowedCountries" => list(String.t() | atom()),
+        "allowedOrigins" => list(String.t() | atom()),
+        "arn" => String.t() | atom(),
+        "enableStrictOriginEnforcement" => boolean(),
+        "name" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type playback_restriction_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_channel_response() :: %{
-        optional("channel") => channel()
+      playback_restriction_policy_summary() :: %{
+        "allowedCountries" => list(String.t() | atom()),
+        "allowedOrigins" => list(String.t() | atom()),
+        "arn" => String.t() | atom(),
+        "enableStrictOriginEnforcement" => boolean(),
+        "name" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type update_channel_response() :: %{(String.t() | atom()) => any()}
+  @type playback_restriction_policy_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_roll_configuration() :: %{
+        "durationSeconds" => integer(),
+        "enabled" => boolean()
+      }
+
+  """
+  @type post_roll_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_metadata_request() :: %{
+        required("channelArn") => String.t() | atom(),
+        required("metadata") => String.t() | atom()
+      }
+
+  """
+  @type put_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1369,304 +1252,58 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      stream_event() :: %{
-        "code" => String.t() | atom(),
-        "eventTime" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type stream_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_viewer_session_revocation_response() :: %{}
-
-  """
-  @type start_viewer_session_revocation_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_stream_key_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type delete_stream_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_ad_configuration_response() :: %{
-        "adConfiguration" => ad_configuration()
-      }
-
-  """
-  @type create_ad_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_stream_key_request() :: %{
-        required("arns") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_stream_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_viewer_session_revocation_request() :: %{
-        optional("viewerSessionVersionsLessThanOrEqualTo") => integer(),
-        required("channelArn") => String.t() | atom(),
-        required("viewerId") => String.t() | atom()
-      }
-
-  """
-  @type start_viewer_session_revocation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recording_configuration_request() :: %{
-        optional("name") => String.t() | atom(),
-        optional("recordingReconnectWindowSeconds") => integer(),
-        optional("renditionConfiguration") => rendition_configuration(),
-        optional("tags") => map(),
-        optional("thumbnailConfiguration") => thumbnail_configuration(),
-        required("destinationConfiguration") => destination_configuration()
-      }
-
-  """
-  @type create_recording_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_start_viewer_session_revocation_request() :: %{
-        required("viewerSessions") => list(batch_start_viewer_session_revocation_viewer_session())
-      }
-
-  """
-  @type batch_start_viewer_session_revocation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_stream_key_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type get_stream_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_playback_key_pair_response() :: %{
-        optional("keyPair") => playback_key_pair()
-      }
-
-  """
-  @type get_playback_key_pair_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("channels") => list(channel_summary())
-      }
-
-  """
-  @type list_channels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_playback_restriction_policy_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type delete_playback_restriction_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_playback_restriction_policy_request() :: %{
-        optional("allowedCountries") => list(String.t() | atom()),
-        optional("allowedOrigins") => list(String.t() | atom()),
-        optional("enableStrictOriginEnforcement") => boolean(),
-        optional("name") => String.t() | atom(),
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type update_playback_restriction_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_stream_session_response() :: %{
-        optional("streamSession") => stream_session()
-      }
-
-  """
-  @type get_stream_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_stream_request() :: %{
-        required("channelArn") => String.t() | atom()
-      }
-
-  """
-  @type get_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recording_configurations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_recording_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_playback_restriction_policy_response() :: %{
-        "playbackRestrictionPolicy" => playback_restriction_policy()
-      }
-
-  """
-  @type update_playback_restriction_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_session() :: %{
-        "channel" => channel(),
-        "endTime" => non_neg_integer(),
-        "ingestConfiguration" => ingest_configuration(),
-        "ingestConfigurations" => ingest_configurations(),
-        "recordingConfiguration" => recording_configuration(),
-        "startTime" => non_neg_integer(),
-        "streamId" => String.t() | atom(),
-        "truncatedEvents" => list(stream_event())
-      }
-
-  """
-  @type stream_session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_stream_key_response() :: %{
-        optional("streamKey") => stream_key()
-      }
-
-  """
-  @type create_stream_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_streams_request() :: %{
-        optional("filterBy") => stream_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_streams_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_error() :: %{
+      recording_configuration_summary() :: %{
         "arn" => String.t() | atom(),
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
+        "destinationConfiguration" => destination_configuration(),
+        "name" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type batch_error() :: %{(String.t() | atom()) => any()}
+  @type recording_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
+      rendition_configuration() :: %{
+        "renditionSelection" => String.t() | atom(),
+        "renditions" => list(list(any())())
+      }
 
   """
-  @type list_tags_for_resource_request() :: %{}
+  @type rendition_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      multitrack_input_configuration() :: %{
-        "enabled" => boolean(),
-        "maximumResolution" => list(any()),
-        "policy" => list(any())
+      resource_not_found_exception() :: %{
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
-  @type multitrack_input_configuration() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_stream_keys_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("channelArn") => String.t() | atom()
+      s3_destination_configuration() :: %{
+        "bucketName" => String.t() | atom()
       }
 
   """
-  @type list_stream_keys_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_metadata_request() :: %{
-        required("channelArn") => String.t() | atom(),
-        required("metadata") => String.t() | atom()
-      }
-
-  """
-  @type put_metadata_request() :: %{(String.t() | atom()) => any()}
+  @type s3_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1691,250 +1328,629 @@ defmodule AWS.Ivs do
 
   ## Example:
 
-      batch_start_viewer_session_revocation_viewer_session() :: %{
-        "channelArn" => String.t() | atom(),
-        "viewerId" => String.t() | atom(),
-        "viewerSessionVersionsLessThanOrEqualTo" => integer()
+      service_unavailable() :: %{
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
-  @type batch_start_viewer_session_revocation_viewer_session() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type service_unavailable() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_stream_key_request() :: %{
-        optional("tags") => map(),
+      srt() :: %{
+        "endpoint" => String.t() | atom(),
+        "passphrase" => String.t() | atom()
+      }
+
+  """
+  @type srt() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_viewer_session_revocation_request() :: %{
+        optional("viewerSessionVersionsLessThanOrEqualTo") => integer(),
+        required("channelArn") => String.t() | atom(),
+        required("viewerId") => String.t() | atom()
+      }
+
+  """
+  @type start_viewer_session_revocation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_viewer_session_revocation_response() :: %{}
+
+  """
+  @type start_viewer_session_revocation_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_stream_request() :: %{
         required("channelArn") => String.t() | atom()
       }
 
   """
-  @type create_stream_key_request() :: %{(String.t() | atom()) => any()}
+  @type stop_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_stream_response() :: %{}
+
+  """
+  @type stop_stream_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stream() :: %{
+        "channelArn" => String.t() | atom(),
+        "health" => String.t() | atom(),
+        "playbackUrl" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "state" => String.t() | atom(),
+        "streamId" => String.t() | atom(),
+        "viewerCount" => float()
+      }
+
+  """
+  @type stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_event() :: %{
+        "code" => String.t() | atom(),
+        "eventTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type stream_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_filters() :: %{
+        "health" => String.t() | atom()
+      }
+
+  """
+  @type stream_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_key() :: %{
+        "arn" => String.t() | atom(),
+        "channelArn" => String.t() | atom(),
+        "tags" => map(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type stream_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_key_summary() :: %{
+        "arn" => String.t() | atom(),
+        "channelArn" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type stream_key_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_session() :: %{
+        "channel" => channel(),
+        "endTime" => non_neg_integer(),
+        "ingestConfiguration" => ingest_configuration(),
+        "ingestConfigurations" => ingest_configurations(),
+        "recordingConfiguration" => recording_configuration(),
+        "startTime" => non_neg_integer(),
+        "streamId" => String.t() | atom(),
+        "truncatedEvents" => list(stream_event())
+      }
+
+  """
+  @type stream_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_session_summary() :: %{
+        "endTime" => non_neg_integer(),
+        "hasErrorEvent" => boolean(),
+        "startTime" => non_neg_integer(),
+        "streamId" => String.t() | atom()
+      }
+
+  """
+  @type stream_session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_summary() :: %{
+        "channelArn" => String.t() | atom(),
+        "health" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "state" => String.t() | atom(),
+        "streamId" => String.t() | atom(),
+        "viewerCount" => float()
+      }
+
+  """
+  @type stream_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_unavailable() :: %{
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
+      }
+
+  """
+  @type stream_unavailable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      thumbnail_configuration() :: %{
+        "recordingMode" => String.t() | atom(),
+        "resolution" => list(any()),
+        "storage" => list(String.t() | atom()),
+        "targetIntervalSeconds" => float()
+      }
+
+  """
+  @type thumbnail_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ad_configuration_request() :: %{
+        optional("mediaTailorPlaybackConfigurations") => list(media_tailor_playback_configuration()),
+        optional("name") => String.t() | atom(),
+        optional("postRollConfiguration") => post_roll_configuration(),
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type update_ad_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ad_configuration_response() :: %{
+        "adConfiguration" => ad_configuration()
+      }
+
+  """
+  @type update_ad_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_request() :: %{
+        optional("adConfigurationArn") => String.t() | atom(),
+        optional("authorized") => boolean(),
+        optional("containerFormat") => String.t() | atom(),
+        optional("insecureIngest") => boolean(),
+        optional("latencyMode") => String.t() | atom(),
+        optional("multitrackInputConfiguration") => multitrack_input_configuration(),
+        optional("name") => String.t() | atom(),
+        optional("playbackRestrictionPolicyArn") => String.t() | atom(),
+        optional("preset") => list(any()),
+        optional("recordingConfigurationArn") => String.t() | atom(),
+        optional("type") => list(any()),
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type update_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_response() :: %{
+        optional("channel") => channel()
+      }
+
+  """
+  @type update_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_playback_restriction_policy_request() :: %{
+        optional("allowedCountries") => list(String.t() | atom()),
+        optional("allowedOrigins") => list(String.t() | atom()),
+        optional("enableStrictOriginEnforcement") => boolean(),
+        optional("name") => String.t() | atom(),
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type update_playback_restriction_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_playback_restriction_policy_response() :: %{
+        "playbackRestrictionPolicy" => playback_restriction_policy()
+      }
+
+  """
+  @type update_playback_restriction_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_configuration() :: %{
+        "avcLevel" => String.t() | atom(),
+        "avcProfile" => String.t() | atom(),
+        "codec" => String.t() | atom(),
+        "encoder" => String.t() | atom(),
+        "level" => String.t() | atom(),
+        "profile" => String.t() | atom(),
+        "targetBitrate" => float(),
+        "targetFramerate" => float(),
+        "track" => String.t() | atom(),
+        "videoHeight" => float(),
+        "videoWidth" => float()
+      }
+
+  """
+  @type video_configuration() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_channel_errors() ::
-          service_unavailable() | validation_exception() | access_denied_exception()
+          validation_exception() | service_unavailable() | access_denied_exception()
 
   @type batch_get_stream_key_errors() ::
-          service_unavailable() | validation_exception() | access_denied_exception()
+          validation_exception() | service_unavailable() | access_denied_exception()
 
   @type batch_start_viewer_session_revocation_errors() ::
-          pending_verification()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | pending_verification()
+          | access_denied_exception()
 
   @type create_ad_configuration_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | pending_verification()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | pending_verification()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_channel_errors() ::
-          service_quota_exceeded_exception()
-          | pending_verification()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | pending_verification()
           | access_denied_exception()
 
   @type create_playback_restriction_policy_errors() ::
-          service_quota_exceeded_exception()
-          | pending_verification()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | pending_verification()
+          | access_denied_exception()
 
   @type create_recording_configuration_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | pending_verification()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_stream_key_errors() ::
-          service_quota_exceeded_exception()
-          | pending_verification()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | pending_verification()
           | access_denied_exception()
 
   @type delete_ad_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_channel_errors() ::
-          conflict_exception()
-          | pending_verification()
+          validation_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | pending_verification()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_playback_key_pair_errors() ::
-          pending_verification()
+          validation_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | pending_verification()
           | access_denied_exception()
 
   @type delete_playback_restriction_policy_errors() ::
-          conflict_exception()
-          | pending_verification()
+          validation_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | pending_verification()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_recording_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_stream_key_errors() ::
-          pending_verification()
+          validation_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | pending_verification()
           | access_denied_exception()
 
   @type get_ad_configuration_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_channel_errors() ::
-          resource_not_found_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | resource_not_found_exception() | access_denied_exception()
 
   @type get_playback_key_pair_errors() ::
-          resource_not_found_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | resource_not_found_exception() | access_denied_exception()
 
   @type get_playback_restriction_policy_errors() ::
-          pending_verification()
+          validation_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | pending_verification()
           | access_denied_exception()
 
   @type get_recording_configuration_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_stream_errors() ::
-          channel_not_broadcasting()
+          validation_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | channel_not_broadcasting()
           | access_denied_exception()
 
   @type get_stream_key_errors() ::
-          resource_not_found_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | resource_not_found_exception() | access_denied_exception()
 
   @type get_stream_session_errors() ::
-          resource_not_found_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | resource_not_found_exception() | access_denied_exception()
 
   @type import_playback_key_pair_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | pending_verification()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type insert_ad_break_errors() ::
-          conflict_exception()
-          | channel_not_broadcasting()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
+          | channel_not_broadcasting()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_ad_configurations_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_channels_errors() ::
-          conflict_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | conflict_exception() | access_denied_exception()
 
   @type list_playback_key_pairs_errors() :: validation_exception() | access_denied_exception()
 
   @type list_playback_restriction_policies_errors() ::
-          conflict_exception()
+          validation_exception()
           | pending_verification()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type list_recording_configurations_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_stream_keys_errors() ::
-          resource_not_found_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | resource_not_found_exception() | access_denied_exception()
 
   @type list_stream_sessions_errors() ::
-          resource_not_found_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | resource_not_found_exception() | access_denied_exception()
 
   @type list_streams_errors() :: validation_exception() | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type put_metadata_errors() ::
-          channel_not_broadcasting()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | channel_not_broadcasting()
+          | access_denied_exception()
 
   @type start_viewer_session_revocation_errors() ::
-          pending_verification()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | pending_verification()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type stop_stream_errors() ::
-          channel_not_broadcasting()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | stream_unavailable()
+          | resource_not_found_exception()
+          | channel_not_broadcasting()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_ad_configuration_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | pending_verification()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | pending_verification()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_channel_errors() ::
-          conflict_exception()
-          | pending_verification()
+          validation_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | pending_verification()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_playback_restriction_policy_errors() ::
-          conflict_exception()
-          | pending_verification()
+          validation_exception()
           | resource_not_found_exception()
-          | validation_exception()
+          | pending_verification()
+          | conflict_exception()
           | access_denied_exception()
 
   def metadata do

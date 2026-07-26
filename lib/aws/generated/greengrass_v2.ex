@@ -34,6 +34,65 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_client_device_with_core_device_entry() :: %{
+        "thingName" => String.t() | atom()
+      }
+
+  """
+  @type associate_client_device_with_core_device_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_client_device_with_core_device_error_entry() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "thingName" => String.t() | atom()
+      }
+
+  """
+  @type associate_client_device_with_core_device_error_entry() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      associate_service_role_to_account_request() :: %{
+        required("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_service_role_to_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_service_role_to_account_response() :: %{
+        "associatedAt" => String.t() | atom()
+      }
+
+  """
+  @type associate_service_role_to_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associated_client_device() :: %{
         "associationTimestamp" => non_neg_integer(),
         "thingName" => String.t() | atom()
@@ -46,37 +105,192 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      deployment_policies() :: %{
-        "componentUpdatePolicy" => deployment_component_update_policy(),
-        "configurationValidationPolicy" => deployment_configuration_validation_policy(),
-        "failureHandlingPolicy" => list(any())
+      batch_associate_client_device_with_core_device_request() :: %{
+        optional("entries") => list(associate_client_device_with_core_device_entry())
       }
 
   """
-  @type deployment_policies() :: %{(String.t() | atom()) => any()}
+  @type batch_associate_client_device_with_core_device_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      get_connectivity_info_response() :: %{
-        "connectivityInfo" => list(connectivity_info()),
+      batch_associate_client_device_with_core_device_response() :: %{
+        "errorEntries" => list(associate_client_device_with_core_device_error_entry())
+      }
+
+  """
+  @type batch_associate_client_device_with_core_device_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_client_device_from_core_device_request() :: %{
+        optional("entries") => list(disassociate_client_device_from_core_device_entry())
+      }
+
+  """
+  @type batch_disassociate_client_device_from_core_device_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_client_device_from_core_device_response() :: %{
+        "errorEntries" => list(disassociate_client_device_from_core_device_error_entry())
+      }
+
+  """
+  @type batch_disassociate_client_device_from_core_device_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_deployment_request() :: %{}
+
+  """
+  @type cancel_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_deployment_response() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type get_connectivity_info_response() :: %{(String.t() | atom()) => any()}
+  @type cancel_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resolve_component_candidates_response() :: %{
-        "resolvedComponentVersions" => list(resolved_component_version())
+      cloud_component_status() :: %{
+        "componentState" => list(any()),
+        "errors" => map(),
+        "message" => String.t() | atom(),
+        "vendorGuidance" => list(any()),
+        "vendorGuidanceMessage" => String.t() | atom()
       }
 
   """
-  @type resolve_component_candidates_response() :: %{(String.t() | atom()) => any()}
+  @type cloud_component_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component() :: %{
+        "arn" => String.t() | atom(),
+        "componentName" => String.t() | atom(),
+        "latestVersion" => component_latest_version()
+      }
+
+  """
+  @type component() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_candidate() :: %{
+        "componentName" => String.t() | atom(),
+        "componentVersion" => String.t() | atom(),
+        "versionRequirements" => map()
+      }
+
+  """
+  @type component_candidate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_configuration_update() :: %{
+        "merge" => String.t() | atom(),
+        "reset" => list(String.t() | atom())
+      }
+
+  """
+  @type component_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_dependency_requirement() :: %{
+        "dependencyType" => list(any()),
+        "versionRequirement" => String.t() | atom()
+      }
+
+  """
+  @type component_dependency_requirement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_deployment_specification() :: %{
+        "componentVersion" => String.t() | atom(),
+        "configurationUpdate" => component_configuration_update(),
+        "runWith" => component_run_with()
+      }
+
+  """
+  @type component_deployment_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_latest_version() :: %{
+        "arn" => String.t() | atom(),
+        "componentVersion" => String.t() | atom(),
+        "creationTimestamp" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "platforms" => list(component_platform()),
+        "publisher" => String.t() | atom()
+      }
+
+  """
+  @type component_latest_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_platform() :: %{
+        "attributes" => map(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type component_platform() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_run_with() :: %{
+        "posixUser" => String.t() | atom(),
+        "systemResourceLimits" => system_resource_limits(),
+        "windowsUser" => String.t() | atom()
+      }
+
+  """
+  @type component_run_with() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -95,60 +309,73 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      get_component_request() :: %{
-        optional("recipeOutputFormat") => list(any())
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
 
   """
-  @type get_component_request() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_service_role_from_account_request() :: %{}
-
-  """
-  @type disassociate_service_role_from_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connectivity_info_request() :: %{}
-
-  """
-  @type get_connectivity_info_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_component_version_artifact_request() :: %{
-        optional("iotEndpointType") => list(any()),
-        optional("s3EndpointType") => list(any())
+      connectivity_info() :: %{
+        "hostAddress" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "metadata" => String.t() | atom(),
+        "portNumber" => integer()
       }
 
   """
-  @type get_component_version_artifact_request() :: %{(String.t() | atom()) => any()}
+  @type connectivity_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_core_device_request() :: %{}
+      core_device() :: %{
+        "architecture" => String.t() | atom(),
+        "coreDeviceThingName" => String.t() | atom(),
+        "lastStatusUpdateTimestamp" => non_neg_integer(),
+        "platform" => String.t() | atom(),
+        "runtime" => String.t() | atom(),
+        "status" => list(any())
+      }
 
   """
-  @type get_core_device_request() :: %{}
+  @type core_device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_component_request() :: %{}
+      create_component_version_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("inlineRecipe") => binary(),
+        optional("lambdaFunction") => lambda_function_recipe_source(),
+        optional("tags") => map()
+      }
 
   """
-  @type describe_component_request() :: %{}
+  @type create_component_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_component_version_response() :: %{
+        "arn" => String.t() | atom(),
+        "componentName" => String.t() | atom(),
+        "componentVersion" => String.t() | atom(),
+        "creationTimestamp" => non_neg_integer(),
+        "status" => cloud_component_status()
+      }
+
+  """
+  @type create_component_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -172,67 +399,41 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      list_client_devices_associated_with_core_device_response() :: %{
-        "associatedClientDevices" => list(associated_client_device()),
-        "nextToken" => String.t() | atom()
+      create_deployment_response() :: %{
+        "deploymentId" => String.t() | atom(),
+        "iotJobArn" => String.t() | atom(),
+        "iotJobId" => String.t() | atom()
       }
 
   """
-  @type list_client_devices_associated_with_core_device_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type create_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "retryAfterSeconds" => integer(),
-        "serviceCode" => String.t() | atom()
-      }
+      delete_component_request() :: %{}
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_component_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_component_version_response() :: %{
-        "arn" => String.t() | atom(),
-        "componentName" => String.t() | atom(),
-        "componentVersion" => String.t() | atom(),
-        "creationTimestamp" => non_neg_integer(),
-        "status" => cloud_component_status()
-      }
+      delete_core_device_request() :: %{}
 
   """
-  @type create_component_version_response() :: %{(String.t() | atom()) => any()}
+  @type delete_core_device_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
+      delete_deployment_request() :: %{}
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connectivity_info_response() :: %{
-        "message" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type update_connectivity_info_response() :: %{(String.t() | atom()) => any()}
+  @type delete_deployment_request() :: %{}
 
   @typedoc """
 
@@ -256,13 +457,102 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      list_client_devices_associated_with_core_device_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      deployment_component_update_policy() :: %{
+        "action" => list(any()),
+        "timeoutInSeconds" => integer()
       }
 
   """
-  @type list_client_devices_associated_with_core_device_request() :: %{
+  @type deployment_component_update_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_configuration_validation_policy() :: %{
+        "timeoutInSeconds" => integer()
+      }
+
+  """
+  @type deployment_configuration_validation_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_io_t_job_configuration() :: %{
+        "abortConfig" => io_t_job_abort_config(),
+        "jobExecutionsRolloutConfig" => io_t_job_executions_rollout_config(),
+        "timeoutConfig" => io_t_job_timeout_config()
+      }
+
+  """
+  @type deployment_io_t_job_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_policies() :: %{
+        "componentUpdatePolicy" => deployment_component_update_policy(),
+        "configurationValidationPolicy" => deployment_configuration_validation_policy(),
+        "failureHandlingPolicy" => list(any())
+      }
+
+  """
+  @type deployment_policies() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_component_request() :: %{}
+
+  """
+  @type describe_component_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_component_response() :: %{
+        "arn" => String.t() | atom(),
+        "componentName" => String.t() | atom(),
+        "componentVersion" => String.t() | atom(),
+        "creationTimestamp" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "platforms" => list(component_platform()),
+        "publisher" => String.t() | atom(),
+        "status" => cloud_component_status(),
+        "tags" => map()
+      }
+
+  """
+  @type describe_component_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_client_device_from_core_device_entry() :: %{
+        "thingName" => String.t() | atom()
+      }
+
+  """
+  @type disassociate_client_device_from_core_device_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_client_device_from_core_device_error_entry() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "thingName" => String.t() | atom()
+      }
+
+  """
+  @type disassociate_client_device_from_core_device_error_entry() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -270,88 +560,21 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      io_t_job_rate_increase_criteria() :: %{
-        "numberOfNotifiedThings" => integer(),
-        "numberOfSucceededThings" => integer()
-      }
+      disassociate_service_role_from_account_request() :: %{}
 
   """
-  @type io_t_job_rate_increase_criteria() :: %{(String.t() | atom()) => any()}
+  @type disassociate_service_role_from_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      lambda_event_source() :: %{
-        "topic" => String.t() | atom(),
-        "type" => list(any())
+      disassociate_service_role_from_account_response() :: %{
+        "disassociatedAt" => String.t() | atom()
       }
 
   """
-  @type lambda_event_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_device_mount() :: %{
-        "addGroupOwner" => boolean(),
-        "path" => String.t() | atom(),
-        "permission" => list(any())
-      }
-
-  """
-  @type lambda_device_mount() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_candidate() :: %{
-        "componentName" => String.t() | atom(),
-        "componentVersion" => String.t() | atom(),
-        "versionRequirements" => map()
-      }
-
-  """
-  @type component_candidate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_effective_deployments_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_effective_deployments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_latest_version() :: %{
-        "arn" => String.t() | atom(),
-        "componentVersion" => String.t() | atom(),
-        "creationTimestamp" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "platforms" => list(component_platform()),
-        "publisher" => String.t() | atom()
-      }
-
-  """
-  @type component_latest_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_component_request() :: %{}
-
-  """
-  @type delete_component_request() :: %{}
+  @type disassociate_service_role_from_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -378,494 +601,6 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      batch_disassociate_client_device_from_core_device_response() :: %{
-        "errorEntries" => list(disassociate_client_device_from_core_device_error_entry())
-      }
-
-  """
-  @type batch_disassociate_client_device_from_core_device_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      batch_disassociate_client_device_from_core_device_request() :: %{
-        optional("entries") => list(disassociate_client_device_from_core_device_entry())
-      }
-
-  """
-  @type batch_disassociate_client_device_from_core_device_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_execution_parameters() :: %{
-        "environmentVariables" => map(),
-        "eventSources" => list(lambda_event_source()),
-        "execArgs" => list(String.t() | atom()),
-        "inputPayloadEncodingType" => list(any()),
-        "linuxProcessParams" => lambda_linux_process_params(),
-        "maxIdleTimeInSeconds" => integer(),
-        "maxInstancesCount" => integer(),
-        "maxQueueSize" => integer(),
-        "pinned" => boolean(),
-        "statusTimeoutInSeconds" => integer(),
-        "timeoutInSeconds" => integer()
-      }
-
-  """
-  @type lambda_execution_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fields" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connectivity_info() :: %{
-        "hostAddress" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "metadata" => String.t() | atom(),
-        "portNumber" => integer()
-      }
-
-  """
-  @type connectivity_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_linux_process_params() :: %{
-        "containerParams" => lambda_container_params(),
-        "isolationMode" => list(any())
-      }
-
-  """
-  @type lambda_linux_process_params() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_client_device_with_core_device_entry() :: %{
-        "thingName" => String.t() | atom()
-      }
-
-  """
-  @type associate_client_device_with_core_device_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_dependency_requirement() :: %{
-        "dependencyType" => list(any()),
-        "versionRequirement" => String.t() | atom()
-      }
-
-  """
-  @type component_dependency_requirement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_volume_mount() :: %{
-        "addGroupOwner" => boolean(),
-        "destinationPath" => String.t() | atom(),
-        "permission" => list(any()),
-        "sourcePath" => String.t() | atom()
-      }
-
-  """
-  @type lambda_volume_mount() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => integer()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_effective_deployments_response() :: %{
-        "effectiveDeployments" => list(effective_deployment()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_effective_deployments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_function_recipe_source() :: %{
-        "componentDependencies" => map(),
-        "componentLambdaParameters" => lambda_execution_parameters(),
-        "componentName" => String.t() | atom(),
-        "componentPlatforms" => list(component_platform()),
-        "componentVersion" => String.t() | atom(),
-        "lambdaArn" => String.t() | atom()
-      }
-
-  """
-  @type lambda_function_recipe_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resolve_component_candidates_request() :: %{
-        optional("componentCandidates") => list(component_candidate()),
-        optional("platform") => component_platform()
-      }
-
-  """
-  @type resolve_component_candidates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deployment_io_t_job_configuration() :: %{
-        "abortConfig" => io_t_job_abort_config(),
-        "jobExecutionsRolloutConfig" => io_t_job_executions_rollout_config(),
-        "timeoutConfig" => io_t_job_timeout_config()
-      }
-
-  """
-  @type deployment_io_t_job_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      io_t_job_timeout_config() :: %{
-        "inProgressTimeoutInMinutes" => float()
-      }
-
-  """
-  @type io_t_job_timeout_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      request_already_in_progress_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type request_already_in_progress_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_client_device_from_core_device_error_entry() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "thingName" => String.t() | atom()
-      }
-
-  """
-  @type disassociate_client_device_from_core_device_error_entry() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      associate_service_role_to_account_response() :: %{
-        "associatedAt" => String.t() | atom()
-      }
-
-  """
-  @type associate_service_role_to_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_client_device_from_core_device_entry() :: %{
-        "thingName" => String.t() | atom()
-      }
-
-  """
-  @type disassociate_client_device_from_core_device_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      io_t_job_abort_config() :: %{
-        "criteriaList" => list(io_t_job_abort_criteria())
-      }
-
-  """
-  @type io_t_job_abort_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deployment_configuration_validation_policy() :: %{
-        "timeoutInSeconds" => integer()
-      }
-
-  """
-  @type deployment_configuration_validation_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_deployments_request() :: %{
-        optional("historyFilter") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("parentTargetArn") => String.t() | atom(),
-        optional("targetArn") => String.t() | atom()
-      }
-
-  """
-  @type list_deployments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      component_deployment_specification() :: %{
-        "componentVersion" => String.t() | atom(),
-        "configurationUpdate" => component_configuration_update(),
-        "runWith" => component_run_with()
-      }
-
-  """
-  @type component_deployment_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_client_device_with_core_device_error_entry() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "thingName" => String.t() | atom()
-      }
-
-  """
-  @type associate_client_device_with_core_device_error_entry() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_deployments_response() :: %{
-        "deployments" => list(deployment()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_deployments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_core_devices_response() :: %{
-        "coreDevices" => list(core_device()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_core_devices_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_resource_limits() :: %{
-        "cpus" => float(),
-        "memory" => float()
-      }
-
-  """
-  @type system_resource_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_role_for_account_response() :: %{
-        "associatedAt" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type get_service_role_for_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_service_role_to_account_request() :: %{
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_service_role_to_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deployment_component_update_policy() :: %{
-        "action" => list(any()),
-        "timeoutInSeconds" => integer()
-      }
-
-  """
-  @type deployment_component_update_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_container_params() :: %{
-        "devices" => list(lambda_device_mount()),
-        "memorySizeInKB" => integer(),
-        "mountROSysfs" => boolean(),
-        "volumes" => list(lambda_volume_mount())
-      }
-
-  """
-  @type lambda_container_params() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_associate_client_device_with_core_device_response() :: %{
-        "errorEntries" => list(associate_client_device_with_core_device_error_entry())
-      }
-
-  """
-  @type batch_associate_client_device_with_core_device_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
       effective_deployment_status_details() :: %{
         "errorStack" => list(String.t() | atom()),
         "errorTypes" => list(String.t() | atom())
@@ -878,143 +613,37 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      list_component_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      get_component_request() :: %{
+        optional("recipeOutputFormat") => list(any())
       }
 
   """
-  @type list_component_versions_request() :: %{(String.t() | atom()) => any()}
+  @type get_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_component_version_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("inlineRecipe") => binary(),
-        optional("lambdaFunction") => lambda_function_recipe_source(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_component_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_components_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("scope") => list(any())
-      }
-
-  """
-  @type list_components_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resolved_component_version() :: %{
-        "arn" => String.t() | atom(),
-        "componentName" => String.t() | atom(),
-        "componentVersion" => String.t() | atom(),
-        "message" => String.t() | atom(),
+      get_component_response() :: %{
         "recipe" => binary(),
-        "vendorGuidance" => list(any())
-      }
-
-  """
-  @type resolved_component_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_core_devices_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("runtime") => String.t() | atom(),
-        optional("status") => list(any()),
-        optional("thingGroupArn") => String.t() | atom()
-      }
-
-  """
-  @type list_core_devices_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_deployment_request() :: %{}
-
-  """
-  @type cancel_deployment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_component_status() :: %{
-        "componentState" => list(any()),
-        "errors" => map(),
-        "message" => String.t() | atom(),
-        "vendorGuidance" => list(any()),
-        "vendorGuidanceMessage" => String.t() | atom()
-      }
-
-  """
-  @type cloud_component_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
+        "recipeOutputFormat" => list(any()),
         "tags" => map()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type get_component_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      component_platform() :: %{
-        "attributes" => map(),
-        "name" => String.t() | atom()
+      get_component_version_artifact_request() :: %{
+        optional("iotEndpointType") => list(any()),
+        optional("s3EndpointType") => list(any())
       }
 
   """
-  @type component_platform() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_components_response() :: %{
-        "components" => list(component()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_components_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_deployment_response() :: %{
-        "deploymentId" => String.t() | atom(),
-        "iotJobArn" => String.t() | atom(),
-        "iotJobId" => String.t() | atom()
-      }
-
-  """
-  @type create_deployment_response() :: %{(String.t() | atom()) => any()}
+  @type get_component_version_artifact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1026,6 +655,36 @@ defmodule AWS.GreengrassV2 do
 
   """
   @type get_component_version_artifact_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connectivity_info_request() :: %{}
+
+  """
+  @type get_connectivity_info_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connectivity_info_response() :: %{
+        "connectivityInfo" => list(connectivity_info()),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type get_connectivity_info_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_device_request() :: %{}
+
+  """
+  @type get_core_device_request() :: %{}
 
   @typedoc """
 
@@ -1049,54 +708,55 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      describe_component_response() :: %{
-        "arn" => String.t() | atom(),
-        "componentName" => String.t() | atom(),
-        "componentVersion" => String.t() | atom(),
+      get_deployment_request() :: %{}
+
+  """
+  @type get_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_response() :: %{
+        "components" => map(),
         "creationTimestamp" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "platforms" => list(component_platform()),
-        "publisher" => String.t() | atom(),
-        "status" => cloud_component_status(),
-        "tags" => map()
+        "deploymentId" => String.t() | atom(),
+        "deploymentName" => String.t() | atom(),
+        "deploymentPolicies" => deployment_policies(),
+        "deploymentStatus" => list(any()),
+        "iotJobArn" => String.t() | atom(),
+        "iotJobConfiguration" => deployment_io_t_job_configuration(),
+        "iotJobId" => String.t() | atom(),
+        "isLatestForTarget" => boolean(),
+        "parentTargetArn" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
+        "tags" => map(),
+        "targetArn" => String.t() | atom()
       }
 
   """
-  @type describe_component_response() :: %{(String.t() | atom()) => any()}
+  @type get_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      component_configuration_update() :: %{
-        "merge" => String.t() | atom(),
-        "reset" => list(String.t() | atom())
-      }
+      get_service_role_for_account_request() :: %{}
 
   """
-  @type component_configuration_update() :: %{(String.t() | atom()) => any()}
+  @type get_service_role_for_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_connectivity_info_request() :: %{
-        required("connectivityInfo") => list(connectivity_info())
+      get_service_role_for_account_response() :: %{
+        "associatedAt" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type update_connectivity_info_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_deployment_response() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type cancel_deployment_response() :: %{(String.t() | atom()) => any()}
+  @type get_service_role_for_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1121,13 +781,24 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      list_component_versions_response() :: %{
-        "componentVersions" => list(component_version_list_item()),
-        "nextToken" => String.t() | atom()
+      internal_server_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => integer()
       }
 
   """
-  @type list_component_versions_response() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      io_t_job_abort_config() :: %{
+        "criteriaList" => list(io_t_job_abort_criteria())
+      }
+
+  """
+  @type io_t_job_abort_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1159,40 +830,6 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      core_device() :: %{
-        "architecture" => String.t() | atom(),
-        "coreDeviceThingName" => String.t() | atom(),
-        "lastStatusUpdateTimestamp" => non_neg_integer(),
-        "platform" => String.t() | atom(),
-        "runtime" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type core_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_deployment_request() :: %{}
-
-  """
-  @type delete_deployment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployment_request() :: %{}
-
-  """
-  @type get_deployment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       io_t_job_exponential_rollout_rate() :: %{
         "baseRatePerMinute" => integer(),
         "incrementFactor" => float(),
@@ -1206,32 +843,138 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      get_service_role_for_account_request() :: %{}
+      io_t_job_rate_increase_criteria() :: %{
+        "numberOfNotifiedThings" => integer(),
+        "numberOfSucceededThings" => integer()
+      }
 
   """
-  @type get_service_role_for_account_request() :: %{}
+  @type io_t_job_rate_increase_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_service_role_from_account_response() :: %{
-        "disassociatedAt" => String.t() | atom()
+      io_t_job_timeout_config() :: %{
+        "inProgressTimeoutInMinutes" => float()
       }
 
   """
-  @type disassociate_service_role_from_account_response() :: %{(String.t() | atom()) => any()}
+  @type io_t_job_timeout_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_associate_client_device_with_core_device_request() :: %{
-        optional("entries") => list(associate_client_device_with_core_device_entry())
+      lambda_container_params() :: %{
+        "devices" => list(lambda_device_mount()),
+        "memorySizeInKB" => integer(),
+        "mountROSysfs" => boolean(),
+        "volumes" => list(lambda_volume_mount())
       }
 
   """
-  @type batch_associate_client_device_with_core_device_request() :: %{
+  @type lambda_container_params() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_device_mount() :: %{
+        "addGroupOwner" => boolean(),
+        "path" => String.t() | atom(),
+        "permission" => list(any())
+      }
+
+  """
+  @type lambda_device_mount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_event_source() :: %{
+        "topic" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type lambda_event_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_execution_parameters() :: %{
+        "environmentVariables" => map(),
+        "eventSources" => list(lambda_event_source()),
+        "execArgs" => list(String.t() | atom()),
+        "inputPayloadEncodingType" => list(any()),
+        "linuxProcessParams" => lambda_linux_process_params(),
+        "maxIdleTimeInSeconds" => integer(),
+        "maxInstancesCount" => integer(),
+        "maxQueueSize" => integer(),
+        "pinned" => boolean(),
+        "statusTimeoutInSeconds" => integer(),
+        "timeoutInSeconds" => integer()
+      }
+
+  """
+  @type lambda_execution_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_function_recipe_source() :: %{
+        "componentDependencies" => map(),
+        "componentLambdaParameters" => lambda_execution_parameters(),
+        "componentName" => String.t() | atom(),
+        "componentPlatforms" => list(component_platform()),
+        "componentVersion" => String.t() | atom(),
+        "lambdaArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_function_recipe_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_linux_process_params() :: %{
+        "containerParams" => lambda_container_params(),
+        "isolationMode" => list(any())
+      }
+
+  """
+  @type lambda_linux_process_params() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_volume_mount() :: %{
+        "addGroupOwner" => boolean(),
+        "destinationPath" => String.t() | atom(),
+        "permission" => list(any()),
+        "sourcePath" => String.t() | atom()
+      }
+
+  """
+  @type lambda_volume_mount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_client_devices_associated_with_core_device_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_client_devices_associated_with_core_device_request() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -1239,68 +982,142 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      delete_core_device_request() :: %{}
-
-  """
-  @type delete_core_device_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployment_response() :: %{
-        "components" => map(),
-        "creationTimestamp" => non_neg_integer(),
-        "deploymentId" => String.t() | atom(),
-        "deploymentName" => String.t() | atom(),
-        "deploymentPolicies" => deployment_policies(),
-        "deploymentStatus" => list(any()),
-        "iotJobArn" => String.t() | atom(),
-        "iotJobConfiguration" => deployment_io_t_job_configuration(),
-        "iotJobId" => String.t() | atom(),
-        "isLatestForTarget" => boolean(),
-        "parentTargetArn" => String.t() | atom(),
-        "revisionId" => String.t() | atom(),
-        "tags" => map(),
-        "targetArn" => String.t() | atom()
-      }
-
-  """
-  @type get_deployment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_installed_components_response() :: %{
-        "installedComponents" => list(installed_component()),
+      list_client_devices_associated_with_core_device_response() :: %{
+        "associatedClientDevices" => list(associated_client_device()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_installed_components_response() :: %{(String.t() | atom()) => any()}
+  @type list_client_devices_associated_with_core_device_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      get_component_response() :: %{
-        "recipe" => binary(),
-        "recipeOutputFormat" => list(any()),
-        "tags" => map()
+      list_component_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_component_response() :: %{(String.t() | atom()) => any()}
+  @type list_component_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
+      list_component_versions_response() :: %{
+        "componentVersions" => list(component_version_list_item()),
+        "nextToken" => String.t() | atom()
+      }
 
   """
-  @type list_tags_for_resource_request() :: %{}
+  @type list_component_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_components_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("scope") => list(any())
+      }
+
+  """
+  @type list_components_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_components_response() :: %{
+        "components" => list(component()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_components_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_devices_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("runtime") => String.t() | atom(),
+        optional("status") => list(any()),
+        optional("thingGroupArn") => String.t() | atom()
+      }
+
+  """
+  @type list_core_devices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_devices_response() :: %{
+        "coreDevices" => list(core_device()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_core_devices_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployments_request() :: %{
+        optional("historyFilter") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("parentTargetArn") => String.t() | atom(),
+        optional("targetArn") => String.t() | atom()
+      }
+
+  """
+  @type list_deployments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployments_response() :: %{
+        "deployments" => list(deployment()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_deployments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_effective_deployments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_effective_deployments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_effective_deployments_response() :: %{
+        "effectiveDeployments" => list(effective_deployment()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_effective_deployments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1319,14 +1136,96 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      component() :: %{
-        "arn" => String.t() | atom(),
-        "componentName" => String.t() | atom(),
-        "latestVersion" => component_latest_version()
+      list_installed_components_response() :: %{
+        "installedComponents" => list(installed_component()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type component() :: %{(String.t() | atom()) => any()}
+  @type list_installed_components_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_already_in_progress_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type request_already_in_progress_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resolve_component_candidates_request() :: %{
+        optional("componentCandidates") => list(component_candidate()),
+        optional("platform") => component_platform()
+      }
+
+  """
+  @type resolve_component_candidates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resolve_component_candidates_response() :: %{
+        "resolvedComponentVersions" => list(resolved_component_version())
+      }
+
+  """
+  @type resolve_component_candidates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resolved_component_version() :: %{
+        "arn" => String.t() | atom(),
+        "componentName" => String.t() | atom(),
+        "componentVersion" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "recipe" => binary(),
+        "vendorGuidance" => list(any())
+      }
+
+  """
+  @type resolved_component_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1347,188 +1246,289 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      component_run_with() :: %{
-        "posixUser" => String.t() | atom(),
-        "systemResourceLimits" => system_resource_limits(),
-        "windowsUser" => String.t() | atom()
+      system_resource_limits() :: %{
+        "cpus" => float(),
+        "memory" => float()
       }
 
   """
-  @type component_run_with() :: %{(String.t() | atom()) => any()}
+  @type system_resource_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "retryAfterSeconds" => integer(),
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connectivity_info_request() :: %{
+        required("connectivityInfo") => list(connectivity_info())
+      }
+
+  """
+  @type update_connectivity_info_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connectivity_info_response() :: %{
+        "message" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type update_connectivity_info_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fields" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type associate_service_role_to_account_errors() ::
-          internal_server_exception() | validation_exception()
+          validation_exception() | internal_server_exception()
 
   @type batch_associate_client_device_with_core_device_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type batch_disassociate_client_device_from_core_device_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type cancel_deployment_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_component_version_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | request_already_in_progress_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_deployment_errors() ::
-          conflict_exception()
-          | request_already_in_progress_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | request_already_in_progress_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_component_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_core_device_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_deployment_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_component_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type disassociate_service_role_from_account_errors() :: internal_server_exception()
 
   @type get_component_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_component_version_artifact_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
-  @type get_connectivity_info_errors() :: internal_server_exception() | validation_exception()
+  @type get_connectivity_info_errors() :: validation_exception() | internal_server_exception()
 
   @type get_core_device_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_deployment_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_service_role_for_account_errors() :: internal_server_exception()
 
   @type list_client_devices_associated_with_core_device_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type list_component_versions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_components_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_core_devices_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_deployments_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_effective_deployments_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_installed_components_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_tags_for_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
-
-  @type resolve_component_candidates_errors() ::
-          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type list_component_versions_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_components_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_core_devices_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_deployments_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_effective_deployments_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_installed_components_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type resolve_component_candidates_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
-  @type update_connectivity_info_errors() :: internal_server_exception() | validation_exception()
+  @type update_connectivity_info_errors() :: validation_exception() | internal_server_exception()
 
   def metadata do
     %{
@@ -2249,15 +2249,15 @@ defmodule AWS.GreengrassV2 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2296,15 +2296,15 @@ defmodule AWS.GreengrassV2 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2343,8 +2343,8 @@ defmodule AWS.GreengrassV2 do
     query_params = []
 
     query_params =
-      if !is_nil(scope) do
-        [{"scope", scope} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2357,8 +2357,8 @@ defmodule AWS.GreengrassV2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(scope) do
+        [{"scope", scope} | query_params]
       else
         query_params
       end
@@ -2435,22 +2435,8 @@ defmodule AWS.GreengrassV2 do
     query_params = []
 
     query_params =
-      if !is_nil(thing_group_arn) do
-        [{"thingGroupArn", thing_group_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(runtime) do
-        [{"runtime", runtime} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2463,8 +2449,22 @@ defmodule AWS.GreengrassV2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(runtime) do
+        [{"runtime", runtime} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(thing_group_arn) do
+        [{"thingGroupArn", thing_group_arn} | query_params]
       else
         query_params
       end
@@ -2504,22 +2504,8 @@ defmodule AWS.GreengrassV2 do
     query_params = []
 
     query_params =
-      if !is_nil(target_arn) do
-        [{"targetArn", target_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(parent_target_arn) do
-        [{"parentTargetArn", parent_target_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(history_filter) do
+        [{"historyFilter", history_filter} | query_params]
       else
         query_params
       end
@@ -2532,8 +2518,22 @@ defmodule AWS.GreengrassV2 do
       end
 
     query_params =
-      if !is_nil(history_filter) do
-        [{"historyFilter", history_filter} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(parent_target_arn) do
+        [{"parentTargetArn", parent_target_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target_arn) do
+        [{"targetArn", target_arn} | query_params]
       else
         query_params
       end
@@ -2572,15 +2572,15 @@ defmodule AWS.GreengrassV2 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2655,8 +2655,8 @@ defmodule AWS.GreengrassV2 do
     query_params = []
 
     query_params =
-      if !is_nil(topology_filter) do
-        [{"topologyFilter", topology_filter} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2669,8 +2669,8 @@ defmodule AWS.GreengrassV2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(topology_filter) do
+        [{"topologyFilter", topology_filter} | query_params]
       else
         query_params
       end

@@ -28,49 +28,6 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Example:
 
-      get_findings_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type get_findings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_scan_request() :: %{
-        optional("analysisType") => list(any()),
-        optional("clientToken") => String.t() | atom(),
-        optional("scanType") => list(any()),
-        optional("tags") => map(),
-        required("resourceId") => list(),
-        required("scanName") => String.t() | atom()
-      }
-
-  """
-  @type create_scan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "errorCode" => [String.t() | atom()],
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       access_denied_exception() :: %{
         "errorCode" => [String.t() | atom()],
         "message" => [String.t() | atom()],
@@ -80,68 +37,6 @@ defmodule AWS.CodeGuruSecurity do
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_upload_url_response() :: %{
-        "codeArtifactId" => String.t() | atom(),
-        "requestHeaders" => map(),
-        "s3Url" => String.t() | atom()
-      }
-
-  """
-  @type create_upload_url_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_metrics_summary_response() :: %{
-        "metricsSummary" => metrics_summary()
-      }
-
-  """
-  @type get_metrics_summary_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_identifier() :: %{
-        "findingId" => [String.t() | atom()],
-        "scanName" => [String.t() | atom()]
-      }
-
-  """
-  @type finding_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scans_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_scans_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "errorCode" => [String.t() | atom()],
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,13 +57,38 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "error" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
+      batch_get_findings_error() :: %{
+        "errorCode" => list(any()),
+        "findingId" => [String.t() | atom()],
+        "message" => [String.t() | atom()],
+        "scanName" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type batch_get_findings_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_findings_request() :: %{
+        required("findingIdentifiers") => list(finding_identifier())
+      }
+
+  """
+  @type batch_get_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_findings_response() :: %{
+        "failedFindings" => list(batch_get_findings_error()),
+        "findings" => list(finding())
+      }
+
+  """
+  @type batch_get_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -198,7 +118,7 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Example:
 
-      resource_not_found_exception() :: %{
+      conflict_exception() :: %{
         "errorCode" => [String.t() | atom()],
         "message" => [String.t() | atom()],
         "resourceId" => [String.t() | atom()],
@@ -206,75 +126,38 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("tags") => map()
+      create_scan_request() :: %{
+        optional("analysisType") => list(any()),
+        optional("clientToken") => String.t() | atom(),
+        optional("scanType") => list(any()),
+        optional("tags") => map(),
+        required("resourceId") => list(),
+        required("scanName") => String.t() | atom()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type create_scan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_get_findings_response() :: %{
-        "failedFindings" => list(batch_get_findings_error()),
-        "findings" => list(finding())
+      create_scan_response() :: %{
+        "resourceId" => list(),
+        "runId" => String.t() | atom(),
+        "scanName" => String.t() | atom(),
+        "scanNameArn" => String.t() | atom(),
+        "scanState" => list(any())
       }
 
   """
-  @type batch_get_findings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_findings_response() :: %{
-        "findings" => list(finding()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_findings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      remediation() :: %{
-        "recommendation" => recommendation(),
-        "suggestedFixes" => list(suggested_fix())
-      }
-
-  """
-  @type remediation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_findings_metrics_response() :: %{
-        "findingsMetrics" => list(account_findings_metric()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_findings_metrics_response() :: %{(String.t() | atom()) => any()}
+  @type create_scan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -291,161 +174,40 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Example:
 
-      conflict_exception() :: %{
-        "errorCode" => [String.t() | atom()],
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+      create_upload_url_response() :: %{
+        "codeArtifactId" => String.t() | atom(),
+        "requestHeaders" => map(),
+        "s3Url" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type create_upload_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
+      encryption_config() :: %{
+        "kmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+  @type encryption_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
+      file_path() :: %{
+        "codeSnippet" => list(code_line()),
+        "endLine" => [integer()],
+        "name" => [String.t() | atom()],
+        "path" => [String.t() | atom()],
+        "startLine" => [integer()]
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_configuration_request() :: %{}
-
-  """
-  @type get_account_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_findings_metrics_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("endDate") => [non_neg_integer()],
-        required("startDate") => [non_neg_integer()]
-      }
-
-  """
-  @type list_findings_metrics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_configuration_response() :: %{
-        "encryptionConfig" => encryption_config()
-      }
-
-  """
-  @type update_account_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_metrics_summary_request() :: %{
-        required("date") => [non_neg_integer()]
-      }
-
-  """
-  @type get_metrics_summary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suggested_fix() :: %{
-        "code" => [String.t() | atom()],
-        "description" => [String.t() | atom()]
-      }
-
-  """
-  @type suggested_fix() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_scan_response() :: %{
-        "analysisType" => list(any()),
-        "createdAt" => [non_neg_integer()],
-        "errorMessage" => String.t() | atom(),
-        "numberOfRevisions" => [float()],
-        "runId" => String.t() | atom(),
-        "scanName" => String.t() | atom(),
-        "scanNameArn" => String.t() | atom(),
-        "scanState" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type get_scan_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vulnerability() :: %{
-        "filePath" => file_path(),
-        "id" => [String.t() | atom()],
-        "itemCount" => [integer()],
-        "referenceUrls" => list([String.t() | atom()]()),
-        "relatedVulnerabilities" => list([String.t() | atom()]())
-      }
-
-  """
-  @type vulnerability() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation() :: %{
-        "text" => [String.t() | atom()],
-        "url" => [String.t() | atom()]
-      }
-
-  """
-  @type recommendation() :: %{(String.t() | atom()) => any()}
+  @type file_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -477,6 +239,42 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Example:
 
+      finding_identifier() :: %{
+        "findingId" => [String.t() | atom()],
+        "scanName" => [String.t() | atom()]
+      }
+
+  """
+  @type finding_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_metrics_value_per_severity() :: %{
+        "critical" => [float()],
+        "high" => [float()],
+        "info" => [float()],
+        "low" => [float()],
+        "medium" => [float()]
+      }
+
+  """
+  @type finding_metrics_value_per_severity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_configuration_request() :: %{}
+
+  """
+  @type get_account_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_account_configuration_response() :: %{
         "encryptionConfig" => encryption_config()
       }
@@ -488,12 +286,237 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Example:
 
-      encryption_config() :: %{
-        "kmsKeyArn" => String.t() | atom()
+      get_findings_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
       }
 
   """
-  @type encryption_config() :: %{(String.t() | atom()) => any()}
+  @type get_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_findings_response() :: %{
+        "findings" => list(finding()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_findings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metrics_summary_request() :: %{
+        required("date") => [non_neg_integer()]
+      }
+
+  """
+  @type get_metrics_summary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metrics_summary_response() :: %{
+        "metricsSummary" => metrics_summary()
+      }
+
+  """
+  @type get_metrics_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_scan_request() :: %{
+        optional("runId") => String.t() | atom()
+      }
+
+  """
+  @type get_scan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_scan_response() :: %{
+        "analysisType" => list(any()),
+        "createdAt" => [non_neg_integer()],
+        "errorMessage" => String.t() | atom(),
+        "numberOfRevisions" => [float()],
+        "runId" => String.t() | atom(),
+        "scanName" => String.t() | atom(),
+        "scanNameArn" => String.t() | atom(),
+        "scanState" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_scan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "error" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_findings_metrics_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("endDate") => [non_neg_integer()],
+        required("startDate") => [non_neg_integer()]
+      }
+
+  """
+  @type list_findings_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_findings_metrics_response() :: %{
+        "findingsMetrics" => list(account_findings_metric()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_findings_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scans_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_scans_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scans_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "summaries" => list(scan_summary())
+      }
+
+  """
+  @type list_scans_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metrics_summary() :: %{
+        "categoriesWithMostFindings" => list(category_with_finding_num()),
+        "date" => [non_neg_integer()],
+        "openFindings" => finding_metrics_value_per_severity(),
+        "scansWithMostOpenCriticalFindings" => list(scan_name_with_finding_num()),
+        "scansWithMostOpenFindings" => list(scan_name_with_finding_num())
+      }
+
+  """
+  @type metrics_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation() :: %{
+        "text" => [String.t() | atom()],
+        "url" => [String.t() | atom()]
+      }
+
+  """
+  @type recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation() :: %{
+        "recommendation" => recommendation(),
+        "suggestedFixes" => list(suggested_fix())
+      }
+
+  """
+  @type remediation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
+        "id" => [String.t() | atom()],
+        "subResourceId" => [String.t() | atom()]
+      }
+
+  """
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "errorCode" => [String.t() | atom()],
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_name_with_finding_num() :: %{
+        "findingNumber" => [integer()],
+        "scanName" => [String.t() | atom()]
+      }
+
+  """
+  @type scan_name_with_finding_num() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -515,6 +538,72 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Example:
 
+      suggested_fix() :: %{
+        "code" => [String.t() | atom()],
+        "description" => [String.t() | atom()]
+      }
+
+  """
+  @type suggested_fix() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "errorCode" => [String.t() | atom()],
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_account_configuration_request() :: %{
         required("encryptionConfig") => encryption_config()
       }
@@ -526,232 +615,143 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Example:
 
-      get_scan_request() :: %{
-        optional("runId") => String.t() | atom()
+      update_account_configuration_response() :: %{
+        "encryptionConfig" => encryption_config()
       }
 
   """
-  @type get_scan_request() :: %{(String.t() | atom()) => any()}
+  @type update_account_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      file_path() :: %{
-        "codeSnippet" => list(code_line()),
-        "endLine" => [integer()],
-        "name" => [String.t() | atom()],
-        "path" => [String.t() | atom()],
-        "startLine" => [integer()]
-      }
-
-  """
-  @type file_path() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scan_name_with_finding_num() :: %{
-        "findingNumber" => [integer()],
-        "scanName" => [String.t() | atom()]
-      }
-
-  """
-  @type scan_name_with_finding_num() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_findings_request() :: %{
-        required("findingIdentifiers") => list(finding_identifier())
-      }
-
-  """
-  @type batch_get_findings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource() :: %{
-        "id" => [String.t() | atom()],
-        "subResourceId" => [String.t() | atom()]
-      }
-
-  """
-  @type resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scans_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "summaries" => list(scan_summary())
-      }
-
-  """
-  @type list_scans_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_findings_error() :: %{
-        "errorCode" => list(any()),
-        "findingId" => [String.t() | atom()],
+      validation_exception() :: %{
+        "errorCode" => [String.t() | atom()],
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t() | atom()],
-        "scanName" => String.t() | atom()
+        "reason" => list(any())
       }
 
   """
-  @type batch_get_findings_error() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
 
   """
-  @type list_tags_for_resource_request() :: %{}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      metrics_summary() :: %{
-        "categoriesWithMostFindings" => list(category_with_finding_num()),
-        "date" => [non_neg_integer()],
-        "openFindings" => finding_metrics_value_per_severity(),
-        "scansWithMostOpenCriticalFindings" => list(scan_name_with_finding_num()),
-        "scansWithMostOpenFindings" => list(scan_name_with_finding_num())
+      vulnerability() :: %{
+        "filePath" => file_path(),
+        "id" => [String.t() | atom()],
+        "itemCount" => [integer()],
+        "referenceUrls" => list([String.t() | atom()]()),
+        "relatedVulnerabilities" => list([String.t() | atom()]())
       }
 
   """
-  @type metrics_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_metrics_value_per_severity() :: %{
-        "critical" => [float()],
-        "high" => [float()],
-        "info" => [float()],
-        "low" => [float()],
-        "medium" => [float()]
-      }
-
-  """
-  @type finding_metrics_value_per_severity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_scan_response() :: %{
-        "resourceId" => list(),
-        "runId" => String.t() | atom(),
-        "scanName" => String.t() | atom(),
-        "scanNameArn" => String.t() | atom(),
-        "scanState" => list(any())
-      }
-
-  """
-  @type create_scan_response() :: %{(String.t() | atom()) => any()}
+  @type vulnerability() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_findings_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_scan_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_upload_url_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_account_configuration_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_findings_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_metrics_summary_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_scan_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_findings_metrics_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_scans_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_account_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -906,8 +906,8 @@ defmodule AWS.CodeGuruSecurity do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -920,8 +920,8 @@ defmodule AWS.CodeGuruSecurity do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -1011,15 +1011,8 @@ defmodule AWS.CodeGuruSecurity do
     query_params = []
 
     query_params =
-      if !is_nil(start_date) do
-        [{"startDate", start_date} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(end_date) do
+        [{"endDate", end_date} | query_params]
       else
         query_params
       end
@@ -1032,8 +1025,15 @@ defmodule AWS.CodeGuruSecurity do
       end
 
     query_params =
-      if !is_nil(end_date) do
-        [{"endDate", end_date} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_date) do
+        [{"startDate", start_date} | query_params]
       else
         query_params
       end
@@ -1059,15 +1059,15 @@ defmodule AWS.CodeGuruSecurity do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

@@ -88,95 +88,289 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      delete_login_profile_request() :: %{
-        optional("UserName") => String.t() | atom()
+      accept_delegation_request_request() :: %{
+        required("DelegationRequestId") => String.t() | atom()
       }
       
   """
-  @type delete_login_profile_request() :: %{(String.t() | atom()) => any()}
+  @type accept_delegation_request_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_account_authorization_details_request() :: %{
-        optional("Filter") => list(list(any())()),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
+      access_detail() :: %{
+        "EntityPath" => String.t() | atom(),
+        "LastAuthenticatedTime" => non_neg_integer(),
+        "Region" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
+        "ServiceNamespace" => String.t() | atom(),
+        "TotalAuthenticatedEntities" => integer()
       }
       
   """
-  @type get_account_authorization_details_request() :: %{(String.t() | atom()) => any()}
+  @type access_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      organization_not_in_all_features_mode_exception() :: %{
+      access_key() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "CreateDate" => non_neg_integer(),
+        "SecretAccessKey" => String.t() | atom(),
+        "Status" => list(any()),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type access_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_key_last_used() :: %{
+        "LastUsedDate" => non_neg_integer(),
+        "Region" => String.t() | atom(),
+        "ServiceName" => String.t() | atom()
+      }
+      
+  """
+  @type access_key_last_used() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_key_metadata() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "CreateDate" => non_neg_integer(),
+        "Status" => list(any()),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type access_key_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_not_management_or_delegated_administrator_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type organization_not_in_all_features_mode_exception() :: %{(String.t() | atom()) => any()}
+  @type account_not_management_or_delegated_administrator_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
-      set_default_policy_version_request() :: %{
-        required("PolicyArn") => String.t() | atom(),
-        required("VersionId") => String.t() | atom()
+      add_client_id_to_open_id_connect_provider_request() :: %{
+        required("ClientID") => String.t() | atom(),
+        required("OpenIDConnectProviderArn") => String.t() | atom()
       }
       
   """
-  @type set_default_policy_version_request() :: %{(String.t() | atom()) => any()}
+  @type add_client_id_to_open_id_connect_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      policy() :: %{
-        "Arn" => String.t() | atom(),
-        "AttachmentCount" => integer(),
-        "CreateDate" => non_neg_integer(),
-        "DefaultVersionId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "IsAttachable" => boolean(),
-        "Path" => String.t() | atom(),
-        "PermissionsBoundaryUsageCount" => integer(),
-        "PolicyId" => String.t() | atom(),
-        "PolicyName" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "UpdateDate" => non_neg_integer()
-      }
-      
-  """
-  @type policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_assume_role_policy_request() :: %{
-        required("PolicyDocument") => String.t() | atom(),
+      add_role_to_instance_profile_request() :: %{
+        required("InstanceProfileName") => String.t() | atom(),
         required("RoleName") => String.t() | atom()
       }
       
   """
-  @type update_assume_role_policy_request() :: %{(String.t() | atom()) => any()}
+  @type add_role_to_instance_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_user_policies_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "PolicyNames" => list(String.t() | atom())
+      add_user_to_group_request() :: %{
+        required("GroupName") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type list_user_policies_response() :: %{(String.t() | atom()) => any()}
+  @type add_user_to_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_delegation_request_request() :: %{
+        required("DelegationRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type associate_delegation_request_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_group_policy_request() :: %{
+        required("GroupName") => String.t() | atom(),
+        required("PolicyArn") => String.t() | atom()
+      }
+      
+  """
+  @type attach_group_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_role_policy_request() :: %{
+        required("PolicyArn") => String.t() | atom(),
+        required("RoleName") => String.t() | atom()
+      }
+      
+  """
+  @type attach_role_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_user_policy_request() :: %{
+        required("PolicyArn") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type attach_user_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attached_permissions_boundary() :: %{
+        "PermissionsBoundaryArn" => String.t() | atom(),
+        "PermissionsBoundaryType" => list(any())
+      }
+      
+  """
+  @type attached_permissions_boundary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attached_policy() :: %{
+        "PolicyArn" => String.t() | atom(),
+        "PolicyName" => String.t() | atom()
+      }
+      
+  """
+  @type attached_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      caller_is_not_management_account_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type caller_is_not_management_account_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      change_password_request() :: %{
+        required("NewPassword") => String.t() | atom(),
+        required("OldPassword") => String.t() | atom()
+      }
+      
+  """
+  @type change_password_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_modification_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      context_entry() :: %{
+        "ContextKeyName" => String.t() | atom(),
+        "ContextKeyType" => list(any()),
+        "ContextKeyValues" => list(String.t() | atom())
+      }
+      
+  """
+  @type context_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_access_key_request() :: %{
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type create_access_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_access_key_response() :: %{
+        "AccessKey" => access_key()
+      }
+      
+  """
+  @type create_access_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_account_alias_request() :: %{
+        required("AccountAlias") => String.t() | atom()
+      }
+      
+  """
+  @type create_account_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_delegation_request_request() :: %{
+        optional("OnlySendByOwner") => boolean(),
+        optional("OwnerAccountId") => String.t() | atom(),
+        optional("RedirectUrl") => String.t() | atom(),
+        optional("RequestMessage") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
+        required("NotificationChannel") => String.t() | atom(),
+        required("Permissions") => delegation_permission(),
+        required("RequestorWorkflowId") => String.t() | atom(),
+        required("SessionDuration") => integer()
+      }
+      
+  """
+  @type create_delegation_request_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -194,13 +388,357 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      upload_signing_certificate_request() :: %{
-        optional("UserName") => String.t() | atom(),
-        required("CertificateBody") => String.t() | atom()
+      create_group_request() :: %{
+        optional("Path") => String.t() | atom(),
+        required("GroupName") => String.t() | atom()
       }
       
   """
-  @type upload_signing_certificate_request() :: %{(String.t() | atom()) => any()}
+  @type create_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_group_response() :: %{
+        "Group" => group()
+      }
+      
+  """
+  @type create_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instance_profile_request() :: %{
+        optional("Path") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("InstanceProfileName") => String.t() | atom()
+      }
+      
+  """
+  @type create_instance_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instance_profile_response() :: %{
+        "InstanceProfile" => instance_profile()
+      }
+      
+  """
+  @type create_instance_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_login_profile_request() :: %{
+        optional("Password") => String.t() | atom(),
+        optional("PasswordResetRequired") => boolean(),
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type create_login_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_login_profile_response() :: %{
+        "LoginProfile" => login_profile()
+      }
+      
+  """
+  @type create_login_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_open_id_connect_provider_request() :: %{
+        optional("ClientIDList") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        optional("ThumbprintList") => list(String.t() | atom()),
+        required("Url") => String.t() | atom()
+      }
+      
+  """
+  @type create_open_id_connect_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_open_id_connect_provider_response() :: %{
+        "OpenIDConnectProviderArn" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type create_open_id_connect_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_policy_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Path") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("PolicyDocument") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom()
+      }
+      
+  """
+  @type create_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_policy_response() :: %{
+        "Policy" => policy()
+      }
+      
+  """
+  @type create_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_policy_version_request() :: %{
+        optional("SetAsDefault") => boolean(),
+        required("PolicyArn") => String.t() | atom(),
+        required("PolicyDocument") => String.t() | atom()
+      }
+      
+  """
+  @type create_policy_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_policy_version_response() :: %{
+        "PolicyVersion" => policy_version()
+      }
+      
+  """
+  @type create_policy_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_role_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("MaxSessionDuration") => integer(),
+        optional("Path") => String.t() | atom(),
+        optional("PermissionsBoundary") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("AssumeRolePolicyDocument") => String.t() | atom(),
+        required("RoleName") => String.t() | atom()
+      }
+      
+  """
+  @type create_role_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_role_response() :: %{
+        "Role" => role()
+      }
+      
+  """
+  @type create_role_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_saml_provider_request() :: %{
+        optional("AddPrivateKey") => String.t() | atom(),
+        optional("AssertionEncryptionMode") => list(any()),
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom(),
+        required("SAMLMetadataDocument") => String.t() | atom()
+      }
+      
+  """
+  @type create_saml_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_saml_provider_response() :: %{
+        "SAMLProviderArn" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type create_saml_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_service_linked_role_request() :: %{
+        optional("CustomSuffix") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("AWSServiceName") => String.t() | atom()
+      }
+      
+  """
+  @type create_service_linked_role_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_service_linked_role_response() :: %{
+        "Role" => role()
+      }
+      
+  """
+  @type create_service_linked_role_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_service_specific_credential_request() :: %{
+        optional("CredentialAgeDays") => integer(),
+        required("ServiceName") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type create_service_specific_credential_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_service_specific_credential_response() :: %{
+        "ServiceSpecificCredential" => service_specific_credential()
+      }
+      
+  """
+  @type create_service_specific_credential_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_request() :: %{
+        optional("Path") => String.t() | atom(),
+        optional("PermissionsBoundary") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type create_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_response() :: %{
+        "User" => user()
+      }
+      
+  """
+  @type create_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_virtual_mfa_device_request() :: %{
+        optional("Path") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("VirtualMFADeviceName") => String.t() | atom()
+      }
+      
+  """
+  @type create_virtual_mfa_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_virtual_mfa_device_response() :: %{
+        "VirtualMFADevice" => virtual_mfa_device()
+      }
+      
+  """
+  @type create_virtual_mfa_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      credential_report_expired_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type credential_report_expired_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      credential_report_not_present_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type credential_report_not_present_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      credential_report_not_ready_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type credential_report_not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deactivate_mfa_device_request() :: %{
+        optional("UserName") => String.t() | atom(),
+        required("SerialNumber") => String.t() | atom()
+      }
+      
+  """
+  @type deactivate_mfa_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delegation_permission() :: %{
+        "Parameters" => list(policy_parameter()),
+        "PolicyTemplateArn" => String.t() | atom()
+      }
+      
+  """
+  @type delegation_permission() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -236,393 +774,35 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      list_saml_provider_tags_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("SAMLProviderArn") => String.t() | atom()
+      delete_access_key_request() :: %{
+        optional("UserName") => String.t() | atom(),
+        required("AccessKeyId") => String.t() | atom()
       }
       
   """
-  @type list_saml_provider_tags_request() :: %{(String.t() | atom()) => any()}
+  @type delete_access_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_role_policy_request() :: %{
-        required("PolicyDocument") => String.t() | atom(),
-        required("PolicyName") => String.t() | atom(),
-        required("RoleName") => String.t() | atom()
+      delete_account_alias_request() :: %{
+        required("AccountAlias") => String.t() | atom()
       }
       
   """
-  @type put_role_policy_request() :: %{(String.t() | atom()) => any()}
+  @type delete_account_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_policies_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("OnlyAttached") => boolean(),
-        optional("PathPrefix") => String.t() | atom(),
-        optional("PolicyUsageFilter") => list(any()),
-        optional("Scope") => list(any())
-      }
-      
-  """
-  @type list_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      server_certificate() :: %{
-        "CertificateBody" => String.t() | atom(),
-        "CertificateChain" => String.t() | atom(),
-        "ServerCertificateMetadata" => server_certificate_metadata(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type server_certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_instance_profiles_for_role_response() :: %{
-        "InstanceProfiles" => list(instance_profile()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type list_instance_profiles_for_role_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deletion_task_failure_reason_type() :: %{
-        "Reason" => String.t() | atom(),
-        "RoleUsageList" => list(role_usage_type())
-      }
-      
-  """
-  @type deletion_task_failure_reason_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_open_id_connect_provider_request() :: %{
-        required("OpenIDConnectProviderArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_open_id_connect_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_access_not_enabled_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type service_access_not_enabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reset_service_specific_credential_response() :: %{
-        "ServiceSpecificCredential" => service_specific_credential()
-      }
-      
-  """
-  @type reset_service_specific_credential_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_instance_profiles_for_role_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type list_instance_profiles_for_role_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_account_password_policy_request() :: %{
-        optional("AllowUsersToChangePassword") => boolean(),
-        optional("HardExpiry") => boolean(),
-        optional("MaxPasswordAge") => integer(),
-        optional("MinimumPasswordLength") => integer(),
-        optional("PasswordReusePrevention") => integer(),
-        optional("RequireLowercaseCharacters") => boolean(),
-        optional("RequireNumbers") => boolean(),
-        optional("RequireSymbols") => boolean(),
-        optional("RequireUppercaseCharacters") => boolean()
-      }
-      
-  """
-  @type update_account_password_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_group_request() :: %{
-        optional("Path") => String.t() | atom(),
-        required("GroupName") => String.t() | atom()
-      }
-      
-  """
-  @type create_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_instance_profile_response() :: %{
-        "InstanceProfile" => instance_profile()
-      }
-      
-  """
-  @type get_instance_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_user_permissions_boundary_request() :: %{
-        required("PermissionsBoundary") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type put_user_permissions_boundary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_saml_provider_response() :: %{
-        "AssertionEncryptionMode" => list(any()),
-        "CreateDate" => non_neg_integer(),
-        "PrivateKeyList" => list(saml_private_key()),
-        "SAMLMetadataDocument" => String.t() | atom(),
-        "SAMLProviderUUID" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "ValidUntil" => non_neg_integer()
-      }
-      
-  """
-  @type get_saml_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_groups_for_user_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type list_groups_for_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mfa_device() :: %{
-        "EnableDate" => non_neg_integer(),
-        "SerialNumber" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type mfa_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_not_supported_exception() :: %{
+      delete_conflict_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type service_not_supported_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_service_last_accessed_details_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_service_last_accessed_details_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_credential_report_response() :: %{
-        "Description" => String.t() | atom(),
-        "State" => list(any())
-      }
-      
-  """
-  @type generate_credential_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_mfa_device_tags_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("SerialNumber") => String.t() | atom()
-      }
-      
-  """
-  @type list_mfa_device_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_role_policy_request() :: %{
-        required("PolicyName") => String.t() | atom(),
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_role_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_login_profile_response() :: %{
-        "LoginProfile" => login_profile()
-      }
-      
-  """
-  @type get_login_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_detail() :: %{
-        "EntityPath" => String.t() | atom(),
-        "LastAuthenticatedTime" => non_neg_integer(),
-        "Region" => String.t() | atom(),
-        "ServiceName" => String.t() | atom(),
-        "ServiceNamespace" => String.t() | atom(),
-        "TotalAuthenticatedEntities" => integer()
-      }
-      
-  """
-  @type access_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_last_accessed() :: %{
-        "LastAuthenticated" => non_neg_integer(),
-        "LastAuthenticatedEntity" => String.t() | atom(),
-        "LastAuthenticatedRegion" => String.t() | atom(),
-        "ServiceName" => String.t() | atom(),
-        "ServiceNamespace" => String.t() | atom(),
-        "TotalAuthenticatedEntities" => integer(),
-        "TrackedActionsLastAccessed" => list(tracked_action_last_accessed())
-      }
-      
-  """
-  @type service_last_accessed() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_context_keys_for_custom_policy_request() :: %{
-        required("PolicyInputList") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_context_keys_for_custom_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      signing_certificate() :: %{
-        "CertificateBody" => String.t() | atom(),
-        "CertificateId" => String.t() | atom(),
-        "Status" => list(any()),
-        "UploadDate" => non_neg_integer(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type signing_certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      saml_provider_list_entry() :: %{
-        "Arn" => String.t() | atom(),
-        "CreateDate" => non_neg_integer(),
-        "ValidUntil" => non_neg_integer()
-      }
-      
-  """
-  @type saml_provider_list_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      concurrent_modification_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_delegation_request_request() :: %{
-        optional("DelegationPermissionCheck") => boolean(),
-        required("DelegationRequestId") => String.t() | atom()
-      }
-      
-  """
-  @type get_delegation_request_request() :: %{(String.t() | atom()) => any()}
+  @type delete_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -640,124 +820,34 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      list_server_certificate_tags_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("ServerCertificateName") => String.t() | atom()
+      delete_group_request() :: %{
+        required("GroupName") => String.t() | atom()
       }
       
   """
-  @type list_server_certificate_tags_request() :: %{(String.t() | atom()) => any()}
+  @type delete_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_service_last_accessed_details_with_entities_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("JobId") => String.t() | atom(),
-        required("ServiceNamespace") => String.t() | atom()
+      delete_instance_profile_request() :: %{
+        required("InstanceProfileName") => String.t() | atom()
       }
       
   """
-  @type get_service_last_accessed_details_with_entities_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type delete_instance_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_virtual_mfa_devices_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "VirtualMFADevices" => list(virtual_mfa_device())
-      }
-      
-  """
-  @type list_virtual_mfa_devices_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_server_certificate_response() :: %{
-        "ServerCertificate" => server_certificate()
-      }
-      
-  """
-  @type get_server_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unmodifiable_entity_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unmodifiable_entity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_user_from_group_request() :: %{
-        required("GroupName") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type remove_user_from_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_organizations_root_sessions_request() :: %{}
-      
-  """
-  @type disable_organizations_root_sessions_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_role_policy_request() :: %{
-        required("PolicyName") => String.t() | atom(),
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type get_role_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_access_keys_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
+      delete_login_profile_request() :: %{
         optional("UserName") => String.t() | atom()
       }
       
   """
-  @type list_access_keys_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      context_entry() :: %{
-        "ContextKeyName" => String.t() | atom(),
-        "ContextKeyType" => list(any()),
-        "ContextKeyValues" => list(String.t() | atom())
-      }
-      
-  """
-  @type context_entry() :: %{(String.t() | atom()) => any()}
+  @type delete_login_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -774,82 +864,126 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      tag_policy_request() :: %{
+      delete_policy_request() :: %{
+        required("PolicyArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_policy_version_request() :: %{
         required("PolicyArn") => String.t() | atom(),
-        required("Tags") => list(tag())
+        required("VersionId") => String.t() | atom()
       }
       
   """
-  @type tag_policy_request() :: %{(String.t() | atom()) => any()}
+  @type delete_policy_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_group_policy_response() :: %{
-        "GroupName" => String.t() | atom(),
-        "PolicyDocument" => String.t() | atom(),
-        "PolicyName" => String.t() | atom()
+      delete_role_permissions_boundary_request() :: %{
+        required("RoleName") => String.t() | atom()
       }
       
   """
-  @type get_group_policy_response() :: %{(String.t() | atom()) => any()}
+  @type delete_role_permissions_boundary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      enable_organizations_root_sessions_request() :: %{}
+      delete_role_policy_request() :: %{
+        required("PolicyName") => String.t() | atom(),
+        required("RoleName") => String.t() | atom()
+      }
       
   """
-  @type enable_organizations_root_sessions_request() :: %{}
+  @type delete_role_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_role_description_response() :: %{
-        "Role" => role()
+      delete_role_request() :: %{
+        required("RoleName") => String.t() | atom()
       }
       
   """
-  @type update_role_description_response() :: %{(String.t() | atom()) => any()}
+  @type delete_role_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      statement() :: %{
-        "EndPosition" => position(),
-        "SourcePolicyId" => String.t() | atom(),
-        "SourcePolicyType" => list(any()),
-        "StartPosition" => position()
+      delete_saml_provider_request() :: %{
+        required("SAMLProviderArn") => String.t() | atom()
       }
       
   """
-  @type statement() :: %{(String.t() | atom()) => any()}
+  @type delete_saml_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      report_generation_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
+      delete_server_certificate_request() :: %{
+        required("ServerCertificateName") => String.t() | atom()
       }
       
   """
-  @type report_generation_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_server_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      entity_already_exists_exception() :: %{
-        "message" => String.t() | atom()
+      delete_service_linked_role_request() :: %{
+        required("RoleName") => String.t() | atom()
       }
       
   """
-  @type entity_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_service_linked_role_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_linked_role_response() :: %{
+        "DeletionTaskId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_service_linked_role_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_specific_credential_request() :: %{
+        optional("UserName") => String.t() | atom(),
+        required("ServiceSpecificCredentialId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_service_specific_credential_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_signing_certificate_request() :: %{
+        optional("UserName") => String.t() | atom(),
+        required("CertificateId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_signing_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -867,63 +1001,252 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      create_saml_provider_response() :: %{
-        "SAMLProviderArn" => String.t() | atom(),
-        "Tags" => list(tag())
+      delete_user_permissions_boundary_request() :: %{
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type create_saml_provider_response() :: %{(String.t() | atom()) => any()}
+  @type delete_user_permissions_boundary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      role_detail() :: %{
-        "Arn" => String.t() | atom(),
-        "AssumeRolePolicyDocument" => String.t() | atom(),
-        "AttachedManagedPolicies" => list(attached_policy()),
-        "CreateDate" => non_neg_integer(),
-        "InstanceProfileList" => list(instance_profile()),
-        "Path" => String.t() | atom(),
-        "PermissionsBoundary" => attached_permissions_boundary(),
-        "RoleId" => String.t() | atom(),
-        "RoleLastUsed" => role_last_used(),
-        "RoleName" => String.t() | atom(),
-        "RolePolicyList" => list(policy_detail()),
-        "Tags" => list(tag())
+      delete_user_policy_request() :: %{
+        required("PolicyName") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type role_detail() :: %{(String.t() | atom()) => any()}
+  @type delete_user_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      delete_user_request() :: %{
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type delete_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      upload_server_certificate_request() :: %{
-        optional("CertificateChain") => String.t() | atom(),
-        optional("Path") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("CertificateBody") => String.t() | atom(),
-        required("PrivateKey") => String.t() | atom(),
-        required("ServerCertificateName") => String.t() | atom()
+      delete_virtual_mfa_device_request() :: %{
+        required("SerialNumber") => String.t() | atom()
       }
       
   """
-  @type upload_server_certificate_request() :: %{(String.t() | atom()) => any()}
+  @type delete_virtual_mfa_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deletion_task_failure_reason_type() :: %{
+        "Reason" => String.t() | atom(),
+        "RoleUsageList" => list(role_usage_type())
+      }
+      
+  """
+  @type deletion_task_failure_reason_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_group_policy_request() :: %{
+        required("GroupName") => String.t() | atom(),
+        required("PolicyArn") => String.t() | atom()
+      }
+      
+  """
+  @type detach_group_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_role_policy_request() :: %{
+        required("PolicyArn") => String.t() | atom(),
+        required("RoleName") => String.t() | atom()
+      }
+      
+  """
+  @type detach_role_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_user_policy_request() :: %{
+        required("PolicyArn") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type detach_user_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_organizations_root_credentials_management_request() :: %{}
+      
+  """
+  @type disable_organizations_root_credentials_management_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_organizations_root_credentials_management_response() :: %{
+        "EnabledFeatures" => list(list(any())()),
+        "OrganizationId" => String.t() | atom()
+      }
+      
+  """
+  @type disable_organizations_root_credentials_management_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_organizations_root_sessions_request() :: %{}
+      
+  """
+  @type disable_organizations_root_sessions_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_organizations_root_sessions_response() :: %{
+        "EnabledFeatures" => list(list(any())()),
+        "OrganizationId" => String.t() | atom()
+      }
+      
+  """
+  @type disable_organizations_root_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_certificate_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_certificate_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_ssh_public_key_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_ssh_public_key_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_mfa_device_request() :: %{
+        required("AuthenticationCode1") => String.t() | atom(),
+        required("AuthenticationCode2") => String.t() | atom(),
+        required("SerialNumber") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type enable_mfa_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_organizations_root_credentials_management_request() :: %{}
+      
+  """
+  @type enable_organizations_root_credentials_management_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_organizations_root_credentials_management_response() :: %{
+        "EnabledFeatures" => list(list(any())()),
+        "OrganizationId" => String.t() | atom()
+      }
+      
+  """
+  @type enable_organizations_root_credentials_management_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_organizations_root_sessions_request() :: %{}
+      
+  """
+  @type enable_organizations_root_sessions_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_organizations_root_sessions_response() :: %{
+        "EnabledFeatures" => list(list(any())()),
+        "OrganizationId" => String.t() | atom()
+      }
+      
+  """
+  @type enable_organizations_root_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_outbound_web_identity_federation_response() :: %{
+        "IssuerIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type enable_outbound_web_identity_federation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type entity_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity_details() :: %{
+        "EntityInfo" => entity_info(),
+        "LastAuthenticated" => non_neg_integer()
+      }
+      
+  """
+  @type entity_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -944,427 +1267,456 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      service_specific_credential_metadata() :: %{
-        "CreateDate" => non_neg_integer(),
-        "ExpirationDate" => non_neg_integer(),
-        "ServiceCredentialAlias" => String.t() | atom(),
-        "ServiceName" => String.t() | atom(),
-        "ServiceSpecificCredentialId" => String.t() | atom(),
-        "ServiceUserName" => String.t() | atom(),
-        "Status" => list(any()),
+      entity_temporarily_unmodifiable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type entity_temporarily_unmodifiable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      error_details() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type error_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluation_result() :: %{
+        "EvalActionName" => String.t() | atom(),
+        "EvalDecision" => list(any()),
+        "EvalDecisionDetails" => map(),
+        "EvalResourceName" => String.t() | atom(),
+        "MatchedStatements" => list(statement()),
+        "MissingContextValues" => list(String.t() | atom()),
+        "OrganizationsDecisionDetail" => organizations_decision_detail(),
+        "PermissionsBoundaryDecisionDetail" => permissions_boundary_decision_detail(),
+        "ResourceSpecificResults" => list(resource_specific_result())
+      }
+      
+  """
+  @type evaluation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      feature_disabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type feature_disabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      feature_enabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type feature_enabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_credential_report_response() :: %{
+        "Description" => String.t() | atom(),
+        "State" => list(any())
+      }
+      
+  """
+  @type generate_credential_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_organizations_access_report_request() :: %{
+        optional("OrganizationsPolicyId") => String.t() | atom(),
+        required("EntityPath") => String.t() | atom()
+      }
+      
+  """
+  @type generate_organizations_access_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_organizations_access_report_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type generate_organizations_access_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_service_last_accessed_details_request() :: %{
+        optional("Granularity") => list(any()),
+        required("Arn") => String.t() | atom()
+      }
+      
+  """
+  @type generate_service_last_accessed_details_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_service_last_accessed_details_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type generate_service_last_accessed_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_access_key_last_used_request() :: %{
+        required("AccessKeyId") => String.t() | atom()
+      }
+      
+  """
+  @type get_access_key_last_used_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_access_key_last_used_response() :: %{
+        "AccessKeyLastUsed" => access_key_last_used(),
         "UserName" => String.t() | atom()
       }
       
   """
-  @type service_specific_credential_metadata() :: %{(String.t() | atom()) => any()}
+  @type get_access_key_last_used_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_attached_user_policies_request() :: %{
+      get_account_authorization_details_request() :: %{
+        optional("Filter") => list(list(any())()),
         optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("PathPrefix") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
+        optional("MaxItems") => integer()
       }
       
   """
-  @type list_attached_user_policies_request() :: %{(String.t() | atom()) => any()}
+  @type get_account_authorization_details_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      attached_policy() :: %{
-        "PolicyArn" => String.t() | atom(),
-        "PolicyName" => String.t() | atom()
-      }
-      
-  """
-  @type attached_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_instance_profile_tags_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("InstanceProfileName") => String.t() | atom()
-      }
-      
-  """
-  @type list_instance_profile_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_attached_group_policies_response() :: %{
-        "AttachedPolicies" => list(attached_policy()),
+      get_account_authorization_details_response() :: %{
+        "GroupDetailList" => list(group_detail()),
         "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom()
+        "Marker" => String.t() | atom(),
+        "Policies" => list(managed_policy_detail()),
+        "RoleDetailList" => list(role_detail()),
+        "UserDetailList" => list(user_detail())
       }
       
   """
-  @type list_attached_group_policies_response() :: %{(String.t() | atom()) => any()}
+  @type get_account_authorization_details_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      reset_service_specific_credential_request() :: %{
-        optional("UserName") => String.t() | atom(),
-        required("ServiceSpecificCredentialId") => String.t() | atom()
+      get_account_password_policy_response() :: %{
+        "PasswordPolicy" => password_policy()
       }
       
   """
-  @type reset_service_specific_credential_request() :: %{(String.t() | atom()) => any()}
+  @type get_account_password_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_attached_role_policies_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("PathPrefix") => String.t() | atom(),
-        required("RoleName") => String.t() | atom()
+      get_account_summary_response() :: %{
+        "SummaryMap" => map()
       }
       
   """
-  @type list_attached_role_policies_request() :: %{(String.t() | atom()) => any()}
+  @type get_account_summary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_group_policy_request() :: %{
+      get_context_keys_for_custom_policy_request() :: %{
+        required("PolicyInputList") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_context_keys_for_custom_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_context_keys_for_policy_response() :: %{
+        "ContextKeyNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type get_context_keys_for_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_context_keys_for_principal_policy_request() :: %{
+        optional("PolicyInputList") => list(String.t() | atom()),
+        required("PolicySourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_context_keys_for_principal_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_credential_report_response() :: %{
+        "Content" => binary(),
+        "GeneratedTime" => non_neg_integer(),
+        "ReportFormat" => list(any())
+      }
+      
+  """
+  @type get_credential_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_delegation_request_request() :: %{
+        optional("DelegationPermissionCheck") => boolean(),
+        required("DelegationRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type get_delegation_request_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_delegation_request_response() :: %{
+        "DelegationRequest" => delegation_request(),
+        "PermissionCheckResult" => list(any()),
+        "PermissionCheckStatus" => list(any())
+      }
+      
+  """
+  @type get_delegation_request_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_policy_request() :: %{
         required("GroupName") => String.t() | atom(),
-        required("PolicyDocument") => String.t() | atom(),
         required("PolicyName") => String.t() | atom()
       }
       
   """
-  @type put_group_policy_request() :: %{(String.t() | atom()) => any()}
+  @type get_group_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      deactivate_mfa_device_request() :: %{
+      get_group_policy_response() :: %{
+        "GroupName" => String.t() | atom(),
+        "PolicyDocument" => String.t() | atom(),
+        "PolicyName" => String.t() | atom()
+      }
+      
+  """
+  @type get_group_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("GroupName") => String.t() | atom()
+      }
+      
+  """
+  @type get_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_response() :: %{
+        "Group" => group(),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Users" => list(user())
+      }
+      
+  """
+  @type get_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_human_readable_summary_request() :: %{
+        optional("Locale") => String.t() | atom(),
+        required("EntityArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_human_readable_summary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_human_readable_summary_response() :: %{
+        "Locale" => String.t() | atom(),
+        "SummaryContent" => String.t() | atom(),
+        "SummaryState" => list(any())
+      }
+      
+  """
+  @type get_human_readable_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_profile_request() :: %{
+        required("InstanceProfileName") => String.t() | atom()
+      }
+      
+  """
+  @type get_instance_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_profile_response() :: %{
+        "InstanceProfile" => instance_profile()
+      }
+      
+  """
+  @type get_instance_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_login_profile_request() :: %{
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type get_login_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_login_profile_response() :: %{
+        "LoginProfile" => login_profile()
+      }
+      
+  """
+  @type get_login_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_mfa_device_request() :: %{
         optional("UserName") => String.t() | atom(),
         required("SerialNumber") => String.t() | atom()
       }
       
   """
-  @type deactivate_mfa_device_request() :: %{(String.t() | atom()) => any()}
+  @type get_mfa_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_ssh_public_key_response() :: %{
-        "SSHPublicKey" => ssh_public_key()
-      }
-      
-  """
-  @type get_ssh_public_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_policy_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Path") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("PolicyDocument") => String.t() | atom(),
-        required("PolicyName") => String.t() | atom()
-      }
-      
-  """
-  @type create_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_response() :: %{
-        "User" => user()
-      }
-      
-  """
-  @type get_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_group() :: %{
-        "GroupId" => String.t() | atom(),
-        "GroupName" => String.t() | atom()
-      }
-      
-  """
-  @type policy_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_role_description_request() :: %{
-        required("Description") => String.t() | atom(),
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type update_role_description_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_saml_provider_request() :: %{
-        required("SAMLProviderArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_saml_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_user_request() :: %{
-        required("Tags") => list(tag()),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type tag_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      upload_ssh_public_key_response() :: %{
-        "SSHPublicKey" => ssh_public_key()
-      }
-      
-  """
-  @type upload_ssh_public_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_role_request() :: %{
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_role_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_request() :: %{
-        optional("NewPath") => String.t() | atom(),
-        optional("NewUserName") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type update_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_open_id_connect_providers_response() :: %{
-        "OpenIDConnectProviderList" => list(open_id_connect_provider_list_entry())
-      }
-      
-  """
-  @type list_open_id_connect_providers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_access_key_request() :: %{
-        optional("UserName") => String.t() | atom(),
-        required("AccessKeyId") => String.t() | atom(),
-        required("Status") => list(any())
-      }
-      
-  """
-  @type update_access_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_role_permissions_boundary_request() :: %{
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_role_permissions_boundary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_policy_response() :: %{
-        "Policy" => policy()
-      }
-      
-  """
-  @type get_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_user() :: %{
-        "UserId" => String.t() | atom(),
+      get_mfa_device_response() :: %{
+        "Certifications" => map(),
+        "EnableDate" => non_neg_integer(),
+        "SerialNumber" => String.t() | atom(),
         "UserName" => String.t() | atom()
       }
       
   """
-  @type policy_user() :: %{(String.t() | atom()) => any()}
+  @type get_mfa_device_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_login_profile_response() :: %{
-        "LoginProfile" => login_profile()
+      get_open_id_connect_provider_request() :: %{
+        required("OpenIDConnectProviderArn") => String.t() | atom()
       }
       
   """
-  @type create_login_profile_response() :: %{(String.t() | atom()) => any()}
+  @type get_open_id_connect_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_server_certificate_tags_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_server_certificate_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_instance_profiles_response() :: %{
-        "InstanceProfiles" => list(instance_profile()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type list_instance_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_role_tags_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_role_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_organizations_root_credentials_management_response() :: %{
-        "EnabledFeatures" => list(list(any())()),
-        "OrganizationId" => String.t() | atom()
-      }
-      
-  """
-  @type disable_organizations_root_credentials_management_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      account_not_management_or_delegated_administrator_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type account_not_management_or_delegated_administrator_exception() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      create_login_profile_request() :: %{
-        optional("Password") => String.t() | atom(),
-        optional("PasswordResetRequired") => boolean(),
-        optional("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type create_login_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      group() :: %{
-        "Arn" => String.t() | atom(),
+      get_open_id_connect_provider_response() :: %{
+        "ClientIDList" => list(String.t() | atom()),
         "CreateDate" => non_neg_integer(),
-        "GroupId" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "Path" => String.t() | atom()
+        "Tags" => list(tag()),
+        "ThumbprintList" => list(String.t() | atom()),
+        "Url" => String.t() | atom()
       }
       
   """
-  @type group() :: %{(String.t() | atom()) => any()}
+  @type get_open_id_connect_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_organizations_features_response() :: %{
-        "EnabledFeatures" => list(list(any())()),
-        "OrganizationId" => String.t() | atom()
+      get_organizations_access_report_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("SortKey") => list(any()),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type list_organizations_features_response() :: %{(String.t() | atom()) => any()}
+  @type get_organizations_access_report_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1389,13 +1741,492 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      disable_organizations_root_sessions_response() :: %{
-        "EnabledFeatures" => list(list(any())()),
-        "OrganizationId" => String.t() | atom()
+      get_outbound_web_identity_federation_info_response() :: %{
+        "IssuerIdentifier" => String.t() | atom(),
+        "JwtVendingEnabled" => boolean()
       }
       
   """
-  @type disable_organizations_root_sessions_response() :: %{(String.t() | atom()) => any()}
+  @type get_outbound_web_identity_federation_info_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policy_request() :: %{
+        required("PolicyArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policy_response() :: %{
+        "Policy" => policy()
+      }
+      
+  """
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policy_version_request() :: %{
+        required("PolicyArn") => String.t() | atom(),
+        required("VersionId") => String.t() | atom()
+      }
+      
+  """
+  @type get_policy_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policy_version_response() :: %{
+        "PolicyVersion" => policy_version()
+      }
+      
+  """
+  @type get_policy_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_role_policy_request() :: %{
+        required("PolicyName") => String.t() | atom(),
+        required("RoleName") => String.t() | atom()
+      }
+      
+  """
+  @type get_role_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_role_policy_response() :: %{
+        "PolicyDocument" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
+        "RoleName" => String.t() | atom()
+      }
+      
+  """
+  @type get_role_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_role_request() :: %{
+        required("RoleName") => String.t() | atom()
+      }
+      
+  """
+  @type get_role_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_role_response() :: %{
+        "Role" => role()
+      }
+      
+  """
+  @type get_role_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_saml_provider_request() :: %{
+        required("SAMLProviderArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_saml_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_saml_provider_response() :: %{
+        "AssertionEncryptionMode" => list(any()),
+        "CreateDate" => non_neg_integer(),
+        "PrivateKeyList" => list(saml_private_key()),
+        "SAMLMetadataDocument" => String.t() | atom(),
+        "SAMLProviderUUID" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "ValidUntil" => non_neg_integer()
+      }
+      
+  """
+  @type get_saml_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_server_certificate_request() :: %{
+        required("ServerCertificateName") => String.t() | atom()
+      }
+      
+  """
+  @type get_server_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_server_certificate_response() :: %{
+        "ServerCertificate" => server_certificate()
+      }
+      
+  """
+  @type get_server_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_last_accessed_details_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_service_last_accessed_details_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_last_accessed_details_response() :: %{
+        "Error" => error_details(),
+        "IsTruncated" => boolean(),
+        "JobCompletionDate" => non_neg_integer(),
+        "JobCreationDate" => non_neg_integer(),
+        "JobStatus" => list(any()),
+        "JobType" => list(any()),
+        "Marker" => String.t() | atom(),
+        "ServicesLastAccessed" => list(service_last_accessed())
+      }
+      
+  """
+  @type get_service_last_accessed_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_last_accessed_details_with_entities_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("JobId") => String.t() | atom(),
+        required("ServiceNamespace") => String.t() | atom()
+      }
+      
+  """
+  @type get_service_last_accessed_details_with_entities_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_last_accessed_details_with_entities_response() :: %{
+        "EntityDetailsList" => list(entity_details()),
+        "Error" => error_details(),
+        "IsTruncated" => boolean(),
+        "JobCompletionDate" => non_neg_integer(),
+        "JobCreationDate" => non_neg_integer(),
+        "JobStatus" => list(any()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type get_service_last_accessed_details_with_entities_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_linked_role_deletion_status_request() :: %{
+        required("DeletionTaskId") => String.t() | atom()
+      }
+      
+  """
+  @type get_service_linked_role_deletion_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_linked_role_deletion_status_response() :: %{
+        "Reason" => deletion_task_failure_reason_type(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type get_service_linked_role_deletion_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ssh_public_key_request() :: %{
+        required("Encoding") => list(any()),
+        required("SSHPublicKeyId") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type get_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ssh_public_key_response() :: %{
+        "SSHPublicKey" => ssh_public_key()
+      }
+      
+  """
+  @type get_ssh_public_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_policy_request() :: %{
+        required("PolicyName") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type get_user_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_policy_response() :: %{
+        "PolicyDocument" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type get_user_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_request() :: %{
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type get_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_response() :: %{
+        "User" => user()
+      }
+      
+  """
+  @type get_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group() :: %{
+        "Arn" => String.t() | atom(),
+        "CreateDate" => non_neg_integer(),
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "Path" => String.t() | atom()
+      }
+      
+  """
+  @type group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group_detail() :: %{
+        "Arn" => String.t() | atom(),
+        "AttachedManagedPolicies" => list(attached_policy()),
+        "CreateDate" => non_neg_integer(),
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "GroupPolicyList" => list(policy_detail()),
+        "Path" => String.t() | atom()
+      }
+      
+  """
+  @type group_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_profile() :: %{
+        "Arn" => String.t() | atom(),
+        "CreateDate" => non_neg_integer(),
+        "InstanceProfileId" => String.t() | atom(),
+        "InstanceProfileName" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "Roles" => list(role()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type instance_profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_authentication_code_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_authentication_code_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_certificate_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_certificate_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_input_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_public_key_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_public_key_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_user_type_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_user_type_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_pair_mismatch_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type key_pair_mismatch_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_access_keys_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type list_access_keys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_access_keys_response() :: %{
+        "AccessKeyMetadata" => list(access_key_metadata()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type list_access_keys_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_aliases_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+      
+  """
+  @type list_account_aliases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_aliases_response() :: %{
+        "AccountAliases" => list(String.t() | atom()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type list_account_aliases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1415,81 +2246,94 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      delete_account_alias_request() :: %{
-        required("AccountAlias") => String.t() | atom()
-      }
-      
-  """
-  @type delete_account_alias_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_organizations_root_credentials_management_request() :: %{}
-      
-  """
-  @type enable_organizations_root_credentials_management_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_server_certificate_request() :: %{
-        required("ServerCertificateName") => String.t() | atom()
-      }
-      
-  """
-  @type get_server_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_account_aliases_response() :: %{
-        "AccountAliases" => list(String.t() | atom()),
+      list_attached_group_policies_response() :: %{
+        "AttachedPolicies" => list(attached_policy()),
         "IsTruncated" => boolean(),
         "Marker" => String.t() | atom()
       }
       
   """
-  @type list_account_aliases_response() :: %{(String.t() | atom()) => any()}
+  @type list_attached_group_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      remove_client_id_from_open_id_connect_provider_request() :: %{
-        required("ClientID") => String.t() | atom(),
-        required("OpenIDConnectProviderArn") => String.t() | atom()
+      list_attached_role_policies_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t() | atom(),
+        required("RoleName") => String.t() | atom()
       }
       
   """
-  @type remove_client_id_from_open_id_connect_provider_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type list_attached_role_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      duplicate_ssh_public_key_exception() :: %{
-        "message" => String.t() | atom()
+      list_attached_role_policies_response() :: %{
+        "AttachedPolicies" => list(attached_policy()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type duplicate_ssh_public_key_exception() :: %{(String.t() | atom()) => any()}
+  @type list_attached_role_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      credential_report_not_ready_exception() :: %{
-        "message" => String.t() | atom()
+      list_attached_user_policies_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type credential_report_not_ready_exception() :: %{(String.t() | atom()) => any()}
+  @type list_attached_user_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_attached_user_policies_response() :: %{
+        "AttachedPolicies" => list(attached_policy()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type list_attached_user_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_delegation_requests_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("OwnerId") => String.t() | atom()
+      }
+      
+  """
+  @type list_delegation_requests_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_delegation_requests_response() :: %{
+        "DelegationRequests" => list(delegation_request()),
+        "Marker" => String.t() | atom(),
+        "isTruncated" => boolean()
+      }
+      
+  """
+  @type list_delegation_requests_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1511,117 +2355,146 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      list_role_policies_response() :: %{
+      list_entities_for_policy_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "PolicyGroups" => list(policy_group()),
+        "PolicyRoles" => list(policy_role()),
+        "PolicyUsers" => list(policy_user())
+      }
+      
+  """
+  @type list_entities_for_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_group_policies_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("GroupName") => String.t() | atom()
+      }
+      
+  """
+  @type list_group_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_group_policies_response() :: %{
         "IsTruncated" => boolean(),
         "Marker" => String.t() | atom(),
         "PolicyNames" => list(String.t() | atom())
       }
       
   """
-  @type list_role_policies_response() :: %{(String.t() | atom()) => any()}
+  @type list_group_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_saml_providers_request() :: %{}
-      
-  """
-  @type list_saml_providers_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_id_connect_provider_list_entry() :: %{
-        "Arn" => String.t() | atom()
+      list_groups_for_user_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type open_id_connect_provider_list_entry() :: %{(String.t() | atom()) => any()}
+  @type list_groups_for_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_virtual_mfa_device_response() :: %{
-        "VirtualMFADevice" => virtual_mfa_device()
+      list_groups_for_user_response() :: %{
+        "Groups" => list(group()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type create_virtual_mfa_device_response() :: %{(String.t() | atom()) => any()}
+  @type list_groups_for_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_group_policy_request() :: %{
-        required("GroupName") => String.t() | atom(),
-        required("PolicyName") => String.t() | atom()
+      list_groups_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t() | atom()
       }
       
   """
-  @type get_group_policy_request() :: %{(String.t() | atom()) => any()}
+  @type list_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_policy_version_request() :: %{
-        optional("SetAsDefault") => boolean(),
-        required("PolicyArn") => String.t() | atom(),
-        required("PolicyDocument") => String.t() | atom()
+      list_groups_response() :: %{
+        "Groups" => list(group()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type create_policy_version_request() :: %{(String.t() | atom()) => any()}
+  @type list_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      attach_role_policy_request() :: %{
-        required("PolicyArn") => String.t() | atom(),
+      list_instance_profile_tags_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("InstanceProfileName") => String.t() | atom()
+      }
+      
+  """
+  @type list_instance_profile_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_instance_profile_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_instance_profile_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_instance_profiles_for_role_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
         required("RoleName") => String.t() | atom()
       }
       
   """
-  @type attach_role_policy_request() :: %{(String.t() | atom()) => any()}
+  @type list_instance_profiles_for_role_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      policy_evaluation_exception() :: %{
-        "message" => String.t() | atom()
+      list_instance_profiles_for_role_response() :: %{
+        "InstanceProfiles" => list(instance_profile()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type policy_evaluation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_role_to_instance_profile_request() :: %{
-        required("InstanceProfileName") => String.t() | atom(),
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type add_role_to_instance_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      role_usage_type() :: %{
-        "Region" => String.t() | atom(),
-        "Resources" => list(String.t() | atom())
-      }
-      
-  """
-  @type role_usage_type() :: %{(String.t() | atom()) => any()}
+  @type list_instance_profiles_for_role_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1640,69 +2513,647 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      caller_is_not_management_account_exception() :: %{
-        "Message" => String.t() | atom()
+      list_instance_profiles_response() :: %{
+        "InstanceProfiles" => list(instance_profile()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type caller_is_not_management_account_exception() :: %{(String.t() | atom()) => any()}
+  @type list_instance_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_instance_profile_request() :: %{
-        required("InstanceProfileName") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_instance_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_virtual_mfa_device_request() :: %{
+      list_mfa_device_tags_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
         required("SerialNumber") => String.t() | atom()
       }
       
   """
-  @type delete_virtual_mfa_device_request() :: %{(String.t() | atom()) => any()}
+  @type list_mfa_device_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_access_key_last_used_response() :: %{
-        "AccessKeyLastUsed" => access_key_last_used(),
+      list_mfa_device_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_mfa_device_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_mfa_devices_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type list_mfa_devices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_mfa_devices_response() :: %{
+        "IsTruncated" => boolean(),
+        "MFADevices" => list(mfa_device()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type list_mfa_devices_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_open_id_connect_provider_tags_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("OpenIDConnectProviderArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_open_id_connect_provider_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_open_id_connect_provider_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_open_id_connect_provider_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_open_id_connect_providers_request() :: %{}
+      
+  """
+  @type list_open_id_connect_providers_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_open_id_connect_providers_response() :: %{
+        "OpenIDConnectProviderList" => list(open_id_connect_provider_list_entry())
+      }
+      
+  """
+  @type list_open_id_connect_providers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_organizations_features_request() :: %{}
+      
+  """
+  @type list_organizations_features_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_organizations_features_response() :: %{
+        "EnabledFeatures" => list(list(any())()),
+        "OrganizationId" => String.t() | atom()
+      }
+      
+  """
+  @type list_organizations_features_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_granting_service_access_entry() :: %{
+        "Policies" => list(policy_granting_service_access()),
+        "ServiceNamespace" => String.t() | atom()
+      }
+      
+  """
+  @type list_policies_granting_service_access_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_granting_service_access_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        required("Arn") => String.t() | atom(),
+        required("ServiceNamespaces") => list(String.t() | atom())
+      }
+      
+  """
+  @type list_policies_granting_service_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_granting_service_access_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "PoliciesGrantingServiceAccess" => list(list_policies_granting_service_access_entry())
+      }
+      
+  """
+  @type list_policies_granting_service_access_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("OnlyAttached") => boolean(),
+        optional("PathPrefix") => String.t() | atom(),
+        optional("PolicyUsageFilter") => list(any()),
+        optional("Scope") => list(any())
+      }
+      
+  """
+  @type list_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Policies" => list(policy())
+      }
+      
+  """
+  @type list_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policy_tags_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("PolicyArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_policy_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policy_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_policy_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policy_versions_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("PolicyArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_policy_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policy_versions_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Versions" => list(policy_version())
+      }
+      
+  """
+  @type list_policy_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_role_policies_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("RoleName") => String.t() | atom()
+      }
+      
+  """
+  @type list_role_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_role_policies_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "PolicyNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_role_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_role_tags_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("RoleName") => String.t() | atom()
+      }
+      
+  """
+  @type list_role_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_role_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_role_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_roles_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t() | atom()
+      }
+      
+  """
+  @type list_roles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_roles_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Roles" => list(role())
+      }
+      
+  """
+  @type list_roles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_saml_provider_tags_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("SAMLProviderArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_saml_provider_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_saml_provider_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_saml_provider_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_saml_providers_request() :: %{}
+      
+  """
+  @type list_saml_providers_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_saml_providers_response() :: %{
+        "SAMLProviderList" => list(saml_provider_list_entry())
+      }
+      
+  """
+  @type list_saml_providers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_server_certificate_tags_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("ServerCertificateName") => String.t() | atom()
+      }
+      
+  """
+  @type list_server_certificate_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_server_certificate_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_server_certificate_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_server_certificates_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t() | atom()
+      }
+      
+  """
+  @type list_server_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_server_certificates_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "ServerCertificateMetadataList" => list(server_certificate_metadata())
+      }
+      
+  """
+  @type list_server_certificates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_service_specific_credentials_request() :: %{
+        optional("AllUsers") => boolean(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("ServiceName") => String.t() | atom(),
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type list_service_specific_credentials_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_service_specific_credentials_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "ServiceSpecificCredentials" => list(service_specific_credential_metadata())
+      }
+      
+  """
+  @type list_service_specific_credentials_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_signing_certificates_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type list_signing_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_signing_certificates_response() :: %{
+        "Certificates" => list(signing_certificate()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type list_signing_certificates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_ssh_public_keys_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type list_ssh_public_keys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_ssh_public_keys_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "SSHPublicKeys" => list(ssh_public_key_metadata())
+      }
+      
+  """
+  @type list_ssh_public_keys_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_policies_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type list_user_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_policies_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "PolicyNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_user_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_tags_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type list_user_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_tags_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_user_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_users_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("PathPrefix") => String.t() | atom()
+      }
+      
+  """
+  @type list_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_users_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "Users" => list(user())
+      }
+      
+  """
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_virtual_mfa_devices_request() :: %{
+        optional("AssignmentStatus") => list(any()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+      
+  """
+  @type list_virtual_mfa_devices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_virtual_mfa_devices_response() :: %{
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "VirtualMFADevices" => list(virtual_mfa_device())
+      }
+      
+  """
+  @type list_virtual_mfa_devices_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      login_profile() :: %{
+        "CreateDate" => non_neg_integer(),
+        "PasswordResetRequired" => boolean(),
         "UserName" => String.t() | atom()
       }
       
   """
-  @type get_access_key_last_used_response() :: %{(String.t() | atom()) => any()}
+  @type login_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_saml_provider_response() :: %{
-        "SAMLProviderArn" => String.t() | atom()
-      }
-      
-  """
-  @type update_saml_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_not_attachable_exception() :: %{
+      malformed_certificate_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type policy_not_attachable_exception() :: %{(String.t() | atom()) => any()}
+  @type malformed_certificate_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      malformed_policy_document_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1730,52 +3181,205 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      list_open_id_connect_providers_request() :: %{}
-      
-  """
-  @type list_open_id_connect_providers_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_server_certificate_request() :: %{
-        required("ServerCertificateName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_server_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_specific_credential() :: %{
-        "CreateDate" => non_neg_integer(),
-        "ExpirationDate" => non_neg_integer(),
-        "ServiceCredentialAlias" => String.t() | atom(),
-        "ServiceCredentialSecret" => String.t() | atom(),
-        "ServiceName" => String.t() | atom(),
-        "ServicePassword" => String.t() | atom(),
-        "ServiceSpecificCredentialId" => String.t() | atom(),
-        "ServiceUserName" => String.t() | atom(),
-        "Status" => list(any()),
+      mfa_device() :: %{
+        "EnableDate" => non_neg_integer(),
+        "SerialNumber" => String.t() | atom(),
         "UserName" => String.t() | atom()
       }
       
   """
-  @type service_specific_credential() :: %{(String.t() | atom()) => any()}
+  @type mfa_device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_certificate_exception() :: %{
+      no_such_entity_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_certificate_exception() :: %{(String.t() | atom()) => any()}
+  @type no_such_entity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_id_connect_provider_list_entry() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type open_id_connect_provider_list_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_id_idp_communication_error_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type open_id_idp_communication_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type organization_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_not_in_all_features_mode_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type organization_not_in_all_features_mode_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organizations_decision_detail() :: %{
+        "AllowedByOrganizations" => boolean()
+      }
+      
+  """
+  @type organizations_decision_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      password_policy() :: %{
+        "AllowUsersToChangePassword" => boolean(),
+        "ExpirePasswords" => boolean(),
+        "HardExpiry" => boolean(),
+        "MaxPasswordAge" => integer(),
+        "MinimumPasswordLength" => integer(),
+        "PasswordReusePrevention" => integer(),
+        "RequireLowercaseCharacters" => boolean(),
+        "RequireNumbers" => boolean(),
+        "RequireSymbols" => boolean(),
+        "RequireUppercaseCharacters" => boolean()
+      }
+      
+  """
+  @type password_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      password_policy_violation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type password_policy_violation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      permissions_boundary_decision_detail() :: %{
+        "AllowedByPermissionsBoundary" => boolean()
+      }
+      
+  """
+  @type permissions_boundary_decision_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy() :: %{
+        "Arn" => String.t() | atom(),
+        "AttachmentCount" => integer(),
+        "CreateDate" => non_neg_integer(),
+        "DefaultVersionId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IsAttachable" => boolean(),
+        "Path" => String.t() | atom(),
+        "PermissionsBoundaryUsageCount" => integer(),
+        "PolicyId" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "UpdateDate" => non_neg_integer()
+      }
+      
+  """
+  @type policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_detail() :: %{
+        "PolicyDocument" => String.t() | atom(),
+        "PolicyName" => String.t() | atom()
+      }
+      
+  """
+  @type policy_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_evaluation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type policy_evaluation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_granting_service_access() :: %{
+        "EntityName" => String.t() | atom(),
+        "EntityType" => list(any()),
+        "PolicyArn" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
+        "PolicyType" => list(any())
+      }
+      
+  """
+  @type policy_granting_service_access() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_group() :: %{
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom()
+      }
+      
+  """
+  @type policy_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_not_attachable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type policy_not_attachable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1794,585 +3398,25 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      delete_instance_profile_request() :: %{
-        required("InstanceProfileName") => String.t() | atom()
+      policy_role() :: %{
+        "RoleId" => String.t() | atom(),
+        "RoleName" => String.t() | atom()
       }
       
   """
-  @type delete_instance_profile_request() :: %{(String.t() | atom()) => any()}
+  @type policy_role() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      reject_delegation_request_request() :: %{
-        optional("Notes") => String.t() | atom(),
-        required("DelegationRequestId") => String.t() | atom()
-      }
-      
-  """
-  @type reject_delegation_request_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_user_request() :: %{
-        required("TagKeys") => list(String.t() | atom()),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type untag_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_server_certificate_request() :: %{
-        required("ServerCertificateName") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_server_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      virtual_mfa_device() :: %{
-        "Base32StringSeed" => binary(),
-        "EnableDate" => non_neg_integer(),
-        "QRCodePNG" => binary(),
-        "SerialNumber" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "User" => user()
-      }
-      
-  """
-  @type virtual_mfa_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_delegation_request_request() :: %{
-        optional("Notes") => String.t() | atom(),
-        required("DelegationRequestId") => String.t() | atom()
-      }
-      
-  """
-  @type update_delegation_request_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_account_aliases_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
-      }
-      
-  """
-  @type list_account_aliases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_access_keys_response() :: %{
-        "AccessKeyMetadata" => list(access_key_metadata()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type list_access_keys_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      credential_report_not_present_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type credential_report_not_present_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_service_linked_role_request() :: %{
-        optional("CustomSuffix") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        required("AWSServiceName") => String.t() | atom()
-      }
-      
-  """
-  @type create_service_linked_role_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_policy_version_request() :: %{
-        required("PolicyArn") => String.t() | atom(),
-        required("VersionId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_policy_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_role_response() :: %{
-        "Role" => role()
-      }
-      
-  """
-  @type create_role_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_service_last_accessed_details_request() :: %{
-        optional("Granularity") => list(any()),
-        required("Arn") => String.t() | atom()
-      }
-      
-  """
-  @type generate_service_last_accessed_details_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_request() :: %{
-        optional("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type get_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detach_user_policy_request() :: %{
-        required("PolicyArn") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type detach_user_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_policy_version_response() :: %{
-        "PolicyVersion" => policy_version()
-      }
-      
-  """
-  @type create_policy_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      entity_temporarily_unmodifiable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type entity_temporarily_unmodifiable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      change_password_request() :: %{
-        required("NewPassword") => String.t() | atom(),
-        required("OldPassword") => String.t() | atom()
-      }
-      
-  """
-  @type change_password_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_public_key_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_public_key_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_saml_provider_request() :: %{
-        required("SAMLProviderArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_saml_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_such_entity_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_such_entity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_instance_profile_request() :: %{
-        optional("Path") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("InstanceProfileName") => String.t() | atom()
-      }
-      
-  """
-  @type create_instance_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_saml_provider_request() :: %{
-        required("SAMLProviderArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_saml_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_server_certificates_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("PathPrefix") => String.t() | atom()
-      }
-      
-  """
-  @type list_server_certificates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_policy_request() :: %{
-        required("PolicyArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_group_response() :: %{
-        "Group" => group()
-      }
-      
-  """
-  @type create_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      password_policy_violation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type password_policy_violation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_key_last_used() :: %{
-        "LastUsedDate" => non_neg_integer(),
-        "Region" => String.t() | atom(),
-        "ServiceName" => String.t() | atom()
-      }
-      
-  """
-  @type access_key_last_used() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_access_key_last_used_request() :: %{
-        required("AccessKeyId") => String.t() | atom()
-      }
-      
-  """
-  @type get_access_key_last_used_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_user_policies_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type list_user_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_human_readable_summary_response() :: %{
-        "Locale" => String.t() | atom(),
-        "SummaryContent" => String.t() | atom(),
-        "SummaryState" => list(any())
-      }
-      
-  """
-  @type get_human_readable_summary_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_ssh_public_keys_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type list_ssh_public_keys_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_server_certificates_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "ServerCertificateMetadataList" => list(server_certificate_metadata())
-      }
-      
-  """
-  @type list_server_certificates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_role_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("MaxSessionDuration") => integer(),
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type update_role_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user() :: %{
-        "Arn" => String.t() | atom(),
-        "CreateDate" => non_neg_integer(),
-        "PasswordLastUsed" => non_neg_integer(),
-        "Path" => String.t() | atom(),
-        "PermissionsBoundary" => attached_permissions_boundary(),
-        "Tags" => list(tag()),
+      policy_user() :: %{
         "UserId" => String.t() | atom(),
         "UserName" => String.t() | atom()
       }
       
   """
-  @type user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_delegation_token_request() :: %{
-        required("DelegationRequestId") => String.t() | atom()
-      }
-      
-  """
-  @type send_delegation_token_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_policy_response() :: %{
-        "PolicyDocument" => String.t() | atom(),
-        "PolicyName" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type get_user_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_group_policies_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("GroupName") => String.t() | atom()
-      }
-      
-  """
-  @type list_group_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_virtual_mfa_device_request() :: %{
-        optional("Path") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("VirtualMFADeviceName") => String.t() | atom()
-      }
-      
-  """
-  @type create_virtual_mfa_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_policies_granting_service_access_entry() :: %{
-        "Policies" => list(policy_granting_service_access()),
-        "ServiceNamespace" => String.t() | atom()
-      }
-      
-  """
-  @type list_policies_granting_service_access_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_instance_profile_request() :: %{
-        required("InstanceProfileName") => String.t() | atom()
-      }
-      
-  """
-  @type get_instance_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_role_policy_response() :: %{
-        "PolicyDocument" => String.t() | atom(),
-        "PolicyName" => String.t() | atom(),
-        "RoleName" => String.t() | atom()
-      }
-      
-  """
-  @type get_role_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_service_specific_credential_request() :: %{
-        optional("UserName") => String.t() | atom(),
-        required("ServiceSpecificCredentialId") => String.t() | atom(),
-        required("Status") => list(any())
-      }
-      
-  """
-  @type update_service_specific_credential_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_service_specific_credential_request() :: %{
-        optional("CredentialAgeDays") => integer(),
-        required("ServiceName") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type create_service_specific_credential_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_policy_request() :: %{
-        required("PolicyArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      saml_private_key() :: %{
-        "KeyId" => String.t() | atom(),
-        "Timestamp" => non_neg_integer()
-      }
-      
-  """
-  @type saml_private_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      feature_disabled_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type feature_disabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organization_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type organization_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type policy_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2392,34 +3436,160 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      delete_access_key_request() :: %{
-        optional("UserName") => String.t() | atom(),
-        required("AccessKeyId") => String.t() | atom()
+      position() :: %{
+        "Column" => integer(),
+        "Line" => integer()
       }
       
   """
-  @type delete_access_key_request() :: %{(String.t() | atom()) => any()}
+  @type position() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_role_response() :: %{}
+      put_group_policy_request() :: %{
+        required("GroupName") => String.t() | atom(),
+        required("PolicyDocument") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom()
+      }
       
   """
-  @type update_role_response() :: %{}
+  @type put_group_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      detach_role_policy_request() :: %{
-        required("PolicyArn") => String.t() | atom(),
+      put_role_permissions_boundary_request() :: %{
+        required("PermissionsBoundary") => String.t() | atom(),
         required("RoleName") => String.t() | atom()
       }
       
   """
-  @type detach_role_policy_request() :: %{(String.t() | atom()) => any()}
+  @type put_role_permissions_boundary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_role_policy_request() :: %{
+        required("PolicyDocument") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom(),
+        required("RoleName") => String.t() | atom()
+      }
+      
+  """
+  @type put_role_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_user_permissions_boundary_request() :: %{
+        required("PermissionsBoundary") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type put_user_permissions_boundary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_user_policy_request() :: %{
+        required("PolicyDocument") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type put_user_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_delegation_request_request() :: %{
+        optional("Notes") => String.t() | atom(),
+        required("DelegationRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type reject_delegation_request_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_client_id_from_open_id_connect_provider_request() :: %{
+        required("ClientID") => String.t() | atom(),
+        required("OpenIDConnectProviderArn") => String.t() | atom()
+      }
+      
+  """
+  @type remove_client_id_from_open_id_connect_provider_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_role_from_instance_profile_request() :: %{
+        required("InstanceProfileName") => String.t() | atom(),
+        required("RoleName") => String.t() | atom()
+      }
+      
+  """
+  @type remove_role_from_instance_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_user_from_group_request() :: %{
+        required("GroupName") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type remove_user_from_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_generation_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type report_generation_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_service_specific_credential_request() :: %{
+        optional("UserName") => String.t() | atom(),
+        required("ServiceSpecificCredentialId") => String.t() | atom()
+      }
+      
+  """
+  @type reset_service_specific_credential_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_service_specific_credential_response() :: %{
+        "ServiceSpecificCredential" => service_specific_credential()
+      }
+      
+  """
+  @type reset_service_specific_credential_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2441,333 +3611,15 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      list_policies_granting_service_access_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "PoliciesGrantingServiceAccess" => list(list_policies_granting_service_access_entry())
-      }
-      
-  """
-  @type list_policies_granting_service_access_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_client_id_to_open_id_connect_provider_request() :: %{
-        required("ClientID") => String.t() | atom(),
-        required("OpenIDConnectProviderArn") => String.t() | atom()
-      }
-      
-  """
-  @type add_client_id_to_open_id_connect_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_policy_request() :: %{
-        required("PolicyName") => String.t() | atom(),
+      resync_mfa_device_request() :: %{
+        required("AuthenticationCode1") => String.t() | atom(),
+        required("AuthenticationCode2") => String.t() | atom(),
+        required("SerialNumber") => String.t() | atom(),
         required("UserName") => String.t() | atom()
       }
       
   """
-  @type get_user_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_mfa_device_request() :: %{
-        optional("UserName") => String.t() | atom(),
-        required("SerialNumber") => String.t() | atom()
-      }
-      
-  """
-  @type get_mfa_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_delegation_requests_response() :: %{
-        "DelegationRequests" => list(delegation_request()),
-        "Marker" => String.t() | atom(),
-        "isTruncated" => boolean()
-      }
-      
-  """
-  @type list_delegation_requests_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      credential_report_expired_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type credential_report_expired_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_role_policies_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type list_role_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_saml_provider_request() :: %{
-        optional("AddPrivateKey") => String.t() | atom(),
-        optional("AssertionEncryptionMode") => list(any()),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("SAMLMetadataDocument") => String.t() | atom()
-      }
-      
-  """
-  @type create_saml_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_virtual_mfa_devices_request() :: %{
-        optional("AssignmentStatus") => list(any()),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
-      }
-      
-  """
-  @type list_virtual_mfa_devices_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delegation_permission() :: %{
-        "Parameters" => list(policy_parameter()),
-        "PolicyTemplateArn" => String.t() | atom()
-      }
-      
-  """
-  @type delegation_permission() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_permissions_boundary_request() :: %{
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_user_permissions_boundary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_open_id_connect_provider_response() :: %{
-        "ClientIDList" => list(String.t() | atom()),
-        "CreateDate" => non_neg_integer(),
-        "Tags" => list(tag()),
-        "ThumbprintList" => list(String.t() | atom()),
-        "Url" => String.t() | atom()
-      }
-      
-  """
-  @type get_open_id_connect_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      malformed_policy_document_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_response() :: %{
-        "User" => user()
-      }
-      
-  """
-  @type create_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_policy_response() :: %{
-        "Policy" => policy()
-      }
-      
-  """
-  @type create_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_ssh_public_key_request() :: %{
-        required("Encoding") => list(any()),
-        required("SSHPublicKeyId") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type get_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_organizations_root_sessions_response() :: %{
-        "EnabledFeatures" => list(list(any())()),
-        "OrganizationId" => String.t() | atom()
-      }
-      
-  """
-  @type enable_organizations_root_sessions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_user_type_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_user_type_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_service_specific_credential_response() :: %{
-        "ServiceSpecificCredential" => service_specific_credential()
-      }
-      
-  """
-  @type create_service_specific_credential_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_role_response() :: %{
-        "Role" => role()
-      }
-      
-  """
-  @type get_role_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      upload_signing_certificate_response() :: %{
-        "Certificate" => signing_certificate()
-      }
-      
-  """
-  @type upload_signing_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_attached_role_policies_response() :: %{
-        "AttachedPolicies" => list(attached_policy()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type list_attached_role_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_service_specific_credential_request() :: %{
-        optional("UserName") => String.t() | atom(),
-        required("ServiceSpecificCredentialId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_service_specific_credential_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_policy_versions_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Versions" => list(policy_version())
-      }
-      
-  """
-  @type list_policy_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_access_key_request() :: %{
-        optional("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type create_access_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_account_authorization_details_response() :: %{
-        "GroupDetailList" => list(group_detail()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Policies" => list(managed_policy_detail()),
-        "RoleDetailList" => list(role_detail()),
-        "UserDetailList" => list(user_detail())
-      }
-      
-  """
-  @type get_account_authorization_details_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_policy_tags_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("PolicyArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_policy_tags_request() :: %{(String.t() | atom()) => any()}
+  @type resync_mfa_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2794,492 +3646,97 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      update_open_id_connect_provider_thumbprint_request() :: %{
-        required("OpenIDConnectProviderArn") => String.t() | atom(),
-        required("ThumbprintList") => list(String.t() | atom())
-      }
-      
-  """
-  @type update_open_id_connect_provider_thumbprint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_key_metadata() :: %{
-        "AccessKeyId" => String.t() | atom(),
-        "CreateDate" => non_neg_integer(),
-        "Status" => list(any()),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type access_key_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_detail() :: %{
+      role_detail() :: %{
         "Arn" => String.t() | atom(),
+        "AssumeRolePolicyDocument" => String.t() | atom(),
         "AttachedManagedPolicies" => list(attached_policy()),
         "CreateDate" => non_neg_integer(),
-        "GroupList" => list(String.t() | atom()),
+        "InstanceProfileList" => list(instance_profile()),
         "Path" => String.t() | atom(),
         "PermissionsBoundary" => attached_permissions_boundary(),
-        "Tags" => list(tag()),
-        "UserId" => String.t() | atom(),
-        "UserName" => String.t() | atom(),
-        "UserPolicyList" => list(policy_detail())
-      }
-      
-  """
-  @type user_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_mfa_device_tags_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
+        "RoleId" => String.t() | atom(),
+        "RoleLastUsed" => role_last_used(),
+        "RoleName" => String.t() | atom(),
+        "RolePolicyList" => list(policy_detail()),
         "Tags" => list(tag())
       }
       
   """
-  @type list_mfa_device_tags_response() :: %{(String.t() | atom()) => any()}
+  @type role_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_users_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("PathPrefix") => String.t() | atom()
+      role_last_used() :: %{
+        "LastUsedDate" => non_neg_integer(),
+        "Region" => String.t() | atom()
       }
       
   """
-  @type list_users_request() :: %{(String.t() | atom()) => any()}
+  @type role_last_used() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_user_policy_request() :: %{
-        required("PolicyName") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
+      role_usage_type() :: %{
+        "Region" => String.t() | atom(),
+        "Resources" => list(String.t() | atom())
       }
       
   """
-  @type delete_user_policy_request() :: %{(String.t() | atom()) => any()}
+  @type role_usage_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      ssh_public_key_metadata() :: %{
-        "SSHPublicKeyId" => String.t() | atom(),
-        "Status" => list(any()),
-        "UploadDate" => non_neg_integer(),
-        "UserName" => String.t() | atom()
+      saml_private_key() :: %{
+        "KeyId" => String.t() | atom(),
+        "Timestamp" => non_neg_integer()
       }
       
   """
-  @type ssh_public_key_metadata() :: %{(String.t() | atom()) => any()}
+  @type saml_private_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_user_request() :: %{
-        required("UserName") => String.t() | atom()
+      saml_provider_list_entry() :: %{
+        "Arn" => String.t() | atom(),
+        "CreateDate" => non_neg_integer(),
+        "ValidUntil" => non_neg_integer()
       }
       
   """
-  @type delete_user_request() :: %{(String.t() | atom()) => any()}
+  @type saml_provider_list_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      set_security_token_service_preferences_request() :: %{
-        required("GlobalEndpointTokenVersion") => list(any())
-      }
-      
-  """
-  @type set_security_token_service_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_policy_version_response() :: %{
-        "PolicyVersion" => policy_version()
-      }
-      
-  """
-  @type get_policy_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_server_certificate_request() :: %{
-        required("ServerCertificateName") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_server_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_granting_service_access() :: %{
-        "EntityName" => String.t() | atom(),
-        "EntityType" => list(any()),
-        "PolicyArn" => String.t() | atom(),
-        "PolicyName" => String.t() | atom(),
-        "PolicyType" => list(any())
-      }
-      
-  """
-  @type policy_granting_service_access() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluation_result() :: %{
-        "EvalActionName" => String.t() | atom(),
-        "EvalDecision" => list(any()),
-        "EvalDecisionDetails" => map(),
-        "EvalResourceName" => String.t() | atom(),
-        "MatchedStatements" => list(statement()),
-        "MissingContextValues" => list(String.t() | atom()),
-        "OrganizationsDecisionDetail" => organizations_decision_detail(),
-        "PermissionsBoundaryDecisionDetail" => permissions_boundary_decision_detail(),
-        "ResourceSpecificResults" => list(resource_specific_result())
-      }
-      
-  """
-  @type evaluation_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_server_certificate_request() :: %{
-        optional("NewPath") => String.t() | atom(),
-        optional("NewServerCertificateName") => String.t() | atom(),
-        required("ServerCertificateName") => String.t() | atom()
-      }
-      
-  """
-  @type update_server_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_mfa_device_request() :: %{
-        required("AuthenticationCode1") => String.t() | atom(),
-        required("AuthenticationCode2") => String.t() | atom(),
-        required("SerialNumber") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type enable_mfa_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_delegation_request_request() :: %{
+      send_delegation_token_request() :: %{
         required("DelegationRequestId") => String.t() | atom()
       }
       
   """
-  @type accept_delegation_request_request() :: %{(String.t() | atom()) => any()}
+  @type send_delegation_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_policy_request() :: %{
-        required("PolicyArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_delegation_request_response() :: %{
-        "DelegationRequest" => delegation_request(),
-        "PermissionCheckResult" => list(any()),
-        "PermissionCheckStatus" => list(any())
-      }
-      
-  """
-  @type get_delegation_request_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_roles_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Roles" => list(role())
-      }
-      
-  """
-  @type list_roles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      group_detail() :: %{
-        "Arn" => String.t() | atom(),
-        "AttachedManagedPolicies" => list(attached_policy()),
-        "CreateDate" => non_neg_integer(),
-        "GroupId" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "GroupPolicyList" => list(policy_detail()),
-        "Path" => String.t() | atom()
-      }
-      
-  """
-  @type group_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_service_linked_role_request() :: %{
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_service_linked_role_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      feature_enabled_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type feature_enabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_context_keys_for_principal_policy_request() :: %{
-        optional("PolicyInputList") => list(String.t() | atom()),
-        required("PolicySourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_context_keys_for_principal_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      upload_server_certificate_response() :: %{
+      server_certificate() :: %{
+        "CertificateBody" => String.t() | atom(),
+        "CertificateChain" => String.t() | atom(),
         "ServerCertificateMetadata" => server_certificate_metadata(),
         "Tags" => list(tag())
       }
       
   """
-  @type upload_server_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      simulate_policy_response() :: %{
-        "EvaluationResults" => list(evaluation_result()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type simulate_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_login_profile_request() :: %{
-        optional("Password") => String.t() | atom(),
-        optional("PasswordResetRequired") => boolean(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type update_login_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_mfa_device_request() :: %{
-        required("SerialNumber") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_mfa_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_role_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("MaxSessionDuration") => integer(),
-        optional("Path") => String.t() | atom(),
-        optional("PermissionsBoundary") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("AssumeRolePolicyDocument") => String.t() | atom(),
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type create_role_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_delegation_request_request() :: %{
-        required("DelegationRequestId") => String.t() | atom()
-      }
-      
-  """
-  @type associate_delegation_request_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_open_id_connect_provider_response() :: %{
-        "OpenIDConnectProviderArn" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type create_open_id_connect_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_user_policy_request() :: %{
-        required("PolicyDocument") => String.t() | atom(),
-        required("PolicyName") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type put_user_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_policy_version_request() :: %{
-        required("PolicyArn") => String.t() | atom(),
-        required("VersionId") => String.t() | atom()
-      }
-      
-  """
-  @type get_policy_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_policies_granting_service_access_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        required("Arn") => String.t() | atom(),
-        required("ServiceNamespaces") => list(String.t() | atom())
-      }
-      
-  """
-  @type list_policies_granting_service_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_login_profile_request() :: %{
-        optional("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type get_login_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detach_group_policy_request() :: %{
-        required("GroupName") => String.t() | atom(),
-        required("PolicyArn") => String.t() | atom()
-      }
-      
-  """
-  @type detach_group_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_user_tags_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_user_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_outbound_web_identity_federation_response() :: %{
-        "IssuerIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type enable_outbound_web_identity_federation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_signing_certificate_request() :: %{
-        optional("UserName") => String.t() | atom(),
-        required("CertificateId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_signing_certificate_request() :: %{(String.t() | atom()) => any()}
+  @type server_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3301,24 +3758,127 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      organizations_decision_detail() :: %{
-        "AllowedByOrganizations" => boolean()
+      service_access_not_enabled_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type organizations_decision_detail() :: %{(String.t() | atom()) => any()}
+  @type service_access_not_enabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_outbound_web_identity_federation_info_response() :: %{
-        "IssuerIdentifier" => String.t() | atom(),
-        "JwtVendingEnabled" => boolean()
+      service_failure_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type get_outbound_web_identity_federation_info_response() :: %{(String.t() | atom()) => any()}
+  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_last_accessed() :: %{
+        "LastAuthenticated" => non_neg_integer(),
+        "LastAuthenticatedEntity" => String.t() | atom(),
+        "LastAuthenticatedRegion" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
+        "ServiceNamespace" => String.t() | atom(),
+        "TotalAuthenticatedEntities" => integer(),
+        "TrackedActionsLastAccessed" => list(tracked_action_last_accessed())
+      }
+      
+  """
+  @type service_last_accessed() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_not_supported_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_not_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_specific_credential() :: %{
+        "CreateDate" => non_neg_integer(),
+        "ExpirationDate" => non_neg_integer(),
+        "ServiceCredentialAlias" => String.t() | atom(),
+        "ServiceCredentialSecret" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
+        "ServicePassword" => String.t() | atom(),
+        "ServiceSpecificCredentialId" => String.t() | atom(),
+        "ServiceUserName" => String.t() | atom(),
+        "Status" => list(any()),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type service_specific_credential() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_specific_credential_metadata() :: %{
+        "CreateDate" => non_neg_integer(),
+        "ExpirationDate" => non_neg_integer(),
+        "ServiceCredentialAlias" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
+        "ServiceSpecificCredentialId" => String.t() | atom(),
+        "ServiceUserName" => String.t() | atom(),
+        "Status" => list(any()),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type service_specific_credential_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_default_policy_version_request() :: %{
+        required("PolicyArn") => String.t() | atom(),
+        required("VersionId") => String.t() | atom()
+      }
+      
+  """
+  @type set_default_policy_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_security_token_service_preferences_request() :: %{
+        required("GlobalEndpointTokenVersion") => list(any())
+      }
+      
+  """
+  @type set_security_token_service_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      signing_certificate() :: %{
+        "CertificateBody" => String.t() | atom(),
+        "CertificateId" => String.t() | atom(),
+        "Status" => list(any()),
+        "UploadDate" => non_neg_integer(),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type signing_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3345,915 +3905,14 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      create_instance_profile_response() :: %{
-        "InstanceProfile" => instance_profile()
-      }
-      
-  """
-  @type create_instance_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attach_user_policy_request() :: %{
-        required("PolicyArn") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type attach_user_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      upload_ssh_public_key_request() :: %{
-        required("SSHPublicKeyBody") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type upload_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_entities_for_policy_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "PolicyGroups" => list(policy_group()),
-        "PolicyRoles" => list(policy_role()),
-        "PolicyUsers" => list(policy_user())
-      }
-      
-  """
-  @type list_entities_for_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_user_tags_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type list_user_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_role() :: %{
-        "RoleId" => String.t() | atom(),
-        "RoleName" => String.t() | atom()
-      }
-      
-  """
-  @type policy_role() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_open_id_connect_provider_request() :: %{
-        required("OpenIDConnectProviderArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_open_id_connect_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_input_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_ssh_public_keys_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "SSHPublicKeys" => list(ssh_public_key_metadata())
-      }
-      
-  """
-  @type list_ssh_public_keys_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      position() :: %{
-        "Column" => integer(),
-        "Line" => integer()
-      }
-      
-  """
-  @type position() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_instance_profile_tags_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_instance_profile_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_mfa_device_request() :: %{
-        required("SerialNumber") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_mfa_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type delete_conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      malformed_certificate_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type malformed_certificate_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_open_id_connect_provider_request() :: %{
-        optional("ClientIDList") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        optional("ThumbprintList") => list(String.t() | atom()),
-        required("Url") => String.t() | atom()
-      }
-      
-  """
-  @type create_open_id_connect_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_users_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Users" => list(user())
-      }
-      
-  """
-  @type list_users_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_ssh_public_key_request() :: %{
-        required("SSHPublicKeyId") => String.t() | atom(),
-        required("Status") => list(any()),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type update_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_detail() :: %{
-        "PolicyDocument" => String.t() | atom(),
-        "PolicyName" => String.t() | atom()
-      }
-      
-  """
-  @type policy_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_service_linked_role_deletion_status_request() :: %{
-        required("DeletionTaskId") => String.t() | atom()
-      }
-      
-  """
-  @type get_service_linked_role_deletion_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_account_password_policy_response() :: %{
-        "PasswordPolicy" => password_policy()
-      }
-      
-  """
-  @type get_account_password_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_mfa_device_response() :: %{
-        "Certifications" => map(),
-        "EnableDate" => non_neg_integer(),
-        "SerialNumber" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type get_mfa_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_id_idp_communication_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type open_id_idp_communication_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_key() :: %{
-        "AccessKeyId" => String.t() | atom(),
-        "CreateDate" => non_neg_integer(),
-        "SecretAccessKey" => String.t() | atom(),
-        "Status" => list(any()),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type access_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      login_profile() :: %{
-        "CreateDate" => non_neg_integer(),
-        "PasswordResetRequired" => boolean(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type login_profile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_account_alias_request() :: %{
-        required("AccountAlias") => String.t() | atom()
-      }
-      
-  """
-  @type create_account_alias_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      instance_profile() :: %{
-        "Arn" => String.t() | atom(),
-        "CreateDate" => non_neg_integer(),
-        "InstanceProfileId" => String.t() | atom(),
-        "InstanceProfileName" => String.t() | atom(),
-        "Path" => String.t() | atom(),
-        "Roles" => list(role()),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type instance_profile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_failure_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_role_request() :: %{
-        required("RoleName") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_role_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_policy_versions_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("PolicyArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_policy_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_access_key_response() :: %{
-        "AccessKey" => access_key()
-      }
-      
-  """
-  @type create_access_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      key_pair_mismatch_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type key_pair_mismatch_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unrecognized_public_key_encoding_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unrecognized_public_key_encoding_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_service_linked_role_response() :: %{
-        "DeletionTaskId" => String.t() | atom()
-      }
-      
-  """
-  @type delete_service_linked_role_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_organizations_root_credentials_management_request() :: %{}
-      
-  """
-  @type disable_organizations_root_credentials_management_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_role_tags_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type list_role_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_instance_profile_request() :: %{
-        required("InstanceProfileName") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_instance_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_human_readable_summary_request() :: %{
-        optional("Locale") => String.t() | atom(),
-        required("EntityArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_human_readable_summary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_credential_report_response() :: %{
-        "Content" => binary(),
-        "GeneratedTime" => non_neg_integer(),
-        "ReportFormat" => list(any())
-      }
-      
-  """
-  @type get_credential_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_open_id_connect_provider_tags_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_open_id_connect_provider_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_groups_response() :: %{
-        "Groups" => list(group()),
+      simulate_policy_response() :: %{
+        "EvaluationResults" => list(evaluation_result()),
         "IsTruncated" => boolean(),
         "Marker" => String.t() | atom()
       }
       
   """
-  @type list_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_saml_provider_request() :: %{
-        optional("AddPrivateKey") => String.t() | atom(),
-        optional("AssertionEncryptionMode") => list(any()),
-        optional("RemovePrivateKey") => String.t() | atom(),
-        optional("SAMLMetadataDocument") => String.t() | atom(),
-        required("SAMLProviderArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_saml_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_signing_certificates_response() :: %{
-        "Certificates" => list(signing_certificate()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type list_signing_certificates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_organizations_root_credentials_management_response() :: %{
-        "EnabledFeatures" => list(list(any())()),
-        "OrganizationId" => String.t() | atom()
-      }
-      
-  """
-  @type enable_organizations_root_credentials_management_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      list_saml_provider_tags_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_saml_provider_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_service_last_accessed_details_response() :: %{
-        "Error" => error_details(),
-        "IsTruncated" => boolean(),
-        "JobCompletionDate" => non_neg_integer(),
-        "JobCreationDate" => non_neg_integer(),
-        "JobStatus" => list(any()),
-        "JobType" => list(any()),
-        "Marker" => String.t() | atom(),
-        "ServicesLastAccessed" => list(service_last_accessed())
-      }
-      
-  """
-  @type get_service_last_accessed_details_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_attached_user_policies_response() :: %{
-        "AttachedPolicies" => list(attached_policy()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type list_attached_user_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_service_last_accessed_details_response() :: %{
-        "JobId" => String.t() | atom()
-      }
-      
-  """
-  @type generate_service_last_accessed_details_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resync_mfa_device_request() :: %{
-        required("AuthenticationCode1") => String.t() | atom(),
-        required("AuthenticationCode2") => String.t() | atom(),
-        required("SerialNumber") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type resync_mfa_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attached_permissions_boundary() :: %{
-        "PermissionsBoundaryArn" => String.t() | atom(),
-        "PermissionsBoundaryType" => list(any())
-      }
-      
-  """
-  @type attached_permissions_boundary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_role_request() :: %{
-        required("RoleName") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_role_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_group_policies_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "PolicyNames" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_group_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      role_last_used() :: %{
-        "LastUsedDate" => non_neg_integer(),
-        "Region" => String.t() | atom()
-      }
-      
-  """
-  @type role_last_used() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_signing_certificate_request() :: %{
-        optional("UserName") => String.t() | atom(),
-        required("CertificateId") => String.t() | atom(),
-        required("Status") => list(any())
-      }
-      
-  """
-  @type update_signing_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_service_specific_credentials_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "ServiceSpecificCredentials" => list(service_specific_credential_metadata())
-      }
-      
-  """
-  @type list_service_specific_credentials_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      error_details() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type error_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_group_request() :: %{
-        required("GroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_policy_tags_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_policy_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_user_to_group_request() :: %{
-        required("GroupName") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type add_user_to_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_saml_providers_response() :: %{
-        "SAMLProviderList" => list(saml_provider_list_entry())
-      }
-      
-  """
-  @type list_saml_providers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_delegation_request_request() :: %{
-        optional("OnlySendByOwner") => boolean(),
-        optional("OwnerAccountId") => String.t() | atom(),
-        optional("RedirectUrl") => String.t() | atom(),
-        optional("RequestMessage") => String.t() | atom(),
-        required("Description") => String.t() | atom(),
-        required("NotificationChannel") => String.t() | atom(),
-        required("Permissions") => delegation_permission(),
-        required("RequestorWorkflowId") => String.t() | atom(),
-        required("SessionDuration") => integer()
-      }
-      
-  """
-  @type create_delegation_request_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      duplicate_certificate_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type duplicate_certificate_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_open_id_connect_provider_request() :: %{
-        required("OpenIDConnectProviderArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_open_id_connect_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_groups_for_user_response() :: %{
-        "Groups" => list(group()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type list_groups_for_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_service_linked_role_deletion_status_response() :: %{
-        "Reason" => deletion_task_failure_reason_type(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type get_service_linked_role_deletion_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_policies_response() :: %{
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Policies" => list(policy())
-      }
-      
-  """
-  @type list_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      entity_details() :: %{
-        "EntityInfo" => entity_info(),
-        "LastAuthenticated" => non_neg_integer()
-      }
-      
-  """
-  @type entity_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_service_specific_credentials_request() :: %{
-        optional("AllUsers") => boolean(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("ServiceName") => String.t() | atom(),
-        optional("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type list_service_specific_credentials_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_organizations_access_report_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("SortKey") => list(any()),
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_organizations_access_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      password_policy() :: %{
-        "AllowUsersToChangePassword" => boolean(),
-        "ExpirePasswords" => boolean(),
-        "HardExpiry" => boolean(),
-        "MaxPasswordAge" => integer(),
-        "MinimumPasswordLength" => integer(),
-        "PasswordReusePrevention" => integer(),
-        "RequireLowercaseCharacters" => boolean(),
-        "RequireNumbers" => boolean(),
-        "RequireSymbols" => boolean(),
-        "RequireUppercaseCharacters" => boolean()
-      }
-      
-  """
-  @type password_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tracked_action_last_accessed() :: %{
-        "ActionName" => String.t() | atom(),
-        "LastAccessedEntity" => String.t() | atom(),
-        "LastAccessedRegion" => String.t() | atom(),
-        "LastAccessedTime" => non_neg_integer()
-      }
-      
-  """
-  @type tracked_action_last_accessed() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_authentication_code_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_authentication_code_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_request() :: %{
-        optional("Path") => String.t() | atom(),
-        optional("PermissionsBoundary") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type create_user_request() :: %{(String.t() | atom()) => any()}
+  @type simulate_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4281,85 +3940,341 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      get_group_response() :: %{
-        "Group" => group(),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "Users" => list(user())
+      ssh_public_key() :: %{
+        "Fingerprint" => String.t() | atom(),
+        "SSHPublicKeyBody" => String.t() | atom(),
+        "SSHPublicKeyId" => String.t() | atom(),
+        "Status" => list(any()),
+        "UploadDate" => non_neg_integer(),
+        "UserName" => String.t() | atom()
       }
       
   """
-  @type get_group_response() :: %{(String.t() | atom()) => any()}
+  @type ssh_public_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      permissions_boundary_decision_detail() :: %{
-        "AllowedByPermissionsBoundary" => boolean()
+      ssh_public_key_metadata() :: %{
+        "SSHPublicKeyId" => String.t() | atom(),
+        "Status" => list(any()),
+        "UploadDate" => non_neg_integer(),
+        "UserName" => String.t() | atom()
       }
       
   """
-  @type permissions_boundary_decision_detail() :: %{(String.t() | atom()) => any()}
+  @type ssh_public_key_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      generate_organizations_access_report_request() :: %{
-        optional("OrganizationsPolicyId") => String.t() | atom(),
-        required("EntityPath") => String.t() | atom()
+      statement() :: %{
+        "EndPosition" => position(),
+        "SourcePolicyId" => String.t() | atom(),
+        "SourcePolicyType" => list(any()),
+        "StartPosition" => position()
       }
       
   """
-  @type generate_organizations_access_report_request() :: %{(String.t() | atom()) => any()}
+  @type statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      remove_role_from_instance_profile_request() :: %{
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_instance_profile_request() :: %{
         required("InstanceProfileName") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_instance_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_mfa_device_request() :: %{
+        required("SerialNumber") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_mfa_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_open_id_connect_provider_request() :: %{
+        required("OpenIDConnectProviderArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_open_id_connect_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_policy_request() :: %{
+        required("PolicyArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_role_request() :: %{
+        required("RoleName") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_role_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_saml_provider_request() :: %{
+        required("SAMLProviderArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_saml_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_server_certificate_request() :: %{
+        required("ServerCertificateName") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_server_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_user_request() :: %{
+        required("Tags") => list(tag()),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type tag_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tracked_action_last_accessed() :: %{
+        "ActionName" => String.t() | atom(),
+        "LastAccessedEntity" => String.t() | atom(),
+        "LastAccessedRegion" => String.t() | atom(),
+        "LastAccessedTime" => non_neg_integer()
+      }
+      
+  """
+  @type tracked_action_last_accessed() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unmodifiable_entity_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unmodifiable_entity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unrecognized_public_key_encoding_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unrecognized_public_key_encoding_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_instance_profile_request() :: %{
+        required("InstanceProfileName") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_instance_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_mfa_device_request() :: %{
+        required("SerialNumber") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_mfa_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_open_id_connect_provider_request() :: %{
+        required("OpenIDConnectProviderArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_open_id_connect_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_policy_request() :: %{
+        required("PolicyArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_role_request() :: %{
+        required("RoleName") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_role_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_saml_provider_request() :: %{
+        required("SAMLProviderArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_saml_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_server_certificate_request() :: %{
+        required("ServerCertificateName") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_server_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_user_request() :: %{
+        required("TagKeys") => list(String.t() | atom()),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type untag_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_access_key_request() :: %{
+        optional("UserName") => String.t() | atom(),
+        required("AccessKeyId") => String.t() | atom(),
+        required("Status") => list(any())
+      }
+      
+  """
+  @type update_access_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_account_password_policy_request() :: %{
+        optional("AllowUsersToChangePassword") => boolean(),
+        optional("HardExpiry") => boolean(),
+        optional("MaxPasswordAge") => integer(),
+        optional("MinimumPasswordLength") => integer(),
+        optional("PasswordReusePrevention") => integer(),
+        optional("RequireLowercaseCharacters") => boolean(),
+        optional("RequireNumbers") => boolean(),
+        optional("RequireSymbols") => boolean(),
+        optional("RequireUppercaseCharacters") => boolean()
+      }
+      
+  """
+  @type update_account_password_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_assume_role_policy_request() :: %{
+        required("PolicyDocument") => String.t() | atom(),
         required("RoleName") => String.t() | atom()
       }
       
   """
-  @type remove_role_from_instance_profile_request() :: %{(String.t() | atom()) => any()}
+  @type update_assume_role_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      generate_organizations_access_report_response() :: %{
-        "JobId" => String.t() | atom()
+      update_delegation_request_request() :: %{
+        optional("Notes") => String.t() | atom(),
+        required("DelegationRequestId") => String.t() | atom()
       }
       
   """
-  @type generate_organizations_access_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_account_summary_response() :: %{
-        "SummaryMap" => map()
-      }
-      
-  """
-  @type get_account_summary_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_roles_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("PathPrefix") => String.t() | atom()
-      }
-      
-  """
-  @type list_roles_request() :: %{(String.t() | atom()) => any()}
+  @type update_delegation_request_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4378,205 +4293,290 @@ defmodule AWS.IAM do
 
   ## Example:
       
-      create_service_linked_role_response() :: %{
+      update_login_profile_request() :: %{
+        optional("Password") => String.t() | atom(),
+        optional("PasswordResetRequired") => boolean(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type update_login_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_open_id_connect_provider_thumbprint_request() :: %{
+        required("OpenIDConnectProviderArn") => String.t() | atom(),
+        required("ThumbprintList") => list(String.t() | atom())
+      }
+      
+  """
+  @type update_open_id_connect_provider_thumbprint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_role_description_request() :: %{
+        required("Description") => String.t() | atom(),
+        required("RoleName") => String.t() | atom()
+      }
+      
+  """
+  @type update_role_description_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_role_description_response() :: %{
         "Role" => role()
       }
       
   """
-  @type create_service_linked_role_response() :: %{(String.t() | atom()) => any()}
+  @type update_role_description_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_delegation_requests_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("OwnerId") => String.t() | atom()
+      update_role_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("MaxSessionDuration") => integer(),
+        required("RoleName") => String.t() | atom()
       }
       
   """
-  @type list_delegation_requests_request() :: %{(String.t() | atom()) => any()}
+  @type update_role_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      ssh_public_key() :: %{
-        "Fingerprint" => String.t() | atom(),
-        "SSHPublicKeyBody" => String.t() | atom(),
-        "SSHPublicKeyId" => String.t() | atom(),
-        "Status" => list(any()),
-        "UploadDate" => non_neg_integer(),
+      update_role_response() :: %{}
+      
+  """
+  @type update_role_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_saml_provider_request() :: %{
+        optional("AddPrivateKey") => String.t() | atom(),
+        optional("AssertionEncryptionMode") => list(any()),
+        optional("RemovePrivateKey") => String.t() | atom(),
+        optional("SAMLMetadataDocument") => String.t() | atom(),
+        required("SAMLProviderArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_saml_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_saml_provider_response() :: %{
+        "SAMLProviderArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_saml_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_server_certificate_request() :: %{
+        optional("NewPath") => String.t() | atom(),
+        optional("NewServerCertificateName") => String.t() | atom(),
+        required("ServerCertificateName") => String.t() | atom()
+      }
+      
+  """
+  @type update_server_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_service_specific_credential_request() :: %{
+        optional("UserName") => String.t() | atom(),
+        required("ServiceSpecificCredentialId") => String.t() | atom(),
+        required("Status") => list(any())
+      }
+      
+  """
+  @type update_service_specific_credential_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_signing_certificate_request() :: %{
+        optional("UserName") => String.t() | atom(),
+        required("CertificateId") => String.t() | atom(),
+        required("Status") => list(any())
+      }
+      
+  """
+  @type update_signing_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_ssh_public_key_request() :: %{
+        required("SSHPublicKeyId") => String.t() | atom(),
+        required("Status") => list(any()),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type update_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_request() :: %{
+        optional("NewPath") => String.t() | atom(),
+        optional("NewUserName") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type update_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_server_certificate_request() :: %{
+        optional("CertificateChain") => String.t() | atom(),
+        optional("Path") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("CertificateBody") => String.t() | atom(),
+        required("PrivateKey") => String.t() | atom(),
+        required("ServerCertificateName") => String.t() | atom()
+      }
+      
+  """
+  @type upload_server_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_server_certificate_response() :: %{
+        "ServerCertificateMetadata" => server_certificate_metadata(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type upload_server_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_signing_certificate_request() :: %{
+        optional("UserName") => String.t() | atom(),
+        required("CertificateBody") => String.t() | atom()
+      }
+      
+  """
+  @type upload_signing_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_signing_certificate_response() :: %{
+        "Certificate" => signing_certificate()
+      }
+      
+  """
+  @type upload_signing_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_ssh_public_key_request() :: %{
+        required("SSHPublicKeyBody") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type upload_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_ssh_public_key_response() :: %{
+        "SSHPublicKey" => ssh_public_key()
+      }
+      
+  """
+  @type upload_ssh_public_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user() :: %{
+        "Arn" => String.t() | atom(),
+        "CreateDate" => non_neg_integer(),
+        "PasswordLastUsed" => non_neg_integer(),
+        "Path" => String.t() | atom(),
+        "PermissionsBoundary" => attached_permissions_boundary(),
+        "Tags" => list(tag()),
+        "UserId" => String.t() | atom(),
         "UserName" => String.t() | atom()
       }
       
   """
-  @type ssh_public_key() :: %{(String.t() | atom()) => any()}
+  @type user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_organizations_features_request() :: %{}
-      
-  """
-  @type list_organizations_features_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_signing_certificates_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("UserName") => String.t() | atom()
+      user_detail() :: %{
+        "Arn" => String.t() | atom(),
+        "AttachedManagedPolicies" => list(attached_policy()),
+        "CreateDate" => non_neg_integer(),
+        "GroupList" => list(String.t() | atom()),
+        "Path" => String.t() | atom(),
+        "PermissionsBoundary" => attached_permissions_boundary(),
+        "Tags" => list(tag()),
+        "UserId" => String.t() | atom(),
+        "UserName" => String.t() | atom(),
+        "UserPolicyList" => list(policy_detail())
       }
       
   """
-  @type list_signing_certificates_request() :: %{(String.t() | atom()) => any()}
+  @type user_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_groups_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("PathPrefix") => String.t() | atom()
+      virtual_mfa_device() :: %{
+        "Base32StringSeed" => binary(),
+        "EnableDate" => non_neg_integer(),
+        "QRCodePNG" => binary(),
+        "SerialNumber" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "User" => user()
       }
       
   """
-  @type list_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_context_keys_for_policy_response() :: %{
-        "ContextKeyNames" => list(String.t() | atom())
-      }
-      
-  """
-  @type get_context_keys_for_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_role_permissions_boundary_request() :: %{
-        required("PermissionsBoundary") => String.t() | atom(),
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type put_role_permissions_boundary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_mfa_devices_response() :: %{
-        "IsTruncated" => boolean(),
-        "MFADevices" => list(mfa_device()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type list_mfa_devices_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_role_request() :: %{
-        required("RoleName") => String.t() | atom()
-      }
-      
-  """
-  @type get_role_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_group_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("GroupName") => String.t() | atom()
-      }
-      
-  """
-  @type get_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_mfa_devices_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type list_mfa_devices_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attach_group_policy_request() :: %{
-        required("GroupName") => String.t() | atom(),
-        required("PolicyArn") => String.t() | atom()
-      }
-      
-  """
-  @type attach_group_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_service_last_accessed_details_with_entities_response() :: %{
-        "EntityDetailsList" => list(entity_details()),
-        "Error" => error_details(),
-        "IsTruncated" => boolean(),
-        "JobCompletionDate" => non_neg_integer(),
-        "JobCreationDate" => non_neg_integer(),
-        "JobStatus" => list(any()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type get_service_last_accessed_details_with_entities_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_saml_provider_request() :: %{
-        required("SAMLProviderArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_saml_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_open_id_connect_provider_tags_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("OpenIDConnectProviderArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_open_id_connect_provider_tags_request() :: %{(String.t() | atom()) => any()}
+  @type virtual_mfa_device() :: %{(String.t() | atom()) => any()}
 
   @type accept_delegation_request_errors() ::
           service_failure_exception()
@@ -4585,56 +4585,56 @@ defmodule AWS.IAM do
 
   @type add_client_id_to_open_id_connect_provider_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type add_role_to_instance_profile_errors() ::
-          service_failure_exception()
+          unmodifiable_entity_exception()
+          | service_failure_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
           | entity_already_exists_exception()
-          | unmodifiable_entity_exception()
 
   @type add_user_to_group_errors() ::
           service_failure_exception() | no_such_entity_exception() | limit_exceeded_exception()
 
   @type associate_delegation_request_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type attach_group_policy_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
-          | no_such_entity_exception()
           | policy_not_attachable_exception()
+          | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
 
   @type attach_role_policy_errors() ::
-          service_failure_exception()
-          | invalid_input_exception()
-          | no_such_entity_exception()
+          unmodifiable_entity_exception()
+          | service_failure_exception()
           | policy_not_attachable_exception()
+          | no_such_entity_exception()
           | limit_exceeded_exception()
-          | unmodifiable_entity_exception()
+          | invalid_input_exception()
 
   @type attach_user_policy_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
-          | no_such_entity_exception()
           | policy_not_attachable_exception()
+          | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
 
   @type change_password_errors() ::
           service_failure_exception()
-          | invalid_user_type_exception()
           | password_policy_violation_exception()
           | no_such_entity_exception()
-          | entity_temporarily_unmodifiable_exception()
           | limit_exceeded_exception()
+          | invalid_user_type_exception()
+          | entity_temporarily_unmodifiable_exception()
 
   @type create_access_key_errors() ::
           service_failure_exception() | no_such_entity_exception() | limit_exceeded_exception()
@@ -4647,8 +4647,8 @@ defmodule AWS.IAM do
 
   @type create_delegation_request_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | entity_already_exists_exception()
           | concurrent_modification_exception()
 
@@ -4660,8 +4660,8 @@ defmodule AWS.IAM do
 
   @type create_instance_profile_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | entity_already_exists_exception()
           | concurrent_modification_exception()
 
@@ -4675,72 +4675,72 @@ defmodule AWS.IAM do
   @type create_open_id_connect_provider_errors() ::
           service_failure_exception()
           | open_id_idp_communication_error_exception()
-          | invalid_input_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | entity_already_exists_exception()
           | concurrent_modification_exception()
 
   @type create_policy_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | malformed_policy_document_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | entity_already_exists_exception()
           | concurrent_modification_exception()
 
   @type create_policy_version_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
-          | malformed_policy_document_exception()
           | no_such_entity_exception()
+          | malformed_policy_document_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
 
   @type create_role_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | malformed_policy_document_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | entity_already_exists_exception()
           | concurrent_modification_exception()
 
   @type create_saml_provider_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | entity_already_exists_exception()
           | concurrent_modification_exception()
 
   @type create_service_linked_role_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
 
   @type create_service_specific_credential_errors() ::
-          no_such_entity_exception()
+          service_not_supported_exception()
+          | no_such_entity_exception()
           | limit_exceeded_exception()
-          | service_not_supported_exception()
 
   @type create_user_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | entity_already_exists_exception()
           | concurrent_modification_exception()
 
   @type create_virtual_mfa_device_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | entity_already_exists_exception()
           | concurrent_modification_exception()
 
   @type deactivate_mfa_device_errors() ::
           service_failure_exception()
           | no_such_entity_exception()
-          | entity_temporarily_unmodifiable_exception()
           | limit_exceeded_exception()
+          | entity_temporarily_unmodifiable_exception()
           | concurrent_modification_exception()
 
   @type delete_access_key_errors() ::
@@ -4757,72 +4757,72 @@ defmodule AWS.IAM do
 
   @type delete_group_errors() ::
           service_failure_exception()
-          | delete_conflict_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | delete_conflict_exception()
 
   @type delete_group_policy_errors() ::
           service_failure_exception() | no_such_entity_exception() | limit_exceeded_exception()
 
   @type delete_instance_profile_errors() ::
           service_failure_exception()
-          | delete_conflict_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | delete_conflict_exception()
 
   @type delete_login_profile_errors() ::
           service_failure_exception()
           | no_such_entity_exception()
-          | entity_temporarily_unmodifiable_exception()
           | limit_exceeded_exception()
+          | entity_temporarily_unmodifiable_exception()
 
   @type delete_open_id_connect_provider_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type delete_policy_errors() ::
           service_failure_exception()
-          | delete_conflict_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
+          | delete_conflict_exception()
 
   @type delete_policy_version_errors() ::
           service_failure_exception()
-          | delete_conflict_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
+          | delete_conflict_exception()
 
   @type delete_role_errors() ::
-          service_failure_exception()
-          | delete_conflict_exception()
+          unmodifiable_entity_exception()
+          | service_failure_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
-          | unmodifiable_entity_exception()
+          | delete_conflict_exception()
           | concurrent_modification_exception()
 
   @type delete_role_permissions_boundary_errors() ::
-          service_failure_exception()
+          unmodifiable_entity_exception()
+          | service_failure_exception()
           | no_such_entity_exception()
-          | unmodifiable_entity_exception()
 
   @type delete_role_policy_errors() ::
-          service_failure_exception()
+          unmodifiable_entity_exception()
+          | service_failure_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
-          | unmodifiable_entity_exception()
 
   @type delete_saml_provider_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
 
   @type delete_server_certificate_errors() ::
           service_failure_exception()
-          | delete_conflict_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | delete_conflict_exception()
 
   @type delete_service_linked_role_errors() ::
           service_failure_exception() | no_such_entity_exception() | limit_exceeded_exception()
@@ -4839,9 +4839,9 @@ defmodule AWS.IAM do
 
   @type delete_user_errors() ::
           service_failure_exception()
-          | delete_conflict_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | delete_conflict_exception()
           | concurrent_modification_exception()
 
   @type delete_user_permissions_boundary_errors() ::
@@ -4852,66 +4852,66 @@ defmodule AWS.IAM do
 
   @type delete_virtual_mfa_device_errors() ::
           service_failure_exception()
-          | delete_conflict_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | delete_conflict_exception()
           | concurrent_modification_exception()
 
   @type detach_group_policy_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
 
   @type detach_role_policy_errors() ::
-          service_failure_exception()
-          | invalid_input_exception()
+          unmodifiable_entity_exception()
+          | service_failure_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
-          | unmodifiable_entity_exception()
+          | invalid_input_exception()
 
   @type detach_user_policy_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
 
   @type disable_organizations_root_credentials_management_errors() ::
-          organization_not_found_exception()
-          | account_not_management_or_delegated_administrator_exception()
-          | service_access_not_enabled_exception()
+          service_access_not_enabled_exception()
           | organization_not_in_all_features_mode_exception()
+          | organization_not_found_exception()
+          | account_not_management_or_delegated_administrator_exception()
 
   @type disable_organizations_root_sessions_errors() ::
-          organization_not_found_exception()
-          | account_not_management_or_delegated_administrator_exception()
-          | service_access_not_enabled_exception()
+          service_access_not_enabled_exception()
           | organization_not_in_all_features_mode_exception()
+          | organization_not_found_exception()
+          | account_not_management_or_delegated_administrator_exception()
 
   @type disable_outbound_web_identity_federation_errors() :: feature_disabled_exception()
 
   @type enable_mfa_device_errors() ::
-          invalid_authentication_code_exception()
-          | service_failure_exception()
+          service_failure_exception()
           | no_such_entity_exception()
-          | entity_temporarily_unmodifiable_exception()
           | limit_exceeded_exception()
+          | invalid_authentication_code_exception()
+          | entity_temporarily_unmodifiable_exception()
           | entity_already_exists_exception()
           | concurrent_modification_exception()
 
   @type enable_organizations_root_credentials_management_errors() ::
-          organization_not_found_exception()
+          service_access_not_enabled_exception()
+          | organization_not_in_all_features_mode_exception()
+          | organization_not_found_exception()
           | caller_is_not_management_account_exception()
           | account_not_management_or_delegated_administrator_exception()
-          | service_access_not_enabled_exception()
-          | organization_not_in_all_features_mode_exception()
 
   @type enable_organizations_root_sessions_errors() ::
-          organization_not_found_exception()
+          service_access_not_enabled_exception()
+          | organization_not_in_all_features_mode_exception()
+          | organization_not_found_exception()
           | caller_is_not_management_account_exception()
           | account_not_management_or_delegated_administrator_exception()
-          | service_access_not_enabled_exception()
-          | organization_not_in_all_features_mode_exception()
 
   @type enable_outbound_web_identity_federation_errors() :: feature_enabled_exception()
 
@@ -4922,7 +4922,7 @@ defmodule AWS.IAM do
           report_generation_limit_exceeded_exception()
 
   @type generate_service_last_accessed_details_errors() ::
-          invalid_input_exception() | no_such_entity_exception()
+          no_such_entity_exception() | invalid_input_exception()
 
   @type get_account_authorization_details_errors() :: service_failure_exception()
 
@@ -4934,13 +4934,13 @@ defmodule AWS.IAM do
   @type get_context_keys_for_custom_policy_errors() :: invalid_input_exception()
 
   @type get_context_keys_for_principal_policy_errors() ::
-          invalid_input_exception() | no_such_entity_exception()
+          no_such_entity_exception() | invalid_input_exception()
 
   @type get_credential_report_errors() ::
           service_failure_exception()
-          | credential_report_expired_exception()
-          | credential_report_not_present_exception()
           | credential_report_not_ready_exception()
+          | credential_report_not_present_exception()
+          | credential_report_expired_exception()
 
   @type get_delegation_request_errors() ::
           service_failure_exception() | no_such_entity_exception()
@@ -4950,7 +4950,7 @@ defmodule AWS.IAM do
   @type get_group_policy_errors() :: service_failure_exception() | no_such_entity_exception()
 
   @type get_human_readable_summary_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type get_instance_profile_errors() :: service_failure_exception() | no_such_entity_exception()
 
@@ -4959,36 +4959,36 @@ defmodule AWS.IAM do
   @type get_mfa_device_errors() :: service_failure_exception() | no_such_entity_exception()
 
   @type get_open_id_connect_provider_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type get_organizations_access_report_errors() :: no_such_entity_exception()
 
   @type get_outbound_web_identity_federation_info_errors() :: feature_disabled_exception()
 
   @type get_policy_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type get_policy_version_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type get_role_errors() :: service_failure_exception() | no_such_entity_exception()
 
   @type get_role_policy_errors() :: service_failure_exception() | no_such_entity_exception()
 
   @type get_saml_provider_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type get_server_certificate_errors() ::
           service_failure_exception() | no_such_entity_exception()
 
   @type get_service_last_accessed_details_errors() ::
-          invalid_input_exception() | no_such_entity_exception()
+          no_such_entity_exception() | invalid_input_exception()
 
   @type get_service_last_accessed_details_with_entities_errors() ::
-          invalid_input_exception() | no_such_entity_exception()
+          no_such_entity_exception() | invalid_input_exception()
 
   @type get_service_linked_role_deletion_status_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type get_ssh_public_key_errors() ::
           unrecognized_public_key_encoding_exception() | no_such_entity_exception()
@@ -5002,19 +5002,19 @@ defmodule AWS.IAM do
   @type list_account_aliases_errors() :: service_failure_exception()
 
   @type list_attached_group_policies_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type list_attached_role_policies_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type list_attached_user_policies_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type list_delegation_requests_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type list_entities_for_policy_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type list_group_policies_errors() :: service_failure_exception() | no_such_entity_exception()
 
@@ -5031,31 +5031,31 @@ defmodule AWS.IAM do
           service_failure_exception() | no_such_entity_exception()
 
   @type list_mfa_device_tags_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type list_mfa_devices_errors() :: service_failure_exception() | no_such_entity_exception()
 
   @type list_open_id_connect_provider_tags_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type list_open_id_connect_providers_errors() :: service_failure_exception()
 
   @type list_organizations_features_errors() ::
-          organization_not_found_exception()
-          | account_not_management_or_delegated_administrator_exception()
-          | service_access_not_enabled_exception()
+          service_access_not_enabled_exception()
           | organization_not_in_all_features_mode_exception()
+          | organization_not_found_exception()
+          | account_not_management_or_delegated_administrator_exception()
 
   @type list_policies_errors() :: service_failure_exception()
 
   @type list_policies_granting_service_access_errors() ::
-          invalid_input_exception() | no_such_entity_exception()
+          no_such_entity_exception() | invalid_input_exception()
 
   @type list_policy_tags_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type list_policy_versions_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type list_role_policies_errors() :: service_failure_exception() | no_such_entity_exception()
 
@@ -5064,7 +5064,7 @@ defmodule AWS.IAM do
   @type list_roles_errors() :: service_failure_exception()
 
   @type list_saml_provider_tags_errors() ::
-          service_failure_exception() | invalid_input_exception() | no_such_entity_exception()
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type list_saml_providers_errors() :: service_failure_exception()
 
@@ -5074,7 +5074,7 @@ defmodule AWS.IAM do
   @type list_server_certificates_errors() :: service_failure_exception()
 
   @type list_service_specific_credentials_errors() ::
-          no_such_entity_exception() | service_not_supported_exception()
+          service_not_supported_exception() | no_such_entity_exception()
 
   @type list_signing_certificates_errors() ::
           service_failure_exception() | no_such_entity_exception()
@@ -5089,53 +5089,53 @@ defmodule AWS.IAM do
 
   @type put_group_policy_errors() ::
           service_failure_exception()
-          | malformed_policy_document_exception()
           | no_such_entity_exception()
+          | malformed_policy_document_exception()
           | limit_exceeded_exception()
 
   @type put_role_permissions_boundary_errors() ::
-          service_failure_exception()
-          | invalid_input_exception()
-          | no_such_entity_exception()
+          unmodifiable_entity_exception()
+          | service_failure_exception()
           | policy_not_attachable_exception()
-          | unmodifiable_entity_exception()
+          | no_such_entity_exception()
+          | invalid_input_exception()
 
   @type put_role_policy_errors() ::
-          service_failure_exception()
-          | malformed_policy_document_exception()
+          unmodifiable_entity_exception()
+          | service_failure_exception()
           | no_such_entity_exception()
+          | malformed_policy_document_exception()
           | limit_exceeded_exception()
-          | unmodifiable_entity_exception()
 
   @type put_user_permissions_boundary_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
-          | no_such_entity_exception()
           | policy_not_attachable_exception()
+          | no_such_entity_exception()
+          | invalid_input_exception()
 
   @type put_user_policy_errors() ::
           service_failure_exception()
-          | malformed_policy_document_exception()
           | no_such_entity_exception()
+          | malformed_policy_document_exception()
           | limit_exceeded_exception()
 
   @type reject_delegation_request_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type remove_client_id_from_open_id_connect_provider_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type remove_role_from_instance_profile_errors() ::
-          service_failure_exception()
+          unmodifiable_entity_exception()
+          | service_failure_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
-          | unmodifiable_entity_exception()
 
   @type remove_user_from_group_errors() ::
           service_failure_exception() | no_such_entity_exception() | limit_exceeded_exception()
@@ -5143,110 +5143,110 @@ defmodule AWS.IAM do
   @type reset_service_specific_credential_errors() :: no_such_entity_exception()
 
   @type resync_mfa_device_errors() ::
-          invalid_authentication_code_exception()
-          | service_failure_exception()
+          service_failure_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_authentication_code_exception()
           | concurrent_modification_exception()
 
   @type send_delegation_token_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type set_default_policy_version_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
 
   @type set_security_token_service_preferences_errors() :: service_failure_exception()
 
   @type simulate_custom_policy_errors() ::
-          invalid_input_exception() | policy_evaluation_exception()
+          policy_evaluation_exception() | invalid_input_exception()
 
   @type simulate_principal_policy_errors() ::
-          invalid_input_exception() | no_such_entity_exception() | policy_evaluation_exception()
+          policy_evaluation_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type tag_instance_profile_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type tag_mfa_device_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type tag_open_id_connect_provider_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type tag_policy_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type tag_role_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type tag_saml_provider_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type tag_server_certificate_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type tag_user_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type untag_instance_profile_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type untag_mfa_device_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type untag_open_id_connect_provider_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type untag_policy_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type untag_role_errors() ::
@@ -5256,14 +5256,14 @@ defmodule AWS.IAM do
 
   @type untag_saml_provider_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type untag_server_certificate_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type untag_user_errors() ::
@@ -5273,27 +5273,27 @@ defmodule AWS.IAM do
 
   @type update_access_key_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
 
   @type update_account_password_policy_errors() ::
           service_failure_exception()
-          | malformed_policy_document_exception()
           | no_such_entity_exception()
+          | malformed_policy_document_exception()
           | limit_exceeded_exception()
 
   @type update_assume_role_policy_errors() ::
-          service_failure_exception()
-          | malformed_policy_document_exception()
+          unmodifiable_entity_exception()
+          | service_failure_exception()
           | no_such_entity_exception()
+          | malformed_policy_document_exception()
           | limit_exceeded_exception()
-          | unmodifiable_entity_exception()
 
   @type update_delegation_request_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type update_group_errors() ::
@@ -5306,30 +5306,30 @@ defmodule AWS.IAM do
           service_failure_exception()
           | password_policy_violation_exception()
           | no_such_entity_exception()
-          | entity_temporarily_unmodifiable_exception()
           | limit_exceeded_exception()
+          | entity_temporarily_unmodifiable_exception()
 
   @type update_open_id_connect_provider_thumbprint_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type update_role_errors() ::
-          service_failure_exception()
+          unmodifiable_entity_exception()
+          | service_failure_exception()
           | no_such_entity_exception()
-          | unmodifiable_entity_exception()
 
   @type update_role_description_errors() ::
-          service_failure_exception()
+          unmodifiable_entity_exception()
+          | service_failure_exception()
           | no_such_entity_exception()
-          | unmodifiable_entity_exception()
 
   @type update_saml_provider_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | concurrent_modification_exception()
 
   @type update_server_certificate_errors() ::
@@ -5342,45 +5342,45 @@ defmodule AWS.IAM do
 
   @type update_signing_certificate_errors() ::
           service_failure_exception()
-          | invalid_input_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
 
-  @type update_ssh_public_key_errors() :: invalid_input_exception() | no_such_entity_exception()
+  @type update_ssh_public_key_errors() :: no_such_entity_exception() | invalid_input_exception()
 
   @type update_user_errors() ::
           service_failure_exception()
           | no_such_entity_exception()
-          | entity_temporarily_unmodifiable_exception()
           | limit_exceeded_exception()
+          | entity_temporarily_unmodifiable_exception()
           | entity_already_exists_exception()
           | concurrent_modification_exception()
 
   @type upload_server_certificate_errors() ::
-          key_pair_mismatch_exception()
-          | service_failure_exception()
+          service_failure_exception()
           | malformed_certificate_exception()
-          | invalid_input_exception()
           | limit_exceeded_exception()
+          | key_pair_mismatch_exception()
+          | invalid_input_exception()
           | entity_already_exists_exception()
           | concurrent_modification_exception()
 
   @type upload_signing_certificate_errors() ::
-          duplicate_certificate_exception()
-          | service_failure_exception()
-          | malformed_certificate_exception()
+          service_failure_exception()
           | no_such_entity_exception()
-          | invalid_certificate_exception()
+          | malformed_certificate_exception()
           | limit_exceeded_exception()
+          | invalid_certificate_exception()
           | entity_already_exists_exception()
+          | duplicate_certificate_exception()
           | concurrent_modification_exception()
 
   @type upload_ssh_public_key_errors() ::
           unrecognized_public_key_encoding_exception()
           | no_such_entity_exception()
+          | limit_exceeded_exception()
           | invalid_public_key_exception()
           | duplicate_ssh_public_key_exception()
-          | limit_exceeded_exception()
 
   def metadata do
     %{

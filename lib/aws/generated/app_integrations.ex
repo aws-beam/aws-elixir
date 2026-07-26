@@ -40,135 +40,6 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
-      list_event_integrations_response() :: %{
-        "EventIntegrations" => list(event_integration()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_event_integrations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      last_execution_status() :: %{
-        "ExecutionStatus" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type last_execution_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_integration_associations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_event_integration_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_integration_response() :: %{}
-
-  """
-  @type update_event_integration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_integration_association_response() :: %{}
-
-  """
-  @type update_data_integration_association_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_integration_request() :: %{}
-
-  """
-  @type get_data_integration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      event_integration() :: %{
-        "Description" => String.t() | atom(),
-        "EventBridgeBus" => String.t() | atom(),
-        "EventFilter" => event_filter(),
-        "EventIntegrationArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type event_integration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_application_associations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_application_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_event_integration_response() :: %{
-        "EventIntegrationArn" => String.t() | atom()
-      }
-
-  """
-  @type create_event_integration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_integration_association_request() :: %{
-        optional("ClientAssociationMetadata") => map(),
-        optional("ClientId") => String.t() | atom(),
-        optional("ClientToken") => String.t() | atom(),
-        optional("DestinationURI") => String.t() | atom(),
-        optional("ExecutionConfiguration") => execution_configuration(),
-        optional("ObjectConfiguration") => map()
-      }
-
-  """
-  @type create_data_integration_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -180,118 +51,54 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
-      event_filter() :: %{
-        "Source" => String.t() | atom()
+      application_association_summary() :: %{
+        "ApplicationArn" => String.t() | atom(),
+        "ApplicationAssociationArn" => String.t() | atom(),
+        "ClientId" => String.t() | atom()
       }
 
   """
-  @type event_filter() :: %{(String.t() | atom()) => any()}
+  @type application_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_data_integration_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ClientToken" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "FileConfiguration" => file_configuration(),
-        "Id" => String.t() | atom(),
-        "KmsKey" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ObjectConfiguration" => map(),
-        "ScheduleConfiguration" => schedule_configuration(),
-        "SourceURI" => String.t() | atom(),
-        "Tags" => map()
+      application_config() :: %{
+        "ContactHandling" => contact_handling()
       }
 
   """
-  @type create_data_integration_response() :: %{(String.t() | atom()) => any()}
+  @type application_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      subscription() :: %{
-        "Description" => String.t() | atom(),
-        "Event" => String.t() | atom()
+      application_source_config() :: %{
+        "ExternalUrlConfig" => external_url_config()
       }
 
   """
-  @type subscription() :: %{(String.t() | atom()) => any()}
+  @type application_source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_data_integration_response() :: %{}
-
-  """
-  @type delete_data_integration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_event_integration_response() :: %{}
-
-  """
-  @type delete_event_integration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_integration_associations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_data_integration_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_integration_association() :: %{
-        "ClientAssociationMetadata" => map(),
-        "ClientId" => String.t() | atom(),
-        "EventBridgeRuleName" => String.t() | atom(),
-        "EventIntegrationAssociationArn" => String.t() | atom(),
-        "EventIntegrationAssociationId" => String.t() | atom(),
-        "EventIntegrationName" => String.t() | atom()
-      }
-
-  """
-  @type event_integration_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_response() :: %{
-        "ApplicationConfig" => application_config(),
-        "ApplicationSourceConfig" => application_source_config(),
+      application_summary() :: %{
         "ApplicationType" => list(any()),
         "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
         "Id" => String.t() | atom(),
-        "IframeConfig" => iframe_config(),
-        "InitializationTimeout" => integer(),
         "IsService" => boolean(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
-        "Namespace" => String.t() | atom(),
-        "Permissions" => list(String.t() | atom()),
-        "Publications" => list(publication()),
-        "Subscriptions" => list(subscription()),
-        "Tags" => map()
+        "Namespace" => String.t() | atom()
       }
 
   """
-  @type get_application_response() :: %{(String.t() | atom()) => any()}
+  @type application_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -332,53 +139,41 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
-      update_event_integration_request() :: %{
-        optional("Description") => String.t() | atom()
+      create_application_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
 
   """
-  @type update_event_integration_request() :: %{(String.t() | atom()) => any()}
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_data_integration_association_request() :: %{
-        required("ExecutionConfiguration") => execution_configuration()
+      create_data_integration_association_request() :: %{
+        optional("ClientAssociationMetadata") => map(),
+        optional("ClientId") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("DestinationURI") => String.t() | atom(),
+        optional("ExecutionConfiguration") => execution_configuration(),
+        optional("ObjectConfiguration") => map()
       }
 
   """
-  @type update_data_integration_association_request() :: %{(String.t() | atom()) => any()}
+  @type create_data_integration_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_application_request() :: %{}
-
-  """
-  @type get_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_integrations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      create_data_integration_association_response() :: %{
+        "DataIntegrationArn" => String.t() | atom(),
+        "DataIntegrationAssociationId" => String.t() | atom()
       }
 
   """
-  @type list_event_integrations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_integration_request() :: %{}
-
-  """
-  @type get_event_integration_request() :: %{}
+  @type create_data_integration_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -403,79 +198,22 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
-      on_demand_configuration() :: %{
-        "EndTime" => String.t() | atom(),
-        "StartTime" => String.t() | atom()
+      create_data_integration_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ClientToken" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "FileConfiguration" => file_configuration(),
+        "Id" => String.t() | atom(),
+        "KmsKey" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ObjectConfiguration" => map(),
+        "ScheduleConfiguration" => schedule_configuration(),
+        "SourceURI" => String.t() | atom(),
+        "Tags" => map()
       }
 
   """
-  @type on_demand_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_integration_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_data_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      application_config() :: %{
-        "ContactHandling" => contact_handling()
-      }
-
-  """
-  @type application_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_applications_response() :: %{
-        "Applications" => list(application_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_applications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_integration_response() :: %{}
-
-  """
-  @type update_data_integration_response() :: %{}
+  @type create_data_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -497,39 +235,12 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
-      unsupported_operation_exception() :: %{
-        "Message" => String.t() | atom()
+      create_event_integration_response() :: %{
+        "EventIntegrationArn" => String.t() | atom()
       }
 
   """
-  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_application_request() :: %{}
-
-  """
-  @type delete_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_response() :: %{}
-
-  """
-  @type update_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
+  @type create_event_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -551,14 +262,23 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
-      application_association_summary() :: %{
-        "ApplicationArn" => String.t() | atom(),
-        "ApplicationAssociationArn" => String.t() | atom(),
-        "ClientId" => String.t() | atom()
+      data_integration_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SourceURI" => String.t() | atom()
       }
 
   """
-  @type application_association_summary() :: %{(String.t() | atom()) => any()}
+  @type data_integration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_request() :: %{}
+
+  """
+  @type delete_application_request() :: %{}
 
   @typedoc """
 
@@ -573,6 +293,24 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
+      delete_data_integration_request() :: %{}
+
+  """
+  @type delete_data_integration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_integration_response() :: %{}
+
+  """
+  @type delete_data_integration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_event_integration_request() :: %{}
 
   """
@@ -582,34 +320,10 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
-      list_applications_request() :: %{
-        optional("ApplicationType") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
+      delete_event_integration_response() :: %{}
 
   """
-  @type list_applications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type delete_event_integration_response() :: %{}
 
   @typedoc """
 
@@ -621,6 +335,160 @@ defmodule AWS.AppIntegrations do
 
   """
   @type duplicate_resource_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_filter() :: %{
+        "Source" => String.t() | atom()
+      }
+
+  """
+  @type event_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_integration() :: %{
+        "Description" => String.t() | atom(),
+        "EventBridgeBus" => String.t() | atom(),
+        "EventFilter" => event_filter(),
+        "EventIntegrationArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type event_integration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_integration_association() :: %{
+        "ClientAssociationMetadata" => map(),
+        "ClientId" => String.t() | atom(),
+        "EventBridgeRuleName" => String.t() | atom(),
+        "EventIntegrationAssociationArn" => String.t() | atom(),
+        "EventIntegrationAssociationId" => String.t() | atom(),
+        "EventIntegrationName" => String.t() | atom()
+      }
+
+  """
+  @type event_integration_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_configuration() :: %{
+        "ExecutionMode" => list(any()),
+        "OnDemandConfiguration" => on_demand_configuration(),
+        "ScheduleConfiguration" => schedule_configuration()
+      }
+
+  """
+  @type execution_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_url_config() :: %{
+        "AccessUrl" => String.t() | atom(),
+        "ApprovedOrigins" => list(String.t() | atom())
+      }
+
+  """
+  @type external_url_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_configuration() :: %{
+        "Filters" => map(),
+        "Folders" => list(String.t() | atom())
+      }
+
+  """
+  @type file_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_request() :: %{}
+
+  """
+  @type get_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_response() :: %{
+        "ApplicationConfig" => application_config(),
+        "ApplicationSourceConfig" => application_source_config(),
+        "ApplicationType" => list(any()),
+        "Arn" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "IframeConfig" => iframe_config(),
+        "InitializationTimeout" => integer(),
+        "IsService" => boolean(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "Permissions" => list(String.t() | atom()),
+        "Publications" => list(publication()),
+        "Subscriptions" => list(subscription()),
+        "Tags" => map()
+      }
+
+  """
+  @type get_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_integration_request() :: %{}
+
+  """
+  @type get_data_integration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_integration_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "FileConfiguration" => file_configuration(),
+        "Id" => String.t() | atom(),
+        "KmsKey" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ObjectConfiguration" => map(),
+        "ScheduleConfiguration" => schedule_configuration(),
+        "SourceURI" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_data_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_integration_request() :: %{}
+
+  """
+  @type get_event_integration_request() :: %{}
 
   @typedoc """
 
@@ -642,6 +510,64 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
+      iframe_config() :: %{
+        "Allow" => list(String.t() | atom()),
+        "Sandbox" => list(String.t() | atom())
+      }
+
+  """
+  @type iframe_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_service_error() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_service_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      last_execution_status() :: %{
+        "ExecutionStatus" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type last_execution_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_application_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_application_associations_response() :: %{
         "ApplicationAssociations" => list(application_association_summary()),
         "NextToken" => String.t() | atom()
@@ -649,6 +575,55 @@ defmodule AWS.AppIntegrations do
 
   """
   @type list_application_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_request() :: %{
+        optional("ApplicationType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_response() :: %{
+        "Applications" => list(application_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_integration_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_data_integration_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_integration_associations_response() :: %{
+        "DataIntegrationAssociations" => list(data_integration_association_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_integration_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -666,40 +641,93 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
-      create_application_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom()
+      list_data_integrations_response() :: %{
+        "DataIntegrations" => list(data_integration_summary()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type create_application_response() :: %{(String.t() | atom()) => any()}
+  @type list_data_integrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_data_integration_request() :: %{}
+      list_event_integration_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
 
   """
-  @type delete_data_integration_request() :: %{}
+  @type list_event_integration_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      application_summary() :: %{
-        "ApplicationType" => list(any()),
-        "Arn" => String.t() | atom(),
-        "CreatedTime" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "IsService" => boolean(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Namespace" => String.t() | atom()
+      list_event_integration_associations_response() :: %{
+        "EventIntegrationAssociations" => list(event_integration_association()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type application_summary() :: %{(String.t() | atom()) => any()}
+  @type list_event_integration_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_integrations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_event_integrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_integrations_response() :: %{
+        "EventIntegrations" => list(event_integration()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_event_integrations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      on_demand_configuration() :: %{
+        "EndTime" => String.t() | atom(),
+        "StartTime" => String.t() | atom()
+      }
+
+  """
+  @type on_demand_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -718,12 +746,23 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -742,72 +781,75 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
-      data_integration_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "SourceURI" => String.t() | atom()
+      subscription() :: %{
+        "Description" => String.t() | atom(),
+        "Event" => String.t() | atom()
       }
 
   """
-  @type data_integration_summary() :: %{(String.t() | atom()) => any()}
+  @type subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_request_exception() :: %{
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_data_integrations_response() :: %{
-        "DataIntegrations" => list(data_integration_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_integrations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_integration_association_response() :: %{
-        "DataIntegrationArn" => String.t() | atom(),
-        "DataIntegrationAssociationId" => String.t() | atom()
-      }
-
-  """
-  @type create_data_integration_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iframe_config() :: %{
-        "Allow" => list(String.t() | atom()),
-        "Sandbox" => list(String.t() | atom())
-      }
-
-  """
-  @type iframe_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_quota_exceeded_exception() :: %{
+      unsupported_operation_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type resource_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -834,274 +876,232 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
-      list_data_integration_associations_response() :: %{
-        "DataIntegrationAssociations" => list(data_integration_association_summary()),
-        "NextToken" => String.t() | atom()
-      }
+      update_application_response() :: %{}
 
   """
-  @type list_data_integration_associations_response() :: %{(String.t() | atom()) => any()}
+  @type update_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      external_url_config() :: %{
-        "AccessUrl" => String.t() | atom(),
-        "ApprovedOrigins" => list(String.t() | atom())
+      update_data_integration_association_request() :: %{
+        required("ExecutionConfiguration") => execution_configuration()
       }
 
   """
-  @type external_url_config() :: %{(String.t() | atom()) => any()}
+  @type update_data_integration_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_data_integration_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "FileConfiguration" => file_configuration(),
-        "Id" => String.t() | atom(),
-        "KmsKey" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ObjectConfiguration" => map(),
-        "ScheduleConfiguration" => schedule_configuration(),
-        "SourceURI" => String.t() | atom(),
-        "Tags" => map()
-      }
+      update_data_integration_association_response() :: %{}
 
   """
-  @type get_data_integration_response() :: %{(String.t() | atom()) => any()}
+  @type update_data_integration_association_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      application_source_config() :: %{
-        "ExternalUrlConfig" => external_url_config()
+      update_data_integration_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type application_source_config() :: %{(String.t() | atom()) => any()}
+  @type update_data_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      execution_configuration() :: %{
-        "ExecutionMode" => list(any()),
-        "OnDemandConfiguration" => on_demand_configuration(),
-        "ScheduleConfiguration" => schedule_configuration()
-      }
+      update_data_integration_response() :: %{}
 
   """
-  @type execution_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_data_integration_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      file_configuration() :: %{
-        "Filters" => map(),
-        "Folders" => list(String.t() | atom())
+      update_event_integration_request() :: %{
+        optional("Description") => String.t() | atom()
       }
 
   """
-  @type file_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_event_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
+      update_event_integration_response() :: %{}
 
   """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_integration_associations_response() :: %{
-        "EventIntegrationAssociations" => list(event_integration_association()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_event_integration_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_service_error() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_service_error() :: %{(String.t() | atom()) => any()}
+  @type update_event_integration_response() :: %{}
 
   @type create_application_errors() ::
-          internal_service_error()
+          unsupported_operation_exception()
+          | throttling_exception()
           | resource_quota_exceeded_exception()
           | invalid_request_exception()
+          | internal_service_error()
           | duplicate_resource_exception()
-          | unsupported_operation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_data_integration_errors() ::
-          internal_service_error()
+          throttling_exception()
           | resource_quota_exceeded_exception()
           | invalid_request_exception()
+          | internal_service_error()
           | duplicate_resource_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_data_integration_association_errors() ::
-          internal_service_error()
+          throttling_exception()
           | resource_quota_exceeded_exception()
-          | invalid_request_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_event_integration_errors() ::
-          internal_service_error()
+          throttling_exception()
           | resource_quota_exceeded_exception()
           | invalid_request_exception()
+          | internal_service_error()
           | duplicate_resource_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_application_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_data_integration_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_event_integration_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_application_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_data_integration_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_event_integration_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_application_associations_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_applications_errors() ::
-          internal_service_error()
+          throttling_exception()
           | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_data_integration_associations_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_data_integrations_errors() ::
-          internal_service_error()
+          throttling_exception()
           | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_event_integration_associations_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_event_integrations_errors() ::
-          internal_service_error()
+          throttling_exception()
           | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type tag_resource_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type untag_resource_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type update_application_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | unsupported_operation_exception()
-          | resource_not_found_exception()
-          | access_denied_exception()
+          unsupported_operation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
+          | access_denied_exception()
 
   @type update_data_integration_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_data_integration_association_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_event_integration_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{
@@ -1466,15 +1466,15 @@ defmodule AWS.AppIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1510,8 +1510,8 @@ defmodule AWS.AppIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(application_type) do
+        [{"applicationType", application_type} | query_params]
       else
         query_params
       end
@@ -1524,8 +1524,8 @@ defmodule AWS.AppIntegrations do
       end
 
     query_params =
-      if !is_nil(application_type) do
-        [{"applicationType", application_type} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1569,15 +1569,15 @@ defmodule AWS.AppIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1617,15 +1617,15 @@ defmodule AWS.AppIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1661,15 +1661,15 @@ defmodule AWS.AppIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1703,15 +1703,15 @@ defmodule AWS.AppIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

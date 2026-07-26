@@ -28,137 +28,53 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
-      signal_fetch_information() :: %{
-        "actions" => list(String.t() | atom()),
-        "conditionLanguageVersion" => integer(),
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      actuator() :: %{
+        "allowedValues" => list(String.t() | atom()),
+        "assignedValue" => String.t() | atom(),
+        "comment" => String.t() | atom(),
+        "dataType" => list(any()),
+        "deprecationMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "fullyQualifiedName" => String.t() | atom(),
-        "signalFetchConfig" => list()
+        "max" => float(),
+        "min" => float(),
+        "structFullyQualifiedName" => String.t() | atom(),
+        "unit" => String.t() | atom()
       }
       
   """
-  @type signal_fetch_information() :: %{(String.t() | atom()) => any()}
+  @type actuator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_encryption_configuration_request() :: %{
-        optional("kmsKeyId") => [String.t() | atom()],
-        required("encryptionType") => list(any())
+      associate_vehicle_fleet_request() :: %{
+        required("fleetId") => String.t() | atom()
       }
       
   """
-  @type put_encryption_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type associate_vehicle_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_decoder_manifest_network_interfaces_response() :: %{
-        optional("networkInterfaces") => list(network_interface()),
-        optional("nextToken") => String.t() | atom()
-      }
+      associate_vehicle_fleet_response() :: %{}
       
   """
-  @type list_decoder_manifest_network_interfaces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      timestream_resources() :: %{
-        "timestreamDatabaseName" => String.t() | atom(),
-        "timestreamTableName" => String.t() | atom()
-      }
-      
-  """
-  @type timestream_resources() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      iam_resources() :: %{
-        "roleArn" => String.t() | atom()
-      }
-      
-  """
-  @type iam_resources() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_vehicle_response_item() :: %{
-        "arn" => String.t() | atom(),
-        "vehicleName" => String.t() | atom()
-      }
-      
-  """
-  @type update_vehicle_response_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_logging_options_response() :: %{
-        required("cloudWatchLogDelivery") => cloud_watch_log_delivery_options()
-      }
-      
-  """
-  @type get_logging_options_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_model_manifest_nodes_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_model_manifest_nodes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_based_signal_fetch_config() :: %{
-        "executionFrequencyMs" => float()
-      }
-      
-  """
-  @type time_based_signal_fetch_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      message_signal() :: %{
-        "structuredMessage" => list(),
-        "topicName" => String.t() | atom()
-      }
-      
-  """
-  @type message_signal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vehicle_request_item() :: %{
-        "associationBehavior" => list(any()),
-        "attributes" => map(),
-        "decoderManifestArn" => String.t() | atom(),
-        "modelManifestArn" => String.t() | atom(),
-        "stateTemplates" => list(state_template_association()),
-        "tags" => list(tag()),
-        "vehicleName" => String.t() | atom()
-      }
-      
-  """
-  @type create_vehicle_request_item() :: %{(String.t() | atom()) => any()}
+  @type associate_vehicle_fleet_response() :: %{}
 
   @typedoc """
 
@@ -185,216 +101,136 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
-      put_logging_options_request() :: %{
-        required("cloudWatchLogDelivery") => cloud_watch_log_delivery_options()
+      batch_create_vehicle_request() :: %{
+        required("vehicles") => list(create_vehicle_request_item())
       }
       
   """
-  @type put_logging_options_request() :: %{(String.t() | atom()) => any()}
+  @type batch_create_vehicle_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_vehicle_error() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "vehicleName" => String.t() | atom()
+      batch_create_vehicle_response() :: %{
+        optional("errors") => list(create_vehicle_error()),
+        optional("vehicles") => list(create_vehicle_response_item())
       }
       
   """
-  @type create_vehicle_error() :: %{(String.t() | atom()) => any()}
+  @type batch_create_vehicle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_vehicle_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("vehicleName") => String.t() | atom()
+      batch_update_vehicle_request() :: %{
+        required("vehicles") => list(update_vehicle_request_item())
       }
       
   """
-  @type update_vehicle_response() :: %{(String.t() | atom()) => any()}
+  @type batch_update_vehicle_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_state_templates_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "summaries" => list(state_template_summary())
+      batch_update_vehicle_response() :: %{
+        optional("errors") => list(update_vehicle_error()),
+        optional("vehicles") => list(update_vehicle_response_item())
       }
       
   """
-  @type list_state_templates_response() :: %{(String.t() | atom()) => any()}
+  @type batch_update_vehicle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      data_partition_storage_options() :: %{
-        "maximumSize" => storage_maximum_size(),
-        "minimumTimeToLive" => storage_minimum_time_to_live(),
-        "storageLocation" => String.t() | atom()
+      branch() :: %{
+        "comment" => String.t() | atom(),
+        "deprecationMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "fullyQualifiedName" => String.t() | atom()
       }
       
   """
-  @type data_partition_storage_options() :: %{(String.t() | atom()) => any()}
+  @type branch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      storage_maximum_size() :: %{
-        "unit" => list(any()),
-        "value" => integer()
+      campaign_summary() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastModificationTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "signalCatalogArn" => String.t() | atom(),
+        "status" => list(any()),
+        "targetArn" => String.t() | atom()
       }
       
   """
-  @type storage_maximum_size() :: %{(String.t() | atom()) => any()}
+  @type campaign_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_config() :: %{
-        "bucketArn" => String.t() | atom(),
-        "dataFormat" => list(any()),
-        "prefix" => String.t() | atom(),
-        "storageCompressionFormat" => list(any())
+      can_dbc_definition() :: %{
+        "canDbcFiles" => list(binary()),
+        "networkInterface" => String.t() | atom(),
+        "signalsMap" => map()
       }
       
   """
-  @type s3_config() :: %{(String.t() | atom()) => any()}
+  @type can_dbc_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_vehicle_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("vehicleName") => String.t() | atom()
+      can_interface() :: %{
+        "name" => String.t() | atom(),
+        "protocolName" => String.t() | atom(),
+        "protocolVersion" => String.t() | atom()
       }
       
   """
-  @type delete_vehicle_response() :: %{(String.t() | atom()) => any()}
+  @type can_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_vehicle_error() :: %{
-        "code" => integer(),
-        "message" => String.t() | atom(),
-        "vehicleName" => String.t() | atom()
+      can_signal() :: %{
+        "factor" => float(),
+        "isBigEndian" => [boolean()],
+        "isSigned" => [boolean()],
+        "length" => integer(),
+        "messageId" => integer(),
+        "name" => String.t() | atom(),
+        "offset" => float(),
+        "signalValueType" => list(any()),
+        "startBit" => integer()
       }
       
   """
-  @type update_vehicle_error() :: %{(String.t() | atom()) => any()}
+  @type can_signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_fleets_response() :: %{
-        optional("fleetSummaries") => list(fleet_summary()),
-        optional("nextToken") => String.t() | atom()
+      cloud_watch_log_delivery_options() :: %{
+        "logGroupName" => String.t() | atom(),
+        "logType" => list(any())
       }
       
   """
-  @type list_fleets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_encryption_configuration_request() :: %{}
-      
-  """
-  @type get_encryption_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_model_manifest_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_model_manifest_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_signal_catalog_request() :: %{}
-      
-  """
-  @type get_signal_catalog_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      condition_based_signal_fetch_config() :: %{
-        "conditionExpression" => String.t() | atom(),
-        "triggerMode" => list(any())
-      }
-      
-  """
-  @type condition_based_signal_fetch_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "retryAfterSeconds" => integer(),
-        "serviceCode" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_decoding_signal() :: %{
-        "id" => String.t() | atom()
-      }
-      
-  """
-  @type custom_decoding_signal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_decoder_manifest_signals_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_decoder_manifest_signals_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_network_interface() :: %{
-        "interfaceId" => String.t() | atom(),
-        "reason" => list(any())
-      }
-      
-  """
-  @type invalid_network_interface() :: %{(String.t() | atom()) => any()}
+  @type cloud_watch_log_delivery_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -414,109 +250,26 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
+      condition_based_signal_fetch_config() :: %{
+        "conditionExpression" => String.t() | atom(),
+        "triggerMode" => list(any())
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type condition_based_signal_fetch_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      can_interface() :: %{
-        "name" => String.t() | atom(),
-        "protocolName" => String.t() | atom(),
-        "protocolVersion" => String.t() | atom()
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type can_interface() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_signal_decoder() :: %{
-        "hint" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "reason" => list(any())
-      }
-      
-  """
-  @type invalid_signal_decoder() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_campaign_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-      
-  """
-  @type update_campaign_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      decoder_manifest_validation_exception() :: %{
-        "invalidNetworkInterfaces" => list(invalid_network_interface()),
-        "invalidSignals" => list(invalid_signal_decoder()),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type decoder_manifest_validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_signal_catalog_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type update_signal_catalog_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_logging_options_response() :: %{}
-      
-  """
-  @type put_logging_options_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      storage_minimum_time_to_live() :: %{
-        "unit" => list(any()),
-        "value" => integer()
-      }
-      
-  """
-  @type storage_minimum_time_to_live() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -549,42 +302,240 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
-      get_decoder_manifest_response() :: %{
+      create_campaign_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("name") => String.t() | atom()
+      }
+      
+  """
+  @type create_campaign_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_decoder_manifest_request() :: %{
+        optional("defaultForUnmappedSignals") => list(any()),
         optional("description") => String.t() | atom(),
-        optional("message") => String.t() | atom(),
-        optional("modelManifestArn") => String.t() | atom(),
-        optional("status") => list(any()),
-        required("arn") => String.t() | atom(),
-        required("creationTime") => non_neg_integer(),
-        required("lastModificationTime") => non_neg_integer(),
-        required("name") => String.t() | atom()
+        optional("networkInterfaces") => list(network_interface()),
+        optional("signalDecoders") => list(signal_decoder()),
+        optional("tags") => list(tag()),
+        required("modelManifestArn") => String.t() | atom()
       }
       
   """
-  @type get_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
+  @type create_decoder_manifest_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      import_signal_catalog_response() :: %{
+      create_decoder_manifest_response() :: %{
         required("arn") => String.t() | atom(),
         required("name") => String.t() | atom()
       }
       
   """
-  @type import_signal_catalog_response() :: %{(String.t() | atom()) => any()}
+  @type create_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_create_vehicle_request() :: %{
-        required("vehicles") => list(create_vehicle_request_item())
+      create_fleet_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("signalCatalogArn") => String.t() | atom()
       }
       
   """
-  @type batch_create_vehicle_request() :: %{(String.t() | atom()) => any()}
+  @type create_fleet_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_fleet_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type create_fleet_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_model_manifest_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("nodes") => list(String.t() | atom()),
+        required("signalCatalogArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_model_manifest_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_model_manifest_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type create_model_manifest_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_signal_catalog_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("nodes") => list(list()),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type create_signal_catalog_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_signal_catalog_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type create_signal_catalog_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_state_template_request() :: %{
+        optional("dataExtraDimensions") => list(String.t() | atom()),
+        optional("description") => String.t() | atom(),
+        optional("metadataExtraDimensions") => list(String.t() | atom()),
+        optional("tags") => list(tag()),
+        required("signalCatalogArn") => String.t() | atom(),
+        required("stateTemplateProperties") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_state_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_state_template_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type create_state_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vehicle_error() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "vehicleName" => String.t() | atom()
+      }
+      
+  """
+  @type create_vehicle_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vehicle_request() :: %{
+        optional("associationBehavior") => list(any()),
+        optional("attributes") => map(),
+        optional("stateTemplates") => list(state_template_association()),
+        optional("tags") => list(tag()),
+        required("decoderManifestArn") => String.t() | atom(),
+        required("modelManifestArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_vehicle_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vehicle_request_item() :: %{
+        "associationBehavior" => list(any()),
+        "attributes" => map(),
+        "decoderManifestArn" => String.t() | atom(),
+        "modelManifestArn" => String.t() | atom(),
+        "stateTemplates" => list(state_template_association()),
+        "tags" => list(tag()),
+        "vehicleName" => String.t() | atom()
+      }
+      
+  """
+  @type create_vehicle_request_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vehicle_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("thingArn") => String.t() | atom(),
+        optional("vehicleName") => String.t() | atom()
+      }
+      
+  """
+  @type create_vehicle_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vehicle_response_item() :: %{
+        "arn" => String.t() | atom(),
+        "thingArn" => String.t() | atom(),
+        "vehicleName" => String.t() | atom()
+      }
+      
+  """
+  @type create_vehicle_response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_decoding_interface() :: %{
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type custom_decoding_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_decoding_signal() :: %{
+        "id" => String.t() | atom()
+      }
+      
+  """
+  @type custom_decoding_signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -607,6 +558,46 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      custom_struct() :: %{
+        "comment" => String.t() | atom(),
+        "deprecationMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "fullyQualifiedName" => String.t() | atom()
+      }
+      
+  """
+  @type custom_struct() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_partition() :: %{
+        "id" => String.t() | atom(),
+        "storageOptions" => data_partition_storage_options(),
+        "uploadOptions" => data_partition_upload_options()
+      }
+      
+  """
+  @type data_partition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_partition_storage_options() :: %{
+        "maximumSize" => storage_maximum_size(),
+        "minimumTimeToLive" => storage_minimum_time_to_live(),
+        "storageLocation" => String.t() | atom()
+      }
+      
+  """
+  @type data_partition_storage_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       data_partition_upload_options() :: %{
         "conditionLanguageVersion" => integer(),
         "expression" => String.t() | atom()
@@ -614,55 +605,6 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type data_partition_upload_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_model_manifest_response() :: %{
-        optional("description") => String.t() | atom(),
-        optional("signalCatalogArn") => String.t() | atom(),
-        optional("status") => list(any()),
-        required("arn") => String.t() | atom(),
-        required("creationTime") => non_neg_integer(),
-        required("lastModificationTime") => non_neg_integer(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type get_model_manifest_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      can_signal() :: %{
-        "factor" => float(),
-        "isBigEndian" => [boolean()],
-        "isSigned" => [boolean()],
-        "length" => integer(),
-        "messageId" => integer(),
-        "name" => String.t() | atom(),
-        "offset" => float(),
-        "signalValueType" => list(any()),
-        "startBit" => integer()
-      }
-      
-  """
-  @type can_signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -686,12 +628,774 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
-      update_fleet_request() :: %{
-        optional("description") => String.t() | atom()
+      decoder_manifest_validation_exception() :: %{
+        "invalidNetworkInterfaces" => list(invalid_network_interface()),
+        "invalidSignals" => list(invalid_signal_decoder()),
+        "message" => String.t() | atom()
       }
       
   """
-  @type update_fleet_request() :: %{(String.t() | atom()) => any()}
+  @type decoder_manifest_validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_campaign_request() :: %{}
+      
+  """
+  @type delete_campaign_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_campaign_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_campaign_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_decoder_manifest_request() :: %{}
+      
+  """
+  @type delete_decoder_manifest_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_decoder_manifest_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_fleet_request() :: %{}
+      
+  """
+  @type delete_fleet_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_fleet_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_fleet_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_model_manifest_request() :: %{}
+      
+  """
+  @type delete_model_manifest_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_model_manifest_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_model_manifest_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_signal_catalog_request() :: %{}
+      
+  """
+  @type delete_signal_catalog_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_signal_catalog_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_signal_catalog_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_state_template_request() :: %{}
+      
+  """
+  @type delete_state_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_state_template_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type delete_state_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vehicle_request() :: %{}
+      
+  """
+  @type delete_vehicle_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vehicle_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("vehicleName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_vehicle_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_vehicle_fleet_request() :: %{
+        required("fleetId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_vehicle_fleet_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_vehicle_fleet_response() :: %{}
+      
+  """
+  @type disassociate_vehicle_fleet_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      fleet_summary() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastModificationTime" => non_neg_integer(),
+        "signalCatalogArn" => String.t() | atom()
+      }
+      
+  """
+  @type fleet_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_campaign_request() :: %{}
+      
+  """
+  @type get_campaign_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_campaign_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("collectionScheme") => list(),
+        optional("compression") => list(any()),
+        optional("creationTime") => non_neg_integer(),
+        optional("dataDestinationConfigs") => list(list()),
+        optional("dataExtraDimensions") => list(String.t() | atom()),
+        optional("dataPartitions") => list(data_partition()),
+        optional("description") => String.t() | atom(),
+        optional("diagnosticsMode") => list(any()),
+        optional("expiryTime") => non_neg_integer(),
+        optional("lastModificationTime") => non_neg_integer(),
+        optional("name") => String.t() | atom(),
+        optional("postTriggerCollectionDuration") => float(),
+        optional("priority") => integer(),
+        optional("signalCatalogArn") => String.t() | atom(),
+        optional("signalsToCollect") => list(signal_information()),
+        optional("signalsToFetch") => list(signal_fetch_information()),
+        optional("spoolingMode") => list(any()),
+        optional("startTime") => non_neg_integer(),
+        optional("status") => list(any()),
+        optional("targetArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_campaign_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_decoder_manifest_request() :: %{}
+      
+  """
+  @type get_decoder_manifest_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_decoder_manifest_response() :: %{
+        optional("description") => String.t() | atom(),
+        optional("message") => String.t() | atom(),
+        optional("modelManifestArn") => String.t() | atom(),
+        optional("status") => list(any()),
+        required("arn") => String.t() | atom(),
+        required("creationTime") => non_neg_integer(),
+        required("lastModificationTime") => non_neg_integer(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type get_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_encryption_configuration_request() :: %{}
+      
+  """
+  @type get_encryption_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_encryption_configuration_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "encryptionStatus" => list(any()),
+        "encryptionType" => list(any()),
+        "errorMessage" => String.t() | atom(),
+        "kmsKeyId" => [String.t() | atom()],
+        "lastModificationTime" => non_neg_integer()
+      }
+      
+  """
+  @type get_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_fleet_request() :: %{}
+      
+  """
+  @type get_fleet_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_fleet_response() :: %{
+        optional("description") => String.t() | atom(),
+        required("arn") => String.t() | atom(),
+        required("creationTime") => non_neg_integer(),
+        required("id") => String.t() | atom(),
+        required("lastModificationTime") => non_neg_integer(),
+        required("signalCatalogArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_fleet_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_logging_options_request() :: %{}
+      
+  """
+  @type get_logging_options_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_logging_options_response() :: %{
+        required("cloudWatchLogDelivery") => cloud_watch_log_delivery_options()
+      }
+      
+  """
+  @type get_logging_options_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_model_manifest_request() :: %{}
+      
+  """
+  @type get_model_manifest_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_model_manifest_response() :: %{
+        optional("description") => String.t() | atom(),
+        optional("signalCatalogArn") => String.t() | atom(),
+        optional("status") => list(any()),
+        required("arn") => String.t() | atom(),
+        required("creationTime") => non_neg_integer(),
+        required("lastModificationTime") => non_neg_integer(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type get_model_manifest_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_register_account_status_request() :: %{}
+      
+  """
+  @type get_register_account_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_register_account_status_response() :: %{
+        optional("timestreamRegistrationResponse") => timestream_registration_response(),
+        required("accountStatus") => list(any()),
+        required("creationTime") => non_neg_integer(),
+        required("customerAccountId") => String.t() | atom(),
+        required("iamRegistrationResponse") => iam_registration_response(),
+        required("lastModificationTime") => non_neg_integer()
+      }
+      
+  """
+  @type get_register_account_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_signal_catalog_request() :: %{}
+      
+  """
+  @type get_signal_catalog_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_signal_catalog_response() :: %{
+        optional("description") => String.t() | atom(),
+        optional("nodeCounts") => node_counts(),
+        required("arn") => String.t() | atom(),
+        required("creationTime") => non_neg_integer(),
+        required("lastModificationTime") => non_neg_integer(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type get_signal_catalog_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_state_template_request() :: %{}
+      
+  """
+  @type get_state_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_state_template_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "dataExtraDimensions" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastModificationTime" => non_neg_integer(),
+        "metadataExtraDimensions" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "signalCatalogArn" => String.t() | atom(),
+        "stateTemplateProperties" => list(String.t() | atom())
+      }
+      
+  """
+  @type get_state_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_vehicle_request() :: %{}
+      
+  """
+  @type get_vehicle_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_vehicle_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("attributes") => map(),
+        optional("creationTime") => non_neg_integer(),
+        optional("decoderManifestArn") => String.t() | atom(),
+        optional("lastModificationTime") => non_neg_integer(),
+        optional("modelManifestArn") => String.t() | atom(),
+        optional("stateTemplates") => list(state_template_association()),
+        optional("vehicleName") => String.t() | atom()
+      }
+      
+  """
+  @type get_vehicle_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_vehicle_status_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_vehicle_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_vehicle_status_response() :: %{
+        optional("campaigns") => list(vehicle_status()),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_vehicle_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iam_registration_response() :: %{
+        "errorMessage" => String.t() | atom(),
+        "registrationStatus" => list(any()),
+        "roleArn" => String.t() | atom()
+      }
+      
+  """
+  @type iam_registration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iam_resources() :: %{
+        "roleArn" => String.t() | atom()
+      }
+      
+  """
+  @type iam_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_decoder_manifest_request() :: %{
+        required("networkFileDefinitions") => list(list())
+      }
+      
+  """
+  @type import_decoder_manifest_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_decoder_manifest_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type import_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_signal_catalog_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("vss") => list()
+      }
+      
+  """
+  @type import_signal_catalog_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_signal_catalog_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type import_signal_catalog_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => integer()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_network_interface() :: %{
+        "interfaceId" => String.t() | atom(),
+        "reason" => list(any())
+      }
+      
+  """
+  @type invalid_network_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_node_exception() :: %{
+        "invalidNodes" => list(list()),
+        "message" => String.t() | atom(),
+        "reason" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_node_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_signal() :: %{
+        "name" => String.t() | atom(),
+        "reason" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_signal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_signal_decoder() :: %{
+        "hint" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "reason" => list(any())
+      }
+      
+  """
+  @type invalid_signal_decoder() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_signals_exception() :: %{
+        "invalidSignals" => list(invalid_signal()),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_signals_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_campaigns_request() :: %{
+        optional("listResponseScope") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+      
+  """
+  @type list_campaigns_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_campaigns_response() :: %{
+        optional("campaignSummaries") => list(campaign_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_campaigns_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_decoder_manifest_network_interfaces_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_decoder_manifest_network_interfaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_decoder_manifest_network_interfaces_response() :: %{
+        optional("networkInterfaces") => list(network_interface()),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_decoder_manifest_network_interfaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_decoder_manifest_signals_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_decoder_manifest_signals_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_decoder_manifest_signals_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("signalDecoders") => list(signal_decoder())
+      }
+      
+  """
+  @type list_decoder_manifest_signals_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_decoder_manifests_request() :: %{
+        optional("listResponseScope") => list(any()),
+        optional("maxResults") => integer(),
+        optional("modelManifestArn") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_decoder_manifests_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_decoder_manifests_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("summaries") => list(decoder_manifest_summary())
+      }
+      
+  """
+  @type list_decoder_manifests_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_fleets_for_vehicle_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_fleets_for_vehicle_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_fleets_for_vehicle_response() :: %{
+        optional("fleets") => list(String.t() | atom()),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_fleets_for_vehicle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -710,10 +1414,661 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      list_fleets_response() :: %{
+        optional("fleetSummaries") => list(fleet_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_fleets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_model_manifest_nodes_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_model_manifest_nodes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_model_manifest_nodes_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("nodes") => list(list())
+      }
+      
+  """
+  @type list_model_manifest_nodes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_model_manifests_request() :: %{
+        optional("listResponseScope") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("signalCatalogArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_model_manifests_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_model_manifests_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("summaries") => list(model_manifest_summary())
+      }
+      
+  """
+  @type list_model_manifests_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_signal_catalog_nodes_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("signalNodeType") => list(any())
+      }
+      
+  """
+  @type list_signal_catalog_nodes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_signal_catalog_nodes_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("nodes") => list(list())
+      }
+      
+  """
+  @type list_signal_catalog_nodes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_signal_catalogs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_signal_catalogs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_signal_catalogs_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("summaries") => list(signal_catalog_summary())
+      }
+      
+  """
+  @type list_signal_catalogs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_state_templates_request() :: %{
+        optional("listResponseScope") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_state_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_state_templates_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "summaries" => list(state_template_summary())
+      }
+      
+  """
+  @type list_state_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vehicles_in_fleet_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_vehicles_in_fleet_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vehicles_in_fleet_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("vehicles") => list(String.t() | atom())
+      }
+      
+  """
+  @type list_vehicles_in_fleet_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vehicles_request() :: %{
+        optional("attributeNames") => list(String.t() | atom()),
+        optional("attributeValues") => list(String.t() | atom()),
+        optional("listResponseScope") => list(any()),
+        optional("maxResults") => integer(),
+        optional("modelManifestArn") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_vehicles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vehicles_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("vehicleSummaries") => list(vehicle_summary())
+      }
+      
+  """
+  @type list_vehicles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      message_signal() :: %{
+        "structuredMessage" => list(),
+        "topicName" => String.t() | atom()
+      }
+      
+  """
+  @type message_signal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      model_manifest_summary() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastModificationTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "signalCatalogArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type model_manifest_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mqtt_topic_config() :: %{
+        "executionRoleArn" => String.t() | atom(),
+        "mqttTopicArn" => String.t() | atom()
+      }
+      
+  """
+  @type mqtt_topic_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_interface() :: %{
+        "canInterface" => can_interface(),
+        "customDecodingInterface" => custom_decoding_interface(),
+        "interfaceId" => String.t() | atom(),
+        "obdInterface" => obd_interface(),
+        "type" => list(any()),
+        "vehicleMiddleware" => vehicle_middleware()
+      }
+      
+  """
+  @type network_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_counts() :: %{
+        "totalActuators" => integer(),
+        "totalAttributes" => integer(),
+        "totalBranches" => integer(),
+        "totalNodes" => integer(),
+        "totalProperties" => integer(),
+        "totalSensors" => integer(),
+        "totalStructs" => integer()
+      }
+      
+  """
+  @type node_counts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      obd_interface() :: %{
+        "dtcRequestIntervalSeconds" => integer(),
+        "hasTransmissionEcu" => [boolean()],
+        "name" => String.t() | atom(),
+        "obdStandard" => String.t() | atom(),
+        "pidRequestIntervalSeconds" => integer(),
+        "requestMessageId" => integer(),
+        "useExtendedIds" => [boolean()]
+      }
+      
+  """
+  @type obd_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      obd_signal() :: %{
+        "bitMaskLength" => integer(),
+        "bitRightShift" => integer(),
+        "byteLength" => integer(),
+        "isSigned" => [boolean()],
+        "offset" => float(),
+        "pid" => integer(),
+        "pidResponseLength" => integer(),
+        "scaling" => float(),
+        "serviceMode" => integer(),
+        "signalValueType" => list(any()),
+        "startByte" => integer()
+      }
+      
+  """
+  @type obd_signal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       on_change_state_template_update_strategy() :: %{}
       
   """
   @type on_change_state_template_update_strategy() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      periodic_state_template_update_strategy() :: %{
+        "stateTemplateUpdateRate" => time_period()
+      }
+      
+  """
+  @type periodic_state_template_update_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_encryption_configuration_request() :: %{
+        optional("kmsKeyId") => [String.t() | atom()],
+        required("encryptionType") => list(any())
+      }
+      
+  """
+  @type put_encryption_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_encryption_configuration_response() :: %{
+        "encryptionStatus" => list(any()),
+        "encryptionType" => list(any()),
+        "kmsKeyId" => [String.t() | atom()]
+      }
+      
+  """
+  @type put_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_logging_options_request() :: %{
+        required("cloudWatchLogDelivery") => cloud_watch_log_delivery_options()
+      }
+      
+  """
+  @type put_logging_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_logging_options_response() :: %{}
+      
+  """
+  @type put_logging_options_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      r_o_s2_primitive_message_definition() :: %{
+        "offset" => float(),
+        "primitiveType" => list(any()),
+        "scaling" => float(),
+        "upperBound" => float()
+      }
+      
+  """
+  @type r_o_s2_primitive_message_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_account_request() :: %{
+        optional("iamResources") => iam_resources(),
+        optional("timestreamResources") => timestream_resources()
+      }
+      
+  """
+  @type register_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_account_response() :: %{
+        optional("timestreamResources") => timestream_resources(),
+        required("creationTime") => non_neg_integer(),
+        required("iamResources") => iam_resources(),
+        required("lastModificationTime") => non_neg_integer(),
+        required("registerAccountStatus") => list(any())
+      }
+      
+  """
+  @type register_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_config() :: %{
+        "bucketArn" => String.t() | atom(),
+        "dataFormat" => list(any()),
+        "prefix" => String.t() | atom(),
+        "storageCompressionFormat" => list(any())
+      }
+      
+  """
+  @type s3_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sensor() :: %{
+        "allowedValues" => list(String.t() | atom()),
+        "comment" => String.t() | atom(),
+        "dataType" => list(any()),
+        "deprecationMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "fullyQualifiedName" => String.t() | atom(),
+        "max" => float(),
+        "min" => float(),
+        "structFullyQualifiedName" => String.t() | atom(),
+        "unit" => String.t() | atom()
+      }
+      
+  """
+  @type sensor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      signal_catalog_summary() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "lastModificationTime" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type signal_catalog_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      signal_decoder() :: %{
+        "canSignal" => can_signal(),
+        "customDecodingSignal" => custom_decoding_signal(),
+        "fullyQualifiedName" => String.t() | atom(),
+        "interfaceId" => String.t() | atom(),
+        "messageSignal" => message_signal(),
+        "obdSignal" => obd_signal(),
+        "type" => list(any())
+      }
+      
+  """
+  @type signal_decoder() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      signal_fetch_information() :: %{
+        "actions" => list(String.t() | atom()),
+        "conditionLanguageVersion" => integer(),
+        "fullyQualifiedName" => String.t() | atom(),
+        "signalFetchConfig" => list()
+      }
+      
+  """
+  @type signal_fetch_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      signal_information() :: %{
+        "dataPartitionId" => String.t() | atom(),
+        "maxSampleCount" => float(),
+        "minimumSamplingIntervalMs" => float(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type signal_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_template_association() :: %{
+        "identifier" => String.t() | atom(),
+        "stateTemplateUpdateStrategy" => list()
+      }
+      
+  """
+  @type state_template_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_template_summary() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastModificationTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "signalCatalogArn" => String.t() | atom()
+      }
+      
+  """
+  @type state_template_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      storage_maximum_size() :: %{
+        "unit" => list(any()),
+        "value" => integer()
+      }
+      
+  """
+  @type storage_maximum_size() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      storage_minimum_time_to_live() :: %{
+        "unit" => list(any()),
+        "value" => integer()
+      }
+      
+  """
+  @type storage_minimum_time_to_live() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      structured_message_field_name_and_data_type_pair() :: %{
+        "dataType" => list(),
+        "fieldName" => String.t() | atom()
+      }
+      
+  """
+  @type structured_message_field_name_and_data_type_pair() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      structured_message_list_definition() :: %{
+        "capacity" => integer(),
+        "listType" => list(any()),
+        "memberType" => list(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type structured_message_list_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "retryAfterSeconds" => integer(),
+        "serviceCode" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -725,6 +2080,280 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type time_based_collection_scheme() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_based_signal_fetch_config() :: %{
+        "executionFrequencyMs" => float()
+      }
+      
+  """
+  @type time_based_signal_fetch_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_period() :: %{
+        "unit" => list(any()),
+        "value" => integer()
+      }
+      
+  """
+  @type time_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      timestream_config() :: %{
+        "executionRoleArn" => String.t() | atom(),
+        "timestreamTableArn" => String.t() | atom()
+      }
+      
+  """
+  @type timestream_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      timestream_registration_response() :: %{
+        "errorMessage" => String.t() | atom(),
+        "registrationStatus" => list(any()),
+        "timestreamDatabaseArn" => String.t() | atom(),
+        "timestreamDatabaseName" => String.t() | atom(),
+        "timestreamTableArn" => String.t() | atom(),
+        "timestreamTableName" => String.t() | atom()
+      }
+      
+  """
+  @type timestream_registration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      timestream_resources() :: %{
+        "timestreamDatabaseName" => String.t() | atom(),
+        "timestreamTableName" => String.t() | atom()
+      }
+      
+  """
+  @type timestream_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_campaign_request() :: %{
+        optional("dataExtraDimensions") => list(String.t() | atom()),
+        optional("description") => String.t() | atom(),
+        required("action") => list(any())
+      }
+      
+  """
+  @type update_campaign_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_campaign_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+      
+  """
+  @type update_campaign_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_decoder_manifest_request() :: %{
+        optional("defaultForUnmappedSignals") => list(any()),
+        optional("description") => String.t() | atom(),
+        optional("networkInterfacesToAdd") => list(network_interface()),
+        optional("networkInterfacesToRemove") => list(String.t() | atom()),
+        optional("networkInterfacesToUpdate") => list(network_interface()),
+        optional("signalDecodersToAdd") => list(signal_decoder()),
+        optional("signalDecodersToRemove") => list(String.t() | atom()),
+        optional("signalDecodersToUpdate") => list(signal_decoder()),
+        optional("status") => list(any())
+      }
+      
+  """
+  @type update_decoder_manifest_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_decoder_manifest_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type update_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_fleet_request() :: %{
+        optional("description") => String.t() | atom()
+      }
+      
+  """
+  @type update_fleet_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_fleet_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("id") => String.t() | atom()
+      }
+      
+  """
+  @type update_fleet_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_model_manifest_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("nodesToAdd") => list(String.t() | atom()),
+        optional("nodesToRemove") => list(String.t() | atom()),
+        optional("status") => list(any())
+      }
+      
+  """
+  @type update_model_manifest_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_model_manifest_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type update_model_manifest_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_signal_catalog_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("nodesToAdd") => list(list()),
+        optional("nodesToRemove") => list(String.t() | atom()),
+        optional("nodesToUpdate") => list(list())
+      }
+      
+  """
+  @type update_signal_catalog_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_signal_catalog_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type update_signal_catalog_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_state_template_request() :: %{
+        optional("dataExtraDimensions") => list(String.t() | atom()),
+        optional("description") => String.t() | atom(),
+        optional("metadataExtraDimensions") => list(String.t() | atom()),
+        optional("stateTemplatePropertiesToAdd") => list(String.t() | atom()),
+        optional("stateTemplatePropertiesToRemove") => list(String.t() | atom())
+      }
+      
+  """
+  @type update_state_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_state_template_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type update_state_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_vehicle_error() :: %{
+        "code" => integer(),
+        "message" => String.t() | atom(),
+        "vehicleName" => String.t() | atom()
+      }
+      
+  """
+  @type update_vehicle_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_vehicle_request() :: %{
+        optional("attributeUpdateMode") => list(any()),
+        optional("attributes") => map(),
+        optional("decoderManifestArn") => String.t() | atom(),
+        optional("modelManifestArn") => String.t() | atom(),
+        optional("stateTemplatesToAdd") => list(state_template_association()),
+        optional("stateTemplatesToRemove") => list(String.t() | atom()),
+        optional("stateTemplatesToUpdate") => list(state_template_association())
+      }
+      
+  """
+  @type update_vehicle_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -743,6 +2372,55 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type update_vehicle_request_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_vehicle_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("vehicleName") => String.t() | atom()
+      }
+      
+  """
+  @type update_vehicle_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_vehicle_response_item() :: %{
+        "arn" => String.t() | atom(),
+        "vehicleName" => String.t() | atom()
+      }
+      
+  """
+  @type update_vehicle_response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+      
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -786,2096 +2464,418 @@ defmodule AWS.IoTFleetWise do
   """
   @type vehicle_summary() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-      
-      list_fleets_for_vehicle_response() :: %{
-        optional("fleets") => list(String.t() | atom()),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_fleets_for_vehicle_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_decoding_interface() :: %{
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type custom_decoding_interface() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      campaign_summary() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastModificationTime" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "signalCatalogArn" => String.t() | atom(),
-        "status" => list(any()),
-        "targetArn" => String.t() | atom()
-      }
-      
-  """
-  @type campaign_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_decoder_manifest_request() :: %{
-        required("networkFileDefinitions") => list(list())
-      }
-      
-  """
-  @type import_decoder_manifest_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_model_manifests_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("summaries") => list(model_manifest_summary())
-      }
-      
-  """
-  @type list_model_manifests_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_create_vehicle_response() :: %{
-        optional("errors") => list(create_vehicle_error()),
-        optional("vehicles") => list(create_vehicle_response_item())
-      }
-      
-  """
-  @type batch_create_vehicle_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_decoder_manifest_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type create_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_vehicle_status_response() :: %{
-        optional("campaigns") => list(vehicle_status()),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_vehicle_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_model_manifest_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type create_model_manifest_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_vehicle_fleet_request() :: %{
-        required("fleetId") => String.t() | atom()
-      }
-      
-  """
-  @type associate_vehicle_fleet_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_fleet_request() :: %{}
-      
-  """
-  @type get_fleet_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_model_manifest_request() :: %{}
-      
-  """
-  @type get_model_manifest_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => list(any())
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vehicle_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("thingArn") => String.t() | atom(),
-        optional("vehicleName") => String.t() | atom()
-      }
-      
-  """
-  @type create_vehicle_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_fleet_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type create_fleet_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_decoder_manifest_request() :: %{
-        optional("defaultForUnmappedSignals") => list(any()),
-        optional("description") => String.t() | atom(),
-        optional("networkInterfaces") => list(network_interface()),
-        optional("signalDecoders") => list(signal_decoder()),
-        optional("tags") => list(tag()),
-        required("modelManifestArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_decoder_manifest_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_node_exception() :: %{
-        "invalidNodes" => list(list()),
-        "message" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_node_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_state_template_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "dataExtraDimensions" => list(String.t() | atom()),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastModificationTime" => non_neg_integer(),
-        "metadataExtraDimensions" => list(String.t() | atom()),
-        "name" => String.t() | atom(),
-        "signalCatalogArn" => String.t() | atom(),
-        "stateTemplateProperties" => list(String.t() | atom())
-      }
-      
-  """
-  @type get_state_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_decoder_manifest_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type update_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      structured_message_field_name_and_data_type_pair() :: %{
-        "dataType" => list(),
-        "fieldName" => String.t() | atom()
-      }
-      
-  """
-  @type structured_message_field_name_and_data_type_pair() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      signal_information() :: %{
-        "dataPartitionId" => String.t() | atom(),
-        "maxSampleCount" => float(),
-        "minimumSamplingIntervalMs" => float(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type signal_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_update_vehicle_response() :: %{
-        optional("errors") => list(update_vehicle_error()),
-        optional("vehicles") => list(update_vehicle_response_item())
-      }
-      
-  """
-  @type batch_update_vehicle_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      r_o_s2_primitive_message_definition() :: %{
-        "offset" => float(),
-        "primitiveType" => list(any()),
-        "scaling" => float(),
-        "upperBound" => float()
-      }
-      
-  """
-  @type r_o_s2_primitive_message_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vehicle_request() :: %{
-        optional("associationBehavior") => list(any()),
-        optional("attributes") => map(),
-        optional("stateTemplates") => list(state_template_association()),
-        optional("tags") => list(tag()),
-        required("decoderManifestArn") => String.t() | atom(),
-        required("modelManifestArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_vehicle_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_state_template_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type create_state_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_decoder_manifest_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type import_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_state_template_request() :: %{}
-      
-  """
-  @type get_state_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_vehicle_fleet_response() :: %{}
-      
-  """
-  @type disassociate_vehicle_fleet_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_model_manifest_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("nodesToAdd") => list(String.t() | atom()),
-        optional("nodesToRemove") => list(String.t() | atom()),
-        optional("status") => list(any())
-      }
-      
-  """
-  @type update_model_manifest_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_fleet_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_fleet_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => integer()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_decoder_manifest_request() :: %{}
-      
-  """
-  @type get_decoder_manifest_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      structured_message_list_definition() :: %{
-        "capacity" => integer(),
-        "listType" => list(any()),
-        "memberType" => list(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type structured_message_list_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_struct() :: %{
-        "comment" => String.t() | atom(),
-        "deprecationMessage" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "fullyQualifiedName" => String.t() | atom()
-      }
-      
-  """
-  @type custom_struct() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_fleet_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("signalCatalogArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_fleet_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      network_interface() :: %{
-        "canInterface" => can_interface(),
-        "customDecodingInterface" => custom_decoding_interface(),
-        "interfaceId" => String.t() | atom(),
-        "obdInterface" => obd_interface(),
-        "type" => list(any()),
-        "vehicleMiddleware" => vehicle_middleware()
-      }
-      
-  """
-  @type network_interface() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_campaign_request() :: %{}
-      
-  """
-  @type delete_campaign_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_vehicle_fleet_response() :: %{}
-      
-  """
-  @type associate_vehicle_fleet_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_vehicle_request() :: %{}
-      
-  """
-  @type get_vehicle_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      signal_decoder() :: %{
-        "canSignal" => can_signal(),
-        "customDecodingSignal" => custom_decoding_signal(),
-        "fullyQualifiedName" => String.t() | atom(),
-        "interfaceId" => String.t() | atom(),
-        "messageSignal" => message_signal(),
-        "obdSignal" => obd_signal(),
-        "type" => list(any())
-      }
-      
-  """
-  @type signal_decoder() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_signal() :: %{
-        "name" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_signal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      can_dbc_definition() :: %{
-        "canDbcFiles" => list(binary()),
-        "networkInterface" => String.t() | atom(),
-        "signalsMap" => map()
-      }
-      
-  """
-  @type can_dbc_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_encryption_configuration_response() :: %{
-        "encryptionStatus" => list(any()),
-        "encryptionType" => list(any()),
-        "kmsKeyId" => [String.t() | atom()]
-      }
-      
-  """
-  @type put_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_vehicle_request() :: %{}
-      
-  """
-  @type delete_vehicle_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_signal_catalog_nodes_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("signalNodeType") => list(any())
-      }
-      
-  """
-  @type list_signal_catalog_nodes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      actuator() :: %{
-        "allowedValues" => list(String.t() | atom()),
-        "assignedValue" => String.t() | atom(),
-        "comment" => String.t() | atom(),
-        "dataType" => list(any()),
-        "deprecationMessage" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "fullyQualifiedName" => String.t() | atom(),
-        "max" => float(),
-        "min" => float(),
-        "structFullyQualifiedName" => String.t() | atom(),
-        "unit" => String.t() | atom()
-      }
-      
-  """
-  @type actuator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_register_account_status_response() :: %{
-        optional("timestreamRegistrationResponse") => timestream_registration_response(),
-        required("accountStatus") => list(any()),
-        required("creationTime") => non_neg_integer(),
-        required("customerAccountId") => String.t() | atom(),
-        required("iamRegistrationResponse") => iam_registration_response(),
-        required("lastModificationTime") => non_neg_integer()
-      }
-      
-  """
-  @type get_register_account_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_campaign_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_campaign_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      signal_catalog_summary() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "lastModificationTime" => non_neg_integer(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type signal_catalog_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_decoder_manifests_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("summaries") => list(decoder_manifest_summary())
-      }
-      
-  """
-  @type list_decoder_manifests_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_fleet_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("id") => String.t() | atom()
-      }
-      
-  """
-  @type update_fleet_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_state_template_request() :: %{
-        optional("dataExtraDimensions") => list(String.t() | atom()),
-        optional("description") => String.t() | atom(),
-        optional("metadataExtraDimensions") => list(String.t() | atom()),
-        optional("stateTemplatePropertiesToAdd") => list(String.t() | atom()),
-        optional("stateTemplatePropertiesToRemove") => list(String.t() | atom())
-      }
-      
-  """
-  @type update_state_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_vehicles_request() :: %{
-        optional("attributeNames") => list(String.t() | atom()),
-        optional("attributeValues") => list(String.t() | atom()),
-        optional("listResponseScope") => list(any()),
-        optional("maxResults") => integer(),
-        optional("modelManifestArn") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_vehicles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      model_manifest_summary() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastModificationTime" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "signalCatalogArn" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type model_manifest_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_signals_exception() :: %{
-        "invalidSignals" => list(invalid_signal()),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_signals_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_state_template_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type delete_state_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => String.t() | atom(),
-        "resource" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_decoder_manifest_signals_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("signalDecoders") => list(signal_decoder())
-      }
-      
-  """
-  @type list_decoder_manifest_signals_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_model_manifest_nodes_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("nodes") => list(list())
-      }
-      
-  """
-  @type list_model_manifest_nodes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      state_template_summary() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastModificationTime" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "signalCatalogArn" => String.t() | atom()
-      }
-      
-  """
-  @type state_template_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      periodic_state_template_update_strategy() :: %{
-        "stateTemplateUpdateRate" => time_period()
-      }
-      
-  """
-  @type periodic_state_template_update_strategy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_fleet_response() :: %{
-        optional("description") => String.t() | atom(),
-        required("arn") => String.t() | atom(),
-        required("creationTime") => non_neg_integer(),
-        required("id") => String.t() | atom(),
-        required("lastModificationTime") => non_neg_integer(),
-        required("signalCatalogArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_fleet_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-      
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_vehicle_status_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_vehicle_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_campaigns_response() :: %{
-        optional("campaignSummaries") => list(campaign_summary()),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_campaigns_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_model_manifest_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("nodes") => list(String.t() | atom()),
-        required("signalCatalogArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_model_manifest_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_vehicle_fleet_request() :: %{
-        required("fleetId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_vehicle_fleet_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_campaign_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("collectionScheme") => list(),
-        optional("compression") => list(any()),
-        optional("creationTime") => non_neg_integer(),
-        optional("dataDestinationConfigs") => list(list()),
-        optional("dataExtraDimensions") => list(String.t() | atom()),
-        optional("dataPartitions") => list(data_partition()),
-        optional("description") => String.t() | atom(),
-        optional("diagnosticsMode") => list(any()),
-        optional("expiryTime") => non_neg_integer(),
-        optional("lastModificationTime") => non_neg_integer(),
-        optional("name") => String.t() | atom(),
-        optional("postTriggerCollectionDuration") => float(),
-        optional("priority") => integer(),
-        optional("signalCatalogArn") => String.t() | atom(),
-        optional("signalsToCollect") => list(signal_information()),
-        optional("signalsToFetch") => list(signal_fetch_information()),
-        optional("spoolingMode") => list(any()),
-        optional("startTime") => non_neg_integer(),
-        optional("status") => list(any()),
-        optional("targetArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_campaign_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_account_response() :: %{
-        optional("timestreamResources") => timestream_resources(),
-        required("creationTime") => non_neg_integer(),
-        required("iamResources") => iam_resources(),
-        required("lastModificationTime") => non_neg_integer(),
-        required("registerAccountStatus") => list(any())
-      }
-      
-  """
-  @type register_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_signal_catalog_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_signal_catalog_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_signal_catalog_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type create_signal_catalog_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_model_manifest_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type update_model_manifest_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_counts() :: %{
-        "totalActuators" => integer(),
-        "totalAttributes" => integer(),
-        "totalBranches" => integer(),
-        "totalNodes" => integer(),
-        "totalProperties" => integer(),
-        "totalSensors" => integer(),
-        "totalStructs" => integer()
-      }
-      
-  """
-  @type node_counts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      timestream_registration_response() :: %{
-        "errorMessage" => String.t() | atom(),
-        "registrationStatus" => list(any()),
-        "timestreamDatabaseArn" => String.t() | atom(),
-        "timestreamDatabaseName" => String.t() | atom(),
-        "timestreamTableArn" => String.t() | atom(),
-        "timestreamTableName" => String.t() | atom()
-      }
-      
-  """
-  @type timestream_registration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_campaign_request() :: %{}
-      
-  """
-  @type get_campaign_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_state_templates_request() :: %{
-        optional("listResponseScope") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_state_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_partition() :: %{
-        "id" => String.t() | atom(),
-        "storageOptions" => data_partition_storage_options(),
-        "uploadOptions" => data_partition_upload_options()
-      }
-      
-  """
-  @type data_partition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      timestream_config() :: %{
-        "executionRoleArn" => String.t() | atom(),
-        "timestreamTableArn" => String.t() | atom()
-      }
-      
-  """
-  @type timestream_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      state_template_association() :: %{
-        "identifier" => String.t() | atom(),
-        "stateTemplateUpdateStrategy" => list()
-      }
-      
-  """
-  @type state_template_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_decoder_manifest_request() :: %{}
-      
-  """
-  @type delete_decoder_manifest_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_register_account_status_request() :: %{}
-      
-  """
-  @type get_register_account_status_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      sensor() :: %{
-        "allowedValues" => list(String.t() | atom()),
-        "comment" => String.t() | atom(),
-        "dataType" => list(any()),
-        "deprecationMessage" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "fullyQualifiedName" => String.t() | atom(),
-        "max" => float(),
-        "min" => float(),
-        "structFullyQualifiedName" => String.t() | atom(),
-        "unit" => String.t() | atom()
-      }
-      
-  """
-  @type sensor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_fleet_request() :: %{}
-      
-  """
-  @type delete_fleet_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        optional("Tags") => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_decoder_manifest_network_interfaces_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_decoder_manifest_network_interfaces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fleet_summary() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastModificationTime" => non_neg_integer(),
-        "signalCatalogArn" => String.t() | atom()
-      }
-      
-  """
-  @type fleet_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_log_delivery_options() :: %{
-        "logGroupName" => String.t() | atom(),
-        "logType" => list(any())
-      }
-      
-  """
-  @type cloud_watch_log_delivery_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_vehicles_in_fleet_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_vehicles_in_fleet_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_decoder_manifest_request() :: %{
-        optional("defaultForUnmappedSignals") => list(any()),
-        optional("description") => String.t() | atom(),
-        optional("networkInterfacesToAdd") => list(network_interface()),
-        optional("networkInterfacesToRemove") => list(String.t() | atom()),
-        optional("networkInterfacesToUpdate") => list(network_interface()),
-        optional("signalDecodersToAdd") => list(signal_decoder()),
-        optional("signalDecodersToRemove") => list(String.t() | atom()),
-        optional("signalDecodersToUpdate") => list(signal_decoder()),
-        optional("status") => list(any())
-      }
-      
-  """
-  @type update_decoder_manifest_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_vehicle_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("attributes") => map(),
-        optional("creationTime") => non_neg_integer(),
-        optional("decoderManifestArn") => String.t() | atom(),
-        optional("lastModificationTime") => non_neg_integer(),
-        optional("modelManifestArn") => String.t() | atom(),
-        optional("stateTemplates") => list(state_template_association()),
-        optional("vehicleName") => String.t() | atom()
-      }
-      
-  """
-  @type get_vehicle_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_vehicle_request() :: %{
-        optional("attributeUpdateMode") => list(any()),
-        optional("attributes") => map(),
-        optional("decoderManifestArn") => String.t() | atom(),
-        optional("modelManifestArn") => String.t() | atom(),
-        optional("stateTemplatesToAdd") => list(state_template_association()),
-        optional("stateTemplatesToRemove") => list(String.t() | atom()),
-        optional("stateTemplatesToUpdate") => list(state_template_association())
-      }
-      
-  """
-  @type update_vehicle_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_signal_catalog_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("nodesToAdd") => list(list()),
-        optional("nodesToRemove") => list(String.t() | atom()),
-        optional("nodesToUpdate") => list(list())
-      }
-      
-  """
-  @type update_signal_catalog_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_encryption_configuration_response() :: %{
-        "creationTime" => non_neg_integer(),
-        "encryptionStatus" => list(any()),
-        "encryptionType" => list(any()),
-        "errorMessage" => String.t() | atom(),
-        "kmsKeyId" => [String.t() | atom()],
-        "lastModificationTime" => non_neg_integer()
-      }
-      
-  """
-  @type get_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_signal_catalog_request() :: %{}
-      
-  """
-  @type delete_signal_catalog_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      obd_signal() :: %{
-        "bitMaskLength" => integer(),
-        "bitRightShift" => integer(),
-        "byteLength" => integer(),
-        "isSigned" => [boolean()],
-        "offset" => float(),
-        "pid" => integer(),
-        "pidResponseLength" => integer(),
-        "scaling" => float(),
-        "serviceMode" => integer(),
-        "signalValueType" => list(any()),
-        "startByte" => integer()
-      }
-      
-  """
-  @type obd_signal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_signal_catalogs_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_signal_catalogs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_update_vehicle_request() :: %{
-        required("vehicles") => list(update_vehicle_request_item())
-      }
-      
-  """
-  @type batch_update_vehicle_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_campaigns_request() :: %{
-        optional("listResponseScope") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-      
-  """
-  @type list_campaigns_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_vehicles_in_fleet_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("vehicles") => list(String.t() | atom())
-      }
-      
-  """
-  @type list_vehicles_in_fleet_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_signal_catalog_response() :: %{
-        optional("description") => String.t() | atom(),
-        optional("nodeCounts") => node_counts(),
-        required("arn") => String.t() | atom(),
-        required("creationTime") => non_neg_integer(),
-        required("lastModificationTime") => non_neg_integer(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type get_signal_catalog_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vehicle_response_item() :: %{
-        "arn" => String.t() | atom(),
-        "thingArn" => String.t() | atom(),
-        "vehicleName" => String.t() | atom()
-      }
-      
-  """
-  @type create_vehicle_response_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_decoder_manifest_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_period() :: %{
-        "unit" => list(any()),
-        "value" => integer()
-      }
-      
-  """
-  @type time_period() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_signal_catalogs_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("summaries") => list(signal_catalog_summary())
-      }
-      
-  """
-  @type list_signal_catalogs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_campaign_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("name") => String.t() | atom()
-      }
-      
-  """
-  @type create_campaign_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mqtt_topic_config() :: %{
-        "executionRoleArn" => String.t() | atom(),
-        "mqttTopicArn" => String.t() | atom()
-      }
-      
-  """
-  @type mqtt_topic_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_signal_catalog_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("nodes") => list(list()),
-        optional("tags") => list(tag())
-      }
-      
-  """
-  @type create_signal_catalog_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_model_manifest_request() :: %{}
-      
-  """
-  @type delete_model_manifest_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_fleets_for_vehicle_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_fleets_for_vehicle_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_signal_catalog_nodes_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("nodes") => list(list())
-      }
-      
-  """
-  @type list_signal_catalog_nodes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_model_manifests_request() :: %{
-        optional("listResponseScope") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("signalCatalogArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_model_manifests_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      obd_interface() :: %{
-        "dtcRequestIntervalSeconds" => integer(),
-        "hasTransmissionEcu" => [boolean()],
-        "name" => String.t() | atom(),
-        "obdStandard" => String.t() | atom(),
-        "pidRequestIntervalSeconds" => integer(),
-        "requestMessageId" => integer(),
-        "useExtendedIds" => [boolean()]
-      }
-      
-  """
-  @type obd_interface() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      iam_registration_response() :: %{
-        "errorMessage" => String.t() | atom(),
-        "registrationStatus" => list(any()),
-        "roleArn" => String.t() | atom()
-      }
-      
-  """
-  @type iam_registration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_logging_options_request() :: %{}
-      
-  """
-  @type get_logging_options_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_vehicles_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("vehicleSummaries") => list(vehicle_summary())
-      }
-      
-  """
-  @type list_vehicles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_account_request() :: %{
-        optional("iamResources") => iam_resources(),
-        optional("timestreamResources") => timestream_resources()
-      }
-      
-  """
-  @type register_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      branch() :: %{
-        "comment" => String.t() | atom(),
-        "deprecationMessage" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "fullyQualifiedName" => String.t() | atom()
-      }
-      
-  """
-  @type branch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_decoder_manifests_request() :: %{
-        optional("listResponseScope") => list(any()),
-        optional("maxResults") => integer(),
-        optional("modelManifestArn") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_decoder_manifests_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_state_template_request() :: %{}
-      
-  """
-  @type delete_state_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_signal_catalog_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        optional("vss") => list()
-      }
-      
-  """
-  @type import_signal_catalog_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_campaign_request() :: %{
-        optional("dataExtraDimensions") => list(String.t() | atom()),
-        optional("description") => String.t() | atom(),
-        required("action") => list(any())
-      }
-      
-  """
-  @type update_campaign_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_state_template_request() :: %{
-        optional("dataExtraDimensions") => list(String.t() | atom()),
-        optional("description") => String.t() | atom(),
-        optional("metadataExtraDimensions") => list(String.t() | atom()),
-        optional("tags") => list(tag()),
-        required("signalCatalogArn") => String.t() | atom(),
-        required("stateTemplateProperties") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_state_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_state_template_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type update_state_template_response() :: %{(String.t() | atom()) => any()}
-
   @type associate_vehicle_fleet_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type batch_create_vehicle_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | limit_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type batch_update_vehicle_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | limit_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_campaign_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_decoder_manifest_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | validation_exception()
           | limit_exceeded_exception()
           | decoder_manifest_validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_fleet_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_model_manifest_errors() ::
-          conflict_exception()
-          | invalid_signals_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_signals_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_signal_catalog_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | limit_exceeded_exception()
           | invalid_signals_exception()
           | invalid_node_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_state_template_errors() ::
-          conflict_exception()
-          | invalid_signals_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_signals_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_vehicle_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_campaign_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type delete_decoder_manifest_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_fleet_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_model_manifest_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_signal_catalog_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_state_template_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_vehicle_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type disassociate_vehicle_fleet_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_campaign_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type get_decoder_manifest_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type get_encryption_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_fleet_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
-  @type get_logging_options_errors() :: access_denied_exception() | throttling_exception()
+  @type get_logging_options_errors() :: throttling_exception() | access_denied_exception()
 
   @type get_model_manifest_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type get_register_account_status_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_signal_catalog_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type get_state_template_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_vehicle_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_vehicle_status_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type import_decoder_manifest_errors() ::
-          conflict_exception()
-          | invalid_signals_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | decoder_manifest_validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_signals_exception()
+          | decoder_manifest_validation_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type import_signal_catalog_errors() ::
-          conflict_exception()
-          | invalid_signals_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_signals_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type list_campaigns_errors() ::
-          validation_exception() | access_denied_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | access_denied_exception()
 
   @type list_decoder_manifest_network_interfaces_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_decoder_manifest_signals_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_decoder_manifests_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_fleets_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_fleets_for_vehicle_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_model_manifest_nodes_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_model_manifests_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_signal_catalog_nodes_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_signal_catalogs_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_state_templates_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_vehicles_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_vehicles_in_fleet_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_encryption_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type put_logging_options_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type register_account_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_campaign_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_decoder_manifest_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | validation_exception()
           | limit_exceeded_exception()
           | decoder_manifest_validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_fleet_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_model_manifest_errors() ::
-          conflict_exception()
-          | invalid_signals_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_signals_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_signal_catalog_errors() ::
-          conflict_exception()
-          | invalid_signals_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | invalid_node_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_signals_exception()
+          | invalid_node_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_state_template_errors() ::
-          invalid_signals_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_signals_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_vehicle_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

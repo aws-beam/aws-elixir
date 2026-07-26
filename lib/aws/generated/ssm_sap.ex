@@ -16,533 +16,6 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
-      get_configuration_check_operation_output() :: %{
-        "ConfigurationCheckOperation" => configuration_check_operation()
-      }
-
-  """
-  @type get_configuration_check_operation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_settings_output() :: %{
-        optional("Message") => [String.t() | atom()],
-        optional("OperationIds") => list(String.t() | atom())
-      }
-
-  """
-  @type update_application_settings_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_check_operations_output() :: %{
-        "ConfigurationCheckOperations" => list(configuration_check_operation()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_configuration_check_operations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_permission_output() :: %{
-        optional("Policy") => [String.t() | atom()]
-      }
-
-  """
-  @type put_resource_permission_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_permission_input() :: %{
-        optional("ActionType") => list(any()),
-        required("ResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type get_resource_permission_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_check_operation_input() :: %{
-        required("OperationId") => String.t() | atom()
-      }
-
-  """
-  @type get_configuration_check_operation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      application_credential() :: %{
-        "CredentialType" => list(any()),
-        "DatabaseName" => String.t() | atom(),
-        "SecretId" => String.t() | atom()
-      }
-
-  """
-  @type application_credential() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_permission_input() :: %{
-        optional("ActionType") => list(any()),
-        optional("SourceResourceArn") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_resource_permission_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_permission_output() :: %{
-        optional("Policy") => [String.t() | atom()]
-      }
-
-  """
-  @type delete_resource_permission_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backint_config() :: %{
-        "BackintMode" => list(any()),
-        "EnsureNoBackupInProcess" => [boolean()]
-      }
-
-  """
-  @type backint_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_application_input() :: %{
-        optional("ComponentsInfo") => list(component_info()),
-        optional("Credentials") => list(application_credential()),
-        optional("DatabaseArn") => String.t() | atom(),
-        optional("SapInstanceNumber") => String.t() | atom(),
-        optional("Sid") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("ApplicationId") => String.t() | atom(),
-        required("ApplicationType") => list(any()),
-        required("Instances") => list(String.t() | atom())
-      }
-
-  """
-  @type register_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_check_definition() :: %{
-        "ApplicableApplicationTypes" => list(list(any())()),
-        "Description" => [String.t() | atom()],
-        "Id" => list(any()),
-        "Name" => [String.t() | atom()]
-      }
-
-  """
-  @type configuration_check_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sub_check_rule_results_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("SubCheckResultId") => String.t() | atom()
-      }
-
-  """
-  @type list_sub_check_rule_results_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      operation_event() :: %{
-        "Description" => [String.t() | atom()],
-        "Resource" => resource(),
-        "Status" => list(any()),
-        "StatusMessage" => [String.t() | atom()],
-        "Timestamp" => [non_neg_integer()]
-      }
-
-  """
-  @type operation_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_application_output() :: %{}
-
-  """
-  @type deregister_application_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associated_host() :: %{
-        "Ec2InstanceId" => [String.t() | atom()],
-        "Hostname" => [String.t() | atom()],
-        "IpAddresses" => list(ip_address_member()),
-        "OsVersion" => [String.t() | atom()]
-      }
-
-  """
-  @type associated_host() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_check_operation() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "ConfigurationCheckDescription" => [String.t() | atom()],
-        "ConfigurationCheckId" => list(any()),
-        "ConfigurationCheckName" => [String.t() | atom()],
-        "EndTime" => [non_neg_integer()],
-        "Id" => String.t() | atom(),
-        "RuleStatusCounts" => rule_status_counts(),
-        "StartTime" => [non_neg_integer()],
-        "Status" => list(any()),
-        "StatusMessage" => [String.t() | atom()]
-      }
-
-  """
-  @type configuration_check_operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resilience() :: %{
-        "ClusterStatus" => list(any()),
-        "EnqueueReplication" => [boolean()],
-        "HsrOperationMode" => list(any()),
-        "HsrReplicationMode" => list(any()),
-        "HsrTier" => [String.t() | atom()]
-      }
-
-  """
-  @type resilience() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_check_definitions_output() :: %{
-        "ConfigurationChecks" => list(configuration_check_definition()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_configuration_check_definitions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_databases_input() :: %{
-        optional("ApplicationId") => String.t() | atom(),
-        optional("ComponentId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_databases_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_application_refresh_input() :: %{
-        required("ApplicationId") => String.t() | atom()
-      }
-
-  """
-  @type start_application_refresh_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_operations_input() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ApplicationId") => String.t() | atom()
-      }
-
-  """
-  @type list_operations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      database_connection() :: %{
-        "ConnectionIp" => [String.t() | atom()],
-        "DatabaseArn" => String.t() | atom(),
-        "DatabaseConnectionMethod" => list(any())
-      }
-
-  """
-  @type database_connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_configuration_checks_output() :: %{
-        "ConfigurationCheckOperations" => list(configuration_check_operation())
-      }
-
-  """
-  @type start_configuration_checks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_output() :: %{
-        optional("Application") => application(),
-        optional("Tags") => map()
-      }
-
-  """
-  @type get_application_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_databases_output() :: %{
-        optional("Databases") => list(database_summary()),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_databases_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_input() :: %{
-        optional("AppRegistryArn") => String.t() | atom(),
-        optional("ApplicationArn") => String.t() | atom(),
-        optional("ApplicationId") => String.t() | atom()
-      }
-
-  """
-  @type get_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ip_address_member() :: %{
-        "AllocationType" => list(any()),
-        "IpAddress" => [String.t() | atom()],
-        "Primary" => [boolean()]
-      }
-
-  """
-  @type ip_address_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_application_refresh_output() :: %{
-        "OperationId" => String.t() | atom()
-      }
-
-  """
-  @type start_application_refresh_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sub_check_rule_results_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "RuleResults" => list(rule_result())
-      }
-
-  """
-  @type list_sub_check_rule_results_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_application_output() :: %{
-        optional("Application") => application(),
-        optional("OperationId") => String.t() | atom()
-      }
-
-  """
-  @type register_application_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_application_input() :: %{
-        optional("IncludeEc2InstanceShutdown") => [boolean()],
-        optional("StopConnectedEntity") => list(any()),
-        required("ApplicationId") => String.t() | atom()
-      }
-
-  """
-  @type stop_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_application_input() :: %{
-        required("ApplicationId") => String.t() | atom()
-      }
-
-  """
-  @type deregister_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_application_output() :: %{
-        "OperationId" => String.t() | atom()
-      }
-
-  """
-  @type start_application_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       application() :: %{
         "AppRegistryArn" => String.t() | atom(),
         "Arn" => String.t() | atom(),
@@ -563,70 +36,14 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
-      get_component_output() :: %{
-        optional("Component") => component(),
-        optional("Tags") => map()
+      application_credential() :: %{
+        "CredentialType" => list(any()),
+        "DatabaseName" => String.t() | atom(),
+        "SecretId" => String.t() | atom()
       }
 
   """
-  @type get_component_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_components_output() :: %{
-        optional("Components") => list(component_summary()),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_components_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_operation_events_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "OperationEvents" => list(operation_event())
-      }
-
-  """
-  @type list_operation_events_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      operation() :: %{
-        "EndTime" => [non_neg_integer()],
-        "Id" => String.t() | atom(),
-        "LastUpdatedTime" => [non_neg_integer()],
-        "Properties" => map(),
-        "ResourceArn" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "StartTime" => [non_neg_integer()],
-        "Status" => list(any()),
-        "StatusMessage" => [String.t() | atom()],
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_operations_output() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("Operations") => list(operation())
-      }
-
-  """
-  @type list_operations_output() :: %{(String.t() | atom()) => any()}
+  @type application_credential() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -647,393 +64,27 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
-      get_operation_output() :: %{
-        optional("Operation") => operation()
+      associated_host() :: %{
+        "Ec2InstanceId" => [String.t() | atom()],
+        "Hostname" => [String.t() | atom()],
+        "IpAddresses" => list(ip_address_member()),
+        "OsVersion" => [String.t() | atom()]
       }
 
   """
-  @type get_operation_output() :: %{(String.t() | atom()) => any()}
+  @type associated_host() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_sub_check_results_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "SubCheckResults" => list(sub_check_result())
+      backint_config() :: %{
+        "BackintMode" => list(any()),
+        "EnsureNoBackupInProcess" => [boolean()]
       }
 
   """
-  @type list_sub_check_results_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        optional("tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      database() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "ComponentId" => String.t() | atom(),
-        "ConnectedComponentArns" => list(String.t() | atom()),
-        "Credentials" => list(application_credential()),
-        "DatabaseId" => String.t() | atom(),
-        "DatabaseName" => [String.t() | atom()],
-        "DatabaseType" => list(any()),
-        "LastUpdated" => [non_neg_integer()],
-        "PrimaryHost" => [String.t() | atom()],
-        "SQLPort" => [integer()],
-        "Status" => list(any())
-      }
-
-  """
-  @type database() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_application_input() :: %{
-        required("ApplicationId") => String.t() | atom()
-      }
-
-  """
-  @type start_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_applications_input() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_applications_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_permission_output() :: %{
-        optional("Policy") => [String.t() | atom()]
-      }
-
-  """
-  @type get_resource_permission_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_check_definitions_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_configuration_check_definitions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_info() :: %{
-        "ComponentType" => list(any()),
-        "Ec2InstanceId" => String.t() | atom(),
-        "Sid" => String.t() | atom()
-      }
-
-  """
-  @type component_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_database_input() :: %{
-        optional("ApplicationId") => String.t() | atom(),
-        optional("ComponentId") => String.t() | atom(),
-        optional("DatabaseArn") => String.t() | atom(),
-        optional("DatabaseId") => String.t() | atom()
-      }
-
-  """
-  @type get_database_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sub_check_result() :: %{
-        "Description" => [String.t() | atom()],
-        "Id" => String.t() | atom(),
-        "Name" => [String.t() | atom()],
-        "References" => list([String.t() | atom()]())
-      }
-
-  """
-  @type sub_check_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_permission_input() :: %{
-        required("ActionType") => list(any()),
-        required("ResourceArn") => String.t() | atom(),
-        required("SourceResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type put_resource_permission_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_summary() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "ComponentId" => String.t() | atom(),
-        "ComponentType" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type component_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sub_check_results_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("OperationId") => String.t() | atom()
-      }
-
-  """
-  @type list_sub_check_results_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_configuration_checks_input() :: %{
-        optional("ConfigurationCheckIds") => list(list(any())()),
-        required("ApplicationId") => String.t() | atom()
-      }
-
-  """
-  @type start_configuration_checks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_component_input() :: %{
-        required("ApplicationId") => String.t() | atom(),
-        required("ComponentId") => String.t() | atom()
-      }
-
-  """
-  @type get_component_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_database_output() :: %{
-        optional("Database") => database(),
-        optional("Tags") => map()
-      }
-
-  """
-  @type get_database_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_operation_input() :: %{
-        required("OperationId") => String.t() | atom()
-      }
-
-  """
-  @type get_operation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_check_operations_input() :: %{
-        optional("Filters") => list(filter()),
-        optional("ListMode") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ApplicationId") => String.t() | atom()
-      }
-
-  """
-  @type list_configuration_check_operations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource() :: %{
-        "ResourceArn" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_settings_input() :: %{
-        optional("Backint") => backint_config(),
-        optional("CredentialsToAddOrUpdate") => list(application_credential()),
-        optional("CredentialsToRemove") => list(application_credential()),
-        optional("DatabaseArn") => String.t() | atom(),
-        required("ApplicationId") => String.t() | atom()
-      }
-
-  """
-  @type update_application_settings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      database_summary() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "ComponentId" => String.t() | atom(),
-        "DatabaseId" => String.t() | atom(),
-        "DatabaseType" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type database_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_result() :: %{
-        "Description" => [String.t() | atom()],
-        "Id" => String.t() | atom(),
-        "Message" => [String.t() | atom()],
-        "Metadata" => map(),
-        "Status" => list(any())
-      }
-
-  """
-  @type rule_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_application_output() :: %{
-        "OperationId" => String.t() | atom()
-      }
-
-  """
-  @type stop_application_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_components_input() :: %{
-        optional("ApplicationId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_components_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_applications_output() :: %{
-        optional("Applications") => list(application_summary()),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_applications_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter() :: %{
-        "Name" => String.t() | atom(),
-        "Operator" => list(any()),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_operation_events_input() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("OperationId") => String.t() | atom()
-      }
-
-  """
-  @type list_operation_events_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_status_counts() :: %{
-        "Failed" => [integer()],
-        "Info" => [integer()],
-        "Passed" => [integer()],
-        "Unknown" => [integer()],
-        "Warning" => [integer()]
-      }
-
-  """
-  @type rule_status_counts() :: %{(String.t() | atom()) => any()}
+  @type backint_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1069,6 +120,329 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      component_info() :: %{
+        "ComponentType" => list(any()),
+        "Ec2InstanceId" => String.t() | atom(),
+        "Sid" => String.t() | atom()
+      }
+
+  """
+  @type component_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_summary() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "ComponentId" => String.t() | atom(),
+        "ComponentType" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type component_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_check_definition() :: %{
+        "ApplicableApplicationTypes" => list(list(any())()),
+        "Description" => [String.t() | atom()],
+        "Id" => list(any()),
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type configuration_check_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_check_operation() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "ConfigurationCheckDescription" => [String.t() | atom()],
+        "ConfigurationCheckId" => list(any()),
+        "ConfigurationCheckName" => [String.t() | atom()],
+        "EndTime" => [non_neg_integer()],
+        "Id" => String.t() | atom(),
+        "RuleStatusCounts" => rule_status_counts(),
+        "StartTime" => [non_neg_integer()],
+        "Status" => list(any()),
+        "StatusMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type configuration_check_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      database() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "ComponentId" => String.t() | atom(),
+        "ConnectedComponentArns" => list(String.t() | atom()),
+        "Credentials" => list(application_credential()),
+        "DatabaseId" => String.t() | atom(),
+        "DatabaseName" => [String.t() | atom()],
+        "DatabaseType" => list(any()),
+        "LastUpdated" => [non_neg_integer()],
+        "PrimaryHost" => [String.t() | atom()],
+        "SQLPort" => [integer()],
+        "Status" => list(any())
+      }
+
+  """
+  @type database() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      database_connection() :: %{
+        "ConnectionIp" => [String.t() | atom()],
+        "DatabaseArn" => String.t() | atom(),
+        "DatabaseConnectionMethod" => list(any())
+      }
+
+  """
+  @type database_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      database_summary() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "ComponentId" => String.t() | atom(),
+        "DatabaseId" => String.t() | atom(),
+        "DatabaseType" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type database_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_permission_input() :: %{
+        optional("ActionType") => list(any()),
+        optional("SourceResourceArn") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_permission_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_permission_output() :: %{
+        optional("Policy") => [String.t() | atom()]
+      }
+
+  """
+  @type delete_resource_permission_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_application_input() :: %{
+        required("ApplicationId") => String.t() | atom()
+      }
+
+  """
+  @type deregister_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_application_output() :: %{}
+
+  """
+  @type deregister_application_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "Name" => String.t() | atom(),
+        "Operator" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_input() :: %{
+        optional("AppRegistryArn") => String.t() | atom(),
+        optional("ApplicationArn") => String.t() | atom(),
+        optional("ApplicationId") => String.t() | atom()
+      }
+
+  """
+  @type get_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_output() :: %{
+        optional("Application") => application(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type get_application_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_component_input() :: %{
+        required("ApplicationId") => String.t() | atom(),
+        required("ComponentId") => String.t() | atom()
+      }
+
+  """
+  @type get_component_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_component_output() :: %{
+        optional("Component") => component(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type get_component_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_check_operation_input() :: %{
+        required("OperationId") => String.t() | atom()
+      }
+
+  """
+  @type get_configuration_check_operation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_check_operation_output() :: %{
+        "ConfigurationCheckOperation" => configuration_check_operation()
+      }
+
+  """
+  @type get_configuration_check_operation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_database_input() :: %{
+        optional("ApplicationId") => String.t() | atom(),
+        optional("ComponentId") => String.t() | atom(),
+        optional("DatabaseArn") => String.t() | atom(),
+        optional("DatabaseId") => String.t() | atom()
+      }
+
+  """
+  @type get_database_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_database_output() :: %{
+        optional("Database") => database(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type get_database_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_operation_input() :: %{
+        required("OperationId") => String.t() | atom()
+      }
+
+  """
+  @type get_operation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_operation_output() :: %{
+        optional("Operation") => operation()
+      }
+
+  """
+  @type get_operation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_permission_input() :: %{
+        optional("ActionType") => list(any()),
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type get_resource_permission_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_permission_output() :: %{
+        optional("Policy") => [String.t() | atom()]
+      }
+
+  """
+  @type get_resource_permission_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       host() :: %{
         "EC2InstanceId" => [String.t() | atom()],
         "HostIp" => [String.t() | atom()],
@@ -1081,103 +455,729 @@ defmodule AWS.SsmSap do
   """
   @type host() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_address_member() :: %{
+        "AllocationType" => list(any()),
+        "IpAddress" => [String.t() | atom()],
+        "Primary" => [boolean()]
+      }
+
+  """
+  @type ip_address_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_input() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_applications_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_output() :: %{
+        optional("Applications") => list(application_summary()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_applications_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_components_input() :: %{
+        optional("ApplicationId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_components_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_components_output() :: %{
+        optional("Components") => list(component_summary()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_components_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_check_definitions_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_check_definitions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_check_definitions_output() :: %{
+        "ConfigurationChecks" => list(configuration_check_definition()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_check_definitions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_check_operations_input() :: %{
+        optional("Filters") => list(filter()),
+        optional("ListMode") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ApplicationId") => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_check_operations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_check_operations_output() :: %{
+        "ConfigurationCheckOperations" => list(configuration_check_operation()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_check_operations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_databases_input() :: %{
+        optional("ApplicationId") => String.t() | atom(),
+        optional("ComponentId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_databases_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_databases_output() :: %{
+        optional("Databases") => list(database_summary()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_databases_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_operation_events_input() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("OperationId") => String.t() | atom()
+      }
+
+  """
+  @type list_operation_events_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_operation_events_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "OperationEvents" => list(operation_event())
+      }
+
+  """
+  @type list_operation_events_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_operations_input() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ApplicationId") => String.t() | atom()
+      }
+
+  """
+  @type list_operations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_operations_output() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("Operations") => list(operation())
+      }
+
+  """
+  @type list_operations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sub_check_results_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("OperationId") => String.t() | atom()
+      }
+
+  """
+  @type list_sub_check_results_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sub_check_results_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "SubCheckResults" => list(sub_check_result())
+      }
+
+  """
+  @type list_sub_check_results_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sub_check_rule_results_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("SubCheckResultId") => String.t() | atom()
+      }
+
+  """
+  @type list_sub_check_rule_results_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sub_check_rule_results_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "RuleResults" => list(rule_result())
+      }
+
+  """
+  @type list_sub_check_rule_results_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      operation() :: %{
+        "EndTime" => [non_neg_integer()],
+        "Id" => String.t() | atom(),
+        "LastUpdatedTime" => [non_neg_integer()],
+        "Properties" => map(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "StartTime" => [non_neg_integer()],
+        "Status" => list(any()),
+        "StatusMessage" => [String.t() | atom()],
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      operation_event() :: %{
+        "Description" => [String.t() | atom()],
+        "Resource" => resource(),
+        "Status" => list(any()),
+        "StatusMessage" => [String.t() | atom()],
+        "Timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type operation_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_permission_input() :: %{
+        required("ActionType") => list(any()),
+        required("ResourceArn") => String.t() | atom(),
+        required("SourceResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_permission_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_permission_output() :: %{
+        optional("Policy") => [String.t() | atom()]
+      }
+
+  """
+  @type put_resource_permission_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_application_input() :: %{
+        optional("ComponentsInfo") => list(component_info()),
+        optional("Credentials") => list(application_credential()),
+        optional("DatabaseArn") => String.t() | atom(),
+        optional("SapInstanceNumber") => String.t() | atom(),
+        optional("Sid") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("ApplicationId") => String.t() | atom(),
+        required("ApplicationType") => list(any()),
+        required("Instances") => list(String.t() | atom())
+      }
+
+  """
+  @type register_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_application_output() :: %{
+        optional("Application") => application(),
+        optional("OperationId") => String.t() | atom()
+      }
+
+  """
+  @type register_application_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resilience() :: %{
+        "ClusterStatus" => list(any()),
+        "EnqueueReplication" => [boolean()],
+        "HsrOperationMode" => list(any()),
+        "HsrReplicationMode" => list(any()),
+        "HsrTier" => [String.t() | atom()]
+      }
+
+  """
+  @type resilience() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
+        "ResourceArn" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_result() :: %{
+        "Description" => [String.t() | atom()],
+        "Id" => String.t() | atom(),
+        "Message" => [String.t() | atom()],
+        "Metadata" => map(),
+        "Status" => list(any())
+      }
+
+  """
+  @type rule_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_status_counts() :: %{
+        "Failed" => [integer()],
+        "Info" => [integer()],
+        "Passed" => [integer()],
+        "Unknown" => [integer()],
+        "Warning" => [integer()]
+      }
+
+  """
+  @type rule_status_counts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_application_input() :: %{
+        required("ApplicationId") => String.t() | atom()
+      }
+
+  """
+  @type start_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_application_output() :: %{
+        "OperationId" => String.t() | atom()
+      }
+
+  """
+  @type start_application_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_application_refresh_input() :: %{
+        required("ApplicationId") => String.t() | atom()
+      }
+
+  """
+  @type start_application_refresh_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_application_refresh_output() :: %{
+        "OperationId" => String.t() | atom()
+      }
+
+  """
+  @type start_application_refresh_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_configuration_checks_input() :: %{
+        optional("ConfigurationCheckIds") => list(list(any())()),
+        required("ApplicationId") => String.t() | atom()
+      }
+
+  """
+  @type start_configuration_checks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_configuration_checks_output() :: %{
+        "ConfigurationCheckOperations" => list(configuration_check_operation())
+      }
+
+  """
+  @type start_configuration_checks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_application_input() :: %{
+        optional("IncludeEc2InstanceShutdown") => [boolean()],
+        optional("StopConnectedEntity") => list(any()),
+        required("ApplicationId") => String.t() | atom()
+      }
+
+  """
+  @type stop_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_application_output() :: %{
+        "OperationId" => String.t() | atom()
+      }
+
+  """
+  @type stop_application_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sub_check_result() :: %{
+        "Description" => [String.t() | atom()],
+        "Id" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "References" => list([String.t() | atom()]())
+      }
+
+  """
+  @type sub_check_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_settings_input() :: %{
+        optional("Backint") => backint_config(),
+        optional("CredentialsToAddOrUpdate") => list(application_credential()),
+        optional("CredentialsToRemove") => list(application_credential()),
+        optional("DatabaseArn") => String.t() | atom(),
+        required("ApplicationId") => String.t() | atom()
+      }
+
+  """
+  @type update_application_settings_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_settings_output() :: %{
+        optional("Message") => [String.t() | atom()],
+        optional("OperationIds") => list(String.t() | atom())
+      }
+
+  """
+  @type update_application_settings_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
   @type delete_resource_permission_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type deregister_application_errors() ::
-          internal_server_exception() | validation_exception() | unauthorized_exception()
+          validation_exception() | unauthorized_exception() | internal_server_exception()
 
-  @type get_application_errors() :: internal_server_exception() | validation_exception()
+  @type get_application_errors() :: validation_exception() | internal_server_exception()
 
   @type get_component_errors() ::
-          internal_server_exception() | validation_exception() | unauthorized_exception()
+          validation_exception() | unauthorized_exception() | internal_server_exception()
 
   @type get_configuration_check_operation_errors() ::
-          internal_server_exception() | validation_exception()
+          validation_exception() | internal_server_exception()
 
-  @type get_database_errors() :: internal_server_exception() | validation_exception()
+  @type get_database_errors() :: validation_exception() | internal_server_exception()
 
-  @type get_operation_errors() :: internal_server_exception() | validation_exception()
+  @type get_operation_errors() :: validation_exception() | internal_server_exception()
 
   @type get_resource_permission_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_applications_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_components_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type list_configuration_check_definitions_errors() ::
-          internal_server_exception() | validation_exception()
+          validation_exception() | internal_server_exception()
 
   @type list_configuration_check_operations_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_databases_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
-  @type list_operation_events_errors() :: internal_server_exception() | validation_exception()
+  @type list_operation_events_errors() :: validation_exception() | internal_server_exception()
 
-  @type list_operations_errors() :: internal_server_exception() | validation_exception()
+  @type list_operations_errors() :: validation_exception() | internal_server_exception()
 
-  @type list_sub_check_results_errors() :: internal_server_exception() | validation_exception()
+  @type list_sub_check_results_errors() :: validation_exception() | internal_server_exception()
 
   @type list_sub_check_rule_results_errors() ::
-          internal_server_exception() | validation_exception()
+          validation_exception() | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
-          conflict_exception() | resource_not_found_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | conflict_exception()
 
   @type put_resource_permission_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type register_application_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type start_application_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type start_application_refresh_errors() ::
-          conflict_exception()
+          validation_exception()
+          | unauthorized_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
-          | unauthorized_exception()
+          | conflict_exception()
 
   @type start_configuration_checks_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type stop_application_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type tag_resource_errors() ::
-          conflict_exception() | resource_not_found_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | conflict_exception()
 
   @type untag_resource_errors() ::
-          conflict_exception() | resource_not_found_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | conflict_exception()
 
   @type update_application_settings_errors() ::
-          conflict_exception()
+          validation_exception()
+          | unauthorized_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
-          | unauthorized_exception()
+          | conflict_exception()
 
   def metadata do
     %{

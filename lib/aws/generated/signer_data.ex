@@ -137,22 +137,8 @@ defmodule AWS.SignerData do
     query_params = []
 
     query_params =
-      if !is_nil(signature_timestamp) do
-        [{"signatureTimestamp", signature_timestamp} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(profile_version_arn) do
-        [{"profileVersionArn", profile_version_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(platform_id) do
-        [{"platformId", platform_id} | query_params]
+      if !is_nil(certificate_hashes) do
+        [{"certificateHashes", certificate_hashes} | query_params]
       else
         query_params
       end
@@ -165,8 +151,22 @@ defmodule AWS.SignerData do
       end
 
     query_params =
-      if !is_nil(certificate_hashes) do
-        [{"certificateHashes", certificate_hashes} | query_params]
+      if !is_nil(platform_id) do
+        [{"platformId", platform_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(profile_version_arn) do
+        [{"profileVersionArn", profile_version_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(signature_timestamp) do
+        [{"signatureTimestamp", signature_timestamp} | query_params]
       else
         query_params
       end

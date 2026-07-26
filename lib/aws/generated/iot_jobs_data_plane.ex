@@ -441,15 +441,15 @@ defmodule AWS.IoTJobsDataPlane do
     query_params = []
 
     query_params =
-      if !is_nil(include_job_document) do
-        [{"includeJobDocument", include_job_document} | query_params]
+      if !is_nil(execution_number) do
+        [{"executionNumber", execution_number} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(execution_number) do
-        [{"executionNumber", execution_number} | query_params]
+      if !is_nil(include_job_document) do
+        [{"includeJobDocument", include_job_document} | query_params]
       else
         query_params
       end

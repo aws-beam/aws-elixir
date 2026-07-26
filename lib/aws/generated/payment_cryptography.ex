@@ -38,6 +38,17 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      access_denied_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       add_key_replication_regions_input() :: %{
         required("KeyIdentifier") => String.t() | atom(),
         required("ReplicationRegions") => list(String.t() | atom())
@@ -50,215 +61,48 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
-      get_key_input() :: %{
-        required("KeyIdentifier") => String.t() | atom()
+      add_key_replication_regions_output() :: %{
+        "Key" => key()
       }
       
   """
-  @type get_key_input() :: %{(String.t() | atom()) => any()}
+  @type add_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      export_key_input() :: %{
-        optional("ExportAttributes") => export_attributes(),
-        required("ExportKeyIdentifier") => String.t() | atom(),
-        required("KeyMaterial") => list()
+      alias() :: %{
+        "AliasName" => String.t() | atom(),
+        "KeyArn" => String.t() | atom()
       }
       
   """
-  @type export_key_input() :: %{(String.t() | atom()) => any()}
+  @type alias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_default_key_replication_regions_input() :: %{}
-      
-  """
-  @type get_default_key_replication_regions_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      trusted_certificate_public_key() :: %{
-        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
-        "KeyAttributes" => key_attributes(),
-        "PublicKeyCertificate" => String.t() | atom()
+      associate_mpa_team_input() :: %{
+        optional("RequesterComment") => String.t() | atom(),
+        required("Action") => String.t() | atom(),
+        required("MpaTeamArn") => String.t() | atom()
       }
       
   """
-  @type trusted_certificate_public_key() :: %{(String.t() | atom()) => any()}
+  @type associate_mpa_team_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_key_usage_input() :: %{
-        required("KeyIdentifier") => String.t() | atom()
+      associate_mpa_team_output() :: %{
+        "MpaTeamAssociation" => mpa_team_association()
       }
       
   """
-  @type start_key_usage_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_tr34_key_block() :: %{
-        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
-        "ImportToken" => String.t() | atom(),
-        "KeyBlockFormat" => String.t() | atom(),
-        "RandomNonce" => String.t() | atom(),
-        "SigningKeyCertificate" => String.t() | atom(),
-        "WrappedKeyBlock" => String.t() | atom(),
-        "WrappingKeyCertificate" => String.t() | atom(),
-        "WrappingKeyIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type import_tr34_key_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_attributes() :: %{
-        "ExportDukptInitialKey" => export_dukpt_initial_key(),
-        "KeyCheckValueAlgorithm" => String.t() | atom()
-      }
-      
-  """
-  @type export_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      public_policy_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-      
-  """
-  @type public_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_unavailable_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-      
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_parameters_for_export_input() :: %{
-        optional("ReuseLastGeneratedToken") => [boolean()],
-        required("KeyMaterialType") => String.t() | atom(),
-        required("SigningKeyAlgorithm") => String.t() | atom()
-      }
-      
-  """
-  @type get_parameters_for_export_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_key_cryptogram() :: %{
-        "Exportable" => [boolean()],
-        "ImportToken" => String.t() | atom(),
-        "KeyAttributes" => key_attributes(),
-        "WrappedKeyCryptogram" => String.t() | atom(),
-        "WrappingSpec" => String.t() | atom()
-      }
-      
-  """
-  @type import_key_cryptogram() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_tr31_key_block() :: %{
-        "WrappedKeyBlock" => String.t() | atom(),
-        "WrappingKeyIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type import_tr31_key_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_default_key_replication_regions_output() :: %{
-        "EnabledReplicationRegions" => list(String.t() | atom())
-      }
-      
-  """
-  @type enable_default_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_key_output() :: %{
-        "WrappedKey" => wrapped_key()
-      }
-      
-  """
-  @type export_key_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_output() :: %{}
-      
-  """
-  @type tag_resource_output() :: %{}
+  @type associate_mpa_team_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,170 +125,117 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
-      export_key_cryptogram() :: %{
-        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
-        "WrappingKeyCertificate" => String.t() | atom(),
-        "WrappingSpec" => String.t() | atom()
+      cfn_key_item() :: %{
+        "Policy" => String.t() | atom()
       }
       
   """
-  @type export_key_cryptogram() :: %{(String.t() | atom()) => any()}
+  @type cfn_key_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      key_attributes() :: %{
-        "KeyAlgorithm" => String.t() | atom(),
-        "KeyClass" => String.t() | atom(),
-        "KeyModesOfUse" => key_modes_of_use(),
-        "KeyUsage" => String.t() | atom()
-      }
-      
-  """
-  @type key_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_keys_input() :: %{
-        optional("KeyState") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_keys_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_key_output() :: %{
-        "Key" => key()
-      }
-      
-  """
-  @type restore_key_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_keys_output() :: %{
-        "Keys" => list(key_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_keys_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_default_key_replication_regions_input() :: %{
-        required("ReplicationRegions") => list(String.t() | atom())
-      }
-      
-  """
-  @type disable_default_key_replication_regions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_key_usage_output() :: %{
-        "Key" => key()
-      }
-      
-  """
-  @type start_key_usage_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_key_replication_regions_output() :: %{
-        "Key" => key()
-      }
-      
-  """
-  @type add_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_key_output() :: %{
-        "Key" => key()
-      }
-      
-  """
-  @type import_key_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_key_input() :: %{
-        optional("Enabled") => [boolean()],
-        optional("KeyCheckValueAlgorithm") => String.t() | atom(),
-        optional("ReplicationRegions") => list(String.t() | atom()),
-        optional("RequesterComment") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("KeyMaterial") => list()
-      }
-      
-  """
-  @type import_key_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_default_key_replication_regions_output() :: %{
-        "EnabledReplicationRegions" => list(String.t() | atom())
-      }
-      
-  """
-  @type get_default_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
+      conflict_exception() :: %{
         "Message" => [String.t() | atom()]
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      replication_status_type() :: %{
-        "Status" => String.t() | atom(),
-        "StatusMessage" => [String.t() | atom()]
+      create_alias_input() :: %{
+        optional("KeyArn") => String.t() | atom(),
+        required("AliasName") => String.t() | atom()
       }
       
   """
-  @type replication_status_type() :: %{(String.t() | atom()) => any()}
+  @type create_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_alias_output() :: %{
+        "Alias" => alias()
+      }
+      
+  """
+  @type create_alias_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_key_input() :: %{
+        optional("DeriveKeyUsage") => String.t() | atom(),
+        optional("Enabled") => [boolean()],
+        optional("KeyCheckValueAlgorithm") => String.t() | atom(),
+        optional("ReplicationRegions") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        required("Exportable") => [boolean()],
+        required("KeyAttributes") => key_attributes()
+      }
+      
+  """
+  @type create_key_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_key_output() :: %{
+        "Key" => key()
+      }
+      
+  """
+  @type create_key_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_alias_input() :: %{
+        required("AliasName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_alias_output() :: %{}
+      
+  """
+  @type delete_alias_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_key_input() :: %{
+        optional("DeleteKeyInDays") => [integer()],
+        required("KeyIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_key_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_key_output() :: %{
+        "Key" => key()
+      }
+      
+  """
+  @type delete_key_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -461,308 +252,44 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
-      stop_key_usage_output() :: %{
-        "Key" => key()
-      }
+      delete_resource_policy_output() :: %{}
       
   """
-  @type stop_key_usage_output() :: %{(String.t() | atom()) => any()}
+  @type delete_resource_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      cfn_key_item() :: %{
-        "Policy" => String.t() | atom()
-      }
-      
-  """
-  @type cfn_key_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_alias_output() :: %{
-        "Alias" => alias()
-      }
-      
-  """
-  @type update_alias_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_certificate_signing_request_input() :: %{
-        required("CertificateSubject") => certificate_subject_type(),
-        required("KeyIdentifier") => String.t() | atom(),
-        required("SigningAlgorithm") => String.t() | atom()
-      }
-      
-  """
-  @type get_certificate_signing_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_parameters_for_import_output() :: %{
-        "ImportToken" => String.t() | atom(),
-        "ParametersValidUntilTimestamp" => non_neg_integer(),
-        "WrappingKeyAlgorithm" => String.t() | atom(),
-        "WrappingKeyCertificate" => String.t() | atom(),
-        "WrappingKeyCertificateChain" => String.t() | atom()
-      }
-      
-  """
-  @type get_parameters_for_import_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_input() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_key_output() :: %{
-        "Key" => key()
-      }
-      
-  """
-  @type get_key_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_key_usage_input() :: %{
-        required("KeyIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type stop_key_usage_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_tr31_key_block() :: %{
-        "KeyBlockHeaders" => key_block_headers(),
-        "WrappingKeyIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type export_tr31_key_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_key_replication_regions_input() :: %{
-        required("KeyIdentifier") => String.t() | atom(),
+      disable_default_key_replication_regions_input() :: %{
         required("ReplicationRegions") => list(String.t() | atom())
       }
       
   """
-  @type remove_key_replication_regions_input() :: %{(String.t() | atom()) => any()}
+  @type disable_default_key_replication_regions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_certificate_signing_request_output() :: %{
-        "CertificateSigningRequest" => String.t() | atom()
+      disable_default_key_replication_regions_output() :: %{
+        "EnabledReplicationRegions" => list(String.t() | atom())
       }
       
   """
-  @type get_certificate_signing_request_output() :: %{(String.t() | atom()) => any()}
+  @type disable_default_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      wrapped_key() :: %{
-        "KeyCheckValue" => String.t() | atom(),
-        "KeyCheckValueAlgorithm" => String.t() | atom(),
-        "KeyMaterial" => String.t() | atom(),
-        "WrappedKeyMaterialFormat" => String.t() | atom(),
-        "WrappingKeyArn" => String.t() | atom()
+      disassociate_mpa_team_input() :: %{
+        optional("RequesterComment") => String.t() | atom(),
+        required("Action") => String.t() | atom()
       }
       
   """
-  @type wrapped_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "ResourceId" => [String.t() | atom()]
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_alias_output() :: %{}
-      
-  """
-  @type delete_alias_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_input() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_mpa_team_association_output() :: %{
-        "MpaTeamAssociation" => mpa_team_association()
-      }
-      
-  """
-  @type get_mpa_team_association_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_aliases_input() :: %{
-        optional("KeyArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_aliases_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_dukpt_initial_key() :: %{
-        "KeySerialNumber" => String.t() | atom()
-      }
-      
-  """
-  @type export_dukpt_initial_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_as2805_key_cryptogram() :: %{
-        "As2805KeyVariant" => list(any()),
-        "Exportable" => [boolean()],
-        "KeyAlgorithm" => String.t() | atom(),
-        "KeyModesOfUse" => key_modes_of_use(),
-        "WrappedKeyCryptogram" => String.t() | atom(),
-        "WrappingKeyIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type import_as2805_key_cryptogram() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_public_key_certificate_output() :: %{
-        "KeyCertificate" => String.t() | atom(),
-        "KeyCertificateChain" => String.t() | atom()
-      }
-      
-  """
-  @type get_public_key_certificate_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_output() :: %{
-        "Policy" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      key_modes_of_use() :: %{
-        "Decrypt" => [boolean()],
-        "DeriveKey" => [boolean()],
-        "Encrypt" => [boolean()],
-        "Generate" => [boolean()],
-        "NoRestrictions" => [boolean()],
-        "Sign" => [boolean()],
-        "Unwrap" => [boolean()],
-        "Verify" => [boolean()],
-        "Wrap" => [boolean()]
-      }
-      
-  """
-  @type key_modes_of_use() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      key_block_headers() :: %{
-        "KeyExportability" => String.t() | atom(),
-        "KeyModesOfUse" => key_modes_of_use(),
-        "KeyVersion" => String.t() | atom(),
-        "OptionalBlocks" => map()
-      }
-      
-  """
-  @type key_block_headers() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_key_input() :: %{
-        required("KeyIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type restore_key_input() :: %{(String.t() | atom()) => any()}
+  @type disassociate_mpa_team_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -774,6 +301,52 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type disassociate_mpa_team_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_default_key_replication_regions_input() :: %{
+        required("ReplicationRegions") => list(String.t() | atom())
+      }
+      
+  """
+  @type enable_default_key_replication_regions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_default_key_replication_regions_output() :: %{
+        "EnabledReplicationRegions" => list(String.t() | atom())
+      }
+      
+  """
+  @type enable_default_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_as2805_key_cryptogram() :: %{
+        "As2805KeyVariant" => list(any()),
+        "WrappingKeyIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type export_as2805_key_cryptogram() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_attributes() :: %{
+        "ExportDukptInitialKey" => export_dukpt_initial_key(),
+        "KeyCheckValueAlgorithm" => String.t() | atom()
+      }
+      
+  """
+  @type export_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -797,133 +370,61 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
-      conflict_exception() :: %{
-        "Message" => [String.t() | atom()]
+      export_dukpt_initial_key() :: %{
+        "KeySerialNumber" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type export_dukpt_initial_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      export_as2805_key_cryptogram() :: %{
-        "As2805KeyVariant" => list(any()),
+      export_key_cryptogram() :: %{
+        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
+        "WrappingKeyCertificate" => String.t() | atom(),
+        "WrappingSpec" => String.t() | atom()
+      }
+      
+  """
+  @type export_key_cryptogram() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_key_input() :: %{
+        optional("ExportAttributes") => export_attributes(),
+        required("ExportKeyIdentifier") => String.t() | atom(),
+        required("KeyMaterial") => list()
+      }
+      
+  """
+  @type export_key_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_key_output() :: %{
+        "WrappedKey" => wrapped_key()
+      }
+      
+  """
+  @type export_key_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_tr31_key_block() :: %{
+        "KeyBlockHeaders" => key_block_headers(),
         "WrappingKeyIdentifier" => String.t() | atom()
       }
       
   """
-  @type export_as2805_key_cryptogram() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_key_replication_regions_output() :: %{
-        "Key" => key()
-      }
-      
-  """
-  @type remove_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      key_summary() :: %{
-        "Enabled" => [boolean()],
-        "Exportable" => [boolean()],
-        "KeyArn" => String.t() | atom(),
-        "KeyAttributes" => key_attributes(),
-        "KeyCheckValue" => String.t() | atom(),
-        "KeyState" => String.t() | atom(),
-        "MultiRegionKeyType" => String.t() | atom(),
-        "PrimaryRegion" => String.t() | atom()
-      }
-      
-  """
-  @type key_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_key_output() :: %{
-        "Key" => key()
-      }
-      
-  """
-  @type create_key_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_alias_output() :: %{
-        "Alias" => alias()
-      }
-      
-  """
-  @type create_alias_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_default_key_replication_regions_output() :: %{
-        "EnabledReplicationRegions" => list(String.t() | atom())
-      }
-      
-  """
-  @type disable_default_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      alias() :: %{
-        "AliasName" => String.t() | atom(),
-        "KeyArn" => String.t() | atom()
-      }
-      
-  """
-  @type alias() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_public_key_certificate_input() :: %{
-        required("KeyIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_public_key_certificate_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_mpa_team_output() :: %{
-        "MpaTeamAssociation" => mpa_team_association()
-      }
-      
-  """
-  @type associate_mpa_team_output() :: %{(String.t() | atom()) => any()}
+  @type export_tr31_key_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -947,79 +448,89 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
-      delete_alias_input() :: %{
+      get_alias_input() :: %{
         required("AliasName") => String.t() | atom()
       }
       
   """
-  @type delete_alias_input() :: %{(String.t() | atom()) => any()}
+  @type get_alias_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_key_output() :: %{
+      get_alias_output() :: %{
+        "Alias" => alias()
+      }
+      
+  """
+  @type get_alias_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificate_signing_request_input() :: %{
+        required("CertificateSubject") => certificate_subject_type(),
+        required("KeyIdentifier") => String.t() | atom(),
+        required("SigningAlgorithm") => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_signing_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificate_signing_request_output() :: %{
+        "CertificateSigningRequest" => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_signing_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_default_key_replication_regions_input() :: %{}
+      
+  """
+  @type get_default_key_replication_regions_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_default_key_replication_regions_output() :: %{
+        "EnabledReplicationRegions" => list(String.t() | atom())
+      }
+      
+  """
+  @type get_default_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_key_input() :: %{
+        required("KeyIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_key_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_key_output() :: %{
         "Key" => key()
       }
       
   """
-  @type delete_key_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_alias_input() :: %{
-        optional("KeyArn") => String.t() | atom(),
-        required("AliasName") => String.t() | atom()
-      }
-      
-  """
-  @type create_alias_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_default_key_replication_regions_input() :: %{
-        required("ReplicationRegions") => list(String.t() | atom())
-      }
-      
-  """
-  @type enable_default_key_replication_regions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_policy_output() :: %{}
-      
-  """
-  @type delete_resource_policy_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_input() :: %{
-        required("Policy") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_mpa_team_input() :: %{
-        optional("RequesterComment") => String.t() | atom(),
-        required("Action") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_mpa_team_input() :: %{(String.t() | atom()) => any()}
+  @type get_key_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1036,55 +547,91 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
-      associate_mpa_team_input() :: %{
-        optional("RequesterComment") => String.t() | atom(),
-        required("Action") => String.t() | atom(),
-        required("MpaTeamArn") => String.t() | atom()
+      get_mpa_team_association_output() :: %{
+        "MpaTeamAssociation" => mpa_team_association()
       }
       
   """
-  @type associate_mpa_team_input() :: %{(String.t() | atom()) => any()}
+  @type get_mpa_team_association_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_key_input() :: %{
-        optional("DeriveKeyUsage") => String.t() | atom(),
-        optional("Enabled") => [boolean()],
-        optional("KeyCheckValueAlgorithm") => String.t() | atom(),
-        optional("ReplicationRegions") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        required("Exportable") => [boolean()],
-        required("KeyAttributes") => key_attributes()
+      get_parameters_for_export_input() :: %{
+        optional("ReuseLastGeneratedToken") => [boolean()],
+        required("KeyMaterialType") => String.t() | atom(),
+        required("SigningKeyAlgorithm") => String.t() | atom()
       }
       
   """
-  @type create_key_input() :: %{(String.t() | atom()) => any()}
+  @type get_parameters_for_export_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      root_certificate_public_key() :: %{
-        "KeyAttributes" => key_attributes(),
-        "PublicKeyCertificate" => String.t() | atom()
+      get_parameters_for_export_output() :: %{
+        "ExportToken" => String.t() | atom(),
+        "ParametersValidUntilTimestamp" => non_neg_integer(),
+        "SigningKeyAlgorithm" => String.t() | atom(),
+        "SigningKeyCertificate" => String.t() | atom(),
+        "SigningKeyCertificateChain" => String.t() | atom()
       }
       
   """
-  @type root_certificate_public_key() :: %{(String.t() | atom()) => any()}
+  @type get_parameters_for_export_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_alias_input() :: %{
-        optional("KeyArn") => String.t() | atom(),
-        required("AliasName") => String.t() | atom()
+      get_parameters_for_import_input() :: %{
+        optional("ReuseLastGeneratedToken") => [boolean()],
+        required("KeyMaterialType") => String.t() | atom(),
+        required("WrappingKeyAlgorithm") => String.t() | atom()
       }
       
   """
-  @type update_alias_input() :: %{(String.t() | atom()) => any()}
+  @type get_parameters_for_import_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_parameters_for_import_output() :: %{
+        "ImportToken" => String.t() | atom(),
+        "ParametersValidUntilTimestamp" => non_neg_integer(),
+        "WrappingKeyAlgorithm" => String.t() | atom(),
+        "WrappingKeyCertificate" => String.t() | atom(),
+        "WrappingKeyCertificateChain" => String.t() | atom()
+      }
+      
+  """
+  @type get_parameters_for_import_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_public_key_certificate_input() :: %{
+        required("KeyIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_public_key_certificate_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_public_key_certificate_output() :: %{
+        "KeyCertificate" => String.t() | atom(),
+        "KeyCertificateChain" => String.t() | atom()
+      }
+      
+  """
+  @type get_public_key_certificate_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1101,15 +648,29 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
-      mpa_team_association() :: %{
-        "Action" => String.t() | atom(),
-        "AssociationState" => String.t() | atom(),
-        "MpaStatus" => mpa_status(),
-        "MpaTeamArn" => String.t() | atom()
+      get_resource_policy_output() :: %{
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type mpa_team_association() :: %{(String.t() | atom()) => any()}
+  @type get_resource_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_as2805_key_cryptogram() :: %{
+        "As2805KeyVariant" => list(any()),
+        "Exportable" => [boolean()],
+        "KeyAlgorithm" => String.t() | atom(),
+        "KeyModesOfUse" => key_modes_of_use(),
+        "WrappedKeyCryptogram" => String.t() | atom(),
+        "WrappingKeyIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type import_as2805_key_cryptogram() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1128,6 +689,89 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type import_diffie_hellman_tr31_key_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_key_cryptogram() :: %{
+        "Exportable" => [boolean()],
+        "ImportToken" => String.t() | atom(),
+        "KeyAttributes" => key_attributes(),
+        "WrappedKeyCryptogram" => String.t() | atom(),
+        "WrappingSpec" => String.t() | atom()
+      }
+      
+  """
+  @type import_key_cryptogram() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_key_input() :: %{
+        optional("Enabled") => [boolean()],
+        optional("KeyCheckValueAlgorithm") => String.t() | atom(),
+        optional("ReplicationRegions") => list(String.t() | atom()),
+        optional("RequesterComment") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("KeyMaterial") => list()
+      }
+      
+  """
+  @type import_key_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_key_output() :: %{
+        "Key" => key()
+      }
+      
+  """
+  @type import_key_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_tr31_key_block() :: %{
+        "WrappedKeyBlock" => String.t() | atom(),
+        "WrappingKeyIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type import_tr31_key_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_tr34_key_block() :: %{
+        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
+        "ImportToken" => String.t() | atom(),
+        "KeyBlockFormat" => String.t() | atom(),
+        "RandomNonce" => String.t() | atom(),
+        "SigningKeyCertificate" => String.t() | atom(),
+        "WrappedKeyBlock" => String.t() | atom(),
+        "WrappingKeyCertificate" => String.t() | atom(),
+        "WrappingKeyIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type import_tr34_key_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1162,12 +806,141 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
-      get_alias_output() :: %{
-        "Alias" => alias()
+      key_attributes() :: %{
+        "KeyAlgorithm" => String.t() | atom(),
+        "KeyClass" => String.t() | atom(),
+        "KeyModesOfUse" => key_modes_of_use(),
+        "KeyUsage" => String.t() | atom()
       }
       
   """
-  @type get_alias_output() :: %{(String.t() | atom()) => any()}
+  @type key_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_block_headers() :: %{
+        "KeyExportability" => String.t() | atom(),
+        "KeyModesOfUse" => key_modes_of_use(),
+        "KeyVersion" => String.t() | atom(),
+        "OptionalBlocks" => map()
+      }
+      
+  """
+  @type key_block_headers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_modes_of_use() :: %{
+        "Decrypt" => [boolean()],
+        "DeriveKey" => [boolean()],
+        "Encrypt" => [boolean()],
+        "Generate" => [boolean()],
+        "NoRestrictions" => [boolean()],
+        "Sign" => [boolean()],
+        "Unwrap" => [boolean()],
+        "Verify" => [boolean()],
+        "Wrap" => [boolean()]
+      }
+      
+  """
+  @type key_modes_of_use() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_summary() :: %{
+        "Enabled" => [boolean()],
+        "Exportable" => [boolean()],
+        "KeyArn" => String.t() | atom(),
+        "KeyAttributes" => key_attributes(),
+        "KeyCheckValue" => String.t() | atom(),
+        "KeyState" => String.t() | atom(),
+        "MultiRegionKeyType" => String.t() | atom(),
+        "PrimaryRegion" => String.t() | atom()
+      }
+      
+  """
+  @type key_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_aliases_input() :: %{
+        optional("KeyArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_aliases_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_aliases_output() :: %{
+        "Aliases" => list(alias()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_aliases_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_keys_input() :: %{
+        optional("KeyState") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_keys_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_keys_output() :: %{
+        "Keys" => list(key_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_keys_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1187,73 +960,130 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
-      delete_key_input() :: %{
-        optional("DeleteKeyInDays") => [integer()],
+      mpa_team_association() :: %{
+        "Action" => String.t() | atom(),
+        "AssociationState" => String.t() | atom(),
+        "MpaStatus" => mpa_status(),
+        "MpaTeamArn" => String.t() | atom()
+      }
+      
+  """
+  @type mpa_team_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      public_policy_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+      
+  """
+  @type public_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_input() :: %{
+        required("Policy") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_output() :: %{
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_key_replication_regions_input() :: %{
+        required("KeyIdentifier") => String.t() | atom(),
+        required("ReplicationRegions") => list(String.t() | atom())
+      }
+      
+  """
+  @type remove_key_replication_regions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_key_replication_regions_output() :: %{
+        "Key" => key()
+      }
+      
+  """
+  @type remove_key_replication_regions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_status_type() :: %{
+        "Status" => String.t() | atom(),
+        "StatusMessage" => [String.t() | atom()]
+      }
+      
+  """
+  @type replication_status_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "ResourceId" => [String.t() | atom()]
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_key_input() :: %{
         required("KeyIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_key_input() :: %{(String.t() | atom()) => any()}
+  @type restore_key_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_parameters_for_import_input() :: %{
-        optional("ReuseLastGeneratedToken") => [boolean()],
-        required("KeyMaterialType") => String.t() | atom(),
-        required("WrappingKeyAlgorithm") => String.t() | atom()
+      restore_key_output() :: %{
+        "Key" => key()
       }
       
   """
-  @type get_parameters_for_import_input() :: %{(String.t() | atom()) => any()}
+  @type restore_key_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_output() :: %{}
-      
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_alias_input() :: %{
-        required("AliasName") => String.t() | atom()
+      root_certificate_public_key() :: %{
+        "KeyAttributes" => key_attributes(),
+        "PublicKeyCertificate" => String.t() | atom()
       }
       
   """
-  @type get_alias_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_parameters_for_export_output() :: %{
-        "ExportToken" => String.t() | atom(),
-        "ParametersValidUntilTimestamp" => non_neg_integer(),
-        "SigningKeyAlgorithm" => String.t() | atom(),
-        "SigningKeyCertificate" => String.t() | atom(),
-        "SigningKeyCertificateChain" => String.t() | atom()
-      }
-      
-  """
-  @type get_parameters_for_export_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_aliases_output() :: %{
-        "Aliases" => list(alias()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_aliases_output() :: %{(String.t() | atom()) => any()}
+  @type root_certificate_public_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1270,307 +1100,477 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
-      get_resource_policy_output() :: %{
-        "Policy" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
+      service_unavailable_exception() :: %{
+        "Message" => [String.t() | atom()]
       }
       
   """
-  @type get_resource_policy_output() :: %{(String.t() | atom()) => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_key_usage_input() :: %{
+        required("KeyIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type start_key_usage_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_key_usage_output() :: %{
+        "Key" => key()
+      }
+      
+  """
+  @type start_key_usage_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_key_usage_input() :: %{
+        required("KeyIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type stop_key_usage_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_key_usage_output() :: %{
+        "Key" => key()
+      }
+      
+  """
+  @type stop_key_usage_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_input() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_output() :: %{}
+      
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trusted_certificate_public_key() :: %{
+        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
+        "KeyAttributes" => key_attributes(),
+        "PublicKeyCertificate" => String.t() | atom()
+      }
+      
+  """
+  @type trusted_certificate_public_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_input() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_output() :: %{}
+      
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_alias_input() :: %{
+        optional("KeyArn") => String.t() | atom(),
+        required("AliasName") => String.t() | atom()
+      }
+      
+  """
+  @type update_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_alias_output() :: %{
+        "Alias" => alias()
+      }
+      
+  """
+  @type update_alias_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      wrapped_key() :: %{
+        "KeyCheckValue" => String.t() | atom(),
+        "KeyCheckValueAlgorithm" => String.t() | atom(),
+        "KeyMaterial" => String.t() | atom(),
+        "WrappedKeyMaterialFormat" => String.t() | atom(),
+        "WrappingKeyArn" => String.t() | atom()
+      }
+      
+  """
+  @type wrapped_key() :: %{(String.t() | atom()) => any()}
 
   @type add_key_replication_regions_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type associate_mpa_team_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_alias_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_key_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_alias_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_key_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_resource_policy_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type disable_default_key_replication_regions_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type disassociate_mpa_team_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type enable_default_key_replication_regions_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type export_key_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type get_alias_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_certificate_signing_request_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_default_key_replication_regions_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_key_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_mpa_team_association_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type get_parameters_for_export_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type get_parameters_for_import_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type get_public_key_certificate_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_resource_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type import_key_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type list_aliases_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_keys_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_resource_policy_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | public_policy_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type remove_key_replication_regions_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type restore_key_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type start_key_usage_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type stop_key_usage_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_alias_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

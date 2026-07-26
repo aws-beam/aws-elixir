@@ -2,6 +2,39 @@
 # See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.S3 do
+  @moduledoc """
+
+  For information about using the Amazon S3 API—including authentication, signing
+  requests, code examples, and error handling—see the [Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/Welcome.html).
+
+  Welcome to the *Amazon S3 API Reference*. This guide explains the Amazon Simple
+  Storage Service (Amazon S3)
+  application programming interface (API).
+
+  Welcome to the *Amazon S3 API Reference*. This guide explains the Amazon Simple
+  Storage Service (Amazon S3)
+  application programming interface (API).
+
+  You can use any toolkit that supports HTTP to use the REST API. You can even use
+  a browser
+  to fetch objects, as long as they are anonymously readable.
+
+  The REST API uses the standard HTTP headers and status codes, so that standard
+  browsers and toolkits work as expected. In some areas, we have added
+  functionality to HTTP (for example, we added headers to support access control).
+  In these cases, we have done our best to add the new functionality in a way that
+  matched the style of standard HTTP usage.
+
+  The current version of the Amazon S3 API is `2006-03-01`.
+
+  Amazon S3 supports the REST API.
+
+  Support for SOAP over HTTP is deprecated, but it is still available over HTTPS.
+  However, new Amazon S3 features will not be supported for SOAP. We recommend
+  that
+  you use either this REST API or the Amazon Web Services SDKs.
+  """
+
   alias AWS.Client
   alias AWS.Request
 
@@ -9,605 +42,34 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      storage_class_analysis_data_export() :: %{
-        "Destination" => analytics_export_destination(),
-        "OutputSchemaVersion" => list(any())
-      }
-
-  """
-  @type storage_class_analysis_data_export() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_object_tagging_output() :: %{
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type delete_object_tagging_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      server_side_encryption_rule() :: %{
-        "ApplyServerSideEncryptionByDefault" => server_side_encryption_by_default(),
-        "BlockedEncryptionTypes" => blocked_encryption_types(),
-        "BucketKeyEnabled" => boolean()
-      }
-
-  """
-  @type server_side_encryption_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_lifecycle_configuration_output() :: %{
-        "TransitionDefaultMinimumObjectSize" => list(any())
-      }
-
-  """
-  @type put_bucket_lifecycle_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ownership_controls() :: %{
-        "Rules" => list(ownership_controls_rule())
-      }
-
-  """
-  @type ownership_controls() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_object_output() :: %{
-        "DeleteMarker" => boolean(),
-        "RequestCharged" => list(any()),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type delete_object_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bucket_inventory_configurations_output() :: %{
-        "ContinuationToken" => String.t() | atom(),
-        "InventoryConfigurationList" => list(inventory_configuration()),
-        "IsTruncated" => boolean(),
-        "NextContinuationToken" => String.t() | atom()
-      }
-
-  """
-  @type list_bucket_inventory_configurations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_metrics_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("Id") => String.t() | atom(),
-        required("MetricsConfiguration") => metrics_configuration()
-      }
-
-  """
-  @type put_bucket_metrics_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_abac_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_abac_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_request() :: %{
-        "Days" => integer(),
-        "Description" => String.t() | atom(),
-        "GlacierJobParameters" => glacier_job_parameters(),
-        "OutputLocation" => output_location(),
-        "SelectParameters" => select_parameters(),
-        "Tier" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type restore_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bucket_metrics_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-
-  """
-  @type delete_bucket_metrics_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      common_prefix() :: %{
-        "Prefix" => String.t() | atom()
-      }
-
-  """
-  @type common_prefix() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_tagging_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type get_object_tagging_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      public_access_block_configuration() :: %{
-        "BlockPublicAcls" => boolean(),
-        "BlockPublicPolicy" => boolean(),
-        "IgnorePublicAcls" => boolean(),
-        "RestrictPublicBuckets" => boolean()
-      }
-
-  """
-  @type public_access_block_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_policy_status_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_policy_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_inventory_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("Id") => String.t() | atom(),
-        required("InventoryConfiguration") => inventory_configuration()
-      }
-
-  """
-  @type put_bucket_inventory_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_cors_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("CORSConfiguration") => c_o_r_s_configuration()
-      }
-
-  """
-  @type put_bucket_cors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_legal_hold_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type get_object_legal_hold_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      csv_output() :: %{
-        "FieldDelimiter" => String.t() | atom(),
-        "QuoteCharacter" => String.t() | atom(),
-        "QuoteEscapeCharacter" => String.t() | atom(),
-        "QuoteFields" => list(any()),
-        "RecordDelimiter" => String.t() | atom()
-      }
-
-  """
-  @type csv_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analytics_and_operator() :: %{
-        "Prefix" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-
-  """
-  @type analytics_and_operator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      annotation_table_configuration() :: %{
-        "ConfigurationState" => list(any()),
-        "EncryptionConfiguration" => metadata_table_encryption_configuration(),
-        "Role" => String.t() | atom()
-      }
-
-  """
-  @type annotation_table_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_document() :: %{
-        "Key" => String.t() | atom()
-      }
-
-  """
-  @type error_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_grant() :: %{
-        "Grantee" => grantee(),
-        "Permission" => list(any())
-      }
-
-  """
-  @type target_grant() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_public_access_block_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_public_access_block_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      object_lock_legal_hold() :: %{
+      abac_status() :: %{
         "Status" => list(any())
       }
 
   """
-  @type object_lock_legal_hold() :: %{(String.t() | atom()) => any()}
+  @type abac_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_bucket_ownership_controls_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
+      abort_incomplete_multipart_upload() :: %{
+        "DaysAfterInitiation" => integer()
       }
 
   """
-  @type get_bucket_ownership_controls_request() :: %{(String.t() | atom()) => any()}
+  @type abort_incomplete_multipart_upload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      journal_table_configuration_updates() :: %{
-        "RecordExpiration" => record_expiration()
-      }
-
-  """
-  @type journal_table_configuration_updates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found() :: %{}
-
-  """
-  @type not_found() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      record_expiration() :: %{
-        "Days" => integer(),
-        "Expiration" => list(any())
-      }
-
-  """
-  @type record_expiration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      server_side_encryption_configuration() :: %{
-        "Rules" => list(server_side_encryption_rule())
-      }
-
-  """
-  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multipart_uploads_request() :: %{
-        optional("Delimiter") => String.t() | atom(),
-        optional("EncodingType") => list(any()),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("KeyMarker") => String.t() | atom(),
-        optional("MaxUploads") => integer(),
-        optional("Prefix") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("UploadIdMarker") => String.t() | atom()
-      }
-
-  """
-  @type list_multipart_uploads_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metrics_configuration() :: %{
-        "Filter" => list(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type metrics_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_website_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("WebsiteConfiguration") => website_configuration()
-      }
-
-  """
-  @type put_bucket_website_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_ownership_controls_output() :: %{
-        "OwnershipControls" => ownership_controls()
-      }
-
-  """
-  @type get_bucket_ownership_controls_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_expiration() :: %{
-        "Date" => non_neg_integer(),
-        "Days" => integer(),
-        "ExpiredObjectDeleteMarker" => boolean()
-      }
-
-  """
-  @type lifecycle_expiration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_rule_and_operator() :: %{
-        "ObjectSizeGreaterThan" => float(),
-        "ObjectSizeLessThan" => float(),
-        "Prefix" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-
-  """
-  @type lifecycle_rule_and_operator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_function_configuration() :: %{
-        "Events" => list(list(any())()),
-        "Filter" => notification_configuration_filter(),
-        "Id" => String.t() | atom(),
-        "LambdaFunctionArn" => String.t() | atom()
-      }
-
-  """
-  @type lambda_function_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_location_output() :: %{
-        "LocationConstraint" => list(any())
-      }
-
-  """
-  @type get_bucket_location_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_objects_output() :: %{
-        "Deleted" => list(deleted_object()),
-        "Errors" => list(error()),
+      abort_multipart_upload_output() :: %{
         "RequestCharged" => list(any())
       }
 
   """
-  @type delete_objects_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_accelerate_configuration_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("AccelerateConfiguration") => accelerate_configuration()
-      }
-
-  """
-  @type put_bucket_accelerate_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_part_request() :: %{
-        optional("Body") => binary(),
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ChecksumCRC32") => String.t() | atom(),
-        optional("ChecksumCRC32C") => String.t() | atom(),
-        optional("ChecksumCRC64NVME") => String.t() | atom(),
-        optional("ChecksumMD5") => String.t() | atom(),
-        optional("ChecksumSHA1") => String.t() | atom(),
-        optional("ChecksumSHA256") => String.t() | atom(),
-        optional("ChecksumSHA512") => String.t() | atom(),
-        optional("ChecksumXXHASH128") => String.t() | atom(),
-        optional("ChecksumXXHASH3") => String.t() | atom(),
-        optional("ChecksumXXHASH64") => String.t() | atom(),
-        optional("ContentLength") => float(),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("SSECustomerAlgorithm") => String.t() | atom(),
-        optional("SSECustomerKey") => String.t() | atom(),
-        optional("SSECustomerKeyMD5") => String.t() | atom(),
-        required("PartNumber") => integer(),
-        required("UploadId") => String.t() | atom()
-      }
-
-  """
-  @type upload_part_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_website_output() :: %{
-        "ErrorDocument" => error_document(),
-        "IndexDocument" => index_document(),
-        "RedirectAllRequestsTo" => redirect_all_requests_to(),
-        "RoutingRules" => list(routing_rule())
-      }
-
-  """
-  @type get_bucket_website_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_versioning_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_versioning_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      end_event() :: %{}
-
-  """
-  @type end_event() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      bucket() :: %{
-        "BucketArn" => String.t() | atom(),
-        "BucketRegion" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type bucket() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied() :: %{}
-
-  """
-  @type access_denied() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      csv_input() :: %{
-        "AllowQuotedRecordDelimiter" => boolean(),
-        "Comments" => String.t() | atom(),
-        "FieldDelimiter" => String.t() | atom(),
-        "FileHeaderInfo" => list(any()),
-        "QuoteCharacter" => String.t() | atom(),
-        "QuoteEscapeCharacter" => String.t() | atom(),
-        "RecordDelimiter" => String.t() | atom()
-      }
-
-  """
-  @type csv_input() :: %{(String.t() | atom()) => any()}
+  @type abort_multipart_upload_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -627,77 +89,12 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      get_bucket_tagging_output() :: %{
-        "TagSet" => list(tag())
+      accelerate_configuration() :: %{
+        "Status" => list(any())
       }
 
   """
-  @type get_bucket_tagging_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multipart_uploads_output() :: %{
-        "Bucket" => String.t() | atom(),
-        "CommonPrefixes" => list(common_prefix()),
-        "Delimiter" => String.t() | atom(),
-        "EncodingType" => list(any()),
-        "IsTruncated" => boolean(),
-        "KeyMarker" => String.t() | atom(),
-        "MaxUploads" => integer(),
-        "NextKeyMarker" => String.t() | atom(),
-        "NextUploadIdMarker" => String.t() | atom(),
-        "Prefix" => String.t() | atom(),
-        "RequestCharged" => list(any()),
-        "UploadIdMarker" => String.t() | atom(),
-        "Uploads" => list(multipart_upload())
-      }
-
-  """
-  @type list_multipart_uploads_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_annotation_request() :: %{
-        optional("ChecksumMode") => list(any()),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom(),
-        required("AnnotationName") => String.t() | atom()
-      }
-
-  """
-  @type get_object_annotation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      c_o_r_s_configuration() :: %{
-        "CORSRules" => list(c_o_r_s_rule())
-      }
-
-  """
-  @type c_o_r_s_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bucket_metadata_inventory_table_configuration_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("InventoryTableConfiguration") => inventory_table_configuration_updates()
-      }
-
-  """
-  @type update_bucket_metadata_inventory_table_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type accelerate_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -715,223 +112,57 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      replication_time() :: %{
-        "Status" => list(any()),
-        "Time" => replication_time_value()
+      access_control_translation() :: %{
+        "Owner" => list(any())
       }
 
   """
-  @type replication_time() :: %{(String.t() | atom()) => any()}
+  @type access_control_translation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      no_such_key() :: %{}
+      access_denied() :: %{}
 
   """
-  @type no_such_key() :: %{}
+  @type access_denied() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      filter_rule() :: %{
-        "Name" => list(any()),
-        "Value" => String.t() | atom()
+      analytics_and_operator() :: %{
+        "Prefix" => String.t() | atom(),
+        "Tags" => list(tag())
       }
 
   """
-  @type filter_rule() :: %{(String.t() | atom()) => any()}
+  @type analytics_and_operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_bucket_request_payment_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("RequestPaymentConfiguration") => request_payment_configuration()
+      analytics_configuration() :: %{
+        "Filter" => list(),
+        "Id" => String.t() | atom(),
+        "StorageClassAnalysis" => storage_class_analysis()
       }
 
   """
-  @type put_bucket_request_payment_request() :: %{(String.t() | atom()) => any()}
+  @type analytics_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_bucket_metadata_table_configuration_result() :: %{
-        "Error" => error_details(),
-        "MetadataTableConfigurationResult" => metadata_table_configuration_result(),
-        "Status" => String.t() | atom()
+      analytics_export_destination() :: %{
+        "S3BucketDestination" => analytics_s3_bucket_destination()
       }
 
   """
-  @type get_bucket_metadata_table_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      completed_multipart_upload() :: %{
-        "Parts" => list(completed_part())
-      }
-
-  """
-  @type completed_multipart_upload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_attributes_parts() :: %{
-        "IsTruncated" => boolean(),
-        "MaxParts" => integer(),
-        "NextPartNumberMarker" => String.t() | atom(),
-        "PartNumberMarker" => String.t() | atom(),
-        "Parts" => list(object_part()),
-        "TotalPartsCount" => integer()
-      }
-
-  """
-  @type get_object_attributes_parts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_object_legal_hold_output() :: %{
-        "RequestCharged" => list(any())
-      }
-
-  """
-  @type put_object_legal_hold_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bucket_metrics_configurations_output() :: %{
-        "ContinuationToken" => String.t() | atom(),
-        "IsTruncated" => boolean(),
-        "MetricsConfigurationList" => list(metrics_configuration()),
-        "NextContinuationToken" => String.t() | atom()
-      }
-
-  """
-  @type list_bucket_metrics_configurations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_session_output() :: %{
-        "BucketKeyEnabled" => boolean(),
-        "Credentials" => session_credentials(),
-        "SSEKMSEncryptionContext" => String.t() | atom(),
-        "SSEKMSKeyId" => String.t() | atom(),
-        "ServerSideEncryption" => list(any())
-      }
-
-  """
-  @type create_session_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_such_annotation() :: %{}
-
-  """
-  @type no_such_annotation() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_table_encryption_configuration() :: %{
-        "KmsKeyArn" => String.t() | atom(),
-        "SseAlgorithm" => list(any())
-      }
-
-  """
-  @type metadata_table_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bucket_inventory_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-
-  """
-  @type delete_bucket_inventory_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grant() :: %{
-        "Grantee" => grantee(),
-        "Permission" => list(any())
-      }
-
-  """
-  @type grant() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      annotation_table_configuration_updates() :: %{
-        "ConfigurationState" => list(any()),
-        "EncryptionConfiguration" => metadata_table_encryption_configuration(),
-        "Role" => String.t() | atom()
-      }
-
-  """
-  @type annotation_table_configuration_updates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification_configuration() :: %{
-        "EventBridgeConfiguration" => event_bridge_configuration(),
-        "LambdaFunctionConfigurations" => list(lambda_function_configuration()),
-        "QueueConfigurations" => list(queue_configuration()),
-        "TopicConfigurations" => list(topic_configuration())
-      }
-
-  """
-  @type notification_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_public_access_block_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type delete_public_access_block_request() :: %{(String.t() | atom()) => any()}
+  @type analytics_export_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -951,98 +182,213 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      head_bucket_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
+      annotation_entry() :: %{
+        "AnnotationName" => String.t() | atom(),
+        "ChecksumAlgorithm" => list(list(any())()),
+        "ETag" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "ReplicationStatus" => list(any()),
+        "Size" => float()
       }
 
   """
-  @type head_bucket_request() :: %{(String.t() | atom()) => any()}
+  @type annotation_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      inventory_table_configuration_result() :: %{
+      annotation_limit_exceeded() :: %{}
+
+  """
+  @type annotation_limit_exceeded() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      annotation_name_too_long() :: %{}
+
+  """
+  @type annotation_name_too_long() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      annotation_table_configuration() :: %{
+        "ConfigurationState" => list(any()),
+        "EncryptionConfiguration" => metadata_table_encryption_configuration(),
+        "Role" => String.t() | atom()
+      }
+
+  """
+  @type annotation_table_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      annotation_table_configuration_result() :: %{
         "ConfigurationState" => list(any()),
         "Error" => error_details(),
+        "Role" => String.t() | atom(),
         "TableArn" => String.t() | atom(),
         "TableName" => String.t() | atom(),
         "TableStatus" => String.t() | atom()
       }
 
   """
-  @type inventory_table_configuration_result() :: %{(String.t() | atom()) => any()}
+  @type annotation_table_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_bucket_analytics_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("Id") => String.t() | atom()
+      annotation_table_configuration_updates() :: %{
+        "ConfigurationState" => list(any()),
+        "EncryptionConfiguration" => metadata_table_encryption_configuration(),
+        "Role" => String.t() | atom()
       }
 
   """
-  @type get_bucket_analytics_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type annotation_table_configuration_updates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      output_serialization() :: %{
-        "CSV" => csv_output(),
-        "JSON" => json_output()
+      blocked_encryption_types() :: %{
+        "EncryptionType" => list(list(any())())
       }
 
   """
-  @type output_serialization() :: %{(String.t() | atom()) => any()}
+  @type blocked_encryption_types() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      sse_s3() :: %{}
-
-  """
-  @type sse_s3() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_versioning_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("MFA") => String.t() | atom(),
-        required("VersioningConfiguration") => versioning_configuration()
+      bucket() :: %{
+        "BucketArn" => String.t() | atom(),
+        "BucketRegion" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type put_bucket_versioning_request() :: %{(String.t() | atom()) => any()}
+  @type bucket() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_object_lock_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
+      bucket_already_exists() :: %{}
 
   """
-  @type get_object_lock_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type bucket_already_exists() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_bucket_acl_output() :: %{
-        "Grants" => list(grant()),
-        "Owner" => owner()
+      bucket_already_owned_by_you() :: %{}
+
+  """
+  @type bucket_already_owned_by_you() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket_info() :: %{
+        "DataRedundancy" => list(any()),
+        "Type" => list(any())
       }
 
   """
-  @type get_bucket_acl_output() :: %{(String.t() | atom()) => any()}
+  @type bucket_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket_lifecycle_configuration() :: %{
+        "Rules" => list(lifecycle_rule())
+      }
+
+  """
+  @type bucket_lifecycle_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket_logging_status() :: %{
+        "LoggingEnabled" => logging_enabled()
+      }
+
+  """
+  @type bucket_logging_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      c_o_r_s_configuration() :: %{
+        "CORSRules" => list(c_o_r_s_rule())
+      }
+
+  """
+  @type c_o_r_s_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      c_o_r_s_rule() :: %{
+        "AllowedHeaders" => list(String.t() | atom()),
+        "AllowedMethods" => list(String.t() | atom()),
+        "AllowedOrigins" => list(String.t() | atom()),
+        "ExposeHeaders" => list(String.t() | atom()),
+        "ID" => String.t() | atom(),
+        "MaxAgeSeconds" => integer()
+      }
+
+  """
+  @type c_o_r_s_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      checksum() :: %{
+        "ChecksumCRC32" => String.t() | atom(),
+        "ChecksumCRC32C" => String.t() | atom(),
+        "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
+        "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumType" => list(any()),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom()
+      }
+
+  """
+  @type checksum() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      common_prefix() :: %{
+        "Prefix" => String.t() | atom()
+      }
+
+  """
+  @type common_prefix() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1079,90 +425,49 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      routing_rule() :: %{
-        "Condition" => condition(),
-        "Redirect" => redirect()
-      }
-
-  """
-  @type routing_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      partitioned_prefix() :: %{
-        "PartitionDateSource" => list(any())
-      }
-
-  """
-  @type partitioned_prefix() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      abort_incomplete_multipart_upload() :: %{
-        "DaysAfterInitiation" => integer()
-      }
-
-  """
-  @type abort_incomplete_multipart_upload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_ownership_controls_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
+      complete_multipart_upload_request() :: %{
+        optional("ChecksumCRC32") => String.t() | atom(),
+        optional("ChecksumCRC32C") => String.t() | atom(),
+        optional("ChecksumCRC64NVME") => String.t() | atom(),
+        optional("ChecksumMD5") => String.t() | atom(),
+        optional("ChecksumSHA1") => String.t() | atom(),
+        optional("ChecksumSHA256") => String.t() | atom(),
+        optional("ChecksumSHA512") => String.t() | atom(),
+        optional("ChecksumType") => list(any()),
+        optional("ChecksumXXHASH128") => String.t() | atom(),
+        optional("ChecksumXXHASH3") => String.t() | atom(),
+        optional("ChecksumXXHASH64") => String.t() | atom(),
         optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("OwnershipControls") => ownership_controls()
+        optional("IfMatch") => String.t() | atom(),
+        optional("IfNoneMatch") => String.t() | atom(),
+        optional("MpuObjectSize") => float(),
+        optional("MultipartUpload") => completed_multipart_upload(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t() | atom(),
+        optional("SSECustomerKey") => String.t() | atom(),
+        optional("SSECustomerKeyMD5") => String.t() | atom(),
+        required("UploadId") => String.t() | atom()
       }
 
   """
-  @type put_bucket_ownership_controls_request() :: %{(String.t() | atom()) => any()}
+  @type complete_multipart_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      intelligent_tiering_filter() :: %{
-        "And" => intelligent_tiering_and_operator(),
-        "Prefix" => String.t() | atom(),
-        "Tag" => tag()
+      completed_multipart_upload() :: %{
+        "Parts" => list(completed_part())
       }
 
   """
-  @type intelligent_tiering_filter() :: %{(String.t() | atom()) => any()}
+  @type completed_multipart_upload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      checksum() :: %{
-        "ChecksumCRC32" => String.t() | atom(),
-        "ChecksumCRC32C" => String.t() | atom(),
-        "ChecksumCRC64NVME" => String.t() | atom(),
-        "ChecksumMD5" => String.t() | atom(),
-        "ChecksumSHA1" => String.t() | atom(),
-        "ChecksumSHA256" => String.t() | atom(),
-        "ChecksumSHA512" => String.t() | atom(),
-        "ChecksumType" => list(any()),
-        "ChecksumXXHASH128" => String.t() | atom(),
-        "ChecksumXXHASH3" => String.t() | atom(),
-        "ChecksumXXHASH64" => String.t() | atom()
-      }
-
-  """
-  @type checksum() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_part_output() :: %{
-        "BucketKeyEnabled" => boolean(),
+      completed_part() :: %{
         "ChecksumCRC32" => String.t() | atom(),
         "ChecksumCRC32C" => String.t() | atom(),
         "ChecksumCRC64NVME" => String.t() | atom(),
@@ -1174,74 +479,248 @@ defmodule AWS.S3 do
         "ChecksumXXHASH3" => String.t() | atom(),
         "ChecksumXXHASH64" => String.t() | atom(),
         "ETag" => String.t() | atom(),
+        "PartNumber" => integer()
+      }
+
+  """
+  @type completed_part() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      condition() :: %{
+        "HttpErrorCodeReturnedEquals" => String.t() | atom(),
+        "KeyPrefixEquals" => String.t() | atom()
+      }
+
+  """
+  @type condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      continuation_event() :: %{}
+
+  """
+  @type continuation_event() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      copy_object_output() :: %{
+        "BucketKeyEnabled" => boolean(),
+        "CopyObjectResult" => copy_object_result(),
+        "CopySourceVersionId" => String.t() | atom(),
+        "Expiration" => String.t() | atom(),
         "RequestCharged" => list(any()),
         "SSECustomerAlgorithm" => String.t() | atom(),
         "SSECustomerKeyMD5" => String.t() | atom(),
+        "SSEKMSEncryptionContext" => String.t() | atom(),
         "SSEKMSKeyId" => String.t() | atom(),
-        "ServerSideEncryption" => list(any())
+        "ServerSideEncryption" => list(any()),
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type upload_part_output() :: %{(String.t() | atom()) => any()}
+  @type copy_object_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      replication_rule() :: %{
-        "DeleteMarkerReplication" => delete_marker_replication(),
-        "Destination" => destination(),
-        "ExistingObjectReplication" => existing_object_replication(),
-        "Filter" => replication_rule_filter(),
-        "ID" => String.t() | atom(),
-        "Prefix" => String.t() | atom(),
-        "Priority" => integer(),
-        "SourceSelectionCriteria" => source_selection_criteria(),
-        "Status" => list(any())
+      copy_object_request() :: %{
+        optional("ACL") => list(any()),
+        optional("AnnotationDirective") => list(any()),
+        optional("BucketKeyEnabled") => boolean(),
+        optional("CacheControl") => String.t() | atom(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentDisposition") => String.t() | atom(),
+        optional("ContentEncoding") => String.t() | atom(),
+        optional("ContentLanguage") => String.t() | atom(),
+        optional("ContentType") => String.t() | atom(),
+        optional("CopySourceIfMatch") => String.t() | atom(),
+        optional("CopySourceIfModifiedSince") => non_neg_integer(),
+        optional("CopySourceIfNoneMatch") => String.t() | atom(),
+        optional("CopySourceIfUnmodifiedSince") => non_neg_integer(),
+        optional("CopySourceSSECustomerAlgorithm") => String.t() | atom(),
+        optional("CopySourceSSECustomerKey") => String.t() | atom(),
+        optional("CopySourceSSECustomerKeyMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("ExpectedSourceBucketOwner") => String.t() | atom(),
+        optional("Expires") => String.t() | atom(),
+        optional("GrantFullControl") => String.t() | atom(),
+        optional("GrantRead") => String.t() | atom(),
+        optional("GrantReadACP") => String.t() | atom(),
+        optional("GrantWriteACP") => String.t() | atom(),
+        optional("IfMatch") => String.t() | atom(),
+        optional("IfNoneMatch") => String.t() | atom(),
+        optional("Metadata") => map(),
+        optional("MetadataDirective") => list(any()),
+        optional("ObjectLockLegalHoldStatus") => list(any()),
+        optional("ObjectLockMode") => list(any()),
+        optional("ObjectLockRetainUntilDate") => non_neg_integer(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t() | atom(),
+        optional("SSECustomerKey") => String.t() | atom(),
+        optional("SSECustomerKeyMD5") => String.t() | atom(),
+        optional("SSEKMSEncryptionContext") => String.t() | atom(),
+        optional("SSEKMSKeyId") => String.t() | atom(),
+        optional("ServerSideEncryption") => list(any()),
+        optional("StorageClass") => list(any()),
+        optional("Tagging") => String.t() | atom(),
+        optional("TaggingDirective") => list(any()),
+        optional("WebsiteRedirectLocation") => String.t() | atom(),
+        required("CopySource") => String.t() | atom()
       }
 
   """
-  @type replication_rule() :: %{(String.t() | atom()) => any()}
+  @type copy_object_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      s3_tables_destination_result() :: %{
-        "TableArn" => String.t() | atom(),
-        "TableBucketArn" => String.t() | atom(),
-        "TableName" => String.t() | atom(),
-        "TableNamespace" => String.t() | atom()
+      copy_object_result() :: %{
+        "ChecksumCRC32" => String.t() | atom(),
+        "ChecksumCRC32C" => String.t() | atom(),
+        "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
+        "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumType" => list(any()),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "LastModified" => non_neg_integer()
       }
 
   """
-  @type s3_tables_destination_result() :: %{(String.t() | atom()) => any()}
+  @type copy_object_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      queue_configuration() :: %{
-        "Events" => list(list(any())()),
-        "Filter" => notification_configuration_filter(),
-        "Id" => String.t() | atom(),
-        "QueueArn" => String.t() | atom()
+      copy_part_result() :: %{
+        "ChecksumCRC32" => String.t() | atom(),
+        "ChecksumCRC32C" => String.t() | atom(),
+        "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
+        "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "LastModified" => non_neg_integer()
       }
 
   """
-  @type queue_configuration() :: %{(String.t() | atom()) => any()}
+  @type copy_part_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tiering() :: %{
-        "AccessTier" => list(any()),
-        "Days" => integer()
+      create_bucket_configuration() :: %{
+        "Bucket" => bucket_info(),
+        "Location" => location_info(),
+        "LocationConstraint" => list(any()),
+        "Tags" => list(tag())
       }
 
   """
-  @type tiering() :: %{(String.t() | atom()) => any()}
+  @type create_bucket_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bucket_metadata_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("MetadataConfiguration") => metadata_configuration()
+      }
+
+  """
+  @type create_bucket_metadata_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bucket_metadata_table_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("MetadataTableConfiguration") => metadata_table_configuration()
+      }
+
+  """
+  @type create_bucket_metadata_table_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bucket_output() :: %{
+        "BucketArn" => String.t() | atom(),
+        "Location" => String.t() | atom()
+      }
+
+  """
+  @type create_bucket_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bucket_request() :: %{
+        optional("ACL") => list(any()),
+        optional("BucketNamespace") => list(any()),
+        optional("CreateBucketConfiguration") => create_bucket_configuration(),
+        optional("GrantFullControl") => String.t() | atom(),
+        optional("GrantRead") => String.t() | atom(),
+        optional("GrantReadACP") => String.t() | atom(),
+        optional("GrantWrite") => String.t() | atom(),
+        optional("GrantWriteACP") => String.t() | atom(),
+        optional("ObjectLockEnabledForBucket") => boolean(),
+        optional("ObjectOwnership") => list(any())
+      }
+
+  """
+  @type create_bucket_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_multipart_upload_output() :: %{
+        "AbortDate" => non_neg_integer(),
+        "AbortRuleId" => String.t() | atom(),
+        "Bucket" => String.t() | atom(),
+        "BucketKeyEnabled" => boolean(),
+        "ChecksumAlgorithm" => list(any()),
+        "ChecksumType" => list(any()),
+        "Key" => String.t() | atom(),
+        "RequestCharged" => list(any()),
+        "SSECustomerAlgorithm" => String.t() | atom(),
+        "SSECustomerKeyMD5" => String.t() | atom(),
+        "SSEKMSEncryptionContext" => String.t() | atom(),
+        "SSEKMSKeyId" => String.t() | atom(),
+        "ServerSideEncryption" => list(any()),
+        "UploadId" => String.t() | atom()
+      }
+
+  """
+  @type create_multipart_upload_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1286,87 +765,76 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      put_bucket_acl_request() :: %{
-        optional("ACL") => list(any()),
-        optional("AccessControlPolicy") => access_control_policy(),
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("GrantFullControl") => String.t() | atom(),
-        optional("GrantRead") => String.t() | atom(),
-        optional("GrantReadACP") => String.t() | atom(),
-        optional("GrantWrite") => String.t() | atom(),
-        optional("GrantWriteACP") => String.t() | atom()
+      create_session_output() :: %{
+        "BucketKeyEnabled" => boolean(),
+        "Credentials" => session_credentials(),
+        "SSEKMSEncryptionContext" => String.t() | atom(),
+        "SSEKMSKeyId" => String.t() | atom(),
+        "ServerSideEncryption" => list(any())
       }
 
   """
-  @type put_bucket_acl_request() :: %{(String.t() | atom()) => any()}
+  @type create_session_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      replica_modifications() :: %{
-        "Status" => list(any())
+      create_session_request() :: %{
+        optional("BucketKeyEnabled") => boolean(),
+        optional("SSEKMSEncryptionContext") => String.t() | atom(),
+        optional("SSEKMSKeyId") => String.t() | atom(),
+        optional("ServerSideEncryption") => list(any()),
+        optional("SessionMode") => list(any())
       }
 
   """
-  @type replica_modifications() :: %{(String.t() | atom()) => any()}
+  @type create_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_bucket_notification_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
+      csv_input() :: %{
+        "AllowQuotedRecordDelimiter" => boolean(),
+        "Comments" => String.t() | atom(),
+        "FieldDelimiter" => String.t() | atom(),
+        "FileHeaderInfo" => list(any()),
+        "QuoteCharacter" => String.t() | atom(),
+        "QuoteEscapeCharacter" => String.t() | atom(),
+        "RecordDelimiter" => String.t() | atom()
       }
 
   """
-  @type get_bucket_notification_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type csv_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_request() :: %{}
+      csv_output() :: %{
+        "FieldDelimiter" => String.t() | atom(),
+        "QuoteCharacter" => String.t() | atom(),
+        "QuoteEscapeCharacter" => String.t() | atom(),
+        "QuoteFields" => list(any()),
+        "RecordDelimiter" => String.t() | atom()
+      }
 
   """
-  @type invalid_request() :: %{}
+  @type csv_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      completed_part() :: %{
-        "ChecksumCRC32" => String.t() | atom(),
-        "ChecksumCRC32C" => String.t() | atom(),
-        "ChecksumCRC64NVME" => String.t() | atom(),
-        "ChecksumMD5" => String.t() | atom(),
-        "ChecksumSHA1" => String.t() | atom(),
-        "ChecksumSHA256" => String.t() | atom(),
-        "ChecksumSHA512" => String.t() | atom(),
-        "ChecksumXXHASH128" => String.t() | atom(),
-        "ChecksumXXHASH3" => String.t() | atom(),
-        "ChecksumXXHASH64" => String.t() | atom(),
-        "ETag" => String.t() | atom(),
-        "PartNumber" => integer()
+      default_retention() :: %{
+        "Days" => integer(),
+        "Mode" => list(any()),
+        "Years" => integer()
       }
 
   """
-  @type completed_part() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_configuration() :: %{
-        "AnnotationTableConfiguration" => annotation_table_configuration(),
-        "InventoryTableConfiguration" => inventory_table_configuration(),
-        "JournalTableConfiguration" => journal_table_configuration()
-      }
-
-  """
-  @type metadata_configuration() :: %{(String.t() | atom()) => any()}
+  @type default_retention() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1384,6 +852,122 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      delete_bucket_analytics_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+
+  """
+  @type delete_bucket_analytics_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_cors_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type delete_bucket_cors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_encryption_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type delete_bucket_encryption_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_intelligent_tiering_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+
+  """
+  @type delete_bucket_intelligent_tiering_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_inventory_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+
+  """
+  @type delete_bucket_inventory_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_lifecycle_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type delete_bucket_lifecycle_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_metadata_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type delete_bucket_metadata_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_metadata_table_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type delete_bucket_metadata_table_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_metrics_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+
+  """
+  @type delete_bucket_metrics_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_ownership_controls_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type delete_bucket_ownership_controls_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_bucket_policy_request() :: %{
         optional("ExpectedBucketOwner") => String.t() | atom()
       }
@@ -1395,97 +979,45 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      get_public_access_block_output() :: %{
-        "PublicAccessBlockConfiguration" => public_access_block_configuration()
+      delete_bucket_replication_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
       }
 
   """
-  @type get_public_access_block_output() :: %{(String.t() | atom()) => any()}
+  @type delete_bucket_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      copy_object_result() :: %{
-        "ChecksumCRC32" => String.t() | atom(),
-        "ChecksumCRC32C" => String.t() | atom(),
-        "ChecksumCRC64NVME" => String.t() | atom(),
-        "ChecksumMD5" => String.t() | atom(),
-        "ChecksumSHA1" => String.t() | atom(),
-        "ChecksumSHA256" => String.t() | atom(),
-        "ChecksumSHA512" => String.t() | atom(),
-        "ChecksumType" => list(any()),
-        "ChecksumXXHASH128" => String.t() | atom(),
-        "ChecksumXXHASH3" => String.t() | atom(),
-        "ChecksumXXHASH64" => String.t() | atom(),
-        "ETag" => String.t() | atom(),
-        "LastModified" => non_neg_integer()
+      delete_bucket_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
       }
 
   """
-  @type copy_object_result() :: %{(String.t() | atom()) => any()}
+  @type delete_bucket_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      inventory_destination() :: %{
-        "S3BucketDestination" => inventory_s3_bucket_destination()
+      delete_bucket_tagging_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
       }
 
   """
-  @type inventory_destination() :: %{(String.t() | atom()) => any()}
+  @type delete_bucket_tagging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_object_acl_request() :: %{
-        optional("ACL") => list(any()),
-        optional("AccessControlPolicy") => access_control_policy(),
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("GrantFullControl") => String.t() | atom(),
-        optional("GrantRead") => String.t() | atom(),
-        optional("GrantReadACP") => String.t() | atom(),
-        optional("GrantWrite") => String.t() | atom(),
-        optional("GrantWriteACP") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom()
+      delete_bucket_website_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
       }
 
   """
-  @type put_object_acl_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_replication_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("Token") => String.t() | atom(),
-        required("ReplicationConfiguration") => replication_configuration()
-      }
-
-  """
-  @type put_bucket_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_encryption_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
-      }
-
-  """
-  @type put_bucket_encryption_request() :: %{(String.t() | atom()) => any()}
+  @type delete_bucket_website_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1506,13 +1038,1206 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      metrics() :: %{
-        "EventThreshold" => replication_time_value(),
+      delete_marker_replication() :: %{
         "Status" => list(any())
       }
 
   """
-  @type metrics() :: %{(String.t() | atom()) => any()}
+  @type delete_marker_replication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_annotation_output() :: %{
+        "ObjectVersionId" => String.t() | atom(),
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type delete_object_annotation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_annotation_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("ObjectIfMatch") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom(),
+        required("AnnotationName") => String.t() | atom()
+      }
+
+  """
+  @type delete_object_annotation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_output() :: %{
+        "DeleteMarker" => boolean(),
+        "RequestCharged" => list(any()),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type delete_object_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_request() :: %{
+        optional("BypassGovernanceRetention") => boolean(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("IfMatch") => String.t() | atom(),
+        optional("IfMatchLastModifiedTime") => non_neg_integer(),
+        optional("IfMatchSize") => float(),
+        optional("MFA") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type delete_object_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_tagging_output() :: %{
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type delete_object_tagging_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_tagging_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type delete_object_tagging_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_objects_output() :: %{
+        "Deleted" => list(deleted_object()),
+        "Errors" => list(error()),
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type delete_objects_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_objects_request() :: %{
+        optional("BypassGovernanceRetention") => boolean(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("MFA") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        required("Delete") => delete()
+      }
+
+  """
+  @type delete_objects_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_public_access_block_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type delete_public_access_block_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deleted_object() :: %{
+        "DeleteMarker" => boolean(),
+        "DeleteMarkerVersionId" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type deleted_object() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination() :: %{
+        "AccessControlTranslation" => access_control_translation(),
+        "Account" => String.t() | atom(),
+        "Bucket" => String.t() | atom(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "Metrics" => metrics(),
+        "ReplicationTime" => replication_time(),
+        "StorageClass" => list(any())
+      }
+
+  """
+  @type destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_result() :: %{
+        "TableBucketArn" => String.t() | atom(),
+        "TableBucketType" => list(any()),
+        "TableNamespace" => String.t() | atom()
+      }
+
+  """
+  @type destination_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption() :: %{
+        "EncryptionType" => list(any()),
+        "KMSContext" => String.t() | atom(),
+        "KMSKeyId" => String.t() | atom()
+      }
+
+  """
+  @type encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_configuration() :: %{
+        "ReplicaKmsKeyID" => String.t() | atom()
+      }
+
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_type_mismatch() :: %{}
+
+  """
+  @type encryption_type_mismatch() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      end_event() :: %{}
+
+  """
+  @type end_event() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      error() :: %{
+        "Code" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_details() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
+      }
+
+  """
+  @type error_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_document() :: %{
+        "Key" => String.t() | atom()
+      }
+
+  """
+  @type error_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_configuration() :: %{}
+
+  """
+  @type event_bridge_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      existing_object_replication() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type existing_object_replication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_rule() :: %{
+        "Name" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type filter_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_abac_output() :: %{
+        "AbacStatus" => abac_status()
+      }
+
+  """
+  @type get_bucket_abac_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_abac_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_abac_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_accelerate_configuration_output() :: %{
+        "RequestCharged" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_bucket_accelerate_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_accelerate_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any())
+      }
+
+  """
+  @type get_bucket_accelerate_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_acl_output() :: %{
+        "Grants" => list(grant()),
+        "Owner" => owner()
+      }
+
+  """
+  @type get_bucket_acl_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_acl_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_analytics_configuration_output() :: %{
+        "AnalyticsConfiguration" => analytics_configuration()
+      }
+
+  """
+  @type get_bucket_analytics_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_analytics_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_analytics_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_cors_output() :: %{
+        "CORSRules" => list(c_o_r_s_rule())
+      }
+
+  """
+  @type get_bucket_cors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_cors_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_cors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_encryption_output() :: %{
+        "ServerSideEncryptionConfiguration" => server_side_encryption_configuration()
+      }
+
+  """
+  @type get_bucket_encryption_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_encryption_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_encryption_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_intelligent_tiering_configuration_output() :: %{
+        "IntelligentTieringConfiguration" => intelligent_tiering_configuration()
+      }
+
+  """
+  @type get_bucket_intelligent_tiering_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_intelligent_tiering_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_intelligent_tiering_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_inventory_configuration_output() :: %{
+        "InventoryConfiguration" => inventory_configuration()
+      }
+
+  """
+  @type get_bucket_inventory_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_inventory_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_inventory_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_lifecycle_configuration_output() :: %{
+        "Rules" => list(lifecycle_rule()),
+        "TransitionDefaultMinimumObjectSize" => list(any())
+      }
+
+  """
+  @type get_bucket_lifecycle_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_lifecycle_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_lifecycle_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_location_output() :: %{
+        "LocationConstraint" => list(any())
+      }
+
+  """
+  @type get_bucket_location_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_location_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_location_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_logging_output() :: %{
+        "LoggingEnabled" => logging_enabled()
+      }
+
+  """
+  @type get_bucket_logging_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_logging_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_logging_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_metadata_configuration_output() :: %{
+        "GetBucketMetadataConfigurationResult" => get_bucket_metadata_configuration_result()
+      }
+
+  """
+  @type get_bucket_metadata_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_metadata_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_metadata_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_metadata_configuration_result() :: %{
+        "MetadataConfigurationResult" => metadata_configuration_result()
+      }
+
+  """
+  @type get_bucket_metadata_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_metadata_table_configuration_output() :: %{
+        "GetBucketMetadataTableConfigurationResult" => get_bucket_metadata_table_configuration_result()
+      }
+
+  """
+  @type get_bucket_metadata_table_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_metadata_table_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_metadata_table_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_metadata_table_configuration_result() :: %{
+        "Error" => error_details(),
+        "MetadataTableConfigurationResult" => metadata_table_configuration_result(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_metadata_table_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_metrics_configuration_output() :: %{
+        "MetricsConfiguration" => metrics_configuration()
+      }
+
+  """
+  @type get_bucket_metrics_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_metrics_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_metrics_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_notification_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_notification_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_ownership_controls_output() :: %{
+        "OwnershipControls" => ownership_controls()
+      }
+
+  """
+  @type get_bucket_ownership_controls_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_ownership_controls_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_ownership_controls_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_policy_output() :: %{
+        "Policy" => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_policy_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_policy_status_output() :: %{
+        "PolicyStatus" => policy_status()
+      }
+
+  """
+  @type get_bucket_policy_status_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_policy_status_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_policy_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_replication_output() :: %{
+        "ReplicationConfiguration" => replication_configuration()
+      }
+
+  """
+  @type get_bucket_replication_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_replication_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_request_payment_output() :: %{
+        "Payer" => list(any())
+      }
+
+  """
+  @type get_bucket_request_payment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_request_payment_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_request_payment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_tagging_output() :: %{
+        "TagSet" => list(tag())
+      }
+
+  """
+  @type get_bucket_tagging_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_tagging_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_tagging_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_versioning_output() :: %{
+        "MFADelete" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_bucket_versioning_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_versioning_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_versioning_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_website_output() :: %{
+        "ErrorDocument" => error_document(),
+        "IndexDocument" => index_document(),
+        "RedirectAllRequestsTo" => redirect_all_requests_to(),
+        "RoutingRules" => list(routing_rule())
+      }
+
+  """
+  @type get_bucket_website_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_website_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_website_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_acl_output() :: %{
+        "Grants" => list(grant()),
+        "Owner" => owner(),
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type get_object_acl_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_acl_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type get_object_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_annotation_output() :: %{
+        "AnnotationPayload" => binary(),
+        "ChecksumCRC32" => String.t() | atom(),
+        "ChecksumCRC32C" => String.t() | atom(),
+        "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
+        "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumType" => list(any()),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
+        "ContentLength" => float(),
+        "ETag" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "ObjectVersionId" => String.t() | atom(),
+        "ReplicationStatus" => list(any()),
+        "RequestCharged" => list(any()),
+        "ServerSideEncryption" => list(any())
+      }
+
+  """
+  @type get_object_annotation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_annotation_request() :: %{
+        optional("ChecksumMode") => list(any()),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom(),
+        required("AnnotationName") => String.t() | atom()
+      }
+
+  """
+  @type get_object_annotation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_attributes_output() :: %{
+        "Checksum" => checksum(),
+        "DeleteMarker" => boolean(),
+        "ETag" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "ObjectParts" => get_object_attributes_parts(),
+        "ObjectSize" => float(),
+        "RequestCharged" => list(any()),
+        "StorageClass" => list(any()),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type get_object_attributes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_attributes_parts() :: %{
+        "IsTruncated" => boolean(),
+        "MaxParts" => integer(),
+        "NextPartNumberMarker" => String.t() | atom(),
+        "PartNumberMarker" => String.t() | atom(),
+        "Parts" => list(object_part()),
+        "TotalPartsCount" => integer()
+      }
+
+  """
+  @type get_object_attributes_parts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_attributes_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("MaxParts") => integer(),
+        optional("PartNumberMarker") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t() | atom(),
+        optional("SSECustomerKey") => String.t() | atom(),
+        optional("SSECustomerKeyMD5") => String.t() | atom(),
+        optional("VersionId") => String.t() | atom(),
+        required("ObjectAttributes") => list(list(any())())
+      }
+
+  """
+  @type get_object_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_legal_hold_output() :: %{
+        "LegalHold" => object_lock_legal_hold()
+      }
+
+  """
+  @type get_object_legal_hold_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_legal_hold_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type get_object_legal_hold_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_lock_configuration_output() :: %{
+        "ObjectLockConfiguration" => object_lock_configuration()
+      }
+
+  """
+  @type get_object_lock_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_lock_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_object_lock_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_output() :: %{
+        "AcceptRanges" => String.t() | atom(),
+        "Body" => binary(),
+        "BucketKeyEnabled" => boolean(),
+        "CacheControl" => String.t() | atom(),
+        "ChecksumCRC32" => String.t() | atom(),
+        "ChecksumCRC32C" => String.t() | atom(),
+        "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
+        "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumType" => list(any()),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
+        "ContentDisposition" => String.t() | atom(),
+        "ContentEncoding" => String.t() | atom(),
+        "ContentLanguage" => String.t() | atom(),
+        "ContentLength" => float(),
+        "ContentRange" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
+        "DeleteMarker" => boolean(),
+        "ETag" => String.t() | atom(),
+        "Expiration" => String.t() | atom(),
+        "Expires" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "Metadata" => map(),
+        "MissingMeta" => integer(),
+        "ObjectLockLegalHoldStatus" => list(any()),
+        "ObjectLockMode" => list(any()),
+        "ObjectLockRetainUntilDate" => non_neg_integer(),
+        "PartsCount" => integer(),
+        "ReplicationStatus" => list(any()),
+        "RequestCharged" => list(any()),
+        "Restore" => String.t() | atom(),
+        "SSECustomerAlgorithm" => String.t() | atom(),
+        "SSECustomerKeyMD5" => String.t() | atom(),
+        "SSEKMSKeyId" => String.t() | atom(),
+        "ServerSideEncryption" => list(any()),
+        "StorageClass" => list(any()),
+        "TagCount" => integer(),
+        "VersionId" => String.t() | atom(),
+        "WebsiteRedirectLocation" => String.t() | atom()
+      }
+
+  """
+  @type get_object_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_request() :: %{
+        optional("ChecksumMode") => list(any()),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("IfMatch") => String.t() | atom(),
+        optional("IfModifiedSince") => non_neg_integer(),
+        optional("IfNoneMatch") => String.t() | atom(),
+        optional("IfUnmodifiedSince") => non_neg_integer(),
+        optional("PartNumber") => integer(),
+        optional("Range") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("ResponseCacheControl") => String.t() | atom(),
+        optional("ResponseContentDisposition") => String.t() | atom(),
+        optional("ResponseContentEncoding") => String.t() | atom(),
+        optional("ResponseContentLanguage") => String.t() | atom(),
+        optional("ResponseContentType") => String.t() | atom(),
+        optional("ResponseExpires") => non_neg_integer(),
+        optional("SSECustomerAlgorithm") => String.t() | atom(),
+        optional("SSECustomerKey") => String.t() | atom(),
+        optional("SSECustomerKeyMD5") => String.t() | atom(),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type get_object_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_retention_output() :: %{
+        "Retention" => object_lock_retention()
+      }
+
+  """
+  @type get_object_retention_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_retention_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type get_object_retention_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_tagging_output() :: %{
+        "TagSet" => list(tag()),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type get_object_tagging_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_tagging_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type get_object_tagging_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_torrent_output() :: %{
+        "Body" => binary(),
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type get_object_torrent_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_torrent_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any())
+      }
+
+  """
+  @type get_object_torrent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_public_access_block_output() :: %{
+        "PublicAccessBlockConfiguration" => public_access_block_configuration()
+      }
+
+  """
+  @type get_public_access_block_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_public_access_block_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_public_access_block_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glacier_job_parameters() :: %{
+        "Tier" => list(any())
+      }
+
+  """
+  @type glacier_job_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grant() :: %{
+        "Grantee" => grantee(),
+        "Permission" => list(any())
+      }
+
+  """
+  @type grant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grantee() :: %{
+        "DisplayName" => String.t() | atom(),
+        "EmailAddress" => String.t() | atom(),
+        "ID" => String.t() | atom(),
+        "Type" => list(any()),
+        "URI" => String.t() | atom()
+      }
+
+  """
+  @type grantee() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1533,199 +2258,278 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      list_parts_request() :: %{
+      head_bucket_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type head_bucket_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      head_object_output() :: %{
+        "AcceptRanges" => String.t() | atom(),
+        "ArchiveStatus" => list(any()),
+        "BucketKeyEnabled" => boolean(),
+        "CacheControl" => String.t() | atom(),
+        "ChecksumCRC32" => String.t() | atom(),
+        "ChecksumCRC32C" => String.t() | atom(),
+        "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
+        "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumType" => list(any()),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
+        "ContentDisposition" => String.t() | atom(),
+        "ContentEncoding" => String.t() | atom(),
+        "ContentLanguage" => String.t() | atom(),
+        "ContentLength" => float(),
+        "ContentRange" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
+        "DeleteMarker" => boolean(),
+        "ETag" => String.t() | atom(),
+        "Expiration" => String.t() | atom(),
+        "Expires" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "Metadata" => map(),
+        "MissingMeta" => integer(),
+        "ObjectLockLegalHoldStatus" => list(any()),
+        "ObjectLockMode" => list(any()),
+        "ObjectLockRetainUntilDate" => non_neg_integer(),
+        "PartsCount" => integer(),
+        "ReplicationStatus" => list(any()),
+        "RequestCharged" => list(any()),
+        "Restore" => String.t() | atom(),
+        "SSECustomerAlgorithm" => String.t() | atom(),
+        "SSECustomerKeyMD5" => String.t() | atom(),
+        "SSEKMSKeyId" => String.t() | atom(),
+        "ServerSideEncryption" => list(any()),
+        "StorageClass" => list(any()),
+        "TagCount" => integer(),
+        "VersionId" => String.t() | atom(),
+        "WebsiteRedirectLocation" => String.t() | atom()
+      }
+
+  """
+  @type head_object_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      head_object_request() :: %{
+        optional("ChecksumMode") => list(any()),
         optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("MaxParts") => integer(),
-        optional("PartNumberMarker") => String.t() | atom(),
+        optional("IfMatch") => String.t() | atom(),
+        optional("IfModifiedSince") => non_neg_integer(),
+        optional("IfNoneMatch") => String.t() | atom(),
+        optional("IfUnmodifiedSince") => non_neg_integer(),
+        optional("PartNumber") => integer(),
+        optional("Range") => String.t() | atom(),
         optional("RequestPayer") => list(any()),
+        optional("ResponseCacheControl") => String.t() | atom(),
+        optional("ResponseContentDisposition") => String.t() | atom(),
+        optional("ResponseContentEncoding") => String.t() | atom(),
+        optional("ResponseContentLanguage") => String.t() | atom(),
+        optional("ResponseContentType") => String.t() | atom(),
+        optional("ResponseExpires") => non_neg_integer(),
         optional("SSECustomerAlgorithm") => String.t() | atom(),
         optional("SSECustomerKey") => String.t() | atom(),
         optional("SSECustomerKeyMD5") => String.t() | atom(),
-        required("UploadId") => String.t() | atom()
+        optional("VersionId") => String.t() | atom()
       }
 
   """
-  @type list_parts_request() :: %{(String.t() | atom()) => any()}
+  @type head_object_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      bucket_already_exists() :: %{}
+      idempotency_parameter_mismatch() :: %{}
 
   """
-  @type bucket_already_exists() :: %{}
+  @type idempotency_parameter_mismatch() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      bucket_logging_status() :: %{
-        "LoggingEnabled" => logging_enabled()
+      index_document() :: %{
+        "Suffix" => String.t() | atom()
       }
 
   """
-  @type bucket_logging_status() :: %{(String.t() | atom()) => any()}
+  @type index_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_bucket_versioning_output() :: %{
-        "MFADelete" => list(any()),
-        "Status" => list(any())
-      }
-
-  """
-  @type get_bucket_versioning_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      owner() :: %{
+      initiator() :: %{
         "DisplayName" => String.t() | atom(),
         "ID" => String.t() | atom()
       }
 
   """
-  @type owner() :: %{(String.t() | atom()) => any()}
+  @type initiator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      storage_class_analysis() :: %{
-        "DataExport" => storage_class_analysis_data_export()
+      input_serialization() :: %{
+        "CSV" => csv_input(),
+        "CompressionType" => list(any()),
+        "JSON" => json_input(),
+        "Parquet" => parquet_input()
       }
 
   """
-  @type storage_class_analysis() :: %{(String.t() | atom()) => any()}
+  @type input_serialization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_object_lock_configuration_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("ObjectLockConfiguration") => object_lock_configuration(),
-        optional("RequestPayer") => list(any()),
-        optional("Token") => String.t() | atom()
-      }
-
-  """
-  @type put_object_lock_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_parts() :: %{}
-
-  """
-  @type too_many_parts() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_object_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("RestoreRequest") => restore_request(),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type restore_object_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_object_retention_output() :: %{
-        "RequestCharged" => list(any())
-      }
-
-  """
-  @type put_object_retention_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_location() :: %{
-        "AccessControlList" => list(grant()),
-        "BucketName" => String.t() | atom(),
-        "CannedACL" => list(any()),
-        "Encryption" => encryption(),
+      intelligent_tiering_and_operator() :: %{
         "Prefix" => String.t() | atom(),
-        "StorageClass" => list(any()),
-        "Tagging" => tagging(),
-        "UserMetadata" => list(metadata_entry())
+        "Tags" => list(tag())
       }
 
   """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
+  @type intelligent_tiering_and_operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_bucket_inventory_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("Id") => String.t() | atom()
+      intelligent_tiering_configuration() :: %{
+        "Filter" => intelligent_tiering_filter(),
+        "Id" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tierings" => list(tiering())
       }
 
   """
-  @type get_bucket_inventory_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type intelligent_tiering_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      encryption() :: %{
-        "EncryptionType" => list(any()),
-        "KMSContext" => String.t() | atom(),
-        "KMSKeyId" => String.t() | atom()
+      intelligent_tiering_filter() :: %{
+        "And" => intelligent_tiering_and_operator(),
+        "Prefix" => String.t() | atom(),
+        "Tag" => tag()
       }
 
   """
-  @type encryption() :: %{(String.t() | atom()) => any()}
+  @type intelligent_tiering_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_object_torrent_output() :: %{
-        "Body" => binary(),
-        "RequestCharged" => list(any())
-      }
+      invalid_annotation_name() :: %{}
 
   """
-  @type get_object_torrent_output() :: %{(String.t() | atom()) => any()}
+  @type invalid_annotation_name() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      object() :: %{
-        "ChecksumAlgorithm" => list(list(any())()),
-        "ChecksumType" => list(any()),
-        "ETag" => String.t() | atom(),
-        "Key" => String.t() | atom(),
-        "LastModified" => non_neg_integer(),
-        "Owner" => owner(),
-        "RestoreStatus" => restore_status(),
-        "Size" => float(),
+      invalid_object_state() :: %{
+        "AccessTier" => list(any()),
         "StorageClass" => list(any())
       }
 
   """
-  @type object() :: %{(String.t() | atom()) => any()}
+  @type invalid_object_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_prefix() :: %{}
+
+  """
+  @type invalid_prefix() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request() :: %{}
+
+  """
+  @type invalid_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_write_offset() :: %{}
+
+  """
+  @type invalid_write_offset() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_configuration() :: %{
+        "Destination" => inventory_destination(),
+        "Filter" => inventory_filter(),
+        "Id" => String.t() | atom(),
+        "IncludedObjectVersions" => list(any()),
+        "IsEnabled" => boolean(),
+        "OptionalFields" => list(list(any())()),
+        "Schedule" => inventory_schedule()
+      }
+
+  """
+  @type inventory_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_destination() :: %{
+        "S3BucketDestination" => inventory_s3_bucket_destination()
+      }
+
+  """
+  @type inventory_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_encryption() :: %{
+        "SSEKMS" => sse_kms(),
+        "SSES3" => sse_s3()
+      }
+
+  """
+  @type inventory_encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_filter() :: %{
+        "Prefix" => String.t() | atom()
+      }
+
+  """
+  @type inventory_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1746,61 +2550,548 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      glacier_job_parameters() :: %{
-        "Tier" => list(any())
+      inventory_schedule() :: %{
+        "Frequency" => list(any())
       }
 
   """
-  @type glacier_job_parameters() :: %{(String.t() | atom()) => any()}
+  @type inventory_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_object_tagging_output() :: %{
-        "TagSet" => list(tag()),
-        "VersionId" => String.t() | atom()
+      inventory_table_configuration() :: %{
+        "ConfigurationState" => list(any()),
+        "EncryptionConfiguration" => metadata_table_encryption_configuration()
       }
 
   """
-  @type get_object_tagging_output() :: %{(String.t() | atom()) => any()}
+  @type inventory_table_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_bucket_lifecycle_configuration_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
+      inventory_table_configuration_result() :: %{
+        "ConfigurationState" => list(any()),
+        "Error" => error_details(),
+        "TableArn" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
+        "TableStatus" => String.t() | atom()
+      }
+
+  """
+  @type inventory_table_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_table_configuration_updates() :: %{
+        "ConfigurationState" => list(any()),
+        "EncryptionConfiguration" => metadata_table_encryption_configuration()
+      }
+
+  """
+  @type inventory_table_configuration_updates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journal_table_configuration() :: %{
+        "EncryptionConfiguration" => metadata_table_encryption_configuration(),
+        "RecordExpiration" => record_expiration()
+      }
+
+  """
+  @type journal_table_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journal_table_configuration_result() :: %{
+        "Error" => error_details(),
+        "RecordExpiration" => record_expiration(),
+        "TableArn" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
+        "TableStatus" => String.t() | atom()
+      }
+
+  """
+  @type journal_table_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journal_table_configuration_updates() :: %{
+        "RecordExpiration" => record_expiration()
+      }
+
+  """
+  @type journal_table_configuration_updates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      json_input() :: %{
+        "Type" => list(any())
+      }
+
+  """
+  @type json_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      json_output() :: %{
+        "RecordDelimiter" => String.t() | atom()
+      }
+
+  """
+  @type json_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_function_configuration() :: %{
+        "Events" => list(list(any())()),
+        "Filter" => notification_configuration_filter(),
+        "Id" => String.t() | atom(),
+        "LambdaFunctionArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_function_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_expiration() :: %{
+        "Date" => non_neg_integer(),
+        "Days" => integer(),
+        "ExpiredObjectDeleteMarker" => boolean()
+      }
+
+  """
+  @type lifecycle_expiration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_rule() :: %{
+        "AbortIncompleteMultipartUpload" => abort_incomplete_multipart_upload(),
+        "Expiration" => lifecycle_expiration(),
+        "Filter" => lifecycle_rule_filter(),
+        "ID" => String.t() | atom(),
+        "NoncurrentVersionExpiration" => noncurrent_version_expiration(),
+        "NoncurrentVersionTransitions" => list(noncurrent_version_transition()),
+        "Prefix" => String.t() | atom(),
+        "Status" => list(any()),
+        "Transitions" => list(transition())
+      }
+
+  """
+  @type lifecycle_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_rule_and_operator() :: %{
+        "ObjectSizeGreaterThan" => float(),
+        "ObjectSizeLessThan" => float(),
+        "Prefix" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type lifecycle_rule_and_operator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_rule_filter() :: %{
+        "And" => lifecycle_rule_and_operator(),
+        "ObjectSizeGreaterThan" => float(),
+        "ObjectSizeLessThan" => float(),
+        "Prefix" => String.t() | atom(),
+        "Tag" => tag()
+      }
+
+  """
+  @type lifecycle_rule_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_analytics_configurations_output() :: %{
+        "AnalyticsConfigurationList" => list(analytics_configuration()),
+        "ContinuationToken" => String.t() | atom(),
+        "IsTruncated" => boolean(),
+        "NextContinuationToken" => String.t() | atom()
+      }
+
+  """
+  @type list_bucket_analytics_configurations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_analytics_configurations_request() :: %{
+        optional("ContinuationToken") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type list_bucket_analytics_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_intelligent_tiering_configurations_output() :: %{
+        "ContinuationToken" => String.t() | atom(),
+        "IntelligentTieringConfigurationList" => list(intelligent_tiering_configuration()),
+        "IsTruncated" => boolean(),
+        "NextContinuationToken" => String.t() | atom()
+      }
+
+  """
+  @type list_bucket_intelligent_tiering_configurations_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_intelligent_tiering_configurations_request() :: %{
+        optional("ContinuationToken") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type list_bucket_intelligent_tiering_configurations_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_inventory_configurations_output() :: %{
+        "ContinuationToken" => String.t() | atom(),
+        "InventoryConfigurationList" => list(inventory_configuration()),
+        "IsTruncated" => boolean(),
+        "NextContinuationToken" => String.t() | atom()
+      }
+
+  """
+  @type list_bucket_inventory_configurations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_inventory_configurations_request() :: %{
+        optional("ContinuationToken") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type list_bucket_inventory_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_metrics_configurations_output() :: %{
+        "ContinuationToken" => String.t() | atom(),
+        "IsTruncated" => boolean(),
+        "MetricsConfigurationList" => list(metrics_configuration()),
+        "NextContinuationToken" => String.t() | atom()
+      }
+
+  """
+  @type list_bucket_metrics_configurations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bucket_metrics_configurations_request() :: %{
+        optional("ContinuationToken") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type list_bucket_metrics_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_buckets_output() :: %{
+        "Buckets" => list(bucket()),
+        "ContinuationToken" => String.t() | atom(),
+        "Owner" => owner(),
+        "Prefix" => String.t() | atom()
+      }
+
+  """
+  @type list_buckets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_buckets_request() :: %{
+        optional("BucketRegion") => String.t() | atom(),
+        optional("ContinuationToken") => String.t() | atom(),
+        optional("MaxBuckets") => integer(),
+        optional("Prefix") => String.t() | atom()
+      }
+
+  """
+  @type list_buckets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_directory_buckets_output() :: %{
+        "Buckets" => list(bucket()),
+        "ContinuationToken" => String.t() | atom()
+      }
+
+  """
+  @type list_directory_buckets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_directory_buckets_request() :: %{
+        optional("ContinuationToken") => String.t() | atom(),
+        optional("MaxDirectoryBuckets") => integer()
+      }
+
+  """
+  @type list_directory_buckets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multipart_uploads_output() :: %{
+        "Bucket" => String.t() | atom(),
+        "CommonPrefixes" => list(common_prefix()),
+        "Delimiter" => String.t() | atom(),
+        "EncodingType" => list(any()),
+        "IsTruncated" => boolean(),
+        "KeyMarker" => String.t() | atom(),
+        "MaxUploads" => integer(),
+        "NextKeyMarker" => String.t() | atom(),
+        "NextUploadIdMarker" => String.t() | atom(),
+        "Prefix" => String.t() | atom(),
+        "RequestCharged" => list(any()),
+        "UploadIdMarker" => String.t() | atom(),
+        "Uploads" => list(multipart_upload())
+      }
+
+  """
+  @type list_multipart_uploads_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multipart_uploads_request() :: %{
+        optional("Delimiter") => String.t() | atom(),
+        optional("EncodingType") => list(any()),
         optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("LifecycleConfiguration") => bucket_lifecycle_configuration(),
-        optional("TransitionDefaultMinimumObjectSize") => list(any())
+        optional("KeyMarker") => String.t() | atom(),
+        optional("MaxUploads") => integer(),
+        optional("Prefix") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("UploadIdMarker") => String.t() | atom()
       }
 
   """
-  @type put_bucket_lifecycle_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type list_multipart_uploads_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      records_event() :: %{
-        "Payload" => binary()
+      list_object_annotations_output() :: %{
+        "AnnotationCount" => integer(),
+        "AnnotationPrefix" => String.t() | atom(),
+        "Annotations" => list(annotation_entry()),
+        "Bucket" => String.t() | atom(),
+        "ContinuationToken" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "MaxAnnotationResults" => integer(),
+        "NextContinuationToken" => String.t() | atom(),
+        "ObjectVersionId" => String.t() | atom(),
+        "RequestCharged" => list(any())
       }
 
   """
-  @type records_event() :: %{(String.t() | atom()) => any()}
+  @type list_object_annotations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      inventory_encryption() :: %{
-        "SSEKMS" => sse_kms(),
-        "SSES3" => sse_s3()
+      list_object_annotations_request() :: %{
+        optional("AnnotationPrefix") => String.t() | atom(),
+        optional("ContinuationToken") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("MaxAnnotationResults") => integer(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom()
       }
 
   """
-  @type inventory_encryption() :: %{(String.t() | atom()) => any()}
+  @type list_object_annotations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_versions_output() :: %{
+        "CommonPrefixes" => list(common_prefix()),
+        "DeleteMarkers" => list(delete_marker_entry()),
+        "Delimiter" => String.t() | atom(),
+        "EncodingType" => list(any()),
+        "IsTruncated" => boolean(),
+        "KeyMarker" => String.t() | atom(),
+        "MaxKeys" => integer(),
+        "Name" => String.t() | atom(),
+        "NextKeyMarker" => String.t() | atom(),
+        "NextVersionIdMarker" => String.t() | atom(),
+        "Prefix" => String.t() | atom(),
+        "RequestCharged" => list(any()),
+        "VersionIdMarker" => String.t() | atom(),
+        "Versions" => list(object_version())
+      }
+
+  """
+  @type list_object_versions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_versions_request() :: %{
+        optional("Delimiter") => String.t() | atom(),
+        optional("EncodingType") => list(any()),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("KeyMarker") => String.t() | atom(),
+        optional("MaxKeys") => integer(),
+        optional("OptionalObjectAttributes") => list(list(any())()),
+        optional("Prefix") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionIdMarker") => String.t() | atom()
+      }
+
+  """
+  @type list_object_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_objects_output() :: %{
+        "CommonPrefixes" => list(common_prefix()),
+        "Contents" => list(object()),
+        "Delimiter" => String.t() | atom(),
+        "EncodingType" => list(any()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "MaxKeys" => integer(),
+        "Name" => String.t() | atom(),
+        "NextMarker" => String.t() | atom(),
+        "Prefix" => String.t() | atom(),
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type list_objects_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_objects_request() :: %{
+        optional("Delimiter") => String.t() | atom(),
+        optional("EncodingType") => list(any()),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxKeys") => integer(),
+        optional("OptionalObjectAttributes") => list(list(any())()),
+        optional("Prefix") => String.t() | atom(),
+        optional("RequestPayer") => list(any())
+      }
+
+  """
+  @type list_objects_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_objects_v2_output() :: %{
+        "CommonPrefixes" => list(common_prefix()),
+        "Contents" => list(object()),
+        "ContinuationToken" => String.t() | atom(),
+        "Delimiter" => String.t() | atom(),
+        "EncodingType" => list(any()),
+        "IsTruncated" => boolean(),
+        "KeyCount" => integer(),
+        "MaxKeys" => integer(),
+        "Name" => String.t() | atom(),
+        "NextContinuationToken" => String.t() | atom(),
+        "Prefix" => String.t() | atom(),
+        "RequestCharged" => list(any()),
+        "StartAfter" => String.t() | atom()
+      }
+
+  """
+  @type list_objects_v2_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_objects_v2_request() :: %{
+        optional("ContinuationToken") => String.t() | atom(),
+        optional("Delimiter") => String.t() | atom(),
+        optional("EncodingType") => list(any()),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("FetchOwner") => boolean(),
+        optional("MaxKeys") => integer(),
+        optional("OptionalObjectAttributes") => list(list(any())()),
+        optional("Prefix") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("StartAfter") => String.t() | atom()
+      }
+
+  """
+  @type list_objects_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1832,14 +3123,72 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      put_bucket_notification_configuration_request() :: %{
+      list_parts_request() :: %{
         optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("SkipDestinationValidation") => boolean(),
-        required("NotificationConfiguration") => notification_configuration()
+        optional("MaxParts") => integer(),
+        optional("PartNumberMarker") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t() | atom(),
+        optional("SSECustomerKey") => String.t() | atom(),
+        optional("SSECustomerKeyMD5") => String.t() | atom(),
+        required("UploadId") => String.t() | atom()
       }
 
   """
-  @type put_bucket_notification_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type list_parts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      location_info() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type location_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_enabled() :: %{
+        "TargetBucket" => String.t() | atom(),
+        "TargetGrants" => list(target_grant()),
+        "TargetObjectKeyFormat" => target_object_key_format(),
+        "TargetPrefix" => String.t() | atom()
+      }
+
+  """
+  @type logging_enabled() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_configuration() :: %{
+        "AnnotationTableConfiguration" => annotation_table_configuration(),
+        "InventoryTableConfiguration" => inventory_table_configuration(),
+        "JournalTableConfiguration" => journal_table_configuration()
+      }
+
+  """
+  @type metadata_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_configuration_result() :: %{
+        "AnnotationTableConfigurationResult" => annotation_table_configuration_result(),
+        "DestinationResult" => destination_result(),
+        "InventoryTableConfigurationResult" => inventory_table_configuration_result(),
+        "JournalTableConfigurationResult" => journal_table_configuration_result()
+      }
+
+  """
+  @type metadata_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1857,47 +3206,72 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      progress_event() :: %{
-        "Details" => progress()
+      metadata_table_configuration() :: %{
+        "S3TablesDestination" => s3_tables_destination()
       }
 
   """
-  @type progress_event() :: %{(String.t() | atom()) => any()}
+  @type metadata_table_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_objects_v2_output() :: %{
-        "CommonPrefixes" => list(common_prefix()),
-        "Contents" => list(object()),
-        "ContinuationToken" => String.t() | atom(),
-        "Delimiter" => String.t() | atom(),
-        "EncodingType" => list(any()),
-        "IsTruncated" => boolean(),
-        "KeyCount" => integer(),
-        "MaxKeys" => integer(),
-        "Name" => String.t() | atom(),
-        "NextContinuationToken" => String.t() | atom(),
+      metadata_table_configuration_result() :: %{
+        "S3TablesDestinationResult" => s3_tables_destination_result()
+      }
+
+  """
+  @type metadata_table_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_table_encryption_configuration() :: %{
+        "KmsKeyArn" => String.t() | atom(),
+        "SseAlgorithm" => list(any())
+      }
+
+  """
+  @type metadata_table_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metrics() :: %{
+        "EventThreshold" => replication_time_value(),
+        "Status" => list(any())
+      }
+
+  """
+  @type metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metrics_and_operator() :: %{
+        "AccessPointArn" => String.t() | atom(),
         "Prefix" => String.t() | atom(),
-        "RequestCharged" => list(any()),
-        "StartAfter" => String.t() | atom()
+        "Tags" => list(tag())
       }
 
   """
-  @type list_objects_v2_output() :: %{(String.t() | atom()) => any()}
+  @type metrics_and_operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      restore_status() :: %{
-        "IsRestoreInProgress" => boolean(),
-        "RestoreExpiryDate" => non_neg_integer()
+      metrics_configuration() :: %{
+        "Filter" => list(),
+        "Id" => String.t() | atom()
       }
 
   """
-  @type restore_status() :: %{(String.t() | atom()) => any()}
+  @type metrics_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1921,17 +3295,49 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      update_bucket_metadata_journal_table_configuration_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("JournalTableConfiguration") => journal_table_configuration_updates()
+      no_such_annotation() :: %{}
+
+  """
+  @type no_such_annotation() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_bucket() :: %{}
+
+  """
+  @type no_such_bucket() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_key() :: %{}
+
+  """
+  @type no_such_key() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_upload() :: %{}
+
+  """
+  @type no_such_upload() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      noncurrent_version_expiration() :: %{
+        "NewerNoncurrentVersions" => integer(),
+        "NoncurrentDays" => integer()
       }
 
   """
-  @type update_bucket_metadata_journal_table_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type noncurrent_version_expiration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1950,25 +3356,565 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      create_multipart_upload_output() :: %{
-        "AbortDate" => non_neg_integer(),
-        "AbortRuleId" => String.t() | atom(),
-        "Bucket" => String.t() | atom(),
-        "BucketKeyEnabled" => boolean(),
-        "ChecksumAlgorithm" => list(any()),
-        "ChecksumType" => list(any()),
-        "Key" => String.t() | atom(),
-        "RequestCharged" => list(any()),
-        "SSECustomerAlgorithm" => String.t() | atom(),
-        "SSECustomerKeyMD5" => String.t() | atom(),
-        "SSEKMSEncryptionContext" => String.t() | atom(),
-        "SSEKMSKeyId" => String.t() | atom(),
-        "ServerSideEncryption" => list(any()),
-        "UploadId" => String.t() | atom()
+      not_found() :: %{}
+
+  """
+  @type not_found() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_configuration() :: %{
+        "EventBridgeConfiguration" => event_bridge_configuration(),
+        "LambdaFunctionConfigurations" => list(lambda_function_configuration()),
+        "QueueConfigurations" => list(queue_configuration()),
+        "TopicConfigurations" => list(topic_configuration())
       }
 
   """
-  @type create_multipart_upload_output() :: %{(String.t() | atom()) => any()}
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_configuration_filter() :: %{
+        "Key" => s3_key_filter()
+      }
+
+  """
+  @type notification_configuration_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object() :: %{
+        "ChecksumAlgorithm" => list(list(any())()),
+        "ChecksumType" => list(any()),
+        "ETag" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "Owner" => owner(),
+        "RestoreStatus" => restore_status(),
+        "Size" => float(),
+        "StorageClass" => list(any())
+      }
+
+  """
+  @type object() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_already_in_active_tier_error() :: %{}
+
+  """
+  @type object_already_in_active_tier_error() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      object_identifier() :: %{
+        "ETag" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Size" => float(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type object_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_lock_configuration() :: %{
+        "ObjectLockEnabled" => list(any()),
+        "Rule" => object_lock_rule()
+      }
+
+  """
+  @type object_lock_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_lock_legal_hold() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type object_lock_legal_hold() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_lock_retention() :: %{
+        "Mode" => list(any()),
+        "RetainUntilDate" => non_neg_integer()
+      }
+
+  """
+  @type object_lock_retention() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_lock_rule() :: %{
+        "DefaultRetention" => default_retention()
+      }
+
+  """
+  @type object_lock_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_not_in_active_tier_error() :: %{}
+
+  """
+  @type object_not_in_active_tier_error() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      object_part() :: %{
+        "ChecksumCRC32" => String.t() | atom(),
+        "ChecksumCRC32C" => String.t() | atom(),
+        "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
+        "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
+        "PartNumber" => integer(),
+        "Size" => float()
+      }
+
+  """
+  @type object_part() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_version() :: %{
+        "ChecksumAlgorithm" => list(list(any())()),
+        "ChecksumType" => list(any()),
+        "ETag" => String.t() | atom(),
+        "IsLatest" => boolean(),
+        "Key" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "Owner" => owner(),
+        "RestoreStatus" => restore_status(),
+        "Size" => float(),
+        "StorageClass" => list(any()),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type object_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_location() :: %{
+        "S3" => s3_location()
+      }
+
+  """
+  @type output_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_serialization() :: %{
+        "CSV" => csv_output(),
+        "JSON" => json_output()
+      }
+
+  """
+  @type output_serialization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      owner() :: %{
+        "DisplayName" => String.t() | atom(),
+        "ID" => String.t() | atom()
+      }
+
+  """
+  @type owner() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ownership_controls() :: %{
+        "Rules" => list(ownership_controls_rule())
+      }
+
+  """
+  @type ownership_controls() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ownership_controls_rule() :: %{
+        "ObjectOwnership" => list(any())
+      }
+
+  """
+  @type ownership_controls_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parquet_input() :: %{}
+
+  """
+  @type parquet_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      part() :: %{
+        "ChecksumCRC32" => String.t() | atom(),
+        "ChecksumCRC32C" => String.t() | atom(),
+        "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
+        "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "PartNumber" => integer(),
+        "Size" => float()
+      }
+
+  """
+  @type part() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      partitioned_prefix() :: %{
+        "PartitionDateSource" => list(any())
+      }
+
+  """
+  @type partitioned_prefix() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_status() :: %{
+        "IsPublic" => boolean()
+      }
+
+  """
+  @type policy_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      progress() :: %{
+        "BytesProcessed" => float(),
+        "BytesReturned" => float(),
+        "BytesScanned" => float()
+      }
+
+  """
+  @type progress() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      progress_event() :: %{
+        "Details" => progress()
+      }
+
+  """
+  @type progress_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_access_block_configuration() :: %{
+        "BlockPublicAcls" => boolean(),
+        "BlockPublicPolicy" => boolean(),
+        "IgnorePublicAcls" => boolean(),
+        "RestrictPublicBuckets" => boolean()
+      }
+
+  """
+  @type public_access_block_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_abac_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("AbacStatus") => abac_status()
+      }
+
+  """
+  @type put_bucket_abac_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_accelerate_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("AccelerateConfiguration") => accelerate_configuration()
+      }
+
+  """
+  @type put_bucket_accelerate_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_acl_request() :: %{
+        optional("ACL") => list(any()),
+        optional("AccessControlPolicy") => access_control_policy(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("GrantFullControl") => String.t() | atom(),
+        optional("GrantRead") => String.t() | atom(),
+        optional("GrantReadACP") => String.t() | atom(),
+        optional("GrantWrite") => String.t() | atom(),
+        optional("GrantWriteACP") => String.t() | atom()
+      }
+
+  """
+  @type put_bucket_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_analytics_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("AnalyticsConfiguration") => analytics_configuration(),
+        required("Id") => String.t() | atom()
+      }
+
+  """
+  @type put_bucket_analytics_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_cors_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("CORSConfiguration") => c_o_r_s_configuration()
+      }
+
+  """
+  @type put_bucket_cors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_encryption_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
+      }
+
+  """
+  @type put_bucket_encryption_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_intelligent_tiering_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("IntelligentTieringConfiguration") => intelligent_tiering_configuration()
+      }
+
+  """
+  @type put_bucket_intelligent_tiering_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_inventory_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("InventoryConfiguration") => inventory_configuration()
+      }
+
+  """
+  @type put_bucket_inventory_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_lifecycle_configuration_output() :: %{
+        "TransitionDefaultMinimumObjectSize" => list(any())
+      }
+
+  """
+  @type put_bucket_lifecycle_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_lifecycle_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("LifecycleConfiguration") => bucket_lifecycle_configuration(),
+        optional("TransitionDefaultMinimumObjectSize") => list(any())
+      }
+
+  """
+  @type put_bucket_lifecycle_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_logging_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("BucketLoggingStatus") => bucket_logging_status()
+      }
+
+  """
+  @type put_bucket_logging_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_metrics_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("MetricsConfiguration") => metrics_configuration()
+      }
+
+  """
+  @type put_bucket_metrics_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_notification_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("SkipDestinationValidation") => boolean(),
+        required("NotificationConfiguration") => notification_configuration()
+      }
+
+  """
+  @type put_bucket_notification_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_ownership_controls_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("OwnershipControls") => ownership_controls()
+      }
+
+  """
+  @type put_bucket_ownership_controls_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_policy_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ConfirmRemoveSelfBucketAccess") => boolean(),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("Policy") => String.t() | atom()
+      }
+
+  """
+  @type put_bucket_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_replication_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("Token") => String.t() | atom(),
+        required("ReplicationConfiguration") => replication_configuration()
+      }
+
+  """
+  @type put_bucket_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_request_payment_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("RequestPaymentConfiguration") => request_payment_configuration()
+      }
+
+  """
+  @type put_bucket_request_payment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1988,244 +3934,172 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      list_buckets_request() :: %{
-        optional("BucketRegion") => String.t() | atom(),
-        optional("ContinuationToken") => String.t() | atom(),
-        optional("MaxBuckets") => integer(),
-        optional("Prefix") => String.t() | atom()
-      }
-
-  """
-  @type list_buckets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sse_kms() :: %{
-        "KeyId" => String.t() | atom()
-      }
-
-  """
-  @type sse_kms() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_encryption_output() :: %{
-        "ServerSideEncryptionConfiguration" => server_side_encryption_configuration()
-      }
-
-  """
-  @type get_bucket_encryption_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_session_request() :: %{
-        optional("BucketKeyEnabled") => boolean(),
-        optional("SSEKMSEncryptionContext") => String.t() | atom(),
-        optional("SSEKMSKeyId") => String.t() | atom(),
-        optional("ServerSideEncryption") => list(any()),
-        optional("SessionMode") => list(any())
-      }
-
-  """
-  @type create_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      existing_object_replication() :: %{
-        "Status" => list(any())
-      }
-
-  """
-  @type existing_object_replication() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error() :: %{
-        "Code" => String.t() | atom(),
-        "Key" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_part_copy_request() :: %{
-        optional("CopySourceIfMatch") => String.t() | atom(),
-        optional("CopySourceIfModifiedSince") => non_neg_integer(),
-        optional("CopySourceIfNoneMatch") => String.t() | atom(),
-        optional("CopySourceIfUnmodifiedSince") => non_neg_integer(),
-        optional("CopySourceRange") => String.t() | atom(),
-        optional("CopySourceSSECustomerAlgorithm") => String.t() | atom(),
-        optional("CopySourceSSECustomerKey") => String.t() | atom(),
-        optional("CopySourceSSECustomerKeyMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("ExpectedSourceBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("SSECustomerAlgorithm") => String.t() | atom(),
-        optional("SSECustomerKey") => String.t() | atom(),
-        optional("SSECustomerKeyMD5") => String.t() | atom(),
-        required("CopySource") => String.t() | atom(),
-        required("PartNumber") => integer(),
-        required("UploadId") => String.t() | atom()
-      }
-
-  """
-  @type upload_part_copy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_object_output() :: %{
-        "RequestCharged" => list(any()),
-        "RestoreOutputPath" => String.t() | atom()
-      }
-
-  """
-  @type restore_object_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_key_filter() :: %{
-        "FilterRules" => list(filter_rule())
-      }
-
-  """
-  @type s3_key_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_tagging_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_tagging_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_acl_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type get_object_acl_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bucket_metadata_annotation_table_configuration_request() :: %{
+      put_bucket_versioning_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
         optional("ContentMD5") => String.t() | atom(),
         optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("AnnotationTableConfiguration") => annotation_table_configuration_updates()
+        optional("MFA") => String.t() | atom(),
+        required("VersioningConfiguration") => versioning_configuration()
       }
 
   """
-  @type update_bucket_metadata_annotation_table_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type put_bucket_versioning_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_bucket_analytics_configurations_request() :: %{
-        optional("ContinuationToken") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type list_bucket_analytics_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_intelligent_tiering_configuration_request() :: %{
+      put_bucket_website_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
         optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("Id") => String.t() | atom()
+        required("WebsiteConfiguration") => website_configuration()
       }
 
   """
-  @type get_bucket_intelligent_tiering_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type put_bucket_website_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_object_annotation_output() :: %{
-        "ObjectVersionId" => String.t() | atom(),
+      put_object_acl_output() :: %{
         "RequestCharged" => list(any())
       }
 
   """
-  @type delete_object_annotation_output() :: %{(String.t() | atom()) => any()}
+  @type put_object_acl_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_object_tagging_request() :: %{
+      put_object_acl_request() :: %{
+        optional("ACL") => list(any()),
+        optional("AccessControlPolicy") => access_control_policy(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
         optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("GrantFullControl") => String.t() | atom(),
+        optional("GrantRead") => String.t() | atom(),
+        optional("GrantReadACP") => String.t() | atom(),
+        optional("GrantWrite") => String.t() | atom(),
+        optional("GrantWriteACP") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
         optional("VersionId") => String.t() | atom()
       }
 
   """
-  @type delete_object_tagging_request() :: %{(String.t() | atom()) => any()}
+  @type put_object_acl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_bucket_cors_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
+      put_object_annotation_output() :: %{
+        "AnnotationName" => String.t() | atom(),
+        "ChecksumCRC32" => String.t() | atom(),
+        "ChecksumCRC32C" => String.t() | atom(),
+        "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
+        "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumType" => list(any()),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "ObjectVersionId" => String.t() | atom(),
+        "RequestCharged" => list(any()),
+        "ServerSideEncryption" => list(any())
       }
 
   """
-  @type delete_bucket_cors_request() :: %{(String.t() | atom()) => any()}
+  @type put_object_annotation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      annotation_table_configuration_result() :: %{
-        "ConfigurationState" => list(any()),
-        "Error" => error_details(),
-        "Role" => String.t() | atom(),
-        "TableArn" => String.t() | atom(),
-        "TableName" => String.t() | atom(),
-        "TableStatus" => String.t() | atom()
+      put_object_annotation_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ChecksumCRC32") => String.t() | atom(),
+        optional("ChecksumCRC32C") => String.t() | atom(),
+        optional("ChecksumCRC64NVME") => String.t() | atom(),
+        optional("ChecksumMD5") => String.t() | atom(),
+        optional("ChecksumSHA1") => String.t() | atom(),
+        optional("ChecksumSHA256") => String.t() | atom(),
+        optional("ChecksumSHA512") => String.t() | atom(),
+        optional("ChecksumXXHASH128") => String.t() | atom(),
+        optional("ChecksumXXHASH3") => String.t() | atom(),
+        optional("ChecksumXXHASH64") => String.t() | atom(),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("ObjectIfMatch") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom(),
+        required("AnnotationName") => String.t() | atom(),
+        required("AnnotationPayload") => binary()
       }
 
   """
-  @type annotation_table_configuration_result() :: %{(String.t() | atom()) => any()}
+  @type put_object_annotation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_legal_hold_output() :: %{
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type put_object_legal_hold_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_legal_hold_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("LegalHold") => object_lock_legal_hold(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type put_object_legal_hold_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_lock_configuration_output() :: %{
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type put_object_lock_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_lock_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("ObjectLockConfiguration") => object_lock_configuration(),
+        optional("RequestPayer") => list(any()),
+        optional("Token") => String.t() | atom()
+      }
+
+  """
+  @type put_object_lock_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2263,113 +4137,83 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      get_object_torrent_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any())
-      }
-
-  """
-  @type get_object_torrent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      select_object_content_output() :: %{
-        "Payload" => list()
-      }
-
-  """
-  @type select_object_content_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      object_part() :: %{
-        "ChecksumCRC32" => String.t() | atom(),
-        "ChecksumCRC32C" => String.t() | atom(),
-        "ChecksumCRC64NVME" => String.t() | atom(),
-        "ChecksumMD5" => String.t() | atom(),
-        "ChecksumSHA1" => String.t() | atom(),
-        "ChecksumSHA256" => String.t() | atom(),
-        "ChecksumSHA512" => String.t() | atom(),
-        "ChecksumXXHASH128" => String.t() | atom(),
-        "ChecksumXXHASH3" => String.t() | atom(),
-        "ChecksumXXHASH64" => String.t() | atom(),
-        "PartNumber" => integer(),
-        "Size" => float()
-      }
-
-  """
-  @type object_part() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      write_get_object_response_request() :: %{
+      put_object_request() :: %{
+        optional("ACL") => list(any()),
+        optional("Body") => binary(),
+        optional("BucketKeyEnabled") => boolean(),
+        optional("CacheControl") => String.t() | atom(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ChecksumCRC32") => String.t() | atom(),
+        optional("ChecksumCRC32C") => String.t() | atom(),
+        optional("ChecksumCRC64NVME") => String.t() | atom(),
+        optional("ChecksumMD5") => String.t() | atom(),
+        optional("ChecksumSHA1") => String.t() | atom(),
+        optional("ChecksumSHA256") => String.t() | atom(),
+        optional("ChecksumSHA512") => String.t() | atom(),
+        optional("ChecksumXXHASH128") => String.t() | atom(),
         optional("ChecksumXXHASH3") => String.t() | atom(),
         optional("ChecksumXXHASH64") => String.t() | atom(),
         optional("ContentDisposition") => String.t() | atom(),
-        optional("TagCount") => integer(),
-        optional("VersionId") => String.t() | atom(),
-        optional("Body") => binary(),
-        optional("ErrorCode") => String.t() | atom(),
-        optional("ContentLength") => float(),
-        optional("DeleteMarker") => boolean(),
-        optional("AcceptRanges") => String.t() | atom(),
-        optional("StorageClass") => list(any()),
-        optional("ContentLanguage") => String.t() | atom(),
-        optional("ObjectLockMode") => list(any()),
-        optional("LastModified") => non_neg_integer(),
-        optional("SSECustomerAlgorithm") => String.t() | atom(),
         optional("ContentEncoding") => String.t() | atom(),
-        optional("Expires") => String.t() | atom(),
-        optional("ReplicationStatus") => list(any()),
-        required("RequestToken") => String.t() | atom(),
-        optional("ErrorMessage") => String.t() | atom(),
+        optional("ContentLanguage") => String.t() | atom(),
+        optional("ContentLength") => float(),
+        optional("ContentMD5") => String.t() | atom(),
         optional("ContentType") => String.t() | atom(),
-        optional("BucketKeyEnabled") => boolean(),
-        optional("SSECustomerKeyMD5") => String.t() | atom(),
-        optional("SSEKMSKeyId") => String.t() | atom(),
-        optional("Expiration") => String.t() | atom(),
-        optional("ChecksumSHA512") => String.t() | atom(),
-        optional("Restore") => String.t() | atom(),
-        optional("RequestCharged") => list(any()),
-        optional("ChecksumXXHASH128") => String.t() | atom(),
-        optional("ChecksumMD5") => String.t() | atom(),
-        optional("ChecksumCRC32") => String.t() | atom(),
-        optional("ChecksumSHA1") => String.t() | atom(),
-        optional("ChecksumCRC64NVME") => String.t() | atom(),
-        optional("ChecksumSHA256") => String.t() | atom(),
-        optional("ObjectLockLegalHoldStatus") => list(any()),
-        optional("StatusCode") => integer(),
-        optional("CacheControl") => String.t() | atom(),
-        optional("MissingMeta") => integer(),
-        optional("ContentRange") => String.t() | atom(),
-        required("RequestRoute") => String.t() | atom(),
-        optional("ChecksumCRC32C") => String.t() | atom(),
-        optional("ObjectLockRetainUntilDate") => non_neg_integer(),
-        optional("ETag") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("Expires") => String.t() | atom(),
+        optional("GrantFullControl") => String.t() | atom(),
+        optional("GrantRead") => String.t() | atom(),
+        optional("GrantReadACP") => String.t() | atom(),
+        optional("GrantWriteACP") => String.t() | atom(),
+        optional("IfMatch") => String.t() | atom(),
+        optional("IfNoneMatch") => String.t() | atom(),
         optional("Metadata") => map(),
+        optional("ObjectLockLegalHoldStatus") => list(any()),
+        optional("ObjectLockMode") => list(any()),
+        optional("ObjectLockRetainUntilDate") => non_neg_integer(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t() | atom(),
+        optional("SSECustomerKey") => String.t() | atom(),
+        optional("SSECustomerKeyMD5") => String.t() | atom(),
+        optional("SSEKMSEncryptionContext") => String.t() | atom(),
+        optional("SSEKMSKeyId") => String.t() | atom(),
         optional("ServerSideEncryption") => list(any()),
-        optional("PartsCount") => integer()
+        optional("StorageClass") => list(any()),
+        optional("Tagging") => String.t() | atom(),
+        optional("WebsiteRedirectLocation") => String.t() | atom(),
+        optional("WriteOffsetBytes") => float()
       }
 
   """
-  @type write_get_object_response_request() :: %{(String.t() | atom()) => any()}
+  @type put_object_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      metadata_table_configuration_result() :: %{
-        "S3TablesDestinationResult" => s3_tables_destination_result()
+      put_object_retention_output() :: %{
+        "RequestCharged" => list(any())
       }
 
   """
-  @type metadata_table_configuration_result() :: %{(String.t() | atom()) => any()}
+  @type put_object_retention_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_retention_request() :: %{
+        optional("BypassGovernanceRetention") => boolean(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("Retention") => object_lock_retention(),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type put_object_retention_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2386,359 +4230,17 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      ownership_controls_rule() :: %{
-        "ObjectOwnership" => list(any())
-      }
-
-  """
-  @type ownership_controls_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination_result() :: %{
-        "TableBucketArn" => String.t() | atom(),
-        "TableBucketType" => list(any()),
-        "TableNamespace" => String.t() | atom()
-      }
-
-  """
-  @type destination_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_time_value() :: %{
-        "Minutes" => integer()
-      }
-
-  """
-  @type replication_time_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      noncurrent_version_expiration() :: %{
-        "NewerNoncurrentVersions" => integer(),
-        "NoncurrentDays" => integer()
-      }
-
-  """
-  @type noncurrent_version_expiration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_object_acl_output() :: %{
-        "RequestCharged" => list(any())
-      }
-
-  """
-  @type put_object_acl_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_annotation_name() :: %{}
-
-  """
-  @type invalid_annotation_name() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_cors_output() :: %{
-        "CORSRules" => list(c_o_r_s_rule())
-      }
-
-  """
-  @type get_bucket_cors_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_buckets_output() :: %{
-        "Buckets" => list(bucket()),
-        "ContinuationToken" => String.t() | atom(),
-        "Owner" => owner(),
-        "Prefix" => String.t() | atom()
-      }
-
-  """
-  @type list_buckets_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_control_translation() :: %{
-        "Owner" => list(any())
-      }
-
-  """
-  @type access_control_translation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logging_enabled() :: %{
-        "TargetBucket" => String.t() | atom(),
-        "TargetGrants" => list(target_grant()),
-        "TargetObjectKeyFormat" => target_object_key_format(),
-        "TargetPrefix" => String.t() | atom()
-      }
-
-  """
-  @type logging_enabled() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_write_offset() :: %{}
-
-  """
-  @type invalid_write_offset() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_analytics_configuration_output() :: %{
-        "AnalyticsConfiguration" => analytics_configuration()
-      }
-
-  """
-  @type get_bucket_analytics_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_bucket_metadata_table_configuration_request() :: %{
+      put_object_tagging_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
         optional("ContentMD5") => String.t() | atom(),
         optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("MetadataTableConfiguration") => metadata_table_configuration()
-      }
-
-  """
-  @type create_bucket_metadata_table_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sse_kms_encrypted_objects() :: %{
-        "Status" => list(any())
-      }
-
-  """
-  @type sse_kms_encrypted_objects() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_status() :: %{
-        "IsPublic" => boolean()
-      }
-
-  """
-  @type policy_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_abac_output() :: %{
-        "AbacStatus" => abac_status()
-      }
-
-  """
-  @type get_bucket_abac_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bucket_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type delete_bucket_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_object_request() :: %{
-        optional("ChecksumXXHASH3") => String.t() | atom(),
-        optional("ChecksumXXHASH64") => String.t() | atom(),
-        optional("ContentDisposition") => String.t() | atom(),
-        optional("Body") => binary(),
-        optional("ContentLength") => float(),
-        optional("IfNoneMatch") => String.t() | atom(),
-        optional("StorageClass") => list(any()),
-        optional("ContentLanguage") => String.t() | atom(),
-        optional("ObjectLockMode") => list(any()),
-        optional("WebsiteRedirectLocation") => String.t() | atom(),
-        optional("SSECustomerAlgorithm") => String.t() | atom(),
-        optional("ContentEncoding") => String.t() | atom(),
-        optional("Expires") => String.t() | atom(),
-        optional("SSEKMSEncryptionContext") => String.t() | atom(),
-        optional("SSECustomerKey") => String.t() | atom(),
-        optional("ContentType") => String.t() | atom(),
-        optional("GrantFullControl") => String.t() | atom(),
-        optional("GrantWriteACP") => String.t() | atom(),
-        optional("GrantReadACP") => String.t() | atom(),
-        optional("BucketKeyEnabled") => boolean(),
-        optional("SSECustomerKeyMD5") => String.t() | atom(),
-        optional("SSEKMSKeyId") => String.t() | atom(),
-        optional("GrantRead") => String.t() | atom(),
-        optional("ChecksumSHA512") => String.t() | atom(),
-        optional("Tagging") => String.t() | atom(),
-        optional("WriteOffsetBytes") => float(),
-        optional("ChecksumXXHASH128") => String.t() | atom(),
-        optional("ChecksumMD5") => String.t() | atom(),
-        optional("ChecksumCRC32") => String.t() | atom(),
-        optional("ACL") => list(any()),
-        optional("ChecksumSHA1") => String.t() | atom(),
         optional("RequestPayer") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ChecksumCRC64NVME") => String.t() | atom(),
-        optional("ChecksumSHA256") => String.t() | atom(),
-        optional("ObjectLockLegalHoldStatus") => list(any()),
-        optional("CacheControl") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("IfMatch") => String.t() | atom(),
-        optional("ChecksumCRC32C") => String.t() | atom(),
-        optional("ObjectLockRetainUntilDate") => non_neg_integer(),
-        optional("Metadata") => map(),
-        optional("ServerSideEncryption") => list(any())
+        optional("VersionId") => String.t() | atom(),
+        required("Tagging") => tagging()
       }
 
   """
-  @type put_object_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_metrics_configuration_output() :: %{
-        "MetricsConfiguration" => metrics_configuration()
-      }
-
-  """
-  @type get_bucket_metrics_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      complete_multipart_upload_request() :: %{
-        optional("ChecksumCRC32") => String.t() | atom(),
-        optional("ChecksumCRC32C") => String.t() | atom(),
-        optional("ChecksumCRC64NVME") => String.t() | atom(),
-        optional("ChecksumMD5") => String.t() | atom(),
-        optional("ChecksumSHA1") => String.t() | atom(),
-        optional("ChecksumSHA256") => String.t() | atom(),
-        optional("ChecksumSHA512") => String.t() | atom(),
-        optional("ChecksumType") => list(any()),
-        optional("ChecksumXXHASH128") => String.t() | atom(),
-        optional("ChecksumXXHASH3") => String.t() | atom(),
-        optional("ChecksumXXHASH64") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("IfMatch") => String.t() | atom(),
-        optional("IfNoneMatch") => String.t() | atom(),
-        optional("MpuObjectSize") => float(),
-        optional("MultipartUpload") => completed_multipart_upload(),
-        optional("RequestPayer") => list(any()),
-        optional("SSECustomerAlgorithm") => String.t() | atom(),
-        optional("SSECustomerKey") => String.t() | atom(),
-        optional("SSECustomerKeyMD5") => String.t() | atom(),
-        required("UploadId") => String.t() | atom()
-      }
-
-  """
-  @type complete_multipart_upload_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_policy_status_output() :: %{
-        "PolicyStatus" => policy_status()
-      }
-
-  """
-  @type get_bucket_policy_status_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      annotation_entry() :: %{
-        "AnnotationName" => String.t() | atom(),
-        "ChecksumAlgorithm" => list(list(any())()),
-        "ETag" => String.t() | atom(),
-        "LastModified" => non_neg_integer(),
-        "ReplicationStatus" => list(any()),
-        "Size" => float()
-      }
-
-  """
-  @type annotation_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination() :: %{
-        "AccessControlTranslation" => access_control_translation(),
-        "Account" => String.t() | atom(),
-        "Bucket" => String.t() | atom(),
-        "EncryptionConfiguration" => encryption_configuration(),
-        "Metrics" => metrics(),
-        "ReplicationTime" => replication_time(),
-        "StorageClass" => list(any())
-      }
-
-  """
-  @type destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bucket_metrics_configurations_request() :: %{
-        optional("ContinuationToken") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type list_bucket_metrics_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_location_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_location_request() :: %{(String.t() | atom()) => any()}
+  @type put_object_tagging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2758,1304 +4260,74 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      topic_configuration() :: %{
+      queue_configuration() :: %{
         "Events" => list(list(any())()),
         "Filter" => notification_configuration_filter(),
         "Id" => String.t() | atom(),
-        "TopicArn" => String.t() | atom()
+        "QueueArn" => String.t() | atom()
       }
 
   """
-  @type topic_configuration() :: %{(String.t() | atom()) => any()}
+  @type queue_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      intelligent_tiering_and_operator() :: %{
-        "Prefix" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-
-  """
-  @type intelligent_tiering_and_operator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bucket_metadata_table_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type delete_bucket_metadata_table_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      object_lock_configuration() :: %{
-        "ObjectLockEnabled" => list(any()),
-        "Rule" => object_lock_rule()
-      }
-
-  """
-  @type object_lock_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_metadata_configuration_result() :: %{
-        "MetadataConfigurationResult" => metadata_configuration_result()
-      }
-
-  """
-  @type get_bucket_metadata_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transition() :: %{
-        "Date" => non_neg_integer(),
+      record_expiration() :: %{
         "Days" => integer(),
-        "StorageClass" => list(any())
+        "Expiration" => list(any())
       }
 
   """
-  @type transition() :: %{(String.t() | atom()) => any()}
+  @type record_expiration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      analytics_configuration() :: %{
-        "Filter" => list(),
-        "Id" => String.t() | atom(),
-        "StorageClassAnalysis" => storage_class_analysis()
+      records_event() :: %{
+        "Payload" => binary()
       }
 
   """
-  @type analytics_configuration() :: %{(String.t() | atom()) => any()}
+  @type records_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_bucket_abac_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("AbacStatus") => abac_status()
+      redirect() :: %{
+        "HostName" => String.t() | atom(),
+        "HttpRedirectCode" => String.t() | atom(),
+        "Protocol" => list(any()),
+        "ReplaceKeyPrefixWith" => String.t() | atom(),
+        "ReplaceKeyWith" => String.t() | atom()
       }
 
   """
-  @type put_bucket_abac_request() :: %{(String.t() | atom()) => any()}
+  @type redirect() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      default_retention() :: %{
-        "Days" => integer(),
-        "Mode" => list(any()),
-        "Years" => integer()
+      redirect_all_requests_to() :: %{
+        "HostName" => String.t() | atom(),
+        "Protocol" => list(any())
       }
 
   """
-  @type default_retention() :: %{(String.t() | atom()) => any()}
+  @type redirect_all_requests_to() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      progress() :: %{
-        "BytesProcessed" => float(),
-        "BytesReturned" => float(),
-        "BytesScanned" => float()
-      }
-
-  """
-  @type progress() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bucket_info() :: %{
-        "DataRedundancy" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type bucket_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      c_o_r_s_rule() :: %{
-        "AllowedHeaders" => list(String.t() | atom()),
-        "AllowedMethods" => list(String.t() | atom()),
-        "AllowedOrigins" => list(String.t() | atom()),
-        "ExposeHeaders" => list(String.t() | atom()),
-        "ID" => String.t() | atom(),
-        "MaxAgeSeconds" => integer()
-      }
-
-  """
-  @type c_o_r_s_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_object_lock_configuration_output() :: %{
-        "RequestCharged" => list(any())
-      }
-
-  """
-  @type put_object_lock_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      object_lock_retention() :: %{
-        "Mode" => list(any()),
-        "RetainUntilDate" => non_neg_integer()
-      }
-
-  """
-  @type object_lock_retention() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      annotation_name_too_long() :: %{}
-
-  """
-  @type annotation_name_too_long() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      request_payment_configuration() :: %{
-        "Payer" => list(any())
-      }
-
-  """
-  @type request_payment_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_lifecycle_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_lifecycle_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      part() :: %{
-        "ChecksumCRC32" => String.t() | atom(),
-        "ChecksumCRC32C" => String.t() | atom(),
-        "ChecksumCRC64NVME" => String.t() | atom(),
-        "ChecksumMD5" => String.t() | atom(),
-        "ChecksumSHA1" => String.t() | atom(),
-        "ChecksumSHA256" => String.t() | atom(),
-        "ChecksumSHA512" => String.t() | atom(),
-        "ChecksumXXHASH128" => String.t() | atom(),
-        "ChecksumXXHASH3" => String.t() | atom(),
-        "ChecksumXXHASH64" => String.t() | atom(),
-        "ETag" => String.t() | atom(),
-        "LastModified" => non_neg_integer(),
-        "PartNumber" => integer(),
-        "Size" => float()
-      }
-
-  """
-  @type part() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_replication_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tagging() :: %{
-        "TagSet" => list(tag())
-      }
-
-  """
-  @type tagging() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unsupported_media_type() :: %{}
-
-  """
-  @type unsupported_media_type() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_bucket_configuration() :: %{
-        "Bucket" => bucket_info(),
-        "Location" => location_info(),
-        "LocationConstraint" => list(any()),
-        "Tags" => list(tag())
-      }
-
-  """
-  @type create_bucket_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_annotation_output() :: %{
-        "AnnotationPayload" => binary(),
-        "ChecksumCRC32" => String.t() | atom(),
-        "ChecksumCRC32C" => String.t() | atom(),
-        "ChecksumCRC64NVME" => String.t() | atom(),
-        "ChecksumMD5" => String.t() | atom(),
-        "ChecksumSHA1" => String.t() | atom(),
-        "ChecksumSHA256" => String.t() | atom(),
-        "ChecksumSHA512" => String.t() | atom(),
-        "ChecksumType" => list(any()),
-        "ChecksumXXHASH128" => String.t() | atom(),
-        "ChecksumXXHASH3" => String.t() | atom(),
-        "ChecksumXXHASH64" => String.t() | atom(),
-        "ContentLength" => float(),
-        "ETag" => String.t() | atom(),
-        "LastModified" => non_neg_integer(),
-        "ObjectVersionId" => String.t() | atom(),
-        "ReplicationStatus" => list(any()),
-        "RequestCharged" => list(any()),
-        "ServerSideEncryption" => list(any())
-      }
-
-  """
-  @type get_object_annotation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      json_input() :: %{
-        "Type" => list(any())
-      }
-
-  """
-  @type json_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bucket_intelligent_tiering_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-
-  """
-  @type delete_bucket_intelligent_tiering_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_lock_configuration_output() :: %{
-        "ObjectLockConfiguration" => object_lock_configuration()
-      }
-
-  """
-  @type get_object_lock_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_object_request() :: %{
-        optional("BypassGovernanceRetention") => boolean(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("IfMatch") => String.t() | atom(),
-        optional("IfMatchLastModifiedTime") => non_neg_integer(),
-        optional("IfMatchSize") => float(),
-        optional("MFA") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type delete_object_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      condition() :: %{
-        "HttpErrorCodeReturnedEquals" => String.t() | atom(),
-        "KeyPrefixEquals" => String.t() | atom()
-      }
-
-  """
-  @type condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_such_upload() :: %{}
-
-  """
-  @type no_such_upload() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_prefix() :: %{}
-
-  """
-  @type invalid_prefix() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      source_selection_criteria() :: %{
-        "ReplicaModifications" => replica_modifications(),
-        "SseKmsEncryptedObjects" => sse_kms_encrypted_objects()
-      }
-
-  """
-  @type source_selection_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      object_version() :: %{
-        "ChecksumAlgorithm" => list(list(any())()),
-        "ChecksumType" => list(any()),
-        "ETag" => String.t() | atom(),
-        "IsLatest" => boolean(),
-        "Key" => String.t() | atom(),
-        "LastModified" => non_neg_integer(),
-        "Owner" => owner(),
-        "RestoreStatus" => restore_status(),
-        "Size" => float(),
-        "StorageClass" => list(any()),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type object_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      blocked_encryption_types() :: %{
-        "EncryptionType" => list(list(any())())
-      }
-
-  """
-  @type blocked_encryption_types() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_metadata_table_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_metadata_table_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_object_annotations_request() :: %{
-        optional("AnnotationPrefix") => String.t() | atom(),
-        optional("ContinuationToken") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("MaxAnnotationResults") => integer(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type list_object_annotations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bucket_metadata_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type delete_bucket_metadata_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_accelerate_configuration_output() :: %{
-        "RequestCharged" => list(any()),
-        "Status" => list(any())
-      }
-
-  """
-  @type get_bucket_accelerate_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_objects_request() :: %{
-        optional("BypassGovernanceRetention") => boolean(),
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("MFA") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        required("Delete") => delete()
-      }
-
-  """
-  @type delete_objects_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_objects_v2_request() :: %{
-        optional("ContinuationToken") => String.t() | atom(),
-        optional("Delimiter") => String.t() | atom(),
-        optional("EncodingType") => list(any()),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("FetchOwner") => boolean(),
-        optional("MaxKeys") => integer(),
-        optional("OptionalObjectAttributes") => list(list(any())()),
-        optional("Prefix") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("StartAfter") => String.t() | atom()
-      }
-
-  """
-  @type list_objects_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_serialization() :: %{
-        "CSV" => csv_input(),
-        "CompressionType" => list(any()),
-        "JSON" => json_input(),
-        "Parquet" => parquet_input()
-      }
-
-  """
-  @type input_serialization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_object_annotation_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ChecksumCRC32") => String.t() | atom(),
-        optional("ChecksumCRC32C") => String.t() | atom(),
-        optional("ChecksumCRC64NVME") => String.t() | atom(),
-        optional("ChecksumMD5") => String.t() | atom(),
-        optional("ChecksumSHA1") => String.t() | atom(),
-        optional("ChecksumSHA256") => String.t() | atom(),
-        optional("ChecksumSHA512") => String.t() | atom(),
-        optional("ChecksumXXHASH128") => String.t() | atom(),
-        optional("ChecksumXXHASH3") => String.t() | atom(),
-        optional("ChecksumXXHASH64") => String.t() | atom(),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("ObjectIfMatch") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom(),
-        required("AnnotationName") => String.t() | atom(),
-        required("AnnotationPayload") => binary()
-      }
-
-  """
-  @type put_object_annotation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_legal_hold_output() :: %{
-        "LegalHold" => object_lock_legal_hold()
-      }
-
-  """
-  @type get_object_legal_hold_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_location() :: %{
-        "S3" => s3_location()
-      }
-
-  """
-  @type output_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      abort_multipart_upload_output() :: %{
-        "RequestCharged" => list(any())
-      }
-
-  """
-  @type abort_multipart_upload_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_objects_output() :: %{
-        "CommonPrefixes" => list(common_prefix()),
-        "Contents" => list(object()),
-        "Delimiter" => String.t() | atom(),
-        "EncodingType" => list(any()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "MaxKeys" => integer(),
-        "Name" => String.t() | atom(),
-        "NextMarker" => String.t() | atom(),
-        "Prefix" => String.t() | atom(),
-        "RequestCharged" => list(any())
-      }
-
-  """
-  @type list_objects_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_object_state() :: %{
-        "AccessTier" => list(any()),
-        "StorageClass" => list(any())
-      }
-
-  """
-  @type invalid_object_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sse_kms_encryption() :: %{
-        "BucketKeyEnabled" => boolean(),
-        "KMSKeyArn" => String.t() | atom()
-      }
-
-  """
-  @type sse_kms_encryption() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_object_legal_hold_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("LegalHold") => object_lock_legal_hold(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type put_object_legal_hold_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      abac_status() :: %{
-        "Status" => list(any())
-      }
-
-  """
-  @type abac_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      location_info() :: %{
-        "Name" => String.t() | atom(),
-        "Type" => list(any())
-      }
-
-  """
-  @type location_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_lifecycle_configuration_output() :: %{
-        "Rules" => list(lifecycle_rule()),
-        "TransitionDefaultMinimumObjectSize" => list(any())
-      }
-
-  """
-  @type get_bucket_lifecycle_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_bridge_configuration() :: %{}
-
-  """
-  @type event_bridge_configuration() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_attributes_output() :: %{
-        "Checksum" => checksum(),
-        "DeleteMarker" => boolean(),
-        "ETag" => String.t() | atom(),
-        "LastModified" => non_neg_integer(),
-        "ObjectParts" => get_object_attributes_parts(),
-        "ObjectSize" => float(),
-        "RequestCharged" => list(any()),
-        "StorageClass" => list(any()),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type get_object_attributes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_request() :: %{
-        optional("ChecksumMode") => list(any()),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("IfMatch") => String.t() | atom(),
-        optional("IfModifiedSince") => non_neg_integer(),
-        optional("IfNoneMatch") => String.t() | atom(),
-        optional("IfUnmodifiedSince") => non_neg_integer(),
-        optional("PartNumber") => integer(),
-        optional("Range") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("ResponseCacheControl") => String.t() | atom(),
-        optional("ResponseContentDisposition") => String.t() | atom(),
-        optional("ResponseContentEncoding") => String.t() | atom(),
-        optional("ResponseContentLanguage") => String.t() | atom(),
-        optional("ResponseContentType") => String.t() | atom(),
-        optional("ResponseExpires") => non_neg_integer(),
-        optional("SSECustomerAlgorithm") => String.t() | atom(),
-        optional("SSECustomerKey") => String.t() | atom(),
-        optional("SSECustomerKeyMD5") => String.t() | atom(),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type get_object_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parquet_input() :: %{}
-
-  """
-  @type parquet_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_tables_destination() :: %{
-        "TableBucketArn" => String.t() | atom(),
-        "TableName" => String.t() | atom()
-      }
-
-  """
-  @type s3_tables_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_rule_filter() :: %{
-        "And" => lifecycle_rule_and_operator(),
-        "ObjectSizeGreaterThan" => float(),
-        "ObjectSizeLessThan" => float(),
-        "Prefix" => String.t() | atom(),
-        "Tag" => tag()
-      }
-
-  """
-  @type lifecycle_rule_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_object_annotation_output() :: %{
-        "AnnotationName" => String.t() | atom(),
-        "ChecksumCRC32" => String.t() | atom(),
-        "ChecksumCRC32C" => String.t() | atom(),
-        "ChecksumCRC64NVME" => String.t() | atom(),
-        "ChecksumMD5" => String.t() | atom(),
-        "ChecksumSHA1" => String.t() | atom(),
-        "ChecksumSHA256" => String.t() | atom(),
-        "ChecksumSHA512" => String.t() | atom(),
-        "ChecksumType" => list(any()),
-        "ChecksumXXHASH128" => String.t() | atom(),
-        "ChecksumXXHASH3" => String.t() | atom(),
-        "ChecksumXXHASH64" => String.t() | atom(),
-        "ETag" => String.t() | atom(),
-        "Key" => String.t() | atom(),
-        "ObjectVersionId" => String.t() | atom(),
-        "RequestCharged" => list(any()),
-        "ServerSideEncryption" => list(any())
-      }
-
-  """
-  @type put_object_annotation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      head_object_request() :: %{
-        optional("ChecksumMode") => list(any()),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("IfMatch") => String.t() | atom(),
-        optional("IfModifiedSince") => non_neg_integer(),
-        optional("IfNoneMatch") => String.t() | atom(),
-        optional("IfUnmodifiedSince") => non_neg_integer(),
-        optional("PartNumber") => integer(),
-        optional("Range") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("ResponseCacheControl") => String.t() | atom(),
-        optional("ResponseContentDisposition") => String.t() | atom(),
-        optional("ResponseContentEncoding") => String.t() | atom(),
-        optional("ResponseContentLanguage") => String.t() | atom(),
-        optional("ResponseContentType") => String.t() | atom(),
-        optional("ResponseExpires") => non_neg_integer(),
-        optional("SSECustomerAlgorithm") => String.t() | atom(),
-        optional("SSECustomerKey") => String.t() | atom(),
-        optional("SSECustomerKeyMD5") => String.t() | atom(),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type head_object_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accelerate_configuration() :: %{
-        "Status" => list(any())
-      }
-
-  """
-  @type accelerate_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analytics_export_destination() :: %{
-        "S3BucketDestination" => analytics_s3_bucket_destination()
-      }
-
-  """
-  @type analytics_export_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_intelligent_tiering_configuration_output() :: %{
-        "IntelligentTieringConfiguration" => intelligent_tiering_configuration()
-      }
-
-  """
-  @type get_bucket_intelligent_tiering_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_acl_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_acl_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_part_copy_output() :: %{
-        "BucketKeyEnabled" => boolean(),
-        "CopyPartResult" => copy_part_result(),
-        "CopySourceVersionId" => String.t() | atom(),
-        "RequestCharged" => list(any()),
-        "SSECustomerAlgorithm" => String.t() | atom(),
-        "SSECustomerKeyMD5" => String.t() | atom(),
-        "SSEKMSKeyId" => String.t() | atom(),
-        "ServerSideEncryption" => list(any())
-      }
-
-  """
-  @type upload_part_copy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_encryption_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_encryption_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_policy_output() :: %{
-        "Policy" => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_retention_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type get_object_retention_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      object_lock_rule() :: %{
-        "DefaultRetention" => default_retention()
-      }
-
-  """
-  @type object_lock_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_configuration() :: %{
-        "Role" => String.t() | atom(),
-        "Rules" => list(replication_rule())
-      }
-
-  """
-  @type replication_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      website_configuration() :: %{
-        "ErrorDocument" => error_document(),
-        "IndexDocument" => index_document(),
-        "RedirectAllRequestsTo" => redirect_all_requests_to(),
-        "RoutingRules" => list(routing_rule())
-      }
-
-  """
-  @type website_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_analytics_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("AnalyticsConfiguration") => analytics_configuration(),
-        required("Id") => String.t() | atom()
-      }
-
-  """
-  @type put_bucket_analytics_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_logging_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("BucketLoggingStatus") => bucket_logging_status()
-      }
-
-  """
-  @type put_bucket_logging_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bucket_lifecycle_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type delete_bucket_lifecycle_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_table_configuration() :: %{
-        "S3TablesDestination" => s3_tables_destination()
-      }
-
-  """
-  @type metadata_table_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_retention_output() :: %{
-        "Retention" => object_lock_retention()
-      }
-
-  """
-  @type get_object_retention_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_such_bucket() :: %{}
-
-  """
-  @type no_such_bucket() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_output() :: %{
-        "MissingMeta" => integer(),
-        "SSECustomerKeyMD5" => String.t() | atom(),
-        "SSEKMSKeyId" => String.t() | atom(),
-        "ChecksumXXHASH3" => String.t() | atom(),
-        "ChecksumSHA1" => String.t() | atom(),
-        "SSECustomerAlgorithm" => String.t() | atom(),
-        "ServerSideEncryption" => list(any()),
-        "ReplicationStatus" => list(any()),
-        "WebsiteRedirectLocation" => String.t() | atom(),
-        "ChecksumType" => list(any()),
-        "RequestCharged" => list(any()),
-        "ChecksumMD5" => String.t() | atom(),
-        "BucketKeyEnabled" => boolean(),
-        "ContentType" => String.t() | atom(),
-        "ChecksumCRC32" => String.t() | atom(),
-        "ObjectLockLegalHoldStatus" => list(any()),
-        "StorageClass" => list(any()),
-        "CacheControl" => String.t() | atom(),
-        "ContentLength" => float(),
-        "ChecksumCRC64NVME" => String.t() | atom(),
-        "DeleteMarker" => boolean(),
-        "ETag" => String.t() | atom(),
-        "ChecksumCRC32C" => String.t() | atom(),
-        "TagCount" => integer(),
-        "Body" => binary(),
-        "ChecksumXXHASH128" => String.t() | atom(),
-        "ChecksumSHA256" => String.t() | atom(),
-        "Expiration" => String.t() | atom(),
-        "ObjectLockMode" => list(any()),
-        "ContentDisposition" => String.t() | atom(),
-        "Metadata" => map(),
-        "Restore" => String.t() | atom(),
-        "AcceptRanges" => String.t() | atom(),
-        "ContentRange" => String.t() | atom(),
-        "ChecksumSHA512" => String.t() | atom(),
-        "LastModified" => non_neg_integer(),
-        "Expires" => String.t() | atom(),
-        "VersionId" => String.t() | atom(),
-        "ChecksumXXHASH64" => String.t() | atom(),
-        "ContentEncoding" => String.t() | atom(),
-        "PartsCount" => integer(),
-        "ContentLanguage" => String.t() | atom(),
-        "ObjectLockRetainUntilDate" => non_neg_integer()
-      }
-
-  """
-  @type get_object_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_logging_output() :: %{
-        "LoggingEnabled" => logging_enabled()
-      }
-
-  """
-  @type get_bucket_logging_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inventory_filter() :: %{
-        "Prefix" => String.t() | atom()
-      }
-
-  """
-  @type inventory_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bucket_tagging_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type delete_bucket_tagging_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      object_not_in_active_tier_error() :: %{}
-
-  """
-  @type object_not_in_active_tier_error() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      copy_object_request() :: %{
-        optional("ContentDisposition") => String.t() | atom(),
-        optional("CopySourceSSECustomerKey") => String.t() | atom(),
-        optional("IfNoneMatch") => String.t() | atom(),
-        optional("StorageClass") => list(any()),
-        optional("ContentLanguage") => String.t() | atom(),
-        optional("ObjectLockMode") => list(any()),
-        optional("WebsiteRedirectLocation") => String.t() | atom(),
-        optional("SSECustomerAlgorithm") => String.t() | atom(),
-        optional("ContentEncoding") => String.t() | atom(),
-        optional("Expires") => String.t() | atom(),
-        optional("SSEKMSEncryptionContext") => String.t() | atom(),
-        optional("SSECustomerKey") => String.t() | atom(),
-        optional("CopySourceIfModifiedSince") => non_neg_integer(),
-        optional("ExpectedSourceBucketOwner") => String.t() | atom(),
-        optional("ContentType") => String.t() | atom(),
-        optional("GrantFullControl") => String.t() | atom(),
-        optional("GrantWriteACP") => String.t() | atom(),
-        optional("GrantReadACP") => String.t() | atom(),
-        optional("CopySourceIfMatch") => String.t() | atom(),
-        optional("BucketKeyEnabled") => boolean(),
-        optional("MetadataDirective") => list(any()),
-        optional("SSECustomerKeyMD5") => String.t() | atom(),
-        optional("SSEKMSKeyId") => String.t() | atom(),
-        optional("GrantRead") => String.t() | atom(),
-        optional("CopySourceSSECustomerKeyMD5") => String.t() | atom(),
-        optional("Tagging") => String.t() | atom(),
-        optional("CopySourceIfUnmodifiedSince") => non_neg_integer(),
-        required("CopySource") => String.t() | atom(),
-        optional("CopySourceSSECustomerAlgorithm") => String.t() | atom(),
-        optional("ACL") => list(any()),
-        optional("RequestPayer") => list(any()),
-        optional("ObjectLockLegalHoldStatus") => list(any()),
-        optional("CacheControl") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("IfMatch") => String.t() | atom(),
-        optional("CopySourceIfNoneMatch") => String.t() | atom(),
-        optional("ObjectLockRetainUntilDate") => non_neg_integer(),
-        optional("Metadata") => map(),
-        optional("AnnotationDirective") => list(any()),
-        optional("ServerSideEncryption") => list(any()),
-        optional("TaggingDirective") => list(any())
-      }
-
-  """
-  @type copy_object_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_configuration_result() :: %{
-        "AnnotationTableConfigurationResult" => annotation_table_configuration_result(),
-        "DestinationResult" => destination_result(),
-        "InventoryTableConfigurationResult" => inventory_table_configuration_result(),
-        "JournalTableConfigurationResult" => journal_table_configuration_result()
-      }
-
-  """
-  @type metadata_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      continuation_event() :: %{}
-
-  """
-  @type continuation_event() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_object_versions_output() :: %{
-        "CommonPrefixes" => list(common_prefix()),
-        "DeleteMarkers" => list(delete_marker_entry()),
-        "Delimiter" => String.t() | atom(),
-        "EncodingType" => list(any()),
-        "IsTruncated" => boolean(),
-        "KeyMarker" => String.t() | atom(),
-        "MaxKeys" => integer(),
-        "Name" => String.t() | atom(),
-        "NextKeyMarker" => String.t() | atom(),
-        "NextVersionIdMarker" => String.t() | atom(),
-        "Prefix" => String.t() | atom(),
-        "RequestCharged" => list(any()),
-        "VersionIdMarker" => String.t() | atom(),
-        "Versions" => list(object_version())
-      }
-
-  """
-  @type list_object_versions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      server_side_encryption_by_default() :: %{
-        "KMSMasterKeyID" => String.t() | atom(),
-        "SSEAlgorithm" => list(any())
-      }
-
-  """
-  @type server_side_encryption_by_default() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_rule_and_operator() :: %{
-        "Prefix" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-
-  """
-  @type replication_rule_and_operator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      copy_part_result() :: %{
-        "ChecksumCRC32" => String.t() | atom(),
-        "ChecksumCRC32C" => String.t() | atom(),
-        "ChecksumCRC64NVME" => String.t() | atom(),
-        "ChecksumMD5" => String.t() | atom(),
-        "ChecksumSHA1" => String.t() | atom(),
-        "ChecksumSHA256" => String.t() | atom(),
-        "ChecksumSHA512" => String.t() | atom(),
-        "ChecksumXXHASH128" => String.t() | atom(),
-        "ChecksumXXHASH3" => String.t() | atom(),
-        "ChecksumXXHASH64" => String.t() | atom(),
-        "ETag" => String.t() | atom(),
-        "LastModified" => non_neg_integer()
-      }
-
-  """
-  @type copy_part_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_metadata_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_metadata_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bucket_already_owned_by_you() :: %{}
+      rename_object_output() :: %{}
 
   """
-  @type bucket_already_owned_by_you() :: %{}
+  @type rename_object_output() :: %{}
 
   @typedoc """
 
@@ -4081,397 +4353,55 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      journal_table_configuration() :: %{
-        "EncryptionConfiguration" => metadata_table_encryption_configuration(),
-        "RecordExpiration" => record_expiration()
+      replica_modifications() :: %{
+        "Status" => list(any())
       }
 
   """
-  @type journal_table_configuration() :: %{(String.t() | atom()) => any()}
+  @type replica_modifications() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      initiator() :: %{
-        "DisplayName" => String.t() | atom(),
-        "ID" => String.t() | atom()
+      replication_configuration() :: %{
+        "Role" => String.t() | atom(),
+        "Rules" => list(replication_rule())
       }
 
   """
-  @type initiator() :: %{(String.t() | atom()) => any()}
+  @type replication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_object_acl_output() :: %{
-        "Grants" => list(grant()),
-        "Owner" => owner(),
-        "RequestCharged" => list(any())
-      }
-
-  """
-  @type get_object_acl_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_objects_request() :: %{
-        optional("Delimiter") => String.t() | atom(),
-        optional("EncodingType") => list(any()),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxKeys") => integer(),
-        optional("OptionalObjectAttributes") => list(list(any())()),
-        optional("Prefix") => String.t() | atom(),
-        optional("RequestPayer") => list(any())
-      }
-
-  """
-  @type list_objects_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_object_tagging_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom(),
-        required("Tagging") => tagging()
-      }
-
-  """
-  @type put_object_tagging_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      request_progress() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type request_progress() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification_configuration_filter() :: %{
-        "Key" => s3_key_filter()
-      }
-
-  """
-  @type notification_configuration_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_metrics_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_metrics_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bucket_website_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type delete_bucket_website_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_type_mismatch() :: %{}
-
-  """
-  @type encryption_type_mismatch() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_replication_output() :: %{
-        "ReplicationConfiguration" => replication_configuration()
-      }
-
-  """
-  @type get_bucket_replication_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      index_document() :: %{
-        "Suffix" => String.t() | atom()
-      }
-
-  """
-  @type index_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_policy_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_object_key_format() :: %{
-        "PartitionedPrefix" => partitioned_prefix(),
-        "SimplePrefix" => simple_prefix()
-      }
-
-  """
-  @type target_object_key_format() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_object_versions_request() :: %{
-        optional("Delimiter") => String.t() | atom(),
-        optional("EncodingType") => list(any()),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("KeyMarker") => String.t() | atom(),
-        optional("MaxKeys") => integer(),
-        optional("OptionalObjectAttributes") => list(list(any())()),
-        optional("Prefix") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionIdMarker") => String.t() | atom()
-      }
-
-  """
-  @type list_object_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redirect() :: %{
-        "HostName" => String.t() | atom(),
-        "HttpRedirectCode" => String.t() | atom(),
-        "Protocol" => list(any()),
-        "ReplaceKeyPrefixWith" => String.t() | atom(),
-        "ReplaceKeyWith" => String.t() | atom()
-      }
-
-  """
-  @type redirect() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_object_encryption_response() :: %{
-        "RequestCharged" => list(any())
-      }
-
-  """
-  @type update_object_encryption_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_object_encryption_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom(),
-        required("ObjectEncryption") => list()
-      }
-
-  """
-  @type update_object_encryption_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_object_annotation_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("ObjectIfMatch") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t() | atom(),
-        required("AnnotationName") => String.t() | atom()
-      }
-
-  """
-  @type delete_object_annotation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_configuration() :: %{
-        "ReplicaKmsKeyID" => String.t() | atom()
-      }
-
-  """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      simple_prefix() :: %{}
-
-  """
-  @type simple_prefix() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_request_payment_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_request_payment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inventory_schedule() :: %{
-        "Frequency" => list(any())
-      }
-
-  """
-  @type inventory_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_metadata_table_configuration_output() :: %{
-        "GetBucketMetadataTableConfigurationResult" => get_bucket_metadata_table_configuration_result()
-      }
-
-  """
-  @type get_bucket_metadata_table_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_bucket_output() :: %{
-        "BucketArn" => String.t() | atom(),
-        "Location" => String.t() | atom()
-      }
-
-  """
-  @type create_bucket_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_rule() :: %{
-        "AbortIncompleteMultipartUpload" => abort_incomplete_multipart_upload(),
-        "Expiration" => lifecycle_expiration(),
-        "Filter" => lifecycle_rule_filter(),
+      replication_rule() :: %{
+        "DeleteMarkerReplication" => delete_marker_replication(),
+        "Destination" => destination(),
+        "ExistingObjectReplication" => existing_object_replication(),
+        "Filter" => replication_rule_filter(),
         "ID" => String.t() | atom(),
-        "NoncurrentVersionExpiration" => noncurrent_version_expiration(),
-        "NoncurrentVersionTransitions" => list(noncurrent_version_transition()),
         "Prefix" => String.t() | atom(),
-        "Status" => list(any()),
-        "Transitions" => list(transition())
+        "Priority" => integer(),
+        "SourceSelectionCriteria" => source_selection_criteria(),
+        "Status" => list(any())
       }
 
   """
-  @type lifecycle_rule() :: %{(String.t() | atom()) => any()}
+  @type replication_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      metrics_and_operator() :: %{
-        "AccessPointArn" => String.t() | atom(),
+      replication_rule_and_operator() :: %{
         "Prefix" => String.t() | atom(),
         "Tags" => list(tag())
       }
 
   """
-  @type metrics_and_operator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      head_object_output() :: %{
-        "MissingMeta" => integer(),
-        "SSECustomerKeyMD5" => String.t() | atom(),
-        "SSEKMSKeyId" => String.t() | atom(),
-        "ChecksumXXHASH3" => String.t() | atom(),
-        "ChecksumSHA1" => String.t() | atom(),
-        "SSECustomerAlgorithm" => String.t() | atom(),
-        "ServerSideEncryption" => list(any()),
-        "ReplicationStatus" => list(any()),
-        "WebsiteRedirectLocation" => String.t() | atom(),
-        "ChecksumType" => list(any()),
-        "RequestCharged" => list(any()),
-        "ChecksumMD5" => String.t() | atom(),
-        "BucketKeyEnabled" => boolean(),
-        "ContentType" => String.t() | atom(),
-        "ChecksumCRC32" => String.t() | atom(),
-        "ObjectLockLegalHoldStatus" => list(any()),
-        "StorageClass" => list(any()),
-        "CacheControl" => String.t() | atom(),
-        "ContentLength" => float(),
-        "ChecksumCRC64NVME" => String.t() | atom(),
-        "DeleteMarker" => boolean(),
-        "ETag" => String.t() | atom(),
-        "ChecksumCRC32C" => String.t() | atom(),
-        "TagCount" => integer(),
-        "ChecksumXXHASH128" => String.t() | atom(),
-        "ChecksumSHA256" => String.t() | atom(),
-        "Expiration" => String.t() | atom(),
-        "ObjectLockMode" => list(any()),
-        "ContentDisposition" => String.t() | atom(),
-        "Metadata" => map(),
-        "Restore" => String.t() | atom(),
-        "AcceptRanges" => String.t() | atom(),
-        "ContentRange" => String.t() | atom(),
-        "ChecksumSHA512" => String.t() | atom(),
-        "ArchiveStatus" => list(any()),
-        "LastModified" => non_neg_integer(),
-        "Expires" => String.t() | atom(),
-        "VersionId" => String.t() | atom(),
-        "ChecksumXXHASH64" => String.t() | atom(),
-        "ContentEncoding" => String.t() | atom(),
-        "PartsCount" => integer(),
-        "ContentLanguage" => String.t() | atom(),
-        "ObjectLockRetainUntilDate" => non_neg_integer()
-      }
-
-  """
-  @type head_object_output() :: %{(String.t() | atom()) => any()}
+  @type replication_rule_and_operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4490,10 +4420,169 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      rename_object_output() :: %{}
+      replication_time() :: %{
+        "Status" => list(any()),
+        "Time" => replication_time_value()
+      }
 
   """
-  @type rename_object_output() :: %{}
+  @type replication_time() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_time_value() :: %{
+        "Minutes" => integer()
+      }
+
+  """
+  @type replication_time_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_payment_configuration() :: %{
+        "Payer" => list(any())
+      }
+
+  """
+  @type request_payment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_progress() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type request_progress() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_object_output() :: %{
+        "RequestCharged" => list(any()),
+        "RestoreOutputPath" => String.t() | atom()
+      }
+
+  """
+  @type restore_object_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_object_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("RestoreRequest") => restore_request(),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type restore_object_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_request() :: %{
+        "Days" => integer(),
+        "Description" => String.t() | atom(),
+        "GlacierJobParameters" => glacier_job_parameters(),
+        "OutputLocation" => output_location(),
+        "SelectParameters" => select_parameters(),
+        "Tier" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type restore_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_status() :: %{
+        "IsRestoreInProgress" => boolean(),
+        "RestoreExpiryDate" => non_neg_integer()
+      }
+
+  """
+  @type restore_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule() :: %{
+        "Condition" => condition(),
+        "Redirect" => redirect()
+      }
+
+  """
+  @type routing_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_key_filter() :: %{
+        "FilterRules" => list(filter_rule())
+      }
+
+  """
+  @type s3_key_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "AccessControlList" => list(grant()),
+        "BucketName" => String.t() | atom(),
+        "CannedACL" => list(any()),
+        "Encryption" => encryption(),
+        "Prefix" => String.t() | atom(),
+        "StorageClass" => list(any()),
+        "Tagging" => tagging(),
+        "UserMetadata" => list(metadata_entry())
+      }
+
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_tables_destination() :: %{
+        "TableBucketArn" => String.t() | atom(),
+        "TableName" => String.t() | atom()
+      }
+
+  """
+  @type s3_tables_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_tables_destination_result() :: %{
+        "TableArn" => String.t() | atom(),
+        "TableBucketArn" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
+        "TableNamespace" => String.t() | atom()
+      }
+
+  """
+  @type s3_tables_destination_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4511,249 +4600,12 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      create_bucket_metadata_configuration_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("MetadataConfiguration") => metadata_configuration()
+      select_object_content_output() :: %{
+        "Payload" => list()
       }
 
   """
-  @type create_bucket_metadata_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bucket_intelligent_tiering_configurations_output() :: %{
-        "ContinuationToken" => String.t() | atom(),
-        "IntelligentTieringConfigurationList" => list(intelligent_tiering_configuration()),
-        "IsTruncated" => boolean(),
-        "NextContinuationToken" => String.t() | atom()
-      }
-
-  """
-  @type list_bucket_intelligent_tiering_configurations_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      select_parameters() :: %{
-        "Expression" => String.t() | atom(),
-        "ExpressionType" => list(any()),
-        "InputSerialization" => input_serialization(),
-        "OutputSerialization" => output_serialization()
-      }
-
-  """
-  @type select_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_object_retention_request() :: %{
-        optional("BypassGovernanceRetention") => boolean(),
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("Retention") => object_lock_retention(),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type put_object_retention_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      idempotency_parameter_mismatch() :: %{}
-
-  """
-  @type idempotency_parameter_mismatch() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bucket_ownership_controls_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type delete_bucket_ownership_controls_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bucket_lifecycle_configuration() :: %{
-        "Rules" => list(lifecycle_rule())
-      }
-
-  """
-  @type bucket_lifecycle_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journal_table_configuration_result() :: %{
-        "Error" => error_details(),
-        "RecordExpiration" => record_expiration(),
-        "TableArn" => String.t() | atom(),
-        "TableName" => String.t() | atom(),
-        "TableStatus" => String.t() | atom()
-      }
-
-  """
-  @type journal_table_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bucket_analytics_configurations_output() :: %{
-        "AnalyticsConfigurationList" => list(analytics_configuration()),
-        "ContinuationToken" => String.t() | atom(),
-        "IsTruncated" => boolean(),
-        "NextContinuationToken" => String.t() | atom()
-      }
-
-  """
-  @type list_bucket_analytics_configurations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      copy_object_output() :: %{
-        "BucketKeyEnabled" => boolean(),
-        "CopyObjectResult" => copy_object_result(),
-        "CopySourceVersionId" => String.t() | atom(),
-        "Expiration" => String.t() | atom(),
-        "RequestCharged" => list(any()),
-        "SSECustomerAlgorithm" => String.t() | atom(),
-        "SSECustomerKeyMD5" => String.t() | atom(),
-        "SSEKMSEncryptionContext" => String.t() | atom(),
-        "SSEKMSKeyId" => String.t() | atom(),
-        "ServerSideEncryption" => list(any()),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type copy_object_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      object_identifier() :: %{
-        "ETag" => String.t() | atom(),
-        "Key" => String.t() | atom(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Size" => float(),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type object_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bucket_encryption_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type delete_bucket_encryption_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_accelerate_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("RequestPayer") => list(any())
-      }
-
-  """
-  @type get_bucket_accelerate_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bucket_analytics_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-
-  """
-  @type delete_bucket_analytics_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_cors_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_cors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_details() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom()
-      }
-
-  """
-  @type error_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      annotation_limit_exceeded() :: %{}
-
-  """
-  @type annotation_limit_exceeded() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      inventory_table_configuration_updates() :: %{
-        "ConfigurationState" => list(any()),
-        "EncryptionConfiguration" => metadata_table_encryption_configuration()
-      }
-
-  """
-  @type inventory_table_configuration_updates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bucket_inventory_configurations_request() :: %{
-        optional("ContinuationToken") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type list_bucket_inventory_configurations_request() :: %{(String.t() | atom()) => any()}
+  @type select_object_content_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4779,192 +4631,51 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      list_directory_buckets_request() :: %{
-        optional("ContinuationToken") => String.t() | atom(),
-        optional("MaxDirectoryBuckets") => integer()
+      select_parameters() :: %{
+        "Expression" => String.t() | atom(),
+        "ExpressionType" => list(any()),
+        "InputSerialization" => input_serialization(),
+        "OutputSerialization" => output_serialization()
       }
 
   """
-  @type list_directory_buckets_request() :: %{(String.t() | atom()) => any()}
+  @type select_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_bucket_website_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
+      server_side_encryption_by_default() :: %{
+        "KMSMasterKeyID" => String.t() | atom(),
+        "SSEAlgorithm" => list(any())
       }
 
   """
-  @type get_bucket_website_request() :: %{(String.t() | atom()) => any()}
+  @type server_side_encryption_by_default() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      inventory_table_configuration() :: %{
-        "ConfigurationState" => list(any()),
-        "EncryptionConfiguration" => metadata_table_encryption_configuration()
+      server_side_encryption_configuration() :: %{
+        "Rules" => list(server_side_encryption_rule())
       }
 
   """
-  @type inventory_table_configuration() :: %{(String.t() | atom()) => any()}
+  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_bucket_request() :: %{
-        optional("ACL") => list(any()),
-        optional("BucketNamespace") => list(any()),
-        optional("CreateBucketConfiguration") => create_bucket_configuration(),
-        optional("GrantFullControl") => String.t() | atom(),
-        optional("GrantRead") => String.t() | atom(),
-        optional("GrantReadACP") => String.t() | atom(),
-        optional("GrantWrite") => String.t() | atom(),
-        optional("GrantWriteACP") => String.t() | atom(),
-        optional("ObjectLockEnabledForBucket") => boolean(),
-        optional("ObjectOwnership") => list(any())
+      server_side_encryption_rule() :: %{
+        "ApplyServerSideEncryptionByDefault" => server_side_encryption_by_default(),
+        "BlockedEncryptionTypes" => blocked_encryption_types(),
+        "BucketKeyEnabled" => boolean()
       }
 
   """
-  @type create_bucket_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grantee() :: %{
-        "DisplayName" => String.t() | atom(),
-        "EmailAddress" => String.t() | atom(),
-        "ID" => String.t() | atom(),
-        "Type" => list(any()),
-        "URI" => String.t() | atom()
-      }
-
-  """
-  @type grantee() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_inventory_configuration_output() :: %{
-        "InventoryConfiguration" => inventory_configuration()
-      }
-
-  """
-  @type get_bucket_inventory_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bucket_policy_request() :: %{
-        optional("ChecksumAlgorithm") => list(any()),
-        optional("ConfirmRemoveSelfBucketAccess") => boolean(),
-        optional("ContentMD5") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("Policy") => String.t() | atom()
-      }
-
-  """
-  @type put_bucket_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      json_output() :: %{
-        "RecordDelimiter" => String.t() | atom()
-      }
-
-  """
-  @type json_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_attributes_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        optional("MaxParts") => integer(),
-        optional("PartNumberMarker") => String.t() | atom(),
-        optional("RequestPayer") => list(any()),
-        optional("SSECustomerAlgorithm") => String.t() | atom(),
-        optional("SSECustomerKey") => String.t() | atom(),
-        optional("SSECustomerKeyMD5") => String.t() | atom(),
-        optional("VersionId") => String.t() | atom(),
-        required("ObjectAttributes") => list(list(any())())
-      }
-
-  """
-  @type get_object_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      versioning_configuration() :: %{
-        "MFADelete" => list(any()),
-        "Status" => list(any())
-      }
-
-  """
-  @type versioning_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_marker_replication() :: %{
-        "Status" => list(any())
-      }
-
-  """
-  @type delete_marker_replication() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inventory_configuration() :: %{
-        "Destination" => inventory_destination(),
-        "Filter" => inventory_filter(),
-        "Id" => String.t() | atom(),
-        "IncludedObjectVersions" => list(any()),
-        "IsEnabled" => boolean(),
-        "OptionalFields" => list(list(any())()),
-        "Schedule" => inventory_schedule()
-      }
-
-  """
-  @type inventory_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bucket_logging_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
-      }
-
-  """
-  @type get_bucket_logging_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deleted_object() :: %{
-        "DeleteMarker" => boolean(),
-        "DeleteMarkerVersionId" => String.t() | atom(),
-        "Key" => String.t() | atom(),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type deleted_object() :: %{(String.t() | atom()) => any()}
+  @type server_side_encryption_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4984,81 +4695,65 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      list_object_annotations_output() :: %{
-        "AnnotationCount" => integer(),
-        "AnnotationPrefix" => String.t() | atom(),
-        "Annotations" => list(annotation_entry()),
-        "Bucket" => String.t() | atom(),
-        "ContinuationToken" => String.t() | atom(),
-        "Key" => String.t() | atom(),
-        "MaxAnnotationResults" => integer(),
-        "NextContinuationToken" => String.t() | atom(),
-        "ObjectVersionId" => String.t() | atom(),
-        "RequestCharged" => list(any())
-      }
+      simple_prefix() :: %{}
 
   """
-  @type list_object_annotations_output() :: %{(String.t() | atom()) => any()}
+  @type simple_prefix() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      stats_event() :: %{
-        "Details" => stats()
+      source_selection_criteria() :: %{
+        "ReplicaModifications" => replica_modifications(),
+        "SseKmsEncryptedObjects" => sse_kms_encrypted_objects()
       }
 
   """
-  @type stats_event() :: %{(String.t() | atom()) => any()}
+  @type source_selection_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_bucket_intelligent_tiering_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom(),
-        required("Id") => String.t() | atom(),
-        required("IntelligentTieringConfiguration") => intelligent_tiering_configuration()
+      sse_kms() :: %{
+        "KeyId" => String.t() | atom()
       }
 
   """
-  @type put_bucket_intelligent_tiering_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type sse_kms() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      redirect_all_requests_to() :: %{
-        "HostName" => String.t() | atom(),
-        "Protocol" => list(any())
+      sse_kms_encrypted_objects() :: %{
+        "Status" => list(any())
       }
 
   """
-  @type redirect_all_requests_to() :: %{(String.t() | atom()) => any()}
+  @type sse_kms_encrypted_objects() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_bucket_replication_request() :: %{
-        optional("ExpectedBucketOwner") => String.t() | atom()
+      sse_kms_encryption() :: %{
+        "BucketKeyEnabled" => boolean(),
+        "KMSKeyArn" => String.t() | atom()
       }
 
   """
-  @type delete_bucket_replication_request() :: %{(String.t() | atom()) => any()}
+  @type sse_kms_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_bucket_request_payment_output() :: %{
-        "Payer" => list(any())
-      }
+      sse_s3() :: %{}
 
   """
-  @type get_bucket_request_payment_output() :: %{(String.t() | atom()) => any()}
+  @type sse_s3() :: %{}
 
   @typedoc """
 
@@ -5077,27 +4772,153 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      intelligent_tiering_configuration() :: %{
-        "Filter" => intelligent_tiering_filter(),
-        "Id" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tierings" => list(tiering())
+      stats_event() :: %{
+        "Details" => stats()
       }
 
   """
-  @type intelligent_tiering_configuration() :: %{(String.t() | atom()) => any()}
+  @type stats_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_bucket_intelligent_tiering_configurations_request() :: %{
-        optional("ContinuationToken") => String.t() | atom(),
-        optional("ExpectedBucketOwner") => String.t() | atom()
+      storage_class_analysis() :: %{
+        "DataExport" => storage_class_analysis_data_export()
       }
 
   """
-  @type list_bucket_intelligent_tiering_configurations_request() :: %{
+  @type storage_class_analysis() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_class_analysis_data_export() :: %{
+        "Destination" => analytics_export_destination(),
+        "OutputSchemaVersion" => list(any())
+      }
+
+  """
+  @type storage_class_analysis_data_export() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tagging() :: %{
+        "TagSet" => list(tag())
+      }
+
+  """
+  @type tagging() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_grant() :: %{
+        "Grantee" => grantee(),
+        "Permission" => list(any())
+      }
+
+  """
+  @type target_grant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_object_key_format() :: %{
+        "PartitionedPrefix" => partitioned_prefix(),
+        "SimplePrefix" => simple_prefix()
+      }
+
+  """
+  @type target_object_key_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tiering() :: %{
+        "AccessTier" => list(any()),
+        "Days" => integer()
+      }
+
+  """
+  @type tiering() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_parts() :: %{}
+
+  """
+  @type too_many_parts() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_configuration() :: %{
+        "Events" => list(list(any())()),
+        "Filter" => notification_configuration_filter(),
+        "Id" => String.t() | atom(),
+        "TopicArn" => String.t() | atom()
+      }
+
+  """
+  @type topic_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transition() :: %{
+        "Date" => non_neg_integer(),
+        "Days" => integer(),
+        "StorageClass" => list(any())
+      }
+
+  """
+  @type transition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_media_type() :: %{}
+
+  """
+  @type unsupported_media_type() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_bucket_metadata_annotation_table_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("AnnotationTableConfiguration") => annotation_table_configuration_updates()
+      }
+
+  """
+  @type update_bucket_metadata_annotation_table_configuration_request() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -5105,33 +4926,245 @@ defmodule AWS.S3 do
 
   ## Example:
 
-      get_bucket_metadata_configuration_output() :: %{
-        "GetBucketMetadataConfigurationResult" => get_bucket_metadata_configuration_result()
+      update_bucket_metadata_inventory_table_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("InventoryTableConfiguration") => inventory_table_configuration_updates()
       }
 
   """
-  @type get_bucket_metadata_configuration_output() :: %{(String.t() | atom()) => any()}
+  @type update_bucket_metadata_inventory_table_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      list_directory_buckets_output() :: %{
-        "Buckets" => list(bucket()),
-        "ContinuationToken" => String.t() | atom()
+      update_bucket_metadata_journal_table_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("JournalTableConfiguration") => journal_table_configuration_updates()
       }
 
   """
-  @type list_directory_buckets_output() :: %{(String.t() | atom()) => any()}
+  @type update_bucket_metadata_journal_table_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      object_already_in_active_tier_error() :: %{}
+      update_object_encryption_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom(),
+        required("ObjectEncryption") => list()
+      }
 
   """
-  @type object_already_in_active_tier_error() :: %{}
+  @type update_object_encryption_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_object_encryption_response() :: %{
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type update_object_encryption_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_part_copy_output() :: %{
+        "BucketKeyEnabled" => boolean(),
+        "CopyPartResult" => copy_part_result(),
+        "CopySourceVersionId" => String.t() | atom(),
+        "RequestCharged" => list(any()),
+        "SSECustomerAlgorithm" => String.t() | atom(),
+        "SSECustomerKeyMD5" => String.t() | atom(),
+        "SSEKMSKeyId" => String.t() | atom(),
+        "ServerSideEncryption" => list(any())
+      }
+
+  """
+  @type upload_part_copy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_part_copy_request() :: %{
+        optional("CopySourceIfMatch") => String.t() | atom(),
+        optional("CopySourceIfModifiedSince") => non_neg_integer(),
+        optional("CopySourceIfNoneMatch") => String.t() | atom(),
+        optional("CopySourceIfUnmodifiedSince") => non_neg_integer(),
+        optional("CopySourceRange") => String.t() | atom(),
+        optional("CopySourceSSECustomerAlgorithm") => String.t() | atom(),
+        optional("CopySourceSSECustomerKey") => String.t() | atom(),
+        optional("CopySourceSSECustomerKeyMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("ExpectedSourceBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t() | atom(),
+        optional("SSECustomerKey") => String.t() | atom(),
+        optional("SSECustomerKeyMD5") => String.t() | atom(),
+        required("CopySource") => String.t() | atom(),
+        required("PartNumber") => integer(),
+        required("UploadId") => String.t() | atom()
+      }
+
+  """
+  @type upload_part_copy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_part_output() :: %{
+        "BucketKeyEnabled" => boolean(),
+        "ChecksumCRC32" => String.t() | atom(),
+        "ChecksumCRC32C" => String.t() | atom(),
+        "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
+        "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "RequestCharged" => list(any()),
+        "SSECustomerAlgorithm" => String.t() | atom(),
+        "SSECustomerKeyMD5" => String.t() | atom(),
+        "SSEKMSKeyId" => String.t() | atom(),
+        "ServerSideEncryption" => list(any())
+      }
+
+  """
+  @type upload_part_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_part_request() :: %{
+        optional("Body") => binary(),
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ChecksumCRC32") => String.t() | atom(),
+        optional("ChecksumCRC32C") => String.t() | atom(),
+        optional("ChecksumCRC64NVME") => String.t() | atom(),
+        optional("ChecksumMD5") => String.t() | atom(),
+        optional("ChecksumSHA1") => String.t() | atom(),
+        optional("ChecksumSHA256") => String.t() | atom(),
+        optional("ChecksumSHA512") => String.t() | atom(),
+        optional("ChecksumXXHASH128") => String.t() | atom(),
+        optional("ChecksumXXHASH3") => String.t() | atom(),
+        optional("ChecksumXXHASH64") => String.t() | atom(),
+        optional("ContentLength") => float(),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("SSECustomerAlgorithm") => String.t() | atom(),
+        optional("SSECustomerKey") => String.t() | atom(),
+        optional("SSECustomerKeyMD5") => String.t() | atom(),
+        required("PartNumber") => integer(),
+        required("UploadId") => String.t() | atom()
+      }
+
+  """
+  @type upload_part_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      versioning_configuration() :: %{
+        "MFADelete" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type versioning_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      website_configuration() :: %{
+        "ErrorDocument" => error_document(),
+        "IndexDocument" => index_document(),
+        "RedirectAllRequestsTo" => redirect_all_requests_to(),
+        "RoutingRules" => list(routing_rule())
+      }
+
+  """
+  @type website_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      write_get_object_response_request() :: %{
+        optional("AcceptRanges") => String.t() | atom(),
+        optional("Body") => binary(),
+        optional("BucketKeyEnabled") => boolean(),
+        optional("CacheControl") => String.t() | atom(),
+        optional("ChecksumCRC32") => String.t() | atom(),
+        optional("ChecksumCRC32C") => String.t() | atom(),
+        optional("ChecksumCRC64NVME") => String.t() | atom(),
+        optional("ChecksumMD5") => String.t() | atom(),
+        optional("ChecksumSHA1") => String.t() | atom(),
+        optional("ChecksumSHA256") => String.t() | atom(),
+        optional("ChecksumSHA512") => String.t() | atom(),
+        optional("ChecksumXXHASH128") => String.t() | atom(),
+        optional("ChecksumXXHASH3") => String.t() | atom(),
+        optional("ChecksumXXHASH64") => String.t() | atom(),
+        optional("ContentDisposition") => String.t() | atom(),
+        optional("ContentEncoding") => String.t() | atom(),
+        optional("ContentLanguage") => String.t() | atom(),
+        optional("ContentLength") => float(),
+        optional("ContentRange") => String.t() | atom(),
+        optional("ContentType") => String.t() | atom(),
+        optional("DeleteMarker") => boolean(),
+        optional("ETag") => String.t() | atom(),
+        optional("ErrorCode") => String.t() | atom(),
+        optional("ErrorMessage") => String.t() | atom(),
+        optional("Expiration") => String.t() | atom(),
+        optional("Expires") => String.t() | atom(),
+        optional("LastModified") => non_neg_integer(),
+        optional("Metadata") => map(),
+        optional("MissingMeta") => integer(),
+        optional("ObjectLockLegalHoldStatus") => list(any()),
+        optional("ObjectLockMode") => list(any()),
+        optional("ObjectLockRetainUntilDate") => non_neg_integer(),
+        optional("PartsCount") => integer(),
+        optional("ReplicationStatus") => list(any()),
+        optional("RequestCharged") => list(any()),
+        optional("Restore") => String.t() | atom(),
+        optional("SSECustomerAlgorithm") => String.t() | atom(),
+        optional("SSECustomerKeyMD5") => String.t() | atom(),
+        optional("SSEKMSKeyId") => String.t() | atom(),
+        optional("ServerSideEncryption") => list(any()),
+        optional("StatusCode") => integer(),
+        optional("StorageClass") => list(any()),
+        optional("TagCount") => integer(),
+        optional("VersionId") => String.t() | atom(),
+        required("RequestRoute") => String.t() | atom(),
+        required("RequestToken") => String.t() | atom()
+      }
+
+  """
+  @type write_get_object_response_request() :: %{(String.t() | atom()) => any()}
 
   @type abort_multipart_upload_errors() :: no_such_upload()
 
@@ -5141,13 +5174,13 @@ defmodule AWS.S3 do
 
   @type create_session_errors() :: no_such_bucket()
 
-  @type delete_object_annotation_errors() :: no_such_bucket() | no_such_key()
+  @type delete_object_annotation_errors() :: no_such_key() | no_such_bucket()
 
-  @type get_object_errors() :: invalid_object_state() | no_such_key()
+  @type get_object_errors() :: no_such_key() | invalid_object_state()
 
   @type get_object_acl_errors() :: no_such_key()
 
-  @type get_object_annotation_errors() :: no_such_bucket() | no_such_annotation() | no_such_key()
+  @type get_object_annotation_errors() :: no_such_key() | no_such_bucket() | no_such_annotation()
 
   @type get_object_attributes_errors() :: no_such_key()
 
@@ -5155,34 +5188,34 @@ defmodule AWS.S3 do
 
   @type head_object_errors() :: not_found()
 
-  @type list_object_annotations_errors() :: no_such_bucket() | invalid_prefix() | no_such_key()
+  @type list_object_annotations_errors() :: no_such_key() | no_such_bucket() | invalid_prefix()
 
   @type list_objects_errors() :: no_such_bucket()
 
   @type list_objects_v2_errors() :: no_such_bucket()
 
   @type put_object_errors() ::
-          encryption_type_mismatch()
+          too_many_parts()
           | invalid_write_offset()
-          | too_many_parts()
           | invalid_request()
+          | encryption_type_mismatch()
 
   @type put_object_acl_errors() :: no_such_key()
 
   @type put_object_annotation_errors() ::
-          annotation_limit_exceeded()
-          | no_such_bucket()
-          | unsupported_media_type()
-          | annotation_name_too_long()
-          | invalid_annotation_name()
-          | invalid_request()
+          unsupported_media_type()
           | no_such_key()
+          | no_such_bucket()
+          | invalid_request()
+          | invalid_annotation_name()
+          | annotation_name_too_long()
+          | annotation_limit_exceeded()
 
   @type rename_object_errors() :: idempotency_parameter_mismatch()
 
   @type restore_object_errors() :: object_already_in_active_tier_error()
 
-  @type update_object_encryption_errors() :: invalid_request() | no_such_key() | access_denied()
+  @type update_object_encryption_errors() :: no_such_key() | invalid_request() | access_denied()
 
   def metadata do
     %{
@@ -5633,8 +5666,8 @@ defmodule AWS.S3 do
           {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"x-amz-expiration", "Expiration"},
           {"x-amz-request-charged", "RequestCharged"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
           {"x-amz-server-side-encryption", "ServerSideEncryption"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
           {"x-amz-version-id", "VersionId"}
         ]
       )
@@ -5926,55 +5959,55 @@ defmodule AWS.S3 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, copy_object_errors()}
-  def copy_object(%Client{} = client, key, bucket, input, options \\ []) do
+  def copy_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=CopyObject"
 
     {headers, input} =
       [
-        {"CopySourceIfModifiedSince", "x-amz-copy-source-if-modified-since"},
-        {"TaggingDirective", "x-amz-tagging-directive"},
-        {"GrantWriteACP", "x-amz-grant-write-acp"},
+        {"ACL", "x-amz-acl"},
         {"AnnotationDirective", "x-amz-object-annotation-directive"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
-        {"GrantFullControl", "x-amz-grant-full-control"},
-        {"ContentLanguage", "Content-Language"},
-        {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
+        {"CacheControl", "Cache-Control"},
+        {"ChecksumAlgorithm", "x-amz-checksum-algorithm"},
+        {"ContentDisposition", "Content-Disposition"},
+        {"ContentEncoding", "Content-Encoding"},
+        {"ContentLanguage", "Content-Language"},
         {"ContentType", "Content-Type"},
-        {"CopySourceSSECustomerKeyMD5",
-         "x-amz-copy-source-server-side-encryption-customer-key-MD5"},
+        {"CopySource", "x-amz-copy-source"},
+        {"CopySourceIfMatch", "x-amz-copy-source-if-match"},
+        {"CopySourceIfModifiedSince", "x-amz-copy-source-if-modified-since"},
+        {"CopySourceIfNoneMatch", "x-amz-copy-source-if-none-match"},
+        {"CopySourceIfUnmodifiedSince", "x-amz-copy-source-if-unmodified-since"},
         {"CopySourceSSECustomerAlgorithm",
          "x-amz-copy-source-server-side-encryption-customer-algorithm"},
-        {"CopySourceIfUnmodifiedSince", "x-amz-copy-source-if-unmodified-since"},
-        {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
-        {"GrantRead", "x-amz-grant-read"},
-        {"CopySourceIfNoneMatch", "x-amz-copy-source-if-none-match"},
-        {"SSEKMSKeyId", "x-amz-server-side-encryption-aws-kms-key-id"},
-        {"ACL", "x-amz-acl"},
-        {"CacheControl", "Cache-Control"},
-        {"ObjectLockMode", "x-amz-object-lock-mode"},
-        {"StorageClass", "x-amz-storage-class"},
-        {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
-        {"ServerSideEncryption", "x-amz-server-side-encryption"},
         {"CopySourceSSECustomerKey", "x-amz-copy-source-server-side-encryption-customer-key"},
-        {"IfMatch", "If-Match"},
-        {"CopySourceIfMatch", "x-amz-copy-source-if-match"},
-        {"ContentEncoding", "Content-Encoding"},
-        {"CopySource", "x-amz-copy-source"},
-        {"RequestPayer", "x-amz-request-payer"},
-        {"Tagging", "x-amz-tagging"},
-        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
-        {"ChecksumAlgorithm", "x-amz-checksum-algorithm"},
-        {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
-        {"MetadataDirective", "x-amz-metadata-directive"},
-        {"IfNoneMatch", "If-None-Match"},
-        {"ContentDisposition", "Content-Disposition"},
-        {"WebsiteRedirectLocation", "x-amz-website-redirect-location"},
-        {"GrantReadACP", "x-amz-grant-read-acp"},
-        {"ObjectLockLegalHoldStatus", "x-amz-object-lock-legal-hold"},
+        {"CopySourceSSECustomerKeyMD5",
+         "x-amz-copy-source-server-side-encryption-customer-key-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedSourceBucketOwner", "x-amz-source-expected-bucket-owner"},
         {"Expires", "Expires"},
-        {"ExpectedSourceBucketOwner", "x-amz-source-expected-bucket-owner"}
+        {"GrantFullControl", "x-amz-grant-full-control"},
+        {"GrantRead", "x-amz-grant-read"},
+        {"GrantReadACP", "x-amz-grant-read-acp"},
+        {"GrantWriteACP", "x-amz-grant-write-acp"},
+        {"IfMatch", "If-Match"},
+        {"IfNoneMatch", "If-None-Match"},
+        {"MetadataDirective", "x-amz-metadata-directive"},
+        {"ObjectLockLegalHoldStatus", "x-amz-object-lock-legal-hold"},
+        {"ObjectLockMode", "x-amz-object-lock-mode"},
+        {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
+        {"RequestPayer", "x-amz-request-payer"},
+        {"ServerSideEncryption", "x-amz-server-side-encryption"},
+        {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
+        {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
+        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
+        {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
+        {"SSEKMSKeyId", "x-amz-server-side-encryption-aws-kms-key-id"},
+        {"StorageClass", "x-amz-storage-class"},
+        {"Tagging", "x-amz-tagging"},
+        {"TaggingDirective", "x-amz-tagging-directive"},
+        {"WebsiteRedirectLocation", "x-amz-website-redirect-location"}
       ]
       |> Request.build_params(input)
 
@@ -5995,11 +6028,11 @@ defmodule AWS.S3 do
           {"x-amz-copy-source-version-id", "CopySourceVersionId"},
           {"x-amz-expiration", "Expiration"},
           {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
           {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
           {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
           {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"},
           {"x-amz-version-id", "VersionId"}
         ]
       )
@@ -6901,12 +6934,12 @@ defmodule AWS.S3 do
         {"ObjectLockMode", "x-amz-object-lock-mode"},
         {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
         {"RequestPayer", "x-amz-request-payer"},
+        {"ServerSideEncryption", "x-amz-server-side-encryption"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
         {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
         {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
         {"SSEKMSKeyId", "x-amz-server-side-encryption-aws-kms-key-id"},
-        {"ServerSideEncryption", "x-amz-server-side-encryption"},
         {"StorageClass", "x-amz-storage-class"},
         {"Tagging", "x-amz-tagging"},
         {"WebsiteRedirectLocation", "x-amz-website-redirect-location"}
@@ -6932,11 +6965,11 @@ defmodule AWS.S3 do
           {"x-amz-checksum-algorithm", "ChecksumAlgorithm"},
           {"x-amz-checksum-type", "ChecksumType"},
           {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
           {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
           {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"}
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"}
         ]
       )
 
@@ -7161,10 +7194,10 @@ defmodule AWS.S3 do
         %Client{} = client,
         bucket,
         bucket_key_enabled \\ nil,
-        sse_kms_encryption_context \\ nil,
-        sse_kms_key_id \\ nil,
         server_side_encryption \\ nil,
         session_mode \\ nil,
+        sse_kms_encryption_context \\ nil,
+        sse_kms_key_id \\ nil,
         options \\ []
       ) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?session"
@@ -7173,20 +7206,6 @@ defmodule AWS.S3 do
     headers =
       if !is_nil(bucket_key_enabled) do
         [{"x-amz-server-side-encryption-bucket-key-enabled", bucket_key_enabled} | headers]
-      else
-        headers
-      end
-
-    headers =
-      if !is_nil(sse_kms_encryption_context) do
-        [{"x-amz-server-side-encryption-context", sse_kms_encryption_context} | headers]
-      else
-        headers
-      end
-
-    headers =
-      if !is_nil(sse_kms_key_id) do
-        [{"x-amz-server-side-encryption-aws-kms-key-id", sse_kms_key_id} | headers]
       else
         headers
       end
@@ -7205,6 +7224,20 @@ defmodule AWS.S3 do
         headers
       end
 
+    headers =
+      if !is_nil(sse_kms_encryption_context) do
+        [{"x-amz-server-side-encryption-context", sse_kms_encryption_context} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(sse_kms_key_id) do
+        [{"x-amz-server-side-encryption-aws-kms-key-id", sse_kms_key_id} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     options =
@@ -7213,9 +7246,9 @@ defmodule AWS.S3 do
         :response_header_parameters,
         [
           {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
           {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"}
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"}
         ]
       )
 
@@ -11441,43 +11474,8 @@ defmodule AWS.S3 do
     query_params = []
 
     query_params =
-      if !is_nil(version_id) do
-        [{"versionId", version_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(response_expires) do
-        [{"response-expires", response_expires} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(response_content_type) do
-        [{"response-content-type", response_content_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(response_content_language) do
-        [{"response-content-language", response_content_language} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(response_content_encoding) do
-        [{"response-content-encoding", response_content_encoding} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(response_content_disposition) do
-        [{"response-content-disposition", response_content_disposition} | query_params]
+      if !is_nil(part_number) do
+        [{"partNumber", part_number} | query_params]
       else
         query_params
       end
@@ -11490,8 +11488,43 @@ defmodule AWS.S3 do
       end
 
     query_params =
-      if !is_nil(part_number) do
-        [{"partNumber", part_number} | query_params]
+      if !is_nil(response_content_disposition) do
+        [{"response-content-disposition", response_content_disposition} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(response_content_encoding) do
+        [{"response-content-encoding", response_content_encoding} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(response_content_language) do
+        [{"response-content-language", response_content_language} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(response_content_type) do
+        [{"response-content-type", response_content_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(response_expires) do
+        [{"response-expires", response_expires} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
       else
         query_params
       end
@@ -11501,47 +11534,47 @@ defmodule AWS.S3 do
         options,
         :response_header_parameters,
         [
-          {"x-amz-checksum-crc32", "ChecksumCRC32"},
-          {"x-amz-checksum-sha512", "ChecksumSHA512"},
-          {"x-amz-checksum-xxhash128", "ChecksumXXHASH128"},
-          {"x-amz-checksum-type", "ChecksumType"},
-          {"Content-Language", "ContentLanguage"},
-          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-          {"Content-Length", "ContentLength"},
-          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
-          {"x-amz-expiration", "Expiration"},
-          {"Content-Type", "ContentType"},
-          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
-          {"x-amz-mp-parts-count", "PartsCount"},
-          {"Content-Range", "ContentRange"},
-          {"Last-Modified", "LastModified"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"Cache-Control", "CacheControl"},
-          {"x-amz-object-lock-mode", "ObjectLockMode"},
-          {"x-amz-storage-class", "StorageClass"},
-          {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
-          {"x-amz-checksum-md5", "ChecksumMD5"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"},
-          {"Content-Encoding", "ContentEncoding"},
-          {"ETag", "ETag"},
-          {"x-amz-version-id", "VersionId"},
-          {"x-amz-checksum-xxhash3", "ChecksumXXHASH3"},
-          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-          {"x-amz-replication-status", "ReplicationStatus"},
-          {"x-amz-checksum-sha1", "ChecksumSHA1"},
-          {"x-amz-checksum-xxhash64", "ChecksumXXHASH64"},
-          {"x-amz-checksum-sha256", "ChecksumSHA256"},
-          {"x-amz-restore", "Restore"},
-          {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
-          {"x-amz-tagging-count", "TagCount"},
-          {"Content-Disposition", "ContentDisposition"},
-          {"x-amz-delete-marker", "DeleteMarker"},
-          {"x-amz-website-redirect-location", "WebsiteRedirectLocation"},
-          {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
           {"accept-ranges", "AcceptRanges"},
+          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
+          {"Cache-Control", "CacheControl"},
+          {"x-amz-checksum-crc32", "ChecksumCRC32"},
+          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
+          {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
+          {"x-amz-checksum-md5", "ChecksumMD5"},
+          {"x-amz-checksum-sha1", "ChecksumSHA1"},
+          {"x-amz-checksum-sha256", "ChecksumSHA256"},
+          {"x-amz-checksum-sha512", "ChecksumSHA512"},
+          {"x-amz-checksum-type", "ChecksumType"},
+          {"x-amz-checksum-xxhash128", "ChecksumXXHASH128"},
+          {"x-amz-checksum-xxhash3", "ChecksumXXHASH3"},
+          {"x-amz-checksum-xxhash64", "ChecksumXXHASH64"},
+          {"Content-Disposition", "ContentDisposition"},
+          {"Content-Encoding", "ContentEncoding"},
+          {"Content-Language", "ContentLanguage"},
+          {"Content-Length", "ContentLength"},
+          {"Content-Range", "ContentRange"},
+          {"Content-Type", "ContentType"},
+          {"x-amz-delete-marker", "DeleteMarker"},
+          {"ETag", "ETag"},
+          {"x-amz-expiration", "Expiration"},
           {"Expires", "Expires"},
+          {"Last-Modified", "LastModified"},
           {"x-amz-missing-meta", "MissingMeta"},
-          {"x-amz-request-charged", "RequestCharged"}
+          {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
+          {"x-amz-object-lock-mode", "ObjectLockMode"},
+          {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
+          {"x-amz-mp-parts-count", "PartsCount"},
+          {"x-amz-replication-status", "ReplicationStatus"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-restore", "Restore"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
+          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
+          {"x-amz-storage-class", "StorageClass"},
+          {"x-amz-tagging-count", "TagCount"},
+          {"x-amz-version-id", "VersionId"},
+          {"x-amz-website-redirect-location", "WebsiteRedirectLocation"}
         ]
       )
 
@@ -11749,15 +11782,15 @@ defmodule AWS.S3 do
     query_params = []
 
     query_params =
-      if !is_nil(version_id) do
-        [{"versionId", version_id} | query_params]
+      if !is_nil(annotation_name) do
+        [{"annotationName", annotation_name} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(annotation_name) do
-        [{"annotationName", annotation_name} | query_params]
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
       else
         query_params
       end
@@ -13008,48 +13041,48 @@ defmodule AWS.S3 do
         options,
         :response_header_parameters,
         [
-          {"x-amz-checksum-crc32", "ChecksumCRC32"},
-          {"x-amz-checksum-sha512", "ChecksumSHA512"},
-          {"x-amz-checksum-xxhash128", "ChecksumXXHASH128"},
-          {"x-amz-checksum-type", "ChecksumType"},
-          {"Content-Language", "ContentLanguage"},
-          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-          {"Content-Length", "ContentLength"},
-          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
-          {"x-amz-expiration", "Expiration"},
-          {"Content-Type", "ContentType"},
-          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
-          {"x-amz-mp-parts-count", "PartsCount"},
-          {"Content-Range", "ContentRange"},
-          {"Last-Modified", "LastModified"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"Cache-Control", "CacheControl"},
-          {"x-amz-object-lock-mode", "ObjectLockMode"},
-          {"x-amz-storage-class", "StorageClass"},
-          {"x-amz-archive-status", "ArchiveStatus"},
-          {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
-          {"x-amz-checksum-md5", "ChecksumMD5"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"},
-          {"Content-Encoding", "ContentEncoding"},
-          {"ETag", "ETag"},
-          {"x-amz-version-id", "VersionId"},
-          {"x-amz-checksum-xxhash3", "ChecksumXXHASH3"},
-          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-          {"x-amz-replication-status", "ReplicationStatus"},
-          {"x-amz-checksum-sha1", "ChecksumSHA1"},
-          {"x-amz-checksum-xxhash64", "ChecksumXXHASH64"},
-          {"x-amz-checksum-sha256", "ChecksumSHA256"},
-          {"x-amz-restore", "Restore"},
-          {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
-          {"x-amz-tagging-count", "TagCount"},
-          {"Content-Disposition", "ContentDisposition"},
-          {"x-amz-delete-marker", "DeleteMarker"},
-          {"x-amz-website-redirect-location", "WebsiteRedirectLocation"},
-          {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
           {"accept-ranges", "AcceptRanges"},
+          {"x-amz-archive-status", "ArchiveStatus"},
+          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
+          {"Cache-Control", "CacheControl"},
+          {"x-amz-checksum-crc32", "ChecksumCRC32"},
+          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
+          {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
+          {"x-amz-checksum-md5", "ChecksumMD5"},
+          {"x-amz-checksum-sha1", "ChecksumSHA1"},
+          {"x-amz-checksum-sha256", "ChecksumSHA256"},
+          {"x-amz-checksum-sha512", "ChecksumSHA512"},
+          {"x-amz-checksum-type", "ChecksumType"},
+          {"x-amz-checksum-xxhash128", "ChecksumXXHASH128"},
+          {"x-amz-checksum-xxhash3", "ChecksumXXHASH3"},
+          {"x-amz-checksum-xxhash64", "ChecksumXXHASH64"},
+          {"Content-Disposition", "ContentDisposition"},
+          {"Content-Encoding", "ContentEncoding"},
+          {"Content-Language", "ContentLanguage"},
+          {"Content-Length", "ContentLength"},
+          {"Content-Range", "ContentRange"},
+          {"Content-Type", "ContentType"},
+          {"x-amz-delete-marker", "DeleteMarker"},
+          {"ETag", "ETag"},
+          {"x-amz-expiration", "Expiration"},
           {"Expires", "Expires"},
+          {"Last-Modified", "LastModified"},
           {"x-amz-missing-meta", "MissingMeta"},
-          {"x-amz-request-charged", "RequestCharged"}
+          {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
+          {"x-amz-object-lock-mode", "ObjectLockMode"},
+          {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
+          {"x-amz-mp-parts-count", "PartsCount"},
+          {"x-amz-replication-status", "ReplicationStatus"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-restore", "Restore"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
+          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
+          {"x-amz-storage-class", "StorageClass"},
+          {"x-amz-tagging-count", "TagCount"},
+          {"x-amz-version-id", "VersionId"},
+          {"x-amz-website-redirect-location", "WebsiteRedirectLocation"}
         ]
       )
 
@@ -13558,15 +13591,8 @@ defmodule AWS.S3 do
     query_params = []
 
     query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_buckets) do
-        [{"max-buckets", max_buckets} | query_params]
+      if !is_nil(bucket_region) do
+        [{"bucket-region", bucket_region} | query_params]
       else
         query_params
       end
@@ -13579,8 +13605,15 @@ defmodule AWS.S3 do
       end
 
     query_params =
-      if !is_nil(bucket_region) do
-        [{"bucket-region", bucket_region} | query_params]
+      if !is_nil(max_buckets) do
+        [{"max-buckets", max_buckets} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
       else
         query_params
       end
@@ -13661,15 +13694,15 @@ defmodule AWS.S3 do
     query_params = []
 
     query_params =
-      if !is_nil(max_directory_buckets) do
-        [{"max-directory-buckets", max_directory_buckets} | query_params]
+      if !is_nil(continuation_token) do
+        [{"continuation-token", continuation_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(continuation_token) do
-        [{"continuation-token", continuation_token} | query_params]
+      if !is_nil(max_directory_buckets) do
+        [{"max-directory-buckets", max_directory_buckets} | query_params]
       else
         query_params
       end
@@ -13889,29 +13922,8 @@ defmodule AWS.S3 do
     query_params = []
 
     query_params =
-      if !is_nil(upload_id_marker) do
-        [{"upload-id-marker", upload_id_marker} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_uploads) do
-        [{"max-uploads", max_uploads} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(key_marker) do
-        [{"key-marker", key_marker} | query_params]
+      if !is_nil(delimiter) do
+        [{"delimiter", delimiter} | query_params]
       else
         query_params
       end
@@ -13924,8 +13936,29 @@ defmodule AWS.S3 do
       end
 
     query_params =
-      if !is_nil(delimiter) do
-        [{"delimiter", delimiter} | query_params]
+      if !is_nil(key_marker) do
+        [{"key-marker", key_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_uploads) do
+        [{"max-uploads", max_uploads} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(upload_id_marker) do
+        [{"upload-id-marker", upload_id_marker} | query_params]
       else
         query_params
       end
@@ -14020,15 +14053,8 @@ defmodule AWS.S3 do
     query_params = []
 
     query_params =
-      if !is_nil(version_id) do
-        [{"versionId", version_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_annotation_results) do
-        [{"max-annotation-results", max_annotation_results} | query_params]
+      if !is_nil(annotation_prefix) do
+        [{"annotation-prefix", annotation_prefix} | query_params]
       else
         query_params
       end
@@ -14041,8 +14067,15 @@ defmodule AWS.S3 do
       end
 
     query_params =
-      if !is_nil(annotation_prefix) do
-        [{"annotation-prefix", annotation_prefix} | query_params]
+      if !is_nil(max_annotation_results) do
+        [{"max-annotation-results", max_annotation_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
       else
         query_params
       end
@@ -14160,29 +14193,8 @@ defmodule AWS.S3 do
     query_params = []
 
     query_params =
-      if !is_nil(version_id_marker) do
-        [{"version-id-marker", version_id_marker} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_keys) do
-        [{"max-keys", max_keys} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(key_marker) do
-        [{"key-marker", key_marker} | query_params]
+      if !is_nil(delimiter) do
+        [{"delimiter", delimiter} | query_params]
       else
         query_params
       end
@@ -14195,8 +14207,29 @@ defmodule AWS.S3 do
       end
 
     query_params =
-      if !is_nil(delimiter) do
-        [{"delimiter", delimiter} | query_params]
+      if !is_nil(key_marker) do
+        [{"key-marker", key_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_keys) do
+        [{"max-keys", max_keys} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(version_id_marker) do
+        [{"version-id-marker", version_id_marker} | query_params]
       else
         query_params
       end
@@ -14314,22 +14347,8 @@ defmodule AWS.S3 do
     query_params = []
 
     query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_keys) do
-        [{"max-keys", max_keys} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if !is_nil(delimiter) do
+        [{"delimiter", delimiter} | query_params]
       else
         query_params
       end
@@ -14342,8 +14361,22 @@ defmodule AWS.S3 do
       end
 
     query_params =
-      if !is_nil(delimiter) do
-        [{"delimiter", delimiter} | query_params]
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_keys) do
+        [{"max-keys", max_keys} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
       else
         query_params
       end
@@ -14562,36 +14595,8 @@ defmodule AWS.S3 do
     query_params = []
 
     query_params =
-      if !is_nil(start_after) do
-        [{"start-after", start_after} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_keys) do
-        [{"max-keys", max_keys} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(fetch_owner) do
-        [{"fetch-owner", fetch_owner} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(encoding_type) do
-        [{"encoding-type", encoding_type} | query_params]
+      if !is_nil(continuation_token) do
+        [{"continuation-token", continuation_token} | query_params]
       else
         query_params
       end
@@ -14604,8 +14609,36 @@ defmodule AWS.S3 do
       end
 
     query_params =
-      if !is_nil(continuation_token) do
-        [{"continuation-token", continuation_token} | query_params]
+      if !is_nil(encoding_type) do
+        [{"encoding-type", encoding_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(fetch_owner) do
+        [{"fetch-owner", fetch_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_keys) do
+        [{"max-keys", max_keys} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_after) do
+        [{"start-after", start_after} | query_params]
       else
         query_params
       end
@@ -14817,8 +14850,8 @@ defmodule AWS.S3 do
     query_params = []
 
     query_params =
-      if !is_nil(upload_id) do
-        [{"uploadId", upload_id} | query_params]
+      if !is_nil(max_parts) do
+        [{"max-parts", max_parts} | query_params]
       else
         query_params
       end
@@ -14831,8 +14864,8 @@ defmodule AWS.S3 do
       end
 
     query_params =
-      if !is_nil(max_parts) do
-        [{"max-parts", max_parts} | query_params]
+      if !is_nil(upload_id) do
+        [{"uploadId", upload_id} | query_params]
       else
         query_params
       end
@@ -17599,54 +17632,54 @@ defmodule AWS.S3 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, put_object_errors()}
-  def put_object(%Client{} = client, key, bucket, input, options \\ []) do
+  def put_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=PutObject"
 
     {headers, input} =
       [
-        {"ChecksumCRC32", "x-amz-checksum-crc32"},
-        {"ContentMD5", "Content-MD5"},
-        {"GrantWriteACP", "x-amz-grant-write-acp"},
-        {"WriteOffsetBytes", "x-amz-write-offset-bytes"},
-        {"ChecksumSHA512", "x-amz-checksum-sha512"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
-        {"ChecksumXXHASH128", "x-amz-checksum-xxhash128"},
-        {"GrantFullControl", "x-amz-grant-full-control"},
-        {"ContentLanguage", "Content-Language"},
-        {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
-        {"ContentLength", "Content-Length"},
-        {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
-        {"ContentType", "Content-Type"},
-        {"ChecksumCRC32C", "x-amz-checksum-crc32c"},
-        {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
-        {"GrantRead", "x-amz-grant-read"},
-        {"SSEKMSKeyId", "x-amz-server-side-encryption-aws-kms-key-id"},
         {"ACL", "x-amz-acl"},
+        {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
         {"CacheControl", "Cache-Control"},
-        {"ObjectLockMode", "x-amz-object-lock-mode"},
-        {"StorageClass", "x-amz-storage-class"},
-        {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
-        {"ChecksumMD5", "x-amz-checksum-md5"},
-        {"ServerSideEncryption", "x-amz-server-side-encryption"},
-        {"IfMatch", "If-Match"},
-        {"ContentEncoding", "Content-Encoding"},
-        {"RequestPayer", "x-amz-request-payer"},
-        {"ChecksumXXHASH3", "x-amz-checksum-xxhash3"},
-        {"Tagging", "x-amz-tagging"},
-        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
         {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
-        {"ChecksumSHA1", "x-amz-checksum-sha1"},
-        {"ChecksumXXHASH64", "x-amz-checksum-xxhash64"},
-        {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
-        {"ChecksumSHA256", "x-amz-checksum-sha256"},
+        {"ChecksumCRC32", "x-amz-checksum-crc32"},
+        {"ChecksumCRC32C", "x-amz-checksum-crc32c"},
         {"ChecksumCRC64NVME", "x-amz-checksum-crc64nvme"},
-        {"IfNoneMatch", "If-None-Match"},
+        {"ChecksumMD5", "x-amz-checksum-md5"},
+        {"ChecksumSHA1", "x-amz-checksum-sha1"},
+        {"ChecksumSHA256", "x-amz-checksum-sha256"},
+        {"ChecksumSHA512", "x-amz-checksum-sha512"},
+        {"ChecksumXXHASH128", "x-amz-checksum-xxhash128"},
+        {"ChecksumXXHASH3", "x-amz-checksum-xxhash3"},
+        {"ChecksumXXHASH64", "x-amz-checksum-xxhash64"},
         {"ContentDisposition", "Content-Disposition"},
-        {"WebsiteRedirectLocation", "x-amz-website-redirect-location"},
+        {"ContentEncoding", "Content-Encoding"},
+        {"ContentLanguage", "Content-Language"},
+        {"ContentLength", "Content-Length"},
+        {"ContentMD5", "Content-MD5"},
+        {"ContentType", "Content-Type"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"Expires", "Expires"},
+        {"GrantFullControl", "x-amz-grant-full-control"},
+        {"GrantRead", "x-amz-grant-read"},
         {"GrantReadACP", "x-amz-grant-read-acp"},
+        {"GrantWriteACP", "x-amz-grant-write-acp"},
+        {"IfMatch", "If-Match"},
+        {"IfNoneMatch", "If-None-Match"},
         {"ObjectLockLegalHoldStatus", "x-amz-object-lock-legal-hold"},
-        {"Expires", "Expires"}
+        {"ObjectLockMode", "x-amz-object-lock-mode"},
+        {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
+        {"RequestPayer", "x-amz-request-payer"},
+        {"ServerSideEncryption", "x-amz-server-side-encryption"},
+        {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
+        {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
+        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
+        {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
+        {"SSEKMSKeyId", "x-amz-server-side-encryption-aws-kms-key-id"},
+        {"StorageClass", "x-amz-storage-class"},
+        {"Tagging", "x-amz-tagging"},
+        {"WebsiteRedirectLocation", "x-amz-website-redirect-location"},
+        {"WriteOffsetBytes", "x-amz-write-offset-bytes"}
       ]
       |> Request.build_params(input)
 
@@ -17678,12 +17711,12 @@ defmodule AWS.S3 do
           {"ETag", "ETag"},
           {"x-amz-expiration", "Expiration"},
           {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
+          {"x-amz-object-size", "Size"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
           {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
           {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
           {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"},
-          {"x-amz-object-size", "Size"},
           {"x-amz-version-id", "VersionId"}
         ]
       )
@@ -19484,10 +19517,6 @@ defmodule AWS.S3 do
 
       
 
-  `s3:PutObject`
-
-      
-
   `s3:UpdateObjectEncryption`
 
       
@@ -19962,10 +19991,10 @@ defmodule AWS.S3 do
           {"x-amz-checksum-xxhash64", "ChecksumXXHASH64"},
           {"ETag", "ETag"},
           {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
           {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"}
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"}
         ]
       )
 
@@ -20300,10 +20329,10 @@ defmodule AWS.S3 do
           {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"x-amz-copy-source-version-id", "CopySourceVersionId"},
           {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
           {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"}
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"}
         ]
       )
 
@@ -20407,51 +20436,51 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"AcceptRanges", "x-amz-fwd-header-accept-ranges"},
+        {"BucketKeyEnabled", "x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled"},
+        {"CacheControl", "x-amz-fwd-header-Cache-Control"},
         {"ChecksumCRC32", "x-amz-fwd-header-x-amz-checksum-crc32"},
+        {"ChecksumCRC32C", "x-amz-fwd-header-x-amz-checksum-crc32c"},
+        {"ChecksumCRC64NVME", "x-amz-fwd-header-x-amz-checksum-crc64nvme"},
+        {"ChecksumMD5", "x-amz-fwd-header-x-amz-checksum-md5"},
+        {"ChecksumSHA1", "x-amz-fwd-header-x-amz-checksum-sha1"},
+        {"ChecksumSHA256", "x-amz-fwd-header-x-amz-checksum-sha256"},
         {"ChecksumSHA512", "x-amz-fwd-header-x-amz-checksum-sha512"},
         {"ChecksumXXHASH128", "x-amz-fwd-header-x-amz-checksum-xxhash128"},
-        {"StatusCode", "x-amz-fwd-status"},
+        {"ChecksumXXHASH3", "x-amz-fwd-header-x-amz-checksum-xxhash3"},
+        {"ChecksumXXHASH64", "x-amz-fwd-header-x-amz-checksum-xxhash64"},
+        {"ContentDisposition", "x-amz-fwd-header-Content-Disposition"},
+        {"ContentEncoding", "x-amz-fwd-header-Content-Encoding"},
         {"ContentLanguage", "x-amz-fwd-header-Content-Language"},
+        {"ContentLength", "Content-Length"},
+        {"ContentRange", "x-amz-fwd-header-Content-Range"},
+        {"ContentType", "x-amz-fwd-header-Content-Type"},
+        {"DeleteMarker", "x-amz-fwd-header-x-amz-delete-marker"},
+        {"ETag", "x-amz-fwd-header-ETag"},
+        {"ErrorCode", "x-amz-fwd-error-code"},
+        {"ErrorMessage", "x-amz-fwd-error-message"},
+        {"Expiration", "x-amz-fwd-header-x-amz-expiration"},
+        {"Expires", "x-amz-fwd-header-Expires"},
+        {"LastModified", "x-amz-fwd-header-Last-Modified"},
+        {"MissingMeta", "x-amz-fwd-header-x-amz-missing-meta"},
+        {"ObjectLockLegalHoldStatus", "x-amz-fwd-header-x-amz-object-lock-legal-hold"},
+        {"ObjectLockMode", "x-amz-fwd-header-x-amz-object-lock-mode"},
+        {"ObjectLockRetainUntilDate", "x-amz-fwd-header-x-amz-object-lock-retain-until-date"},
+        {"PartsCount", "x-amz-fwd-header-x-amz-mp-parts-count"},
+        {"ReplicationStatus", "x-amz-fwd-header-x-amz-replication-status"},
+        {"RequestCharged", "x-amz-fwd-header-x-amz-request-charged"},
+        {"RequestRoute", "x-amz-request-route"},
+        {"RequestToken", "x-amz-request-token"},
+        {"Restore", "x-amz-fwd-header-x-amz-restore"},
+        {"ServerSideEncryption", "x-amz-fwd-header-x-amz-server-side-encryption"},
         {"SSECustomerAlgorithm",
          "x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm"},
-        {"ContentLength", "Content-Length"},
-        {"BucketKeyEnabled", "x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled"},
-        {"Expiration", "x-amz-fwd-header-x-amz-expiration"},
-        {"ContentType", "x-amz-fwd-header-Content-Type"},
-        {"ChecksumCRC32C", "x-amz-fwd-header-x-amz-checksum-crc32c"},
-        {"PartsCount", "x-amz-fwd-header-x-amz-mp-parts-count"},
-        {"ErrorMessage", "x-amz-fwd-error-message"},
-        {"ContentRange", "x-amz-fwd-header-Content-Range"},
-        {"LastModified", "x-amz-fwd-header-Last-Modified"},
-        {"SSEKMSKeyId", "x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"},
-        {"CacheControl", "x-amz-fwd-header-Cache-Control"},
-        {"ObjectLockMode", "x-amz-fwd-header-x-amz-object-lock-mode"},
-        {"StorageClass", "x-amz-fwd-header-x-amz-storage-class"},
-        {"ObjectLockRetainUntilDate", "x-amz-fwd-header-x-amz-object-lock-retain-until-date"},
-        {"ChecksumMD5", "x-amz-fwd-header-x-amz-checksum-md5"},
-        {"ServerSideEncryption", "x-amz-fwd-header-x-amz-server-side-encryption"},
-        {"ContentEncoding", "x-amz-fwd-header-Content-Encoding"},
-        {"ErrorCode", "x-amz-fwd-error-code"},
-        {"ETag", "x-amz-fwd-header-ETag"},
-        {"VersionId", "x-amz-fwd-header-x-amz-version-id"},
-        {"RequestToken", "x-amz-request-token"},
-        {"ChecksumXXHASH3", "x-amz-fwd-header-x-amz-checksum-xxhash3"},
         {"SSECustomerKeyMD5", "x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5"},
-        {"ReplicationStatus", "x-amz-fwd-header-x-amz-replication-status"},
-        {"RequestRoute", "x-amz-request-route"},
-        {"ChecksumSHA1", "x-amz-fwd-header-x-amz-checksum-sha1"},
-        {"ChecksumXXHASH64", "x-amz-fwd-header-x-amz-checksum-xxhash64"},
-        {"ChecksumSHA256", "x-amz-fwd-header-x-amz-checksum-sha256"},
-        {"Restore", "x-amz-fwd-header-x-amz-restore"},
-        {"ChecksumCRC64NVME", "x-amz-fwd-header-x-amz-checksum-crc64nvme"},
+        {"SSEKMSKeyId", "x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"},
+        {"StatusCode", "x-amz-fwd-status"},
+        {"StorageClass", "x-amz-fwd-header-x-amz-storage-class"},
         {"TagCount", "x-amz-fwd-header-x-amz-tagging-count"},
-        {"ContentDisposition", "x-amz-fwd-header-Content-Disposition"},
-        {"DeleteMarker", "x-amz-fwd-header-x-amz-delete-marker"},
-        {"ObjectLockLegalHoldStatus", "x-amz-fwd-header-x-amz-object-lock-legal-hold"},
-        {"AcceptRanges", "x-amz-fwd-header-accept-ranges"},
-        {"Expires", "x-amz-fwd-header-Expires"},
-        {"MissingMeta", "x-amz-fwd-header-x-amz-missing-meta"},
-        {"RequestCharged", "x-amz-fwd-header-x-amz-request-charged"}
+        {"VersionId", "x-amz-fwd-header-x-amz-version-id"}
       ]
       |> Request.build_params(input)
 

@@ -13,12 +13,12 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      sns_configuration() :: %{
-        "TopicArn" => String.t() | atom()
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type sns_configuration() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -36,35 +36,46 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      delete_scheduled_query_request() :: %{
-        required("ScheduledQueryArn") => String.t() | atom()
+      cancel_query_request() :: %{
+        required("QueryId") => String.t() | atom()
       }
       
   """
-  @type delete_scheduled_query_request() :: %{(String.t() | atom()) => any()}
+  @type cancel_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      target_configuration() :: %{
-        "TimestreamConfiguration" => timestream_configuration()
+      cancel_query_response() :: %{
+        "CancellationMessage" => String.t() | atom()
       }
       
   """
-  @type target_configuration() :: %{(String.t() | atom()) => any()}
+  @type cancel_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_report_location() :: %{
-        "BucketName" => String.t() | atom(),
-        "ObjectKey" => String.t() | atom()
+      column_info() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => type()
       }
       
   """
-  @type s3_report_location() :: %{(String.t() | atom()) => any()}
+  @type column_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -90,12 +101,91 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      row() :: %{
-        "Data" => list(datum())
+      create_scheduled_query_response() :: %{
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type row() :: %{(String.t() | atom()) => any()}
+  @type create_scheduled_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      datum() :: %{
+        "ArrayValue" => list(datum()),
+        "NullValue" => boolean(),
+        "RowValue" => row(),
+        "ScalarValue" => String.t() | atom(),
+        "TimeSeriesValue" => list(time_series_data_point())
+      }
+      
+  """
+  @type datum() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_scheduled_query_request() :: %{
+        required("ScheduledQueryArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_scheduled_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_settings_request() :: %{}
+      
+  """
+  @type describe_account_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_settings_response() :: %{
+        "MaxQueryTCU" => integer(),
+        "QueryCompute" => query_compute_response(),
+        "QueryPricingModel" => list(any())
+      }
+      
+  """
+  @type describe_account_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_endpoints_request() :: %{}
+      
+  """
+  @type describe_endpoints_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_endpoints_response() :: %{
+        "Endpoints" => list(endpoint())
+      }
+      
+  """
+  @type describe_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_scheduled_query_request() :: %{
+        required("ScheduledQueryArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_scheduled_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -112,37 +202,13 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
+      dimension_mapping() :: %{
+        "DimensionValueType" => list(any()),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      column_info() :: %{
-        "Name" => String.t() | atom(),
-        "Type" => type()
-      }
-      
-  """
-  @type column_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_spatial_coverage_max() :: %{
-        "PartitionKey" => list(String.t() | atom()),
-        "TableArn" => String.t() | atom(),
-        "Value" => float()
-      }
-      
-  """
-  @type query_spatial_coverage_max() :: %{(String.t() | atom()) => any()}
+  @type dimension_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -160,12 +226,165 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      access_denied_exception() :: %{
+      error_report_configuration() :: %{
+        "S3Configuration" => s3_configuration()
+      }
+      
+  """
+  @type error_report_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      error_report_location() :: %{
+        "S3ReportLocation" => s3_report_location()
+      }
+      
+  """
+  @type error_report_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execute_scheduled_query_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("QueryInsights") => scheduled_query_insights(),
+        required("InvocationTime") => non_neg_integer(),
+        required("ScheduledQueryArn") => String.t() | atom()
+      }
+      
+  """
+  @type execute_scheduled_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_stats() :: %{
+        "BytesMetered" => float(),
+        "CumulativeBytesScanned" => float(),
+        "DataWrites" => float(),
+        "ExecutionTimeInMillis" => float(),
+        "QueryResultRows" => float(),
+        "RecordsIngested" => float()
+      }
+      
+  """
+  @type execution_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_endpoint_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_endpoint_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      last_update() :: %{
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "TargetQueryTCU" => integer()
+      }
+      
+  """
+  @type last_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_scheduled_queries_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_scheduled_queries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_scheduled_queries_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ScheduledQueries" => list(scheduled_query())
+      }
+      
+  """
+  @type list_scheduled_queries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mixed_measure_mapping() :: %{
+        "MeasureName" => String.t() | atom(),
+        "MeasureValueType" => list(any()),
+        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
+        "SourceColumn" => String.t() | atom(),
+        "TargetMeasureName" => String.t() | atom()
+      }
+      
+  """
+  @type mixed_measure_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      multi_measure_attribute_mapping() :: %{
+        "MeasureValueType" => list(any()),
+        "SourceColumn" => String.t() | atom(),
+        "TargetMultiMeasureAttributeName" => String.t() | atom()
+      }
+      
+  """
+  @type multi_measure_attribute_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -183,53 +402,6 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      invalid_endpoint_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_endpoint_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_query_request() :: %{
-        required("QueryId") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_account_settings_request() :: %{
-        optional("MaxQueryTCU") => integer(),
-        optional("QueryCompute") => query_compute_request(),
-        optional("QueryPricingModel") => list(any())
-      }
-      
-  """
-  @type update_account_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       notification_configuration() :: %{
         "SnsConfiguration" => sns_configuration()
       }
@@ -241,24 +413,38 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      update_scheduled_query_request() :: %{
-        required("ScheduledQueryArn") => String.t() | atom(),
-        required("State") => list(any())
+      parameter_mapping() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => type()
       }
       
   """
-  @type update_scheduled_query_request() :: %{(String.t() | atom()) => any()}
+  @type parameter_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      error_report_configuration() :: %{
-        "S3Configuration" => s3_configuration()
+      prepare_query_request() :: %{
+        optional("ValidateOnly") => boolean(),
+        required("QueryString") => String.t() | atom()
       }
       
   """
-  @type error_report_configuration() :: %{(String.t() | atom()) => any()}
+  @type prepare_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      prepare_query_response() :: %{
+        "Columns" => list(select_column()),
+        "Parameters" => list(parameter_mapping()),
+        "QueryString" => String.t() | atom()
+      }
+      
+  """
+  @type prepare_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -276,12 +462,60 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      scheduled_query_insights() :: %{
+      provisioned_capacity_response() :: %{
+        "ActiveQueryTCU" => integer(),
+        "LastUpdate" => last_update(),
+        "NotificationConfiguration" => account_settings_notification_configuration()
+      }
+      
+  """
+  @type provisioned_capacity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_compute_request() :: %{
+        "ComputeMode" => list(any()),
+        "ProvisionedCapacity" => provisioned_capacity_request()
+      }
+      
+  """
+  @type query_compute_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_compute_response() :: %{
+        "ComputeMode" => list(any()),
+        "ProvisionedCapacity" => provisioned_capacity_response()
+      }
+      
+  """
+  @type query_compute_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_execution_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type query_execution_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_insights() :: %{
         "Mode" => list(any())
       }
       
   """
-  @type scheduled_query_insights() :: %{(String.t() | atom()) => any()}
+  @type query_insights() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -305,34 +539,170 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      target_destination() :: %{
-        "TimestreamDestination" => timestream_destination()
+      query_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("MaxRows") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("QueryInsights") => query_insights(),
+        required("QueryString") => String.t() | atom()
       }
       
   """
-  @type target_destination() :: %{(String.t() | atom()) => any()}
+  @type query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cancel_query_response() :: %{
-        "CancellationMessage" => String.t() | atom()
+      query_response() :: %{
+        "ColumnInfo" => list(column_info()),
+        "NextToken" => String.t() | atom(),
+        "QueryId" => String.t() | atom(),
+        "QueryInsightsResponse" => query_insights_response(),
+        "QueryStatus" => query_status(),
+        "Rows" => list(row())
       }
       
   """
-  @type cancel_query_response() :: %{(String.t() | atom()) => any()}
+  @type query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
+      query_spatial_coverage() :: %{
+        "Max" => query_spatial_coverage_max()
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type query_spatial_coverage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_spatial_coverage_max() :: %{
+        "PartitionKey" => list(String.t() | atom()),
+        "TableArn" => String.t() | atom(),
+        "Value" => float()
+      }
+      
+  """
+  @type query_spatial_coverage_max() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_status() :: %{
+        "CumulativeBytesMetered" => float(),
+        "CumulativeBytesScanned" => float(),
+        "ProgressPercentage" => float()
+      }
+      
+  """
+  @type query_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_temporal_range() :: %{
+        "Max" => query_temporal_range_max()
+      }
+      
+  """
+  @type query_temporal_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_temporal_range_max() :: %{
+        "TableArn" => String.t() | atom(),
+        "Value" => float()
+      }
+      
+  """
+  @type query_temporal_range_max() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ScheduledQueryArn" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      row() :: %{
+        "Data" => list(datum())
+      }
+      
+  """
+  @type row() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_configuration() :: %{
+        "BucketName" => String.t() | atom(),
+        "EncryptionOption" => list(any()),
+        "ObjectKeyPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_report_location() :: %{
+        "BucketName" => String.t() | atom(),
+        "ObjectKey" => String.t() | atom()
+      }
+      
+  """
+  @type s3_report_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schedule_configuration() :: %{
+        "ScheduleExpression" => String.t() | atom()
+      }
+      
+  """
+  @type schedule_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduled_query() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "ErrorReportConfiguration" => error_report_configuration(),
+        "LastRunStatus" => list(any()),
+        "Name" => String.t() | atom(),
+        "NextInvocationTime" => non_neg_integer(),
+        "PreviousInvocationTime" => non_neg_integer(),
+        "State" => list(any()),
+        "TargetDestination" => target_destination()
+      }
+      
+  """
+  @type scheduled_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -363,85 +733,27 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      last_update() :: %{
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "TargetQueryTCU" => integer()
+      scheduled_query_insights() :: %{
+        "Mode" => list(any())
       }
       
   """
-  @type last_update() :: %{(String.t() | atom()) => any()}
+  @type scheduled_query_insights() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      multi_measure_attribute_mapping() :: %{
-        "MeasureValueType" => list(any()),
-        "SourceColumn" => String.t() | atom(),
-        "TargetMultiMeasureAttributeName" => String.t() | atom()
+      scheduled_query_insights_response() :: %{
+        "OutputBytes" => float(),
+        "OutputRows" => float(),
+        "QuerySpatialCoverage" => query_spatial_coverage(),
+        "QueryTableCount" => float(),
+        "QueryTemporalRange" => query_temporal_range()
       }
       
   """
-  @type multi_measure_attribute_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scheduled_query() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "ErrorReportConfiguration" => error_report_configuration(),
-        "LastRunStatus" => list(any()),
-        "Name" => String.t() | atom(),
-        "NextInvocationTime" => non_neg_integer(),
-        "PreviousInvocationTime" => non_neg_integer(),
-        "State" => list(any()),
-        "TargetDestination" => target_destination()
-      }
-      
-  """
-  @type scheduled_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_settings_response() :: %{
-        "MaxQueryTCU" => integer(),
-        "QueryCompute" => query_compute_response(),
-        "QueryPricingModel" => list(any())
-      }
-      
-  """
-  @type describe_account_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mixed_measure_mapping() :: %{
-        "MeasureName" => String.t() | atom(),
-        "MeasureValueType" => list(any()),
-        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
-        "SourceColumn" => String.t() | atom(),
-        "TargetMeasureName" => String.t() | atom()
-      }
-      
-  """
-  @type mixed_measure_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type scheduled_query_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -464,49 +776,50 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      query_status() :: %{
-        "CumulativeBytesMetered" => float(),
-        "CumulativeBytesScanned" => float(),
-        "ProgressPercentage" => float()
+      select_column() :: %{
+        "Aliased" => boolean(),
+        "DatabaseName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
+        "Type" => type()
       }
       
   """
-  @type query_status() :: %{(String.t() | atom()) => any()}
+  @type select_column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ScheduledQueryArn" => String.t() | atom()
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      query_spatial_coverage() :: %{
-        "Max" => query_spatial_coverage_max()
+      sns_configuration() :: %{
+        "TopicArn" => String.t() | atom()
       }
       
   """
-  @type query_spatial_coverage() :: %{(String.t() | atom()) => any()}
+  @type sns_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      dimension_mapping() :: %{
-        "DimensionValueType" => list(any()),
-        "Name" => String.t() | atom()
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type dimension_mapping() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -524,18 +837,6 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      list_scheduled_queries_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_scheduled_queries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       tag_resource_response() :: %{}
       
   """
@@ -545,154 +846,34 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      execute_scheduled_query_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("QueryInsights") => scheduled_query_insights(),
-        required("InvocationTime") => non_neg_integer(),
-        required("ScheduledQueryArn") => String.t() | atom()
+      target_configuration() :: %{
+        "TimestreamConfiguration" => timestream_configuration()
       }
       
   """
-  @type execute_scheduled_query_request() :: %{(String.t() | atom()) => any()}
+  @type target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_scheduled_queries_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ScheduledQueries" => list(scheduled_query())
+      target_destination() :: %{
+        "TimestreamDestination" => timestream_destination()
       }
       
   """
-  @type list_scheduled_queries_response() :: %{(String.t() | atom()) => any()}
+  @type target_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_endpoints_response() :: %{
-        "Endpoints" => list(endpoint())
-      }
-      
-  """
-  @type describe_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_stats() :: %{
-        "BytesMetered" => float(),
-        "CumulativeBytesScanned" => float(),
-        "DataWrites" => float(),
-        "ExecutionTimeInMillis" => float(),
-        "QueryResultRows" => float(),
-        "RecordsIngested" => float()
-      }
-      
-  """
-  @type execution_stats() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
+      throttling_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      prepare_query_request() :: %{
-        optional("ValidateOnly") => boolean(),
-        required("QueryString") => String.t() | atom()
-      }
-      
-  """
-  @type prepare_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_account_settings_response() :: %{
-        "MaxQueryTCU" => integer(),
-        "QueryCompute" => query_compute_response(),
-        "QueryPricingModel" => list(any())
-      }
-      
-  """
-  @type update_account_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_scheduled_query_response() :: %{
-        "Arn" => String.t() | atom()
-      }
-      
-  """
-  @type create_scheduled_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_compute_request() :: %{
-        "ComputeMode" => list(any()),
-        "ProvisionedCapacity" => provisioned_capacity_request()
-      }
-      
-  """
-  @type query_compute_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_insights() :: %{
-        "Mode" => list(any())
-      }
-      
-  """
-  @type query_insights() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_settings_request() :: %{}
-      
-  """
-  @type describe_account_settings_request() :: %{}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -710,67 +891,18 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      query_response() :: %{
-        "ColumnInfo" => list(column_info()),
-        "NextToken" => String.t() | atom(),
-        "QueryId" => String.t() | atom(),
-        "QueryInsightsResponse" => query_insights_response(),
-        "QueryStatus" => query_status(),
-        "Rows" => list(row())
-      }
-      
-  """
-  @type query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_temporal_range_max() :: %{
-        "TableArn" => String.t() | atom(),
-        "Value" => float()
-      }
-      
-  """
-  @type query_temporal_range_max() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      schedule_configuration() :: %{
-        "ScheduleExpression" => String.t() | atom()
-      }
-      
-  """
-  @type schedule_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      select_column() :: %{
-        "Aliased" => boolean(),
+      timestream_configuration() :: %{
         "DatabaseName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
+        "DimensionMappings" => list(dimension_mapping()),
+        "MeasureNameColumn" => String.t() | atom(),
+        "MixedMeasureMappings" => list(mixed_measure_mapping()),
+        "MultiMeasureMappings" => multi_measure_mappings(),
         "TableName" => String.t() | atom(),
-        "Type" => type()
+        "TimeColumn" => String.t() | atom()
       }
       
   """
-  @type select_column() :: %{(String.t() | atom()) => any()}
+  @type timestream_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -802,309 +934,177 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
-      describe_scheduled_query_request() :: %{
-        required("ScheduledQueryArn") => String.t() | atom()
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type describe_scheduled_query_request() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      query_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("MaxRows") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("QueryInsights") => query_insights(),
-        required("QueryString") => String.t() | atom()
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_account_settings_request() :: %{
+        optional("MaxQueryTCU") => integer(),
+        optional("QueryCompute") => query_compute_request(),
+        optional("QueryPricingModel") => list(any())
       }
       
   """
-  @type query_request() :: %{(String.t() | atom()) => any()}
+  @type update_account_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_configuration() :: %{
-        "BucketName" => String.t() | atom(),
-        "EncryptionOption" => list(any()),
-        "ObjectKeyPrefix" => String.t() | atom()
+      update_account_settings_response() :: %{
+        "MaxQueryTCU" => integer(),
+        "QueryCompute" => query_compute_response(),
+        "QueryPricingModel" => list(any())
       }
       
   """
-  @type s3_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_account_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_endpoints_request() :: %{}
-      
-  """
-  @type describe_endpoints_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_compute_response() :: %{
-        "ComputeMode" => list(any()),
-        "ProvisionedCapacity" => provisioned_capacity_response()
+      update_scheduled_query_request() :: %{
+        required("ScheduledQueryArn") => String.t() | atom(),
+        required("State") => list(any())
       }
       
   """
-  @type query_compute_response() :: %{(String.t() | atom()) => any()}
+  @type update_scheduled_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      timestream_configuration() :: %{
-        "DatabaseName" => String.t() | atom(),
-        "DimensionMappings" => list(dimension_mapping()),
-        "MeasureNameColumn" => String.t() | atom(),
-        "MixedMeasureMappings" => list(mixed_measure_mapping()),
-        "MultiMeasureMappings" => multi_measure_mappings(),
-        "TableName" => String.t() | atom(),
-        "TimeColumn" => String.t() | atom()
-      }
-      
-  """
-  @type timestream_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scheduled_query_insights_response() :: %{
-        "OutputBytes" => float(),
-        "OutputRows" => float(),
-        "QuerySpatialCoverage" => query_spatial_coverage(),
-        "QueryTableCount" => float(),
-        "QueryTemporalRange" => query_temporal_range()
-      }
-      
-  """
-  @type scheduled_query_insights_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      prepare_query_response() :: %{
-        "Columns" => list(select_column()),
-        "Parameters" => list(parameter_mapping()),
-        "QueryString" => String.t() | atom()
-      }
-      
-  """
-  @type prepare_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      datum() :: %{
-        "ArrayValue" => list(datum()),
-        "NullValue" => boolean(),
-        "RowValue" => row(),
-        "ScalarValue" => String.t() | atom(),
-        "TimeSeriesValue" => list(time_series_data_point())
-      }
-      
-  """
-  @type datum() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_temporal_range() :: %{
-        "Max" => query_temporal_range_max()
-      }
-      
-  """
-  @type query_temporal_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      error_report_location() :: %{
-        "S3ReportLocation" => s3_report_location()
-      }
-      
-  """
-  @type error_report_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioned_capacity_response() :: %{
-        "ActiveQueryTCU" => integer(),
-        "LastUpdate" => last_update(),
-        "NotificationConfiguration" => account_settings_notification_configuration()
-      }
-      
-  """
-  @type provisioned_capacity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parameter_mapping() :: %{
-        "Name" => String.t() | atom(),
-        "Type" => type()
-      }
-      
-  """
-  @type parameter_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_execution_exception() :: %{
+      validation_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type query_execution_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type cancel_query_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | invalid_endpoint_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_scheduled_query_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | invalid_endpoint_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_scheduled_query_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_account_settings_errors() ::
-          internal_server_exception()
+          throttling_exception()
           | invalid_endpoint_exception()
+          | internal_server_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_endpoints_errors() ::
-          internal_server_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | internal_server_exception()
 
   @type describe_scheduled_query_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type execute_scheduled_query_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_scheduled_queries_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | invalid_endpoint_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
 
   @type prepare_query_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | invalid_endpoint_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type query_errors() ::
-          query_execution_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | query_execution_exception()
+          | invalid_endpoint_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
 
   @type update_account_settings_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | invalid_endpoint_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_scheduled_query_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | invalid_endpoint_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_endpoint_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

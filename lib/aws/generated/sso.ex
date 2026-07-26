@@ -267,15 +267,15 @@ defmodule AWS.SSO do
     query_params = []
 
     query_params =
-      if !is_nil(role_name) do
-        [{"role_name", role_name} | query_params]
+      if !is_nil(account_id) do
+        [{"account_id", account_id} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"account_id", account_id} | query_params]
+      if !is_nil(role_name) do
+        [{"role_name", role_name} | query_params]
       else
         query_params
       end
@@ -321,8 +321,8 @@ defmodule AWS.SSO do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if !is_nil(account_id) do
+        [{"account_id", account_id} | query_params]
       else
         query_params
       end
@@ -335,8 +335,8 @@ defmodule AWS.SSO do
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"account_id", account_id} | query_params]
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
       else
         query_params
       end
@@ -385,15 +385,15 @@ defmodule AWS.SSO do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max_result", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_result", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
       else
         query_params
       end

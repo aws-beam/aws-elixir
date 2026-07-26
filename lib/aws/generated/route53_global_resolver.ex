@@ -25,6 +25,17 @@ defmodule AWS.Route53GlobalResolver do
 
   ## Example:
 
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_sources_item() :: %{
         "arn" => String.t() | atom(),
         "cidr" => String.t() | atom(),
@@ -40,323 +51,6 @@ defmodule AWS.Route53GlobalResolver do
 
   """
   @type access_sources_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_firewall_rule_output() :: %{
-        "failures" => list(batch_create_firewall_rule_output_item()),
-        "successes" => list(batch_create_firewall_rule_output_item())
-      }
-
-  """
-  @type batch_create_firewall_rule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_access_token_input() :: %{}
-
-  """
-  @type get_access_token_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_firewall_domains_input() :: %{
-        required("domains") => list(String.t() | atom()),
-        required("operation") => [String.t() | atom()]
-      }
-
-  """
-  @type update_firewall_domains_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_firewall_domains_output() :: %{
-        "domains" => list(String.t() | atom()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_firewall_domains_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_firewall_rule_output_item() :: %{
-        "code" => [integer()],
-        "firewallRule" => batch_delete_firewall_rule_result(),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type batch_delete_firewall_rule_output_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dns_view_summary() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnssecValidation" => list(any()),
-        "ednsClientSubnet" => list(any()),
-        "firewallRulesFailOpen" => list(any()),
-        "globalResolverId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type dns_view_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_firewall_rule_input() :: %{
-        required("firewallRules") => list(batch_delete_firewall_rule_input_item())
-      }
-
-  """
-  @type batch_delete_firewall_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_firewall_domain_lists_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_managed_firewall_domain_lists_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_dns_view_output() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnssecValidation" => list(any()),
-        "ednsClientSubnet" => list(any()),
-        "firewallRulesFailOpen" => list(any()),
-        "globalResolverId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type disable_dns_view_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dns_view_output() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnssecValidation" => list(any()),
-        "ednsClientSubnet" => list(any()),
-        "firewallRulesFailOpen" => list(any()),
-        "globalResolverId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type create_dns_view_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_token_input() :: %{}
-
-  """
-  @type delete_access_token_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_firewall_domain_lists_input() :: %{
-        optional("globalResolverId") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_firewall_domain_lists_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_firewall_rule_output() :: %{
-        "action" => list(any()),
-        "blockOverrideDnsType" => list(any()),
-        "blockOverrideDomain" => String.t() | atom(),
-        "blockOverrideTtl" => integer(),
-        "blockResponse" => list(any()),
-        "confidenceThreshold" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnsAdvancedProtection" => list(any()),
-        "dnsViewId" => String.t() | atom(),
-        "firewallDomainListId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "priority" => float(),
-        "queryType" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_firewall_rule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_access_token_output() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "dnsViewId" => String.t() | atom(),
-        "expiresAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type create_access_token_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dns_view_output() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnssecValidation" => list(any()),
-        "ednsClientSubnet" => list(any()),
-        "firewallRulesFailOpen" => list(any()),
-        "globalResolverId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_dns_view_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_access_token_input() :: %{
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type update_access_token_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_access_source_output() :: %{
-        "arn" => String.t() | atom(),
-        "cidr" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "dnsViewId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "ipAddressType" => list(any()),
-        "name" => String.t() | atom(),
-        "protocol" => list(any()),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_access_source_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_firewall_domains_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_firewall_domains_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_hosted_zone_associations_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_hosted_zone_associations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -381,39 +75,6 @@ defmodule AWS.Route53GlobalResolver do
 
   ## Example:
 
-      get_global_resolver_input() :: %{}
-
-  """
-  @type get_global_resolver_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_global_resolver_output() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnsName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "ipAddressType" => list(any()),
-        "ipv4Addresses" => list(String.t() | atom()),
-        "ipv6Addresses" => list(String.t() | atom()),
-        "name" => String.t() | atom(),
-        "observabilityRegion" => String.t() | atom(),
-        "regions" => list(String.t() | atom()),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type create_global_resolver_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       associate_hosted_zone_input() :: %{
         required("name") => String.t() | atom(),
         required("resourceArn") => String.t() | atom()
@@ -426,305 +87,30 @@ defmodule AWS.Route53GlobalResolver do
 
   ## Example:
 
-      list_global_resolvers_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_global_resolvers_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_hosted_zone_associations_output() :: %{
-        "hostedZoneAssociations" => list(hosted_zone_association_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_hosted_zone_associations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_firewall_domain_lists_output() :: %{
-        "managedFirewallDomainLists" => list(managed_firewall_domain_lists_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_managed_firewall_domain_lists_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_firewall_domain_lists_output() :: %{
-        "firewallDomainLists" => list(firewall_domain_lists_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_firewall_domain_lists_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_token_output() :: %{
-        "deletedAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_access_token_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dns_view_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("dnssecValidation") => list(any()),
-        optional("ednsClientSubnet") => list(any()),
-        optional("firewallRulesFailOpen") => list(any()),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_dns_view_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dns_views_output() :: %{
-        "dnsViews" => list(dns_view_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_dns_views_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_access_token_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("expiresAt") => non_neg_integer(),
-        optional("name") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_access_token_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_firewall_domain_list_output() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
+      associate_hosted_zone_output() :: %{
         "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "domainCount" => [integer()],
-        "globalResolverId" => String.t() | atom(),
+        "hostedZoneId" => String.t() | atom(),
+        "hostedZoneName" => String.t() | atom(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "status" => list(any()),
-        "statusMessage" => [String.t() | atom()],
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_firewall_domain_list_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dns_view_output() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnssecValidation" => list(any()),
-        "ednsClientSubnet" => list(any()),
-        "firewallRulesFailOpen" => list(any()),
-        "globalResolverId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type delete_dns_view_output() :: %{(String.t() | atom()) => any()}
+  @type associate_hosted_zone_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_global_resolver_output() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnsName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "ipAddressType" => list(any()),
-        "ipv4Addresses" => list(String.t() | atom()),
-        "ipv6Addresses" => list(String.t() | atom()),
-        "name" => String.t() | atom(),
-        "observabilityRegion" => String.t() | atom(),
-        "regions" => list(String.t() | atom()),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
+      batch_create_firewall_rule_input() :: %{
+        required("firewallRules") => list(batch_create_firewall_rule_input_item())
       }
 
   """
-  @type delete_global_resolver_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_global_resolver_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("ipAddressType") => list(any()),
-        optional("name") => String.t() | atom(),
-        optional("observabilityRegion") => String.t() | atom(),
-        optional("regions") => list(String.t() | atom())
-      }
-
-  """
-  @type update_global_resolver_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_global_resolver_input() :: %{}
-
-  """
-  @type delete_global_resolver_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_global_resolver_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("ipAddressType") => list(any()),
-        optional("observabilityRegion") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("regions") => list(String.t() | atom())
-      }
-
-  """
-  @type create_global_resolver_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_firewall_rule_input() :: %{
-        optional("blockOverrideDnsType") => list(any()),
-        optional("blockOverrideDomain") => String.t() | atom(),
-        optional("blockOverrideTtl") => integer(),
-        optional("blockResponse") => list(any()),
-        optional("clientToken") => String.t() | atom(),
-        optional("confidenceThreshold") => list(any()),
-        optional("description") => String.t() | atom(),
-        optional("dnsAdvancedProtection") => list(any()),
-        optional("firewallDomainListId") => String.t() | atom(),
-        optional("priority") => float(),
-        optional("qType") => String.t() | atom(),
-        required("action") => list(any()),
-        required("dnsViewId") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_firewall_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_dns_view_input() :: %{}
-
-  """
-  @type disable_dns_view_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_firewall_domain_list_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_firewall_domain_list_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_hosted_zone_association_input() :: %{}
-
-  """
-  @type get_hosted_zone_association_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_firewall_rule_output_item() :: %{
-        "code" => [integer()],
-        "firewallRule" => batch_update_firewall_rule_result(),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type batch_update_firewall_rule_output_item() :: %{(String.t() | atom()) => any()}
+  @type batch_create_firewall_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -754,111 +140,38 @@ defmodule AWS.Route53GlobalResolver do
 
   ## Example:
 
-      get_access_token_output() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "dnsViewId" => String.t() | atom(),
-        "expiresAt" => non_neg_integer(),
-        "globalResolverId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "value" => String.t() | atom()
+      batch_create_firewall_rule_output() :: %{
+        "failures" => list(batch_create_firewall_rule_output_item()),
+        "successes" => list(batch_create_firewall_rule_output_item())
       }
 
   """
-  @type get_access_token_output() :: %{(String.t() | atom()) => any()}
+  @type batch_create_firewall_rule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+      batch_create_firewall_rule_output_item() :: %{
+        "code" => [integer()],
+        "firewallRule" => batch_create_firewall_rule_result(),
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type batch_create_firewall_rule_output_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      managed_firewall_domain_lists_item() :: %{
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "managedListType" => [String.t() | atom()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type managed_firewall_domain_lists_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_hosted_zone_input() :: %{}
-
-  """
-  @type disassociate_hosted_zone_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      firewall_domain_lists_item() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "globalResolverId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type firewall_domain_lists_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_sources_output() :: %{
-        "accessSources" => list(access_sources_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_access_sources_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_firewall_rule_output() :: %{
+      batch_create_firewall_rule_result() :: %{
         "action" => list(any()),
         "blockOverrideDnsType" => list(any()),
         "blockOverrideDomain" => String.t() | atom(),
         "blockOverrideTtl" => integer(),
         "blockResponse" => list(any()),
+        "clientToken" => String.t() | atom(),
         "confidenceThreshold" => list(any()),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
@@ -866,6 +179,7 @@ defmodule AWS.Route53GlobalResolver do
         "dnsViewId" => String.t() | atom(),
         "firewallDomainListId" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "managedDomainListName" => String.t() | atom(),
         "name" => String.t() | atom(),
         "priority" => float(),
         "queryType" => String.t() | atom(),
@@ -874,16 +188,100 @@ defmodule AWS.Route53GlobalResolver do
       }
 
   """
-  @type delete_firewall_rule_output() :: %{(String.t() | atom()) => any()}
+  @type batch_create_firewall_rule_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_firewall_domain_list_input() :: %{}
+      batch_delete_firewall_rule_input() :: %{
+        required("firewallRules") => list(batch_delete_firewall_rule_input_item())
+      }
 
   """
-  @type delete_firewall_domain_list_input() :: %{}
+  @type batch_delete_firewall_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_firewall_rule_input_item() :: %{
+        "firewallRuleId" => String.t() | atom()
+      }
+
+  """
+  @type batch_delete_firewall_rule_input_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_firewall_rule_output() :: %{
+        "failures" => list(batch_delete_firewall_rule_output_item()),
+        "successes" => list(batch_delete_firewall_rule_output_item())
+      }
+
+  """
+  @type batch_delete_firewall_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_firewall_rule_output_item() :: %{
+        "code" => [integer()],
+        "firewallRule" => batch_delete_firewall_rule_result(),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_delete_firewall_rule_output_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_firewall_rule_result() :: %{
+        "clientToken" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type batch_delete_firewall_rule_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_firewall_rule_input() :: %{
+        required("firewallRules") => list(batch_update_firewall_rule_input_item())
+      }
+
+  """
+  @type batch_update_firewall_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_firewall_rule_input_item() :: %{
+        "action" => list(any()),
+        "blockOverrideDnsType" => list(any()),
+        "blockOverrideDomain" => String.t() | atom(),
+        "blockOverrideTtl" => integer(),
+        "blockResponse" => list(any()),
+        "confidenceThreshold" => list(any()),
+        "description" => String.t() | atom(),
+        "dnsAdvancedProtection" => list(any()),
+        "firewallRuleId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "priority" => float()
+      }
+
+  """
+  @type batch_update_firewall_rule_input_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -901,24 +299,125 @@ defmodule AWS.Route53GlobalResolver do
 
   ## Example:
 
-      delete_firewall_domain_list_output() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any())
+      batch_update_firewall_rule_output_item() :: %{
+        "code" => [integer()],
+        "firewallRule" => batch_update_firewall_rule_result(),
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type delete_firewall_domain_list_output() :: %{(String.t() | atom()) => any()}
+  @type batch_update_firewall_rule_output_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_response() :: %{}
+      batch_update_firewall_rule_result() :: %{
+        "action" => list(any()),
+        "blockOverrideDnsType" => list(any()),
+        "blockOverrideDomain" => String.t() | atom(),
+        "blockOverrideTtl" => integer(),
+        "blockResponse" => list(any()),
+        "clientToken" => String.t() | atom(),
+        "confidenceThreshold" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnsAdvancedProtection" => list(any()),
+        "dnsViewId" => String.t() | atom(),
+        "firewallDomainListId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "priority" => float(),
+        "queryType" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
 
   """
-  @type tag_resource_response() :: %{}
+  @type batch_update_firewall_rule_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_access_source_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("ipAddressType") => list(any()),
+        optional("name") => String.t() | atom(),
+        optional("tags") => map(),
+        required("cidr") => String.t() | atom(),
+        required("dnsViewId") => String.t() | atom(),
+        required("protocol") => list(any())
+      }
+
+  """
+  @type create_access_source_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_access_source_output() :: %{
+        "arn" => String.t() | atom(),
+        "cidr" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dnsViewId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddressType" => list(any()),
+        "name" => String.t() | atom(),
+        "protocol" => list(any()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type create_access_source_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_access_token_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("expiresAt") => non_neg_integer(),
+        optional("name") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_access_token_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_access_token_output() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dnsViewId" => String.t() | atom(),
+        "expiresAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type create_access_token_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -941,19 +440,80 @@ defmodule AWS.Route53GlobalResolver do
 
   ## Example:
 
-      hosted_zone_association_summary() :: %{
+      create_dns_view_output() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "hostedZoneId" => String.t() | atom(),
-        "hostedZoneName" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "dnssecValidation" => list(any()),
+        "ednsClientSubnet" => list(any()),
+        "firewallRulesFailOpen" => list(any()),
+        "globalResolverId" => String.t() | atom(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type hosted_zone_association_summary() :: %{(String.t() | atom()) => any()}
+  @type create_dns_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_firewall_domain_list_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_firewall_domain_list_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_firewall_domain_list_output() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "domainCount" => [integer()],
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type create_firewall_domain_list_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_firewall_rule_input() :: %{
+        optional("blockOverrideDnsType") => list(any()),
+        optional("blockOverrideDomain") => String.t() | atom(),
+        optional("blockOverrideTtl") => integer(),
+        optional("blockResponse") => list(any()),
+        optional("clientToken") => String.t() | atom(),
+        optional("confidenceThreshold") => list(any()),
+        optional("description") => String.t() | atom(),
+        optional("dnsAdvancedProtection") => list(any()),
+        optional("firewallDomainListId") => String.t() | atom(),
+        optional("priority") => float(),
+        optional("qType") => String.t() | atom(),
+        required("action") => list(any()),
+        required("dnsViewId") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_firewall_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -986,34 +546,537 @@ defmodule AWS.Route53GlobalResolver do
 
   ## Example:
 
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+      create_global_resolver_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("ipAddressType") => list(any()),
+        optional("observabilityRegion") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("regions") => list(String.t() | atom())
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type create_global_resolver_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_delete_firewall_rule_input_item() :: %{
-        "firewallRuleId" => String.t() | atom()
+      create_global_resolver_output() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnsName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddressType" => list(any()),
+        "ipv4Addresses" => list(String.t() | atom()),
+        "ipv6Addresses" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "observabilityRegion" => String.t() | atom(),
+        "regions" => list(String.t() | atom()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type batch_delete_firewall_rule_input_item() :: %{(String.t() | atom()) => any()}
+  @type create_global_resolver_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
+      delete_access_source_input() :: %{}
 
   """
-  @type untag_resource_response() :: %{}
+  @type delete_access_source_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_source_output() :: %{
+        "arn" => String.t() | atom(),
+        "cidr" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dnsViewId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddressType" => list(any()),
+        "name" => String.t() | atom(),
+        "protocol" => list(any()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type delete_access_source_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_token_input() :: %{}
+
+  """
+  @type delete_access_token_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_token_output() :: %{
+        "deletedAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_access_token_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dns_view_input() :: %{}
+
+  """
+  @type delete_dns_view_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dns_view_output() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnssecValidation" => list(any()),
+        "ednsClientSubnet" => list(any()),
+        "firewallRulesFailOpen" => list(any()),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type delete_dns_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_firewall_domain_list_input() :: %{}
+
+  """
+  @type delete_firewall_domain_list_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_firewall_domain_list_output() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_firewall_domain_list_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_firewall_rule_input() :: %{}
+
+  """
+  @type delete_firewall_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_firewall_rule_output() :: %{
+        "action" => list(any()),
+        "blockOverrideDnsType" => list(any()),
+        "blockOverrideDomain" => String.t() | atom(),
+        "blockOverrideTtl" => integer(),
+        "blockResponse" => list(any()),
+        "confidenceThreshold" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnsAdvancedProtection" => list(any()),
+        "dnsViewId" => String.t() | atom(),
+        "firewallDomainListId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "priority" => float(),
+        "queryType" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type delete_firewall_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_global_resolver_input() :: %{}
+
+  """
+  @type delete_global_resolver_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_global_resolver_output() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnsName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddressType" => list(any()),
+        "ipv4Addresses" => list(String.t() | atom()),
+        "ipv6Addresses" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "observabilityRegion" => String.t() | atom(),
+        "regions" => list(String.t() | atom()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type delete_global_resolver_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_dns_view_input() :: %{}
+
+  """
+  @type disable_dns_view_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_dns_view_output() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnssecValidation" => list(any()),
+        "ednsClientSubnet" => list(any()),
+        "firewallRulesFailOpen" => list(any()),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type disable_dns_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_hosted_zone_input() :: %{}
+
+  """
+  @type disassociate_hosted_zone_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_hosted_zone_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "hostedZoneId" => String.t() | atom(),
+        "hostedZoneName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type disassociate_hosted_zone_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dns_view_summary() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnssecValidation" => list(any()),
+        "ednsClientSubnet" => list(any()),
+        "firewallRulesFailOpen" => list(any()),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type dns_view_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_dns_view_input() :: %{}
+
+  """
+  @type enable_dns_view_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_dns_view_output() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnssecValidation" => list(any()),
+        "ednsClientSubnet" => list(any()),
+        "firewallRulesFailOpen" => list(any()),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type enable_dns_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      firewall_domain_lists_item() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type firewall_domain_lists_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      firewall_rules_item() :: %{
+        "action" => list(any()),
+        "blockOverrideDnsType" => list(any()),
+        "blockOverrideDomain" => String.t() | atom(),
+        "blockOverrideTtl" => integer(),
+        "blockResponse" => list(any()),
+        "confidenceThreshold" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnsAdvancedProtection" => list(any()),
+        "dnsViewId" => String.t() | atom(),
+        "firewallDomainListId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "priority" => float(),
+        "queryType" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type firewall_rules_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_access_source_input() :: %{}
+
+  """
+  @type get_access_source_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_access_source_output() :: %{
+        "arn" => String.t() | atom(),
+        "cidr" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dnsViewId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddressType" => list(any()),
+        "name" => String.t() | atom(),
+        "protocol" => list(any()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_access_source_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_access_token_input() :: %{}
+
+  """
+  @type get_access_token_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_access_token_output() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dnsViewId" => String.t() | atom(),
+        "expiresAt" => non_neg_integer(),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type get_access_token_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dns_view_input() :: %{}
+
+  """
+  @type get_dns_view_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dns_view_output() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnssecValidation" => list(any()),
+        "ednsClientSubnet" => list(any()),
+        "firewallRulesFailOpen" => list(any()),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_dns_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_firewall_domain_list_input() :: %{}
+
+  """
+  @type get_firewall_domain_list_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_firewall_domain_list_output() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "domainCount" => [integer()],
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "statusMessage" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_firewall_domain_list_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_firewall_rule_input() :: %{}
+
+  """
+  @type get_firewall_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_firewall_rule_output() :: %{
+        "action" => list(any()),
+        "blockOverrideDnsType" => list(any()),
+        "blockOverrideDomain" => String.t() | atom(),
+        "blockOverrideTtl" => integer(),
+        "blockResponse" => list(any()),
+        "confidenceThreshold" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnsAdvancedProtection" => list(any()),
+        "dnsViewId" => String.t() | atom(),
+        "firewallDomainListId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "priority" => float(),
+        "queryType" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_firewall_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_global_resolver_input() :: %{}
+
+  """
+  @type get_global_resolver_input() :: %{}
 
   @typedoc """
 
@@ -1043,33 +1106,498 @@ defmodule AWS.Route53GlobalResolver do
 
   ## Example:
 
-      validation_exception_field() :: %{
+      get_hosted_zone_association_input() :: %{}
+
+  """
+  @type get_hosted_zone_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_hosted_zone_association_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "hostedZoneId" => String.t() | atom(),
+        "hostedZoneName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_hosted_zone_association_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_firewall_domain_list_input() :: %{}
+
+  """
+  @type get_managed_firewall_domain_list_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_firewall_domain_list_output() :: %{
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "managedListType" => [String.t() | atom()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type get_managed_firewall_domain_list_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      global_resolvers_item() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnsName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddressType" => list(any()),
+        "ipv4Addresses" => list(String.t() | atom()),
+        "ipv6Addresses" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "observabilityRegion" => String.t() | atom(),
+        "regions" => list(String.t() | atom()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type global_resolvers_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosted_zone_association_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "hostedZoneId" => String.t() | atom(),
+        "hostedZoneName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type hosted_zone_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_firewall_domains_input() :: %{
+        required("domainFileUrl") => [String.t() | atom()],
+        required("operation") => [String.t() | atom()]
+      }
+
+  """
+  @type import_firewall_domains_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_firewall_domains_output() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type import_firewall_domains_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
         "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
+        "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_update_firewall_rule_input() :: %{
-        required("firewallRules") => list(batch_update_firewall_rule_input_item())
+      list_access_sources_input() :: %{
+        optional("filters") => map(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type batch_update_firewall_rule_input() :: %{(String.t() | atom()) => any()}
+  @type list_access_sources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_firewall_domain_list_input() :: %{}
+      list_access_sources_output() :: %{
+        "accessSources" => list(access_sources_item()),
+        "nextToken" => [String.t() | atom()]
+      }
 
   """
-  @type get_firewall_domain_list_input() :: %{}
+  @type list_access_sources_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_tokens_input() :: %{
+        optional("filters") => map(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_access_tokens_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_tokens_output() :: %{
+        "accessTokens" => list(access_token_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_access_tokens_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dns_views_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_dns_views_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dns_views_output() :: %{
+        "dnsViews" => list(dns_view_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_dns_views_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_firewall_domain_lists_input() :: %{
+        optional("globalResolverId") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_firewall_domain_lists_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_firewall_domain_lists_output() :: %{
+        "firewallDomainLists" => list(firewall_domain_lists_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_firewall_domain_lists_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_firewall_domains_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_firewall_domains_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_firewall_domains_output() :: %{
+        "domains" => list(String.t() | atom()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_firewall_domains_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_firewall_rules_input() :: %{
+        optional("filters") => map(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        required("dnsViewId") => String.t() | atom()
+      }
+
+  """
+  @type list_firewall_rules_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_firewall_rules_output() :: %{
+        "firewallRules" => list(firewall_rules_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_firewall_rules_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_global_resolvers_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_global_resolvers_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_global_resolvers_output() :: %{
+        "globalResolvers" => list(global_resolvers_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_global_resolvers_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_hosted_zone_associations_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("resourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_hosted_zone_associations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_hosted_zone_associations_output() :: %{
+        "hostedZoneAssociations" => list(hosted_zone_association_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_hosted_zone_associations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_firewall_domain_lists_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_managed_firewall_domain_lists_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_firewall_domain_lists_output() :: %{
+        "managedFirewallDomainLists" => list(managed_firewall_domain_lists_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_managed_firewall_domain_lists_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_shared_dns_views_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_shared_dns_views_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_shared_dns_views_output() :: %{
+        "dnsViews" => list(shared_dns_view_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_shared_dns_views_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_firewall_domain_lists_item() :: %{
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "managedListType" => [String.t() | atom()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type managed_firewall_domain_lists_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      shared_dns_view_summary() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnssecValidation" => list(any()),
+        "ednsClientSubnet" => list(any()),
+        "firewallRulesFailOpen" => list(any()),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type shared_dns_view_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1082,6 +1610,134 @@ defmodule AWS.Route53GlobalResolver do
 
   """
   @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_source_input() :: %{
+        optional("cidr") => String.t() | atom(),
+        optional("ipAddressType") => list(any()),
+        optional("name") => String.t() | atom(),
+        optional("protocol") => list(any())
+      }
+
+  """
+  @type update_access_source_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_source_output() :: %{
+        "arn" => String.t() | atom(),
+        "cidr" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dnsViewId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddressType" => list(any()),
+        "name" => String.t() | atom(),
+        "protocol" => list(any()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_access_source_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_token_input() :: %{
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type update_access_token_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_token_output() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type update_access_token_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dns_view_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("dnssecValidation") => list(any()),
+        optional("ednsClientSubnet") => list(any()),
+        optional("firewallRulesFailOpen") => list(any()),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_dns_view_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dns_view_output() :: %{
+        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dnssecValidation" => list(any()),
+        "ednsClientSubnet" => list(any()),
+        "firewallRulesFailOpen" => list(any()),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_dns_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_firewall_domains_input() :: %{
+        required("domains") => list(String.t() | atom()),
+        required("operation") => [String.t() | atom()]
+      }
+
+  """
+  @type update_firewall_domains_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_firewall_domains_output() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_firewall_domains_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1135,558 +1791,16 @@ defmodule AWS.Route53GlobalResolver do
 
   ## Example:
 
-      enable_dns_view_output() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnssecValidation" => list(any()),
-        "ednsClientSubnet" => list(any()),
-        "firewallRulesFailOpen" => list(any()),
-        "globalResolverId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type enable_dns_view_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_firewall_domain_list_output() :: %{
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "managedListType" => [String.t() | atom()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type get_managed_firewall_domain_list_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_source_output() :: %{
-        "arn" => String.t() | atom(),
-        "cidr" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "dnsViewId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "ipAddressType" => list(any()),
-        "name" => String.t() | atom(),
-        "protocol" => list(any()),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type delete_access_source_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_hosted_zone_association_input() :: %{
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_hosted_zone_association_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_firewall_rule_result() :: %{
-        "action" => list(any()),
-        "blockOverrideDnsType" => list(any()),
-        "blockOverrideDomain" => String.t() | atom(),
-        "blockOverrideTtl" => integer(),
-        "blockResponse" => list(any()),
-        "clientToken" => String.t() | atom(),
-        "confidenceThreshold" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnsAdvancedProtection" => list(any()),
-        "dnsViewId" => String.t() | atom(),
-        "firewallDomainListId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "priority" => float(),
-        "queryType" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type batch_update_firewall_rule_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_access_source_input() :: %{
-        optional("clientToken") => String.t() | atom(),
+      update_global_resolver_input() :: %{
+        optional("description") => String.t() | atom(),
         optional("ipAddressType") => list(any()),
         optional("name") => String.t() | atom(),
-        optional("tags") => map(),
-        required("cidr") => String.t() | atom(),
-        required("dnsViewId") => String.t() | atom(),
-        required("protocol") => list(any())
+        optional("observabilityRegion") => String.t() | atom(),
+        optional("regions") => list(String.t() | atom())
       }
 
   """
-  @type create_access_source_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dns_views_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_dns_views_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_access_source_input() :: %{}
-
-  """
-  @type get_access_source_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dns_view_input() :: %{}
-
-  """
-  @type get_dns_view_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_hosted_zone_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "hostedZoneId" => String.t() | atom(),
-        "hostedZoneName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type associate_hosted_zone_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_access_source_output() :: %{
-        "arn" => String.t() | atom(),
-        "cidr" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "dnsViewId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "ipAddressType" => list(any()),
-        "name" => String.t() | atom(),
-        "protocol" => list(any()),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_access_source_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_firewall_domains_output() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type update_firewall_domains_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_sources_input() :: %{
-        optional("filters") => map(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_access_sources_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_firewall_domain_list_input() :: %{}
-
-  """
-  @type get_managed_firewall_domain_list_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_access_token_output() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type update_access_token_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_access_source_output() :: %{
-        "arn" => String.t() | atom(),
-        "cidr" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "dnsViewId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "ipAddressType" => list(any()),
-        "name" => String.t() | atom(),
-        "protocol" => list(any()),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type create_access_source_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_firewall_rule_input() :: %{}
-
-  """
-  @type delete_firewall_rule_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_dns_view_input() :: %{}
-
-  """
-  @type enable_dns_view_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_firewall_rule_input() :: %{}
-
-  """
-  @type get_firewall_rule_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_source_input() :: %{}
-
-  """
-  @type delete_access_source_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_access_source_input() :: %{
-        optional("cidr") => String.t() | atom(),
-        optional("ipAddressType") => list(any()),
-        optional("name") => String.t() | atom(),
-        optional("protocol") => list(any())
-      }
-
-  """
-  @type update_access_source_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_firewall_rules_input() :: %{
-        optional("filters") => map(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        required("dnsViewId") => String.t() | atom()
-      }
-
-  """
-  @type list_firewall_rules_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_firewall_rule_output() :: %{
-        "failures" => list(batch_delete_firewall_rule_output_item()),
-        "successes" => list(batch_delete_firewall_rule_output_item())
-      }
-
-  """
-  @type batch_delete_firewall_rule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_firewall_rule_input_item() :: %{
-        "action" => list(any()),
-        "blockOverrideDnsType" => list(any()),
-        "blockOverrideDomain" => String.t() | atom(),
-        "blockOverrideTtl" => integer(),
-        "blockResponse" => list(any()),
-        "confidenceThreshold" => list(any()),
-        "description" => String.t() | atom(),
-        "dnsAdvancedProtection" => list(any()),
-        "firewallRuleId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "priority" => float()
-      }
-
-  """
-  @type batch_update_firewall_rule_input_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      global_resolvers_item() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnsName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "ipAddressType" => list(any()),
-        "ipv4Addresses" => list(String.t() | atom()),
-        "ipv6Addresses" => list(String.t() | atom()),
-        "name" => String.t() | atom(),
-        "observabilityRegion" => String.t() | atom(),
-        "regions" => list(String.t() | atom()),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type global_resolvers_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_firewall_domains_output() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type import_firewall_domains_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_firewall_rule_result() :: %{
-        "clientToken" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type batch_delete_firewall_rule_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_hosted_zone_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "hostedZoneId" => String.t() | atom(),
-        "hostedZoneName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type disassociate_hosted_zone_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_firewall_domain_list_output() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "domainCount" => [integer()],
-        "globalResolverId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type create_firewall_domain_list_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_firewall_rule_output_item() :: %{
-        "code" => [integer()],
-        "firewallRule" => batch_create_firewall_rule_result(),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type batch_create_firewall_rule_output_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_hosted_zone_association_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "hostedZoneId" => String.t() | atom(),
-        "hostedZoneName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_hosted_zone_association_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      firewall_rules_item() :: %{
-        "action" => list(any()),
-        "blockOverrideDnsType" => list(any()),
-        "blockOverrideDomain" => String.t() | atom(),
-        "blockOverrideTtl" => integer(),
-        "blockResponse" => list(any()),
-        "confidenceThreshold" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnsAdvancedProtection" => list(any()),
-        "dnsViewId" => String.t() | atom(),
-        "firewallDomainListId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "priority" => float(),
-        "queryType" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type firewall_rules_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dns_view_input() :: %{}
-
-  """
-  @type delete_dns_view_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_global_resolvers_output() :: %{
-        "globalResolvers" => list(global_resolvers_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_global_resolvers_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_firewall_rule_input() :: %{
-        required("firewallRules") => list(batch_create_firewall_rule_input_item())
-      }
-
-  """
-  @type batch_create_firewall_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_firewall_rules_output() :: %{
-        "firewallRules" => list(firewall_rules_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_firewall_rules_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_firewall_domains_input() :: %{
-        required("domainFileUrl") => [String.t() | atom()],
-        required("operation") => [String.t() | atom()]
-      }
-
-  """
-  @type import_firewall_domains_input() :: %{(String.t() | atom()) => any()}
+  @type update_global_resolver_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1716,81 +1830,18 @@ defmodule AWS.Route53GlobalResolver do
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
+      update_hosted_zone_association_input() :: %{
+        optional("name") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type update_hosted_zone_association_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_create_firewall_rule_result() :: %{
-        "action" => list(any()),
-        "blockOverrideDnsType" => list(any()),
-        "blockOverrideDomain" => String.t() | atom(),
-        "blockOverrideTtl" => integer(),
-        "blockResponse" => list(any()),
-        "clientToken" => String.t() | atom(),
-        "confidenceThreshold" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnsAdvancedProtection" => list(any()),
-        "dnsViewId" => String.t() | atom(),
-        "firewallDomainListId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "managedDomainListName" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "priority" => float(),
-        "queryType" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type batch_create_firewall_rule_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dns_view_output() :: %{
-        "arn" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "dnssecValidation" => list(any()),
-        "ednsClientSubnet" => list(any()),
-        "firewallRulesFailOpen" => list(any()),
-        "globalResolverId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_dns_view_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_tokens_output() :: %{
-        "accessTokens" => list(access_token_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_access_tokens_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_hosted_zone_association_output() :: %{
+      update_hosted_zone_association_output() :: %{
         "createdAt" => non_neg_integer(),
         "hostedZoneId" => String.t() | atom(),
         "hostedZoneName" => String.t() | atom(),
@@ -1802,386 +1853,389 @@ defmodule AWS.Route53GlobalResolver do
       }
 
   """
-  @type get_hosted_zone_association_output() :: %{(String.t() | atom()) => any()}
+  @type update_hosted_zone_association_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
+        "reason" => list(any())
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_access_tokens_input() :: %{
-        optional("filters") => map(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type list_access_tokens_input() :: %{(String.t() | atom()) => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type associate_hosted_zone_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type batch_create_firewall_rule_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type batch_delete_firewall_rule_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type batch_update_firewall_rule_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_access_source_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_access_token_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_dns_view_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_firewall_domain_list_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_firewall_rule_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_global_resolver_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_access_source_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_access_token_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_dns_view_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_firewall_domain_list_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_firewall_rule_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_global_resolver_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type disable_dns_view_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type disassociate_hosted_zone_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type enable_dns_view_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_access_source_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type get_access_token_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_dns_view_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_firewall_domain_list_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_firewall_rule_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_global_resolver_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_hosted_zone_association_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_managed_firewall_domain_list_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type import_firewall_domains_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type get_access_token_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_dns_view_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_firewall_domain_list_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_firewall_rule_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_global_resolver_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_hosted_zone_association_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_managed_firewall_domain_list_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type import_firewall_domains_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type list_access_sources_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_access_tokens_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_dns_views_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_firewall_domain_lists_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_firewall_domains_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_firewall_rules_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_global_resolvers_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_hosted_zone_associations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_managed_firewall_domain_lists_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_shared_dns_views_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | validation_exception()
 
-  @type untag_resource_errors() :: resource_not_found_exception() | validation_exception()
+  @type untag_resource_errors() :: validation_exception() | resource_not_found_exception()
 
   @type update_access_source_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_access_token_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_dns_view_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_firewall_domains_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_firewall_rule_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_global_resolver_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_hosted_zone_association_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{
@@ -3216,8 +3270,8 @@ defmodule AWS.Route53GlobalResolver do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if !is_nil(filters) do
+        [{"filters", filters} | query_params]
       else
         query_params
       end
@@ -3230,8 +3284,8 @@ defmodule AWS.Route53GlobalResolver do
       end
 
     query_params =
-      if !is_nil(filters) do
-        [{"filters", filters} | query_params]
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
       else
         query_params
       end
@@ -3275,8 +3329,8 @@ defmodule AWS.Route53GlobalResolver do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if !is_nil(filters) do
+        [{"filters", filters} | query_params]
       else
         query_params
       end
@@ -3289,8 +3343,8 @@ defmodule AWS.Route53GlobalResolver do
       end
 
     query_params =
-      if !is_nil(filters) do
-        [{"filters", filters} | query_params]
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
       else
         query_params
       end
@@ -3332,15 +3386,15 @@ defmodule AWS.Route53GlobalResolver do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
       else
         query_params
       end
@@ -3383,8 +3437,8 @@ defmodule AWS.Route53GlobalResolver do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if !is_nil(global_resolver_id) do
+        [{"global_resolver_id", global_resolver_id} | query_params]
       else
         query_params
       end
@@ -3397,8 +3451,8 @@ defmodule AWS.Route53GlobalResolver do
       end
 
     query_params =
-      if !is_nil(global_resolver_id) do
-        [{"global_resolver_id", global_resolver_id} | query_params]
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
       else
         query_params
       end
@@ -3440,15 +3494,15 @@ defmodule AWS.Route53GlobalResolver do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
       else
         query_params
       end
@@ -3492,15 +3546,8 @@ defmodule AWS.Route53GlobalResolver do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if !is_nil(filters) do
+        [{"filters", filters} | query_params]
       else
         query_params
       end
@@ -3513,8 +3560,15 @@ defmodule AWS.Route53GlobalResolver do
       end
 
     query_params =
-      if !is_nil(filters) do
-        [{"filters", filters} | query_params]
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
       else
         query_params
       end
@@ -3550,15 +3604,15 @@ defmodule AWS.Route53GlobalResolver do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
       else
         query_params
       end
@@ -3569,8 +3623,11 @@ defmodule AWS.Route53GlobalResolver do
   end
 
   @doc """
-  Lists all hosted zone associations for a Route 53 Global Resolver resource with
-  pagination support.
+  Lists hosted zone associations with pagination support.
+
+  Specify a DNS view through the `resourceArn` parameter to list the hosted zone
+  associations for that DNS view, or omit it to list all hosted zone associations
+  in your Amazon Web Services account.
 
   Route 53 Global Resolver is a global service that supports resolvers in multiple
   Amazon Web Services Regions but you must specify the US East (Ohio) Region to
@@ -3580,7 +3637,7 @@ defmodule AWS.Route53GlobalResolver do
   """
   @spec list_hosted_zone_associations(
           map(),
-          String.t() | atom(),
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           list()
@@ -3591,16 +3648,21 @@ defmodule AWS.Route53GlobalResolver do
           | {:error, list_hosted_zone_associations_errors()}
   def list_hosted_zone_associations(
         %Client{} = client,
-        resource_arn,
         max_results \\ nil,
         next_token \\ nil,
+        resource_arn \\ nil,
         options \\ []
       ) do
-    url_path =
-      "/hosted-zone-associations/resource-arn/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
-
+    url_path = "/hosted-zone-associations"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -3610,8 +3672,8 @@ defmodule AWS.Route53GlobalResolver do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_results", max_results} | query_params]
+      if !is_nil(resource_arn) do
+        [{"resourceArn", resource_arn} | query_params]
       else
         query_params
       end
@@ -3658,15 +3720,60 @@ defmodule AWS.Route53GlobalResolver do
     query_params = []
 
     query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(next_token) do
         [{"next_token", next_token} | query_params]
       else
         query_params
       end
 
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the DNS views that have been shared with your Amazon Web Services account
+  through Amazon Web Services Resource Access Manager (Amazon Web Services RAM),
+  with pagination support.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
+  """
+  @spec list_shared_dns_views(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+          {:ok, list_shared_dns_views_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_shared_dns_views_errors()}
+  def list_shared_dns_views(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/shared-dns-views"
+    headers = []
+    query_params = []
+
     query_params =
       if !is_nil(max_results) do
         [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
       else
         query_params
       end

@@ -22,16 +22,63 @@ defmodule AWS.MWAAServerless do
 
   ## Example:
       
-      workflow_run_summary() :: %{
-        "RunDetailSummary" => run_detail_summary(),
-        "RunId" => String.t() | atom(),
-        "RunType" => list(any()),
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_workflow_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("EngineVersion") => list(integer()),
+        optional("LoggingConfiguration") => logging_configuration(),
+        optional("NetworkConfiguration") => network_configuration(),
+        optional("Tags") => map(),
+        optional("TriggerMode") => String.t() | atom(),
+        required("DefinitionS3Location") => definition_s3_location(),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_workflow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_workflow_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "IsLatestVersion" => boolean(),
+        "RevisionId" => [String.t() | atom()],
+        "Warnings" => list([String.t() | atom()]()),
         "WorkflowArn" => String.t() | atom(),
+        "WorkflowStatus" => list(any()),
         "WorkflowVersion" => String.t() | atom()
       }
       
   """
-  @type workflow_run_summary() :: %{(String.t() | atom()) => any()}
+  @type create_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -50,26 +97,81 @@ defmodule AWS.MWAAServerless do
 
   ## Example:
       
-      throttling_exception() :: %{
-        "Message" => String.t() | atom(),
-        "QuotaCode" => [String.t() | atom()],
-        "RetryAfterSeconds" => [integer()],
-        "ServiceCode" => [String.t() | atom()]
+      delete_workflow_request() :: %{
+        optional("WorkflowVersion") => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
+      delete_workflow_response() :: %{
+        "WorkflowArn" => String.t() | atom(),
+        "WorkflowVersion" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_workflow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_configuration() :: %{
+        "KmsKeyId" => [String.t() | atom()],
+        "Type" => list(any())
+      }
+      
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_task_instance_request() :: %{}
+      
+  """
+  @type get_task_instance_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_task_instance_response() :: %{
+        "AttemptNumber" => [integer()],
+        "DurationInSeconds" => [integer()],
+        "EndedAt" => non_neg_integer(),
+        "ErrorMessage" => String.t() | atom(),
+        "LogStream" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "OperatorName" => String.t() | atom(),
+        "RunId" => String.t() | atom(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskId" => String.t() | atom(),
+        "TaskInstanceId" => String.t() | atom(),
+        "WorkflowArn" => String.t() | atom(),
+        "WorkflowVersion" => String.t() | atom(),
+        "Xcom" => map()
+      }
+      
+  """
+  @type get_task_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_workflow_request() :: %{
+        optional("WorkflowVersion") => String.t() | atom()
+      }
+      
+  """
+  @type get_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -101,10 +203,166 @@ defmodule AWS.MWAAServerless do
 
   ## Example:
       
-      get_task_instance_request() :: %{}
+      get_workflow_run_request() :: %{}
       
   """
-  @type get_task_instance_request() :: %{}
+  @type get_workflow_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_workflow_run_response() :: %{
+        "OverrideParameters" => map(),
+        "RunDetail" => workflow_run_detail(),
+        "RunId" => String.t() | atom(),
+        "RunType" => list(any()),
+        "WorkflowArn" => String.t() | atom(),
+        "WorkflowVersion" => String.t() | atom()
+      }
+      
+  """
+  @type get_workflow_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RetryAfterSeconds" => [integer()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{}
+      
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_task_instances_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_task_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_task_instances_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "TaskInstances" => list(task_instance_summary())
+      }
+      
+  """
+  @type list_task_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workflow_runs_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()],
+        optional("WorkflowVersion") => String.t() | atom()
+      }
+      
+  """
+  @type list_workflow_runs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workflow_runs_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "WorkflowRuns" => list(workflow_run_summary())
+      }
+      
+  """
+  @type list_workflow_runs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workflow_versions_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_workflow_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workflow_versions_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "WorkflowVersions" => list(workflow_version_summary())
+      }
+      
+  """
+  @type list_workflow_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workflows_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workflows_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "Workflows" => list(workflow_summary())
+      }
+      
+  """
+  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      logging_configuration() :: %{
+        "LogGroupName" => [String.t() | atom()]
+      }
+      
+  """
+  @type logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -117,6 +375,190 @@ defmodule AWS.MWAAServerless do
       
   """
   @type network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_timeout_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type operation_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      run_detail_summary() :: %{
+        "CreatedOn" => non_neg_integer(),
+        "EndedAt" => non_neg_integer(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type run_detail_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schedule_configuration() :: %{
+        "CronExpression" => [String.t() | atom()]
+      }
+      
+  """
+  @type schedule_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "QuotaCode" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()],
+        "ServiceCode" => [String.t() | atom()]
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_workflow_run_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("OverrideParameters") => map(),
+        optional("WorkflowVersion") => String.t() | atom()
+      }
+      
+  """
+  @type start_workflow_run_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_workflow_run_response() :: %{
+        "RunId" => String.t() | atom(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type start_workflow_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_workflow_run_request() :: %{}
+      
+  """
+  @type stop_workflow_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_workflow_run_response() :: %{
+        "RunId" => String.t() | atom(),
+        "Status" => list(any()),
+        "WorkflowArn" => String.t() | atom(),
+        "WorkflowVersion" => String.t() | atom()
+      }
+      
+  """
+  @type stop_workflow_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_instance_summary() :: %{
+        "DurationInSeconds" => [integer()],
+        "OperatorName" => String.t() | atom(),
+        "RunId" => String.t() | atom(),
+        "Status" => list(any()),
+        "TaskInstanceId" => String.t() | atom(),
+        "WorkflowArn" => String.t() | atom(),
+        "WorkflowVersion" => String.t() | atom()
+      }
+      
+  """
+  @type task_instance_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => String.t() | atom(),
+        "QuotaCode" => [String.t() | atom()],
+        "RetryAfterSeconds" => [integer()],
+        "ServiceCode" => [String.t() | atom()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -139,42 +581,40 @@ defmodule AWS.MWAAServerless do
 
   ## Example:
       
-      list_workflow_versions_response() :: %{
-        "NextToken" => [String.t() | atom()],
-        "WorkflowVersions" => list(workflow_version_summary())
-      }
-      
-  """
-  @type list_workflow_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      workflow_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
+      update_workflow_response() :: %{
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "TriggerMode" => String.t() | atom(),
+        "Warnings" => list([String.t() | atom()]()),
         "WorkflowArn" => String.t() | atom(),
-        "WorkflowStatus" => list(any()),
         "WorkflowVersion" => String.t() | atom()
       }
       
   """
-  @type workflow_summary() :: %{(String.t() | atom()) => any()}
+  @type update_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      operation_timeout_exception() :: %{
-        "Message" => String.t() | atom()
+      validation_exception() :: %{
+        "FieldList" => list(validation_exception_field()),
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
       
   """
-  @type operation_timeout_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "Message" => String.t() | atom(),
+        "Name" => [String.t() | atom()]
+      }
+      
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -202,30 +642,8 @@ defmodule AWS.MWAAServerless do
 
   ## Example:
       
-      create_workflow_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("EngineVersion") => list(integer()),
-        optional("LoggingConfiguration") => logging_configuration(),
-        optional("NetworkConfiguration") => network_configuration(),
-        optional("Tags") => map(),
-        optional("TriggerMode") => String.t() | atom(),
-        required("DefinitionS3Location") => definition_s3_location(),
-        required("Name") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_workflow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_workflow_run_response() :: %{
-        "OverrideParameters" => map(),
-        "RunDetail" => workflow_run_detail(),
+      workflow_run_summary() :: %{
+        "RunDetailSummary" => run_detail_summary(),
         "RunId" => String.t() | atom(),
         "RunType" => list(any()),
         "WorkflowArn" => String.t() | atom(),
@@ -233,443 +651,25 @@ defmodule AWS.MWAAServerless do
       }
       
   """
-  @type get_workflow_run_response() :: %{(String.t() | atom()) => any()}
+  @type workflow_run_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      validation_exception() :: %{
-        "FieldList" => list(validation_exception_field()),
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_task_instances_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_task_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      logging_configuration() :: %{
-        "LogGroupName" => [String.t() | atom()]
-      }
-      
-  """
-  @type logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      run_detail_summary() :: %{
-        "CreatedOn" => non_neg_integer(),
-        "EndedAt" => non_neg_integer(),
-        "StartedAt" => non_neg_integer(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type run_detail_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_workflow_run_response() :: %{
-        "RunId" => String.t() | atom(),
-        "Status" => list(any()),
-        "WorkflowArn" => String.t() | atom(),
-        "WorkflowVersion" => String.t() | atom()
-      }
-      
-  """
-  @type stop_workflow_run_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_instance_summary() :: %{
-        "DurationInSeconds" => [integer()],
-        "OperatorName" => String.t() | atom(),
-        "RunId" => String.t() | atom(),
-        "Status" => list(any()),
-        "TaskInstanceId" => String.t() | atom(),
-        "WorkflowArn" => String.t() | atom(),
-        "WorkflowVersion" => String.t() | atom()
-      }
-      
-  """
-  @type task_instance_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_workflow_response() :: %{
+      workflow_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "IsLatestVersion" => boolean(),
-        "RevisionId" => [String.t() | atom()],
-        "Warnings" => list([String.t() | atom()]()),
+        "Description" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "TriggerMode" => String.t() | atom(),
         "WorkflowArn" => String.t() | atom(),
         "WorkflowStatus" => list(any()),
         "WorkflowVersion" => String.t() | atom()
       }
       
   """
-  @type create_workflow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_workflow_request() :: %{
-        optional("WorkflowVersion") => String.t() | atom()
-      }
-      
-  """
-  @type delete_workflow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RetryAfterSeconds" => [integer()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => [String.t() | atom()],
-        "ResourceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_workflow_runs_response() :: %{
-        "NextToken" => [String.t() | atom()],
-        "WorkflowRuns" => list(workflow_run_summary())
-      }
-      
-  """
-  @type list_workflow_runs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_workflow_request() :: %{
-        optional("WorkflowVersion") => String.t() | atom()
-      }
-      
-  """
-  @type get_workflow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => [String.t() | atom()],
-        "ResourceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_workflows_response() :: %{
-        "NextToken" => [String.t() | atom()],
-        "Workflows" => list(workflow_summary())
-      }
-      
-  """
-  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_task_instance_response() :: %{
-        "AttemptNumber" => [integer()],
-        "DurationInSeconds" => [integer()],
-        "EndedAt" => non_neg_integer(),
-        "ErrorMessage" => String.t() | atom(),
-        "LogStream" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "OperatorName" => String.t() | atom(),
-        "RunId" => String.t() | atom(),
-        "StartedAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "TaskId" => String.t() | atom(),
-        "TaskInstanceId" => String.t() | atom(),
-        "WorkflowArn" => String.t() | atom(),
-        "WorkflowVersion" => String.t() | atom(),
-        "Xcom" => map()
-      }
-      
-  """
-  @type get_task_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
-        "Message" => String.t() | atom(),
-        "Name" => [String.t() | atom()]
-      }
-      
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_workflow_versions_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_workflow_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_workflows_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      schedule_configuration() :: %{
-        "CronExpression" => [String.t() | atom()]
-      }
-      
-  """
-  @type schedule_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_workflow_response() :: %{
-        "WorkflowArn" => String.t() | atom(),
-        "WorkflowVersion" => String.t() | atom()
-      }
-      
-  """
-  @type delete_workflow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      encryption_configuration() :: %{
-        "KmsKeyId" => [String.t() | atom()],
-        "Type" => list(any())
-      }
-      
-  """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_workflow_run_request() :: %{}
-      
-  """
-  @type get_workflow_run_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_workflow_run_response() :: %{
-        "RunId" => String.t() | atom(),
-        "StartedAt" => non_neg_integer(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type start_workflow_run_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_workflow_runs_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()],
-        optional("WorkflowVersion") => String.t() | atom()
-      }
-      
-  """
-  @type list_workflow_runs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_workflow_response() :: %{
-        "ModifiedAt" => non_neg_integer(),
-        "Warnings" => list([String.t() | atom()]()),
-        "WorkflowArn" => String.t() | atom(),
-        "WorkflowVersion" => String.t() | atom()
-      }
-      
-  """
-  @type update_workflow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_task_instances_response() :: %{
-        "NextToken" => [String.t() | atom()],
-        "TaskInstances" => list(task_instance_summary())
-      }
-      
-  """
-  @type list_task_instances_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_workflow_run_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("OverrideParameters") => map(),
-        optional("WorkflowVersion") => String.t() | atom()
-      }
-      
-  """
-  @type start_workflow_run_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{}
-      
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_workflow_run_request() :: %{}
-      
-  """
-  @type stop_workflow_run_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "QuotaCode" => [String.t() | atom()],
-        "ResourceId" => [String.t() | atom()],
-        "ResourceType" => [String.t() | atom()],
-        "ServiceCode" => [String.t() | atom()]
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type workflow_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -690,125 +690,125 @@ defmodule AWS.MWAAServerless do
   @type workflow_version_summary() :: %{(String.t() | atom()) => any()}
 
   @type create_workflow_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_workflow_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_task_instance_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_workflow_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_workflow_run_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_task_instances_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_workflow_runs_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_workflow_versions_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_workflows_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type start_workflow_run_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type stop_workflow_run_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_workflow_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | operation_timeout_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

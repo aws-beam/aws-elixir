@@ -426,120 +426,8 @@ defmodule AWS.GeoMaps do
     query_params = []
 
     query_params =
-      if !is_nil(zoom) do
-        [{"zoom", zoom} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(width) do
-        [{"width", width} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(style) do
-        [{"style", style} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(scale_bar_unit) do
-        [{"scale-unit", scale_bar_unit} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(radius) do
-        [{"radius", radius} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(political_view) do
-        [{"political-view", political_view} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(points_of_interests) do
-        [{"pois", points_of_interests} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(padding) do
-        [{"padding", padding} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(language) do
-        [{"lang", language} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(label_size) do
-        [{"label-size", label_size} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(key) do
-        [{"key", key} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(height) do
-        [{"height", height} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(geo_json_overlay) do
-        [{"geojson-overlay", geo_json_overlay} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(crop_labels) do
-        [{"crop-labels", crop_labels} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(compact_overlay) do
-        [{"compact-overlay", compact_overlay} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(color_scheme) do
-        [{"color-scheme", color_scheme} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(center) do
-        [{"center", center} | query_params]
+      if !is_nil(bounded_positions) do
+        [{"bounded-positions", bounded_positions} | query_params]
       else
         query_params
       end
@@ -552,8 +440,120 @@ defmodule AWS.GeoMaps do
       end
 
     query_params =
-      if !is_nil(bounded_positions) do
-        [{"bounded-positions", bounded_positions} | query_params]
+      if !is_nil(center) do
+        [{"center", center} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(color_scheme) do
+        [{"color-scheme", color_scheme} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(compact_overlay) do
+        [{"compact-overlay", compact_overlay} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(crop_labels) do
+        [{"crop-labels", crop_labels} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(geo_json_overlay) do
+        [{"geojson-overlay", geo_json_overlay} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(height) do
+        [{"height", height} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(key) do
+        [{"key", key} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(label_size) do
+        [{"label-size", label_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(language) do
+        [{"lang", language} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(padding) do
+        [{"padding", padding} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(points_of_interests) do
+        [{"pois", points_of_interests} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(political_view) do
+        [{"political-view", political_view} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(radius) do
+        [{"radius", radius} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(scale_bar_unit) do
+        [{"scale-unit", scale_bar_unit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(style) do
+        [{"style", style} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(width) do
+        [{"width", width} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(zoom) do
+        [{"zoom", zoom} | query_params]
       else
         query_params
       end
@@ -615,43 +615,8 @@ defmodule AWS.GeoMaps do
     query_params = []
 
     query_params =
-      if !is_nil(travel_modes) do
-        [{"travel-modes", travel_modes} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(traffic) do
-        [{"traffic", traffic} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(terrain) do
-        [{"terrain", terrain} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(political_view) do
-        [{"political-view", political_view} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(key) do
-        [{"key", key} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(contour_density) do
-        [{"contour-density", contour_density} | query_params]
+      if !is_nil(buildings) do
+        [{"buildings", buildings} | query_params]
       else
         query_params
       end
@@ -664,8 +629,43 @@ defmodule AWS.GeoMaps do
       end
 
     query_params =
-      if !is_nil(buildings) do
-        [{"buildings", buildings} | query_params]
+      if !is_nil(contour_density) do
+        [{"contour-density", contour_density} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(key) do
+        [{"key", key} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(political_view) do
+        [{"political-view", political_view} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(terrain) do
+        [{"terrain", terrain} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic) do
+        [{"traffic", traffic} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(travel_modes) do
+        [{"travel-modes", travel_modes} | query_params]
       else
         query_params
       end
@@ -727,15 +727,15 @@ defmodule AWS.GeoMaps do
     query_params = []
 
     query_params =
-      if !is_nil(key) do
-        [{"key", key} | query_params]
+      if !is_nil(additional_features) do
+        [{"additional-features", additional_features} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(additional_features) do
-        [{"additional-features", additional_features} | query_params]
+      if !is_nil(key) do
+        [{"key", key} | query_params]
       else
         query_params
       end

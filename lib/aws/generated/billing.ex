@@ -20,27 +20,24 @@ defmodule AWS.Billing do
 
   ## Example:
       
-      get_billing_preferences_request() :: %{
-        optional("filters") => list(billing_feature_filter()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("features") => list(list(any())())
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type get_billing_preferences_request() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      billing_view_health_status() :: %{
-        "statusCode" => list(any()),
-        "statusReasons" => list(list(any())())
+      active_time_range() :: %{
+        "activeAfterInclusive" => [non_neg_integer()],
+        "activeBeforeInclusive" => [non_neg_integer()]
       }
       
   """
-  @type billing_view_health_status() :: %{(String.t() | atom()) => any()}
+  @type active_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -58,61 +55,36 @@ defmodule AWS.Billing do
 
   ## Example:
       
-      cost_category_values() :: %{
-        "key" => String.t() | atom(),
-        "values" => list(String.t() | atom())
+      associate_source_views_request() :: %{
+        required("arn") => String.t() | atom(),
+        required("sourceViews") => list(String.t() | atom())
       }
       
   """
-  @type cost_category_values() :: %{(String.t() | atom()) => any()}
+  @type associate_source_views_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
+      associate_source_views_response() :: %{
+        "arn" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type associate_source_views_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_billing_preferences_request() :: %{
-        required("billingPreferencesPerKey") => list(billing_preference_for_key()),
-        required("feature") => list(any())
+      billing_feature_filter() :: %{
+        "name" => list(any()),
+        "value" => list(String.t() | atom())
       }
       
   """
-  @type update_billing_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_credits_request() :: %{
-        optional("endDate") => [non_neg_integer()],
-        optional("payerAccountFlag") => [boolean()],
-        required("accountId") => [String.t() | atom()],
-        required("startDate") => [non_neg_integer()]
-      }
-      
-  """
-  @type get_credits_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type billing_feature_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -130,50 +102,162 @@ defmodule AWS.Billing do
 
   ## Example:
       
-      associate_source_views_response() :: %{
-        "arn" => String.t() | atom()
+      billing_preference_for_key() :: %{
+        "key" => String.t() | atom(),
+        "value" => list(any())
       }
       
   """
-  @type associate_source_views_response() :: %{(String.t() | atom()) => any()}
+  @type billing_preference_for_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_source_views_for_billing_view_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("arn") => String.t() | atom()
+      billing_preference_summary() :: %{
+        "accountId" => String.t() | atom(),
+        "accountName" => String.t() | atom(),
+        "billingPeriod" => billing_period(),
+        "feature" => list(any()),
+        "key" => String.t() | atom(),
+        "value" => list(any())
       }
       
   """
-  @type list_source_views_for_billing_view_request() :: %{(String.t() | atom()) => any()}
+  @type billing_preference_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      expression() :: %{
-        "costCategories" => cost_category_values(),
-        "dimensions" => dimension_values(),
-        "tags" => tag_values(),
-        "timeRange" => time_range()
+      billing_view_element() :: %{
+        "arn" => String.t() | atom(),
+        "billingViewType" => list(any()),
+        "createdAt" => [non_neg_integer()],
+        "dataFilterExpression" => expression(),
+        "derivedViewCount" => [integer()],
+        "description" => String.t() | atom(),
+        "healthStatus" => billing_view_health_status(),
+        "name" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom(),
+        "sourceViewCount" => [integer()],
+        "updatedAt" => [non_neg_integer()],
+        "viewDefinitionLastUpdatedAt" => [non_neg_integer()]
       }
       
   """
-  @type expression() :: %{(String.t() | atom()) => any()}
+  @type billing_view_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_billing_view_response() :: %{
-        "billingView" => billing_view_element()
+      billing_view_health_status() :: %{
+        "statusCode" => list(any()),
+        "statusReasons" => list(list(any())())
       }
       
   """
-  @type get_billing_view_response() :: %{(String.t() | atom()) => any()}
+  @type billing_view_health_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_view_health_status_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type billing_view_health_status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_view_list_element() :: %{
+        "arn" => String.t() | atom(),
+        "billingViewType" => list(any()),
+        "description" => String.t() | atom(),
+        "healthStatus" => billing_view_health_status(),
+        "name" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom()
+      }
+      
+  """
+  @type billing_view_list_element() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_category_values() :: %{
+        "key" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type cost_category_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_billing_view_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("dataFilterExpression") => expression(),
+        optional("description") => String.t() | atom(),
+        optional("resourceTags") => list(resource_tag()),
+        required("name") => String.t() | atom(),
+        required("sourceViews") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_billing_view_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_billing_view_response() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()]
+      }
+      
+  """
+  @type create_billing_view_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      credit_allocation_history_entry() :: %{
+        "accountId" => String.t() | atom(),
+        "appliedServiceName" => [String.t() | atom()],
+        "billingMonth" => String.t() | atom(),
+        "creditAmount" => amount(),
+        "creditId" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "isEstimatedBill" => [boolean()]
+      }
+      
+  """
+  @type credit_allocation_history_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -209,187 +293,36 @@ defmodule AWS.Billing do
 
   ## Example:
       
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => list(any())
+      delete_billing_view_request() :: %{
+        optional("force") => [boolean()],
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_billing_view_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_resource_policy_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_credits_response() :: %{
-        "credits" => list(credit_data())
-      }
-      
-  """
-  @type get_credits_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      active_time_range() :: %{
-        "activeAfterInclusive" => [non_neg_integer()],
-        "activeBeforeInclusive" => [non_neg_integer()]
-      }
-      
-  """
-  @type active_time_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      billing_view_list_element() :: %{
-        "arn" => String.t() | atom(),
-        "billingViewType" => list(any()),
-        "description" => String.t() | atom(),
-        "healthStatus" => billing_view_health_status(),
-        "name" => String.t() | atom(),
-        "ownerAccountId" => String.t() | atom(),
-        "sourceAccountId" => String.t() | atom()
-      }
-      
-  """
-  @type billing_view_list_element() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_source_views_response() :: %{
+      delete_billing_view_response() :: %{
         "arn" => String.t() | atom()
       }
       
   """
-  @type disassociate_source_views_response() :: %{(String.t() | atom()) => any()}
+  @type delete_billing_view_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
+      dimension_values() :: %{
+        "key" => list(any()),
+        "values" => list(String.t() | atom())
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      billing_preference_summary() :: %{
-        "accountId" => String.t() | atom(),
-        "accountName" => String.t() | atom(),
-        "billingPeriod" => billing_period(),
-        "feature" => list(any()),
-        "key" => String.t() | atom(),
-        "value" => list(any())
-      }
-      
-  """
-  @type billing_preference_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("resourceTags") => list(resource_tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_billing_view_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("dataFilterExpression") => expression(),
-        optional("description") => String.t() | atom(),
-        optional("resourceTags") => list(resource_tag()),
-        required("name") => String.t() | atom(),
-        required("sourceViews") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_billing_view_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type resource_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
+  @type dimension_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,78 +340,40 @@ defmodule AWS.Billing do
 
   ## Example:
       
-      get_resource_policy_response() :: %{
-        "policy" => String.t() | atom(),
-        "resourceArn" => String.t() | atom()
+      disassociate_source_views_response() :: %{
+        "arn" => String.t() | atom()
       }
       
   """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+  @type disassociate_source_views_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      credit_allocation_history_entry() :: %{
-        "accountId" => String.t() | atom(),
-        "appliedServiceName" => [String.t() | atom()],
-        "billingMonth" => String.t() | atom(),
-        "creditAmount" => amount(),
-        "creditId" => String.t() | atom(),
-        "description" => [String.t() | atom()],
-        "isEstimatedBill" => [boolean()]
+      expression() :: %{
+        "costCategories" => cost_category_values(),
+        "dimensions" => dimension_values(),
+        "tags" => tag_values(),
+        "timeRange" => time_range()
       }
       
   """
-  @type credit_allocation_history_entry() :: %{(String.t() | atom()) => any()}
+  @type expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_billing_view_response() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()]
+      get_billing_preferences_request() :: %{
+        optional("filters") => list(billing_feature_filter()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("features") => list(list(any())())
       }
       
   """
-  @type create_billing_view_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("resourceTagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_source_views_request() :: %{
-        required("arn") => String.t() | atom(),
-        required("sourceViews") => list(String.t() | atom())
-      }
-      
-  """
-  @type associate_source_views_request() :: %{(String.t() | atom()) => any()}
+  @type get_billing_preferences_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -496,142 +391,6 @@ defmodule AWS.Billing do
 
   ## Example:
       
-      billing_feature_filter() :: %{
-        "name" => list(any()),
-        "value" => list(String.t() | atom())
-      }
-      
-  """
-  @type billing_feature_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_billing_view_response() :: %{
-        "arn" => String.t() | atom()
-      }
-      
-  """
-  @type delete_billing_view_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      redeem_credits_request() :: %{
-        required("promoCode") => String.t() | atom()
-      }
-      
-  """
-  @type redeem_credits_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_credit_allocation_history_response() :: %{
-        "creditAllocationHistoryList" => list(credit_allocation_history_entry()),
-        "failedMonths" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom(),
-        "partialResults" => [boolean()]
-      }
-      
-  """
-  @type get_credit_allocation_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_billing_view_request() :: %{
-        optional("force") => [boolean()],
-        required("arn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_billing_view_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "resourceTags" => list(resource_tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      redeem_credits_response() :: %{}
-      
-  """
-  @type redeem_credits_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_billing_preferences_response() :: %{}
-      
-  """
-  @type update_billing_preferences_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_source_views_for_billing_view_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "sourceViews" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_source_views_for_billing_view_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      billing_view_health_status_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type billing_view_health_status_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_billing_views_response() :: %{
-        "billingViews" => list(billing_view_list_element()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_billing_views_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      billing_preference_for_key() :: %{
-        "key" => String.t() | atom(),
-        "value" => list(any())
-      }
-      
-  """
-  @type billing_preference_for_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       get_billing_view_request() :: %{
         required("arn") => String.t() | atom()
       }
@@ -643,25 +402,12 @@ defmodule AWS.Billing do
 
   ## Example:
       
-      tag_values() :: %{
-        "key" => String.t() | atom(),
-        "values" => list(String.t() | atom())
+      get_billing_view_response() :: %{
+        "billingView" => billing_view_element()
       }
       
   """
-  @type tag_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      string_search() :: %{
-        "searchOption" => list(any()),
-        "searchValue" => String.t() | atom()
-      }
-      
-  """
-  @type string_search() :: %{(String.t() | atom()) => any()}
+  @type get_billing_view_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -683,15 +429,74 @@ defmodule AWS.Billing do
 
   ## Example:
       
-      update_billing_view_request() :: %{
-        optional("dataFilterExpression") => expression(),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        required("arn") => String.t() | atom()
+      get_credit_allocation_history_response() :: %{
+        "creditAllocationHistoryList" => list(credit_allocation_history_entry()),
+        "failedMonths" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom(),
+        "partialResults" => [boolean()]
       }
       
   """
-  @type update_billing_view_request() :: %{(String.t() | atom()) => any()}
+  @type get_credit_allocation_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_credits_request() :: %{
+        optional("endDate") => [non_neg_integer()],
+        optional("payerAccountFlag") => [boolean()],
+        required("accountId") => [String.t() | atom()],
+        required("startDate") => [non_neg_integer()]
+      }
+      
+  """
+  @type get_credits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_credits_response() :: %{
+        "credits" => list(credit_data())
+      }
+      
+  """
+  @type get_credits_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_response() :: %{
+        "policy" => String.t() | atom(),
+        "resourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -715,36 +520,38 @@ defmodule AWS.Billing do
 
   ## Example:
       
-      time_range() :: %{
-        "beginDateInclusive" => [non_neg_integer()],
-        "endDateInclusive" => [non_neg_integer()]
+      list_billing_views_response() :: %{
+        "billingViews" => list(billing_view_list_element()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type time_range() :: %{(String.t() | atom()) => any()}
+  @type list_billing_views_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      billing_view_element() :: %{
-        "arn" => String.t() | atom(),
-        "billingViewType" => list(any()),
-        "createdAt" => [non_neg_integer()],
-        "dataFilterExpression" => expression(),
-        "derivedViewCount" => [integer()],
-        "description" => String.t() | atom(),
-        "healthStatus" => billing_view_health_status(),
-        "name" => String.t() | atom(),
-        "ownerAccountId" => String.t() | atom(),
-        "sourceAccountId" => String.t() | atom(),
-        "sourceViewCount" => [integer()],
-        "updatedAt" => [non_neg_integer()],
-        "viewDefinitionLastUpdatedAt" => [non_neg_integer()]
+      list_source_views_for_billing_view_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type billing_view_element() :: %{(String.t() | atom()) => any()}
+  @type list_source_views_for_billing_view_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_source_views_for_billing_view_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "sourceViews" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_source_views_for_billing_view_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -761,13 +568,196 @@ defmodule AWS.Billing do
 
   ## Example:
       
-      dimension_values() :: %{
-        "key" => list(any()),
+      list_tags_for_resource_response() :: %{
+        "resourceTags" => list(resource_tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redeem_credits_request() :: %{
+        required("promoCode") => String.t() | atom()
+      }
+      
+  """
+  @type redeem_credits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redeem_credits_response() :: %{}
+      
+  """
+  @type redeem_credits_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      string_search() :: %{
+        "searchOption" => list(any()),
+        "searchValue" => String.t() | atom()
+      }
+      
+  """
+  @type string_search() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("resourceTags") => list(resource_tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_values() :: %{
+        "key" => String.t() | atom(),
         "values" => list(String.t() | atom())
       }
       
   """
-  @type dimension_values() :: %{(String.t() | atom()) => any()}
+  @type tag_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_range() :: %{
+        "beginDateInclusive" => [non_neg_integer()],
+        "endDateInclusive" => [non_neg_integer()]
+      }
+      
+  """
+  @type time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("resourceTagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_billing_preferences_request() :: %{
+        required("billingPreferencesPerKey") => list(billing_preference_for_key()),
+        required("feature") => list(any())
+      }
+      
+  """
+  @type update_billing_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_billing_preferences_response() :: %{}
+      
+  """
+  @type update_billing_preferences_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_billing_view_request() :: %{
+        optional("dataFilterExpression") => expression(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type update_billing_view_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -785,140 +775,150 @@ defmodule AWS.Billing do
 
   ## Example:
       
-      service_quota_exceeded_exception() :: %{
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "serviceCode" => String.t() | atom()
+        "reason" => list(any())
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type associate_source_views_errors() ::
-          service_quota_exceeded_exception()
-          | billing_view_health_status_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
+          | billing_view_health_status_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_billing_view_errors() ::
-          service_quota_exceeded_exception()
-          | billing_view_health_status_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
+          | billing_view_health_status_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_billing_view_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type disassociate_source_views_errors() ::
-          billing_view_health_status_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
+          | billing_view_health_status_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_billing_preferences_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_billing_view_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type get_credit_allocation_history_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_credits_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_resource_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_billing_views_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_source_views_for_billing_view_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type redeem_credits_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type tag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type update_billing_preferences_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type update_billing_view_errors() ::
-          service_quota_exceeded_exception()
-          | billing_view_health_status_exception()
-          | conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type get_credit_allocation_history_errors() ::
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_credits_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_resource_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_billing_views_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_source_views_for_billing_view_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type redeem_credits_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_billing_preferences_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_billing_view_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | billing_view_health_status_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

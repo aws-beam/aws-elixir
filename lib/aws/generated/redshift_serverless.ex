@@ -25,6 +25,107 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      access_denied_exception() :: %{
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      association() :: %{
+        "customDomainCertificateArn" => String.t() | atom(),
+        "customDomainCertificateExpiryTime" => [non_neg_integer()],
+        "customDomainName" => String.t() | atom(),
+        "workgroupName" => String.t() | atom()
+      }
+      
+  """
+  @type association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      config_parameter() :: %{
+        "parameterKey" => String.t() | atom(),
+        "parameterValue" => String.t() | atom()
+      }
+      
+  """
+  @type config_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      convert_recovery_point_to_snapshot_request() :: %{
+        optional("retentionPeriod") => [integer()],
+        optional("tags") => list(tag()),
+        required("recoveryPointId") => [String.t() | atom()],
+        required("snapshotName") => [String.t() | atom()]
+      }
+      
+  """
+  @type convert_recovery_point_to_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      convert_recovery_point_to_snapshot_response() :: %{
+        "snapshot" => snapshot()
+      }
+      
+  """
+  @type convert_recovery_point_to_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_custom_domain_association_request() :: %{
+        required("customDomainCertificateArn") => String.t() | atom(),
+        required("customDomainName") => String.t() | atom(),
+        required("workgroupName") => String.t() | atom()
+      }
+      
+  """
+  @type create_custom_domain_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_custom_domain_association_response() :: %{
+        "customDomainCertificateArn" => String.t() | atom(),
+        "customDomainCertificateExpiryTime" => [non_neg_integer()],
+        "customDomainName" => String.t() | atom(),
+        "workgroupName" => String.t() | atom()
+      }
+      
+  """
+  @type create_custom_domain_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_endpoint_access_request() :: %{
         optional("ownerAccount") => String.t() | atom(),
         optional("vpcSecurityGroupIds") => list(String.t() | atom()),
@@ -40,17 +141,163 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
-      list_recovery_points_request() :: %{
-        optional("endTime") => [non_neg_integer()],
-        optional("maxResults") => [integer()],
-        optional("namespaceArn") => [String.t() | atom()],
-        optional("namespaceName") => String.t() | atom(),
-        optional("nextToken") => [String.t() | atom()],
-        optional("startTime") => [non_neg_integer()]
+      create_endpoint_access_response() :: %{
+        "endpoint" => endpoint_access()
       }
       
   """
-  @type list_recovery_points_request() :: %{(String.t() | atom()) => any()}
+  @type create_endpoint_access_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_namespace_request() :: %{
+        optional("adminPasswordSecretKmsKeyId") => String.t() | atom(),
+        optional("adminUserPassword") => String.t() | atom(),
+        optional("adminUsername") => String.t() | atom(),
+        optional("dbName") => [String.t() | atom()],
+        optional("defaultIamRoleArn") => [String.t() | atom()],
+        optional("iamRoles") => list(String.t() | atom()),
+        optional("kmsKeyId") => [String.t() | atom()],
+        optional("logExports") => list(String.t() | atom()),
+        optional("manageAdminPassword") => [boolean()],
+        optional("redshiftIdcApplicationArn") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("namespaceName") => String.t() | atom()
+      }
+      
+  """
+  @type create_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_namespace_response() :: %{
+        "namespace" => namespace()
+      }
+      
+  """
+  @type create_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_reservation_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        required("capacity") => integer(),
+        required("offeringId") => String.t() | atom()
+      }
+      
+  """
+  @type create_reservation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_reservation_response() :: %{
+        "reservation" => reservation()
+      }
+      
+  """
+  @type create_reservation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_scheduled_action_request() :: %{
+        optional("enabled") => [boolean()],
+        optional("endTime") => [non_neg_integer()],
+        optional("scheduledActionDescription") => [String.t() | atom()],
+        optional("startTime") => [non_neg_integer()],
+        required("namespaceName") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        required("schedule") => list(),
+        required("scheduledActionName") => String.t() | atom(),
+        required("targetAction") => list()
+      }
+      
+  """
+  @type create_scheduled_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_scheduled_action_response() :: %{
+        "scheduledAction" => scheduled_action_response()
+      }
+      
+  """
+  @type create_scheduled_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_copy_configuration_request() :: %{
+        optional("destinationKmsKeyId") => String.t() | atom(),
+        optional("snapshotRetentionPeriod") => [integer()],
+        required("destinationRegion") => [String.t() | atom()],
+        required("namespaceName") => String.t() | atom()
+      }
+      
+  """
+  @type create_snapshot_copy_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_copy_configuration_response() :: %{
+        "snapshotCopyConfiguration" => snapshot_copy_configuration()
+      }
+      
+  """
+  @type create_snapshot_copy_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_request() :: %{
+        optional("retentionPeriod") => [integer()],
+        optional("tags") => list(tag()),
+        required("namespaceName") => [String.t() | atom()],
+        required("snapshotName") => [String.t() | atom()]
+      }
+      
+  """
+  @type create_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_response() :: %{
+        "snapshot" => snapshot()
+      }
+      
+  """
+  @type create_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_schedule_action_parameters() :: %{
+        "namespaceName" => String.t() | atom(),
+        "retentionPeriod" => [integer()],
+        "snapshotNamePrefix" => String.t() | atom(),
+        "tags" => list(tag())
+      }
+      
+  """
+  @type create_snapshot_schedule_action_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,160 +318,12 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
-      update_snapshot_request() :: %{
-        optional("retentionPeriod") => [integer()],
-        required("snapshotName") => [String.t() | atom()]
-      }
-      
-  """
-  @type update_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_workgroup_request() :: %{
-        required("workgroupName") => String.t() | atom()
-      }
-      
-  """
-  @type get_workgroup_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_reservation_offerings_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "reservationOfferingsList" => list(reservation_offering())
-      }
-      
-  """
-  @type list_reservation_offerings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_scheduled_action_request() :: %{
-        required("scheduledActionName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_scheduled_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_table_restore_status_request() :: %{
-        required("tableRestoreRequestId") => [String.t() | atom()]
-      }
-      
-  """
-  @type get_table_restore_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_table_restore_status_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "tableRestoreStatuses" => list(table_restore_status())
-      }
-      
-  """
-  @type list_table_restore_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_recovery_points_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "recoveryPoints" => list(recovery_point())
-      }
-      
-  """
-  @type list_recovery_points_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_reservation_request() :: %{
-        required("reservationId") => String.t() | atom()
-      }
-      
-  """
-  @type get_reservation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_track_response() :: %{
-        "track" => serverless_track()
-      }
-      
-  """
-  @type get_track_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_request() :: %{
-        required("policy") => [String.t() | atom()],
-        required("resourceArn") => [String.t() | atom()]
-      }
-      
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       create_usage_limit_response() :: %{
         "usageLimit" => usage_limit()
       }
       
   """
   @type create_usage_limit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_endpoint_access_request() :: %{
-        required("endpointName") => [String.t() | atom()]
-      }
-      
-  """
-  @type delete_endpoint_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_usage_limit_response() :: %{
-        "usageLimit" => usage_limit()
-      }
-      
-  """
-  @type update_usage_limit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_workgroup_response() :: %{
-        "workgroup" => workgroup()
-      }
-      
-  """
-  @type get_workgroup_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -255,12 +354,897 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      create_workgroup_response() :: %{
+        "workgroup" => workgroup()
+      }
+      
+  """
+  @type create_workgroup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_custom_domain_association_request() :: %{
+        required("customDomainName") => String.t() | atom(),
+        required("workgroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_custom_domain_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_custom_domain_association_response() :: %{}
+      
+  """
+  @type delete_custom_domain_association_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_endpoint_access_request() :: %{
+        required("endpointName") => [String.t() | atom()]
+      }
+      
+  """
+  @type delete_endpoint_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_endpoint_access_response() :: %{
+        "endpoint" => endpoint_access()
+      }
+      
+  """
+  @type delete_endpoint_access_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_namespace_request() :: %{
+        optional("finalSnapshotName") => [String.t() | atom()],
+        optional("finalSnapshotRetentionPeriod") => [integer()],
+        required("namespaceName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_namespace_response() :: %{
+        "namespace" => namespace()
+      }
+      
+  """
+  @type delete_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_request() :: %{
+        required("resourceArn") => [String.t() | atom()]
+      }
+      
+  """
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_response() :: %{}
+      
+  """
+  @type delete_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_scheduled_action_request() :: %{
+        required("scheduledActionName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_scheduled_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_scheduled_action_response() :: %{
+        "scheduledAction" => scheduled_action_response()
+      }
+      
+  """
+  @type delete_scheduled_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_copy_configuration_request() :: %{
+        required("snapshotCopyConfigurationId") => [String.t() | atom()]
+      }
+      
+  """
+  @type delete_snapshot_copy_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_copy_configuration_response() :: %{
+        "snapshotCopyConfiguration" => snapshot_copy_configuration()
+      }
+      
+  """
+  @type delete_snapshot_copy_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_request() :: %{
+        required("snapshotName") => [String.t() | atom()]
+      }
+      
+  """
+  @type delete_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_response() :: %{
+        "snapshot" => snapshot()
+      }
+      
+  """
+  @type delete_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_usage_limit_request() :: %{
+        required("usageLimitId") => [String.t() | atom()]
+      }
+      
+  """
+  @type delete_usage_limit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_usage_limit_response() :: %{
+        "usageLimit" => usage_limit()
+      }
+      
+  """
+  @type delete_usage_limit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_workgroup_request() :: %{
+        required("workgroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_workgroup_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_workgroup_response() :: %{
+        "workgroup" => workgroup()
+      }
+      
+  """
+  @type delete_workgroup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dry_run_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type dry_run_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint() :: %{
+        "address" => [String.t() | atom()],
+        "port" => [integer()],
+        "vpcEndpoints" => list(vpc_endpoint())
+      }
+      
+  """
+  @type endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint_access() :: %{
+        "address" => [String.t() | atom()],
+        "endpointArn" => [String.t() | atom()],
+        "endpointCreateTime" => [non_neg_integer()],
+        "endpointName" => [String.t() | atom()],
+        "endpointStatus" => [String.t() | atom()],
+        "port" => [integer()],
+        "subnetIds" => list(String.t() | atom()),
+        "vpcEndpoint" => vpc_endpoint(),
+        "vpcSecurityGroups" => list(vpc_security_group_membership()),
+        "workgroupName" => [String.t() | atom()]
+      }
+      
+  """
+  @type endpoint_access() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_credentials_request() :: %{
+        optional("customDomainName") => String.t() | atom(),
+        optional("dbName") => String.t() | atom(),
+        optional("durationSeconds") => [integer()],
+        optional("workgroupName") => String.t() | atom()
+      }
+      
+  """
+  @type get_credentials_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_credentials_response() :: %{
+        "dbPassword" => String.t() | atom(),
+        "dbUser" => String.t() | atom(),
+        "expiration" => [non_neg_integer()],
+        "nextRefreshTime" => [non_neg_integer()]
+      }
+      
+  """
+  @type get_credentials_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_custom_domain_association_request() :: %{
+        required("customDomainName") => String.t() | atom(),
+        required("workgroupName") => String.t() | atom()
+      }
+      
+  """
+  @type get_custom_domain_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_custom_domain_association_response() :: %{
+        "customDomainCertificateArn" => String.t() | atom(),
+        "customDomainCertificateExpiryTime" => [non_neg_integer()],
+        "customDomainName" => String.t() | atom(),
+        "workgroupName" => String.t() | atom()
+      }
+      
+  """
+  @type get_custom_domain_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_endpoint_access_request() :: %{
+        required("endpointName") => [String.t() | atom()]
+      }
+      
+  """
+  @type get_endpoint_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_endpoint_access_response() :: %{
+        "endpoint" => endpoint_access()
+      }
+      
+  """
+  @type get_endpoint_access_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_center_auth_token_request() :: %{
+        required("workgroupNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_identity_center_auth_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_center_auth_token_response() :: %{
+        "expirationTime" => [non_neg_integer()],
+        "token" => [String.t() | atom()]
+      }
+      
+  """
+  @type get_identity_center_auth_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_namespace_request() :: %{
         required("namespaceName") => String.t() | atom()
       }
       
   """
   @type get_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_namespace_response() :: %{
+        "namespace" => namespace()
+      }
+      
+  """
+  @type get_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_recovery_point_request() :: %{
+        required("recoveryPointId") => [String.t() | atom()]
+      }
+      
+  """
+  @type get_recovery_point_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_recovery_point_response() :: %{
+        "recoveryPoint" => recovery_point()
+      }
+      
+  """
+  @type get_recovery_point_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_reservation_offering_request() :: %{
+        required("offeringId") => String.t() | atom()
+      }
+      
+  """
+  @type get_reservation_offering_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_reservation_offering_response() :: %{
+        "reservationOffering" => reservation_offering()
+      }
+      
+  """
+  @type get_reservation_offering_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_reservation_request() :: %{
+        required("reservationId") => String.t() | atom()
+      }
+      
+  """
+  @type get_reservation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_reservation_response() :: %{
+        "reservation" => reservation()
+      }
+      
+  """
+  @type get_reservation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_request() :: %{
+        required("resourceArn") => [String.t() | atom()]
+      }
+      
+  """
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_response() :: %{
+        "resourcePolicy" => resource_policy()
+      }
+      
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_scheduled_action_request() :: %{
+        required("scheduledActionName") => String.t() | atom()
+      }
+      
+  """
+  @type get_scheduled_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_scheduled_action_response() :: %{
+        "scheduledAction" => scheduled_action_response()
+      }
+      
+  """
+  @type get_scheduled_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_snapshot_request() :: %{
+        optional("ownerAccount") => [String.t() | atom()],
+        optional("snapshotArn") => [String.t() | atom()],
+        optional("snapshotName") => [String.t() | atom()]
+      }
+      
+  """
+  @type get_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_snapshot_response() :: %{
+        "snapshot" => snapshot()
+      }
+      
+  """
+  @type get_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_restore_status_request() :: %{
+        required("tableRestoreRequestId") => [String.t() | atom()]
+      }
+      
+  """
+  @type get_table_restore_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_restore_status_response() :: %{
+        "tableRestoreStatus" => table_restore_status()
+      }
+      
+  """
+  @type get_table_restore_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_track_request() :: %{
+        required("trackName") => String.t() | atom()
+      }
+      
+  """
+  @type get_track_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_track_response() :: %{
+        "track" => serverless_track()
+      }
+      
+  """
+  @type get_track_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_usage_limit_request() :: %{
+        required("usageLimitId") => [String.t() | atom()]
+      }
+      
+  """
+  @type get_usage_limit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_usage_limit_response() :: %{
+        "usageLimit" => usage_limit()
+      }
+      
+  """
+  @type get_usage_limit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_workgroup_request() :: %{
+        required("workgroupName") => String.t() | atom()
+      }
+      
+  """
+  @type get_workgroup_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_workgroup_response() :: %{
+        "workgroup" => workgroup()
+      }
+      
+  """
+  @type get_workgroup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_capacity_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_pagination_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type invalid_pagination_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipv6_cidr_block_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type ipv6_cidr_block_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_custom_domain_associations_request() :: %{
+        optional("customDomainCertificateArn") => String.t() | atom(),
+        optional("customDomainName") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_custom_domain_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_custom_domain_associations_response() :: %{
+        "associations" => list(association()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_custom_domain_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_endpoint_access_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("ownerAccount") => String.t() | atom(),
+        optional("vpcId") => [String.t() | atom()],
+        optional("workgroupName") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_endpoint_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_endpoint_access_response() :: %{
+        "endpoints" => list(endpoint_access()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_endpoint_access_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_managed_workgroups_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("sourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_managed_workgroups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_managed_workgroups_response() :: %{
+        "managedWorkgroups" => list(managed_workgroup_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_managed_workgroups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_namespaces_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_namespaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_namespaces_response() :: %{
+        "namespaces" => list(namespace()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_namespaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_recovery_points_request() :: %{
+        optional("endTime") => [non_neg_integer()],
+        optional("maxResults") => [integer()],
+        optional("namespaceArn") => [String.t() | atom()],
+        optional("namespaceName") => String.t() | atom(),
+        optional("nextToken") => [String.t() | atom()],
+        optional("startTime") => [non_neg_integer()]
+      }
+      
+  """
+  @type list_recovery_points_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_recovery_points_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "recoveryPoints" => list(recovery_point())
+      }
+      
+  """
+  @type list_recovery_points_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_reservation_offerings_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_reservation_offerings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_reservation_offerings_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "reservationOfferingsList" => list(reservation_offering())
+      }
+      
+  """
+  @type list_reservation_offerings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_reservations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_reservations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_reservations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "reservationsList" => list(reservation())
+      }
+      
+  """
+  @type list_reservations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_scheduled_actions_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("namespaceName") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_scheduled_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_scheduled_actions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "scheduledActions" => list(scheduled_action_association())
+      }
+      
+  """
+  @type list_scheduled_actions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_snapshot_copy_configurations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("namespaceName") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_snapshot_copy_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_snapshot_copy_configurations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "snapshotCopyConfigurations" => list(snapshot_copy_configuration())
+      }
+      
+  """
+  @type list_snapshot_copy_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_snapshots_request() :: %{
+        optional("endTime") => [non_neg_integer()],
+        optional("maxResults") => [integer()],
+        optional("namespaceArn") => [String.t() | atom()],
+        optional("namespaceName") => [String.t() | atom()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("ownerAccount") => [String.t() | atom()],
+        optional("startTime") => [non_neg_integer()]
+      }
+      
+  """
+  @type list_snapshots_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_snapshots_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "snapshots" => list(snapshot())
+      }
+      
+  """
+  @type list_snapshots_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -280,6 +1264,170 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      list_table_restore_status_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "tableRestoreStatuses" => list(table_restore_status())
+      }
+      
+  """
+  @type list_table_restore_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tracks_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_tracks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tracks_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "tracks" => list(serverless_track())
+      }
+      
+  """
+  @type list_tracks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_usage_limits_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceArn") => [String.t() | atom()],
+        optional("usageType") => String.t() | atom()
+      }
+      
+  """
+  @type list_usage_limits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_usage_limits_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "usageLimits" => list(usage_limit())
+      }
+      
+  """
+  @type list_usage_limits_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workgroups_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("ownerAccount") => String.t() | atom()
+      }
+      
+  """
+  @type list_workgroups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workgroups_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "workgroups" => list(workgroup())
+      }
+      
+  """
+  @type list_workgroups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_workgroup_list_item() :: %{
+        "creationDate" => [non_neg_integer()],
+        "managedWorkgroupId" => [String.t() | atom()],
+        "managedWorkgroupName" => String.t() | atom(),
+        "sourceArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type managed_workgroup_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      namespace() :: %{
+        "adminPasswordSecretArn" => [String.t() | atom()],
+        "adminPasswordSecretKmsKeyId" => String.t() | atom(),
+        "adminUsername" => String.t() | atom(),
+        "catalogArn" => [String.t() | atom()],
+        "creationDate" => [non_neg_integer()],
+        "dbName" => [String.t() | atom()],
+        "defaultIamRoleArn" => [String.t() | atom()],
+        "iamRoles" => list(String.t() | atom()),
+        "kmsKeyId" => [String.t() | atom()],
+        "lakehouseRegistrationStatus" => [String.t() | atom()],
+        "logExports" => list(String.t() | atom()),
+        "namespaceArn" => [String.t() | atom()],
+        "namespaceId" => [String.t() | atom()],
+        "namespaceName" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type namespace() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_interface() :: %{
+        "availabilityZone" => [String.t() | atom()],
+        "ipv6Address" => [String.t() | atom()],
+        "networkInterfaceId" => [String.t() | atom()],
+        "privateIpAddress" => [String.t() | atom()],
+        "subnetId" => [String.t() | atom()]
+      }
+      
+  """
+  @type network_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       performance_target() :: %{
         "level" => [integer()],
         "status" => String.t() | atom()
@@ -292,39 +1440,273 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
-      list_namespaces_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
+      put_resource_policy_request() :: %{
+        required("policy") => [String.t() | atom()],
+        required("resourceArn") => [String.t() | atom()]
       }
       
   """
-  @type list_namespaces_request() :: %{(String.t() | atom()) => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_namespace_response() :: %{
-        "namespace" => namespace()
+      put_resource_policy_response() :: %{
+        "resourcePolicy" => resource_policy()
       }
       
   """
-  @type create_namespace_response() :: %{(String.t() | atom()) => any()}
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_endpoint_access_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("ownerAccount") => String.t() | atom(),
-        optional("vpcId") => [String.t() | atom()],
-        optional("workgroupName") => [String.t() | atom()]
+      recovery_point() :: %{
+        "namespaceArn" => [String.t() | atom()],
+        "namespaceName" => String.t() | atom(),
+        "recoveryPointCreateTime" => [non_neg_integer()],
+        "recoveryPointId" => [String.t() | atom()],
+        "totalSizeInMegaBytes" => [float()],
+        "workgroupName" => String.t() | atom()
       }
       
   """
-  @type list_endpoint_access_request() :: %{(String.t() | atom()) => any()}
+  @type recovery_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reservation() :: %{
+        "capacity" => integer(),
+        "endDate" => [non_neg_integer()],
+        "offering" => reservation_offering(),
+        "reservationArn" => String.t() | atom(),
+        "reservationId" => String.t() | atom(),
+        "startDate" => [non_neg_integer()],
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type reservation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reservation_offering() :: %{
+        "currencyCode" => String.t() | atom(),
+        "duration" => integer(),
+        "hourlyCharge" => float(),
+        "offeringId" => String.t() | atom(),
+        "offeringType" => String.t() | atom(),
+        "upfrontCharge" => float()
+      }
+      
+  """
+  @type reservation_offering() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceName" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_policy() :: %{
+        "policy" => [String.t() | atom()],
+        "resourceArn" => [String.t() | atom()]
+      }
+      
+  """
+  @type resource_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_from_recovery_point_request() :: %{
+        optional("maintainIntegration") => [boolean()],
+        required("namespaceName") => String.t() | atom(),
+        required("recoveryPointId") => [String.t() | atom()],
+        required("workgroupName") => String.t() | atom()
+      }
+      
+  """
+  @type restore_from_recovery_point_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_from_recovery_point_response() :: %{
+        "namespace" => namespace(),
+        "recoveryPointId" => [String.t() | atom()]
+      }
+      
+  """
+  @type restore_from_recovery_point_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_from_snapshot_request() :: %{
+        optional("adminPasswordSecretKmsKeyId") => String.t() | atom(),
+        optional("maintainIntegration") => [boolean()],
+        optional("manageAdminPassword") => [boolean()],
+        optional("ownerAccount") => [String.t() | atom()],
+        optional("snapshotArn") => [String.t() | atom()],
+        optional("snapshotName") => [String.t() | atom()],
+        required("namespaceName") => String.t() | atom(),
+        required("workgroupName") => String.t() | atom()
+      }
+      
+  """
+  @type restore_from_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_from_snapshot_response() :: %{
+        "namespace" => namespace(),
+        "ownerAccount" => [String.t() | atom()],
+        "snapshotName" => [String.t() | atom()]
+      }
+      
+  """
+  @type restore_from_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_table_from_recovery_point_request() :: %{
+        optional("activateCaseSensitiveIdentifier") => [boolean()],
+        optional("sourceSchemaName") => [String.t() | atom()],
+        optional("targetDatabaseName") => [String.t() | atom()],
+        optional("targetSchemaName") => [String.t() | atom()],
+        required("namespaceName") => [String.t() | atom()],
+        required("newTableName") => [String.t() | atom()],
+        required("recoveryPointId") => [String.t() | atom()],
+        required("sourceDatabaseName") => [String.t() | atom()],
+        required("sourceTableName") => [String.t() | atom()],
+        required("workgroupName") => [String.t() | atom()]
+      }
+      
+  """
+  @type restore_table_from_recovery_point_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_table_from_recovery_point_response() :: %{
+        "tableRestoreStatus" => table_restore_status()
+      }
+      
+  """
+  @type restore_table_from_recovery_point_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_table_from_snapshot_request() :: %{
+        optional("activateCaseSensitiveIdentifier") => [boolean()],
+        optional("sourceSchemaName") => [String.t() | atom()],
+        optional("targetDatabaseName") => [String.t() | atom()],
+        optional("targetSchemaName") => [String.t() | atom()],
+        required("namespaceName") => [String.t() | atom()],
+        required("newTableName") => [String.t() | atom()],
+        required("snapshotName") => [String.t() | atom()],
+        required("sourceDatabaseName") => [String.t() | atom()],
+        required("sourceTableName") => [String.t() | atom()],
+        required("workgroupName") => [String.t() | atom()]
+      }
+      
+  """
+  @type restore_table_from_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_table_from_snapshot_response() :: %{
+        "tableRestoreStatus" => table_restore_status()
+      }
+      
+  """
+  @type restore_table_from_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduled_action_association() :: %{
+        "namespaceName" => String.t() | atom(),
+        "scheduledActionName" => String.t() | atom()
+      }
+      
+  """
+  @type scheduled_action_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduled_action_response() :: %{
+        "endTime" => [non_neg_integer()],
+        "namespaceName" => String.t() | atom(),
+        "nextInvocations" => list([non_neg_integer()]()),
+        "roleArn" => String.t() | atom(),
+        "schedule" => list(),
+        "scheduledActionDescription" => [String.t() | atom()],
+        "scheduledActionName" => String.t() | atom(),
+        "scheduledActionUuid" => [String.t() | atom()],
+        "startTime" => [non_neg_integer()],
+        "state" => String.t() | atom(),
+        "targetAction" => list()
+      }
+      
+  """
+  @type scheduled_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_track() :: %{
+        "trackName" => String.t() | atom(),
+        "updateTargets" => list(update_target()),
+        "workgroupVersion" => [String.t() | atom()]
+      }
+      
+  """
+  @type serverless_track() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -362,69 +1744,6 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
-      delete_snapshot_response() :: %{
-        "snapshot" => snapshot()
-      }
-      
-  """
-  @type delete_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint() :: %{
-        "address" => [String.t() | atom()],
-        "port" => [integer()],
-        "vpcEndpoints" => list(vpc_endpoint())
-      }
-      
-  """
-  @type endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      convert_recovery_point_to_snapshot_request() :: %{
-        optional("retentionPeriod") => [integer()],
-        optional("tags") => list(tag()),
-        required("recoveryPointId") => [String.t() | atom()],
-        required("snapshotName") => [String.t() | atom()]
-      }
-      
-  """
-  @type convert_recovery_point_to_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_custom_domain_association_request() :: %{
-        required("customDomainCertificateArn") => String.t() | atom(),
-        required("customDomainName") => String.t() | atom(),
-        required("workgroupName") => String.t() | atom()
-      }
-      
-  """
-  @type create_custom_domain_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       snapshot_copy_configuration() :: %{
         "destinationKmsKeyId" => String.t() | atom(),
         "destinationRegion" => [String.t() | atom()],
@@ -436,664 +1755,6 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type snapshot_copy_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_endpoint_access_response() :: %{
-        "endpoint" => endpoint_access()
-      }
-      
-  """
-  @type get_endpoint_access_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_security_group_membership() :: %{
-        "status" => [String.t() | atom()],
-        "vpcSecurityGroupId" => String.t() | atom()
-      }
-      
-  """
-  @type vpc_security_group_membership() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_custom_domain_association_request() :: %{
-        required("customDomainName") => String.t() | atom(),
-        required("workgroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_custom_domain_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint_access() :: %{
-        "address" => [String.t() | atom()],
-        "endpointArn" => [String.t() | atom()],
-        "endpointCreateTime" => [non_neg_integer()],
-        "endpointName" => [String.t() | atom()],
-        "endpointStatus" => [String.t() | atom()],
-        "port" => [integer()],
-        "subnetIds" => list(String.t() | atom()),
-        "vpcEndpoint" => vpc_endpoint(),
-        "vpcSecurityGroups" => list(vpc_security_group_membership()),
-        "workgroupName" => [String.t() | atom()]
-      }
-      
-  """
-  @type endpoint_access() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_reservations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "reservationsList" => list(reservation())
-      }
-      
-  """
-  @type list_reservations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_from_snapshot_request() :: %{
-        optional("adminPasswordSecretKmsKeyId") => String.t() | atom(),
-        optional("manageAdminPassword") => [boolean()],
-        optional("ownerAccount") => [String.t() | atom()],
-        optional("snapshotArn") => [String.t() | atom()],
-        optional("snapshotName") => [String.t() | atom()],
-        required("namespaceName") => String.t() | atom(),
-        required("workgroupName") => String.t() | atom()
-      }
-      
-  """
-  @type restore_from_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_scheduled_action_request() :: %{
-        optional("enabled") => [boolean()],
-        optional("endTime") => [non_neg_integer()],
-        optional("scheduledActionDescription") => [String.t() | atom()],
-        optional("startTime") => [non_neg_integer()],
-        required("namespaceName") => String.t() | atom(),
-        required("roleArn") => String.t() | atom(),
-        required("schedule") => list(),
-        required("scheduledActionName") => String.t() | atom(),
-        required("targetAction") => list()
-      }
-      
-  """
-  @type create_scheduled_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_table_from_recovery_point_request() :: %{
-        optional("activateCaseSensitiveIdentifier") => [boolean()],
-        optional("sourceSchemaName") => [String.t() | atom()],
-        optional("targetDatabaseName") => [String.t() | atom()],
-        optional("targetSchemaName") => [String.t() | atom()],
-        required("namespaceName") => [String.t() | atom()],
-        required("newTableName") => [String.t() | atom()],
-        required("recoveryPointId") => [String.t() | atom()],
-        required("sourceDatabaseName") => [String.t() | atom()],
-        required("sourceTableName") => [String.t() | atom()],
-        required("workgroupName") => [String.t() | atom()]
-      }
-      
-  """
-  @type restore_table_from_recovery_point_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_from_recovery_point_request() :: %{
-        required("namespaceName") => String.t() | atom(),
-        required("recoveryPointId") => [String.t() | atom()],
-        required("workgroupName") => String.t() | atom()
-      }
-      
-  """
-  @type restore_from_recovery_point_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_endpoint_access_request() :: %{
-        required("endpointName") => [String.t() | atom()]
-      }
-      
-  """
-  @type get_endpoint_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_custom_domain_association_response() :: %{}
-      
-  """
-  @type delete_custom_domain_association_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_scheduled_action_response() :: %{
-        "scheduledAction" => scheduled_action_response()
-      }
-      
-  """
-  @type delete_scheduled_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_capacity_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_snapshots_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "snapshots" => list(snapshot())
-      }
-      
-  """
-  @type list_snapshots_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ipv6_cidr_block_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type ipv6_cidr_block_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_snapshot_response() :: %{
-        "snapshot" => snapshot()
-      }
-      
-  """
-  @type update_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scheduled_action_response() :: %{
-        "endTime" => [non_neg_integer()],
-        "namespaceName" => String.t() | atom(),
-        "nextInvocations" => list([non_neg_integer()]()),
-        "roleArn" => String.t() | atom(),
-        "schedule" => list(),
-        "scheduledActionDescription" => [String.t() | atom()],
-        "scheduledActionName" => String.t() | atom(),
-        "scheduledActionUuid" => [String.t() | atom()],
-        "startTime" => [non_neg_integer()],
-        "state" => String.t() | atom(),
-        "targetAction" => list()
-      }
-      
-  """
-  @type scheduled_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_reservation_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        required("capacity") => integer(),
-        required("offeringId") => String.t() | atom()
-      }
-      
-  """
-  @type create_reservation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_usage_limits_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceArn") => [String.t() | atom()],
-        optional("usageType") => String.t() | atom()
-      }
-      
-  """
-  @type list_usage_limits_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_scheduled_action_response() :: %{
-        "scheduledAction" => scheduled_action_response()
-      }
-      
-  """
-  @type get_scheduled_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_snapshot_schedule_action_parameters() :: %{
-        "namespaceName" => String.t() | atom(),
-        "retentionPeriod" => [integer()],
-        "snapshotNamePrefix" => String.t() | atom(),
-        "tags" => list(tag())
-      }
-      
-  """
-  @type create_snapshot_schedule_action_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_namespace_request() :: %{
-        optional("finalSnapshotName") => [String.t() | atom()],
-        optional("finalSnapshotRetentionPeriod") => [integer()],
-        required("namespaceName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_namespace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_snapshot_copy_configuration_request() :: %{
-        optional("snapshotRetentionPeriod") => [integer()],
-        required("snapshotCopyConfigurationId") => [String.t() | atom()]
-      }
-      
-  """
-  @type update_snapshot_copy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_scheduled_actions_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("namespaceName") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_scheduled_actions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_snapshot_request() :: %{
-        optional("retentionPeriod") => [integer()],
-        optional("tags") => list(tag()),
-        required("namespaceName") => [String.t() | atom()],
-        required("snapshotName") => [String.t() | atom()]
-      }
-      
-  """
-  @type create_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_from_snapshot_response() :: %{
-        "namespace" => namespace(),
-        "ownerAccount" => [String.t() | atom()],
-        "snapshotName" => [String.t() | atom()]
-      }
-      
-  """
-  @type restore_from_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_snapshot_request() :: %{
-        required("snapshotName") => [String.t() | atom()]
-      }
-      
-  """
-  @type delete_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_credentials_response() :: %{
-        "dbPassword" => String.t() | atom(),
-        "dbUser" => String.t() | atom(),
-        "expiration" => [non_neg_integer()],
-        "nextRefreshTime" => [non_neg_integer()]
-      }
-      
-  """
-  @type get_credentials_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_usage_limit_request() :: %{
-        optional("amount") => [float()],
-        optional("breachAction") => String.t() | atom(),
-        required("usageLimitId") => [String.t() | atom()]
-      }
-      
-  """
-  @type update_usage_limit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_lakehouse_configuration_request() :: %{
-        optional("catalogName") => String.t() | atom(),
-        optional("dryRun") => [boolean()],
-        optional("lakehouseIdcApplicationArn") => [String.t() | atom()],
-        optional("lakehouseIdcRegistration") => String.t() | atom(),
-        optional("lakehouseRegistration") => String.t() | atom(),
-        required("namespaceName") => String.t() | atom()
-      }
-      
-  """
-  @type update_lakehouse_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_policy_request() :: %{
-        required("resourceArn") => [String.t() | atom()]
-      }
-      
-  """
-  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_scheduled_action_request() :: %{
-        required("scheduledActionName") => String.t() | atom()
-      }
-      
-  """
-  @type get_scheduled_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_center_auth_token_response() :: %{
-        "expirationTime" => [non_neg_integer()],
-        "token" => [String.t() | atom()]
-      }
-      
-  """
-  @type get_identity_center_auth_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      association() :: %{
-        "customDomainCertificateArn" => String.t() | atom(),
-        "customDomainCertificateExpiryTime" => [non_neg_integer()],
-        "customDomainName" => String.t() | atom(),
-        "workgroupName" => String.t() | atom()
-      }
-      
-  """
-  @type association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_snapshot_copy_configuration_request() :: %{
-        optional("destinationKmsKeyId") => String.t() | atom(),
-        optional("snapshotRetentionPeriod") => [integer()],
-        required("destinationRegion") => [String.t() | atom()],
-        required("namespaceName") => String.t() | atom()
-      }
-      
-  """
-  @type create_snapshot_copy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_reservation_offerings_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_reservation_offerings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_namespace_response() :: %{
-        "namespace" => namespace()
-      }
-      
-  """
-  @type update_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_lakehouse_configuration_response() :: %{
-        "catalogArn" => [String.t() | atom()],
-        "lakehouseIdcApplicationArn" => [String.t() | atom()],
-        "lakehouseRegistrationStatus" => [String.t() | atom()],
-        "namespaceName" => String.t() | atom()
-      }
-      
-  """
-  @type update_lakehouse_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_scheduled_action_response() :: %{
-        "scheduledAction" => scheduled_action_response()
-      }
-      
-  """
-  @type update_scheduled_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_custom_domain_association_request() :: %{
-        required("customDomainName") => String.t() | atom(),
-        required("workgroupName") => String.t() | atom()
-      }
-      
-  """
-  @type get_custom_domain_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_custom_domain_associations_response() :: %{
-        "associations" => list(association()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_custom_domain_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_table_restore_status_response() :: %{
-        "tableRestoreStatus" => table_restore_status()
-      }
-      
-  """
-  @type get_table_restore_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reservation_offering() :: %{
-        "currencyCode" => String.t() | atom(),
-        "duration" => integer(),
-        "hourlyCharge" => float(),
-        "offeringId" => String.t() | atom(),
-        "offeringType" => String.t() | atom(),
-        "upfrontCharge" => float()
-      }
-      
-  """
-  @type reservation_offering() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_snapshot_copy_configuration_response() :: %{
-        "snapshotCopyConfiguration" => snapshot_copy_configuration()
-      }
-      
-  """
-  @type create_snapshot_copy_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_workgroups_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("ownerAccount") => String.t() | atom()
-      }
-      
-  """
-  @type list_workgroups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceName" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_reservation_response() :: %{
-        "reservation" => reservation()
-      }
-      
-  """
-  @type create_reservation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1125,16 +1786,13 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
-      network_interface() :: %{
-        "availabilityZone" => [String.t() | atom()],
-        "ipv6Address" => [String.t() | atom()],
-        "networkInterfaceId" => [String.t() | atom()],
-        "privateIpAddress" => [String.t() | atom()],
-        "subnetId" => [String.t() | atom()]
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type network_interface() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1152,88 +1810,6 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
-      list_endpoint_access_response() :: %{
-        "endpoints" => list(endpoint_access()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_endpoint_access_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_workgroup_response() :: %{
-        "workgroup" => workgroup()
-      }
-      
-  """
-  @type delete_workgroup_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_snapshot_request() :: %{
-        optional("ownerAccount") => [String.t() | atom()],
-        optional("snapshotArn") => [String.t() | atom()],
-        optional("snapshotName") => [String.t() | atom()]
-      }
-      
-  """
-  @type get_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tracks_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_tracks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_endpoint_access_response() :: %{
-        "endpoint" => endpoint_access()
-      }
-      
-  """
-  @type delete_endpoint_access_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_endpoint_access_request() :: %{
-        optional("vpcSecurityGroupIds") => list(String.t() | atom()),
-        required("endpointName") => [String.t() | atom()]
-      }
-      
-  """
-  @type update_endpoint_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_recovery_point_response() :: %{
-        "recoveryPoint" => recovery_point()
-      }
-      
-  """
-  @type get_recovery_point_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       tag_resource_response() :: %{}
       
   """
@@ -1243,137 +1819,25 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
-      list_usage_limits_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "usageLimits" => list(usage_limit())
-      }
-      
-  """
-  @type list_usage_limits_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_custom_domain_association_response() :: %{
-        "customDomainCertificateArn" => String.t() | atom(),
-        "customDomainCertificateExpiryTime" => [non_neg_integer()],
-        "customDomainName" => String.t() | atom(),
-        "workgroupName" => String.t() | atom()
-      }
-      
-  """
-  @type create_custom_domain_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dry_run_exception() :: %{
+      throttling_exception() :: %{
+        "code" => [String.t() | atom()],
         "message" => [String.t() | atom()]
       }
       
   """
-  @type dry_run_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      restore_table_from_snapshot_response() :: %{
-        "tableRestoreStatus" => table_restore_status()
+      too_many_tags_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceName" => String.t() | atom()
       }
       
   """
-  @type restore_table_from_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scheduled_action_association() :: %{
-        "namespaceName" => String.t() | atom(),
-        "scheduledActionName" => String.t() | atom()
-      }
-      
-  """
-  @type scheduled_action_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_snapshots_request() :: %{
-        optional("endTime") => [non_neg_integer()],
-        optional("maxResults") => [integer()],
-        optional("namespaceArn") => [String.t() | atom()],
-        optional("namespaceName") => [String.t() | atom()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("ownerAccount") => [String.t() | atom()],
-        optional("startTime") => [non_neg_integer()]
-      }
-      
-  """
-  @type list_snapshots_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_reservation_offering_request() :: %{
-        required("offeringId") => String.t() | atom()
-      }
-      
-  """
-  @type get_reservation_offering_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reservation() :: %{
-        "capacity" => integer(),
-        "endDate" => [non_neg_integer()],
-        "offering" => reservation_offering(),
-        "reservationArn" => String.t() | atom(),
-        "reservationId" => String.t() | atom(),
-        "startDate" => [non_neg_integer()],
-        "status" => String.t() | atom()
-      }
-      
-  """
-  @type reservation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_policy_response() :: %{
-        "resourcePolicy" => resource_policy()
-      }
-      
-  """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1391,46 +1855,293 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
-      list_scheduled_actions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "scheduledActions" => list(scheduled_action_association())
-      }
+      untag_resource_response() :: %{}
       
   """
-  @type list_scheduled_actions_response() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      delete_resource_policy_request() :: %{
-        required("resourceArn") => [String.t() | atom()]
-      }
-      
-  """
-  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_workgroup_request() :: %{
+      update_custom_domain_association_request() :: %{
+        required("customDomainCertificateArn") => String.t() | atom(),
+        required("customDomainName") => String.t() | atom(),
         required("workgroupName") => String.t() | atom()
       }
       
   """
-  @type delete_workgroup_request() :: %{(String.t() | atom()) => any()}
+  @type update_custom_domain_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_snapshot_response() :: %{
+      update_custom_domain_association_response() :: %{
+        "customDomainCertificateArn" => String.t() | atom(),
+        "customDomainCertificateExpiryTime" => [non_neg_integer()],
+        "customDomainName" => String.t() | atom(),
+        "workgroupName" => String.t() | atom()
+      }
+      
+  """
+  @type update_custom_domain_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_endpoint_access_request() :: %{
+        optional("vpcSecurityGroupIds") => list(String.t() | atom()),
+        required("endpointName") => [String.t() | atom()]
+      }
+      
+  """
+  @type update_endpoint_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_endpoint_access_response() :: %{
+        "endpoint" => endpoint_access()
+      }
+      
+  """
+  @type update_endpoint_access_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_lakehouse_configuration_request() :: %{
+        optional("catalogName") => String.t() | atom(),
+        optional("dryRun") => [boolean()],
+        optional("lakehouseIdcApplicationArn") => [String.t() | atom()],
+        optional("lakehouseIdcRegistration") => String.t() | atom(),
+        optional("lakehouseRegistration") => String.t() | atom(),
+        required("namespaceName") => String.t() | atom()
+      }
+      
+  """
+  @type update_lakehouse_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_lakehouse_configuration_response() :: %{
+        "catalogArn" => [String.t() | atom()],
+        "lakehouseIdcApplicationArn" => [String.t() | atom()],
+        "lakehouseRegistrationStatus" => [String.t() | atom()],
+        "namespaceName" => String.t() | atom()
+      }
+      
+  """
+  @type update_lakehouse_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_namespace_request() :: %{
+        optional("adminPasswordSecretKmsKeyId") => String.t() | atom(),
+        optional("adminUserPassword") => String.t() | atom(),
+        optional("adminUsername") => String.t() | atom(),
+        optional("defaultIamRoleArn") => [String.t() | atom()],
+        optional("iamRoles") => list(String.t() | atom()),
+        optional("kmsKeyId") => [String.t() | atom()],
+        optional("logExports") => list(String.t() | atom()),
+        optional("manageAdminPassword") => [boolean()],
+        required("namespaceName") => String.t() | atom()
+      }
+      
+  """
+  @type update_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_namespace_response() :: %{
+        "namespace" => namespace()
+      }
+      
+  """
+  @type update_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_scheduled_action_request() :: %{
+        optional("enabled") => [boolean()],
+        optional("endTime") => [non_neg_integer()],
+        optional("roleArn") => String.t() | atom(),
+        optional("schedule") => list(),
+        optional("scheduledActionDescription") => [String.t() | atom()],
+        optional("startTime") => [non_neg_integer()],
+        optional("targetAction") => list(),
+        required("scheduledActionName") => String.t() | atom()
+      }
+      
+  """
+  @type update_scheduled_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_scheduled_action_response() :: %{
+        "scheduledAction" => scheduled_action_response()
+      }
+      
+  """
+  @type update_scheduled_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_snapshot_copy_configuration_request() :: %{
+        optional("snapshotRetentionPeriod") => [integer()],
+        required("snapshotCopyConfigurationId") => [String.t() | atom()]
+      }
+      
+  """
+  @type update_snapshot_copy_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_snapshot_copy_configuration_response() :: %{
+        "snapshotCopyConfiguration" => snapshot_copy_configuration()
+      }
+      
+  """
+  @type update_snapshot_copy_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_snapshot_request() :: %{
+        optional("retentionPeriod") => [integer()],
+        required("snapshotName") => [String.t() | atom()]
+      }
+      
+  """
+  @type update_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_snapshot_response() :: %{
         "snapshot" => snapshot()
       }
       
   """
-  @type get_snapshot_response() :: %{(String.t() | atom()) => any()}
+  @type update_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_target() :: %{
+        "trackName" => String.t() | atom(),
+        "workgroupVersion" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_usage_limit_request() :: %{
+        optional("amount") => [float()],
+        optional("breachAction") => String.t() | atom(),
+        required("usageLimitId") => [String.t() | atom()]
+      }
+      
+  """
+  @type update_usage_limit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_usage_limit_response() :: %{
+        "usageLimit" => usage_limit()
+      }
+      
+  """
+  @type update_usage_limit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_workgroup_request() :: %{
+        optional("baseCapacity") => [integer()],
+        optional("configParameters") => list(config_parameter()),
+        optional("enhancedVpcRouting") => [boolean()],
+        optional("extraComputeForAutomaticOptimization") => [boolean()],
+        optional("ipAddressType") => String.t() | atom(),
+        optional("maxCapacity") => [integer()],
+        optional("port") => [integer()],
+        optional("pricePerformanceTarget") => performance_target(),
+        optional("publiclyAccessible") => [boolean()],
+        optional("securityGroupIds") => list(String.t() | atom()),
+        optional("subnetIds") => list(String.t() | atom()),
+        optional("trackName") => String.t() | atom(),
+        required("workgroupName") => String.t() | atom()
+      }
+      
+  """
+  @type update_workgroup_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_workgroup_response() :: %{
+        "workgroup" => workgroup()
+      }
+      
+  """
+  @type update_workgroup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      usage_limit() :: %{
+        "amount" => [float()],
+        "breachAction" => String.t() | atom(),
+        "period" => String.t() | atom(),
+        "resourceArn" => [String.t() | atom()],
+        "usageLimitArn" => [String.t() | atom()],
+        "usageLimitId" => [String.t() | atom()],
+        "usageType" => String.t() | atom()
+      }
+      
+  """
+  @type usage_limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1449,24 +2160,13 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
-      get_namespace_response() :: %{
-        "namespace" => namespace()
+      vpc_security_group_membership() :: %{
+        "status" => [String.t() | atom()],
+        "vpcSecurityGroupId" => String.t() | atom()
       }
       
   """
-  @type get_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_target() :: %{
-        "trackName" => String.t() | atom(),
-        "workgroupVersion" => [String.t() | atom()]
-      }
-      
-  """
-  @type update_target() :: %{(String.t() | atom()) => any()}
+  @type vpc_security_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1504,1081 +2204,383 @@ defmodule AWS.RedshiftServerless do
   """
   @type workgroup() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_response() :: %{
-        "resourcePolicy" => resource_policy()
-      }
-      
-  """
-  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_table_from_recovery_point_response() :: %{
-        "tableRestoreStatus" => table_restore_status()
-      }
-      
-  """
-  @type restore_table_from_recovery_point_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tracks_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "tracks" => list(serverless_track())
-      }
-      
-  """
-  @type list_tracks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_snapshot_copy_configuration_response() :: %{
-        "snapshotCopyConfiguration" => snapshot_copy_configuration()
-      }
-      
-  """
-  @type update_snapshot_copy_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_usage_limit_response() :: %{
-        "usageLimit" => usage_limit()
-      }
-      
-  """
-  @type get_usage_limit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_policy_response() :: %{}
-      
-  """
-  @type delete_resource_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      namespace() :: %{
-        "adminPasswordSecretArn" => [String.t() | atom()],
-        "adminPasswordSecretKmsKeyId" => String.t() | atom(),
-        "adminUsername" => String.t() | atom(),
-        "catalogArn" => [String.t() | atom()],
-        "creationDate" => [non_neg_integer()],
-        "dbName" => [String.t() | atom()],
-        "defaultIamRoleArn" => [String.t() | atom()],
-        "iamRoles" => list(String.t() | atom()),
-        "kmsKeyId" => [String.t() | atom()],
-        "lakehouseRegistrationStatus" => [String.t() | atom()],
-        "logExports" => list(String.t() | atom()),
-        "namespaceArn" => [String.t() | atom()],
-        "namespaceId" => [String.t() | atom()],
-        "namespaceName" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-      
-  """
-  @type namespace() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_namespace_request() :: %{
-        optional("adminPasswordSecretKmsKeyId") => String.t() | atom(),
-        optional("adminUserPassword") => String.t() | atom(),
-        optional("adminUsername") => String.t() | atom(),
-        optional("defaultIamRoleArn") => [String.t() | atom()],
-        optional("iamRoles") => list(String.t() | atom()),
-        optional("kmsKeyId") => [String.t() | atom()],
-        optional("logExports") => list(String.t() | atom()),
-        optional("manageAdminPassword") => [boolean()],
-        required("namespaceName") => String.t() | atom()
-      }
-      
-  """
-  @type update_namespace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      config_parameter() :: %{
-        "parameterKey" => String.t() | atom(),
-        "parameterValue" => String.t() | atom()
-      }
-      
-  """
-  @type config_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_credentials_request() :: %{
-        optional("customDomainName") => String.t() | atom(),
-        optional("dbName") => String.t() | atom(),
-        optional("durationSeconds") => [integer()],
-        optional("workgroupName") => String.t() | atom()
-      }
-      
-  """
-  @type get_credentials_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_table_from_snapshot_request() :: %{
-        optional("activateCaseSensitiveIdentifier") => [boolean()],
-        optional("sourceSchemaName") => [String.t() | atom()],
-        optional("targetDatabaseName") => [String.t() | atom()],
-        optional("targetSchemaName") => [String.t() | atom()],
-        required("namespaceName") => [String.t() | atom()],
-        required("newTableName") => [String.t() | atom()],
-        required("snapshotName") => [String.t() | atom()],
-        required("sourceDatabaseName") => [String.t() | atom()],
-        required("sourceTableName") => [String.t() | atom()],
-        required("workgroupName") => [String.t() | atom()]
-      }
-      
-  """
-  @type restore_table_from_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_tags_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceName" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_snapshot_copy_configurations_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("namespaceName") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_snapshot_copy_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_snapshot_copy_configuration_response() :: %{
-        "snapshotCopyConfiguration" => snapshot_copy_configuration()
-      }
-      
-  """
-  @type delete_snapshot_copy_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_namespace_response() :: %{
-        "namespace" => namespace()
-      }
-      
-  """
-  @type delete_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_track_request() :: %{
-        required("trackName") => String.t() | atom()
-      }
-      
-  """
-  @type get_track_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_snapshot_copy_configurations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "snapshotCopyConfigurations" => list(snapshot_copy_configuration())
-      }
-      
-  """
-  @type list_snapshot_copy_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_reservation_response() :: %{
-        "reservation" => reservation()
-      }
-      
-  """
-  @type get_reservation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_from_recovery_point_response() :: %{
-        "namespace" => namespace(),
-        "recoveryPointId" => [String.t() | atom()]
-      }
-      
-  """
-  @type restore_from_recovery_point_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_namespaces_response() :: %{
-        "namespaces" => list(namespace()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_namespaces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_usage_limit_request() :: %{
-        required("usageLimitId") => [String.t() | atom()]
-      }
-      
-  """
-  @type delete_usage_limit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_endpoint_access_response() :: %{
-        "endpoint" => endpoint_access()
-      }
-      
-  """
-  @type update_endpoint_access_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_usage_limit_response() :: %{
-        "usageLimit" => usage_limit()
-      }
-      
-  """
-  @type delete_usage_limit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_workgroups_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "workgroups" => list(workgroup())
-      }
-      
-  """
-  @type list_workgroups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recovery_point() :: %{
-        "namespaceArn" => [String.t() | atom()],
-        "namespaceName" => String.t() | atom(),
-        "recoveryPointCreateTime" => [non_neg_integer()],
-        "recoveryPointId" => [String.t() | atom()],
-        "totalSizeInMegaBytes" => [float()],
-        "workgroupName" => String.t() | atom()
-      }
-      
-  """
-  @type recovery_point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      convert_recovery_point_to_snapshot_response() :: %{
-        "snapshot" => snapshot()
-      }
-      
-  """
-  @type convert_recovery_point_to_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_pagination_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type invalid_pagination_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_managed_workgroups_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("sourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_managed_workgroups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_center_auth_token_request() :: %{
-        required("workgroupNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_identity_center_auth_token_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_custom_domain_associations_request() :: %{
-        optional("customDomainCertificateArn") => String.t() | atom(),
-        optional("customDomainName") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_custom_domain_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_workgroup_request() :: %{
-        optional("baseCapacity") => [integer()],
-        optional("configParameters") => list(config_parameter()),
-        optional("enhancedVpcRouting") => [boolean()],
-        optional("extraComputeForAutomaticOptimization") => [boolean()],
-        optional("ipAddressType") => String.t() | atom(),
-        optional("maxCapacity") => [integer()],
-        optional("port") => [integer()],
-        optional("pricePerformanceTarget") => performance_target(),
-        optional("publiclyAccessible") => [boolean()],
-        optional("securityGroupIds") => list(String.t() | atom()),
-        optional("subnetIds") => list(String.t() | atom()),
-        optional("trackName") => String.t() | atom(),
-        required("workgroupName") => String.t() | atom()
-      }
-      
-  """
-  @type update_workgroup_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_scheduled_action_response() :: %{
-        "scheduledAction" => scheduled_action_response()
-      }
-      
-  """
-  @type create_scheduled_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_workgroup_response() :: %{
-        "workgroup" => workgroup()
-      }
-      
-  """
-  @type create_workgroup_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_custom_domain_association_response() :: %{
-        "customDomainCertificateArn" => String.t() | atom(),
-        "customDomainCertificateExpiryTime" => [non_neg_integer()],
-        "customDomainName" => String.t() | atom(),
-        "workgroupName" => String.t() | atom()
-      }
-      
-  """
-  @type get_custom_domain_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_reservations_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_reservations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_reservation_offering_response() :: %{
-        "reservationOffering" => reservation_offering()
-      }
-      
-  """
-  @type get_reservation_offering_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_recovery_point_request() :: %{
-        required("recoveryPointId") => [String.t() | atom()]
-      }
-      
-  """
-  @type get_recovery_point_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      serverless_track() :: %{
-        "trackName" => String.t() | atom(),
-        "updateTargets" => list(update_target()),
-        "workgroupVersion" => [String.t() | atom()]
-      }
-      
-  """
-  @type serverless_track() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_snapshot_response() :: %{
-        "snapshot" => snapshot()
-      }
-      
-  """
-  @type create_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_policy() :: %{
-        "policy" => [String.t() | atom()],
-        "resourceArn" => [String.t() | atom()]
-      }
-      
-  """
-  @type resource_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_namespace_request() :: %{
-        optional("adminPasswordSecretKmsKeyId") => String.t() | atom(),
-        optional("adminUserPassword") => String.t() | atom(),
-        optional("adminUsername") => String.t() | atom(),
-        optional("dbName") => [String.t() | atom()],
-        optional("defaultIamRoleArn") => [String.t() | atom()],
-        optional("iamRoles") => list(String.t() | atom()),
-        optional("kmsKeyId") => [String.t() | atom()],
-        optional("logExports") => list(String.t() | atom()),
-        optional("manageAdminPassword") => [boolean()],
-        optional("redshiftIdcApplicationArn") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("namespaceName") => String.t() | atom()
-      }
-      
-  """
-  @type create_namespace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_custom_domain_association_response() :: %{
-        "customDomainCertificateArn" => String.t() | atom(),
-        "customDomainCertificateExpiryTime" => [non_neg_integer()],
-        "customDomainName" => String.t() | atom(),
-        "workgroupName" => String.t() | atom()
-      }
-      
-  """
-  @type update_custom_domain_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_custom_domain_association_request() :: %{
-        required("customDomainCertificateArn") => String.t() | atom(),
-        required("customDomainName") => String.t() | atom(),
-        required("workgroupName") => String.t() | atom()
-      }
-      
-  """
-  @type update_custom_domain_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_endpoint_access_response() :: %{
-        "endpoint" => endpoint_access()
-      }
-      
-  """
-  @type create_endpoint_access_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_managed_workgroups_response() :: %{
-        "managedWorkgroups" => list(managed_workgroup_list_item()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_managed_workgroups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_snapshot_copy_configuration_request() :: %{
-        required("snapshotCopyConfigurationId") => [String.t() | atom()]
-      }
-      
-  """
-  @type delete_snapshot_copy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      usage_limit() :: %{
-        "amount" => [float()],
-        "breachAction" => String.t() | atom(),
-        "period" => String.t() | atom(),
-        "resourceArn" => [String.t() | atom()],
-        "usageLimitArn" => [String.t() | atom()],
-        "usageLimitId" => [String.t() | atom()],
-        "usageType" => String.t() | atom()
-      }
-      
-  """
-  @type usage_limit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_workgroup_response() :: %{
-        "workgroup" => workgroup()
-      }
-      
-  """
-  @type update_workgroup_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_usage_limit_request() :: %{
-        required("usageLimitId") => [String.t() | atom()]
-      }
-      
-  """
-  @type get_usage_limit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_workgroup_list_item() :: %{
-        "creationDate" => [non_neg_integer()],
-        "managedWorkgroupId" => [String.t() | atom()],
-        "managedWorkgroupName" => String.t() | atom(),
-        "sourceArn" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type managed_workgroup_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_scheduled_action_request() :: %{
-        optional("enabled") => [boolean()],
-        optional("endTime") => [non_neg_integer()],
-        optional("roleArn") => String.t() | atom(),
-        optional("schedule") => list(),
-        optional("scheduledActionDescription") => [String.t() | atom()],
-        optional("startTime") => [non_neg_integer()],
-        optional("targetAction") => list(),
-        required("scheduledActionName") => String.t() | atom()
-      }
-      
-  """
-  @type update_scheduled_action_request() :: %{(String.t() | atom()) => any()}
-
   @type convert_recovery_point_to_snapshot_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
           | too_many_tags_exception()
-          | conflict_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type create_custom_domain_association_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_endpoint_access_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_namespace_errors() ::
-          too_many_tags_exception()
-          | conflict_exception()
+          validation_exception()
+          | too_many_tags_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type create_reservation_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
           | too_many_tags_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
-          | throttling_exception()
+          | conflict_exception()
 
   @type create_scheduled_action_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type create_snapshot_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
           | too_many_tags_exception()
-          | conflict_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type create_snapshot_copy_configuration_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_usage_limit_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type create_workgroup_errors() ::
-          too_many_tags_exception()
-          | conflict_exception()
+          validation_exception()
+          | too_many_tags_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
           | ipv6_cidr_block_not_found_exception()
+          | internal_server_exception()
           | insufficient_capacity_exception()
+          | conflict_exception()
 
   @type delete_custom_domain_association_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_endpoint_access_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type delete_namespace_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type delete_resource_policy_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type delete_scheduled_action_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type delete_snapshot_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type delete_snapshot_copy_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_usage_limit_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type delete_workgroup_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type get_credentials_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_custom_domain_association_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_endpoint_access_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type get_identity_center_auth_token_errors() ::
-          conflict_exception()
-          | dry_run_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | dry_run_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_namespace_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_recovery_point_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type get_reservation_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type get_reservation_offering_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type get_resource_policy_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_scheduled_action_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_snapshot_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_table_restore_status_errors() ::
-          resource_not_found_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception()
 
   @type get_track_errors() ::
-          conflict_exception()
-          | dry_run_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | dry_run_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_usage_limit_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type get_workgroup_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_custom_domain_associations_errors() ::
-          invalid_pagination_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | invalid_pagination_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_endpoint_access_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type list_managed_workgroups_errors() ::
           internal_server_exception() | access_denied_exception()
 
-  @type list_namespaces_errors() :: internal_server_exception() | validation_exception()
+  @type list_namespaces_errors() :: validation_exception() | internal_server_exception()
 
-  @type list_recovery_points_errors() :: internal_server_exception() | validation_exception()
+  @type list_recovery_points_errors() :: validation_exception() | internal_server_exception()
 
   @type list_reservation_offerings_errors() ::
-          internal_server_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | internal_server_exception()
 
   @type list_reservations_errors() ::
-          internal_server_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | internal_server_exception()
 
   @type list_scheduled_actions_errors() ::
-          invalid_pagination_exception()
+          validation_exception()
           | resource_not_found_exception()
+          | invalid_pagination_exception()
           | internal_server_exception()
-          | validation_exception()
 
   @type list_snapshot_copy_configurations_errors() ::
-          invalid_pagination_exception()
-          | conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
+          | invalid_pagination_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type list_snapshots_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_table_restore_status_errors() ::
-          invalid_pagination_exception() | resource_not_found_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | invalid_pagination_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type list_tracks_errors() ::
-          invalid_pagination_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | invalid_pagination_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_usage_limits_errors() ::
-          invalid_pagination_exception()
-          | conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
+          | invalid_pagination_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
-  @type list_workgroups_errors() :: internal_server_exception() | validation_exception()
+  @type list_workgroups_errors() :: validation_exception() | internal_server_exception()
 
   @type put_resource_policy_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type restore_from_recovery_point_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type restore_from_snapshot_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type restore_table_from_recovery_point_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type restore_table_from_snapshot_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type tag_resource_errors() ::
-          too_many_tags_exception()
+          validation_exception()
+          | too_many_tags_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type update_custom_domain_association_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_endpoint_access_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_lakehouse_configuration_errors() ::
-          conflict_exception()
-          | dry_run_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | dry_run_exception()
+          | conflict_exception()
 
   @type update_namespace_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type update_scheduled_action_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type update_snapshot_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type update_snapshot_copy_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_usage_limit_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
 
   @type update_workgroup_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
           | ipv6_cidr_block_not_found_exception()
+          | internal_server_exception()
           | insufficient_capacity_exception()
+          | conflict_exception()
 
   def metadata do
     %{

@@ -18,152 +18,25 @@ defmodule AWS.PartnerCentralAccount do
 
   ## Example:
       
-      list_partners_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Catalog") => String.t() | atom()
-      }
-      
-  """
-  @type list_partners_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_profile_update_task_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "EndedAt" => non_neg_integer(),
-        "ErrorDetailList" => list(error_detail()),
-        "Id" => String.t() | atom(),
-        "StartedAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "TaskDetails" => task_details(),
-        "TaskId" => String.t() | atom()
-      }
-      
-  """
-  @type start_profile_update_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_connection_invitation_request() :: %{
-        required("Catalog") => String.t() | atom(),
-        required("Identifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_connection_invitation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_aws_training_certification_email_domain_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("Catalog") => String.t() | atom(),
-        required("DomainName") => String.t() | atom(),
-        required("Identifier") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_aws_training_certification_email_domain_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      start_verification_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("VerificationDetails") => list()
-      }
-      
-  """
-  @type start_verification_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_verification_request() :: %{
-        required("VerificationType") => list(any())
-      }
-      
-  """
-  @type get_verification_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_connection_invitation_request() :: %{
+      accept_connection_invitation_request() :: %{
         required("Catalog") => String.t() | atom(),
         required("ClientToken") => String.t() | atom(),
         required("Identifier") => String.t() | atom()
       }
       
   """
-  @type cancel_connection_invitation_request() :: %{(String.t() | atom()) => any()}
+  @type accept_connection_invitation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_partner_request() :: %{
-        required("Catalog") => String.t() | atom(),
-        required("Identifier") => String.t() | atom()
+      accept_connection_invitation_response() :: %{
+        "Connection" => connection()
       }
       
   """
-  @type get_partner_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "QuotaCode" => [String.t() | atom()],
-        "ServiceCode" => [String.t() | atom()]
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_profile_update_task_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "EndedAt" => non_neg_integer(),
-        "ErrorDetailList" => list(error_detail()),
-        "Id" => String.t() | atom(),
-        "StartedAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "TaskDetails" => task_details(),
-        "TaskId" => String.t() | atom()
-      }
-      
-  """
-  @type cancel_profile_update_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_connections_response() :: %{
-        "ConnectionSummaries" => list(connection_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_connections_response() :: %{(String.t() | atom()) => any()}
+  @type accept_connection_invitation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -181,137 +54,12 @@ defmodule AWS.PartnerCentralAccount do
 
   ## Example:
       
-      get_profile_update_task_request() :: %{
-        required("Catalog") => String.t() | atom(),
-        required("Identifier") => String.t() | atom()
+      account_summary() :: %{
+        "Name" => String.t() | atom()
       }
       
   """
-  @type get_profile_update_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_connection_request() :: %{
-        required("Catalog") => String.t() | atom(),
-        required("ClientToken") => String.t() | atom(),
-        required("ConnectionType") => list(any()),
-        required("Identifier") => String.t() | atom(),
-        required("Reason") => [String.t() | atom()]
-      }
-      
-  """
-  @type cancel_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_connection_invitation_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "ConnectionId" => String.t() | atom(),
-        "ConnectionType" => list(any()),
-        "CreatedAt" => non_neg_integer(),
-        "ExpiresAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "InvitationMessage" => String.t() | atom(),
-        "InviterEmail" => String.t() | atom(),
-        "InviterName" => String.t() | atom(),
-        "OtherParticipantIdentifier" => String.t() | atom(),
-        "ParticipantType" => list(any()),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type create_connection_invitation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_profile_visibility_request() :: %{
-        required("Catalog") => String.t() | atom(),
-        required("Identifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_profile_visibility_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_alliance_lead_contact_response() :: %{
-        "AllianceLeadContact" => alliance_lead_contact(),
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type get_alliance_lead_contact_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_profile_update_task_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "EndedAt" => non_neg_integer(),
-        "ErrorDetailList" => list(error_detail()),
-        "Id" => String.t() | atom(),
-        "StartedAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "TaskDetails" => task_details(),
-        "TaskId" => String.t() | atom()
-      }
-      
-  """
-  @type get_profile_update_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_profile_update_task_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("Catalog") => String.t() | atom(),
-        required("Identifier") => String.t() | atom(),
-        required("TaskId") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_profile_update_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_connection_preferences_request() :: %{
-        optional("ExcludedParticipantIdentifiers") => list(String.t() | atom()),
-        required("AccessType") => list(any()),
-        required("Catalog") => String.t() | atom(),
-        required("Revision") => float()
-      }
-      
-  """
-  @type update_connection_preferences_request() :: %{(String.t() | atom()) => any()}
+  @type account_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -331,434 +79,18 @@ defmodule AWS.PartnerCentralAccount do
 
   ## Example:
       
-      accept_connection_invitation_response() :: %{
-        "Connection" => connection()
-      }
-      
-  """
-  @type accept_connection_invitation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_verification_response() :: %{
-        "CompletedAt" => non_neg_integer(),
-        "StartedAt" => non_neg_integer(),
-        "VerificationResponseDetails" => list(),
-        "VerificationStatus" => list(any()),
-        "VerificationStatusReason" => String.t() | atom(),
-        "VerificationType" => list(any())
-      }
-      
-  """
-  @type start_verification_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registrant_verification_response() :: %{
-        "CompletionUrl" => String.t() | atom(),
-        "CompletionUrlExpiresAt" => non_neg_integer()
-      }
-      
-  """
-  @type registrant_verification_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      field_validation_error() :: %{
-        "Code" => list(any()),
-        "Message" => [String.t() | atom()],
-        "Name" => [String.t() | atom()]
-      }
-      
-  """
-  @type field_validation_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "ErrorDetails" => list(list()),
-        "Message" => [String.t() | atom()],
-        "Reason" => list(any())
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_connection_invitation_request() :: %{
+      associate_aws_training_certification_email_domain_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
         required("Catalog") => String.t() | atom(),
-        required("ClientToken") => String.t() | atom(),
+        required("Email") => String.t() | atom(),
+        required("EmailVerificationCode") => String.t() | atom(),
         required("Identifier") => String.t() | atom()
       }
       
   """
-  @type accept_connection_invitation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_profile_visibility_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ProfileId" => String.t() | atom(),
-        "Visibility" => list(any())
-      }
-      
-  """
-  @type get_profile_visibility_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      partner_profile_summary() :: %{
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type partner_profile_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_partner_response() :: %{
-        "AllianceLeadContact" => alliance_lead_contact(),
-        "Arn" => String.t() | atom(),
-        "AwsTrainingCertificationEmailDomains" => list(partner_domain()),
-        "Catalog" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "LegalName" => String.t() | atom(),
-        "Profile" => partner_profile()
-      }
-      
-  """
-  @type create_partner_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_connection_invitations_request() :: %{
-        optional("ConnectionType") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OtherParticipantIdentifiers") => list(String.t() | atom()),
-        optional("ParticipantType") => list(any()),
-        optional("Status") => list(any()),
-        required("Catalog") => String.t() | atom()
-      }
-      
-  """
-  @type list_connection_invitations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_details() :: %{
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "IndustrySegments" => list(list(any())()),
-        "LocalizedContents" => list(localized_content()),
-        "LogoUrl" => String.t() | atom(),
-        "PrimarySolutionType" => list(any()),
-        "TranslationSourceLocale" => String.t() | atom(),
-        "WebsiteUrl" => String.t() | atom()
-      }
-      
-  """
-  @type task_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection() :: %{
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "ConnectionTypes" => map(),
-        "Id" => String.t() | atom(),
-        "OtherParticipantAccountId" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_aws_training_certification_email_domain_response() :: %{}
-      
-  """
-  @type disassociate_aws_training_certification_email_domain_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_connections_request() :: %{
-        optional("ConnectionType") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OtherParticipantIdentifiers") => list(String.t() | atom()),
-        required("Catalog") => String.t() | atom()
-      }
-      
-  """
-  @type list_connections_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "Reason" => list(any())
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_profile_visibility_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ProfileId" => String.t() | atom(),
-        "Visibility" => list(any())
-      }
-      
-  """
-  @type put_profile_visibility_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_connection_preferences_response() :: %{
-        "AccessType" => list(any()),
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "ExcludedParticipantIds" => list(String.t() | atom()),
-        "Revision" => float(),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type get_connection_preferences_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_invitation_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "ConnectionId" => String.t() | atom(),
-        "ConnectionType" => list(any()),
-        "CreatedAt" => non_neg_integer(),
-        "ExpiresAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "OtherParticipantIdentifier" => String.t() | atom(),
-        "ParticipantType" => list(any()),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type connection_invitation_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_connection_invitations_response() :: %{
-        "ConnectionInvitationSummaries" => list(connection_invitation_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_connection_invitations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_email_verification_code_request() :: %{
-        required("Catalog") => String.t() | atom(),
-        required("Email") => String.t() | atom()
-      }
-      
-  """
-  @type send_email_verification_code_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reject_connection_invitation_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "ConnectionId" => String.t() | atom(),
-        "ConnectionType" => list(any()),
-        "CreatedAt" => non_neg_integer(),
-        "ExpiresAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "InvitationMessage" => String.t() | atom(),
-        "InviterEmail" => String.t() | atom(),
-        "InviterName" => String.t() | atom(),
-        "OtherParticipantIdentifier" => String.t() | atom(),
-        "ParticipantType" => list(any()),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type reject_connection_invitation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      partner_domain() :: %{
-        "DomainName" => String.t() | atom(),
-        "RegisteredAt" => non_neg_integer()
-      }
-      
-  """
-  @type partner_domain() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "ConnectionTypes" => map(),
-        "Id" => String.t() | atom(),
-        "OtherParticipantAccountId" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type connection_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "Reason" => list(any())
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_connection_preferences_response() :: %{
-        "AccessType" => list(any()),
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "ExcludedParticipantIds" => list(String.t() | atom()),
-        "Revision" => float(),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type update_connection_preferences_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reject_connection_invitation_request() :: %{
-        optional("Reason") => [String.t() | atom()],
-        required("Catalog") => String.t() | atom(),
-        required("ClientToken") => String.t() | atom(),
-        required("Identifier") => String.t() | atom()
-      }
-      
-  """
-  @type reject_connection_invitation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type associate_aws_training_certification_email_domain_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -773,55 +105,53 @@ defmodule AWS.PartnerCentralAccount do
 
   ## Example:
       
-      connection_type_summary() :: %{
-        "OtherParticipant" => list(),
-        "Status" => list(any())
+      business_validation_error() :: %{
+        "Code" => list(any()),
+        "Message" => [String.t() | atom()]
       }
       
   """
-  @type connection_type_summary() :: %{(String.t() | atom()) => any()}
+  @type business_validation_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      error_detail() :: %{
-        "Locale" => [String.t() | atom()],
-        "Message" => [String.t() | atom()],
-        "Reason" => list(any())
+      business_verification_details() :: %{
+        "CountryCode" => String.t() | atom(),
+        "JurisdictionOfIncorporation" => String.t() | atom(),
+        "LegalName" => String.t() | atom(),
+        "RegistrationId" => String.t() | atom()
       }
       
   """
-  @type error_detail() :: %{(String.t() | atom()) => any()}
+  @type business_verification_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_profile_visibility_request() :: %{
+      business_verification_response() :: %{
+        "BusinessVerificationDetails" => business_verification_details(),
+        "CompletionUrl" => String.t() | atom(),
+        "CompletionUrlExpiresAt" => non_neg_integer()
+      }
+      
+  """
+  @type business_verification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_connection_invitation_request() :: %{
         required("Catalog") => String.t() | atom(),
-        required("Identifier") => String.t() | atom(),
-        required("Visibility") => list(any())
+        required("ClientToken") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
       }
       
   """
-  @type put_profile_visibility_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_verification_response() :: %{
-        "CompletedAt" => non_neg_integer(),
-        "StartedAt" => non_neg_integer(),
-        "VerificationResponseDetails" => list(),
-        "VerificationStatus" => list(any()),
-        "VerificationStatusReason" => String.t() | atom(),
-        "VerificationType" => list(any())
-      }
-      
-  """
-  @type get_verification_response() :: %{(String.t() | atom()) => any()}
+  @type cancel_connection_invitation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -851,92 +181,249 @@ defmodule AWS.PartnerCentralAccount do
 
   ## Example:
       
-      get_connection_preferences_request() :: %{
-        required("Catalog") => String.t() | atom()
+      cancel_connection_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("ConnectionType") => list(any()),
+        required("Identifier") => String.t() | atom(),
+        required("Reason") => [String.t() | atom()]
       }
       
   """
-  @type get_connection_preferences_request() :: %{(String.t() | atom()) => any()}
+  @type cancel_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      business_verification_details() :: %{
-        "CountryCode" => String.t() | atom(),
-        "JurisdictionOfIncorporation" => String.t() | atom(),
-        "LegalName" => String.t() | atom(),
-        "RegistrationId" => String.t() | atom()
-      }
-      
-  """
-  @type business_verification_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_alliance_lead_contact_response() :: %{
-        "AllianceLeadContact" => alliance_lead_contact(),
+      cancel_connection_response() :: %{
         "Arn" => String.t() | atom(),
         "Catalog" => String.t() | atom(),
-        "Id" => String.t() | atom()
+        "ConnectionTypes" => map(),
+        "Id" => String.t() | atom(),
+        "OtherParticipantAccountId" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type put_alliance_lead_contact_response() :: %{(String.t() | atom()) => any()}
+  @type cancel_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_profile_update_task_request() :: %{
+      cancel_profile_update_task_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         required("Catalog") => String.t() | atom(),
         required("Identifier") => String.t() | atom(),
-        required("TaskDetails") => task_details()
+        required("TaskId") => String.t() | atom()
       }
       
   """
-  @type start_profile_update_task_request() :: %{(String.t() | atom()) => any()}
+  @type cancel_profile_update_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "ResourceArn" => String.t() | atom(),
-        "Tags" => list(tag())
+      cancel_profile_update_task_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "EndedAt" => non_neg_integer(),
+        "ErrorDetailList" => list(error_detail()),
+        "Id" => String.t() | atom(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskDetails" => task_details(),
+        "TaskId" => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type cancel_profile_update_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      account_summary() :: %{
-        "Name" => String.t() | atom()
+      conflict_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "Reason" => list(any())
       }
       
   """
-  @type account_summary() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      associate_aws_training_certification_email_domain_request() :: %{
+      connection() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "ConnectionTypes" => map(),
+        "Id" => String.t() | atom(),
+        "OtherParticipantAccountId" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_invitation_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "ConnectionId" => String.t() | atom(),
+        "ConnectionType" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "ExpiresAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "OtherParticipantIdentifier" => String.t() | atom(),
+        "ParticipantType" => list(any()),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type connection_invitation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "ConnectionTypes" => map(),
+        "Id" => String.t() | atom(),
+        "OtherParticipantAccountId" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type connection_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_type_detail() :: %{
+        "CanceledAt" => non_neg_integer(),
+        "CanceledBy" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "InviterEmail" => String.t() | atom(),
+        "InviterName" => String.t() | atom(),
+        "OtherParticipant" => list(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type connection_type_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_type_summary() :: %{
+        "OtherParticipant" => list(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type connection_type_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_invitation_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("ConnectionType") => list(any()),
+        required("Email") => String.t() | atom(),
+        required("Message") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("ReceiverIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type create_connection_invitation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_invitation_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "ConnectionId" => String.t() | atom(),
+        "ConnectionType" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "ExpiresAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "InvitationMessage" => String.t() | atom(),
+        "InviterEmail" => String.t() | atom(),
+        "InviterName" => String.t() | atom(),
+        "OtherParticipantIdentifier" => String.t() | atom(),
+        "ParticipantType" => list(any()),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type create_connection_invitation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_partner_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("AllianceLeadContact") => alliance_lead_contact(),
+        required("Catalog") => String.t() | atom(),
+        required("EmailVerificationCode") => String.t() | atom(),
+        required("LegalName") => String.t() | atom(),
+        required("PrimarySolutionType") => list(any())
+      }
+      
+  """
+  @type create_partner_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_partner_response() :: %{
+        "AllianceLeadContact" => alliance_lead_contact(),
+        "Arn" => String.t() | atom(),
+        "AwsTrainingCertificationEmailDomains" => list(partner_domain()),
+        "Catalog" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "LegalName" => String.t() | atom(),
+        "Profile" => partner_profile()
+      }
+      
+  """
+  @type create_partner_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_aws_training_certification_email_domain_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         required("Catalog") => String.t() | atom(),
-        required("Email") => String.t() | atom(),
-        required("EmailVerificationCode") => String.t() | atom(),
+        required("DomainName") => String.t() | atom(),
         required("Identifier") => String.t() | atom()
       }
       
   """
-  @type associate_aws_training_certification_email_domain_request() :: %{
+  @type disassociate_aws_training_certification_email_domain_request() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -944,27 +431,74 @@ defmodule AWS.PartnerCentralAccount do
 
   ## Example:
       
-      business_validation_error() :: %{
-        "Code" => list(any()),
-        "Message" => [String.t() | atom()]
-      }
+      disassociate_aws_training_certification_email_domain_response() :: %{}
       
   """
-  @type business_validation_error() :: %{(String.t() | atom()) => any()}
+  @type disassociate_aws_training_certification_email_domain_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      put_alliance_lead_contact_request() :: %{
-        optional("EmailVerificationCode") => String.t() | atom(),
-        required("AllianceLeadContact") => alliance_lead_contact(),
+      error_detail() :: %{
+        "Locale" => [String.t() | atom()],
+        "Message" => [String.t() | atom()],
+        "Reason" => list(any())
+      }
+      
+  """
+  @type error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      field_validation_error() :: %{
+        "Code" => list(any()),
+        "Message" => [String.t() | atom()],
+        "Name" => [String.t() | atom()]
+      }
+      
+  """
+  @type field_validation_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_alliance_lead_contact_request() :: %{
         required("Catalog") => String.t() | atom(),
         required("Identifier") => String.t() | atom()
       }
       
   """
-  @type put_alliance_lead_contact_request() :: %{(String.t() | atom()) => any()}
+  @type get_alliance_lead_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_alliance_lead_contact_response() :: %{
+        "AllianceLeadContact" => alliance_lead_contact(),
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type get_alliance_lead_contact_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_connection_invitation_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_connection_invitation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -994,108 +528,28 @@ defmodule AWS.PartnerCentralAccount do
 
   ## Example:
       
-      connection_type_detail() :: %{
-        "CanceledAt" => non_neg_integer(),
-        "CanceledBy" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "InviterEmail" => String.t() | atom(),
-        "InviterName" => String.t() | atom(),
-        "OtherParticipant" => list(),
-        "Status" => list(any())
+      get_connection_preferences_request() :: %{
+        required("Catalog") => String.t() | atom()
       }
       
   """
-  @type connection_type_detail() :: %{(String.t() | atom()) => any()}
+  @type get_connection_preferences_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_alliance_lead_contact_request() :: %{
-        required("Catalog") => String.t() | atom(),
-        required("Identifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_alliance_lead_contact_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      business_verification_response() :: %{
-        "BusinessVerificationDetails" => business_verification_details(),
-        "CompletionUrl" => String.t() | atom(),
-        "CompletionUrlExpiresAt" => non_neg_integer()
-      }
-      
-  """
-  @type business_verification_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registrant_verification_details() :: %{}
-      
-  """
-  @type registrant_verification_details() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      localized_content() :: %{
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "Locale" => String.t() | atom(),
-        "LogoUrl" => String.t() | atom(),
-        "WebsiteUrl" => String.t() | atom()
-      }
-      
-  """
-  @type localized_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      partner_summary() :: %{
+      get_connection_preferences_response() :: %{
+        "AccessType" => list(any()),
         "Arn" => String.t() | atom(),
         "Catalog" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "LegalName" => String.t() | atom()
+        "ExcludedParticipantIds" => list(String.t() | atom()),
+        "Revision" => float(),
+        "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type partner_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_email_verification_code_response() :: %{}
-      
-  """
-  @type send_email_verification_code_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_connection_invitation_request() :: %{
-        required("Catalog") => String.t() | atom(),
-        required("ClientToken") => String.t() | atom(),
-        required("ConnectionType") => list(any()),
-        required("Email") => String.t() | atom(),
-        required("Message") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("ReceiverIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type create_connection_invitation_request() :: %{(String.t() | atom()) => any()}
+  @type get_connection_preferences_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1108,18 +562,6 @@ defmodule AWS.PartnerCentralAccount do
       
   """
   @type get_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_partners_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PartnerSummaryList" => list(partner_summary())
-      }
-      
-  """
-  @type list_partners_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1141,17 +583,13 @@ defmodule AWS.PartnerCentralAccount do
 
   ## Example:
       
-      cancel_connection_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "ConnectionTypes" => map(),
-        "Id" => String.t() | atom(),
-        "OtherParticipantAccountId" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
+      get_partner_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
       }
       
   """
-  @type cancel_connection_response() :: %{(String.t() | atom()) => any()}
+  @type get_partner_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1174,13 +612,316 @@ defmodule AWS.PartnerCentralAccount do
 
   ## Example:
       
-      seller_profile_summary() :: %{
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
+      get_profile_update_task_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
       }
       
   """
-  @type seller_profile_summary() :: %{(String.t() | atom()) => any()}
+  @type get_profile_update_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_profile_update_task_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "EndedAt" => non_neg_integer(),
+        "ErrorDetailList" => list(error_detail()),
+        "Id" => String.t() | atom(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskDetails" => task_details(),
+        "TaskId" => String.t() | atom()
+      }
+      
+  """
+  @type get_profile_update_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_profile_visibility_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_profile_visibility_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_profile_visibility_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ProfileId" => String.t() | atom(),
+        "Visibility" => list(any())
+      }
+      
+  """
+  @type get_profile_visibility_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_qualifications_association_details_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_qualifications_association_details_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_qualifications_association_details_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedPartners" => list(qualifications_association_partner()),
+        "Catalog" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "PrimaryPartner" => qualifications_association_partner(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type get_qualifications_association_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_qualifications_association_task_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_qualifications_association_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_qualifications_association_task_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "EndedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "PrimaryPartner" => qualifications_association_partner(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskId" => String.t() | atom()
+      }
+      
+  """
+  @type get_qualifications_association_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_qualifications_disassociation_task_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_qualifications_disassociation_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_qualifications_disassociation_task_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedPartner" => qualifications_association_partner(),
+        "Catalog" => String.t() | atom(),
+        "EndedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskId" => String.t() | atom()
+      }
+      
+  """
+  @type get_qualifications_disassociation_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_verification_request() :: %{
+        required("VerificationType") => list(any())
+      }
+      
+  """
+  @type get_verification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_verification_response() :: %{
+        "CompletedAt" => non_neg_integer(),
+        "StartedAt" => non_neg_integer(),
+        "VerificationResponseDetails" => list(),
+        "VerificationStatus" => list(any()),
+        "VerificationStatusReason" => String.t() | atom(),
+        "VerificationType" => list(any())
+      }
+      
+  """
+  @type get_verification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connection_invitations_request() :: %{
+        optional("ConnectionType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OtherParticipantIdentifiers") => list(String.t() | atom()),
+        optional("ParticipantType") => list(any()),
+        optional("Status") => list(any()),
+        required("Catalog") => String.t() | atom()
+      }
+      
+  """
+  @type list_connection_invitations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connection_invitations_response() :: %{
+        "ConnectionInvitationSummaries" => list(connection_invitation_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_connection_invitations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connections_request() :: %{
+        optional("ConnectionType") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OtherParticipantIdentifiers") => list(String.t() | atom()),
+        required("Catalog") => String.t() | atom()
+      }
+      
+  """
+  @type list_connections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connections_response() :: %{
+        "ConnectionSummaries" => list(connection_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_connections_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_partners_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("Catalog") => String.t() | atom()
+      }
+      
+  """
+  @type list_partners_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_partners_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PartnerSummaryList" => list(partner_summary())
+      }
+      
+  """
+  @type list_partners_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "ResourceArn" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      localized_content() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "Locale" => String.t() | atom(),
+        "LogoUrl" => String.t() | atom(),
+        "WebsiteUrl" => String.t() | atom()
+      }
+      
+  """
+  @type localized_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partner_domain() :: %{
+        "DomainName" => String.t() | atom(),
+        "RegisteredAt" => non_neg_integer()
+      }
+      
+  """
+  @type partner_domain() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1205,29 +946,200 @@ defmodule AWS.PartnerCentralAccount do
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
+      partner_profile_summary() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type partner_profile_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_partner_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("AllianceLeadContact") => alliance_lead_contact(),
-        required("Catalog") => String.t() | atom(),
-        required("EmailVerificationCode") => String.t() | atom(),
-        required("LegalName") => String.t() | atom(),
-        required("PrimarySolutionType") => list(any())
+      partner_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "LegalName" => String.t() | atom()
       }
       
   """
-  @type create_partner_request() :: %{(String.t() | atom()) => any()}
+  @type partner_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_alliance_lead_contact_request() :: %{
+        optional("EmailVerificationCode") => String.t() | atom(),
+        required("AllianceLeadContact") => alliance_lead_contact(),
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type put_alliance_lead_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_alliance_lead_contact_response() :: %{
+        "AllianceLeadContact" => alliance_lead_contact(),
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type put_alliance_lead_contact_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_profile_visibility_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        required("Visibility") => list(any())
+      }
+      
+  """
+  @type put_profile_visibility_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_profile_visibility_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ProfileId" => String.t() | atom(),
+        "Visibility" => list(any())
+      }
+      
+  """
+  @type put_profile_visibility_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      qualifications_association_partner() :: %{
+        "AccountId" => String.t() | atom(),
+        "ProfileId" => String.t() | atom()
+      }
+      
+  """
+  @type qualifications_association_partner() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registrant_verification_details() :: %{}
+      
+  """
+  @type registrant_verification_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      registrant_verification_response() :: %{
+        "CompletionUrl" => String.t() | atom(),
+        "CompletionUrlExpiresAt" => non_neg_integer()
+      }
+      
+  """
+  @type registrant_verification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_connection_invitation_request() :: %{
+        optional("Reason") => [String.t() | atom()],
+        required("Catalog") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type reject_connection_invitation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_connection_invitation_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "ConnectionId" => String.t() | atom(),
+        "ConnectionType" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "ExpiresAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "InvitationMessage" => String.t() | atom(),
+        "InviterEmail" => String.t() | atom(),
+        "InviterName" => String.t() | atom(),
+        "OtherParticipantIdentifier" => String.t() | atom(),
+        "ParticipantType" => list(any()),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type reject_connection_invitation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "Reason" => list(any())
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      seller_profile_summary() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type seller_profile_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_email_verification_code_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Email") => String.t() | atom()
+      }
+      
+  """
+  @type send_email_verification_code_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_email_verification_code_response() :: %{}
+      
+  """
+  @type send_email_verification_code_response() :: %{}
 
   @typedoc """
 
@@ -1241,219 +1153,507 @@ defmodule AWS.PartnerCentralAccount do
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      start_profile_update_task_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        required("TaskDetails") => task_details()
+      }
+      
+  """
+  @type start_profile_update_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_profile_update_task_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "EndedAt" => non_neg_integer(),
+        "ErrorDetailList" => list(error_detail()),
+        "Id" => String.t() | atom(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskDetails" => task_details(),
+        "TaskId" => String.t() | atom()
+      }
+      
+  """
+  @type start_profile_update_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_qualifications_association_task_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        required("PrimaryPartner") => qualifications_association_partner()
+      }
+      
+  """
+  @type start_qualifications_association_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_qualifications_association_task_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "PrimaryPartner" => qualifications_association_partner(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskId" => String.t() | atom()
+      }
+      
+  """
+  @type start_qualifications_association_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_qualifications_disassociation_task_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("AssociatedPartner") => qualifications_association_partner(),
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type start_qualifications_disassociation_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_qualifications_disassociation_task_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedPartner" => qualifications_association_partner(),
+        "Catalog" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskId" => String.t() | atom()
+      }
+      
+  """
+  @type start_qualifications_disassociation_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_verification_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("VerificationDetails") => list()
+      }
+      
+  """
+  @type start_verification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_verification_response() :: %{
+        "CompletedAt" => non_neg_integer(),
+        "StartedAt" => non_neg_integer(),
+        "VerificationResponseDetails" => list(),
+        "VerificationStatus" => list(any()),
+        "VerificationStatusReason" => String.t() | atom(),
+        "VerificationType" => list(any())
+      }
+      
+  """
+  @type start_verification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_details() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "IndustrySegments" => list(list(any())()),
+        "LocalizedContents" => list(localized_content()),
+        "LogoUrl" => String.t() | atom(),
+        "PrimarySolutionType" => list(any()),
+        "TranslationSourceLocale" => String.t() | atom(),
+        "WebsiteUrl" => String.t() | atom()
+      }
+      
+  """
+  @type task_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "QuotaCode" => [String.t() | atom()],
+        "ServiceCode" => [String.t() | atom()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_preferences_request() :: %{
+        optional("ExcludedParticipantIdentifiers") => list(String.t() | atom()),
+        required("AccessType") => list(any()),
+        required("Catalog") => String.t() | atom(),
+        required("Revision") => float()
+      }
+      
+  """
+  @type update_connection_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_preferences_response() :: %{
+        "AccessType" => list(any()),
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "ExcludedParticipantIds" => list(String.t() | atom()),
+        "Revision" => float(),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type update_connection_preferences_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "ErrorDetails" => list(list()),
+        "Message" => [String.t() | atom()],
+        "Reason" => list(any())
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
   @type accept_connection_invitation_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type associate_aws_training_certification_email_domain_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type cancel_connection_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type cancel_connection_invitation_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type cancel_profile_update_task_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_connection_invitation_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_partner_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type disassociate_aws_training_certification_email_domain_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type get_alliance_lead_contact_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_connection_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_connection_invitation_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_connection_preferences_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_partner_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_profile_update_task_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_profile_visibility_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_qualifications_association_details_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_qualifications_association_task_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_qualifications_disassociation_task_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_verification_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_connection_invitations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_connections_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_partners_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_alliance_lead_contact_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_profile_visibility_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type reject_connection_invitation_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type send_email_verification_code_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type start_profile_update_task_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
+
+  @type start_qualifications_association_task_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type start_qualifications_disassociation_task_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type start_verification_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_connection_preferences_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -1730,6 +1930,72 @@ defmodule AWS.PartnerCentralAccount do
   end
 
   @doc """
+  Returns your current qualifications association status, the primary partner, and
+  the full list of partners associated under the primary partner.
+  """
+  @spec get_qualifications_association_details(
+          map(),
+          get_qualifications_association_details_request(),
+          list()
+        ) ::
+          {:ok, get_qualifications_association_details_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_qualifications_association_details_errors()}
+  def get_qualifications_association_details(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetQualificationsAssociationDetails", input, options)
+  end
+
+  @doc """
+  Retrieves the status and details of the most recent qualifications association
+  task for your partner account.
+
+  Use this operation to poll the progress of an association task initiated by
+  `StartQualificationsAssociationTask`.
+  """
+  @spec get_qualifications_association_task(
+          map(),
+          get_qualifications_association_task_request(),
+          list()
+        ) ::
+          {:ok, get_qualifications_association_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_qualifications_association_task_errors()}
+  def get_qualifications_association_task(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetQualificationsAssociationTask", input, options)
+  end
+
+  @doc """
+  Retrieves the status and details of the most recent qualifications
+  disassociation task for your partner account.
+
+  Use this operation to poll the progress of a disassociation task initiated by
+  `StartQualificationsDisassociationTask`.
+  """
+  @spec get_qualifications_disassociation_task(
+          map(),
+          get_qualifications_disassociation_task_request(),
+          list()
+        ) ::
+          {:ok, get_qualifications_disassociation_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_qualifications_disassociation_task_errors()}
+  def get_qualifications_disassociation_task(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetQualificationsDisassociationTask", input, options)
+  end
+
+  @doc """
   Retrieves the current status and details of a verification process for a partner
   account.
 
@@ -1887,6 +2153,52 @@ defmodule AWS.PartnerCentralAccount do
       metadata()
 
     Request.request_post(client, meta, "StartProfileUpdateTask", input, options)
+  end
+
+  @doc """
+  Initiates an asynchronous task to associate your partner qualifications with a
+  primary account.
+
+  You must be a subsidiary of the primary account with an active subsidiary
+  connection. Use `GetQualificationsAssociationTask` to monitor task progress.
+  """
+  @spec start_qualifications_association_task(
+          map(),
+          start_qualifications_association_task_request(),
+          list()
+        ) ::
+          {:ok, start_qualifications_association_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_qualifications_association_task_errors()}
+  def start_qualifications_association_task(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StartQualificationsAssociationTask", input, options)
+  end
+
+  @doc """
+  Initiates an asynchronous task to disassociate your partner qualifications from
+  a primary account.
+
+  You must currently be associated and cannot disassociate if you are the primary
+  partner. Use `GetQualificationsDisassociationTask` to monitor task progress.
+  """
+  @spec start_qualifications_disassociation_task(
+          map(),
+          start_qualifications_disassociation_task_request(),
+          list()
+        ) ::
+          {:ok, start_qualifications_disassociation_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_qualifications_disassociation_task_errors()}
+  def start_qualifications_disassociation_task(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StartQualificationsDisassociationTask", input, options)
   end
 
   @doc """

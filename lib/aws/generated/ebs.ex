@@ -548,15 +548,8 @@ defmodule AWS.EBS do
     query_params = []
 
     query_params =
-      if !is_nil(starting_block_index) do
-        [{"startingBlockIndex", starting_block_index} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"pageToken", next_token} | query_params]
+      if !is_nil(first_snapshot_id) do
+        [{"firstSnapshotId", first_snapshot_id} | query_params]
       else
         query_params
       end
@@ -569,8 +562,15 @@ defmodule AWS.EBS do
       end
 
     query_params =
-      if !is_nil(first_snapshot_id) do
-        [{"firstSnapshotId", first_snapshot_id} | query_params]
+      if !is_nil(next_token) do
+        [{"pageToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(starting_block_index) do
+        [{"startingBlockIndex", starting_block_index} | query_params]
       else
         query_params
       end
@@ -614,8 +614,8 @@ defmodule AWS.EBS do
     query_params = []
 
     query_params =
-      if !is_nil(starting_block_index) do
-        [{"startingBlockIndex", starting_block_index} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -628,8 +628,8 @@ defmodule AWS.EBS do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(starting_block_index) do
+        [{"startingBlockIndex", starting_block_index} | query_params]
       else
         query_params
       end

@@ -624,15 +624,15 @@ defmodule AWS.PinpointSMSVoice do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"PageSize", page_size} | query_params]
       else
         query_params
       end

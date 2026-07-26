@@ -19,27 +19,12 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      dns_options() :: %{
-        "privateDnsPreference" => String.t() | atom(),
-        "privateDnsSpecifiedDomains" => list(String.t() | atom())
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type dns_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_gateway_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type delete_resource_gateway_response() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -63,416 +48,23 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      delete_service_network_request() :: %{}
-
-  """
-  @type delete_service_network_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      txt_method_config() :: %{
-        "name" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
+      arn_resource() :: %{
+        "arn" => String.t() | atom()
       }
 
   """
-  @type txt_method_config() :: %{(String.t() | atom()) => any()}
+  @type arn_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_domain_verification_response() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "domainName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastVerifiedTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "txtMethodConfig" => txt_method_config()
+      batch_update_rule_request() :: %{
+        required("rules") => list(rule_update())
       }
 
   """
-  @type get_domain_verification_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_network_vpc_association_request() :: %{
-        required("securityGroupIds") => list(String.t() | atom())
-      }
-
-  """
-  @type update_service_network_vpc_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_network_request() :: %{
-        required("authType") => String.t() | atom()
-      }
-
-  """
-  @type update_service_network_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_targets_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("items") => list(target_summary())
-      }
-
-  """
-  @type list_targets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_group_config() :: %{
-        "healthCheck" => health_check_config(),
-        "ipAddressType" => String.t() | atom(),
-        "lambdaEventStructureVersion" => String.t() | atom(),
-        "port" => integer(),
-        "protocol" => String.t() | atom(),
-        "protocolVersion" => String.t() | atom(),
-        "vpcIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type target_group_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_network_service_association_request() :: %{}
-
-  """
-  @type delete_service_network_service_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("id") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type delete_service_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_network_service_association_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("createdAt") => non_neg_integer(),
-        optional("createdBy") => String.t() | atom(),
-        optional("customDomainName") => String.t() | atom(),
-        optional("dnsEntry") => dns_entry(),
-        optional("failureCode") => [String.t() | atom()],
-        optional("failureMessage") => [String.t() | atom()],
-        optional("id") => String.t() | atom(),
-        optional("serviceArn") => String.t() | atom(),
-        optional("serviceId") => String.t() | atom(),
-        optional("serviceName") => String.t() | atom(),
-        optional("serviceNetworkArn") => String.t() | atom(),
-        optional("serviceNetworkId") => String.t() | atom(),
-        optional("serviceNetworkName") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type get_service_network_service_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_target_groups_response() :: %{
-        optional("items") => list(target_group_summary()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_target_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_rule_request() :: %{}
-
-  """
-  @type delete_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_request() :: %{
-        required("policy") => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_network_response() :: %{}
-
-  """
-  @type delete_service_network_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_target_group_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("id") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type delete_target_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_targets_request() :: %{
-        required("targets") => list(target())
-      }
-
-  """
-  @type register_targets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_endpoint_association_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "resourceConfigurationArn" => String.t() | atom(),
-        "resourceConfigurationId" => String.t() | atom(),
-        "vpcEndpointId" => String.t() | atom()
-      }
-
-  """
-  @type delete_resource_endpoint_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_network_vpc_association_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("createdAt") => non_neg_integer(),
-        optional("createdBy") => String.t() | atom(),
-        optional("dnsOptions") => dns_options(),
-        optional("failureCode") => [String.t() | atom()],
-        optional("failureMessage") => [String.t() | atom()],
-        optional("id") => String.t() | atom(),
-        optional("lastUpdatedAt") => non_neg_integer(),
-        optional("privateDnsEnabled") => boolean(),
-        optional("securityGroupIds") => list(String.t() | atom()),
-        optional("serviceNetworkArn") => String.t() | atom(),
-        optional("serviceNetworkId") => String.t() | atom(),
-        optional("serviceNetworkName") => String.t() | atom(),
-        optional("status") => String.t() | atom(),
-        optional("vpcId") => String.t() | atom()
-      }
-
-  """
-  @type get_service_network_vpc_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_target_group_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("config") => target_group_config(),
-        optional("id") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("status") => String.t() | atom(),
-        optional("type") => String.t() | atom()
-      }
-
-  """
-  @type update_target_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_target_group_request() :: %{}
-
-  """
-  @type get_target_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_rules_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("items") => list(rule_summary())
-      }
-
-  """
-  @type list_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_network_service_association_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("createdBy") => String.t() | atom(),
-        optional("customDomainName") => String.t() | atom(),
-        optional("dnsEntry") => dns_entry(),
-        optional("id") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type create_service_network_service_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_listeners_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("items") => list(listener_summary())
-      }
-
-  """
-  @type list_listeners_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_update_success() :: %{
-        "action" => list(),
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "isDefault" => boolean(),
-        "match" => list(),
-        "name" => String.t() | atom(),
-        "priority" => integer()
-      }
-
-  """
-  @type rule_update_success() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_update() :: %{
-        "action" => list(),
-        "match" => list(),
-        "priority" => integer(),
-        "ruleIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type rule_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_listener_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("createdAt") => non_neg_integer(),
-        optional("defaultAction") => list(),
-        optional("id") => String.t() | atom(),
-        optional("lastUpdatedAt") => non_neg_integer(),
-        optional("name") => String.t() | atom(),
-        optional("port") => integer(),
-        optional("protocol") => String.t() | atom(),
-        optional("serviceArn") => String.t() | atom(),
-        optional("serviceId") => String.t() | atom()
-      }
-
-  """
-  @type get_listener_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dns_resource() :: %{
-        "domainName" => String.t() | atom(),
-        "ipAddressType" => String.t() | atom()
-      }
-
-  """
-  @type dns_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_network_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("authType") => String.t() | atom(),
-        optional("createdAt") => non_neg_integer(),
-        optional("id") => String.t() | atom(),
-        optional("lastUpdatedAt") => non_neg_integer(),
-        optional("name") => String.t() | atom(),
-        optional("numberOfAssociatedServices") => [float()],
-        optional("numberOfAssociatedVPCs") => [float()],
-        optional("sharingConfig") => sharing_config()
-      }
-
-  """
-  @type get_service_network_response() :: %{(String.t() | atom()) => any()}
+  @type batch_update_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -490,50 +82,102 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      delete_resource_configuration_response() :: %{}
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
 
   """
-  @type delete_resource_configuration_response() :: %{}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_domain_verification_request() :: %{
+      create_access_log_subscription_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("serviceNetworkLogType") => String.t() | atom(),
         optional("tags") => map(),
-        required("domainName") => String.t() | atom()
+        required("destinationArn") => String.t() | atom(),
+        required("resourceIdentifier") => String.t() | atom()
       }
 
   """
-  @type start_domain_verification_request() :: %{(String.t() | atom()) => any()}
+  @type create_access_log_subscription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_resource_endpoint_association_request() :: %{}
+      create_access_log_subscription_response() :: %{
+        optional("serviceNetworkLogType") => String.t() | atom(),
+        required("arn") => String.t() | atom(),
+        required("destinationArn") => String.t() | atom(),
+        required("id") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom(),
+        required("resourceId") => String.t() | atom()
+      }
 
   """
-  @type delete_resource_endpoint_association_request() :: %{}
+  @type create_access_log_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      domain_verification_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "domainName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastVerifiedTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "txtMethodConfig" => txt_method_config()
+      create_listener_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("port") => integer(),
+        optional("tags") => map(),
+        required("defaultAction") => list(),
+        required("name") => String.t() | atom(),
+        required("protocol") => String.t() | atom()
       }
 
   """
-  @type domain_verification_summary() :: %{(String.t() | atom()) => any()}
+  @type create_listener_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_listener_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("defaultAction") => list(),
+        optional("id") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("port") => integer(),
+        optional("protocol") => String.t() | atom(),
+        optional("serviceArn") => String.t() | atom(),
+        optional("serviceId") => String.t() | atom()
+      }
+
+  """
+  @type create_listener_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_resource_configuration_request() :: %{
+        optional("allowAssociationToShareableServiceNetwork") => boolean(),
+        optional("clientToken") => String.t() | atom(),
+        optional("customDomainName") => String.t() | atom(),
+        optional("domainVerificationIdentifier") => String.t() | atom(),
+        optional("groupDomain") => String.t() | atom(),
+        optional("portRanges") => list(String.t() | atom()),
+        optional("protocol") => String.t() | atom(),
+        optional("resourceConfigurationDefinition") => list(),
+        optional("resourceConfigurationGroupIdentifier") => String.t() | atom(),
+        optional("resourceGatewayIdentifier") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("type") => list(any())
+      }
+
+  """
+  @type create_resource_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -566,52 +210,20 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      service_network_vpc_association_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "dnsOptions" => dns_options(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "privateDnsEnabled" => boolean(),
-        "serviceNetworkArn" => String.t() | atom(),
-        "serviceNetworkId" => String.t() | atom(),
-        "serviceNetworkName" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "vpcId" => String.t() | atom()
+      create_resource_gateway_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("ipAddressType") => String.t() | atom(),
+        optional("ipv4AddressesPerEni") => integer(),
+        optional("resourceConfigDnsResolution") => String.t() | atom(),
+        optional("securityGroupIds") => list(String.t() | atom()),
+        optional("subnetIds") => list(String.t() | atom()),
+        optional("tags") => map(),
+        optional("vpcIdentifier") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type service_network_vpc_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      health_check_config() :: %{
-        "enabled" => boolean(),
-        "healthCheckIntervalSeconds" => integer(),
-        "healthCheckTimeoutSeconds" => integer(),
-        "healthyThresholdCount" => integer(),
-        "matcher" => list(),
-        "path" => String.t() | atom(),
-        "port" => integer(),
-        "protocol" => String.t() | atom(),
-        "protocolVersion" => String.t() | atom(),
-        "unhealthyThresholdCount" => integer()
-      }
-
-  """
-  @type health_check_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_verification_request() :: %{}
-
-  """
-  @type delete_domain_verification_request() :: %{}
+  @type create_resource_gateway_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -637,78 +249,95 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      create_service_network_vpc_association_request() :: %{
+      create_rule_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        optional("dnsOptions") => dns_options(),
-        optional("privateDnsEnabled") => boolean(),
-        optional("securityGroupIds") => list(String.t() | atom()),
         optional("tags") => map(),
-        required("serviceNetworkIdentifier") => String.t() | atom(),
-        required("vpcIdentifier") => String.t() | atom()
+        required("action") => list(),
+        required("match") => list(),
+        required("name") => String.t() | atom(),
+        required("priority") => integer()
       }
 
   """
-  @type create_service_network_vpc_association_request() :: %{(String.t() | atom()) => any()}
+  @type create_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_service_network_vpc_association_response() :: %{
+      create_rule_response() :: %{
+        optional("action") => list(),
         optional("arn") => String.t() | atom(),
         optional("id") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type delete_service_network_vpc_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_request() :: %{
-        optional("authType") => String.t() | atom(),
-        optional("certificateArn") => String.t() | atom(),
-        optional("idleTimeoutSeconds") => integer()
-      }
-
-  """
-  @type update_service_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_log_subscription_request() :: %{}
-
-  """
-  @type delete_access_log_subscription_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_rule_request() :: %{
-        optional("action") => list(),
         optional("match") => list(),
+        optional("name") => String.t() | atom(),
         optional("priority") => integer()
       }
 
   """
-  @type update_rule_request() :: %{(String.t() | atom()) => any()}
+  @type create_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_services_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      create_service_network_request() :: %{
+        optional("authType") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("sharingConfig") => sharing_config(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type list_services_request() :: %{(String.t() | atom()) => any()}
+  @type create_service_network_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_network_resource_association_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("privateDnsEnabled") => boolean(),
+        optional("tags") => map(),
+        required("resourceConfigurationIdentifier") => String.t() | atom(),
+        required("serviceNetworkIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type create_service_network_resource_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_network_resource_association_response() :: %{
+        "arn" => String.t() | atom(),
+        "createdBy" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "privateDnsEnabled" => boolean(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type create_service_network_resource_association_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_network_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("authType") => String.t() | atom(),
+        optional("id") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("sharingConfig") => sharing_config()
+      }
+
+  """
+  @type create_service_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -728,26 +357,163 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      update_resource_configuration_request() :: %{
-        optional("allowAssociationToShareableServiceNetwork") => boolean(),
-        optional("portRanges") => list(String.t() | atom()),
-        optional("resourceConfigurationDefinition") => list()
+      create_service_network_service_association_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("createdBy") => String.t() | atom(),
+        optional("customDomainName") => String.t() | atom(),
+        optional("dnsEntry") => dns_entry(),
+        optional("id") => String.t() | atom(),
+        optional("status") => String.t() | atom()
       }
 
   """
-  @type update_resource_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type create_service_network_service_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_rules_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      create_service_network_vpc_association_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("dnsOptions") => dns_options(),
+        optional("privateDnsEnabled") => boolean(),
+        optional("securityGroupIds") => list(String.t() | atom()),
+        optional("tags") => map(),
+        required("serviceNetworkIdentifier") => String.t() | atom(),
+        required("vpcIdentifier") => String.t() | atom()
       }
 
   """
-  @type list_rules_request() :: %{(String.t() | atom()) => any()}
+  @type create_service_network_vpc_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_network_vpc_association_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("createdBy") => String.t() | atom(),
+        optional("dnsOptions") => dns_options(),
+        optional("id") => String.t() | atom(),
+        optional("privateDnsEnabled") => boolean(),
+        optional("securityGroupIds") => list(String.t() | atom()),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type create_service_network_vpc_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_request() :: %{
+        optional("authType") => String.t() | atom(),
+        optional("certificateArn") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("customDomainName") => String.t() | atom(),
+        optional("idleTimeoutSeconds") => integer(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("authType") => String.t() | atom(),
+        optional("certificateArn") => String.t() | atom(),
+        optional("customDomainName") => String.t() | atom(),
+        optional("dnsEntry") => dns_entry(),
+        optional("id") => String.t() | atom(),
+        optional("idleTimeoutSeconds") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type create_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_target_group_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("config") => target_group_config(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
+      }
+
+  """
+  @type create_target_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_target_group_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("config") => target_group_config(),
+        optional("id") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("status") => String.t() | atom(),
+        optional("type") => String.t() | atom()
+      }
+
+  """
+  @type create_target_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_log_subscription_request() :: %{}
+
+  """
+  @type delete_access_log_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_log_subscription_response() :: %{}
+
+  """
+  @type delete_access_log_subscription_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_auth_policy_request() :: %{}
+
+  """
+  @type delete_auth_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_auth_policy_response() :: %{}
+
+  """
+  @type delete_auth_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_verification_request() :: %{}
+
+  """
+  @type delete_domain_verification_request() :: %{}
 
   @typedoc """
 
@@ -762,40 +528,151 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => String.t() | atom()
-      }
+      delete_listener_request() :: %{}
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_listener_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_service_network_service_associations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("serviceIdentifier") => String.t() | atom(),
-        optional("serviceNetworkIdentifier") => String.t() | atom()
-      }
+      delete_listener_response() :: %{}
 
   """
-  @type list_service_network_service_associations_request() :: %{(String.t() | atom()) => any()}
+  @type delete_listener_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_service_network_vpc_endpoint_associations_response() :: %{
-        "items" => list(service_network_endpoint_association()),
-        "nextToken" => String.t() | atom()
+      delete_resource_configuration_request() :: %{}
+
+  """
+  @type delete_resource_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_configuration_response() :: %{}
+
+  """
+  @type delete_resource_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_endpoint_association_request() :: %{}
+
+  """
+  @type delete_resource_endpoint_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_endpoint_association_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "resourceConfigurationArn" => String.t() | atom(),
+        "resourceConfigurationId" => String.t() | atom(),
+        "vpcEndpointId" => String.t() | atom()
       }
 
   """
-  @type list_service_network_vpc_endpoint_associations_response() :: %{
+  @type delete_resource_endpoint_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_gateway_request() :: %{}
+
+  """
+  @type delete_resource_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_gateway_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_request() :: %{}
+
+  """
+  @type delete_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_response() :: %{}
+
+  """
+  @type delete_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_rule_request() :: %{}
+
+  """
+  @type delete_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_rule_response() :: %{}
+
+  """
+  @type delete_rule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_network_request() :: %{}
+
+  """
+  @type delete_service_network_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_network_resource_association_request() :: %{}
+
+  """
+  @type delete_service_network_resource_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_network_resource_association_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type delete_service_network_resource_association_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -803,24 +680,207 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      batch_update_rule_request() :: %{
-        required("rules") => list(rule_update())
-      }
+      delete_service_network_response() :: %{}
 
   """
-  @type batch_update_rule_request() :: %{(String.t() | atom()) => any()}
+  @type delete_service_network_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_listeners_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      delete_service_network_service_association_request() :: %{}
+
+  """
+  @type delete_service_network_service_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_network_service_association_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("id") => String.t() | atom(),
+        optional("status") => String.t() | atom()
       }
 
   """
-  @type list_listeners_request() :: %{(String.t() | atom()) => any()}
+  @type delete_service_network_service_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_network_vpc_association_request() :: %{}
+
+  """
+  @type delete_service_network_vpc_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_network_vpc_association_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("id") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type delete_service_network_vpc_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_request() :: %{}
+
+  """
+  @type delete_service_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("id") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type delete_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_target_group_request() :: %{}
+
+  """
+  @type delete_target_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_target_group_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("id") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type delete_target_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_targets_request() :: %{
+        required("targets") => list(target())
+      }
+
+  """
+  @type deregister_targets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_targets_response() :: %{
+        optional("successful") => list(target()),
+        optional("unsuccessful") => list(target_failure())
+      }
+
+  """
+  @type deregister_targets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dns_entry() :: %{
+        "domainName" => [String.t() | atom()],
+        "hostedZoneId" => [String.t() | atom()]
+      }
+
+  """
+  @type dns_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dns_options() :: %{
+        "privateDnsPreference" => String.t() | atom(),
+        "privateDnsSpecifiedDomains" => list(String.t() | atom())
+      }
+
+  """
+  @type dns_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dns_resource() :: %{
+        "domainName" => String.t() | atom(),
+        "ipAddressType" => String.t() | atom()
+      }
+
+  """
+  @type dns_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_verification_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "domainName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastVerifiedTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "txtMethodConfig" => txt_method_config()
+      }
+
+  """
+  @type domain_verification_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fixed_response_action() :: %{
+        "statusCode" => integer()
+      }
+
+  """
+  @type fixed_response_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forward_action() :: %{
+        "targetGroups" => list(weighted_target_group())
+      }
+
+  """
+  @type forward_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_access_log_subscription_request() :: %{}
+
+  """
+  @type get_access_log_subscription_request() :: %{}
 
   @typedoc """
 
@@ -844,332 +904,24 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      ip_resource() :: %{
-        "ipAddress" => String.t() | atom()
-      }
+      get_auth_policy_request() :: %{}
 
   """
-  @type ip_resource() :: %{(String.t() | atom()) => any()}
+  @type get_auth_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      http_match() :: %{
-        "headerMatches" => list(header_match()),
-        "method" => String.t() | atom(),
-        "pathMatch" => path_match()
-      }
-
-  """
-  @type http_match() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_request() :: %{}
-
-  """
-  @type get_resource_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_target_groups_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("targetGroupType") => String.t() | atom(),
-        optional("vpcIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_target_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_auth_policy_response() :: %{
+      get_auth_policy_response() :: %{
+        optional("createdAt") => non_neg_integer(),
+        optional("lastUpdatedAt") => non_neg_integer(),
         optional("policy") => String.t() | atom(),
         optional("state") => String.t() | atom()
       }
 
   """
-  @type put_auth_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_network_service_associations_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("items") => list(service_network_service_association_summary())
-      }
-
-  """
-  @type list_service_network_service_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fixed_response_action() :: %{
-        "statusCode" => integer()
-      }
-
-  """
-  @type fixed_response_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_verifications_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_domain_verifications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_gateways_response() :: %{
-        "items" => list(resource_gateway_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_resource_gateways_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_endpoint_associations_response() :: %{
-        "items" => list(resource_endpoint_association_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_resource_endpoint_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_configuration_request() :: %{}
-
-  """
-  @type delete_resource_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sharing_config() :: %{
-        "enabled" => boolean()
-      }
-
-  """
-  @type sharing_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      header_match() :: %{
-        "caseSensitive" => boolean(),
-        "match" => list(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type header_match() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_rule_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("action") => list(),
-        required("match") => list(),
-        required("name") => String.t() | atom(),
-        required("priority") => integer()
-      }
-
-  """
-  @type create_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_request() :: %{}
-
-  """
-  @type get_service_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_rule_response() :: %{
-        optional("action") => list(),
-        optional("arn") => String.t() | atom(),
-        optional("id") => String.t() | atom(),
-        optional("isDefault") => boolean(),
-        optional("match") => list(),
-        optional("name") => String.t() | atom(),
-        optional("priority") => integer()
-      }
-
-  """
-  @type update_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_auth_policy_response() :: %{}
-
-  """
-  @type delete_auth_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_rule_response() :: %{
-        optional("action") => list(),
-        optional("arn") => String.t() | atom(),
-        optional("createdAt") => non_neg_integer(),
-        optional("id") => String.t() | atom(),
-        optional("isDefault") => boolean(),
-        optional("lastUpdatedAt") => non_neg_integer(),
-        optional("match") => list(),
-        optional("name") => String.t() | atom(),
-        optional("priority") => integer()
-      }
-
-  """
-  @type get_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("authType") => String.t() | atom(),
-        optional("certificateArn") => String.t() | atom(),
-        optional("customDomainName") => String.t() | atom(),
-        optional("id") => String.t() | atom(),
-        optional("idleTimeoutSeconds") => integer(),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_service_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_configurations_response() :: %{
-        "items" => list(resource_configuration_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_resource_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_rule_request() :: %{}
-
-  """
-  @type get_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_access_log_subscription_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("destinationArn") => String.t() | atom(),
-        required("id") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom(),
-        required("resourceId") => String.t() | atom()
-      }
-
-  """
-  @type update_access_log_subscription_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_networks_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("items") => list(service_network_summary())
-      }
-
-  """
-  @type list_service_networks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_log_subscription_response() :: %{}
-
-  """
-  @type delete_access_log_subscription_response() :: %{}
+  @type get_auth_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1184,500 +936,19 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      get_service_network_vpc_association_request() :: %{}
-
-  """
-  @type get_service_network_vpc_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_target_group_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("config") => target_group_config(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("type") => String.t() | atom()
-      }
-
-  """
-  @type create_target_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_network_resource_association_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("privateDnsEnabled") => boolean(),
-        optional("tags") => map(),
-        required("resourceConfigurationIdentifier") => String.t() | atom(),
-        required("serviceNetworkIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type create_service_network_resource_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_request() :: %{
-        optional("authType") => String.t() | atom(),
-        optional("certificateArn") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("customDomainName") => String.t() | atom(),
-        optional("idleTimeoutSeconds") => integer(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_service_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_network_vpc_association_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("createdBy") => String.t() | atom(),
-        optional("dnsOptions") => dns_options(),
-        optional("id") => String.t() | atom(),
-        optional("privateDnsEnabled") => boolean(),
-        optional("securityGroupIds") => list(String.t() | atom()),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type create_service_network_vpc_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_targets_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("targets") => list(target())
-      }
-
-  """
-  @type list_targets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_network_summary() :: %{
+      get_domain_verification_response() :: %{
         "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
+        "domainName" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "numberOfAssociatedResourceConfigurations" => [float()],
-        "numberOfAssociatedServices" => [float()],
-        "numberOfAssociatedVPCs" => [float()]
+        "lastVerifiedTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "txtMethodConfig" => txt_method_config()
       }
 
   """
-  @type service_network_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_network_endpoint_association() :: %{
-        "createdAt" => non_neg_integer(),
-        "id" => [String.t() | atom()],
-        "serviceNetworkArn" => String.t() | atom(),
-        "state" => [String.t() | atom()],
-        "vpcEndpointId" => [String.t() | atom()],
-        "vpcEndpointOwnerId" => [String.t() | atom()],
-        "vpcId" => [String.t() | atom()]
-      }
-
-  """
-  @type service_network_endpoint_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_network_vpc_associations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("serviceNetworkIdentifier") => String.t() | atom(),
-        optional("vpcIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_service_network_vpc_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_targets_response() :: %{
-        optional("successful") => list(target()),
-        optional("unsuccessful") => list(target_failure())
-      }
-
-  """
-  @type register_targets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_verifications_response() :: %{
-        "items" => list(domain_verification_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_domain_verifications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target() :: %{
-        "id" => [String.t() | atom()],
-        "port" => integer()
-      }
-
-  """
-  @type target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_network_resource_association_request() :: %{}
-
-  """
-  @type delete_service_network_resource_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_network_resource_association_request() :: %{}
-
-  """
-  @type get_service_network_resource_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      arn_resource() :: %{
-        "arn" => String.t() | atom()
-      }
-
-  """
-  @type arn_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_network_resource_association_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "dnsEntry" => dns_entry(),
-        "failureCode" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "isManagedAssociation" => boolean(),
-        "privateDnsEnabled" => boolean(),
-        "privateDnsEntry" => dns_entry(),
-        "resourceConfigurationArn" => String.t() | atom(),
-        "resourceConfigurationId" => String.t() | atom(),
-        "resourceConfigurationName" => String.t() | atom(),
-        "serviceNetworkArn" => String.t() | atom(),
-        "serviceNetworkId" => String.t() | atom(),
-        "serviceNetworkName" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type service_network_resource_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_gateway_request() :: %{}
-
-  """
-  @type delete_resource_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_network_vpc_association_request() :: %{}
-
-  """
-  @type delete_service_network_vpc_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_targets_response() :: %{
-        optional("successful") => list(target()),
-        optional("unsuccessful") => list(target_failure())
-      }
-
-  """
-  @type deregister_targets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_network_vpc_association_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("createdBy") => String.t() | atom(),
-        optional("id") => String.t() | atom(),
-        optional("securityGroupIds") => list(String.t() | atom()),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type update_service_network_vpc_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listener_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "port" => integer(),
-        "protocol" => String.t() | atom()
-      }
-
-  """
-  @type listener_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_network_resource_associations_request() :: %{
-        optional("includeChildren") => [boolean()],
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceConfigurationIdentifier") => String.t() | atom(),
-        optional("serviceNetworkIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_service_network_resource_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_listener_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("defaultAction") => list(),
-        optional("id") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("port") => integer(),
-        optional("protocol") => String.t() | atom(),
-        optional("serviceArn") => String.t() | atom(),
-        optional("serviceId") => String.t() | atom()
-      }
-
-  """
-  @type create_listener_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_network_resource_association_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type delete_service_network_resource_association_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      update_listener_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("defaultAction") => list(),
-        optional("id") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("port") => integer(),
-        optional("protocol") => String.t() | atom(),
-        optional("serviceArn") => String.t() | atom(),
-        optional("serviceId") => String.t() | atom()
-      }
-
-  """
-  @type update_listener_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_auth_policy_request() :: %{}
-
-  """
-  @type get_auth_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_target_group_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("config") => target_group_config(),
-        optional("createdAt") => non_neg_integer(),
-        optional("failureCode") => [String.t() | atom()],
-        optional("failureMessage") => [String.t() | atom()],
-        optional("id") => String.t() | atom(),
-        optional("lastUpdatedAt") => non_neg_integer(),
-        optional("name") => String.t() | atom(),
-        optional("serviceArns") => list(String.t() | atom()),
-        optional("status") => String.t() | atom(),
-        optional("type") => String.t() | atom()
-      }
-
-  """
-  @type get_target_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_response() :: %{
-        optional("policy") => String.t() | atom()
-      }
-
-  """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_resource_configuration_request() :: %{
-        optional("allowAssociationToShareableServiceNetwork") => boolean(),
-        optional("clientToken") => String.t() | atom(),
-        optional("customDomainName") => String.t() | atom(),
-        optional("domainVerificationIdentifier") => String.t() | atom(),
-        optional("groupDomain") => String.t() | atom(),
-        optional("portRanges") => list(String.t() | atom()),
-        optional("protocol") => String.t() | atom(),
-        optional("resourceConfigurationDefinition") => list(),
-        optional("resourceConfigurationGroupIdentifier") => String.t() | atom(),
-        optional("resourceGatewayIdentifier") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("type") => list(any())
-      }
-
-  """
-  @type create_resource_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_network_request() :: %{
-        optional("authType") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("sharingConfig") => sharing_config(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_service_network_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      path_match() :: %{
-        "caseSensitive" => boolean(),
-        "match" => list()
-      }
-
-  """
-  @type path_match() :: %{(String.t() | atom()) => any()}
+  @type get_domain_verification_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1692,257 +963,30 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      delete_resource_policy_request() :: %{}
-
-  """
-  @type delete_resource_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_endpoint_associations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceEndpointAssociationIdentifier") => String.t() | atom(),
-        optional("vpcEndpointId") => String.t() | atom(),
-        optional("vpcEndpointOwner") => String.t() | atom(),
-        required("resourceConfigurationIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_resource_endpoint_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dns_entry() :: %{
-        "domainName" => [String.t() | atom()],
-        "hostedZoneId" => [String.t() | atom()]
-      }
-
-  """
-  @type dns_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_gateway_response() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "ipAddressType" => String.t() | atom(),
-        "ipv4AddressesPerEni" => integer(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "managedBy" => [String.t() | atom()],
-        "name" => String.t() | atom(),
-        "resourceConfigDnsResolution" => String.t() | atom(),
-        "securityGroupIds" => list(String.t() | atom()),
-        "serviceManaged" => [boolean()],
-        "status" => String.t() | atom(),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type get_resource_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_listener_request() :: %{
-        optional("clientToken") => String.t() | atom(),
+      get_listener_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("createdAt") => non_neg_integer(),
+        optional("defaultAction") => list(),
+        optional("id") => String.t() | atom(),
+        optional("lastUpdatedAt") => non_neg_integer(),
+        optional("name") => String.t() | atom(),
         optional("port") => integer(),
-        optional("tags") => map(),
-        required("defaultAction") => list(),
-        required("name") => String.t() | atom(),
-        required("protocol") => String.t() | atom()
+        optional("protocol") => String.t() | atom(),
+        optional("serviceArn") => String.t() | atom(),
+        optional("serviceId") => String.t() | atom()
       }
 
   """
-  @type create_listener_request() :: %{(String.t() | atom()) => any()}
+  @type get_listener_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_services_response() :: %{
-        optional("items") => list(service_summary()),
-        optional("nextToken") => String.t() | atom()
-      }
+      get_resource_configuration_request() :: %{}
 
   """
-  @type list_services_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_listener_response() :: %{}
-
-  """
-  @type delete_listener_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      forward_action() :: %{
-        "targetGroups" => list(weighted_target_group())
-      }
-
-  """
-  @type forward_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_failure() :: %{
-        "failureCode" => [String.t() | atom()],
-        "failureMessage" => [String.t() | atom()],
-        "id" => [String.t() | atom()],
-        "port" => integer()
-      }
-
-  """
-  @type target_failure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_target_group_request() :: %{
-        required("healthCheck") => health_check_config()
-      }
-
-  """
-  @type update_target_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_resource_gateway_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "ipAddressType" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "securityGroupIds" => list(String.t() | atom()),
-        "status" => String.t() | atom(),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type update_resource_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_response() :: %{}
-
-  """
-  @type put_resource_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_endpoint_association_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "resourceConfigurationArn" => String.t() | atom(),
-        "resourceConfigurationId" => String.t() | atom(),
-        "resourceConfigurationName" => String.t() | atom(),
-        "vpcEndpointId" => String.t() | atom(),
-        "vpcEndpointOwner" => String.t() | atom()
-      }
-
-  """
-  @type resource_endpoint_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_policy_response() :: %{}
-
-  """
-  @type delete_resource_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_gateway_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "ipAddressType" => String.t() | atom(),
-        "ipv4AddressesPerEni" => integer(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "resourceConfigDnsResolution" => String.t() | atom(),
-        "securityGroupIds" => list(String.t() | atom()),
-        "status" => String.t() | atom(),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type resource_gateway_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        optional("tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_resource_gateway_request() :: %{
-        optional("securityGroupIds") => list(String.t() | atom())
-      }
-
-  """
-  @type update_resource_gateway_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_group_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "ipAddressType" => String.t() | atom(),
-        "lambdaEventStructureVersion" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "port" => integer(),
-        "protocol" => String.t() | atom(),
-        "serviceArns" => list(String.t() | atom()),
-        "status" => String.t() | atom(),
-        "type" => String.t() | atom(),
-        "vpcIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type target_group_summary() :: %{(String.t() | atom()) => any()}
+  @type get_resource_configuration_request() :: %{}
 
   @typedoc """
 
@@ -1978,410 +1022,100 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      deregister_targets_request() :: %{
-        required("targets") => list(target())
-      }
+      get_resource_gateway_request() :: %{}
 
   """
-  @type deregister_targets_request() :: %{(String.t() | atom()) => any()}
+  @type get_resource_gateway_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_target_group_request() :: %{}
-
-  """
-  @type delete_target_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_target_group_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("config") => target_group_config(),
-        optional("id") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("status") => String.t() | atom(),
-        optional("type") => String.t() | atom()
-      }
-
-  """
-  @type create_target_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("authType") => String.t() | atom(),
-        optional("certificateArn") => String.t() | atom(),
-        optional("createdAt") => non_neg_integer(),
-        optional("customDomainName") => String.t() | atom(),
-        optional("dnsEntry") => dns_entry(),
-        optional("failureCode") => String.t() | atom(),
-        optional("failureMessage") => String.t() | atom(),
-        optional("id") => String.t() | atom(),
-        optional("idleTimeoutSeconds") => integer(),
-        optional("lastUpdatedAt") => non_neg_integer(),
-        optional("name") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type get_service_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_network_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("authType") => String.t() | atom(),
-        optional("id") => String.t() | atom(),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_service_network_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_gateways_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_resource_gateways_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_access_log_subscription_response() :: %{
-        optional("serviceNetworkLogType") => String.t() | atom(),
-        required("arn") => String.t() | atom(),
-        required("destinationArn") => String.t() | atom(),
-        required("id") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom(),
-        required("resourceId") => String.t() | atom()
-      }
-
-  """
-  @type create_access_log_subscription_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_network_vpc_endpoint_associations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("serviceNetworkIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_service_network_vpc_endpoint_associations_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      target_summary() :: %{
-        "id" => [String.t() | atom()],
-        "port" => integer(),
-        "reasonCode" => [String.t() | atom()],
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type target_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_networks_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_service_networks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_request() :: %{}
-
-  """
-  @type delete_service_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_domain_verification_response() :: %{
+      get_resource_gateway_response() :: %{
         "arn" => String.t() | atom(),
-        "domainName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
         "id" => String.t() | atom(),
+        "ipAddressType" => String.t() | atom(),
+        "ipv4AddressesPerEni" => integer(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "managedBy" => [String.t() | atom()],
+        "name" => String.t() | atom(),
+        "resourceConfigDnsResolution" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "serviceManaged" => [boolean()],
         "status" => String.t() | atom(),
-        "txtMethodConfig" => txt_method_config()
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
       }
 
   """
-  @type start_domain_verification_response() :: %{(String.t() | atom()) => any()}
+  @type get_resource_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      rule_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "isDefault" => boolean(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "priority" => integer()
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_response() :: %{
+        optional("policy") => String.t() | atom()
       }
 
   """
-  @type rule_summary() :: %{(String.t() | atom()) => any()}
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_auth_policy_request() :: %{}
+      get_rule_request() :: %{}
 
   """
-  @type delete_auth_policy_request() :: %{}
+  @type get_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_service_network_vpc_associations_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("items") => list(service_network_vpc_association_summary())
-      }
-
-  """
-  @type list_service_network_vpc_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_log_subscriptions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("resourceIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_access_log_subscriptions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_rule_response() :: %{}
-
-  """
-  @type delete_rule_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_configuration_request() :: %{}
-
-  """
-  @type get_resource_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_access_log_subscription_request() :: %{
-        required("destinationArn") => String.t() | atom()
-      }
-
-  """
-  @type update_access_log_subscription_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_listener_request() :: %{
-        required("defaultAction") => list()
-      }
-
-  """
-  @type update_listener_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("authType") => String.t() | atom(),
-        optional("certificateArn") => String.t() | atom(),
-        optional("customDomainName") => String.t() | atom(),
-        optional("dnsEntry") => dns_entry(),
-        optional("id") => String.t() | atom(),
-        optional("idleTimeoutSeconds") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type create_service_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_network_service_association_response() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("id") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type delete_service_network_service_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "customDomainName" => String.t() | atom(),
-        "dnsEntry" => dns_entry(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type service_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_network_resource_associations_response() :: %{
-        "items" => list(service_network_resource_association_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_service_network_resource_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_resource_gateway_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("ipAddressType") => String.t() | atom(),
-        optional("ipv4AddressesPerEni") => integer(),
-        optional("resourceConfigDnsResolution") => String.t() | atom(),
-        optional("securityGroupIds") => list(String.t() | atom()),
-        optional("subnetIds") => list(String.t() | atom()),
-        optional("tags") => map(),
-        optional("vpcIdentifier") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_resource_gateway_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_access_log_subscription_request() :: %{}
-
-  """
-  @type get_access_log_subscription_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_auth_policy_request() :: %{
-        required("policy") => String.t() | atom()
-      }
-
-  """
-  @type put_auth_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_rule_response() :: %{
+      get_rule_response() :: %{
         optional("action") => list(),
         optional("arn") => String.t() | atom(),
+        optional("createdAt") => non_neg_integer(),
         optional("id") => String.t() | atom(),
+        optional("isDefault") => boolean(),
+        optional("lastUpdatedAt") => non_neg_integer(),
         optional("match") => list(),
         optional("name") => String.t() | atom(),
         optional("priority") => integer()
       }
 
   """
-  @type create_rule_response() :: %{(String.t() | atom()) => any()}
+  @type get_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_resource_configuration_response() :: %{
-        "allowAssociationToShareableServiceNetwork" => boolean(),
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "portRanges" => list(String.t() | atom()),
-        "protocol" => String.t() | atom(),
-        "resourceConfigurationDefinition" => list(),
-        "resourceConfigurationGroupId" => String.t() | atom(),
-        "resourceGatewayId" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "type" => list(any())
-      }
+      get_service_network_request() :: %{}
 
   """
-  @type update_resource_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type get_service_network_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_auth_policy_response() :: %{
-        optional("createdAt") => non_neg_integer(),
-        optional("lastUpdatedAt") => non_neg_integer(),
-        optional("policy") => String.t() | atom(),
-        optional("state") => String.t() | atom()
-      }
+      get_service_network_resource_association_request() :: %{}
 
   """
-  @type get_auth_policy_response() :: %{(String.t() | atom()) => any()}
+  @type get_service_network_resource_association_request() :: %{}
 
   @typedoc """
 
@@ -2416,63 +1150,717 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      create_service_network_response() :: %{
+      get_service_network_response() :: %{
         optional("arn") => String.t() | atom(),
         optional("authType") => String.t() | atom(),
+        optional("createdAt") => non_neg_integer(),
         optional("id") => String.t() | atom(),
+        optional("lastUpdatedAt") => non_neg_integer(),
         optional("name") => String.t() | atom(),
+        optional("numberOfAssociatedServices") => [float()],
+        optional("numberOfAssociatedVPCs") => [float()],
         optional("sharingConfig") => sharing_config()
       }
 
   """
-  @type create_service_network_response() :: %{(String.t() | atom()) => any()}
+  @type get_service_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_listener_request() :: %{}
+      get_service_network_service_association_request() :: %{}
 
   """
-  @type delete_listener_request() :: %{}
+  @type get_service_network_service_association_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_access_log_subscription_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("serviceNetworkLogType") => String.t() | atom(),
-        optional("tags") => map(),
-        required("destinationArn") => String.t() | atom(),
+      get_service_network_service_association_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("createdAt") => non_neg_integer(),
+        optional("createdBy") => String.t() | atom(),
+        optional("customDomainName") => String.t() | atom(),
+        optional("dnsEntry") => dns_entry(),
+        optional("failureCode") => [String.t() | atom()],
+        optional("failureMessage") => [String.t() | atom()],
+        optional("id") => String.t() | atom(),
+        optional("serviceArn") => String.t() | atom(),
+        optional("serviceId") => String.t() | atom(),
+        optional("serviceName") => String.t() | atom(),
+        optional("serviceNetworkArn") => String.t() | atom(),
+        optional("serviceNetworkId") => String.t() | atom(),
+        optional("serviceNetworkName") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type get_service_network_service_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_network_vpc_association_request() :: %{}
+
+  """
+  @type get_service_network_vpc_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_network_vpc_association_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("createdAt") => non_neg_integer(),
+        optional("createdBy") => String.t() | atom(),
+        optional("dnsOptions") => dns_options(),
+        optional("failureCode") => [String.t() | atom()],
+        optional("failureMessage") => [String.t() | atom()],
+        optional("id") => String.t() | atom(),
+        optional("lastUpdatedAt") => non_neg_integer(),
+        optional("privateDnsEnabled") => boolean(),
+        optional("securityGroupIds") => list(String.t() | atom()),
+        optional("serviceNetworkArn") => String.t() | atom(),
+        optional("serviceNetworkId") => String.t() | atom(),
+        optional("serviceNetworkName") => String.t() | atom(),
+        optional("status") => String.t() | atom(),
+        optional("vpcId") => String.t() | atom()
+      }
+
+  """
+  @type get_service_network_vpc_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_request() :: %{}
+
+  """
+  @type get_service_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("authType") => String.t() | atom(),
+        optional("certificateArn") => String.t() | atom(),
+        optional("createdAt") => non_neg_integer(),
+        optional("customDomainName") => String.t() | atom(),
+        optional("dnsEntry") => dns_entry(),
+        optional("failureCode") => String.t() | atom(),
+        optional("failureMessage") => String.t() | atom(),
+        optional("id") => String.t() | atom(),
+        optional("idleTimeoutSeconds") => integer(),
+        optional("lastUpdatedAt") => non_neg_integer(),
+        optional("name") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type get_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_target_group_request() :: %{}
+
+  """
+  @type get_target_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_target_group_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("config") => target_group_config(),
+        optional("createdAt") => non_neg_integer(),
+        optional("failureCode") => [String.t() | atom()],
+        optional("failureMessage") => [String.t() | atom()],
+        optional("id") => String.t() | atom(),
+        optional("lastUpdatedAt") => non_neg_integer(),
+        optional("name") => String.t() | atom(),
+        optional("serviceArns") => list(String.t() | atom()),
+        optional("status") => String.t() | atom(),
+        optional("type") => String.t() | atom()
+      }
+
+  """
+  @type get_target_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      header_match() :: %{
+        "caseSensitive" => boolean(),
+        "match" => list(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type header_match() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      health_check_config() :: %{
+        "enabled" => boolean(),
+        "healthCheckIntervalSeconds" => integer(),
+        "healthCheckTimeoutSeconds" => integer(),
+        "healthyThresholdCount" => integer(),
+        "matcher" => list(),
+        "path" => String.t() | atom(),
+        "port" => integer(),
+        "protocol" => String.t() | atom(),
+        "protocolVersion" => String.t() | atom(),
+        "unhealthyThresholdCount" => integer()
+      }
+
+  """
+  @type health_check_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_match() :: %{
+        "headerMatches" => list(header_match()),
+        "method" => String.t() | atom(),
+        "pathMatch" => path_match()
+      }
+
+  """
+  @type http_match() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_resource() :: %{
+        "ipAddress" => String.t() | atom()
+      }
+
+  """
+  @type ip_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_log_subscriptions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
         required("resourceIdentifier") => String.t() | atom()
       }
 
   """
-  @type create_access_log_subscription_request() :: %{(String.t() | atom()) => any()}
+  @type list_access_log_subscriptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_network_service_association_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "customDomainName" => String.t() | atom(),
-        "dnsEntry" => dns_entry(),
-        "id" => String.t() | atom(),
-        "serviceArn" => String.t() | atom(),
-        "serviceId" => String.t() | atom(),
-        "serviceName" => String.t() | atom(),
-        "serviceNetworkArn" => String.t() | atom(),
-        "serviceNetworkId" => String.t() | atom(),
-        "serviceNetworkName" => String.t() | atom(),
-        "status" => String.t() | atom()
+      list_access_log_subscriptions_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("items") => list(access_log_subscription_summary())
       }
 
   """
-  @type service_network_service_association_summary() :: %{(String.t() | atom()) => any()}
+  @type list_access_log_subscriptions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_verifications_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_domain_verifications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_verifications_response() :: %{
+        "items" => list(domain_verification_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_domain_verifications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_listeners_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_listeners_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_listeners_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("items") => list(listener_summary())
+      }
+
+  """
+  @type list_listeners_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_configurations_request() :: %{
+        optional("domainVerificationIdentifier") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceConfigurationGroupIdentifier") => String.t() | atom(),
+        optional("resourceGatewayIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_resource_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_configurations_response() :: %{
+        "items" => list(resource_configuration_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_resource_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_endpoint_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceEndpointAssociationIdentifier") => String.t() | atom(),
+        optional("vpcEndpointId") => String.t() | atom(),
+        optional("vpcEndpointOwner") => String.t() | atom(),
+        required("resourceConfigurationIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_resource_endpoint_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_endpoint_associations_response() :: %{
+        "items" => list(resource_endpoint_association_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_resource_endpoint_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_gateways_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_resource_gateways_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_gateways_response() :: %{
+        "items" => list(resource_gateway_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_resource_gateways_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rules_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rules_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("items") => list(rule_summary())
+      }
+
+  """
+  @type list_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_network_resource_associations_request() :: %{
+        optional("includeChildren") => [boolean()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceConfigurationIdentifier") => String.t() | atom(),
+        optional("serviceNetworkIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_service_network_resource_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_network_resource_associations_response() :: %{
+        "items" => list(service_network_resource_association_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_service_network_resource_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_network_service_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("serviceIdentifier") => String.t() | atom(),
+        optional("serviceNetworkIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_service_network_service_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_network_service_associations_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("items") => list(service_network_service_association_summary())
+      }
+
+  """
+  @type list_service_network_service_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_network_vpc_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("serviceNetworkIdentifier") => String.t() | atom(),
+        optional("vpcIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_service_network_vpc_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_network_vpc_associations_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("items") => list(service_network_vpc_association_summary())
+      }
+
+  """
+  @type list_service_network_vpc_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_network_vpc_endpoint_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("serviceNetworkIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_service_network_vpc_endpoint_associations_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_network_vpc_endpoint_associations_response() :: %{
+        "items" => list(service_network_endpoint_association()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_service_network_vpc_endpoint_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_networks_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_service_networks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_networks_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("items") => list(service_network_summary())
+      }
+
+  """
+  @type list_service_networks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_services_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_services_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_services_response() :: %{
+        optional("items") => list(service_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_services_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_target_groups_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("targetGroupType") => String.t() | atom(),
+        optional("vpcIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_target_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_target_groups_response() :: %{
+        optional("items") => list(target_group_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_target_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_targets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("targets") => list(target())
+      }
+
+  """
+  @type list_targets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_targets_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("items") => list(target_summary())
+      }
+
+  """
+  @type list_targets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listener_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "port" => integer(),
+        "protocol" => String.t() | atom()
+      }
+
+  """
+  @type listener_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      path_match() :: %{
+        "caseSensitive" => boolean(),
+        "match" => list()
+      }
+
+  """
+  @type path_match() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_auth_policy_request() :: %{
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_auth_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_auth_policy_response() :: %{
+        optional("policy") => String.t() | atom(),
+        optional("state") => String.t() | atom()
+      }
+
+  """
+  @type put_auth_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_request() :: %{
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_response() :: %{}
+
+  """
+  @type put_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      register_targets_request() :: %{
+        required("targets") => list(target())
+      }
+
+  """
+  @type register_targets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_targets_response() :: %{
+        optional("successful") => list(target()),
+        optional("unsuccessful") => list(target_failure())
+      }
+
+  """
+  @type register_targets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2501,45 +1889,86 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      list_access_log_subscriptions_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("items") => list(access_log_subscription_summary())
-      }
-
-  """
-  @type list_access_log_subscriptions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_configurations_request() :: %{
-        optional("domainVerificationIdentifier") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceConfigurationGroupIdentifier") => String.t() | atom(),
-        optional("resourceGatewayIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_resource_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_network_resource_association_response() :: %{
+      resource_endpoint_association_summary() :: %{
         "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "privateDnsEnabled" => boolean(),
-        "status" => String.t() | atom()
+        "resourceConfigurationArn" => String.t() | atom(),
+        "resourceConfigurationId" => String.t() | atom(),
+        "resourceConfigurationName" => String.t() | atom(),
+        "vpcEndpointId" => String.t() | atom(),
+        "vpcEndpointOwner" => String.t() | atom()
       }
 
   """
-  @type create_service_network_resource_association_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type resource_endpoint_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_gateway_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "ipAddressType" => String.t() | atom(),
+        "ipv4AddressesPerEni" => integer(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "resourceConfigDnsResolution" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "status" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type resource_gateway_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "isDefault" => boolean(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "priority" => integer()
+      }
+
+  """
+  @type rule_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_update() :: %{
+        "action" => list(),
+        "match" => list(),
+        "priority" => integer(),
+        "ruleIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type rule_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2558,49 +1987,124 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      weighted_target_group() :: %{
-        "targetGroupIdentifier" => String.t() | atom(),
-        "weight" => integer()
+      rule_update_success() :: %{
+        "action" => list(),
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "isDefault" => boolean(),
+        "match" => list(),
+        "name" => String.t() | atom(),
+        "priority" => integer()
       }
 
   """
-  @type weighted_target_group() :: %{(String.t() | atom()) => any()}
+  @type rule_update_success() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_service_network_service_association_request() :: %{}
+      service_network_endpoint_association() :: %{
+        "createdAt" => non_neg_integer(),
+        "id" => [String.t() | atom()],
+        "serviceNetworkArn" => String.t() | atom(),
+        "state" => [String.t() | atom()],
+        "vpcEndpointId" => [String.t() | atom()],
+        "vpcEndpointOwnerId" => [String.t() | atom()],
+        "vpcId" => [String.t() | atom()]
+      }
 
   """
-  @type get_service_network_service_association_request() :: %{}
+  @type service_network_endpoint_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_resource_gateway_request() :: %{}
+      service_network_resource_association_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "dnsEntry" => dns_entry(),
+        "failureCode" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "isManagedAssociation" => boolean(),
+        "privateDnsEnabled" => boolean(),
+        "privateDnsEntry" => dns_entry(),
+        "resourceConfigurationArn" => String.t() | atom(),
+        "resourceConfigurationId" => String.t() | atom(),
+        "resourceConfigurationName" => String.t() | atom(),
+        "serviceNetworkArn" => String.t() | atom(),
+        "serviceNetworkId" => String.t() | atom(),
+        "serviceNetworkName" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
 
   """
-  @type get_resource_gateway_request() :: %{}
+  @type service_network_resource_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_service_network_request() :: %{}
+      service_network_service_association_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "customDomainName" => String.t() | atom(),
+        "dnsEntry" => dns_entry(),
+        "id" => String.t() | atom(),
+        "serviceArn" => String.t() | atom(),
+        "serviceId" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "serviceNetworkArn" => String.t() | atom(),
+        "serviceNetworkId" => String.t() | atom(),
+        "serviceNetworkName" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
 
   """
-  @type get_service_network_request() :: %{}
+  @type service_network_service_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_network_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "numberOfAssociatedResourceConfigurations" => [float()],
+        "numberOfAssociatedServices" => [float()],
+        "numberOfAssociatedVPCs" => [float()]
+      }
+
+  """
+  @type service_network_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_network_vpc_association_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "dnsOptions" => dns_options(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "privateDnsEnabled" => boolean(),
+        "serviceNetworkArn" => String.t() | atom(),
+        "serviceNetworkId" => String.t() | atom(),
+        "serviceNetworkName" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type service_network_vpc_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2617,551 +2121,1047 @@ defmodule AWS.VPCLattice do
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      service_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "customDomainName" => String.t() | atom(),
+        "dnsEntry" => dns_entry(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type service_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sharing_config() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type sharing_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_domain_verification_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("domainName") => String.t() | atom()
+      }
+
+  """
+  @type start_domain_verification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_domain_verification_response() :: %{
+        "arn" => String.t() | atom(),
+        "domainName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "txtMethodConfig" => txt_method_config()
+      }
+
+  """
+  @type start_domain_verification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      target() :: %{
+        "id" => [String.t() | atom()],
+        "port" => integer()
+      }
+
+  """
+  @type target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_failure() :: %{
+        "failureCode" => [String.t() | atom()],
+        "failureMessage" => [String.t() | atom()],
+        "id" => [String.t() | atom()],
+        "port" => integer()
+      }
+
+  """
+  @type target_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_group_config() :: %{
+        "healthCheck" => health_check_config(),
+        "ipAddressType" => String.t() | atom(),
+        "lambdaEventStructureVersion" => String.t() | atom(),
+        "port" => integer(),
+        "protocol" => String.t() | atom(),
+        "protocolVersion" => String.t() | atom(),
+        "vpcIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type target_group_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_group_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "ipAddressType" => String.t() | atom(),
+        "lambdaEventStructureVersion" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "port" => integer(),
+        "protocol" => String.t() | atom(),
+        "serviceArns" => list(String.t() | atom()),
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "vpcIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type target_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_summary() :: %{
+        "id" => [String.t() | atom()],
+        "port" => integer(),
+        "reasonCode" => [String.t() | atom()],
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type target_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      txt_method_config() :: %{
+        "name" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type txt_method_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_log_subscription_request() :: %{
+        required("destinationArn") => String.t() | atom()
+      }
+
+  """
+  @type update_access_log_subscription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_log_subscription_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("destinationArn") => String.t() | atom(),
+        required("id") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom(),
+        required("resourceId") => String.t() | atom()
+      }
+
+  """
+  @type update_access_log_subscription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_listener_request() :: %{
+        required("defaultAction") => list()
+      }
+
+  """
+  @type update_listener_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_listener_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("defaultAction") => list(),
+        optional("id") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("port") => integer(),
+        optional("protocol") => String.t() | atom(),
+        optional("serviceArn") => String.t() | atom(),
+        optional("serviceId") => String.t() | atom()
+      }
+
+  """
+  @type update_listener_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_configuration_request() :: %{
+        optional("allowAssociationToShareableServiceNetwork") => boolean(),
+        optional("portRanges") => list(String.t() | atom()),
+        optional("resourceConfigurationDefinition") => list()
+      }
+
+  """
+  @type update_resource_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_configuration_response() :: %{
+        "allowAssociationToShareableServiceNetwork" => boolean(),
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "portRanges" => list(String.t() | atom()),
+        "protocol" => String.t() | atom(),
+        "resourceConfigurationDefinition" => list(),
+        "resourceConfigurationGroupId" => String.t() | atom(),
+        "resourceGatewayId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type update_resource_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_gateway_request() :: %{
+        optional("securityGroupIds") => list(String.t() | atom())
+      }
+
+  """
+  @type update_resource_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_gateway_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddressType" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "status" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type update_resource_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_rule_request() :: %{
+        optional("action") => list(),
+        optional("match") => list(),
+        optional("priority") => integer()
+      }
+
+  """
+  @type update_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_rule_response() :: %{
+        optional("action") => list(),
+        optional("arn") => String.t() | atom(),
+        optional("id") => String.t() | atom(),
+        optional("isDefault") => boolean(),
+        optional("match") => list(),
+        optional("name") => String.t() | atom(),
+        optional("priority") => integer()
+      }
+
+  """
+  @type update_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_service_network_request() :: %{
+        required("authType") => String.t() | atom()
+      }
+
+  """
+  @type update_service_network_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_service_network_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("authType") => String.t() | atom(),
+        optional("id") => String.t() | atom(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_service_network_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_service_network_vpc_association_request() :: %{
+        required("securityGroupIds") => list(String.t() | atom())
+      }
+
+  """
+  @type update_service_network_vpc_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_service_network_vpc_association_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("createdBy") => String.t() | atom(),
+        optional("id") => String.t() | atom(),
+        optional("securityGroupIds") => list(String.t() | atom()),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type update_service_network_vpc_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_service_request() :: %{
+        optional("authType") => String.t() | atom(),
+        optional("certificateArn") => String.t() | atom(),
+        optional("idleTimeoutSeconds") => integer()
+      }
+
+  """
+  @type update_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_service_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("authType") => String.t() | atom(),
+        optional("certificateArn") => String.t() | atom(),
+        optional("customDomainName") => String.t() | atom(),
+        optional("id") => String.t() | atom(),
+        optional("idleTimeoutSeconds") => integer(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_target_group_request() :: %{
+        required("healthCheck") => health_check_config()
+      }
+
+  """
+  @type update_target_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_target_group_response() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("config") => target_group_config(),
+        optional("id") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("status") => String.t() | atom(),
+        optional("type") => String.t() | atom()
+      }
+
+  """
+  @type update_target_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      weighted_target_group() :: %{
+        "targetGroupIdentifier" => String.t() | atom(),
+        "weight" => integer()
+      }
+
+  """
+  @type weighted_target_group() :: %{(String.t() | atom()) => any()}
+
   @type batch_update_rule_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_access_log_subscription_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_listener_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_resource_configuration_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_resource_gateway_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_rule_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_service_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_service_network_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_service_network_resource_association_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_service_network_service_association_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_service_network_vpc_association_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_target_group_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_access_log_subscription_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_auth_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_domain_verification_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_listener_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_resource_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_resource_endpoint_association_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_resource_gateway_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_resource_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_rule_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_service_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_service_network_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_service_network_resource_association_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_service_network_service_association_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_service_network_vpc_association_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_target_group_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
-          | throttling_exception()
+          | conflict_exception()
 
   @type deregister_targets_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_access_log_subscription_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_auth_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_domain_verification_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_listener_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_resource_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_resource_gateway_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_resource_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_rule_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_service_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_service_network_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_service_network_resource_association_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_service_network_service_association_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_service_network_vpc_association_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_target_group_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_access_log_subscriptions_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_domain_verifications_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_listeners_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_resource_configurations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_resource_endpoint_associations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_resource_gateways_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_rules_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_service_network_resource_associations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_service_network_service_associations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_service_network_vpc_associations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_service_network_vpc_endpoint_associations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_service_networks_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_services_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_target_groups_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_targets_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type put_auth_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type put_resource_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type register_targets_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type put_auth_policy_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type put_resource_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type register_targets_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type start_domain_verification_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type update_access_log_subscription_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_listener_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_resource_configuration_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_resource_gateway_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_rule_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_service_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_service_network_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_service_network_vpc_association_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_target_group_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{
@@ -4608,8 +4608,8 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(resource_identifier) do
-        [{"resourceIdentifier", resource_identifier} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -4622,8 +4622,8 @@ defmodule AWS.VPCLattice do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(resource_identifier) do
+        [{"resourceIdentifier", resource_identifier} | query_params]
       else
         query_params
       end
@@ -4657,15 +4657,15 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4701,15 +4701,15 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4749,8 +4749,22 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(resource_gateway_identifier) do
-        [{"resourceGatewayIdentifier", resource_gateway_identifier} | query_params]
+      if !is_nil(domain_verification_identifier) do
+        [{"domainVerificationIdentifier", domain_verification_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4766,22 +4780,8 @@ defmodule AWS.VPCLattice do
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(domain_verification_identifier) do
-        [{"domainVerificationIdentifier", domain_verification_identifier} | query_params]
+      if !is_nil(resource_gateway_identifier) do
+        [{"resourceGatewayIdentifier", resource_gateway_identifier} | query_params]
       else
         query_params
       end
@@ -4823,15 +4823,22 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(vpc_endpoint_owner) do
-        [{"vpcEndpointOwner", vpc_endpoint_owner} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(vpc_endpoint_id) do
-        [{"vpcEndpointId", vpc_endpoint_id} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_configuration_identifier) do
+        [{"resourceConfigurationIdentifier", resource_configuration_identifier} | query_params]
       else
         query_params
       end
@@ -4847,22 +4854,15 @@ defmodule AWS.VPCLattice do
       end
 
     query_params =
-      if !is_nil(resource_configuration_identifier) do
-        [{"resourceConfigurationIdentifier", resource_configuration_identifier} | query_params]
+      if !is_nil(vpc_endpoint_id) do
+        [{"vpcEndpointId", vpc_endpoint_id} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(vpc_endpoint_owner) do
+        [{"vpcEndpointOwner", vpc_endpoint_owner} | query_params]
       else
         query_params
       end
@@ -4896,15 +4896,15 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4944,15 +4944,15 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4992,22 +4992,8 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(service_network_identifier) do
-        [{"serviceNetworkIdentifier", service_network_identifier} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resource_configuration_identifier) do
-        [{"resourceConfigurationIdentifier", resource_configuration_identifier} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(include_children) do
+        [{"includeChildren", include_children} | query_params]
       else
         query_params
       end
@@ -5020,8 +5006,22 @@ defmodule AWS.VPCLattice do
       end
 
     query_params =
-      if !is_nil(include_children) do
-        [{"includeChildren", include_children} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_configuration_identifier) do
+        [{"resourceConfigurationIdentifier", resource_configuration_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_network_identifier) do
+        [{"serviceNetworkIdentifier", service_network_identifier} | query_params]
       else
         query_params
       end
@@ -5068,15 +5068,8 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(service_network_identifier) do
-        [{"serviceNetworkIdentifier", service_network_identifier} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(service_identifier) do
-        [{"serviceIdentifier", service_identifier} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -5089,8 +5082,15 @@ defmodule AWS.VPCLattice do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(service_identifier) do
+        [{"serviceIdentifier", service_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_network_identifier) do
+        [{"serviceNetworkIdentifier", service_network_identifier} | query_params]
       else
         query_params
       end
@@ -5131,15 +5131,8 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(vpc_identifier) do
-        [{"vpcIdentifier", vpc_identifier} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(service_network_identifier) do
-        [{"serviceNetworkIdentifier", service_network_identifier} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -5152,8 +5145,15 @@ defmodule AWS.VPCLattice do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(service_network_identifier) do
+        [{"serviceNetworkIdentifier", service_network_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(vpc_identifier) do
+        [{"vpcIdentifier", vpc_identifier} | query_params]
       else
         query_params
       end
@@ -5189,8 +5189,8 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(service_network_identifier) do
-        [{"serviceNetworkIdentifier", service_network_identifier} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -5203,8 +5203,8 @@ defmodule AWS.VPCLattice do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(service_network_identifier) do
+        [{"serviceNetworkIdentifier", service_network_identifier} | query_params]
       else
         query_params
       end
@@ -5235,15 +5235,15 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5268,15 +5268,15 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5334,15 +5334,8 @@ defmodule AWS.VPCLattice do
     query_params = []
 
     query_params =
-      if !is_nil(vpc_identifier) do
-        [{"vpcIdentifier", vpc_identifier} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(target_group_type) do
-        [{"targetGroupType", target_group_type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -5355,8 +5348,15 @@ defmodule AWS.VPCLattice do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(target_group_type) do
+        [{"targetGroupType", target_group_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(vpc_identifier) do
+        [{"vpcIdentifier", vpc_identifier} | query_params]
       else
         query_params
       end

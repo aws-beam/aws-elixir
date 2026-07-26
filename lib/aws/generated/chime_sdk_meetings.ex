@@ -19,32 +19,6 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Example:
 
-      engine_transcribe_settings() :: %{
-        "ContentIdentificationType" => list(any()),
-        "ContentRedactionType" => list(any()),
-        "EnablePartialResultsStabilization" => boolean(),
-        "IdentifyLanguage" => boolean(),
-        "LanguageCode" => list(any()),
-        "LanguageModelName" => String.t() | atom(),
-        "LanguageOptions" => String.t() | atom(),
-        "PartialResultsStability" => list(any()),
-        "PiiEntityTypes" => String.t() | atom(),
-        "PreferredLanguage" => list(any()),
-        "Region" => list(any()),
-        "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t() | atom(),
-        "VocabularyFilterNames" => String.t() | atom(),
-        "VocabularyName" => String.t() | atom(),
-        "VocabularyNames" => String.t() | atom()
-      }
-
-  """
-  @type engine_transcribe_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       attendee() :: %{
         "AttendeeId" => String.t() | atom(),
         "Capabilities" => attendee_capabilities(),
@@ -59,12 +33,14 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Example:
 
-      create_attendee_response() :: %{
-        "Attendee" => attendee()
+      attendee_capabilities() :: %{
+        "Audio" => list(any()),
+        "Content" => list(any()),
+        "Video" => list(any())
       }
 
   """
-  @type create_attendee_response() :: %{(String.t() | atom()) => any()}
+  @type attendee_capabilities() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -81,13 +57,143 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Example:
 
-      list_attendees_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      attendee_id_item() :: %{
+        "AttendeeId" => String.t() | atom()
       }
 
   """
-  @type list_attendees_request() :: %{(String.t() | atom()) => any()}
+  @type attendee_id_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_features() :: %{
+        "EchoReduction" => list(any())
+      }
+
+  """
+  @type audio_features() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_attendee_request() :: %{
+        required("Attendees") => list(create_attendee_request_item())
+      }
+
+  """
+  @type batch_create_attendee_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_attendee_response() :: %{
+        "Attendees" => list(attendee()),
+        "Errors" => list(create_attendee_error())
+      }
+
+  """
+  @type batch_create_attendee_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_attendee_capabilities_except_request() :: %{
+        required("Capabilities") => attendee_capabilities(),
+        required("ExcludedAttendeeIds") => list(attendee_id_item())
+      }
+
+  """
+  @type batch_update_attendee_capabilities_except_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_features() :: %{
+        "MaxResolution" => list(any())
+      }
+
+  """
+  @type content_features() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_attendee_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ExternalUserId" => String.t() | atom()
+      }
+
+  """
+  @type create_attendee_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_attendee_request() :: %{
+        optional("Capabilities") => attendee_capabilities(),
+        required("ExternalUserId") => String.t() | atom()
+      }
+
+  """
+  @type create_attendee_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_attendee_request_item() :: %{
+        "Capabilities" => attendee_capabilities(),
+        "ExternalUserId" => String.t() | atom()
+      }
+
+  """
+  @type create_attendee_request_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_attendee_response() :: %{
+        "Attendee" => attendee()
+      }
+
+  """
+  @type create_attendee_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -113,33 +219,12 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Example:
 
-      media_placement() :: %{
-        "AudioFallbackUrl" => String.t() | atom(),
-        "AudioHostUrl" => String.t() | atom(),
-        "EventIngestionUrl" => String.t() | atom(),
-        "ScreenDataUrl" => String.t() | atom(),
-        "ScreenSharingUrl" => String.t() | atom(),
-        "ScreenViewingUrl" => String.t() | atom(),
-        "SignalingUrl" => String.t() | atom(),
-        "TurnControlUrl" => String.t() | atom()
+      create_meeting_response() :: %{
+        "Meeting" => meeting()
       }
 
   """
-  @type media_placement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom(),
-        "RetryAfterSeconds" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+  @type create_meeting_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -166,30 +251,6 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Example:
 
-      throttling_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_features() :: %{
-        "EchoReduction" => list(any())
-      }
-
-  """
-  @type audio_features() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_meeting_with_attendees_response() :: %{
         "Attendees" => list(attendee()),
         "Errors" => list(create_attendee_error()),
@@ -198,6 +259,242 @@ defmodule AWS.ChimeSDKMeetings do
 
   """
   @type create_meeting_with_attendees_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_attendee_request() :: %{}
+
+  """
+  @type delete_attendee_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_meeting_request() :: %{}
+
+  """
+  @type delete_meeting_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      engine_transcribe_medical_settings() :: %{
+        "ContentIdentificationType" => list(any()),
+        "LanguageCode" => list(any()),
+        "Region" => list(any()),
+        "Specialty" => list(any()),
+        "Type" => list(any()),
+        "VocabularyName" => String.t() | atom()
+      }
+
+  """
+  @type engine_transcribe_medical_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      engine_transcribe_settings() :: %{
+        "ContentIdentificationType" => list(any()),
+        "ContentRedactionType" => list(any()),
+        "EnablePartialResultsStabilization" => boolean(),
+        "IdentifyLanguage" => boolean(),
+        "LanguageCode" => list(any()),
+        "LanguageModelName" => String.t() | atom(),
+        "LanguageOptions" => String.t() | atom(),
+        "PartialResultsStability" => list(any()),
+        "PiiEntityTypes" => String.t() | atom(),
+        "PreferredLanguage" => list(any()),
+        "Region" => list(any()),
+        "VocabularyFilterMethod" => list(any()),
+        "VocabularyFilterName" => String.t() | atom(),
+        "VocabularyFilterNames" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom(),
+        "VocabularyNames" => String.t() | atom()
+      }
+
+  """
+  @type engine_transcribe_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_attendee_request() :: %{}
+
+  """
+  @type get_attendee_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_attendee_response() :: %{
+        "Attendee" => attendee()
+      }
+
+  """
+  @type get_attendee_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_meeting_request() :: %{}
+
+  """
+  @type get_meeting_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_meeting_response() :: %{
+        "Meeting" => meeting()
+      }
+
+  """
+  @type get_meeting_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attendees_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_attendees_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attendees_response() :: %{
+        "Attendees" => list(attendee()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_attendees_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_placement() :: %{
+        "AudioFallbackUrl" => String.t() | atom(),
+        "AudioHostUrl" => String.t() | atom(),
+        "EventIngestionUrl" => String.t() | atom(),
+        "ScreenDataUrl" => String.t() | atom(),
+        "ScreenSharingUrl" => String.t() | atom(),
+        "ScreenViewingUrl" => String.t() | atom(),
+        "SignalingUrl" => String.t() | atom(),
+        "TurnControlUrl" => String.t() | atom()
+      }
+
+  """
+  @type media_placement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meeting() :: %{
+        "ExternalMeetingId" => String.t() | atom(),
+        "MediaPlacement" => media_placement(),
+        "MediaRegion" => String.t() | atom(),
+        "MeetingArn" => String.t() | atom(),
+        "MeetingFeatures" => meeting_features_configuration(),
+        "MeetingHostId" => String.t() | atom(),
+        "MeetingId" => String.t() | atom(),
+        "PrimaryMeetingId" => String.t() | atom(),
+        "TenantIds" => list(String.t() | atom())
+      }
+
+  """
+  @type meeting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meeting_features_configuration() :: %{
+        "Attendee" => attendee_features(),
+        "Audio" => audio_features(),
+        "Content" => content_features(),
+        "Video" => video_features()
+      }
+
+  """
+  @type meeting_features_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -216,6 +513,67 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Example:
 
+      resource_not_found_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_failure_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+
+  """
+  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "RetryAfterSeconds" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_meeting_transcription_request() :: %{
+        required("TranscriptionConfiguration") => transcription_configuration()
+      }
+
+  """
+  @type start_meeting_transcription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_meeting_transcription_request() :: %{}
+
+  """
+  @type stop_meeting_transcription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       tag() :: %{
         "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
@@ -228,25 +586,49 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Example:
 
-      create_meeting_response() :: %{
-        "Meeting" => meeting()
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
       }
 
   """
-  @type create_meeting_response() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      limit_exceeded_exception() :: %{
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -277,132 +659,6 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Example:
 
-      video_features() :: %{
-        "MaxResolution" => list(any())
-      }
-
-  """
-  @type video_features() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_attendee_request() :: %{
-        required("Attendees") => list(create_attendee_request_item())
-      }
-
-  """
-  @type batch_create_attendee_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_attendee_capabilities_except_request() :: %{
-        required("Capabilities") => attendee_capabilities(),
-        required("ExcludedAttendeeIds") => list(attendee_id_item())
-      }
-
-  """
-  @type batch_update_attendee_capabilities_except_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_meeting_transcription_request() :: %{}
-
-  """
-  @type stop_meeting_transcription_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_attendee_request() :: %{
-        optional("Capabilities") => attendee_capabilities(),
-        required("ExternalUserId") => String.t() | atom()
-      }
-
-  """
-  @type create_attendee_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attendee_id_item() :: %{
-        "AttendeeId" => String.t() | atom()
-      }
-
-  """
-  @type attendee_id_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_attendees_response() :: %{
-        "Attendees" => list(attendee()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_attendees_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content_features() :: %{
-        "MaxResolution" => list(any())
-      }
-
-  """
-  @type content_features() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_attendee_capabilities_request() :: %{
-        required("Capabilities") => attendee_capabilities()
-      }
-
-  """
-  @type update_attendee_capabilities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       unprocessable_entity_exception() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom(),
@@ -411,130 +667,6 @@ defmodule AWS.ChimeSDKMeetings do
 
   """
   @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      attendee_capabilities() :: %{
-        "Audio" => list(any()),
-        "Content" => list(any()),
-        "Video" => list(any())
-      }
-
-  """
-  @type attendee_capabilities() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_attendee_request_item() :: %{
-        "Capabilities" => attendee_capabilities(),
-        "ExternalUserId" => String.t() | atom()
-      }
-
-  """
-  @type create_attendee_request_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_attendee_capabilities_response() :: %{
-        "Attendee" => attendee()
-      }
-
-  """
-  @type update_attendee_capabilities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_meeting_response() :: %{
-        "Meeting" => meeting()
-      }
-
-  """
-  @type get_meeting_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      meeting_features_configuration() :: %{
-        "Attendee" => attendee_features(),
-        "Audio" => audio_features(),
-        "Content" => content_features(),
-        "Video" => video_features()
-      }
-
-  """
-  @type meeting_features_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      meeting() :: %{
-        "ExternalMeetingId" => String.t() | atom(),
-        "MediaPlacement" => media_placement(),
-        "MediaRegion" => String.t() | atom(),
-        "MeetingArn" => String.t() | atom(),
-        "MeetingFeatures" => meeting_features_configuration(),
-        "MeetingHostId" => String.t() | atom(),
-        "MeetingId" => String.t() | atom(),
-        "PrimaryMeetingId" => String.t() | atom(),
-        "TenantIds" => list(String.t() | atom())
-      }
-
-  """
-  @type meeting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -552,334 +684,202 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Example:
 
-      get_meeting_request() :: %{}
+      untag_resource_response() :: %{}
 
   """
-  @type get_meeting_request() :: %{}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_attendee_request() :: %{}
-
-  """
-  @type get_attendee_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_meeting_request() :: %{}
-
-  """
-  @type delete_meeting_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_meeting_transcription_request() :: %{
-        required("TranscriptionConfiguration") => transcription_configuration()
+      update_attendee_capabilities_request() :: %{
+        required("Capabilities") => attendee_capabilities()
       }
 
   """
-  @type start_meeting_transcription_request() :: %{(String.t() | atom()) => any()}
+  @type update_attendee_capabilities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_attendee_request() :: %{}
-
-  """
-  @type delete_attendee_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_tags_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
-      }
-
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_attendee_response() :: %{
+      update_attendee_capabilities_response() :: %{
         "Attendee" => attendee()
       }
 
   """
-  @type get_attendee_response() :: %{(String.t() | atom()) => any()}
+  @type update_attendee_capabilities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_attendee_error() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "ExternalUserId" => String.t() | atom()
+      video_features() :: %{
+        "MaxResolution" => list(any())
       }
 
   """
-  @type create_attendee_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_failure_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-
-  """
-  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_attendee_response() :: %{
-        "Attendees" => list(attendee()),
-        "Errors" => list(create_attendee_error())
-      }
-
-  """
-  @type batch_create_attendee_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      engine_transcribe_medical_settings() :: %{
-        "ContentIdentificationType" => list(any()),
-        "LanguageCode" => list(any()),
-        "Region" => list(any()),
-        "Specialty" => list(any()),
-        "Type" => list(any()),
-        "VocabularyName" => String.t() | atom()
-      }
-
-  """
-  @type engine_transcribe_medical_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type video_features() :: %{(String.t() | atom()) => any()}
 
   @type batch_create_attendee_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | unprocessable_entity_exception()
+          unprocessable_entity_exception()
           | unauthorized_exception()
-          | limit_exceeded_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | not_found_exception()
+          | limit_exceeded_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type batch_update_attendee_capabilities_except_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type create_attendee_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | unprocessable_entity_exception()
+          unprocessable_entity_exception()
           | unauthorized_exception()
-          | limit_exceeded_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | not_found_exception()
+          | limit_exceeded_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type create_meeting_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | conflict_exception()
-          | unauthorized_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | limit_exceeded_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type create_meeting_with_attendees_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | conflict_exception()
-          | unauthorized_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | limit_exceeded_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type delete_attendee_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_meeting_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_attendee_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_meeting_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_attendees_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type start_meeting_transcription_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | unprocessable_entity_exception()
+          unprocessable_entity_exception()
           | unauthorized_exception()
-          | limit_exceeded_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | not_found_exception()
+          | limit_exceeded_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type stop_meeting_transcription_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | unprocessable_entity_exception()
+          unprocessable_entity_exception()
           | unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type tag_resource_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          unauthorized_exception()
           | too_many_tags_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
-          | limit_exceeded_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type untag_resource_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | resource_not_found_exception()
-          | unauthorized_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_attendee_capabilities_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   def metadata do
     %{
@@ -1316,15 +1316,15 @@ defmodule AWS.ChimeSDKMeetings do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end

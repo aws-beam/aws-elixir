@@ -14,18 +14,37 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Example:
 
-      configuration_event() :: %{
-        "clientTimestampMillis" => float(),
-        "disablePlayback" => boolean(),
-        "eventId" => String.t() | atom(),
-        "requestAttributes" => map(),
-        "responseContentType" => String.t() | atom(),
-        "sessionState" => session_state(),
-        "welcomeMessages" => list(message())
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type configuration_event() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      active_context() :: %{
+        "contextAttributes" => map(),
+        "name" => String.t() | atom(),
+        "timeToLive" => active_context_time_to_live()
+      }
+
+  """
+  @type active_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      active_context_time_to_live() :: %{
+        "timeToLiveInSeconds" => integer(),
+        "turnsToLive" => integer()
+      }
+
+  """
+  @type active_context_time_to_live() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -45,15 +64,25 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Example:
 
-      interpretation() :: %{
-        "intent" => intent(),
-        "interpretationSource" => list(any()),
-        "nluConfidence" => confidence_score(),
-        "sentimentResponse" => sentiment_response()
+      audio_response_event() :: %{
+        "audioChunk" => binary(),
+        "contentType" => String.t() | atom(),
+        "eventId" => String.t() | atom()
       }
 
   """
-  @type interpretation() :: %{(String.t() | atom()) => any()}
+  @type audio_response_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_gateway_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type bad_gateway_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,48 +100,187 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Example:
 
-      throttling_exception() :: %{
+      confidence_score() :: %{
+        "score" => float()
+      }
+
+  """
+  @type confidence_score() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_event() :: %{
+        "clientTimestampMillis" => float(),
+        "disablePlayback" => boolean(),
+        "eventId" => String.t() | atom(),
+        "requestAttributes" => map(),
+        "responseContentType" => String.t() | atom(),
+        "sessionState" => session_state(),
+        "welcomeMessages" => list(message())
+      }
+
+  """
+  @type configuration_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      recognize_text_request() :: %{
-        optional("requestAttributes") => map(),
-        optional("sessionState") => session_state(),
-        required("text") => String.t() | atom()
+      d_t_m_f_input_event() :: %{
+        "clientTimestampMillis" => float(),
+        "eventId" => String.t() | atom(),
+        "inputCharacter" => String.t() | atom()
       }
 
   """
-  @type recognize_text_request() :: %{(String.t() | atom()) => any()}
+  @type d_t_m_f_input_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      playback_completion_event() :: %{
+      delete_session_request() :: %{}
+
+  """
+  @type delete_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_session_response() :: %{
+        "botAliasId" => String.t() | atom(),
+        "botId" => String.t() | atom(),
+        "localeId" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type delete_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_failed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type dependency_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dialog_action() :: %{
+        "slotElicitationStyle" => list(any()),
+        "slotToElicit" => String.t() | atom(),
+        "subSlotToElicit" => elicit_sub_slot(),
+        "type" => list(any())
+      }
+
+  """
+  @type dialog_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disconnection_event() :: %{
         "clientTimestampMillis" => float(),
         "eventId" => String.t() | atom()
       }
 
   """
-  @type playback_completion_event() :: %{(String.t() | atom()) => any()}
+  @type disconnection_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_conversation_response() :: %{
-        "responseEventStream" => list()
+      elicit_sub_slot() :: %{
+        "name" => String.t() | atom(),
+        "subSlotToElicit" => elicit_sub_slot()
       }
 
   """
-  @type start_conversation_response() :: %{(String.t() | atom()) => any()}
+  @type elicit_sub_slot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_request() :: %{}
+
+  """
+  @type get_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_response() :: %{
+        "interpretations" => list(interpretation()),
+        "messages" => list(message()),
+        "sessionId" => String.t() | atom(),
+        "sessionState" => session_state()
+      }
+
+  """
+  @type get_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      heartbeat_event() :: %{
+        "eventId" => String.t() | atom()
+      }
+
+  """
+  @type heartbeat_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_response_card() :: %{
+        "buttons" => list(button()),
+        "imageUrl" => String.t() | atom(),
+        "subtitle" => String.t() | atom(),
+        "title" => String.t() | atom()
+      }
+
+  """
+  @type image_response_card() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intent() :: %{
+        "confirmationState" => list(any()),
+        "name" => String.t() | atom(),
+        "slots" => map(),
+        "state" => list(any())
+      }
+
+  """
+  @type intent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,70 +303,51 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      active_context_time_to_live() :: %{
-        "timeToLiveInSeconds" => integer(),
-        "turnsToLive" => integer()
-      }
-
-  """
-  @type active_context_time_to_live() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      heartbeat_event() :: %{
-        "eventId" => String.t() | atom()
-      }
-
-  """
-  @type heartbeat_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      text_input_event() :: %{
-        "clientTimestampMillis" => float(),
-        "eventId" => String.t() | atom(),
-        "text" => String.t() | atom()
-      }
-
-  """
-  @type text_input_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       internal_server_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interpretation() :: %{
+        "intent" => intent(),
+        "interpretationSource" => list(any()),
+        "nluConfidence" => confidence_score(),
+        "sentimentResponse" => sentiment_response()
+      }
+
+  """
+  @type interpretation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message() :: %{
+        "content" => String.t() | atom(),
+        "contentType" => list(any()),
+        "imageResponseCard" => image_response_card()
+      }
+
+  """
+  @type message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      playback_completion_event() :: %{
+        "clientTimestampMillis" => float(),
+        "eventId" => String.t() | atom()
+      }
+
+  """
+  @type playback_completion_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -217,60 +366,15 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Example:
 
-      runtime_hint_details() :: %{
-        "runtimeHintValues" => list(runtime_hint_value()),
-        "subSlotHints" => map()
+      put_session_request() :: %{
+        optional("messages") => list(message()),
+        optional("requestAttributes") => map(),
+        optional("responseContentType") => String.t() | atom(),
+        required("sessionState") => session_state()
       }
 
   """
-  @type runtime_hint_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      slot() :: %{
-        "shape" => list(any()),
-        "subSlots" => map(),
-        "value" => value(),
-        "values" => list(slot())
-      }
-
-  """
-  @type slot() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_response_event() :: %{
-        "audioChunk" => binary(),
-        "contentType" => String.t() | atom(),
-        "eventId" => String.t() | atom()
-      }
-
-  """
-  @type audio_response_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_session_request() :: %{}
-
-  """
-  @type get_session_request() :: %{}
+  @type put_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -292,102 +396,30 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Example:
 
-      put_session_request() :: %{
-        optional("messages") => list(message()),
+      recognize_text_request() :: %{
         optional("requestAttributes") => map(),
-        optional("responseContentType") => String.t() | atom(),
-        required("sessionState") => session_state()
+        optional("sessionState") => session_state(),
+        required("text") => String.t() | atom()
       }
 
   """
-  @type put_session_request() :: %{(String.t() | atom()) => any()}
+  @type recognize_text_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disconnection_event() :: %{
-        "clientTimestampMillis" => float(),
-        "eventId" => String.t() | atom()
-      }
-
-  """
-  @type disconnection_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_session_response() :: %{
+      recognize_text_response() :: %{
         "interpretations" => list(interpretation()),
         "messages" => list(message()),
+        "recognizedBotMember" => recognized_bot_member(),
+        "requestAttributes" => map(),
         "sessionId" => String.t() | atom(),
         "sessionState" => session_state()
       }
 
   """
-  @type get_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      active_context() :: %{
-        "contextAttributes" => map(),
-        "name" => String.t() | atom(),
-        "timeToLive" => active_context_time_to_live()
-      }
-
-  """
-  @type active_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      runtime_hints() :: %{
-        "slotHints" => map()
-      }
-
-  """
-  @type runtime_hints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_response_card() :: %{
-        "buttons" => list(button()),
-        "imageUrl" => String.t() | atom(),
-        "subtitle" => String.t() | atom(),
-        "title" => String.t() | atom()
-      }
-
-  """
-  @type image_response_card() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      text_response_event() :: %{
-        "eventId" => String.t() | atom(),
-        "messages" => list(message())
-      }
-
-  """
-  @type text_response_event() :: %{(String.t() | atom()) => any()}
+  @type recognize_text_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -403,54 +435,6 @@ defmodule AWS.LexRuntimeV2 do
 
   """
   @type recognize_utterance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_gateway_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type bad_gateway_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sentiment_response() :: %{
-        "sentiment" => list(any()),
-        "sentimentScore" => sentiment_score()
-      }
-
-  """
-  @type sentiment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      value() :: %{
-        "interpretedValue" => String.t() | atom(),
-        "originalValue" => String.t() | atom(),
-        "resolvedValues" => list(String.t() | atom())
-      }
-
-  """
-  @type value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transcript_event() :: %{
-        "eventId" => String.t() | atom(),
-        "transcript" => String.t() | atom()
-      }
-
-  """
-  @type transcript_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -476,49 +460,70 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Example:
 
-      dialog_action() :: %{
-        "slotElicitationStyle" => list(any()),
-        "slotToElicit" => String.t() | atom(),
-        "subSlotToElicit" => elicit_sub_slot(),
-        "type" => list(any())
-      }
-
-  """
-  @type dialog_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_session_request() :: %{}
-
-  """
-  @type delete_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      confidence_score() :: %{
-        "score" => float()
-      }
-
-  """
-  @type confidence_score() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_session_response() :: %{
-        "botAliasId" => String.t() | atom(),
+      recognized_bot_member() :: %{
         "botId" => String.t() | atom(),
-        "localeId" => String.t() | atom(),
-        "sessionId" => String.t() | atom()
+        "botName" => String.t() | atom()
       }
 
   """
-  @type delete_session_response() :: %{(String.t() | atom()) => any()}
+  @type recognized_bot_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_hint_details() :: %{
+        "runtimeHintValues" => list(runtime_hint_value()),
+        "subSlotHints" => map()
+      }
+
+  """
+  @type runtime_hint_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_hint_value() :: %{
+        "phrase" => String.t() | atom()
+      }
+
+  """
+  @type runtime_hint_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_hints() :: %{
+        "slotHints" => map()
+      }
+
+  """
+  @type runtime_hints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sentiment_response() :: %{
+        "sentiment" => list(any()),
+        "sentimentScore" => sentiment_score()
+      }
+
+  """
+  @type sentiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -533,31 +538,6 @@ defmodule AWS.LexRuntimeV2 do
 
   """
   @type sentiment_score() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      d_t_m_f_input_event() :: %{
-        "clientTimestampMillis" => float(),
-        "eventId" => String.t() | atom(),
-        "inputCharacter" => String.t() | atom()
-      }
-
-  """
-  @type d_t_m_f_input_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      elicit_sub_slot() :: %{
-        "name" => String.t() | atom(),
-        "subSlotToElicit" => elicit_sub_slot()
-      }
-
-  """
-  @type elicit_sub_slot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -579,78 +559,15 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Example:
 
-      recognize_text_response() :: %{
-        "interpretations" => list(interpretation()),
-        "messages" => list(message()),
-        "recognizedBotMember" => recognized_bot_member(),
-        "requestAttributes" => map(),
-        "sessionId" => String.t() | atom(),
-        "sessionState" => session_state()
+      slot() :: %{
+        "shape" => list(any()),
+        "subSlots" => map(),
+        "value" => value(),
+        "values" => list(slot())
       }
 
   """
-  @type recognize_text_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recognized_bot_member() :: %{
-        "botId" => String.t() | atom(),
-        "botName" => String.t() | atom()
-      }
-
-  """
-  @type recognized_bot_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      runtime_hint_value() :: %{
-        "phrase" => String.t() | atom()
-      }
-
-  """
-  @type runtime_hint_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      intent() :: %{
-        "confirmationState" => list(any()),
-        "name" => String.t() | atom(),
-        "slots" => map(),
-        "state" => list(any())
-      }
-
-  """
-  @type intent() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message() :: %{
-        "content" => String.t() | atom(),
-        "contentType" => list(any()),
-        "imageResponseCard" => image_response_card()
-      }
-
-  """
-  @type message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dependency_failed_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type dependency_failed_exception() :: %{(String.t() | atom()) => any()}
+  @type slot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -664,56 +581,139 @@ defmodule AWS.LexRuntimeV2 do
   """
   @type start_conversation_request() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      start_conversation_response() :: %{
+        "responseEventStream" => list()
+      }
+
+  """
+  @type start_conversation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_input_event() :: %{
+        "clientTimestampMillis" => float(),
+        "eventId" => String.t() | atom(),
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type text_input_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_response_event() :: %{
+        "eventId" => String.t() | atom(),
+        "messages" => list(message())
+      }
+
+  """
+  @type text_response_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transcript_event() :: %{
+        "eventId" => String.t() | atom(),
+        "transcript" => String.t() | atom()
+      }
+
+  """
+  @type transcript_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      value() :: %{
+        "interpretedValue" => String.t() | atom(),
+        "originalValue" => String.t() | atom(),
+        "resolvedValues" => list(String.t() | atom())
+      }
+
+  """
+  @type value() :: %{(String.t() | atom()) => any()}
+
   @type delete_session_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_session_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_session_errors() ::
-          dependency_failed_exception()
-          | bad_gateway_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | dependency_failed_exception()
+          | conflict_exception()
+          | bad_gateway_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type recognize_text_errors() ::
-          dependency_failed_exception()
-          | bad_gateway_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | dependency_failed_exception()
+          | conflict_exception()
+          | bad_gateway_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type recognize_utterance_errors() ::
-          dependency_failed_exception()
-          | bad_gateway_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | dependency_failed_exception()
+          | conflict_exception()
+          | bad_gateway_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_conversation_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

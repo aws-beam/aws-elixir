@@ -531,8 +531,8 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
     query_params = []
 
     query_params =
-      if !is_nil(record_identifier_value_as_string) do
-        [{"RecordIdentifierValueAsString", record_identifier_value_as_string} | query_params]
+      if !is_nil(expiration_time_response) do
+        [{"ExpirationTimeResponse", expiration_time_response} | query_params]
       else
         query_params
       end
@@ -545,8 +545,8 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       end
 
     query_params =
-      if !is_nil(expiration_time_response) do
-        [{"ExpirationTimeResponse", expiration_time_response} | query_params]
+      if !is_nil(record_identifier_value_as_string) do
+        [{"RecordIdentifierValueAsString", record_identifier_value_as_string} | query_params]
       else
         query_params
       end

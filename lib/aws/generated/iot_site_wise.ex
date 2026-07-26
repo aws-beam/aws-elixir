@@ -22,104 +22,700 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      create_computation_model_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("computationModelDescription") => String.t() | atom(),
-        optional("tags") => map(),
-        required("computationModelConfiguration") => computation_model_configuration(),
-        required("computationModelDataBinding") => map(),
-        required("computationModelName") => String.t() | atom()
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type create_computation_model_request() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      expression_variable() :: %{
+      access_policy_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "identity" => identity(),
+        "lastUpdateDate" => non_neg_integer(),
+        "permission" => list(any()),
+        "resource" => resource()
+      }
+
+  """
+  @type access_policy_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_definition() :: %{
+        "actionDefinitionId" => String.t() | atom(),
+        "actionName" => String.t() | atom(),
+        "actionType" => String.t() | atom()
+      }
+
+  """
+  @type action_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_payload() :: %{
+        "stringValue" => String.t() | atom()
+      }
+
+  """
+  @type action_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_summary() :: %{
+        "actionDefinitionId" => String.t() | atom(),
+        "actionId" => String.t() | atom(),
+        "resolveTo" => resolve_to(),
+        "targetResource" => target_resource()
+      }
+
+  """
+  @type action_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregated_value() :: %{
+        "quality" => list(any()),
+        "timestamp" => non_neg_integer(),
+        "value" => aggregates()
+      }
+
+  """
+  @type aggregated_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregates() :: %{
+        "average" => float(),
+        "count" => float(),
+        "maximum" => float(),
+        "minimum" => float(),
+        "standardDeviation" => float(),
+        "sum" => float()
+      }
+
+  """
+  @type aggregates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alarms() :: %{
+        "alarmRoleArn" => String.t() | atom(),
+        "notificationLambdaArn" => String.t() | atom()
+      }
+
+  """
+  @type alarms() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_binding_value_filter() :: %{
+        "assetId" => String.t() | atom()
+      }
+
+  """
+  @type asset_binding_value_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_composite_model() :: %{
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "value" => variable_value()
+        "properties" => list(asset_property()),
+        "type" => String.t() | atom()
       }
 
   """
-  @type expression_variable() :: %{(String.t() | atom()) => any()}
+  @type asset_composite_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_gateway_capability_configuration_request() :: %{
-        required("capabilityConfiguration") => String.t() | atom(),
-        required("capabilityNamespace") => String.t() | atom()
+      asset_composite_model_path_segment() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type update_gateway_capability_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type asset_composite_model_path_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      greengrass() :: %{
-        "groupArn" => String.t() | atom()
+      asset_composite_model_summary() :: %{
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "path" => list(asset_composite_model_path_segment()),
+        "type" => String.t() | atom()
       }
 
   """
-  @type greengrass() :: %{(String.t() | atom()) => any()}
+  @type asset_composite_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      execute_action_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("resolveTo") => resolve_to(),
-        required("actionDefinitionId") => String.t() | atom(),
-        required("actionPayload") => action_payload(),
-        required("targetResource") => target_resource()
+      asset_error_details() :: %{
+        "assetId" => String.t() | atom(),
+        "code" => list(any()),
+        "message" => String.t() | atom()
       }
 
   """
-  @type execute_action_request() :: %{(String.t() | atom()) => any()}
+  @type asset_error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_project_response() :: %{}
-
-  """
-  @type delete_project_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_executions_request() :: %{
-        optional("actionType") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resolveToResourceId") => String.t() | atom(),
-        optional("resolveToResourceType") => list(any()),
-        required("targetResourceId") => String.t() | atom(),
-        required("targetResourceType") => list(any())
+      asset_hierarchy() :: %{
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type list_executions_request() :: %{(String.t() | atom()) => any()}
+  @type asset_hierarchy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      execution_status() :: %{
+      asset_hierarchy_info() :: %{
+        "childAssetId" => String.t() | atom(),
+        "parentAssetId" => String.t() | atom()
+      }
+
+  """
+  @type asset_hierarchy_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_binding_value_filter() :: %{
+        "assetModelId" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_binding_value_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_composite_model() :: %{
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "properties" => list(asset_model_property()),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_composite_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_composite_model_definition() :: %{
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "properties" => list(asset_model_property_definition()),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_composite_model_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_composite_model_path_segment() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_composite_model_path_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_composite_model_summary() :: %{
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "path" => list(asset_model_composite_model_path_segment()),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_composite_model_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_hierarchy() :: %{
+        "childAssetModelId" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_hierarchy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_hierarchy_definition() :: %{
+        "childAssetModelId" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_hierarchy_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_property() :: %{
+        "dataType" => list(any()),
+        "dataTypeSpec" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "path" => list(asset_model_property_path_segment()),
+        "type" => property_type(),
+        "unit" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_property_binding_value() :: %{
+        "assetModelId" => String.t() | atom(),
+        "propertyId" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_property_binding_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_property_binding_value_filter() :: %{
+        "assetModelId" => String.t() | atom(),
+        "propertyId" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_property_binding_value_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_property_definition() :: %{
+        "dataType" => list(any()),
+        "dataTypeSpec" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => property_type(),
+        "unit" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_property_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_property_path_segment() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_property_path_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_property_summary() :: %{
+        "assetModelCompositeModelId" => String.t() | atom(),
+        "dataType" => list(any()),
+        "dataTypeSpec" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "interfaceSummaries" => list(interface_summary()),
+        "name" => String.t() | atom(),
+        "path" => list(asset_model_property_path_segment()),
+        "type" => property_type(),
+        "unit" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_property_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_status() :: %{
+        "error" => error_details(),
         "state" => list(any())
       }
 
   """
-  @type execution_status() :: %{(String.t() | atom()) => any()}
+  @type asset_model_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_summary() :: %{
+        "arn" => String.t() | atom(),
+        "assetModelType" => list(any()),
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdateDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "status" => asset_model_status(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type asset_model_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_property() :: %{
+        "alias" => String.t() | atom(),
+        "dataType" => list(any()),
+        "dataTypeSpec" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "notification" => property_notification(),
+        "path" => list(asset_property_path_segment()),
+        "unit" => String.t() | atom()
+      }
+
+  """
+  @type asset_property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_property_binding_value() :: %{
+        "assetId" => String.t() | atom(),
+        "propertyId" => String.t() | atom()
+      }
+
+  """
+  @type asset_property_binding_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_property_binding_value_filter() :: %{
+        "assetId" => String.t() | atom(),
+        "propertyId" => String.t() | atom()
+      }
+
+  """
+  @type asset_property_binding_value_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_property_path_segment() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type asset_property_path_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_property_summary() :: %{
+        "alias" => String.t() | atom(),
+        "assetCompositeModelId" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "notification" => property_notification(),
+        "path" => list(asset_property_path_segment()),
+        "unit" => String.t() | atom()
+      }
+
+  """
+  @type asset_property_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_property_value() :: %{
+        "quality" => list(any()),
+        "timestamp" => time_in_nanos(),
+        "value" => variant()
+      }
+
+  """
+  @type asset_property_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_relationship_summary() :: %{
+        "hierarchyInfo" => asset_hierarchy_info(),
+        "relationshipType" => list(any())
+      }
+
+  """
+  @type asset_relationship_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_status() :: %{
+        "error" => error_details(),
+        "state" => list(any())
+      }
+
+  """
+  @type asset_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_summary() :: %{
+        "arn" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "hierarchies" => list(asset_hierarchy()),
+        "id" => String.t() | atom(),
+        "lastUpdateDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "status" => asset_status()
+      }
+
+  """
+  @type asset_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_assets_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("childAssetId") => String.t() | atom(),
+        required("hierarchyId") => String.t() | atom()
+      }
+
+  """
+  @type associate_assets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_time_series_to_asset_property_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("alias") => String.t() | atom(),
+        required("assetId") => String.t() | atom(),
+        required("propertyId") => String.t() | atom()
+      }
+
+  """
+  @type associate_time_series_to_asset_property_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associated_assets_summary() :: %{
+        "arn" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "hierarchies" => list(asset_hierarchy()),
+        "id" => String.t() | atom(),
+        "lastUpdateDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "status" => asset_status()
+      }
+
+  """
+  @type associated_assets_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute() :: %{
+        "defaultValue" => String.t() | atom()
+      }
+
+  """
+  @type attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_associate_project_assets_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("assetIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_associate_project_assets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_associate_project_assets_response() :: %{
+        "errors" => list(asset_error_details())
+      }
+
+  """
+  @type batch_associate_project_assets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_project_assets_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("assetIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_disassociate_project_assets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_project_assets_response() :: %{
+        "errors" => list(asset_error_details())
+      }
+
+  """
+  @type batch_disassociate_project_assets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_aggregates_entry() :: %{
+        "aggregateTypes" => list(list(any())()),
+        "assetId" => String.t() | atom(),
+        "endDate" => non_neg_integer(),
+        "entryId" => String.t() | atom(),
+        "propertyAlias" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
+        "qualities" => list(list(any())()),
+        "resolution" => String.t() | atom(),
+        "startDate" => non_neg_integer(),
+        "timeOrdering" => list(any())
+      }
+
+  """
+  @type batch_get_asset_property_aggregates_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_aggregates_error_entry() :: %{
+        "entryId" => String.t() | atom(),
+        "errorCode" => list(any()),
+        "errorMessage" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_asset_property_aggregates_error_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_aggregates_error_info() :: %{
+        "errorCode" => list(any()),
+        "errorTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type batch_get_asset_property_aggregates_error_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -138,13 +734,164 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      list_asset_properties_response() :: %{
-        "assetPropertySummaries" => list(asset_property_summary()),
-        "nextToken" => String.t() | atom()
+      batch_get_asset_property_aggregates_response() :: %{
+        "errorEntries" => list(batch_get_asset_property_aggregates_error_entry()),
+        "nextToken" => String.t() | atom(),
+        "skippedEntries" => list(batch_get_asset_property_aggregates_skipped_entry()),
+        "successEntries" => list(batch_get_asset_property_aggregates_success_entry())
       }
 
   """
-  @type list_asset_properties_response() :: %{(String.t() | atom()) => any()}
+  @type batch_get_asset_property_aggregates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_aggregates_skipped_entry() :: %{
+        "completionStatus" => list(any()),
+        "entryId" => String.t() | atom(),
+        "errorInfo" => batch_get_asset_property_aggregates_error_info()
+      }
+
+  """
+  @type batch_get_asset_property_aggregates_skipped_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_aggregates_success_entry() :: %{
+        "aggregatedValues" => list(aggregated_value()),
+        "entryId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_asset_property_aggregates_success_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_value_entry() :: %{
+        "assetId" => String.t() | atom(),
+        "entryId" => String.t() | atom(),
+        "propertyAlias" => String.t() | atom(),
+        "propertyId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_asset_property_value_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_value_error_entry() :: %{
+        "entryId" => String.t() | atom(),
+        "errorCode" => list(any()),
+        "errorMessage" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_asset_property_value_error_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_value_error_info() :: %{
+        "errorCode" => list(any()),
+        "errorTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type batch_get_asset_property_value_error_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_value_history_entry() :: %{
+        "assetId" => String.t() | atom(),
+        "endDate" => non_neg_integer(),
+        "entryId" => String.t() | atom(),
+        "propertyAlias" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
+        "qualities" => list(list(any())()),
+        "startDate" => non_neg_integer(),
+        "timeOrdering" => list(any())
+      }
+
+  """
+  @type batch_get_asset_property_value_history_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_value_history_error_entry() :: %{
+        "entryId" => String.t() | atom(),
+        "errorCode" => list(any()),
+        "errorMessage" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_asset_property_value_history_error_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_value_history_error_info() :: %{
+        "errorCode" => list(any()),
+        "errorTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type batch_get_asset_property_value_history_error_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_value_history_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("entries") => list(batch_get_asset_property_value_history_entry())
+      }
+
+  """
+  @type batch_get_asset_property_value_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_value_history_response() :: %{
+        "errorEntries" => list(batch_get_asset_property_value_history_error_entry()),
+        "nextToken" => String.t() | atom(),
+        "skippedEntries" => list(batch_get_asset_property_value_history_skipped_entry()),
+        "successEntries" => list(batch_get_asset_property_value_history_success_entry())
+      }
+
+  """
+  @type batch_get_asset_property_value_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_asset_property_value_history_skipped_entry() :: %{
+        "completionStatus" => list(any()),
+        "entryId" => String.t() | atom(),
+        "errorInfo" => batch_get_asset_property_value_history_error_info()
+      }
+
+  """
+  @type batch_get_asset_property_value_history_skipped_entry() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -164,137 +911,13 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      query_timeout_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type query_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attribute() :: %{
-        "defaultValue" => String.t() | atom()
-      }
-
-  """
-  @type attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      customer_managed_s3_storage() :: %{
-        "roleArn" => String.t() | atom(),
-        "s3ResourceArn" => String.t() | atom()
-      }
-
-  """
-  @type customer_managed_s3_storage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_logging_options_request() :: %{
-        required("loggingOptions") => logging_options()
-      }
-
-  """
-  @type put_logging_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_bulk_import_job_request() :: %{}
-
-  """
-  @type describe_bulk_import_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_asset_model_interface_relationship_request() :: %{}
-
-  """
-  @type describe_asset_model_interface_relationship_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_execution_request() :: %{}
-
-  """
-  @type describe_execution_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_window() :: %{
-        "tumbling" => tumbling_window()
-      }
-
-  """
-  @type metric_window() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_action_request() :: %{}
-
-  """
-  @type describe_action_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_interpolated_asset_property_values_response() :: %{
-        "interpolatedAssetPropertyValues" => list(interpolated_asset_property_value()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_interpolated_asset_property_values_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_interpolated_asset_property_values_request() :: %{
-        optional("assetId") => String.t() | atom(),
-        optional("endTimeOffsetInNanos") => integer(),
-        optional("intervalWindowInSeconds") => float(),
-        optional("maxResults") => integer(),
+      batch_get_asset_property_value_request() :: %{
         optional("nextToken") => String.t() | atom(),
-        optional("propertyAlias") => String.t() | atom(),
-        optional("propertyId") => String.t() | atom(),
-        optional("startTimeOffsetInNanos") => integer(),
-        required("endTimeInSeconds") => float(),
-        required("intervalInSeconds") => float(),
-        required("quality") => list(any()),
-        required("startTimeInSeconds") => float(),
-        required("type") => String.t() | atom()
+        required("entries") => list(batch_get_asset_property_value_entry())
       }
 
   """
-  @type get_interpolated_asset_property_values_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_logging_options_request() :: %{}
-
-  """
-  @type describe_logging_options_request() :: %{}
+  @type batch_get_asset_property_value_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -314,242 +937,86 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      create_access_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("accessPolicyIdentity") => identity(),
-        required("accessPolicyPermission") => list(any()),
-        required("accessPolicyResource") => resource()
+      batch_get_asset_property_value_skipped_entry() :: %{
+        "completionStatus" => list(any()),
+        "entryId" => String.t() | atom(),
+        "errorInfo" => batch_get_asset_property_value_error_info()
       }
 
   """
-  @type create_access_policy_request() :: %{(String.t() | atom()) => any()}
+  @type batch_get_asset_property_value_skipped_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_computation_model_response() :: %{
-        "computationModelArn" => String.t() | atom(),
-        "computationModelId" => String.t() | atom(),
-        "computationModelStatus" => computation_model_status()
+      batch_get_asset_property_value_success_entry() :: %{
+        "assetPropertyValue" => asset_property_value(),
+        "entryId" => String.t() | atom()
       }
 
   """
-  @type create_computation_model_response() :: %{(String.t() | atom()) => any()}
+  @type batch_get_asset_property_value_success_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_dashboard_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      batch_put_asset_property_error() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => String.t() | atom(),
+        "timestamps" => list(time_in_nanos())
       }
 
   """
-  @type delete_dashboard_request() :: %{(String.t() | atom()) => any()}
+  @type batch_put_asset_property_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_asset_model_properties_request() :: %{
-        optional("assetModelVersion") => String.t() | atom(),
-        optional("filter") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      batch_put_asset_property_error_entry() :: %{
+        "entryId" => String.t() | atom(),
+        "errors" => list(batch_put_asset_property_error())
       }
 
   """
-  @type list_asset_model_properties_request() :: %{(String.t() | atom()) => any()}
+  @type batch_put_asset_property_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      forwarding_config() :: %{
-        "state" => list(any())
+      batch_put_asset_property_value_request() :: %{
+        optional("enablePartialEntryProcessing") => boolean(),
+        required("entries") => list(put_asset_property_value_entry())
       }
 
   """
-  @type forwarding_config() :: %{(String.t() | atom()) => any()}
+  @type batch_put_asset_property_value_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_portal_request() :: %{
-        optional("alarms") => alarms(),
-        optional("clientToken") => String.t() | atom(),
-        optional("notificationSenderEmail") => String.t() | atom(),
-        optional("portalDescription") => String.t() | atom(),
-        optional("portalLogoImage") => image(),
-        optional("portalType") => list(any()),
-        optional("portalTypeConfiguration") => map(),
-        required("portalContactEmail") => String.t() | atom(),
-        required("portalName") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
+      batch_put_asset_property_value_response() :: %{
+        "errorEntries" => list(batch_put_asset_property_error_entry())
       }
 
   """
-  @type update_portal_request() :: %{(String.t() | atom()) => any()}
+  @type batch_put_asset_property_value_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
+      citation() :: %{
+        "content" => content(),
+        "reference" => reference()
       }
 
   """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_binding_value_filter() :: %{
-        "assetModelId" => String.t() | atom()
-      }
-
-  """
-  @type asset_model_binding_value_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_query_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("queryStatement") => String.t() | atom()
-      }
-
-  """
-  @type execute_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_default_encryption_configuration_request() :: %{}
-
-  """
-  @type describe_default_encryption_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      dashboard_summary() :: %{
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type dashboard_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      row() :: %{
-        "data" => list(datum())
-      }
-
-  """
-  @type row() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assets_response() :: %{
-        "assetSummaries" => list(asset_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_assets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      interface_relationship_summary() :: %{
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type interface_relationship_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_bulk_import_job_response() :: %{
-        "adaptiveIngestion" => boolean(),
-        "deleteFilesAfterImport" => boolean(),
-        "errorReportLocation" => error_report_location(),
-        "files" => list(file()),
-        "jobConfiguration" => job_configuration(),
-        "jobCreationDate" => non_neg_integer(),
-        "jobId" => String.t() | atom(),
-        "jobLastUpdateDate" => non_neg_integer(),
-        "jobName" => String.t() | atom(),
-        "jobRoleArn" => String.t() | atom(),
-        "jobStatus" => list(any())
-      }
-
-  """
-  @type describe_bulk_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_asset_composite_model_response() :: %{
-        "actionDefinitions" => list(action_definition()),
-        "assetCompositeModelDescription" => String.t() | atom(),
-        "assetCompositeModelExternalId" => String.t() | atom(),
-        "assetCompositeModelId" => String.t() | atom(),
-        "assetCompositeModelName" => String.t() | atom(),
-        "assetCompositeModelPath" => list(asset_composite_model_path_segment()),
-        "assetCompositeModelProperties" => list(asset_property()),
-        "assetCompositeModelSummaries" => list(asset_composite_model_summary()),
-        "assetCompositeModelType" => String.t() | atom(),
-        "assetId" => String.t() | atom()
-      }
-
-  """
-  @type describe_asset_composite_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_project_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_project_request() :: %{(String.t() | atom()) => any()}
+  @type citation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,15 +1029,6 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type column_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_storage_configuration_request() :: %{}
-
-  """
-  @type describe_storage_configuration_request() :: %{}
 
   @typedoc """
 
@@ -602,316 +1060,138 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      asset_model_property() :: %{
-        "dataType" => list(any()),
-        "dataTypeSpec" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "path" => list(asset_model_property_path_segment()),
-        "type" => property_type(),
-        "unit" => String.t() | atom()
+      composition_details() :: %{
+        "compositionRelationship" => list(composition_relationship_item())
       }
 
   """
-  @type asset_model_property() :: %{(String.t() | atom()) => any()}
+  @type composition_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_project_assets_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_project_assets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_gateway_request() :: %{
-        optional("gatewayVersion") => String.t() | atom(),
-        optional("tags") => map(),
-        required("gatewayName") => String.t() | atom(),
-        required("gatewayPlatform") => gateway_platform()
-      }
-
-  """
-  @type create_gateway_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kendra_source_detail() :: %{
-        "knowledgeBaseArn" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type kendra_source_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_identity() :: %{
+      composition_relationship_item() :: %{
         "id" => String.t() | atom()
       }
 
   """
-  @type group_identity() :: %{(String.t() | atom()) => any()}
+  @type composition_relationship_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      asset_property_binding_value() :: %{
-        "assetId" => String.t() | atom(),
-        "propertyId" => String.t() | atom()
+      composition_relationship_summary() :: %{
+        "assetModelCompositeModelId" => String.t() | atom(),
+        "assetModelCompositeModelType" => String.t() | atom(),
+        "assetModelId" => String.t() | atom()
       }
 
   """
-  @type asset_property_binding_value() :: %{(String.t() | atom()) => any()}
+  @type composition_relationship_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_dataset_response() :: %{
-        "datasetArn" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "datasetStatus" => dataset_status()
+      computation_model_anomaly_detection_configuration() :: %{
+        "inputProperties" => String.t() | atom(),
+        "resultProperty" => String.t() | atom()
       }
 
   """
-  @type update_dataset_response() :: %{(String.t() | atom()) => any()}
+  @type computation_model_anomaly_detection_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_dataset_request() :: %{}
-
-  """
-  @type describe_dataset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
+      computation_model_configuration() :: %{
+        "anomalyDetection" => computation_model_anomaly_detection_configuration()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type computation_model_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      alarms() :: %{
-        "alarmRoleArn" => String.t() | atom(),
-        "notificationLambdaArn" => String.t() | atom()
+      computation_model_data_binding_usage_summary() :: %{
+        "computationModelIds" => list(String.t() | atom()),
+        "matchedDataBinding" => matched_data_binding()
       }
 
   """
-  @type alarms() :: %{(String.t() | atom()) => any()}
+  @type computation_model_data_binding_usage_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_computation_model_execution_summary_response() :: %{
-        "computationModelExecutionSummary" => map(),
-        "computationModelId" => String.t() | atom(),
+      computation_model_data_binding_value() :: %{
+        "assetModelProperty" => asset_model_property_binding_value(),
+        "assetProperty" => asset_property_binding_value(),
+        "list" => list(computation_model_data_binding_value())
+      }
+
+  """
+  @type computation_model_data_binding_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      computation_model_resolve_to_resource_summary() :: %{
         "resolveTo" => resolve_to()
       }
 
   """
-  @type describe_computation_model_execution_summary_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type computation_model_resolve_to_resource_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_asset_model_composite_model_response() :: %{
-        "assetModelStatus" => asset_model_status()
+      computation_model_status() :: %{
+        "error" => error_details(),
+        "state" => list(any())
       }
 
   """
-  @type delete_asset_model_composite_model_response() :: %{(String.t() | atom()) => any()}
+  @type computation_model_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_get_asset_property_aggregates_skipped_entry() :: %{
-        "completionStatus" => list(any()),
-        "entryId" => String.t() | atom(),
-        "errorInfo" => batch_get_asset_property_aggregates_error_info()
-      }
-
-  """
-  @type batch_get_asset_property_aggregates_skipped_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dataset_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("datasetDescription") => String.t() | atom(),
-        required("datasetName") => String.t() | atom(),
-        required("datasetSource") => dataset_source()
-      }
-
-  """
-  @type update_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_logging_options_response() :: %{}
-
-  """
-  @type put_logging_options_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_asset_property_value_response() :: %{
-        "propertyValue" => asset_property_value()
-      }
-
-  """
-  @type get_asset_property_value_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_portal_response() :: %{
-        "portalStatus" => portal_status()
-      }
-
-  """
-  @type update_portal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_gateway_capability_configuration_request() :: %{}
-
-  """
-  @type describe_gateway_capability_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_property_summary() :: %{
-        "assetModelCompositeModelId" => String.t() | atom(),
-        "dataType" => list(any()),
-        "dataTypeSpec" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
+      computation_model_summary() :: %{
+        "arn" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "interfaceSummaries" => list(interface_summary()),
+        "lastUpdateDate" => non_neg_integer(),
         "name" => String.t() | atom(),
-        "path" => list(asset_model_property_path_segment()),
-        "type" => property_type(),
-        "unit" => String.t() | atom()
+        "status" => computation_model_status(),
+        "type" => list(any()),
+        "version" => String.t() | atom()
       }
 
   """
-  @type asset_model_property_summary() :: %{(String.t() | atom()) => any()}
+  @type computation_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_asset_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      configuration_error_details() :: %{
+        "code" => list(any()),
+        "message" => String.t() | atom()
       }
 
   """
-  @type delete_asset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_default_encryption_configuration_response() :: %{
-        "configurationStatus" => configuration_status(),
-        "encryptionType" => list(any()),
-        "kmsKeyArn" => String.t() | atom()
-      }
-
-  """
-  @type describe_default_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_asset_response() :: %{
-        "assetStatus" => asset_status()
-      }
-
-  """
-  @type delete_asset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      action_summary() :: %{
-        "actionDefinitionId" => String.t() | atom(),
-        "actionId" => String.t() | atom(),
-        "resolveTo" => resolve_to(),
-        "targetResource" => target_resource()
-      }
-
-  """
-  @type action_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_aggregates_response() :: %{
-        "errorEntries" => list(batch_get_asset_property_aggregates_error_entry()),
-        "nextToken" => String.t() | atom(),
-        "skippedEntries" => list(batch_get_asset_property_aggregates_skipped_entry()),
-        "successEntries" => list(batch_get_asset_property_aggregates_success_entry())
-      }
-
-  """
-  @type batch_get_asset_property_aggregates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_asset_property_value_entry() :: %{
-        "assetId" => String.t() | atom(),
-        "entryId" => String.t() | atom(),
-        "propertyAlias" => String.t() | atom(),
-        "propertyId" => String.t() | atom(),
-        "propertyValues" => list(asset_property_value())
-      }
-
-  """
-  @type put_asset_property_value_entry() :: %{(String.t() | atom()) => any()}
+  @type configuration_error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -929,64 +1209,150 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      put_storage_configuration_request() :: %{
-        optional("disallowIngestNullNaN") => boolean(),
-        optional("disassociatedDataStorage") => list(any()),
-        optional("multiLayerStorage") => multi_layer_storage(),
-        optional("retentionPeriod") => retention_period(),
-        optional("warmTier") => list(any()),
-        optional("warmTierRetentionPeriod") => warm_tier_retention_period(),
-        required("storageType") => list(any())
+      conflicting_operation_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
       }
 
   """
-  @type put_storage_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type conflicting_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
+      content() :: %{
+        "text" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      internal_failure_exception() :: %{
-        "message" => String.t() | atom()
+      create_access_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("accessPolicyIdentity") => identity(),
+        required("accessPolicyPermission") => list(any()),
+        required("accessPolicyResource") => resource()
       }
 
   """
-  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
+  @type create_access_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_executions_response() :: %{
-        "executionSummaries" => list(execution_summary()),
-        "nextToken" => String.t() | atom()
+      create_access_policy_response() :: %{
+        "accessPolicyArn" => String.t() | atom(),
+        "accessPolicyId" => String.t() | atom()
       }
 
   """
-  @type list_executions_response() :: %{(String.t() | atom()) => any()}
+  @type create_access_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_put_asset_property_value_request() :: %{
-        optional("enablePartialEntryProcessing") => boolean(),
-        required("entries") => list(put_asset_property_value_entry())
+      create_asset_model_composite_model_request() :: %{
+        optional("assetModelCompositeModelDescription") => String.t() | atom(),
+        optional("assetModelCompositeModelExternalId") => String.t() | atom(),
+        optional("assetModelCompositeModelId") => String.t() | atom(),
+        optional("assetModelCompositeModelProperties") => list(asset_model_property_definition()),
+        optional("clientToken") => String.t() | atom(),
+        optional("composedAssetModelId") => String.t() | atom(),
+        optional("ifMatch") => String.t() | atom(),
+        optional("ifNoneMatch") => String.t() | atom(),
+        optional("matchForVersionType") => list(any()),
+        optional("parentAssetModelCompositeModelId") => String.t() | atom(),
+        required("assetModelCompositeModelName") => String.t() | atom(),
+        required("assetModelCompositeModelType") => String.t() | atom()
       }
 
   """
-  @type batch_put_asset_property_value_request() :: %{(String.t() | atom()) => any()}
+  @type create_asset_model_composite_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_model_composite_model_response() :: %{
+        "assetModelCompositeModelId" => String.t() | atom(),
+        "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()),
+        "assetModelStatus" => asset_model_status()
+      }
+
+  """
+  @type create_asset_model_composite_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_model_request() :: %{
+        optional("assetModelCompositeModels") => list(asset_model_composite_model_definition()),
+        optional("assetModelDescription") => String.t() | atom(),
+        optional("assetModelExternalId") => String.t() | atom(),
+        optional("assetModelHierarchies") => list(asset_model_hierarchy_definition()),
+        optional("assetModelId") => String.t() | atom(),
+        optional("assetModelProperties") => list(asset_model_property_definition()),
+        optional("assetModelType") => list(any()),
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("assetModelName") => String.t() | atom()
+      }
+
+  """
+  @type create_asset_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_model_response() :: %{
+        "assetModelArn" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
+        "assetModelStatus" => asset_model_status()
+      }
+
+  """
+  @type create_asset_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_request() :: %{
+        optional("assetDescription") => String.t() | atom(),
+        optional("assetExternalId") => String.t() | atom(),
+        optional("assetId") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("assetModelId") => String.t() | atom(),
+        required("assetName") => String.t() | atom()
+      }
+
+  """
+  @type create_asset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_response() :: %{
+        "assetArn" => String.t() | atom(),
+        "assetId" => String.t() | atom(),
+        "assetStatus" => asset_status()
+      }
+
+  """
+  @type create_asset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1009,24 +1375,1173 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      list_datasets_response() :: %{
-        "datasetSummaries" => list(dataset_summary()),
-        "nextToken" => String.t() | atom()
+      create_bulk_import_job_response() :: %{
+        "jobId" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
+        "jobStatus" => list(any())
       }
 
   """
-  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
+  @type create_bulk_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_gateway_request() :: %{
-        required("gatewayName") => String.t() | atom()
+      create_computation_model_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("computationModelDescription") => String.t() | atom(),
+        optional("tags") => map(),
+        required("computationModelConfiguration") => computation_model_configuration(),
+        required("computationModelDataBinding") => map(),
+        required("computationModelName") => String.t() | atom()
       }
 
   """
-  @type update_gateway_request() :: %{(String.t() | atom()) => any()}
+  @type create_computation_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_computation_model_response() :: %{
+        "computationModelArn" => String.t() | atom(),
+        "computationModelId" => String.t() | atom(),
+        "computationModelStatus" => computation_model_status()
+      }
+
+  """
+  @type create_computation_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dashboard_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("dashboardDescription") => String.t() | atom(),
+        optional("tags") => map(),
+        required("dashboardDefinition") => String.t() | atom(),
+        required("dashboardName") => String.t() | atom(),
+        required("projectId") => String.t() | atom()
+      }
+
+  """
+  @type create_dashboard_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dashboard_response() :: %{
+        "dashboardArn" => String.t() | atom(),
+        "dashboardId" => String.t() | atom()
+      }
+
+  """
+  @type create_dashboard_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("datasetDescription") => String.t() | atom(),
+        optional("datasetId") => String.t() | atom(),
+        optional("tags") => map(),
+        required("datasetName") => String.t() | atom(),
+        required("datasetSource") => dataset_source()
+      }
+
+  """
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_response() :: %{
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetStatus" => dataset_status()
+      }
+
+  """
+  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_request() :: %{
+        optional("gatewayVersion") => String.t() | atom(),
+        optional("tags") => map(),
+        required("gatewayName") => String.t() | atom(),
+        required("gatewayPlatform") => gateway_platform()
+      }
+
+  """
+  @type create_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_response() :: %{
+        "gatewayArn" => String.t() | atom(),
+        "gatewayId" => String.t() | atom()
+      }
+
+  """
+  @type create_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_portal_request() :: %{
+        optional("alarms") => alarms(),
+        optional("clientToken") => String.t() | atom(),
+        optional("notificationSenderEmail") => String.t() | atom(),
+        optional("portalAuthMode") => list(any()),
+        optional("portalDescription") => String.t() | atom(),
+        optional("portalLogoImageFile") => image_file(),
+        optional("portalType") => list(any()),
+        optional("portalTypeConfiguration") => map(),
+        optional("tags") => map(),
+        required("portalContactEmail") => String.t() | atom(),
+        required("portalName") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_portal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_portal_response() :: %{
+        "portalArn" => String.t() | atom(),
+        "portalId" => String.t() | atom(),
+        "portalStartUrl" => String.t() | atom(),
+        "portalStatus" => portal_status(),
+        "ssoApplicationId" => String.t() | atom()
+      }
+
+  """
+  @type create_portal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("projectDescription") => String.t() | atom(),
+        optional("tags") => map(),
+        required("portalId") => String.t() | atom(),
+        required("projectName") => String.t() | atom()
+      }
+
+  """
+  @type create_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_response() :: %{
+        "projectArn" => String.t() | atom(),
+        "projectId" => String.t() | atom()
+      }
+
+  """
+  @type create_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      csv() :: %{
+        "columnNames" => list(list(any())())
+      }
+
+  """
+  @type csv() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      customer_managed_s3_storage() :: %{
+        "roleArn" => String.t() | atom(),
+        "s3ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type customer_managed_s3_storage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dashboard_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdateDate" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type dashboard_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_binding_value() :: %{
+        "assetModelProperty" => asset_model_property_binding_value(),
+        "assetProperty" => asset_property_binding_value()
+      }
+
+  """
+  @type data_binding_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_binding_value_filter() :: %{
+        "asset" => asset_binding_value_filter(),
+        "assetModel" => asset_model_binding_value_filter(),
+        "assetModelProperty" => asset_model_property_binding_value_filter(),
+        "assetProperty" => asset_property_binding_value_filter()
+      }
+
+  """
+  @type data_binding_value_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_reference() :: %{
+        "datasetArn" => String.t() | atom(),
+        "source" => source()
+      }
+
+  """
+  @type data_set_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_source() :: %{
+        "sourceDetail" => source_detail(),
+        "sourceFormat" => list(any()),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type dataset_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_status() :: %{
+        "error" => error_details(),
+        "state" => list(any())
+      }
+
+  """
+  @type dataset_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_summary() :: %{
+        "arn" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdateDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "status" => dataset_status()
+      }
+
+  """
+  @type dataset_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      datum() :: %{
+        "arrayValue" => list(datum()),
+        "nullValue" => boolean(),
+        "rowValue" => row(),
+        "scalarValue" => String.t() | atom()
+      }
+
+  """
+  @type datum() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_policy_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_access_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_policy_response() :: %{}
+
+  """
+  @type delete_access_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_model_composite_model_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("ifMatch") => String.t() | atom(),
+        optional("ifNoneMatch") => String.t() | atom(),
+        optional("matchForVersionType") => list(any())
+      }
+
+  """
+  @type delete_asset_model_composite_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_model_composite_model_response() :: %{
+        "assetModelStatus" => asset_model_status()
+      }
+
+  """
+  @type delete_asset_model_composite_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_model_interface_relationship_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_asset_model_interface_relationship_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_model_interface_relationship_response() :: %{
+        "assetModelArn" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
+        "assetModelStatus" => asset_model_status(),
+        "interfaceAssetModelId" => String.t() | atom()
+      }
+
+  """
+  @type delete_asset_model_interface_relationship_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_model_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("ifMatch") => String.t() | atom(),
+        optional("ifNoneMatch") => String.t() | atom(),
+        optional("matchForVersionType") => list(any())
+      }
+
+  """
+  @type delete_asset_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_model_response() :: %{
+        "assetModelStatus" => asset_model_status()
+      }
+
+  """
+  @type delete_asset_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_asset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_response() :: %{
+        "assetStatus" => asset_status()
+      }
+
+  """
+  @type delete_asset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_computation_model_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_computation_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_computation_model_response() :: %{
+        "computationModelStatus" => computation_model_status()
+      }
+
+  """
+  @type delete_computation_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dashboard_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_dashboard_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dashboard_response() :: %{}
+
+  """
+  @type delete_dashboard_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_response() :: %{
+        "datasetStatus" => dataset_status()
+      }
+
+  """
+  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gateway_request() :: %{}
+
+  """
+  @type delete_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_portal_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_portal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_portal_response() :: %{
+        "portalStatus" => portal_status()
+      }
+
+  """
+  @type delete_portal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_response() :: %{}
+
+  """
+  @type delete_project_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_time_series_request() :: %{
+        optional("alias") => String.t() | atom(),
+        optional("assetId") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("propertyId") => String.t() | atom()
+      }
+
+  """
+  @type delete_time_series_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_access_policy_request() :: %{}
+
+  """
+  @type describe_access_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_access_policy_response() :: %{
+        "accessPolicyArn" => String.t() | atom(),
+        "accessPolicyCreationDate" => non_neg_integer(),
+        "accessPolicyId" => String.t() | atom(),
+        "accessPolicyIdentity" => identity(),
+        "accessPolicyLastUpdateDate" => non_neg_integer(),
+        "accessPolicyPermission" => list(any()),
+        "accessPolicyResource" => resource()
+      }
+
+  """
+  @type describe_access_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_action_request() :: %{}
+
+  """
+  @type describe_action_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_action_response() :: %{
+        "actionDefinitionId" => String.t() | atom(),
+        "actionId" => String.t() | atom(),
+        "actionPayload" => action_payload(),
+        "executionTime" => non_neg_integer(),
+        "resolveTo" => resolve_to(),
+        "targetResource" => target_resource()
+      }
+
+  """
+  @type describe_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_asset_composite_model_request() :: %{}
+
+  """
+  @type describe_asset_composite_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_asset_composite_model_response() :: %{
+        "actionDefinitions" => list(action_definition()),
+        "assetCompositeModelDescription" => String.t() | atom(),
+        "assetCompositeModelExternalId" => String.t() | atom(),
+        "assetCompositeModelId" => String.t() | atom(),
+        "assetCompositeModelName" => String.t() | atom(),
+        "assetCompositeModelPath" => list(asset_composite_model_path_segment()),
+        "assetCompositeModelProperties" => list(asset_property()),
+        "assetCompositeModelSummaries" => list(asset_composite_model_summary()),
+        "assetCompositeModelType" => String.t() | atom(),
+        "assetId" => String.t() | atom()
+      }
+
+  """
+  @type describe_asset_composite_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_asset_model_composite_model_request() :: %{
+        optional("assetModelVersion") => String.t() | atom()
+      }
+
+  """
+  @type describe_asset_model_composite_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_asset_model_composite_model_response() :: %{
+        "actionDefinitions" => list(action_definition()),
+        "assetModelCompositeModelDescription" => String.t() | atom(),
+        "assetModelCompositeModelExternalId" => String.t() | atom(),
+        "assetModelCompositeModelId" => String.t() | atom(),
+        "assetModelCompositeModelName" => String.t() | atom(),
+        "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()),
+        "assetModelCompositeModelProperties" => list(asset_model_property()),
+        "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()),
+        "assetModelCompositeModelType" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
+        "compositionDetails" => composition_details()
+      }
+
+  """
+  @type describe_asset_model_composite_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_asset_model_interface_relationship_request() :: %{}
+
+  """
+  @type describe_asset_model_interface_relationship_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_asset_model_interface_relationship_response() :: %{
+        "assetModelId" => String.t() | atom(),
+        "hierarchyMappings" => list(hierarchy_mapping()),
+        "interfaceAssetModelId" => String.t() | atom(),
+        "propertyMappings" => list(property_mapping())
+      }
+
+  """
+  @type describe_asset_model_interface_relationship_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      describe_asset_model_request() :: %{
+        optional("assetModelVersion") => String.t() | atom(),
+        optional("excludeProperties") => boolean()
+      }
+
+  """
+  @type describe_asset_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_asset_model_response() :: %{
+        "assetModelArn" => String.t() | atom(),
+        "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()),
+        "assetModelCompositeModels" => list(asset_model_composite_model()),
+        "assetModelCreationDate" => non_neg_integer(),
+        "assetModelDescription" => String.t() | atom(),
+        "assetModelExternalId" => String.t() | atom(),
+        "assetModelHierarchies" => list(asset_model_hierarchy()),
+        "assetModelId" => String.t() | atom(),
+        "assetModelLastUpdateDate" => non_neg_integer(),
+        "assetModelName" => String.t() | atom(),
+        "assetModelProperties" => list(asset_model_property()),
+        "assetModelStatus" => asset_model_status(),
+        "assetModelType" => list(any()),
+        "assetModelVersion" => String.t() | atom(),
+        "eTag" => String.t() | atom(),
+        "interfaceDetails" => list(interface_relationship())
+      }
+
+  """
+  @type describe_asset_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_asset_property_request() :: %{}
+
+  """
+  @type describe_asset_property_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_asset_property_response() :: %{
+        "assetExternalId" => String.t() | atom(),
+        "assetId" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
+        "assetName" => String.t() | atom(),
+        "assetProperty" => property(),
+        "compositeModel" => composite_model_property()
+      }
+
+  """
+  @type describe_asset_property_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_asset_request() :: %{
+        optional("excludeProperties") => boolean()
+      }
+
+  """
+  @type describe_asset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_asset_response() :: %{
+        "assetArn" => String.t() | atom(),
+        "assetCompositeModelSummaries" => list(asset_composite_model_summary()),
+        "assetCompositeModels" => list(asset_composite_model()),
+        "assetCreationDate" => non_neg_integer(),
+        "assetDescription" => String.t() | atom(),
+        "assetExternalId" => String.t() | atom(),
+        "assetHierarchies" => list(asset_hierarchy()),
+        "assetId" => String.t() | atom(),
+        "assetLastUpdateDate" => non_neg_integer(),
+        "assetModelId" => String.t() | atom(),
+        "assetName" => String.t() | atom(),
+        "assetProperties" => list(asset_property()),
+        "assetStatus" => asset_status()
+      }
+
+  """
+  @type describe_asset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_bulk_import_job_request() :: %{}
+
+  """
+  @type describe_bulk_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_bulk_import_job_response() :: %{
+        "adaptiveIngestion" => boolean(),
+        "deleteFilesAfterImport" => boolean(),
+        "errorReportLocation" => error_report_location(),
+        "files" => list(file()),
+        "jobConfiguration" => job_configuration(),
+        "jobCreationDate" => non_neg_integer(),
+        "jobId" => String.t() | atom(),
+        "jobLastUpdateDate" => non_neg_integer(),
+        "jobName" => String.t() | atom(),
+        "jobRoleArn" => String.t() | atom(),
+        "jobStatus" => list(any())
+      }
+
+  """
+  @type describe_bulk_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_computation_model_execution_summary_request() :: %{
+        optional("resolveToResourceId") => String.t() | atom(),
+        optional("resolveToResourceType") => list(any())
+      }
+
+  """
+  @type describe_computation_model_execution_summary_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      describe_computation_model_execution_summary_response() :: %{
+        "computationModelExecutionSummary" => map(),
+        "computationModelId" => String.t() | atom(),
+        "resolveTo" => resolve_to()
+      }
+
+  """
+  @type describe_computation_model_execution_summary_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      describe_computation_model_request() :: %{
+        optional("computationModelVersion") => String.t() | atom()
+      }
+
+  """
+  @type describe_computation_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_computation_model_response() :: %{
+        "actionDefinitions" => list(action_definition()),
+        "computationModelArn" => String.t() | atom(),
+        "computationModelConfiguration" => computation_model_configuration(),
+        "computationModelCreationDate" => non_neg_integer(),
+        "computationModelDataBinding" => map(),
+        "computationModelDescription" => String.t() | atom(),
+        "computationModelId" => String.t() | atom(),
+        "computationModelLastUpdateDate" => non_neg_integer(),
+        "computationModelName" => String.t() | atom(),
+        "computationModelStatus" => computation_model_status(),
+        "computationModelVersion" => String.t() | atom()
+      }
+
+  """
+  @type describe_computation_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dashboard_request() :: %{}
+
+  """
+  @type describe_dashboard_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dashboard_response() :: %{
+        "dashboardArn" => String.t() | atom(),
+        "dashboardCreationDate" => non_neg_integer(),
+        "dashboardDefinition" => String.t() | atom(),
+        "dashboardDescription" => String.t() | atom(),
+        "dashboardId" => String.t() | atom(),
+        "dashboardLastUpdateDate" => non_neg_integer(),
+        "dashboardName" => String.t() | atom(),
+        "projectId" => String.t() | atom()
+      }
+
+  """
+  @type describe_dashboard_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dataset_request() :: %{}
+
+  """
+  @type describe_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dataset_response() :: %{
+        "datasetArn" => String.t() | atom(),
+        "datasetCreationDate" => non_neg_integer(),
+        "datasetDescription" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetLastUpdateDate" => non_neg_integer(),
+        "datasetName" => String.t() | atom(),
+        "datasetSource" => dataset_source(),
+        "datasetStatus" => dataset_status(),
+        "datasetVersion" => String.t() | atom()
+      }
+
+  """
+  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_default_encryption_configuration_request() :: %{}
+
+  """
+  @type describe_default_encryption_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_default_encryption_configuration_response() :: %{
+        "configurationStatus" => configuration_status(),
+        "encryptionType" => list(any()),
+        "kmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type describe_default_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_execution_request() :: %{}
+
+  """
+  @type describe_execution_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_execution_response() :: %{
+        "actionType" => String.t() | atom(),
+        "executionDetails" => map(),
+        "executionEndTime" => non_neg_integer(),
+        "executionEntityVersion" => String.t() | atom(),
+        "executionId" => String.t() | atom(),
+        "executionResult" => map(),
+        "executionStartTime" => non_neg_integer(),
+        "executionStatus" => execution_status(),
+        "resolveTo" => resolve_to(),
+        "targetResource" => target_resource(),
+        "targetResourceVersion" => String.t() | atom()
+      }
+
+  """
+  @type describe_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_gateway_capability_configuration_request() :: %{}
+
+  """
+  @type describe_gateway_capability_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_gateway_capability_configuration_response() :: %{
+        "capabilityConfiguration" => String.t() | atom(),
+        "capabilityNamespace" => String.t() | atom(),
+        "capabilitySyncStatus" => list(any()),
+        "gatewayId" => String.t() | atom()
+      }
+
+  """
+  @type describe_gateway_capability_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_gateway_request() :: %{}
+
+  """
+  @type describe_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_gateway_response() :: %{
+        "creationDate" => non_neg_integer(),
+        "gatewayArn" => String.t() | atom(),
+        "gatewayCapabilitySummaries" => list(gateway_capability_summary()),
+        "gatewayId" => String.t() | atom(),
+        "gatewayName" => String.t() | atom(),
+        "gatewayPlatform" => gateway_platform(),
+        "gatewayVersion" => String.t() | atom(),
+        "lastUpdateDate" => non_neg_integer()
+      }
+
+  """
+  @type describe_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_logging_options_request() :: %{}
+
+  """
+  @type describe_logging_options_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_logging_options_response() :: %{
+        "loggingOptions" => logging_options()
+      }
+
+  """
+  @type describe_logging_options_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_portal_request() :: %{}
+
+  """
+  @type describe_portal_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_portal_response() :: %{
+        "alarms" => alarms(),
+        "notificationSenderEmail" => String.t() | atom(),
+        "portalArn" => String.t() | atom(),
+        "portalAuthMode" => list(any()),
+        "portalClientId" => String.t() | atom(),
+        "portalContactEmail" => String.t() | atom(),
+        "portalCreationDate" => non_neg_integer(),
+        "portalDescription" => String.t() | atom(),
+        "portalId" => String.t() | atom(),
+        "portalLastUpdateDate" => non_neg_integer(),
+        "portalLogoImageLocation" => image_location(),
+        "portalName" => String.t() | atom(),
+        "portalStartUrl" => String.t() | atom(),
+        "portalStatus" => portal_status(),
+        "portalType" => list(any()),
+        "portalTypeConfiguration" => map(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type describe_portal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_project_request() :: %{}
+
+  """
+  @type describe_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_project_response() :: %{
+        "portalId" => String.t() | atom(),
+        "projectArn" => String.t() | atom(),
+        "projectCreationDate" => non_neg_integer(),
+        "projectDescription" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "projectLastUpdateDate" => non_neg_integer(),
+        "projectName" => String.t() | atom()
+      }
+
+  """
+  @type describe_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_storage_configuration_request() :: %{}
+
+  """
+  @type describe_storage_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_storage_configuration_response() :: %{
+        "configurationStatus" => configuration_status(),
+        "disallowIngestNullNaN" => boolean(),
+        "disassociatedDataStorage" => list(any()),
+        "lastUpdateDate" => non_neg_integer(),
+        "multiLayerStorage" => multi_layer_storage(),
+        "retentionPeriod" => retention_period(),
+        "storageType" => list(any()),
+        "warmTier" => list(any()),
+        "warmTierRetentionPeriod" => warm_tier_retention_period()
+      }
+
+  """
+  @type describe_storage_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_time_series_request() :: %{
+        optional("alias") => String.t() | atom(),
+        optional("assetId") => String.t() | atom(),
+        optional("propertyId") => String.t() | atom()
+      }
+
+  """
+  @type describe_time_series_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1051,76 +2566,1108 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      create_project_response() :: %{
-        "projectArn" => String.t() | atom(),
-        "projectId" => String.t() | atom()
+      detailed_error() :: %{
+        "code" => list(any()),
+        "message" => String.t() | atom()
       }
 
   """
-  @type create_project_response() :: %{(String.t() | atom()) => any()}
+  @type detailed_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_project_request() :: %{
+      disassociate_assets_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        optional("projectDescription") => String.t() | atom(),
-        optional("tags") => map(),
-        required("portalId") => String.t() | atom(),
-        required("projectName") => String.t() | atom()
+        required("childAssetId") => String.t() | atom(),
+        required("hierarchyId") => String.t() | atom()
       }
 
   """
-  @type create_project_request() :: %{(String.t() | atom()) => any()}
+  @type disassociate_assets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_computation_model_response() :: %{
-        "computationModelStatus" => computation_model_status()
+      disassociate_time_series_from_asset_property_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("alias") => String.t() | atom(),
+        required("assetId") => String.t() | atom(),
+        required("propertyId") => String.t() | atom()
       }
 
   """
-  @type update_computation_model_response() :: %{(String.t() | atom()) => any()}
+  @type disassociate_time_series_from_asset_property_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      batch_get_asset_property_value_skipped_entry() :: %{
-        "completionStatus" => list(any()),
-        "entryId" => String.t() | atom(),
-        "errorInfo" => batch_get_asset_property_value_error_info()
+      error_details() :: %{
+        "code" => list(any()),
+        "details" => list(detailed_error()),
+        "message" => String.t() | atom()
       }
 
   """
-  @type batch_get_asset_property_value_skipped_entry() :: %{(String.t() | atom()) => any()}
+  @type error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_asset_response() :: %{
-        "assetArn" => String.t() | atom(),
-        "assetId" => String.t() | atom(),
-        "assetStatus" => asset_status()
+      error_report_location() :: %{
+        "bucket" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type create_asset_response() :: %{(String.t() | atom()) => any()}
+  @type error_report_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      measurement_processing_config() :: %{
-        "forwardingConfig" => forwarding_config()
+      execute_action_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("resolveTo") => resolve_to(),
+        required("actionDefinitionId") => String.t() | atom(),
+        required("actionPayload") => action_payload(),
+        required("targetResource") => target_resource()
       }
 
   """
-  @type measurement_processing_config() :: %{(String.t() | atom()) => any()}
+  @type execute_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_action_response() :: %{
+        "actionId" => String.t() | atom()
+      }
+
+  """
+  @type execute_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_query_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("queryStatement") => String.t() | atom()
+      }
+
+  """
+  @type execute_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_query_response() :: %{
+        "columns" => list(column_info()),
+        "nextToken" => String.t() | atom(),
+        "rows" => list(row())
+      }
+
+  """
+  @type execute_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_status() :: %{
+        "state" => list(any())
+      }
+
+  """
+  @type execution_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_summary() :: %{
+        "actionType" => String.t() | atom(),
+        "executionEndTime" => non_neg_integer(),
+        "executionEntityVersion" => String.t() | atom(),
+        "executionId" => String.t() | atom(),
+        "executionStartTime" => non_neg_integer(),
+        "executionStatus" => execution_status(),
+        "resolveTo" => resolve_to(),
+        "targetResource" => target_resource(),
+        "targetResourceVersion" => String.t() | atom()
+      }
+
+  """
+  @type execution_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      expression_variable() :: %{
+        "name" => String.t() | atom(),
+        "value" => variable_value()
+      }
+
+  """
+  @type expression_variable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file() :: %{
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type file() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_format() :: %{
+        "csv" => csv(),
+        "parquet" => parquet()
+      }
+
+  """
+  @type file_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forwarding_config() :: %{
+        "state" => list(any())
+      }
+
+  """
+  @type forwarding_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_capability_summary() :: %{
+        "capabilityNamespace" => String.t() | atom(),
+        "capabilitySyncStatus" => list(any())
+      }
+
+  """
+  @type gateway_capability_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_platform() :: %{
+        "greengrass" => greengrass(),
+        "greengrassV2" => greengrass_v2(),
+        "siemensIE" => siemens_i_e()
+      }
+
+  """
+  @type gateway_platform() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "gatewayCapabilitySummaries" => list(gateway_capability_summary()),
+        "gatewayId" => String.t() | atom(),
+        "gatewayName" => String.t() | atom(),
+        "gatewayPlatform" => gateway_platform(),
+        "gatewayVersion" => String.t() | atom(),
+        "lastUpdateDate" => non_neg_integer()
+      }
+
+  """
+  @type gateway_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_property_aggregates_request() :: %{
+        optional("assetId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("propertyAlias") => String.t() | atom(),
+        optional("propertyId") => String.t() | atom(),
+        optional("qualities") => list(list(any())()),
+        optional("timeOrdering") => list(any()),
+        required("aggregateTypes") => list(list(any())()),
+        required("endDate") => non_neg_integer(),
+        required("resolution") => String.t() | atom(),
+        required("startDate") => non_neg_integer()
+      }
+
+  """
+  @type get_asset_property_aggregates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_property_aggregates_response() :: %{
+        "aggregatedValues" => list(aggregated_value()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_asset_property_aggregates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_property_value_history_request() :: %{
+        optional("assetId") => String.t() | atom(),
+        optional("endDate") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("propertyAlias") => String.t() | atom(),
+        optional("propertyId") => String.t() | atom(),
+        optional("qualities") => list(list(any())()),
+        optional("startDate") => non_neg_integer(),
+        optional("timeOrdering") => list(any())
+      }
+
+  """
+  @type get_asset_property_value_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_property_value_history_response() :: %{
+        "assetPropertyValueHistory" => list(asset_property_value()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_asset_property_value_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_property_value_request() :: %{
+        optional("assetId") => String.t() | atom(),
+        optional("propertyAlias") => String.t() | atom(),
+        optional("propertyId") => String.t() | atom()
+      }
+
+  """
+  @type get_asset_property_value_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_property_value_response() :: %{
+        "propertyValue" => asset_property_value()
+      }
+
+  """
+  @type get_asset_property_value_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_interpolated_asset_property_values_request() :: %{
+        optional("assetId") => String.t() | atom(),
+        optional("endTimeOffsetInNanos") => integer(),
+        optional("intervalWindowInSeconds") => float(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("propertyAlias") => String.t() | atom(),
+        optional("propertyId") => String.t() | atom(),
+        optional("startTimeOffsetInNanos") => integer(),
+        required("endTimeInSeconds") => float(),
+        required("intervalInSeconds") => float(),
+        required("quality") => list(any()),
+        required("startTimeInSeconds") => float(),
+        required("type") => String.t() | atom()
+      }
+
+  """
+  @type get_interpolated_asset_property_values_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_interpolated_asset_property_values_response() :: %{
+        "interpolatedAssetPropertyValues" => list(interpolated_asset_property_value()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_interpolated_asset_property_values_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      greengrass() :: %{
+        "groupArn" => String.t() | atom()
+      }
+
+  """
+  @type greengrass() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      greengrass_v2() :: %{
+        "coreDeviceOperatingSystem" => list(any()),
+        "coreDeviceThingName" => String.t() | atom()
+      }
+
+  """
+  @type greengrass_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_identity() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type group_identity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchy_mapping() :: %{
+        "assetModelHierarchyId" => String.t() | atom(),
+        "interfaceAssetModelHierarchyId" => String.t() | atom()
+      }
+
+  """
+  @type hierarchy_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_role_identity() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type iam_role_identity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_user_identity() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type iam_user_identity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity() :: %{
+        "group" => group_identity(),
+        "iamRole" => iam_role_identity(),
+        "iamUser" => iam_user_identity(),
+        "user" => user_identity()
+      }
+
+  """
+  @type identity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image() :: %{
+        "file" => image_file(),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type image() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_file() :: %{
+        "data" => binary(),
+        "type" => list(any())
+      }
+
+  """
+  @type image_file() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_location() :: %{
+        "id" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type image_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_relationship() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type interface_relationship() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_relationship_summary() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type interface_relationship_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_summary() :: %{
+        "interfaceAssetModelId" => String.t() | atom(),
+        "interfaceAssetModelPropertyId" => String.t() | atom()
+      }
+
+  """
+  @type interface_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interpolated_asset_property_value() :: %{
+        "timestamp" => time_in_nanos(),
+        "value" => variant()
+      }
+
+  """
+  @type interpolated_asset_property_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invocation_output() :: %{
+        "citations" => list(citation()),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invocation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_assistant_request() :: %{
+        optional("conversationId") => String.t() | atom(),
+        optional("enableTrace") => [boolean()],
+        required("message") => String.t() | atom()
+      }
+
+  """
+  @type invoke_assistant_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_assistant_response() :: %{
+        "body" => list(),
+        "conversationId" => String.t() | atom()
+      }
+
+  """
+  @type invoke_assistant_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iotsitewise_reference() :: %{
+        "dataset" => data_set_reference()
+      }
+
+  """
+  @type iotsitewise_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_configuration() :: %{
+        "fileFormat" => file_format()
+      }
+
+  """
+  @type job_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_summary() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kendra_source_detail() :: %{
+        "knowledgeBaseArn" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type kendra_source_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_policies_request() :: %{
+        optional("iamArn") => String.t() | atom(),
+        optional("identityId") => String.t() | atom(),
+        optional("identityType") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceId") => String.t() | atom(),
+        optional("resourceType") => list(any())
+      }
+
+  """
+  @type list_access_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_policies_response() :: %{
+        "accessPolicySummaries" => list(access_policy_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_access_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_actions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resolveToResourceId") => String.t() | atom(),
+        optional("resolveToResourceType") => list(any()),
+        required("targetResourceId") => String.t() | atom(),
+        required("targetResourceType") => list(any())
+      }
+
+  """
+  @type list_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_actions_response() :: %{
+        "actionSummaries" => list(action_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_actions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_model_composite_models_request() :: %{
+        optional("assetModelVersion") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_asset_model_composite_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_model_composite_models_response() :: %{
+        "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_asset_model_composite_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_model_properties_request() :: %{
+        optional("assetModelVersion") => String.t() | atom(),
+        optional("filter") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_asset_model_properties_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_model_properties_response() :: %{
+        "assetModelPropertySummaries" => list(asset_model_property_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_asset_model_properties_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_models_request() :: %{
+        optional("assetModelTypes") => list(list(any())()),
+        optional("assetModelVersion") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_asset_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_models_response() :: %{
+        "assetModelSummaries" => list(asset_model_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_asset_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_properties_request() :: %{
+        optional("filter") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_asset_properties_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_properties_response() :: %{
+        "assetPropertySummaries" => list(asset_property_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_asset_properties_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_relationships_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("traversalType") => list(any())
+      }
+
+  """
+  @type list_asset_relationships_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_relationships_response() :: %{
+        "assetRelationshipSummaries" => list(asset_relationship_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_asset_relationships_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assets_request() :: %{
+        optional("assetModelId") => String.t() | atom(),
+        optional("filter") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_assets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assets_response() :: %{
+        "assetSummaries" => list(asset_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_assets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_associated_assets_request() :: %{
+        optional("hierarchyId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("traversalDirection") => list(any())
+      }
+
+  """
+  @type list_associated_assets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_associated_assets_response() :: %{
+        "assetSummaries" => list(associated_assets_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_associated_assets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bulk_import_jobs_request() :: %{
+        optional("filter") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_bulk_import_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bulk_import_jobs_response() :: %{
+        "jobSummaries" => list(job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_bulk_import_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_composition_relationships_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_composition_relationships_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_composition_relationships_response() :: %{
+        "compositionRelationshipSummaries" => list(composition_relationship_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_composition_relationships_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_computation_model_data_binding_usages_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("dataBindingValueFilter") => data_binding_value_filter()
+      }
+
+  """
+  @type list_computation_model_data_binding_usages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_computation_model_data_binding_usages_response() :: %{
+        "dataBindingUsageSummaries" => list(computation_model_data_binding_usage_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_computation_model_data_binding_usages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_computation_model_resolve_to_resources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_computation_model_resolve_to_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_computation_model_resolve_to_resources_response() :: %{
+        "computationModelResolveToResourceSummaries" => list(computation_model_resolve_to_resource_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_computation_model_resolve_to_resources_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_computation_models_request() :: %{
+        optional("computationModelType") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_computation_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_computation_models_response() :: %{
+        "computationModelSummaries" => list(computation_model_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_computation_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dashboards_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("projectId") => String.t() | atom()
+      }
+
+  """
+  @type list_dashboards_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dashboards_response() :: %{
+        "dashboardSummaries" => list(dashboard_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_dashboards_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_datasets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("sourceType") => list(any())
+      }
+
+  """
+  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_datasets_response() :: %{
+        "datasetSummaries" => list(dataset_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_executions_request() :: %{
+        optional("actionType") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resolveToResourceId") => String.t() | atom(),
+        optional("resolveToResourceType") => list(any()),
+        required("targetResourceId") => String.t() | atom(),
+        required("targetResourceType") => list(any())
+      }
+
+  """
+  @type list_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_executions_response() :: %{
+        "executionSummaries" => list(execution_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateways_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_gateways_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateways_response() :: %{
+        "gatewaySummaries" => list(gateway_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_gateways_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1145,6 +3692,879 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type list_interface_relationships_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portals_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_portals_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portals_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "portalSummaries" => list(portal_summary())
+      }
+
+  """
+  @type list_portals_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_project_assets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_project_assets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_project_assets_response() :: %{
+        "assetIds" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_project_assets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("portalId") => String.t() | atom()
+      }
+
+  """
+  @type list_projects_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "projectSummaries" => list(project_summary())
+      }
+
+  """
+  @type list_projects_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_time_series_request() :: %{
+        optional("aliasPrefix") => String.t() | atom(),
+        optional("assetId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("timeSeriesType") => list(any())
+      }
+
+  """
+  @type list_time_series_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_time_series_response() :: %{
+        "TimeSeriesSummaries" => list(time_series_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_time_series_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      location() :: %{
+        "uri" => String.t() | atom()
+      }
+
+  """
+  @type location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_options() :: %{
+        "level" => list(any())
+      }
+
+  """
+  @type logging_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      matched_data_binding() :: %{
+        "value" => data_binding_value()
+      }
+
+  """
+  @type matched_data_binding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      measurement() :: %{
+        "processingConfig" => measurement_processing_config()
+      }
+
+  """
+  @type measurement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      measurement_processing_config() :: %{
+        "forwardingConfig" => forwarding_config()
+      }
+
+  """
+  @type measurement_processing_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric() :: %{
+        "expression" => String.t() | atom(),
+        "processingConfig" => metric_processing_config(),
+        "variables" => list(expression_variable()),
+        "window" => metric_window()
+      }
+
+  """
+  @type metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_processing_config() :: %{
+        "computeLocation" => list(any())
+      }
+
+  """
+  @type metric_processing_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_window() :: %{
+        "tumbling" => tumbling_window()
+      }
+
+  """
+  @type metric_window() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      monitor_error_details() :: %{
+        "code" => list(any()),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type monitor_error_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multi_layer_storage() :: %{
+        "customerManagedS3Storage" => customer_managed_s3_storage()
+      }
+
+  """
+  @type multi_layer_storage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parquet() :: %{}
+
+  """
+  @type parquet() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      portal_resource() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type portal_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      portal_status() :: %{
+        "error" => monitor_error_details(),
+        "state" => list(any())
+      }
+
+  """
+  @type portal_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      portal_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdateDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "portalType" => list(any()),
+        "roleArn" => String.t() | atom(),
+        "startUrl" => String.t() | atom(),
+        "status" => portal_status()
+      }
+
+  """
+  @type portal_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      portal_type_entry() :: %{
+        "portalTools" => list(String.t() | atom())
+      }
+
+  """
+  @type portal_type_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      precondition_failed_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
+      }
+
+  """
+  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_resource() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type project_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdateDate" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type project_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property() :: %{
+        "alias" => String.t() | atom(),
+        "dataType" => list(any()),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "notification" => property_notification(),
+        "path" => list(asset_property_path_segment()),
+        "type" => property_type(),
+        "unit" => String.t() | atom()
+      }
+
+  """
+  @type property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_mapping() :: %{
+        "assetModelPropertyId" => String.t() | atom(),
+        "interfaceAssetModelPropertyId" => String.t() | atom()
+      }
+
+  """
+  @type property_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_mapping_configuration() :: %{
+        "createMissingProperty" => boolean(),
+        "matchByPropertyName" => boolean(),
+        "overrides" => list(property_mapping())
+      }
+
+  """
+  @type property_mapping_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_notification() :: %{
+        "state" => list(any()),
+        "topic" => String.t() | atom()
+      }
+
+  """
+  @type property_notification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_type() :: %{
+        "attribute" => attribute(),
+        "measurement" => measurement(),
+        "metric" => metric(),
+        "transform" => transform()
+      }
+
+  """
+  @type property_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_value_null_value() :: %{
+        "valueType" => list(any())
+      }
+
+  """
+  @type property_value_null_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_asset_model_interface_relationship_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("propertyMappingConfiguration") => property_mapping_configuration()
+      }
+
+  """
+  @type put_asset_model_interface_relationship_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_asset_model_interface_relationship_response() :: %{
+        "assetModelArn" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
+        "assetModelStatus" => asset_model_status(),
+        "interfaceAssetModelId" => String.t() | atom()
+      }
+
+  """
+  @type put_asset_model_interface_relationship_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_asset_property_value_entry() :: %{
+        "assetId" => String.t() | atom(),
+        "entryId" => String.t() | atom(),
+        "propertyAlias" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
+        "propertyValues" => list(asset_property_value())
+      }
+
+  """
+  @type put_asset_property_value_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_default_encryption_configuration_request() :: %{
+        optional("kmsKeyId") => String.t() | atom(),
+        required("encryptionType") => list(any())
+      }
+
+  """
+  @type put_default_encryption_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_default_encryption_configuration_response() :: %{
+        "configurationStatus" => configuration_status(),
+        "encryptionType" => list(any()),
+        "kmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type put_default_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_logging_options_request() :: %{
+        required("loggingOptions") => logging_options()
+      }
+
+  """
+  @type put_logging_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_logging_options_response() :: %{}
+
+  """
+  @type put_logging_options_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_storage_configuration_request() :: %{
+        optional("disallowIngestNullNaN") => boolean(),
+        optional("disassociatedDataStorage") => list(any()),
+        optional("multiLayerStorage") => multi_layer_storage(),
+        optional("retentionPeriod") => retention_period(),
+        optional("warmTier") => list(any()),
+        optional("warmTierRetentionPeriod") => warm_tier_retention_period(),
+        required("storageType") => list(any())
+      }
+
+  """
+  @type put_storage_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_storage_configuration_response() :: %{
+        "configurationStatus" => configuration_status(),
+        "disallowIngestNullNaN" => boolean(),
+        "disassociatedDataStorage" => list(any()),
+        "multiLayerStorage" => multi_layer_storage(),
+        "retentionPeriod" => retention_period(),
+        "storageType" => list(any()),
+        "warmTier" => list(any()),
+        "warmTierRetentionPeriod" => warm_tier_retention_period()
+      }
+
+  """
+  @type put_storage_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_timeout_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type query_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resolve_to() :: %{
+        "assetId" => String.t() | atom()
+      }
+
+  """
+  @type resolve_to() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
+        "portal" => portal_resource(),
+        "project" => project_resource()
+      }
+
+  """
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_already_exists_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
+      }
+
+  """
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retention_period() :: %{
+        "numberOfDays" => integer(),
+        "unlimited" => boolean()
+      }
+
+  """
+  @type retention_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      row() :: %{
+        "data" => list(datum())
+      }
+
+  """
+  @type row() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      siemens_i_e() :: %{
+        "iotCoreThingName" => String.t() | atom()
+      }
+
+  """
+  @type siemens_i_e() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source() :: %{
+        "arn" => String.t() | atom(),
+        "location" => location()
+      }
+
+  """
+  @type source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_detail() :: %{
+        "kendra" => kendra_source_detail()
+      }
+
+  """
+  @type source_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      target_resource() :: %{
+        "assetId" => String.t() | atom(),
+        "computationModelId" => String.t() | atom()
+      }
+
+  """
+  @type target_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_in_nanos() :: %{
+        "offsetInNanos" => integer(),
+        "timeInSeconds" => float()
+      }
+
+  """
+  @type time_in_nanos() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_series_summary() :: %{
+        "alias" => String.t() | atom(),
+        "assetId" => String.t() | atom(),
+        "dataType" => list(any()),
+        "dataTypeSpec" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
+        "timeSeriesArn" => String.t() | atom(),
+        "timeSeriesCreationDate" => non_neg_integer(),
+        "timeSeriesId" => String.t() | atom(),
+        "timeSeriesLastUpdateDate" => non_neg_integer()
+      }
+
+  """
+  @type time_series_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trace() :: %{
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type trace() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transform() :: %{
+        "expression" => String.t() | atom(),
+        "processingConfig" => transform_processing_config(),
+        "variables" => list(expression_variable())
+      }
+
+  """
+  @type transform() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transform_processing_config() :: %{
+        "computeLocation" => list(any()),
+        "forwardingConfig" => forwarding_config()
+      }
+
+  """
+  @type transform_processing_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tumbling_window() :: %{
+        "interval" => String.t() | atom(),
+        "offset" => String.t() | atom()
+      }
+
+  """
+  @type tumbling_window() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("accessPolicyIdentity") => identity(),
+        required("accessPolicyPermission") => list(any()),
+        required("accessPolicyResource") => resource()
+      }
+
+  """
+  @type update_access_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_policy_response() :: %{}
+
+  """
+  @type update_access_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_asset_model_composite_model_request() :: %{
+        optional("assetModelCompositeModelDescription") => String.t() | atom(),
+        optional("assetModelCompositeModelExternalId") => String.t() | atom(),
+        optional("assetModelCompositeModelProperties") => list(asset_model_property()),
+        optional("clientToken") => String.t() | atom(),
+        optional("ifMatch") => String.t() | atom(),
+        optional("ifNoneMatch") => String.t() | atom(),
+        optional("matchForVersionType") => list(any()),
+        required("assetModelCompositeModelName") => String.t() | atom()
+      }
+
+  """
+  @type update_asset_model_composite_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1182,1832 +4602,26 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      update_gateway_capability_configuration_response() :: %{
-        "capabilityNamespace" => String.t() | atom(),
-        "capabilitySyncStatus" => list(any())
-      }
-
-  """
-  @type update_gateway_capability_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_gateways_response() :: %{
-        "gatewaySummaries" => list(gateway_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_gateways_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_value_history_response() :: %{
-        "errorEntries" => list(batch_get_asset_property_value_history_error_entry()),
-        "nextToken" => String.t() | atom(),
-        "skippedEntries" => list(batch_get_asset_property_value_history_skipped_entry()),
-        "successEntries" => list(batch_get_asset_property_value_history_success_entry())
-      }
-
-  """
-  @type batch_get_asset_property_value_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_status() :: %{
-        "error" => error_details(),
-        "state" => list(any())
-      }
-
-  """
-  @type asset_model_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_hierarchy() :: %{
-        "childAssetModelId" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type asset_model_hierarchy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_binding_value() :: %{
-        "assetModelProperty" => asset_model_property_binding_value(),
-        "assetProperty" => asset_property_binding_value()
-      }
-
-  """
-  @type data_binding_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      composition_details() :: %{
-        "compositionRelationship" => list(composition_relationship_item())
-      }
-
-  """
-  @type composition_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_asset_property_value_history_response() :: %{
-        "assetPropertyValueHistory" => list(asset_property_value()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_asset_property_value_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_type() :: %{
-        "attribute" => attribute(),
-        "measurement" => measurement(),
-        "metric" => metric(),
-        "transform" => transform()
-      }
-
-  """
-  @type property_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dataset_response() :: %{
-        "datasetStatus" => dataset_status()
-      }
-
-  """
-  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_policies_response() :: %{
-        "accessPolicySummaries" => list(access_policy_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_access_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      variant() :: %{
-        "booleanValue" => boolean(),
-        "doubleValue" => float(),
-        "integerValue" => integer(),
-        "nullValue" => property_value_null_value(),
-        "stringValue" => String.t() | atom()
-      }
-
-  """
-  @type variant() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_relationship_summary() :: %{
-        "hierarchyInfo" => asset_hierarchy_info(),
-        "relationshipType" => list(any())
-      }
-
-  """
-  @type asset_relationship_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_value_error_info() :: %{
-        "errorCode" => list(any()),
-        "errorTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type batch_get_asset_property_value_error_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_policy_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_access_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregated_value() :: %{
-        "quality" => list(any()),
-        "timestamp" => non_neg_integer(),
-        "value" => aggregates()
-      }
-
-  """
-  @type aggregated_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hierarchy_mapping() :: %{
-        "assetModelHierarchyId" => String.t() | atom(),
-        "interfaceAssetModelHierarchyId" => String.t() | atom()
-      }
-
-  """
-  @type hierarchy_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_property_binding_value_filter() :: %{
-        "assetModelId" => String.t() | atom(),
-        "propertyId" => String.t() | atom()
-      }
-
-  """
-  @type asset_model_property_binding_value_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_asset_model_response() :: %{
-        "assetModelArn" => String.t() | atom(),
-        "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()),
-        "assetModelCompositeModels" => list(asset_model_composite_model()),
-        "assetModelCreationDate" => non_neg_integer(),
-        "assetModelDescription" => String.t() | atom(),
-        "assetModelExternalId" => String.t() | atom(),
-        "assetModelHierarchies" => list(asset_model_hierarchy()),
-        "assetModelId" => String.t() | atom(),
-        "assetModelLastUpdateDate" => non_neg_integer(),
-        "assetModelName" => String.t() | atom(),
-        "assetModelProperties" => list(asset_model_property()),
-        "assetModelStatus" => asset_model_status(),
-        "assetModelType" => list(any()),
-        "assetModelVersion" => String.t() | atom(),
-        "eTag" => String.t() | atom(),
-        "interfaceDetails" => list(interface_relationship())
-      }
-
-  """
-  @type describe_asset_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_hierarchy() :: %{
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type asset_hierarchy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_composite_model_definition() :: %{
-        "description" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "properties" => list(asset_model_property_definition()),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type asset_model_composite_model_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metric() :: %{
-        "expression" => String.t() | atom(),
-        "processingConfig" => metric_processing_config(),
-        "variables" => list(expression_variable()),
-        "window" => metric_window()
-      }
-
-  """
-  @type metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_file() :: %{
-        "data" => binary(),
-        "type" => list(any())
-      }
-
-  """
-  @type image_file() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      computation_model_data_binding_value() :: %{
-        "assetModelProperty" => asset_model_property_binding_value(),
-        "assetProperty" => asset_property_binding_value(),
-        "list" => list(computation_model_data_binding_value())
-      }
-
-  """
-  @type computation_model_data_binding_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_computation_model_resolve_to_resources_response() :: %{
-        "computationModelResolveToResourceSummaries" => list(computation_model_resolve_to_resource_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_computation_model_resolve_to_resources_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_actions_response() :: %{
-        "actionSummaries" => list(action_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_actions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_hierarchy_info() :: %{
-        "childAssetId" => String.t() | atom(),
-        "parentAssetId" => String.t() | atom()
-      }
-
-  """
-  @type asset_hierarchy_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transform_processing_config() :: %{
-        "computeLocation" => list(any()),
-        "forwardingConfig" => forwarding_config()
-      }
-
-  """
-  @type transform_processing_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_binding_value_filter() :: %{
-        "asset" => asset_binding_value_filter(),
-        "assetModel" => asset_model_binding_value_filter(),
-        "assetModelProperty" => asset_model_property_binding_value_filter(),
-        "assetProperty" => asset_property_binding_value_filter()
-      }
-
-  """
-  @type data_binding_value_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_portal_response() :: %{
-        "portalStatus" => portal_status()
-      }
-
-  """
-  @type delete_portal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_logging_options_response() :: %{
-        "loggingOptions" => logging_options()
-      }
-
-  """
-  @type describe_logging_options_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_policy_summary() :: %{
-        "creationDate" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "identity" => identity(),
-        "lastUpdateDate" => non_neg_integer(),
-        "permission" => list(any()),
-        "resource" => resource()
-      }
-
-  """
-  @type access_policy_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_asset_property_value_history_request() :: %{
-        optional("assetId") => String.t() | atom(),
-        optional("endDate") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("propertyAlias") => String.t() | atom(),
-        optional("propertyId") => String.t() | atom(),
-        optional("qualities") => list(list(any())()),
-        optional("startDate") => non_neg_integer(),
-        optional("timeOrdering") => list(any())
-      }
-
-  """
-  @type get_asset_property_value_history_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_portals_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_portals_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_asset_model_composite_model_request() :: %{
-        optional("assetModelCompositeModelDescription") => String.t() | atom(),
-        optional("assetModelCompositeModelExternalId") => String.t() | atom(),
-        optional("assetModelCompositeModelId") => String.t() | atom(),
-        optional("assetModelCompositeModelProperties") => list(asset_model_property_definition()),
-        optional("clientToken") => String.t() | atom(),
-        optional("composedAssetModelId") => String.t() | atom(),
-        optional("ifMatch") => String.t() | atom(),
-        optional("ifNoneMatch") => String.t() | atom(),
-        optional("matchForVersionType") => list(any()),
-        optional("parentAssetModelCompositeModelId") => String.t() | atom(),
-        required("assetModelCompositeModelName") => String.t() | atom(),
-        required("assetModelCompositeModelType") => String.t() | atom()
-      }
-
-  """
-  @type create_asset_model_composite_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_project_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("projectDescription") => String.t() | atom(),
-        required("projectName") => String.t() | atom()
-      }
-
-  """
-  @type update_project_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_detail() :: %{
-        "kendra" => kendra_source_detail()
-      }
-
-  """
-  @type source_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_configuration() :: %{
-        "fileFormat" => file_format()
-      }
-
-  """
-  @type job_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bulk_import_jobs_response() :: %{
-        "jobSummaries" => list(job_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_bulk_import_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_identity() :: %{
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type user_identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_project_response() :: %{
-        "portalId" => String.t() | atom(),
-        "projectArn" => String.t() | atom(),
-        "projectCreationDate" => non_neg_integer(),
-        "projectDescription" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "projectLastUpdateDate" => non_neg_integer(),
-        "projectName" => String.t() | atom()
-      }
-
-  """
-  @type describe_project_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_associate_project_assets_response() :: %{
-        "errors" => list(asset_error_details())
-      }
-
-  """
-  @type batch_associate_project_assets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_assistant_response() :: %{
-        "body" => list(),
-        "conversationId" => String.t() | atom()
-      }
-
-  """
-  @type invoke_assistant_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_property() :: %{
-        "alias" => String.t() | atom(),
-        "dataType" => list(any()),
-        "dataTypeSpec" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "notification" => property_notification(),
-        "path" => list(asset_property_path_segment()),
-        "unit" => String.t() | atom()
-      }
-
-  """
-  @type asset_property() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      siemens_i_e() :: %{
-        "iotCoreThingName" => String.t() | atom()
-      }
-
-  """
-  @type siemens_i_e() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      computation_model_data_binding_usage_summary() :: %{
-        "computationModelIds" => list(String.t() | atom()),
-        "matchedDataBinding" => matched_data_binding()
-      }
-
-  """
-  @type computation_model_data_binding_usage_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_asset_property_value_response() :: %{
-        "errorEntries" => list(batch_put_asset_property_error_entry())
-      }
-
-  """
-  @type batch_put_asset_property_value_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retention_period() :: %{
-        "numberOfDays" => integer(),
-        "unlimited" => boolean()
-      }
-
-  """
-  @type retention_period() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_portals_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "portalSummaries" => list(portal_summary())
-      }
-
-  """
-  @type list_portals_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_time_series_request() :: %{
-        optional("aliasPrefix") => String.t() | atom(),
-        optional("assetId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("timeSeriesType") => list(any())
-      }
-
-  """
-  @type list_time_series_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_processing_config() :: %{
-        "computeLocation" => list(any())
-      }
-
-  """
-  @type metric_processing_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_summary() :: %{
-        "creationDate" => non_neg_integer(),
-        "gatewayCapabilitySummaries" => list(gateway_capability_summary()),
-        "gatewayId" => String.t() | atom(),
-        "gatewayName" => String.t() | atom(),
-        "gatewayPlatform" => gateway_platform(),
-        "gatewayVersion" => String.t() | atom(),
-        "lastUpdateDate" => non_neg_integer()
-      }
-
-  """
-  @type gateway_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_dashboard_response() :: %{
-        "dashboardArn" => String.t() | atom(),
-        "dashboardCreationDate" => non_neg_integer(),
-        "dashboardDefinition" => String.t() | atom(),
-        "dashboardDescription" => String.t() | atom(),
-        "dashboardId" => String.t() | atom(),
-        "dashboardLastUpdateDate" => non_neg_integer(),
-        "dashboardName" => String.t() | atom(),
-        "projectId" => String.t() | atom()
-      }
-
-  """
-  @type describe_dashboard_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_computation_model_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_computation_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_property_path_segment() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type asset_property_path_segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_access_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("accessPolicyIdentity") => identity(),
-        required("accessPolicyPermission") => list(any()),
-        required("accessPolicyResource") => resource()
-      }
-
-  """
-  @type update_access_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_computation_models_request() :: %{
-        optional("computationModelType") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_computation_models_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      time_series_summary() :: %{
-        "alias" => String.t() | atom(),
-        "assetId" => String.t() | atom(),
-        "dataType" => list(any()),
-        "dataTypeSpec" => String.t() | atom(),
-        "propertyId" => String.t() | atom(),
-        "timeSeriesArn" => String.t() | atom(),
-        "timeSeriesCreationDate" => non_neg_integer(),
-        "timeSeriesId" => String.t() | atom(),
-        "timeSeriesLastUpdateDate" => non_neg_integer()
-      }
-
-  """
-  @type time_series_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transform() :: %{
-        "expression" => String.t() | atom(),
-        "processingConfig" => transform_processing_config(),
-        "variables" => list(expression_variable())
-      }
-
-  """
-  @type transform() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logging_options() :: %{
-        "level" => list(any())
-      }
-
-  """
-  @type logging_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_asset_model_response() :: %{
-        "assetModelArn" => String.t() | atom(),
-        "assetModelId" => String.t() | atom(),
+      update_asset_model_response() :: %{
         "assetModelStatus" => asset_model_status()
       }
 
   """
-  @type create_asset_model_response() :: %{(String.t() | atom()) => any()}
+  @type update_asset_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      portal_resource() :: %{
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type portal_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parquet() :: %{}
-
-  """
-  @type parquet() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      computation_model_configuration() :: %{
-        "anomalyDetection" => computation_model_anomaly_detection_configuration()
-      }
-
-  """
-  @type computation_model_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_dataset_response() :: %{
-        "datasetArn" => String.t() | atom(),
-        "datasetCreationDate" => non_neg_integer(),
-        "datasetDescription" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "datasetLastUpdateDate" => non_neg_integer(),
-        "datasetName" => String.t() | atom(),
-        "datasetSource" => dataset_source(),
-        "datasetStatus" => dataset_status(),
-        "datasetVersion" => String.t() | atom()
-      }
-
-  """
-  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_asset_request() :: %{
-        optional("assetDescription") => String.t() | atom(),
-        optional("assetExternalId") => String.t() | atom(),
-        optional("assetId") => String.t() | atom(),
+      update_asset_property_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("assetModelId") => String.t() | atom(),
-        required("assetName") => String.t() | atom()
-      }
-
-  """
-  @type create_asset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      portal_summary() :: %{
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "portalType" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "startUrl" => String.t() | atom(),
-        "status" => portal_status()
-      }
-
-  """
-  @type portal_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      interpolated_asset_property_value() :: %{
-        "timestamp" => time_in_nanos(),
-        "value" => variant()
-      }
-
-  """
-  @type interpolated_asset_property_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_composition_relationships_response() :: %{
-        "compositionRelationshipSummaries" => list(composition_relationship_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_composition_relationships_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_summary() :: %{
-        "arn" => String.t() | atom(),
-        "assetModelId" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "hierarchies" => list(asset_hierarchy()),
-        "id" => String.t() | atom(),
-        "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "status" => asset_status()
-      }
-
-  """
-  @type asset_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dashboard_response() :: %{}
-
-  """
-  @type delete_dashboard_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_property_binding_value() :: %{
-        "assetModelId" => String.t() | atom(),
-        "propertyId" => String.t() | atom()
-      }
-
-  """
-  @type asset_model_property_binding_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_portal_request() :: %{
-        optional("alarms") => alarms(),
-        optional("clientToken") => String.t() | atom(),
-        optional("notificationSenderEmail") => String.t() | atom(),
-        optional("portalAuthMode") => list(any()),
-        optional("portalDescription") => String.t() | atom(),
-        optional("portalLogoImageFile") => image_file(),
-        optional("portalType") => list(any()),
-        optional("portalTypeConfiguration") => map(),
-        optional("tags") => map(),
-        required("portalContactEmail") => String.t() | atom(),
-        required("portalName") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_portal_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_asset_model_interface_relationship_response() :: %{
-        "assetModelArn" => String.t() | atom(),
-        "assetModelId" => String.t() | atom(),
-        "assetModelStatus" => asset_model_status(),
-        "interfaceAssetModelId" => String.t() | atom()
-      }
-
-  """
-  @type put_asset_model_interface_relationship_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_platform() :: %{
-        "greengrass" => greengrass(),
-        "greengrassV2" => greengrass_v2(),
-        "siemensIE" => siemens_i_e()
-      }
-
-  """
-  @type gateway_platform() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invocation_output() :: %{
-        "citations" => list(citation()),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invocation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_set_reference() :: %{
-        "datasetArn" => String.t() | atom(),
-        "source" => source()
-      }
-
-  """
-  @type data_set_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_property_path_segment() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type asset_model_property_path_segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_access_policy_response() :: %{
-        "accessPolicyArn" => String.t() | atom(),
-        "accessPolicyCreationDate" => non_neg_integer(),
-        "accessPolicyId" => String.t() | atom(),
-        "accessPolicyIdentity" => identity(),
-        "accessPolicyLastUpdateDate" => non_neg_integer(),
-        "accessPolicyPermission" => list(any()),
-        "accessPolicyResource" => resource()
-      }
-
-  """
-  @type describe_access_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      precondition_failed_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "resourceId" => String.t() | atom()
-      }
-
-  """
-  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bulk_import_jobs_request() :: %{
-        optional("filter") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_bulk_import_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dashboard_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("dashboardDescription") => String.t() | atom(),
-        required("dashboardDefinition") => String.t() | atom(),
-        required("dashboardName") => String.t() | atom()
-      }
-
-  """
-  @type update_dashboard_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity() :: %{
-        "group" => group_identity(),
-        "iamRole" => iam_role_identity(),
-        "iamUser" => iam_user_identity(),
-        "user" => user_identity()
-      }
-
-  """
-  @type identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_associated_assets_request() :: %{
-        optional("hierarchyId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("traversalDirection") => list(any())
-      }
-
-  """
-  @type list_associated_assets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_assets_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("childAssetId") => String.t() | atom(),
-        required("hierarchyId") => String.t() | atom()
-      }
-
-  """
-  @type associate_assets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_project_request() :: %{}
-
-  """
-  @type describe_project_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dataset_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("datasetDescription") => String.t() | atom(),
-        optional("datasetId") => String.t() | atom(),
-        optional("tags") => map(),
-        required("datasetName") => String.t() | atom(),
-        required("datasetSource") => dataset_source()
-      }
-
-  """
-  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_default_encryption_configuration_response() :: %{
-        "configurationStatus" => configuration_status(),
-        "encryptionType" => list(any()),
-        "kmsKeyArn" => String.t() | atom()
-      }
-
-  """
-  @type put_default_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_actions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resolveToResourceId") => String.t() | atom(),
-        optional("resolveToResourceType") => list(any()),
-        required("targetResourceId") => String.t() | atom(),
-        required("targetResourceType") => list(any())
-      }
-
-  """
-  @type list_actions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associated_assets_summary() :: %{
-        "arn" => String.t() | atom(),
-        "assetModelId" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "hierarchies" => list(asset_hierarchy()),
-        "id" => String.t() | atom(),
-        "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "status" => asset_status()
-      }
-
-  """
-  @type associated_assets_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_portal_response() :: %{
-        "alarms" => alarms(),
-        "notificationSenderEmail" => String.t() | atom(),
-        "portalArn" => String.t() | atom(),
-        "portalAuthMode" => list(any()),
-        "portalClientId" => String.t() | atom(),
-        "portalContactEmail" => String.t() | atom(),
-        "portalCreationDate" => non_neg_integer(),
-        "portalDescription" => String.t() | atom(),
-        "portalId" => String.t() | atom(),
-        "portalLastUpdateDate" => non_neg_integer(),
-        "portalLogoImageLocation" => image_location(),
-        "portalName" => String.t() | atom(),
-        "portalStartUrl" => String.t() | atom(),
-        "portalStatus" => portal_status(),
-        "portalType" => list(any()),
-        "portalTypeConfiguration" => map(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type describe_portal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_property_summary() :: %{
-        "alias" => String.t() | atom(),
-        "assetCompositeModelId" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "notification" => property_notification(),
-        "path" => list(asset_property_path_segment()),
-        "unit" => String.t() | atom()
-      }
-
-  """
-  @type asset_property_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_access_policy_request() :: %{}
-
-  """
-  @type describe_access_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_project_response() :: %{}
-
-  """
-  @type update_project_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_execution_response() :: %{
-        "actionType" => String.t() | atom(),
-        "executionDetails" => map(),
-        "executionEndTime" => non_neg_integer(),
-        "executionEntityVersion" => String.t() | atom(),
-        "executionId" => String.t() | atom(),
-        "executionResult" => map(),
-        "executionStartTime" => non_neg_integer(),
-        "executionStatus" => execution_status(),
-        "resolveTo" => resolve_to(),
-        "targetResource" => target_resource(),
-        "targetResourceVersion" => String.t() | atom()
-      }
-
-  """
-  @type describe_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      matched_data_binding() :: %{
-        "value" => data_binding_value()
-      }
-
-  """
-  @type matched_data_binding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      file() :: %{
-        "bucket" => String.t() | atom(),
-        "key" => String.t() | atom(),
-        "versionId" => String.t() | atom()
-      }
-
-  """
-  @type file() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_value_request() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("entries") => list(batch_get_asset_property_value_entry())
-      }
-
-  """
-  @type batch_get_asset_property_value_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iotsitewise_reference() :: %{
-        "dataset" => data_set_reference()
-      }
-
-  """
-  @type iotsitewise_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_associated_assets_response() :: %{
-        "assetSummaries" => list(associated_assets_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_associated_assets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_associate_project_assets_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("assetIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_associate_project_assets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_value_history_skipped_entry() :: %{
-        "completionStatus" => list(any()),
-        "entryId" => String.t() | atom(),
-        "errorInfo" => batch_get_asset_property_value_history_error_info()
-      }
-
-  """
-  @type batch_get_asset_property_value_history_skipped_entry() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      computation_model_resolve_to_resource_summary() :: %{
-        "resolveTo" => resolve_to()
-      }
-
-  """
-  @type computation_model_resolve_to_resource_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_property_value() :: %{
-        "quality" => list(any()),
-        "timestamp" => time_in_nanos(),
-        "value" => variant()
-      }
-
-  """
-  @type asset_property_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      action_definition() :: %{
-        "actionDefinitionId" => String.t() | atom(),
-        "actionName" => String.t() | atom(),
-        "actionType" => String.t() | atom()
-      }
-
-  """
-  @type action_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_models_request() :: %{
-        optional("assetModelTypes") => list(list(any())()),
-        optional("assetModelVersion") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_asset_models_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_asset_property_request() :: %{}
-
-  """
-  @type describe_asset_property_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_portal_request() :: %{}
-
-  """
-  @type describe_portal_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      trace() :: %{
-        "text" => String.t() | atom()
-      }
-
-  """
-  @type trace() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_asset_response() :: %{
-        "assetStatus" => asset_status()
-      }
-
-  """
-  @type update_asset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_properties_request() :: %{
-        optional("filter") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_asset_properties_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_asset_model_composite_model_response() :: %{
-        "actionDefinitions" => list(action_definition()),
-        "assetModelCompositeModelDescription" => String.t() | atom(),
-        "assetModelCompositeModelExternalId" => String.t() | atom(),
-        "assetModelCompositeModelId" => String.t() | atom(),
-        "assetModelCompositeModelName" => String.t() | atom(),
-        "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()),
-        "assetModelCompositeModelProperties" => list(asset_model_property()),
-        "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()),
-        "assetModelCompositeModelType" => String.t() | atom(),
-        "assetModelId" => String.t() | atom(),
-        "compositionDetails" => composition_details()
-      }
-
-  """
-  @type describe_asset_model_composite_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_aggregates_error_entry() :: %{
-        "entryId" => String.t() | atom(),
-        "errorCode" => list(any()),
-        "errorMessage" => String.t() | atom()
-      }
-
-  """
-  @type batch_get_asset_property_aggregates_error_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      computation_model_status() :: %{
-        "error" => error_details(),
-        "state" => list(any())
-      }
-
-  """
-  @type computation_model_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_asset_property_response() :: %{
-        "assetExternalId" => String.t() | atom(),
-        "assetId" => String.t() | atom(),
-        "assetModelId" => String.t() | atom(),
-        "assetName" => String.t() | atom(),
-        "assetProperty" => property(),
-        "compositeModel" => composite_model_property()
-      }
-
-  """
-  @type describe_asset_property_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_default_encryption_configuration_request() :: %{
-        optional("kmsKeyId") => String.t() | atom(),
-        required("encryptionType") => list(any())
-      }
-
-  """
-  @type put_default_encryption_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_storage_configuration_response() :: %{
-        "configurationStatus" => configuration_status(),
-        "disallowIngestNullNaN" => boolean(),
-        "disassociatedDataStorage" => list(any()),
-        "lastUpdateDate" => non_neg_integer(),
-        "multiLayerStorage" => multi_layer_storage(),
-        "retentionPeriod" => retention_period(),
-        "storageType" => list(any()),
-        "warmTier" => list(any()),
-        "warmTierRetentionPeriod" => warm_tier_retention_period()
-      }
-
-  """
-  @type describe_storage_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_computation_model_execution_summary_request() :: %{
-        optional("resolveToResourceId") => String.t() | atom(),
-        optional("resolveToResourceType") => list(any())
-      }
-
-  """
-  @type describe_computation_model_execution_summary_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      asset_composite_model() :: %{
-        "description" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "properties" => list(asset_property()),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type asset_composite_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dataset_source() :: %{
-        "sourceDetail" => source_detail(),
-        "sourceFormat" => list(any()),
-        "sourceType" => list(any())
-      }
-
-  """
-  @type dataset_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_asset_model_interface_relationship_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_asset_model_interface_relationship_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      computation_model_summary() :: %{
-        "arn" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "status" => computation_model_status(),
-        "type" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type computation_model_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_asset_property_aggregates_request() :: %{
-        optional("assetId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
         optional("propertyAlias") => String.t() | atom(),
-        optional("propertyId") => String.t() | atom(),
-        optional("qualities") => list(list(any())()),
-        optional("timeOrdering") => list(any()),
-        required("aggregateTypes") => list(list(any())()),
-        required("endDate") => non_neg_integer(),
-        required("resolution") => String.t() | atom(),
-        required("startDate") => non_neg_integer()
+        optional("propertyNotificationState") => list(any()),
+        optional("propertyUnit") => String.t() | atom()
       }
 
   """
-  @type get_asset_property_aggregates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_location() :: %{
-        "id" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type image_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_dashboard_request() :: %{}
-
-  """
-  @type describe_dashboard_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_bulk_import_job_response() :: %{
-        "jobId" => String.t() | atom(),
-        "jobName" => String.t() | atom(),
-        "jobStatus" => list(any())
-      }
-
-  """
-  @type create_bulk_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_time_series_from_asset_property_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("alias") => String.t() | atom(),
-        required("assetId") => String.t() | atom(),
-        required("propertyId") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_time_series_from_asset_property_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_gateway_response() :: %{
-        "gatewayArn" => String.t() | atom(),
-        "gatewayId" => String.t() | atom()
-      }
-
-  """
-  @type create_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_property_binding_value_filter() :: %{
-        "assetId" => String.t() | atom(),
-        "propertyId" => String.t() | atom()
-      }
-
-  """
-  @type asset_property_binding_value_filter() :: %{(String.t() | atom()) => any()}
+  @type update_asset_property_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3027,163 +4641,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      delete_gateway_request() :: %{}
-
-  """
-  @type delete_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tumbling_window() :: %{
-        "interval" => String.t() | atom(),
-        "offset" => String.t() | atom()
+      update_asset_response() :: %{
+        "assetStatus" => asset_status()
       }
 
   """
-  @type tumbling_window() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_asset_property_aggregates_response() :: %{
-        "aggregatedValues" => list(aggregated_value()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_asset_property_aggregates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_asset_model_request() :: %{
-        optional("assetModelCompositeModels") => list(asset_model_composite_model_definition()),
-        optional("assetModelDescription") => String.t() | atom(),
-        optional("assetModelExternalId") => String.t() | atom(),
-        optional("assetModelHierarchies") => list(asset_model_hierarchy_definition()),
-        optional("assetModelId") => String.t() | atom(),
-        optional("assetModelProperties") => list(asset_model_property_definition()),
-        optional("assetModelType") => list(any()),
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("assetModelName") => String.t() | atom()
-      }
-
-  """
-  @type create_asset_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_gateways_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_gateways_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content() :: %{
-        "text" => String.t() | atom()
-      }
-
-  """
-  @type content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_asset_model_interface_relationship_response() :: %{
-        "assetModelId" => String.t() | atom(),
-        "hierarchyMappings" => list(hierarchy_mapping()),
-        "interfaceAssetModelId" => String.t() | atom(),
-        "propertyMappings" => list(property_mapping())
-      }
-
-  """
-  @type describe_asset_model_interface_relationship_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      computation_model_anomaly_detection_configuration() :: %{
-        "inputProperties" => String.t() | atom(),
-        "resultProperty" => String.t() | atom()
-      }
-
-  """
-  @type computation_model_anomaly_detection_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_asset_model_composite_model_request() :: %{
-        optional("assetModelVersion") => String.t() | atom()
-      }
-
-  """
-  @type describe_asset_model_composite_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_asset_model_composite_model_request() :: %{
-        optional("assetModelCompositeModelDescription") => String.t() | atom(),
-        optional("assetModelCompositeModelExternalId") => String.t() | atom(),
-        optional("assetModelCompositeModelProperties") => list(asset_model_property()),
-        optional("clientToken") => String.t() | atom(),
-        optional("ifMatch") => String.t() | atom(),
-        optional("ifNoneMatch") => String.t() | atom(),
-        optional("matchForVersionType") => list(any()),
-        required("assetModelCompositeModelName") => String.t() | atom()
-      }
-
-  """
-  @type update_asset_model_composite_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_action_response() :: %{
-        "actionDefinitionId" => String.t() | atom(),
-        "actionId" => String.t() | atom(),
-        "actionPayload" => action_payload(),
-        "executionTime" => non_neg_integer(),
-        "resolveTo" => resolve_to(),
-        "targetResource" => target_resource()
-      }
-
-  """
-  @type describe_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_value_error_entry() :: %{
-        "entryId" => String.t() | atom(),
-        "errorCode" => list(any()),
-        "errorMessage" => String.t() | atom()
-      }
-
-  """
-  @type batch_get_asset_property_value_error_entry() :: %{(String.t() | atom()) => any()}
+  @type update_asset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3204,1015 +4667,172 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      describe_computation_model_response() :: %{
-        "actionDefinitions" => list(action_definition()),
-        "computationModelArn" => String.t() | atom(),
-        "computationModelConfiguration" => computation_model_configuration(),
-        "computationModelCreationDate" => non_neg_integer(),
-        "computationModelDataBinding" => map(),
-        "computationModelDescription" => String.t() | atom(),
-        "computationModelId" => String.t() | atom(),
-        "computationModelLastUpdateDate" => non_neg_integer(),
-        "computationModelName" => String.t() | atom(),
-        "computationModelStatus" => computation_model_status(),
-        "computationModelVersion" => String.t() | atom()
+      update_computation_model_response() :: %{
+        "computationModelStatus" => computation_model_status()
       }
 
   """
-  @type describe_computation_model_response() :: %{(String.t() | atom()) => any()}
+  @type update_computation_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_assets_request() :: %{
+      update_dashboard_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        required("childAssetId") => String.t() | atom(),
-        required("hierarchyId") => String.t() | atom()
+        optional("dashboardDescription") => String.t() | atom(),
+        required("dashboardDefinition") => String.t() | atom(),
+        required("dashboardName") => String.t() | atom()
       }
 
   """
-  @type disassociate_assets_request() :: %{(String.t() | atom()) => any()}
+  @type update_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      image() :: %{
-        "file" => image_file(),
-        "id" => String.t() | atom()
-      }
+      update_dashboard_response() :: %{}
 
   """
-  @type image() :: %{(String.t() | atom()) => any()}
+  @type update_dashboard_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      batch_get_asset_property_value_history_error_entry() :: %{
-        "entryId" => String.t() | atom(),
-        "errorCode" => list(any()),
-        "errorMessage" => String.t() | atom()
-      }
-
-  """
-  @type batch_get_asset_property_value_history_error_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dashboard_response() :: %{
-        "dashboardArn" => String.t() | atom(),
-        "dashboardId" => String.t() | atom()
-      }
-
-  """
-  @type create_dashboard_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_time_series_request() :: %{
-        optional("alias") => String.t() | atom(),
-        optional("assetId") => String.t() | atom(),
+      update_dataset_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        optional("propertyId") => String.t() | atom()
+        optional("datasetDescription") => String.t() | atom(),
+        required("datasetName") => String.t() | atom(),
+        required("datasetSource") => dataset_source()
       }
 
   """
-  @type delete_time_series_request() :: %{(String.t() | atom()) => any()}
+  @type update_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_gateway_response() :: %{
-        "creationDate" => non_neg_integer(),
-        "gatewayArn" => String.t() | atom(),
-        "gatewayCapabilitySummaries" => list(gateway_capability_summary()),
-        "gatewayId" => String.t() | atom(),
-        "gatewayName" => String.t() | atom(),
-        "gatewayPlatform" => gateway_platform(),
-        "gatewayVersion" => String.t() | atom(),
-        "lastUpdateDate" => non_neg_integer()
-      }
-
-  """
-  @type describe_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_hierarchy_definition() :: %{
-        "childAssetModelId" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type asset_model_hierarchy_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      measurement() :: %{
-        "processingConfig" => measurement_processing_config()
-      }
-
-  """
-  @type measurement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_role_identity() :: %{
-        "arn" => String.t() | atom()
-      }
-
-  """
-  @type iam_role_identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_asset_model_interface_relationship_response() :: %{
-        "assetModelArn" => String.t() | atom(),
-        "assetModelId" => String.t() | atom(),
-        "assetModelStatus" => asset_model_status(),
-        "interfaceAssetModelId" => String.t() | atom()
-      }
-
-  """
-  @type delete_asset_model_interface_relationship_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_composite_model_path_segment() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type asset_model_composite_model_path_segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source() :: %{
-        "arn" => String.t() | atom(),
-        "location" => location()
-      }
-
-  """
-  @type source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_asset_model_interface_relationship_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("propertyMappingConfiguration") => property_mapping_configuration()
-      }
-
-  """
-  @type put_asset_model_interface_relationship_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_asset_model_composite_model_response() :: %{
-        "assetModelCompositeModelId" => String.t() | atom(),
-        "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()),
-        "assetModelStatus" => asset_model_status()
-      }
-
-  """
-  @type create_asset_model_composite_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_disassociate_project_assets_response() :: %{
-        "errors" => list(asset_error_details())
-      }
-
-  """
-  @type batch_disassociate_project_assets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_value_success_entry() :: %{
-        "assetPropertyValue" => asset_property_value(),
-        "entryId" => String.t() | atom()
-      }
-
-  """
-  @type batch_get_asset_property_value_success_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_disassociate_project_assets_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("assetIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_disassociate_project_assets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_computation_model_resolve_to_resources_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_computation_model_resolve_to_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_datasets_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("sourceType") => list(any())
-      }
-
-  """
-  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      action_payload() :: %{
-        "stringValue" => String.t() | atom()
-      }
-
-  """
-  @type action_payload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      portal_type_entry() :: %{
-        "portalTools" => list(String.t() | atom())
-      }
-
-  """
-  @type portal_type_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_mapping_configuration() :: %{
-        "createMissingProperty" => boolean(),
-        "matchByPropertyName" => boolean(),
-        "overrides" => list(property_mapping())
-      }
-
-  """
-  @type property_mapping_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_assistant_request() :: %{
-        optional("conversationId") => String.t() | atom(),
-        optional("enableTrace") => [boolean()],
-        required("message") => String.t() | atom()
-      }
-
-  """
-  @type invoke_assistant_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_projects_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "projectSummaries" => list(project_summary())
-      }
-
-  """
-  @type list_projects_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_computation_models_response() :: %{
-        "computationModelSummaries" => list(computation_model_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_computation_models_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_relationships_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("traversalType") => list(any())
-      }
-
-  """
-  @type list_asset_relationships_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_asset_property_value_request() :: %{
-        optional("assetId") => String.t() | atom(),
-        optional("propertyAlias") => String.t() | atom(),
-        optional("propertyId") => String.t() | atom()
-      }
-
-  """
-  @type get_asset_property_value_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property() :: %{
-        "alias" => String.t() | atom(),
-        "dataType" => list(any()),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "notification" => property_notification(),
-        "path" => list(asset_property_path_segment()),
-        "type" => property_type(),
-        "unit" => String.t() | atom()
-      }
-
-  """
-  @type property() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_model_composite_models_request() :: %{
-        optional("assetModelVersion") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_asset_model_composite_models_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_gateway_request() :: %{}
-
-  """
-  @type describe_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_composite_model_summary() :: %{
-        "description" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "path" => list(asset_model_composite_model_path_segment()),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type asset_model_composite_model_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_composite_model() :: %{
-        "description" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "properties" => list(asset_model_property()),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type asset_model_composite_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_projects_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("portalId") => String.t() | atom()
-      }
-
-  """
-  @type list_projects_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_composition_relationships_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_composition_relationships_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_asset_property_error_entry() :: %{
-        "entryId" => String.t() | atom(),
-        "errors" => list(batch_put_asset_property_error())
-      }
-
-  """
-  @type batch_put_asset_property_error_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_tags_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceName" => String.t() | atom()
-      }
-
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_access_policy_response() :: %{
-        "accessPolicyArn" => String.t() | atom(),
-        "accessPolicyId" => String.t() | atom()
-      }
-
-  """
-  @type create_access_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dataset_response() :: %{
+      update_dataset_response() :: %{
         "datasetArn" => String.t() | atom(),
         "datasetId" => String.t() | atom(),
         "datasetStatus" => dataset_status()
       }
 
   """
-  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
+  @type update_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_already_exists_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "resourceId" => String.t() | atom()
+      update_gateway_capability_configuration_request() :: %{
+        required("capabilityConfiguration") => String.t() | atom(),
+        required("capabilityNamespace") => String.t() | atom()
       }
 
   """
-  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type update_gateway_capability_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_time_series_request() :: %{
-        optional("alias") => String.t() | atom(),
-        optional("assetId") => String.t() | atom(),
-        optional("propertyId") => String.t() | atom()
-      }
-
-  """
-  @type describe_time_series_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      file_format() :: %{
-        "csv" => csv(),
-        "parquet" => parquet()
-      }
-
-  """
-  @type file_format() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_relationships_response() :: %{
-        "assetRelationshipSummaries" => list(asset_relationship_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_asset_relationships_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_time_series_response() :: %{
-        "TimeSeriesSummaries" => list(time_series_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_time_series_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_capability_summary() :: %{
+      update_gateway_capability_configuration_response() :: %{
         "capabilityNamespace" => String.t() | atom(),
         "capabilitySyncStatus" => list(any())
       }
 
   """
-  @type gateway_capability_summary() :: %{(String.t() | atom()) => any()}
+  @type update_gateway_capability_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      interface_relationship() :: %{
+      update_gateway_request() :: %{
+        required("gatewayName") => String.t() | atom()
+      }
+
+  """
+  @type update_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_request() :: %{
+        optional("alarms") => alarms(),
+        optional("clientToken") => String.t() | atom(),
+        optional("notificationSenderEmail") => String.t() | atom(),
+        optional("portalDescription") => String.t() | atom(),
+        optional("portalLogoImage") => image(),
+        optional("portalType") => list(any()),
+        optional("portalTypeConfiguration") => map(),
+        required("portalContactEmail") => String.t() | atom(),
+        required("portalName") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_portal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_response() :: %{
+        "portalStatus" => portal_status()
+      }
+
+  """
+  @type update_portal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("projectDescription") => String.t() | atom(),
+        required("projectName") => String.t() | atom()
+      }
+
+  """
+  @type update_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_response() :: %{}
+
+  """
+  @type update_project_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      user_identity() :: %{
         "id" => String.t() | atom()
       }
 
   """
-  @type interface_relationship() :: %{(String.t() | atom()) => any()}
+  @type user_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_asset_model_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("ifMatch") => String.t() | atom(),
-        optional("ifNoneMatch") => String.t() | atom(),
-        optional("matchForVersionType") => list(any())
-      }
-
-  """
-  @type delete_asset_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_asset_property_error() :: %{
-        "errorCode" => list(any()),
-        "errorMessage" => String.t() | atom(),
-        "timestamps" => list(time_in_nanos())
-      }
-
-  """
-  @type batch_put_asset_property_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_summary() :: %{
-        "arn" => String.t() | atom(),
-        "assetModelType" => list(any()),
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "status" => asset_model_status(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type asset_model_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_error_details() :: %{
-        "assetId" => String.t() | atom(),
-        "code" => list(any()),
+      validation_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type asset_error_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_policies_request() :: %{
-        optional("iamArn") => String.t() | atom(),
-        optional("identityId") => String.t() | atom(),
-        optional("identityType") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceId") => String.t() | atom(),
-        optional("resourceType") => list(any())
-      }
-
-  """
-  @type list_access_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      location() :: %{
-        "uri" => String.t() | atom()
-      }
-
-  """
-  @type location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_model_property_definition() :: %{
-        "dataType" => list(any()),
-        "dataTypeSpec" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "type" => property_type(),
-        "unit" => String.t() | atom()
-      }
-
-  """
-  @type asset_model_property_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      time_in_nanos() :: %{
-        "offsetInNanos" => integer(),
-        "timeInSeconds" => float()
-      }
-
-  """
-  @type time_in_nanos() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_time_series_to_asset_property_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("alias") => String.t() | atom(),
-        required("assetId") => String.t() | atom(),
-        required("propertyId") => String.t() | atom()
-      }
-
-  """
-  @type associate_time_series_to_asset_property_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dashboard_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("dashboardDescription") => String.t() | atom(),
-        optional("tags") => map(),
-        required("dashboardDefinition") => String.t() | atom(),
-        required("dashboardName") => String.t() | atom(),
-        required("projectId") => String.t() | atom()
-      }
-
-  """
-  @type create_dashboard_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_models_response() :: %{
-        "assetModelSummaries" => list(asset_model_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_asset_models_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multi_layer_storage() :: %{
-        "customerManagedS3Storage" => customer_managed_s3_storage()
-      }
-
-  """
-  @type multi_layer_storage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_asset_response() :: %{
-        "assetArn" => String.t() | atom(),
-        "assetCompositeModelSummaries" => list(asset_composite_model_summary()),
-        "assetCompositeModels" => list(asset_composite_model()),
-        "assetCreationDate" => non_neg_integer(),
-        "assetDescription" => String.t() | atom(),
-        "assetExternalId" => String.t() | atom(),
-        "assetHierarchies" => list(asset_hierarchy()),
-        "assetId" => String.t() | atom(),
-        "assetLastUpdateDate" => non_neg_integer(),
-        "assetModelId" => String.t() | atom(),
-        "assetName" => String.t() | atom(),
-        "assetProperties" => list(asset_property()),
-        "assetStatus" => asset_status()
-      }
-
-  """
-  @type describe_asset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      greengrass_v2() :: %{
-        "coreDeviceOperatingSystem" => list(any()),
-        "coreDeviceThingName" => String.t() | atom()
-      }
-
-  """
-  @type greengrass_v2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detailed_error() :: %{
-        "code" => list(any()),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type detailed_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_error_details() :: %{
-        "code" => list(any()),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type configuration_error_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dataset_status() :: %{
-        "error" => error_details(),
-        "state" => list(any())
-      }
-
-  """
-  @type dataset_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_user_identity() :: %{
-        "arn" => String.t() | atom()
-      }
-
-  """
-  @type iam_user_identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_asset_model_request() :: %{
-        optional("assetModelVersion") => String.t() | atom(),
-        optional("excludeProperties") => boolean()
-      }
-
-  """
-  @type describe_asset_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_query_response() :: %{
-        "columns" => list(column_info()),
-        "nextToken" => String.t() | atom(),
-        "rows" => list(row())
-      }
-
-  """
-  @type execute_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_storage_configuration_response() :: %{
-        "configurationStatus" => configuration_status(),
-        "disallowIngestNullNaN" => boolean(),
-        "disassociatedDataStorage" => list(any()),
-        "multiLayerStorage" => multi_layer_storage(),
-        "retentionPeriod" => retention_period(),
-        "storageType" => list(any()),
-        "warmTier" => list(any()),
-        "warmTierRetentionPeriod" => warm_tier_retention_period()
-      }
-
-  """
-  @type put_storage_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dashboards_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("projectId") => String.t() | atom()
-      }
-
-  """
-  @type list_dashboards_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_asset_composite_model_request() :: %{}
-
-  """
-  @type describe_asset_composite_model_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_action_response() :: %{
-        "actionId" => String.t() | atom()
-      }
-
-  """
-  @type execute_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_model_composite_models_response() :: %{
-        "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_asset_model_composite_models_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_aggregates_error_info() :: %{
-        "errorCode" => list(any()),
-        "errorTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type batch_get_asset_property_aggregates_error_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_computation_model_response() :: %{
-        "computationModelStatus" => computation_model_status()
-      }
-
-  """
-  @type delete_computation_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_composite_model_summary() :: %{
-        "description" => String.t() | atom(),
-        "externalId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "path" => list(asset_composite_model_path_segment()),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type asset_composite_model_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      citation() :: %{
-        "content" => content(),
-        "reference" => reference()
-      }
-
-  """
-  @type citation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_access_policy_response() :: %{}
-
-  """
-  @type update_access_policy_response() :: %{}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4231,280 +4851,16 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      delete_asset_model_response() :: %{
-        "assetModelStatus" => asset_model_status()
+      variant() :: %{
+        "booleanValue" => boolean(),
+        "doubleValue" => float(),
+        "integerValue" => integer(),
+        "nullValue" => property_value_null_value(),
+        "stringValue" => String.t() | atom()
       }
 
   """
-  @type delete_asset_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_notification() :: %{
-        "state" => list(any()),
-        "topic" => String.t() | atom()
-      }
-
-  """
-  @type property_notification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_details() :: %{
-        "code" => list(any()),
-        "details" => list(detailed_error()),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type error_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_aggregates_success_entry() :: %{
-        "aggregatedValues" => list(aggregated_value()),
-        "entryId" => String.t() | atom()
-      }
-
-  """
-  @type batch_get_asset_property_aggregates_success_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_computation_model_request() :: %{
-        optional("computationModelVersion") => String.t() | atom()
-      }
-
-  """
-  @type describe_computation_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_asset_request() :: %{
-        optional("excludeProperties") => boolean()
-      }
-
-  """
-  @type describe_asset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dataset_summary() :: %{
-        "arn" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "status" => dataset_status()
-      }
-
-  """
-  @type dataset_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      composition_relationship_item() :: %{
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type composition_relationship_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_gateway_capability_configuration_response() :: %{
-        "capabilityConfiguration" => String.t() | atom(),
-        "capabilityNamespace" => String.t() | atom(),
-        "capabilitySyncStatus" => list(any()),
-        "gatewayId" => String.t() | atom()
-      }
-
-  """
-  @type describe_gateway_capability_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_value_null_value() :: %{
-        "valueType" => list(any())
-      }
-
-  """
-  @type property_value_null_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_computation_model_data_binding_usages_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("dataBindingValueFilter") => data_binding_value_filter()
-      }
-
-  """
-  @type list_computation_model_data_binding_usages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource() :: %{
-        "portal" => portal_resource(),
-        "project" => project_resource()
-      }
-
-  """
-  @type resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_value_history_entry() :: %{
-        "assetId" => String.t() | atom(),
-        "endDate" => non_neg_integer(),
-        "entryId" => String.t() | atom(),
-        "propertyAlias" => String.t() | atom(),
-        "propertyId" => String.t() | atom(),
-        "qualities" => list(list(any())()),
-        "startDate" => non_neg_integer(),
-        "timeOrdering" => list(any())
-      }
-
-  """
-  @type batch_get_asset_property_value_history_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_mapping() :: %{
-        "assetModelPropertyId" => String.t() | atom(),
-        "interfaceAssetModelPropertyId" => String.t() | atom()
-      }
-
-  """
-  @type property_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflicting_operation_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "resourceId" => String.t() | atom()
-      }
-
-  """
-  @type conflicting_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_project_assets_response() :: %{
-        "assetIds" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_project_assets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assets_request() :: %{
-        optional("assetModelId") => String.t() | atom(),
-        optional("filter") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_assets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_value_history_error_info() :: %{
-        "errorCode" => list(any()),
-        "errorTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type batch_get_asset_property_value_history_error_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dataset_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      datum() :: %{
-        "arrayValue" => list(datum()),
-        "nullValue" => boolean(),
-        "rowValue" => row(),
-        "scalarValue" => String.t() | atom()
-      }
-
-  """
-  @type datum() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      composition_relationship_summary() :: %{
-        "assetModelCompositeModelId" => String.t() | atom(),
-        "assetModelCompositeModelType" => String.t() | atom(),
-        "assetModelId" => String.t() | atom()
-      }
-
-  """
-  @type composition_relationship_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_composite_model_path_segment() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type asset_composite_model_path_segment() :: %{(String.t() | atom()) => any()}
+  @type variant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4518,1048 +4874,692 @@ defmodule AWS.IoTSiteWise do
   """
   @type warm_tier_retention_period() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      monitor_error_details() :: %{
-        "code" => list(any()),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type monitor_error_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_computation_model_data_binding_usages_response() :: %{
-        "dataBindingUsageSummaries" => list(computation_model_data_binding_usage_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_computation_model_data_binding_usages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_asset_model_composite_model_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("ifMatch") => String.t() | atom(),
-        optional("ifNoneMatch") => String.t() | atom(),
-        optional("matchForVersionType") => list(any())
-      }
-
-  """
-  @type delete_asset_model_composite_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dashboard_response() :: %{}
-
-  """
-  @type update_dashboard_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_value_entry() :: %{
-        "assetId" => String.t() | atom(),
-        "entryId" => String.t() | atom(),
-        "propertyAlias" => String.t() | atom(),
-        "propertyId" => String.t() | atom()
-      }
-
-  """
-  @type batch_get_asset_property_value_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_report_location() :: %{
-        "bucket" => String.t() | atom(),
-        "prefix" => String.t() | atom()
-      }
-
-  """
-  @type error_report_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      project_summary() :: %{
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type project_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_portal_response() :: %{
-        "portalArn" => String.t() | atom(),
-        "portalId" => String.t() | atom(),
-        "portalStartUrl" => String.t() | atom(),
-        "portalStatus" => portal_status(),
-        "ssoApplicationId" => String.t() | atom()
-      }
-
-  """
-  @type create_portal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      project_resource() :: %{
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type project_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_summary() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      csv() :: %{
-        "columnNames" => list(list(any())())
-      }
-
-  """
-  @type csv() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_asset_model_response() :: %{
-        "assetModelStatus" => asset_model_status()
-      }
-
-  """
-  @type update_asset_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_model_properties_response() :: %{
-        "assetModelPropertySummaries" => list(asset_model_property_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_asset_model_properties_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_aggregates_entry() :: %{
-        "aggregateTypes" => list(list(any())()),
-        "assetId" => String.t() | atom(),
-        "endDate" => non_neg_integer(),
-        "entryId" => String.t() | atom(),
-        "propertyAlias" => String.t() | atom(),
-        "propertyId" => String.t() | atom(),
-        "qualities" => list(list(any())()),
-        "resolution" => String.t() | atom(),
-        "startDate" => non_neg_integer(),
-        "timeOrdering" => list(any())
-      }
-
-  """
-  @type batch_get_asset_property_aggregates_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_resource() :: %{
-        "assetId" => String.t() | atom(),
-        "computationModelId" => String.t() | atom()
-      }
-
-  """
-  @type target_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resolve_to() :: %{
-        "assetId" => String.t() | atom()
-      }
-
-  """
-  @type resolve_to() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_binding_value_filter() :: %{
-        "assetId" => String.t() | atom()
-      }
-
-  """
-  @type asset_binding_value_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      portal_status() :: %{
-        "error" => monitor_error_details(),
-        "state" => list(any())
-      }
-
-  """
-  @type portal_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_policy_response() :: %{}
-
-  """
-  @type delete_access_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_portal_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_portal_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_asset_property_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("propertyAlias") => String.t() | atom(),
-        optional("propertyNotificationState") => list(any()),
-        optional("propertyUnit") => String.t() | atom()
-      }
-
-  """
-  @type update_asset_property_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_status() :: %{
-        "error" => error_details(),
-        "state" => list(any())
-      }
-
-  """
-  @type asset_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dashboards_response() :: %{
-        "dashboardSummaries" => list(dashboard_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_dashboards_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      interface_summary() :: %{
-        "interfaceAssetModelId" => String.t() | atom(),
-        "interfaceAssetModelPropertyId" => String.t() | atom()
-      }
-
-  """
-  @type interface_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregates() :: %{
-        "average" => float(),
-        "count" => float(),
-        "maximum" => float(),
-        "minimum" => float(),
-        "standardDeviation" => float(),
-        "sum" => float()
-      }
-
-  """
-  @type aggregates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_summary() :: %{
-        "actionType" => String.t() | atom(),
-        "executionEndTime" => non_neg_integer(),
-        "executionEntityVersion" => String.t() | atom(),
-        "executionId" => String.t() | atom(),
-        "executionStartTime" => non_neg_integer(),
-        "executionStatus" => execution_status(),
-        "resolveTo" => resolve_to(),
-        "targetResource" => target_resource(),
-        "targetResourceVersion" => String.t() | atom()
-      }
-
-  """
-  @type execution_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_asset_property_value_history_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("entries") => list(batch_get_asset_property_value_history_entry())
-      }
-
-  """
-  @type batch_get_asset_property_value_history_request() :: %{(String.t() | atom()) => any()}
-
   @type associate_assets_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | resource_already_exists_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
+          | resource_already_exists_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type associate_time_series_to_asset_property_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type batch_associate_project_assets_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type batch_disassociate_project_assets_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type batch_get_asset_property_aggregates_errors() ::
-          invalid_request_exception()
-          | internal_failure_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type batch_get_asset_property_value_errors() ::
-          invalid_request_exception()
-          | internal_failure_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type batch_get_asset_property_value_history_errors() ::
-          invalid_request_exception()
-          | internal_failure_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type batch_put_asset_property_value_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | internal_failure_exception()
-          | limit_exceeded_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type create_access_policy_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type create_asset_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | resource_already_exists_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
+          | resource_already_exists_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type create_asset_model_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | resource_already_exists_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
+          | resource_already_exists_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type create_asset_model_composite_model_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
+          | resource_not_found_exception()
           | resource_already_exists_exception()
           | precondition_failed_exception()
-          | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type create_bulk_import_job_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | resource_already_exists_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
+          | resource_already_exists_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type create_computation_model_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | resource_already_exists_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
+          | resource_already_exists_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type create_dashboard_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type create_dataset_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | resource_already_exists_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
+          | resource_already_exists_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type create_gateway_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_already_exists_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type create_portal_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type create_project_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type delete_access_policy_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type delete_asset_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type delete_asset_model_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | precondition_failed_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | precondition_failed_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type delete_asset_model_composite_model_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | precondition_failed_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | precondition_failed_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type delete_asset_model_interface_relationship_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type delete_computation_model_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type delete_dashboard_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type delete_dataset_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type delete_gateway_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type delete_portal_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type delete_project_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type delete_time_series_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type describe_access_policy_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_action_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_asset_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_asset_composite_model_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_asset_model_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_asset_model_composite_model_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_asset_model_interface_relationship_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_asset_property_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_bulk_import_job_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_computation_model_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_computation_model_execution_summary_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_dashboard_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_dataset_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_default_encryption_configuration_errors() ::
-          invalid_request_exception() | internal_failure_exception() | throttling_exception()
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type describe_execution_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_gateway_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_gateway_capability_configuration_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_logging_options_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_portal_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_project_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type describe_storage_configuration_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type describe_time_series_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type disassociate_assets_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type disassociate_time_series_from_asset_property_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type execute_action_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type execute_query_errors() ::
-          invalid_request_exception()
-          | validation_exception()
-          | internal_failure_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
           | query_timeout_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
 
   @type get_asset_property_aggregates_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | internal_failure_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type get_asset_property_value_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | internal_failure_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type get_asset_property_value_history_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | internal_failure_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type get_interpolated_asset_property_values_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | internal_failure_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type invoke_assistant_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_access_policies_errors() ::
-          invalid_request_exception() | internal_failure_exception() | throttling_exception()
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type list_actions_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type list_asset_model_composite_models_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type list_asset_model_properties_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type list_asset_models_errors() ::
-          invalid_request_exception() | internal_failure_exception() | throttling_exception()
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type list_asset_properties_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type list_asset_relationships_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type list_assets_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type list_associated_assets_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type list_bulk_import_jobs_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type list_composition_relationships_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type list_computation_model_data_binding_usages_errors() ::
-          invalid_request_exception() | internal_failure_exception() | throttling_exception()
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type list_computation_model_resolve_to_resources_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type list_computation_models_errors() ::
-          invalid_request_exception() | internal_failure_exception() | throttling_exception()
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type list_dashboards_errors() ::
-          invalid_request_exception() | internal_failure_exception() | throttling_exception()
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type list_datasets_errors() ::
-          invalid_request_exception() | internal_failure_exception() | throttling_exception()
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type list_executions_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type list_gateways_errors() ::
-          invalid_request_exception() | internal_failure_exception() | throttling_exception()
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type list_interface_relationships_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type list_portals_errors() ::
-          invalid_request_exception() | internal_failure_exception() | throttling_exception()
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type list_project_assets_errors() ::
-          invalid_request_exception() | internal_failure_exception() | throttling_exception()
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type list_projects_errors() ::
-          invalid_request_exception() | internal_failure_exception() | throttling_exception()
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type list_tags_for_resource_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
-          | internal_failure_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type list_time_series_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type put_asset_model_interface_relationship_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type put_default_encryption_configuration_errors() ::
-          conflicting_operation_exception()
+          throttling_exception()
+          | limit_exceeded_exception()
           | invalid_request_exception()
           | internal_failure_exception()
-          | limit_exceeded_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type put_logging_options_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type put_storage_configuration_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | resource_already_exists_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
+          | resource_already_exists_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type tag_resource_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          unauthorized_exception()
           | too_many_tags_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
-          | internal_failure_exception()
-          | limit_exceeded_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type untag_resource_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
-          | internal_failure_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type update_access_policy_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type update_asset_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | resource_already_exists_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | resource_already_exists_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type update_asset_model_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
+          | resource_not_found_exception()
           | resource_already_exists_exception()
           | precondition_failed_exception()
-          | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type update_asset_model_composite_model_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
+          | resource_not_found_exception()
           | resource_already_exists_exception()
           | precondition_failed_exception()
-          | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type update_asset_property_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type update_computation_model_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
-          | resource_already_exists_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
+          | resource_already_exists_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type update_dashboard_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   @type update_dataset_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type update_gateway_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type update_gateway_capability_configuration_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflicting_operation_exception()
 
   @type update_portal_errors() ::
-          conflicting_operation_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | conflicting_operation_exception()
 
   @type update_project_errors() ::
-          invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
 
   def metadata do
     %{
@@ -6969,15 +6969,15 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(exclude_properties) do
-        [{"excludeProperties", exclude_properties} | query_params]
+      if !is_nil(asset_model_version) do
+        [{"assetModelVersion", asset_model_version} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(asset_model_version) do
-        [{"assetModelVersion", asset_model_version} | query_params]
+      if !is_nil(exclude_properties) do
+        [{"excludeProperties", exclude_properties} | query_params]
       else
         query_params
       end
@@ -7181,15 +7181,15 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(resolve_to_resource_type) do
-        [{"resolveToResourceType", resolve_to_resource_type} | query_params]
+      if !is_nil(resolve_to_resource_id) do
+        [{"resolveToResourceId", resolve_to_resource_id} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resolve_to_resource_id) do
-        [{"resolveToResourceId", resolve_to_resource_id} | query_params]
+      if !is_nil(resolve_to_resource_type) do
+        [{"resolveToResourceType", resolve_to_resource_type} | query_params]
       else
         query_params
       end
@@ -7465,8 +7465,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(property_id) do
-        [{"propertyId", property_id} | query_params]
+      if !is_nil(alias) do
+        [{"alias", alias} | query_params]
       else
         query_params
       end
@@ -7479,8 +7479,8 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(alias) do
-        [{"alias", alias} | query_params]
+      if !is_nil(property_id) do
+        [{"propertyId", property_id} | query_params]
       else
         query_params
       end
@@ -7677,64 +7677,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(time_ordering) do
-        [{"timeOrdering", time_ordering} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start_date) do
-        [{"startDate", start_date} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resolution) do
-        [{"resolution", resolution} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(qualities) do
-        [{"qualities", qualities} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(property_id) do
-        [{"propertyId", property_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(property_alias) do
-        [{"propertyAlias", property_alias} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(end_date) do
-        [{"endDate", end_date} | query_params]
+      if !is_nil(aggregate_types) do
+        [{"aggregateTypes", aggregate_types} | query_params]
       else
         query_params
       end
@@ -7747,8 +7691,64 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(aggregate_types) do
-        [{"aggregateTypes", aggregate_types} | query_params]
+      if !is_nil(end_date) do
+        [{"endDate", end_date} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(property_alias) do
+        [{"propertyAlias", property_alias} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(property_id) do
+        [{"propertyId", property_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(qualities) do
+        [{"qualities", qualities} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resolution) do
+        [{"resolution", resolution} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_date) do
+        [{"startDate", start_date} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(time_ordering) do
+        [{"timeOrdering", time_ordering} | query_params]
       else
         query_params
       end
@@ -7799,8 +7799,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(property_id) do
-        [{"propertyId", property_id} | query_params]
+      if !is_nil(asset_id) do
+        [{"assetId", asset_id} | query_params]
       else
         query_params
       end
@@ -7813,8 +7813,8 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(asset_id) do
-        [{"assetId", asset_id} | query_params]
+      if !is_nil(property_id) do
+        [{"propertyId", property_id} | query_params]
       else
         query_params
       end
@@ -7877,50 +7877,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(time_ordering) do
-        [{"timeOrdering", time_ordering} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start_date) do
-        [{"startDate", start_date} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(qualities) do
-        [{"qualities", qualities} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(property_id) do
-        [{"propertyId", property_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(property_alias) do
-        [{"propertyAlias", property_alias} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(asset_id) do
+        [{"assetId", asset_id} | query_params]
       else
         query_params
       end
@@ -7933,8 +7891,50 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(asset_id) do
-        [{"assetId", asset_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(property_alias) do
+        [{"propertyAlias", property_alias} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(property_id) do
+        [{"propertyId", property_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(qualities) do
+        [{"qualities", qualities} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_date) do
+        [{"startDate", start_date} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(time_ordering) do
+        [{"timeOrdering", time_ordering} | query_params]
       else
         query_params
       end
@@ -8010,78 +8010,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start_time_offset_in_nanos) do
-        [{"startTimeOffsetInNanos", start_time_offset_in_nanos} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start_time_in_seconds) do
-        [{"startTimeInSeconds", start_time_in_seconds} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(quality) do
-        [{"quality", quality} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(property_id) do
-        [{"propertyId", property_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(property_alias) do
-        [{"propertyAlias", property_alias} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(interval_window_in_seconds) do
-        [{"intervalWindowInSeconds", interval_window_in_seconds} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(interval_in_seconds) do
-        [{"intervalInSeconds", interval_in_seconds} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(end_time_offset_in_nanos) do
-        [{"endTimeOffsetInNanos", end_time_offset_in_nanos} | query_params]
+      if !is_nil(asset_id) do
+        [{"assetId", asset_id} | query_params]
       else
         query_params
       end
@@ -8094,8 +8024,78 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(asset_id) do
-        [{"assetId", asset_id} | query_params]
+      if !is_nil(end_time_offset_in_nanos) do
+        [{"endTimeOffsetInNanos", end_time_offset_in_nanos} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(interval_in_seconds) do
+        [{"intervalInSeconds", interval_in_seconds} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(interval_window_in_seconds) do
+        [{"intervalWindowInSeconds", interval_window_in_seconds} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(property_alias) do
+        [{"propertyAlias", property_alias} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(property_id) do
+        [{"propertyId", property_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(quality) do
+        [{"quality", quality} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time_in_seconds) do
+        [{"startTimeInSeconds", start_time_in_seconds} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time_offset_in_nanos) do
+        [{"startTimeOffsetInNanos", start_time_offset_in_nanos} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
       else
         query_params
       end
@@ -8178,36 +8178,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resource_id) do
-        [{"resourceId", resource_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(identity_type) do
-        [{"identityType", identity_type} | query_params]
+      if !is_nil(iam_arn) do
+        [{"iamArn", iam_arn} | query_params]
       else
         query_params
       end
@@ -8220,8 +8192,36 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(iam_arn) do
-        [{"iamArn", iam_arn} | query_params]
+      if !is_nil(identity_type) do
+        [{"identityType", identity_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_id) do
+        [{"resourceId", resource_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
       else
         query_params
       end
@@ -8263,29 +8263,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(target_resource_type) do
-        [{"targetResourceType", target_resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(target_resource_id) do
-        [{"targetResourceId", target_resource_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resolve_to_resource_type) do
-        [{"resolveToResourceType", resolve_to_resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resolve_to_resource_id) do
-        [{"resolveToResourceId", resolve_to_resource_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -8298,8 +8277,29 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(resolve_to_resource_id) do
+        [{"resolveToResourceId", resolve_to_resource_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resolve_to_resource_type) do
+        [{"resolveToResourceType", resolve_to_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target_resource_id) do
+        [{"targetResourceId", target_resource_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target_resource_type) do
+        [{"targetResourceType", target_resource_type} | query_params]
       else
         query_params
       end
@@ -8337,8 +8337,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(asset_model_version) do
+        [{"assetModelVersion", asset_model_version} | query_params]
       else
         query_params
       end
@@ -8351,8 +8351,8 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(asset_model_version) do
-        [{"assetModelVersion", asset_model_version} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8396,15 +8396,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(asset_model_version) do
+        [{"assetModelVersion", asset_model_version} | query_params]
       else
         query_params
       end
@@ -8417,8 +8410,15 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(asset_model_version) do
-        [{"assetModelVersion", asset_model_version} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8456,15 +8456,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(asset_model_types) do
+        [{"assetModelTypes", asset_model_types} | query_params]
       else
         query_params
       end
@@ -8477,8 +8470,15 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(asset_model_types) do
-        [{"assetModelTypes", asset_model_types} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8520,8 +8520,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(filter) do
+        [{"filter", filter} | query_params]
       else
         query_params
       end
@@ -8534,8 +8534,8 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(filter) do
-        [{"filter", filter} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8578,8 +8578,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(traversal_type) do
-        [{"traversalType", traversal_type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -8592,8 +8592,8 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(traversal_type) do
+        [{"traversalType", traversal_type} | query_params]
       else
         query_params
       end
@@ -8646,15 +8646,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(asset_model_id) do
+        [{"assetModelId", asset_model_id} | query_params]
       else
         query_params
       end
@@ -8667,8 +8660,15 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(asset_model_id) do
-        [{"assetModelId", asset_model_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8718,15 +8718,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(traversal_direction) do
-        [{"traversalDirection", traversal_direction} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(hierarchy_id) do
+        [{"hierarchyId", hierarchy_id} | query_params]
       else
         query_params
       end
@@ -8739,8 +8732,15 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(hierarchy_id) do
-        [{"hierarchyId", hierarchy_id} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traversal_direction) do
+        [{"traversalDirection", traversal_direction} | query_params]
       else
         query_params
       end
@@ -8780,8 +8780,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(filter) do
+        [{"filter", filter} | query_params]
       else
         query_params
       end
@@ -8794,8 +8794,8 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(filter) do
-        [{"filter", filter} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8833,15 +8833,15 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8918,15 +8918,15 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8962,8 +8962,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(computation_model_type) do
+        [{"computationModelType", computation_model_type} | query_params]
       else
         query_params
       end
@@ -8976,8 +8976,8 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(computation_model_type) do
-        [{"computationModelType", computation_model_type} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -9013,8 +9013,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(project_id) do
-        [{"projectId", project_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -9027,8 +9027,8 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(project_id) do
+        [{"projectId", project_id} | query_params]
       else
         query_params
       end
@@ -9064,8 +9064,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(source_type) do
-        [{"sourceType", source_type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -9078,8 +9078,8 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(source_type) do
+        [{"sourceType", source_type} | query_params]
       else
         query_params
       end
@@ -9123,36 +9123,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(target_resource_type) do
-        [{"targetResourceType", target_resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(target_resource_id) do
-        [{"targetResourceId", target_resource_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resolve_to_resource_type) do
-        [{"resolveToResourceType", resolve_to_resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resolve_to_resource_id) do
-        [{"resolveToResourceId", resolve_to_resource_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(action_type) do
+        [{"actionType", action_type} | query_params]
       else
         query_params
       end
@@ -9165,8 +9137,36 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(action_type) do
-        [{"actionType", action_type} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resolve_to_resource_id) do
+        [{"resolveToResourceId", resolve_to_resource_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resolve_to_resource_type) do
+        [{"resolveToResourceType", resolve_to_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target_resource_id) do
+        [{"targetResourceId", target_resource_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target_resource_type) do
+        [{"targetResourceType", target_resource_type} | query_params]
       else
         query_params
       end
@@ -9190,15 +9190,15 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -9236,15 +9236,15 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -9268,15 +9268,15 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -9313,15 +9313,15 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -9357,8 +9357,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(portal_id) do
-        [{"portalId", portal_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -9371,8 +9371,8 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(portal_id) do
+        [{"portalId", portal_id} | query_params]
       else
         query_params
       end
@@ -9437,22 +9437,8 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     query_params =
-      if !is_nil(time_series_type) do
-        [{"timeSeriesType", time_series_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(alias_prefix) do
+        [{"aliasPrefix", alias_prefix} | query_params]
       else
         query_params
       end
@@ -9465,8 +9451,22 @@ defmodule AWS.IoTSiteWise do
       end
 
     query_params =
-      if !is_nil(alias_prefix) do
-        [{"aliasPrefix", alias_prefix} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(time_series_type) do
+        [{"timeSeriesType", time_series_type} | query_params]
       else
         query_params
       end

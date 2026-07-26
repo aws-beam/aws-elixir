@@ -41,242 +41,24 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
-      detach_managed_policy_from_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("ManagedPolicyArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
+      access_control_attribute() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => access_control_attribute_value()
       }
       
   """
-  @type detach_managed_policy_from_permission_set_request() :: %{(String.t() | atom()) => any()}
+  @type access_control_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_instances_response() :: %{
-        "Instances" => list(instance_metadata()),
-        "NextToken" => String.t() | atom()
+      access_control_attribute_value() :: %{
+        "Source" => list(String.t() | atom())
       }
       
   """
-  @type list_instances_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      grant_item() :: %{
-        "Grant" => list(),
-        "GrantType" => list(any())
-      }
-      
-  """
-  @type grant_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_application_access_scope_response() :: %{
-        "AuthorizedTargets" => list(String.t() | atom()),
-        "Scope" => String.t() | atom()
-      }
-      
-  """
-  @type get_application_access_scope_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detach_customer_managed_policy_reference_from_permission_set_request() :: %{
-        required("CustomerManagedPolicyReference") => customer_managed_policy_reference(),
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type detach_customer_managed_policy_reference_from_permission_set_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      detach_customer_managed_policy_reference_from_permission_set_response() :: %{}
-      
-  """
-  @type detach_customer_managed_policy_reference_from_permission_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_inline_policy_from_permission_set_response() :: %{}
-      
-  """
-  @type delete_inline_policy_from_permission_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      attach_managed_policy_to_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("ManagedPolicyArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type attach_managed_policy_to_permission_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_permission_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_permissions_boundary_from_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_permissions_boundary_from_permission_set_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      put_application_assignment_configuration_response() :: %{}
-      
-  """
-  @type put_application_assignment_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_permission_sets_provisioned_to_account_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ProvisioningStatus") => list(any()),
-        required("AccountId") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_permission_sets_provisioned_to_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_server_scope_details() :: %{
-        "DetailedTitle" => String.t() | atom(),
-        "LongDescription" => String.t() | atom()
-      }
-      
-  """
-  @type resource_server_scope_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attach_customer_managed_policy_reference_to_permission_set_request() :: %{
-        required("CustomerManagedPolicyReference") => customer_managed_policy_reference(),
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type attach_customer_managed_policy_reference_to_permission_set_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      list_account_assignment_deletion_status_request() :: %{
-        optional("Filter") => operation_status_filter(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_account_assignment_deletion_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provision_permission_set_request() :: %{
-        optional("TargetId") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom(),
-        required("TargetType") => list(any())
-      }
-      
-  """
-  @type provision_permission_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_trusted_token_issuer_response() :: %{}
-      
-  """
-  @type update_trusted_token_issuer_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_permission_set_response() :: %{}
-      
-  """
-  @type delete_permission_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_region_response() :: %{
-        "Status" => list(any())
-      }
-      
-  """
-  @type remove_region_response() :: %{(String.t() | atom()) => any()}
+  @type access_control_attribute_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -289,484 +71,6 @@ defmodule AWS.SSOAdmin do
       
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_permission_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      trusted_token_issuer_metadata() :: %{
-        "Name" => String.t() | atom(),
-        "TrustedTokenIssuerArn" => String.t() | atom(),
-        "TrustedTokenIssuerType" => list(any())
-      }
-      
-  """
-  @type trusted_token_issuer_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      customer_managed_policy_reference() :: %{
-        "Name" => String.t() | atom(),
-        "Path" => String.t() | atom()
-      }
-      
-  """
-  @type customer_managed_policy_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_assignments_filter() :: %{
-        "ApplicationArn" => String.t() | atom()
-      }
-      
-  """
-  @type list_application_assignments_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_assignment_creation_status_request() :: %{
-        required("AccountAssignmentCreationRequestId") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_account_assignment_creation_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      permissions_boundary() :: %{
-        "CustomerManagedPolicyReference" => customer_managed_policy_reference(),
-        "ManagedPolicyArn" => String.t() | atom()
-      }
-      
-  """
-  @type permissions_boundary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_providers_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_application_providers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_trusted_token_issuers_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "TrustedTokenIssuers" => list(trusted_token_issuer_metadata())
-      }
-      
-  """
-  @type list_trusted_token_issuers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_trusted_token_issuers_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_trusted_token_issuers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_trusted_token_issuer_request() :: %{
-        required("TrustedTokenIssuerArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_trusted_token_issuer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_permissions_boundary_to_permission_set_response() :: %{}
-      
-  """
-  @type put_permissions_boundary_to_permission_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_application_session_configuration_request() :: %{
-        required("ApplicationArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_application_session_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_assignment() :: %{
-        "ApplicationArn" => String.t() | atom(),
-        "PrincipalId" => String.t() | atom(),
-        "PrincipalType" => list(any())
-      }
-      
-  """
-  @type application_assignment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_assignments_for_principal_response() :: %{
-        "ApplicationAssignments" => list(application_assignment_for_principal()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_application_assignments_for_principal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_assignment_response() :: %{
-        "ApplicationArn" => String.t() | atom(),
-        "PrincipalId" => String.t() | atom(),
-        "PrincipalType" => list(any())
-      }
-      
-  """
-  @type describe_application_assignment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_permission_set_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("RelayState") => String.t() | atom(),
-        optional("SessionDuration") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_permission_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      iam_authentication_method() :: %{
-        "ActorPolicy" => any()
-      }
-      
-  """
-  @type iam_authentication_method() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_instance_access_control_attribute_configuration_response() :: %{
-        "InstanceAccessControlAttributeConfiguration" => instance_access_control_attribute_configuration(),
-        "Status" => list(any()),
-        "StatusReason" => String.t() | atom()
-      }
-      
-  """
-  @type describe_instance_access_control_attribute_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_response() :: %{
-        "ApplicationAccount" => String.t() | atom(),
-        "ApplicationArn" => String.t() | atom(),
-        "ApplicationProviderArn" => String.t() | atom(),
-        "CreatedDate" => non_neg_integer(),
-        "CreatedFrom" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "IdentityStoreArn" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PortalOptions" => portal_options(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type describe_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_provider() :: %{
-        "ApplicationProviderArn" => String.t() | atom(),
-        "DisplayData" => display_data(),
-        "FederationProtocol" => list(any()),
-        "ResourceServerConfig" => resource_server_config()
-      }
-      
-  """
-  @type application_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_instance_request() :: %{
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_instance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_assignment_operation_status_metadata() :: %{
-        "CreatedDate" => non_neg_integer(),
-        "RequestId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type account_assignment_operation_status_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_access_scopes_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ApplicationArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_application_access_scopes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_instance_access_control_attribute_configuration_response() :: %{}
-      
-  """
-  @type create_instance_access_control_attribute_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_permission_set_response() :: %{}
-      
-  """
-  @type update_permission_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_application_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("PortalOptions") => portal_options(),
-        optional("Status") => list(any()),
-        optional("Tags") => list(tag()),
-        required("ApplicationProviderArn") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_trusted_token_issuer_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("InstanceArn") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("TrustedTokenIssuerConfiguration") => list(),
-        required("TrustedTokenIssuerType") => list(any())
-      }
-      
-  """
-  @type create_trusted_token_issuer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_inline_policy_to_permission_set_request() :: %{
-        required("InlinePolicy") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_inline_policy_to_permission_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      oidc_jwt_update_configuration() :: %{
-        "ClaimAttributePath" => String.t() | atom(),
-        "IdentityStoreAttributePath" => String.t() | atom(),
-        "JwksRetrievalOption" => list(any())
-      }
-      
-  """
-  @type oidc_jwt_update_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_application_authentication_method_response() :: %{
-        "AuthenticationMethod" => list()
-      }
-      
-  """
-  @type get_application_authentication_method_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attach_managed_policy_to_permission_set_response() :: %{}
-      
-  """
-  @type attach_managed_policy_to_permission_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_region_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("RegionName") => String.t() | atom()
-      }
-      
-  """
-  @type add_region_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_account_assignment_creation_status_request() :: %{
-        optional("Filter") => operation_status_filter(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_account_assignment_creation_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authorization_code_grant() :: %{
-        "RedirectUris" => list(String.t() | atom())
-      }
-      
-  """
-  @type authorization_code_grant() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accounts_for_provisioned_permission_set_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ProvisioningStatus") => list(any()),
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_accounts_for_provisioned_permission_set_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_instance_request() :: %{
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -786,809 +90,6 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
-      encryption_configuration_details() :: %{
-        "EncryptionStatus" => list(any()),
-        "EncryptionStatusReason" => String.t() | atom(),
-        "KeyType" => list(any()),
-        "KmsKeyArn" => String.t() | atom()
-      }
-      
-  """
-  @type encryption_configuration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_application_authentication_method_request() :: %{
-        required("ApplicationArn") => String.t() | atom(),
-        required("AuthenticationMethodType") => list(any())
-      }
-      
-  """
-  @type get_application_authentication_method_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_instances_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_permission_sets_provisioned_to_account_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PermissionSets" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_permission_sets_provisioned_to_account_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      operation_status_filter() :: %{
-        "Status" => list(any())
-      }
-      
-  """
-  @type operation_status_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_assignments_response() :: %{
-        "ApplicationAssignments" => list(application_assignment()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_application_assignments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_permission_set_response() :: %{
-        "PermissionSet" => permission_set()
-      }
-      
-  """
-  @type create_permission_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_provider_response() :: %{
-        "ApplicationProviderArn" => String.t() | atom(),
-        "DisplayData" => display_data(),
-        "FederationProtocol" => list(any()),
-        "ResourceServerConfig" => resource_server_config()
-      }
-      
-  """
-  @type describe_application_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_account_assignment_creation_status_response() :: %{
-        "AccountAssignmentsCreationStatus" => list(account_assignment_operation_status_metadata()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_account_assignment_creation_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_instance_response() :: %{}
-      
-  """
-  @type update_instance_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_assignment_deletion_status_response() :: %{
-        "AccountAssignmentDeletionStatus" => account_assignment_operation_status()
-      }
-      
-  """
-  @type describe_account_assignment_deletion_status_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      list_managed_policies_in_permission_set_response() :: %{
-        "AttachedManagedPolicies" => list(attached_managed_policy()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_managed_policies_in_permission_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_application_portal_options() :: %{
-        "SignInOptions" => sign_in_options()
-      }
-      
-  """
-  @type update_application_portal_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_application_session_configuration_response() :: %{}
-      
-  """
-  @type put_application_session_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provision_permission_set_response() :: %{
-        "PermissionSetProvisioningStatus" => permission_set_provisioning_status()
-      }
-      
-  """
-  @type provision_permission_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_applications_response() :: %{
-        "Applications" => list(application()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_applications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_permissions_boundary_for_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_permissions_boundary_for_permission_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_permission_sets_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_permission_sets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      instance_metadata() :: %{
-        "CreatedDate" => non_neg_integer(),
-        "IdentityStoreId" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "OwnerAccountId" => String.t() | atom(),
-        "PrimaryRegion" => String.t() | atom(),
-        "Regions" => list(region_metadata()),
-        "Status" => list(any()),
-        "StatusReason" => String.t() | atom()
-      }
-      
-  """
-  @type instance_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        optional("InstanceArn") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      permission_set_provisioning_status() :: %{
-        "AccountId" => String.t() | atom(),
-        "CreatedDate" => non_neg_integer(),
-        "FailureReason" => String.t() | atom(),
-        "PermissionSetArn" => String.t() | atom(),
-        "RequestId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type permission_set_provisioning_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sign_in_options() :: %{
-        "ApplicationUrl" => String.t() | atom(),
-        "Origin" => list(any())
-      }
-      
-  """
-  @type sign_in_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_region_response() :: %{
-        "AddedDate" => non_neg_integer(),
-        "IsPrimaryRegion" => boolean(),
-        "RegionName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type describe_region_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      permission_set() :: %{
-        "CreatedDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PermissionSetArn" => String.t() | atom(),
-        "RelayState" => String.t() | atom(),
-        "SessionDuration" => String.t() | atom()
-      }
-      
-  """
-  @type permission_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_instance_access_control_attribute_configuration_request() :: %{
-        required("InstanceAccessControlAttributeConfiguration") => instance_access_control_attribute_configuration(),
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_instance_access_control_attribute_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      create_instance_response() :: %{
-        "InstanceArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accounts_for_provisioned_permission_set_response() :: %{
-        "AccountIds" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_accounts_for_provisioned_permission_set_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      create_instance_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Tags") => list(tag())
-      }
-      
-  """
-  @type create_instance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_regions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Regions" => list(region_metadata())
-      }
-      
-  """
-  @type list_regions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_region_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("RegionName") => String.t() | atom()
-      }
-      
-  """
-  @type remove_region_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_permission_set_provisioning_status_request() :: %{
-        optional("Filter") => operation_status_filter(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_permission_set_provisioning_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attach_customer_managed_policy_reference_to_permission_set_response() :: %{}
-      
-  """
-  @type attach_customer_managed_policy_reference_to_permission_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_request() :: %{
-        required("ApplicationArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      portal_options() :: %{
-        "SignInOptions" => sign_in_options(),
-        "Visibility" => list(any())
-      }
-      
-  """
-  @type portal_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_application_response() :: %{}
-      
-  """
-  @type update_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_assignment_creation_status_response() :: %{
-        "AccountAssignmentCreationStatus" => account_assignment_operation_status()
-      }
-      
-  """
-  @type describe_account_assignment_creation_status_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      put_inline_policy_to_permission_set_response() :: %{}
-      
-  """
-  @type put_inline_policy_to_permission_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_access_scope_request() :: %{
-        required("ApplicationArn") => String.t() | atom(),
-        required("Scope") => String.t() | atom()
-      }
-      
-  """
-  @type delete_application_access_scope_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_response() :: %{}
-      
-  """
-  @type delete_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_applications_request() :: %{
-        optional("Filter") => list_applications_filter(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_applications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_application_session_configuration_response() :: %{
-        "UserBackgroundSessionApplicationStatus" => list(any())
-      }
-      
-  """
-  @type get_application_session_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scope_details() :: %{
-        "AuthorizedTargets" => list(String.t() | atom()),
-        "Scope" => String.t() | atom()
-      }
-      
-  """
-  @type scope_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_application_session_configuration_request() :: %{
-        optional("UserBackgroundSessionApplicationStatus") => list(any()),
-        required("ApplicationArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_application_session_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_request() :: %{
-        required("ApplicationArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_assignment_response() :: %{}
-      
-  """
-  @type delete_application_assignment_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_control_attribute_value() :: %{
-        "Source" => list(String.t() | atom())
-      }
-      
-  """
-  @type access_control_attribute_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_instance_access_control_attribute_configuration_request() :: %{
-        required("InstanceAccessControlAttributeConfiguration") => instance_access_control_attribute_configuration(),
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_instance_access_control_attribute_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      list_permission_sets_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PermissionSets" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_permission_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attached_managed_policy() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type attached_managed_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_permissions_boundary_from_permission_set_response() :: %{}
-      
-  """
-  @type delete_permissions_boundary_from_permission_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      authentication_method_item() :: %{
-        "AuthenticationMethod" => list(),
-        "AuthenticationMethodType" => list(any())
-      }
-      
-  """
-  @type authentication_method_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_trusted_token_issuer_response() :: %{
-        "TrustedTokenIssuerArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_trusted_token_issuer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_application_access_scope_request() :: %{
-        optional("AuthorizedTargets") => list(String.t() | atom()),
-        required("ApplicationArn") => String.t() | atom(),
-        required("Scope") => String.t() | atom()
-      }
-      
-  """
-  @type put_application_access_scope_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        optional("InstanceArn") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_account_assignments_for_principal_request() :: %{
-        optional("Filter") => list_account_assignments_filter(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom(),
-        required("PrincipalId") => String.t() | atom(),
-        required("PrincipalType") => list(any())
-      }
-      
-  """
-  @type list_account_assignments_for_principal_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      refresh_token_grant() :: %{}
-      
-  """
-  @type refresh_token_grant() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_account_assignment_response() :: %{
-        "AccountAssignmentDeletionStatus" => account_assignment_operation_status()
-      }
-      
-  """
-  @type delete_account_assignment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      permission_set_provisioning_status_metadata() :: %{
-        "CreatedDate" => non_neg_integer(),
-        "RequestId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type permission_set_provisioning_status_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_trusted_token_issuer_request() :: %{
-        optional("Name") => String.t() | atom(),
-        optional("TrustedTokenIssuerConfiguration") => list(),
-        required("TrustedTokenIssuerArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_trusted_token_issuer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_application_grant_request() :: %{
-        required("ApplicationArn") => String.t() | atom(),
-        required("GrantType") => list(any())
-      }
-      
-  """
-  @type get_application_grant_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_managed_policies_in_permission_set_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_managed_policies_in_permission_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_instance_response() :: %{}
-      
-  """
-  @type delete_instance_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
       account_assignment_for_principal() :: %{
         "AccountId" => String.t() | atom(),
         "PermissionSetArn" => String.t() | atom(),
@@ -1603,47 +104,45 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
-      list_customer_managed_policy_references_in_permission_set_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_customer_managed_policy_references_in_permission_set_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      get_inline_policy_for_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_inline_policy_for_permission_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_instance_response() :: %{
+      account_assignment_operation_status() :: %{
         "CreatedDate" => non_neg_integer(),
-        "EncryptionConfigurationDetails" => encryption_configuration_details(),
-        "IdentityStoreId" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "OwnerAccountId" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "PermissionSetArn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
+        "PrincipalType" => list(any()),
+        "RequestId" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | atom()
+        "TargetId" => String.t() | atom(),
+        "TargetType" => list(any())
       }
       
   """
-  @type describe_instance_response() :: %{(String.t() | atom()) => any()}
+  @type account_assignment_operation_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_assignment_operation_status_metadata() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "RequestId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type account_assignment_operation_status_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_region_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("RegionName") => String.t() | atom()
+      }
+      
+  """
+  @type add_region_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1681,10 +180,477 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
-      delete_trusted_token_issuer_response() :: %{}
+      application_assignment() :: %{
+        "ApplicationArn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
+        "PrincipalType" => list(any())
+      }
       
   """
-  @type delete_trusted_token_issuer_response() :: %{}
+  @type application_assignment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      application_assignment_for_principal() :: %{
+        "ApplicationArn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
+        "PrincipalType" => list(any())
+      }
+      
+  """
+  @type application_assignment_for_principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      application_provider() :: %{
+        "ApplicationProviderArn" => String.t() | atom(),
+        "DisplayData" => display_data(),
+        "FederationProtocol" => list(any()),
+        "ResourceServerConfig" => resource_server_config()
+      }
+      
+  """
+  @type application_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_customer_managed_policy_reference_to_permission_set_request() :: %{
+        required("CustomerManagedPolicyReference") => customer_managed_policy_reference(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
+      }
+      
+  """
+  @type attach_customer_managed_policy_reference_to_permission_set_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_customer_managed_policy_reference_to_permission_set_response() :: %{}
+      
+  """
+  @type attach_customer_managed_policy_reference_to_permission_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_managed_policy_to_permission_set_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("ManagedPolicyArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
+      }
+      
+  """
+  @type attach_managed_policy_to_permission_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_managed_policy_to_permission_set_response() :: %{}
+      
+  """
+  @type attach_managed_policy_to_permission_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      attached_managed_policy() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type attached_managed_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authentication_method_item() :: %{
+        "AuthenticationMethod" => list(),
+        "AuthenticationMethodType" => list(any())
+      }
+      
+  """
+  @type authentication_method_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authorization_code_grant() :: %{
+        "RedirectUris" => list(String.t() | atom())
+      }
+      
+  """
+  @type authorization_code_grant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authorized_token_issuer() :: %{
+        "AuthorizedAudiences" => list(String.t() | atom()),
+        "TrustedTokenIssuerArn" => String.t() | atom()
+      }
+      
+  """
+  @type authorized_token_issuer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_account_assignment_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
+        required("PrincipalType") => list(any()),
+        required("TargetId") => String.t() | atom(),
+        required("TargetType") => list(any())
+      }
+      
+  """
+  @type create_account_assignment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_account_assignment_response() :: %{
+        "AccountAssignmentCreationStatus" => account_assignment_operation_status()
+      }
+      
+  """
+  @type create_account_assignment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_application_assignment_request() :: %{
+        required("ApplicationArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
+        required("PrincipalType") => list(any())
+      }
+      
+  """
+  @type create_application_assignment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_application_assignment_response() :: %{}
+      
+  """
+  @type create_application_assignment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_application_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("PortalOptions") => portal_options(),
+        optional("Status") => list(any()),
+        optional("Tags") => list(tag()),
+        required("ApplicationProviderArn") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_application_response() :: %{
+        "ApplicationArn" => String.t() | atom(),
+        "IdentityStoreArn" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instance_access_control_attribute_configuration_request() :: %{
+        required("InstanceAccessControlAttributeConfiguration") => instance_access_control_attribute_configuration(),
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_instance_access_control_attribute_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instance_access_control_attribute_configuration_response() :: %{}
+      
+  """
+  @type create_instance_access_control_attribute_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instance_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instance_response() :: %{
+        "InstanceArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_permission_set_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("RelayState") => String.t() | atom(),
+        optional("SessionDuration") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("InstanceArn") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_permission_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_permission_set_response() :: %{
+        "PermissionSet" => permission_set()
+      }
+      
+  """
+  @type create_permission_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_trusted_token_issuer_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("InstanceArn") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("TrustedTokenIssuerConfiguration") => list(),
+        required("TrustedTokenIssuerType") => list(any())
+      }
+      
+  """
+  @type create_trusted_token_issuer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_trusted_token_issuer_response() :: %{
+        "TrustedTokenIssuerArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_trusted_token_issuer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_managed_policy_reference() :: %{
+        "Name" => String.t() | atom(),
+        "Path" => String.t() | atom()
+      }
+      
+  """
+  @type customer_managed_policy_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_account_assignment_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
+        required("PrincipalType") => list(any()),
+        required("TargetId") => String.t() | atom(),
+        required("TargetType") => list(any())
+      }
+      
+  """
+  @type delete_account_assignment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_account_assignment_response() :: %{
+        "AccountAssignmentDeletionStatus" => account_assignment_operation_status()
+      }
+      
+  """
+  @type delete_account_assignment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_access_scope_request() :: %{
+        required("ApplicationArn") => String.t() | atom(),
+        required("Scope") => String.t() | atom()
+      }
+      
+  """
+  @type delete_application_access_scope_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_assignment_request() :: %{
+        required("ApplicationArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
+        required("PrincipalType") => list(any())
+      }
+      
+  """
+  @type delete_application_assignment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_assignment_response() :: %{}
+      
+  """
+  @type delete_application_assignment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_authentication_method_request() :: %{
+        required("ApplicationArn") => String.t() | atom(),
+        required("AuthenticationMethodType") => list(any())
+      }
+      
+  """
+  @type delete_application_authentication_method_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_grant_request() :: %{
+        required("ApplicationArn") => String.t() | atom(),
+        required("GrantType") => list(any())
+      }
+      
+  """
+  @type delete_application_grant_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_request() :: %{
+        required("ApplicationArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_response() :: %{}
+      
+  """
+  @type delete_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_inline_policy_from_permission_set_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_inline_policy_from_permission_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_inline_policy_from_permission_set_response() :: %{}
+      
+  """
+  @type delete_inline_policy_from_permission_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_instance_access_control_attribute_configuration_request() :: %{
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_instance_access_control_attribute_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1699,26 +665,934 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
-      access_control_attribute() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => access_control_attribute_value()
+      delete_instance_request() :: %{
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type access_control_attribute() :: %{(String.t() | atom()) => any()}
+  @type delete_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_application_response() :: %{
-        "ApplicationArn" => String.t() | atom(),
-        "IdentityStoreArn" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom()
+      delete_instance_response() :: %{}
+      
+  """
+  @type delete_instance_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_permission_set_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type create_application_response() :: %{(String.t() | atom()) => any()}
+  @type delete_permission_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_permission_set_response() :: %{}
+      
+  """
+  @type delete_permission_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_permissions_boundary_from_permission_set_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_permissions_boundary_from_permission_set_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_permissions_boundary_from_permission_set_response() :: %{}
+      
+  """
+  @type delete_permissions_boundary_from_permission_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_trusted_token_issuer_request() :: %{
+        required("TrustedTokenIssuerArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_trusted_token_issuer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_trusted_token_issuer_response() :: %{}
+      
+  """
+  @type delete_trusted_token_issuer_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_assignment_creation_status_request() :: %{
+        required("AccountAssignmentCreationRequestId") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_account_assignment_creation_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_assignment_creation_status_response() :: %{
+        "AccountAssignmentCreationStatus" => account_assignment_operation_status()
+      }
+      
+  """
+  @type describe_account_assignment_creation_status_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_assignment_deletion_status_request() :: %{
+        required("AccountAssignmentDeletionRequestId") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_account_assignment_deletion_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_assignment_deletion_status_response() :: %{
+        "AccountAssignmentDeletionStatus" => account_assignment_operation_status()
+      }
+      
+  """
+  @type describe_account_assignment_deletion_status_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_assignment_request() :: %{
+        required("ApplicationArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
+        required("PrincipalType") => list(any())
+      }
+      
+  """
+  @type describe_application_assignment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_assignment_response() :: %{
+        "ApplicationArn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
+        "PrincipalType" => list(any())
+      }
+      
+  """
+  @type describe_application_assignment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_provider_request() :: %{
+        required("ApplicationProviderArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_application_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_provider_response() :: %{
+        "ApplicationProviderArn" => String.t() | atom(),
+        "DisplayData" => display_data(),
+        "FederationProtocol" => list(any()),
+        "ResourceServerConfig" => resource_server_config()
+      }
+      
+  """
+  @type describe_application_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_request() :: %{
+        required("ApplicationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_response() :: %{
+        "ApplicationAccount" => String.t() | atom(),
+        "ApplicationArn" => String.t() | atom(),
+        "ApplicationProviderArn" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "CreatedFrom" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IdentityStoreArn" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PortalOptions" => portal_options(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type describe_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instance_access_control_attribute_configuration_request() :: %{
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_instance_access_control_attribute_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instance_access_control_attribute_configuration_response() :: %{
+        "InstanceAccessControlAttributeConfiguration" => instance_access_control_attribute_configuration(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
+      }
+      
+  """
+  @type describe_instance_access_control_attribute_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instance_request() :: %{
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instance_response() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "EncryptionConfigurationDetails" => encryption_configuration_details(),
+        "IdentityStoreId" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OwnerAccountId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
+      }
+      
+  """
+  @type describe_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_permission_set_provisioning_status_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("ProvisionPermissionSetRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_permission_set_provisioning_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_permission_set_provisioning_status_response() :: %{
+        "PermissionSetProvisioningStatus" => permission_set_provisioning_status()
+      }
+      
+  """
+  @type describe_permission_set_provisioning_status_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_permission_set_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_permission_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_permission_set_response() :: %{
+        "PermissionSet" => permission_set()
+      }
+      
+  """
+  @type describe_permission_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_region_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("RegionName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_region_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_region_response() :: %{
+        "AddedDate" => non_neg_integer(),
+        "IsPrimaryRegion" => boolean(),
+        "RegionName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type describe_region_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_trusted_token_issuer_request() :: %{
+        required("TrustedTokenIssuerArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_trusted_token_issuer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_trusted_token_issuer_response() :: %{
+        "Name" => String.t() | atom(),
+        "TrustedTokenIssuerArn" => String.t() | atom(),
+        "TrustedTokenIssuerConfiguration" => list(),
+        "TrustedTokenIssuerType" => list(any())
+      }
+      
+  """
+  @type describe_trusted_token_issuer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_customer_managed_policy_reference_from_permission_set_request() :: %{
+        required("CustomerManagedPolicyReference") => customer_managed_policy_reference(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
+      }
+      
+  """
+  @type detach_customer_managed_policy_reference_from_permission_set_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_customer_managed_policy_reference_from_permission_set_response() :: %{}
+      
+  """
+  @type detach_customer_managed_policy_reference_from_permission_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_managed_policy_from_permission_set_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("ManagedPolicyArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
+      }
+      
+  """
+  @type detach_managed_policy_from_permission_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_managed_policy_from_permission_set_response() :: %{}
+      
+  """
+  @type detach_managed_policy_from_permission_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      display_data() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "IconUrl" => String.t() | atom()
+      }
+      
+  """
+  @type display_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_configuration() :: %{
+        "KeyType" => list(any()),
+        "KmsKeyArn" => String.t() | atom()
+      }
+      
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_configuration_details() :: %{
+        "EncryptionStatus" => list(any()),
+        "EncryptionStatusReason" => String.t() | atom(),
+        "KeyType" => list(any()),
+        "KmsKeyArn" => String.t() | atom()
+      }
+      
+  """
+  @type encryption_configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_application_access_scope_request() :: %{
+        required("ApplicationArn") => String.t() | atom(),
+        required("Scope") => String.t() | atom()
+      }
+      
+  """
+  @type get_application_access_scope_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_application_access_scope_response() :: %{
+        "AuthorizedTargets" => list(String.t() | atom()),
+        "Scope" => String.t() | atom()
+      }
+      
+  """
+  @type get_application_access_scope_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_application_assignment_configuration_request() :: %{
+        required("ApplicationArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_application_assignment_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_application_assignment_configuration_response() :: %{
+        "AssignmentRequired" => boolean()
+      }
+      
+  """
+  @type get_application_assignment_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_application_authentication_method_request() :: %{
+        required("ApplicationArn") => String.t() | atom(),
+        required("AuthenticationMethodType") => list(any())
+      }
+      
+  """
+  @type get_application_authentication_method_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_application_authentication_method_response() :: %{
+        "AuthenticationMethod" => list()
+      }
+      
+  """
+  @type get_application_authentication_method_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_application_grant_request() :: %{
+        required("ApplicationArn") => String.t() | atom(),
+        required("GrantType") => list(any())
+      }
+      
+  """
+  @type get_application_grant_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_application_grant_response() :: %{
+        "Grant" => list()
+      }
+      
+  """
+  @type get_application_grant_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_application_session_configuration_request() :: %{
+        required("ApplicationArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_application_session_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_application_session_configuration_response() :: %{
+        "UserBackgroundSessionApplicationStatus" => list(any())
+      }
+      
+  """
+  @type get_application_session_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_inline_policy_for_permission_set_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_inline_policy_for_permission_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_inline_policy_for_permission_set_response() :: %{
+        "InlinePolicy" => String.t() | atom()
+      }
+      
+  """
+  @type get_inline_policy_for_permission_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_permissions_boundary_for_permission_set_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_permissions_boundary_for_permission_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_permissions_boundary_for_permission_set_response() :: %{
+        "PermissionsBoundary" => permissions_boundary()
+      }
+      
+  """
+  @type get_permissions_boundary_for_permission_set_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      grant_item() :: %{
+        "Grant" => list(),
+        "GrantType" => list(any())
+      }
+      
+  """
+  @type grant_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iam_authentication_method() :: %{
+        "ActorPolicy" => any()
+      }
+      
+  """
+  @type iam_authentication_method() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_access_control_attribute_configuration() :: %{
+        "AccessControlAttributes" => list(access_control_attribute())
+      }
+      
+  """
+  @type instance_access_control_attribute_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_metadata() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "IdentityStoreId" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OwnerAccountId" => String.t() | atom(),
+        "PrimaryRegion" => String.t() | atom(),
+        "Regions" => list(region_metadata()),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
+      }
+      
+  """
+  @type instance_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      jwt_bearer_grant() :: %{
+        "AuthorizedTokenIssuers" => list(authorized_token_issuer())
+      }
+      
+  """
+  @type jwt_bearer_grant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_assignment_creation_status_request() :: %{
+        optional("Filter") => operation_status_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_account_assignment_creation_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_assignment_creation_status_response() :: %{
+        "AccountAssignmentsCreationStatus" => list(account_assignment_operation_status_metadata()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_account_assignment_creation_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_assignment_deletion_status_request() :: %{
+        optional("Filter") => operation_status_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_account_assignment_deletion_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_assignment_deletion_status_response() :: %{
+        "AccountAssignmentsDeletionStatus" => list(account_assignment_operation_status_metadata()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_account_assignment_deletion_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_assignments_filter() :: %{
+        "AccountId" => String.t() | atom()
+      }
+      
+  """
+  @type list_account_assignments_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_assignments_for_principal_request() :: %{
+        optional("Filter") => list_account_assignments_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
+        required("PrincipalType") => list(any())
+      }
+      
+  """
+  @type list_account_assignments_for_principal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_assignments_for_principal_response() :: %{
+        "AccountAssignments" => list(account_assignment_for_principal()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_account_assignments_for_principal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_assignments_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_account_assignments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_assignments_response() :: %{
+        "AccountAssignments" => list(account_assignment()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_account_assignments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accounts_for_provisioned_permission_set_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProvisioningStatus") => list(any()),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_accounts_for_provisioned_permission_set_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accounts_for_provisioned_permission_set_response() :: %{
+        "AccountIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_accounts_for_provisioned_permission_set_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_access_scopes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ApplicationArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_application_access_scopes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_access_scopes_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Scopes" => list(scope_details())
+      }
+      
+  """
+  @type list_application_access_scopes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_assignments_filter() :: %{
+        "ApplicationArn" => String.t() | atom()
+      }
+      
+  """
+  @type list_application_assignments_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_assignments_for_principal_request() :: %{
+        optional("Filter") => list_application_assignments_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
+        required("PrincipalType") => list(any())
+      }
+      
+  """
+  @type list_application_assignments_for_principal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_assignments_for_principal_response() :: %{
+        "ApplicationAssignments" => list(application_assignment_for_principal()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_application_assignments_for_principal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_assignments_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ApplicationArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_application_assignments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_assignments_response() :: %{
+        "ApplicationAssignments" => list(application_assignment()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_application_assignments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1748,14 +1622,13 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
-      list_application_assignments_request() :: %{
-        optional("MaxResults") => integer(),
+      list_application_grants_request() :: %{
         optional("NextToken") => String.t() | atom(),
         required("ApplicationArn") => String.t() | atom()
       }
       
   """
-  @type list_application_assignments_request() :: %{(String.t() | atom()) => any()}
+  @type list_application_grants_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1773,81 +1646,25 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
-      create_application_assignment_response() :: %{}
-      
-  """
-  @type create_application_assignment_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_regions_request() :: %{
+      list_application_providers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_regions_request() :: %{(String.t() | atom()) => any()}
+  @type list_application_providers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_permission_set_provisioning_status_response() :: %{
-        "PermissionSetProvisioningStatus" => permission_set_provisioning_status()
+      list_application_providers_response() :: %{
+        "ApplicationProviders" => list(application_provider()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_permission_set_provisioning_status_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      jwt_bearer_grant() :: %{
-        "AuthorizedTokenIssuers" => list(authorized_token_issuer())
-      }
-      
-  """
-  @type jwt_bearer_grant() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_inline_policy_for_permission_set_response() :: %{
-        "InlinePolicy" => String.t() | atom()
-      }
-      
-  """
-  @type get_inline_policy_for_permission_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      instance_access_control_attribute_configuration() :: %{
-        "AccessControlAttributes" => list(access_control_attribute())
-      }
-      
-  """
-  @type instance_access_control_attribute_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_permission_set_provisioning_status_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("ProvisionPermissionSetRequestId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_permission_set_provisioning_status_request() :: %{(String.t() | atom()) => any()}
+  @type list_application_providers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1865,323 +1682,43 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
-      oidc_jwt_configuration() :: %{
-        "ClaimAttributePath" => String.t() | atom(),
-        "IdentityStoreAttributePath" => String.t() | atom(),
-        "IssuerUrl" => String.t() | atom(),
-        "JwksRetrievalOption" => list(any())
+      list_applications_request() :: %{
+        optional("Filter") => list_applications_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type oidc_jwt_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_application_access_scope_request() :: %{
-        required("ApplicationArn") => String.t() | atom(),
-        required("Scope") => String.t() | atom()
-      }
-      
-  """
-  @type get_application_access_scope_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_permissions_boundary_to_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom(),
-        required("PermissionsBoundary") => permissions_boundary()
-      }
-      
-  """
-  @type put_permissions_boundary_to_permission_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_account_assignment_deletion_status_response() :: %{
-        "AccountAssignmentsDeletionStatus" => list(account_assignment_operation_status_metadata()),
+      list_applications_response() :: %{
+        "Applications" => list(application()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_account_assignment_deletion_status_response() :: %{(String.t() | atom()) => any()}
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_permissions_boundary_for_permission_set_response() :: %{
-        "PermissionsBoundary" => permissions_boundary()
+      list_customer_managed_policy_references_in_permission_set_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type get_permissions_boundary_for_permission_set_response() :: %{
+  @type list_customer_managed_policy_references_in_permission_set_request() :: %{
           (String.t() | atom()) => any()
         }
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authorized_token_issuer() :: %{
-        "AuthorizedAudiences" => list(String.t() | atom()),
-        "TrustedTokenIssuerArn" => String.t() | atom()
-      }
-      
-  """
-  @type authorized_token_issuer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_region_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("RegionName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_region_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_permission_set_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("RelayState") => String.t() | atom(),
-        optional("SessionDuration") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("InstanceArn") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_permission_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_authentication_method_request() :: %{
-        required("ApplicationArn") => String.t() | atom(),
-        required("AuthenticationMethodType") => list(any())
-      }
-      
-  """
-  @type delete_application_authentication_method_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_assignment_deletion_status_request() :: %{
-        required("AccountAssignmentDeletionRequestId") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_account_assignment_deletion_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_assignment_request() :: %{
-        required("ApplicationArn") => String.t() | atom(),
-        required("PrincipalId") => String.t() | atom(),
-        required("PrincipalType") => list(any())
-      }
-      
-  """
-  @type describe_application_assignment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      token_exchange_grant() :: %{}
-      
-  """
-  @type token_exchange_grant() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_provider_request() :: %{
-        required("ApplicationProviderArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_application_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_grants_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("ApplicationArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_application_grants_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_server_config() :: %{
-        "Scopes" => map()
-      }
-      
-  """
-  @type resource_server_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_instance_request() :: %{
-        optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("Name") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_instance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_application_assignment_request() :: %{
-        required("ApplicationArn") => String.t() | atom(),
-        required("PrincipalId") => String.t() | atom(),
-        required("PrincipalType") => list(any())
-      }
-      
-  """
-  @type create_application_assignment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_trusted_token_issuer_response() :: %{
-        "Name" => String.t() | atom(),
-        "TrustedTokenIssuerArn" => String.t() | atom(),
-        "TrustedTokenIssuerConfiguration" => list(),
-        "TrustedTokenIssuerType" => list(any())
-      }
-      
-  """
-  @type describe_trusted_token_issuer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_trusted_token_issuer_request() :: %{
-        required("TrustedTokenIssuerArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_trusted_token_issuer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      encryption_configuration() :: %{
-        "KeyType" => list(any()),
-        "KmsKeyArn" => String.t() | atom()
-      }
-      
-  """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_application_assignment_configuration_request() :: %{
-        required("ApplicationArn") => String.t() | atom(),
-        required("AssignmentRequired") => boolean()
-      }
-      
-  """
-  @type put_application_assignment_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      region_metadata() :: %{
-        "AddedDate" => non_neg_integer(),
-        "IsPrimaryRegion" => boolean(),
-        "RegionName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type region_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_instance_access_control_attribute_configuration_response() :: %{}
-      
-  """
-  @type update_instance_access_control_attribute_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_grant_request() :: %{
-        required("ApplicationArn") => String.t() | atom(),
-        required("GrantType") => list(any())
-      }
-      
-  """
-  @type delete_application_grant_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_account_assignment_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom(),
-        required("PrincipalId") => String.t() | atom(),
-        required("PrincipalType") => list(any()),
-        required("TargetId") => String.t() | atom(),
-        required("TargetType") => list(any())
-      }
-      
-  """
-  @type delete_account_assignment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2201,50 +1738,680 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
-      list_account_assignments_filter() :: %{
-        "AccountId" => String.t() | atom()
+      list_instances_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_account_assignments_filter() :: %{(String.t() | atom()) => any()}
+  @type list_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_application_assignment_configuration_response() :: %{
-        "AssignmentRequired" => boolean()
+      list_instances_response() :: %{
+        "Instances" => list(instance_metadata()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_application_assignment_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type list_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_application_grant_response() :: %{
-        "Grant" => list()
+      list_managed_policies_in_permission_set_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type get_application_grant_response() :: %{(String.t() | atom()) => any()}
+  @type list_managed_policies_in_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_account_assignment_request() :: %{
+      list_managed_policies_in_permission_set_response() :: %{
+        "AttachedManagedPolicies" => list(attached_managed_policy()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_managed_policies_in_permission_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_permission_set_provisioning_status_request() :: %{
+        optional("Filter") => operation_status_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_permission_set_provisioning_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_permission_set_provisioning_status_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PermissionSetsProvisioningStatus" => list(permission_set_provisioning_status_metadata())
+      }
+      
+  """
+  @type list_permission_set_provisioning_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_permission_sets_provisioned_to_account_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProvisioningStatus") => list(any()),
+        required("AccountId") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_permission_sets_provisioned_to_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_permission_sets_provisioned_to_account_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PermissionSets" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_permission_sets_provisioned_to_account_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_permission_sets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_permission_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_permission_sets_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PermissionSets" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_permission_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_regions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_regions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_regions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Regions" => list(region_metadata())
+      }
+      
+  """
+  @type list_regions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("InstanceArn") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_trusted_token_issuers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_trusted_token_issuers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_trusted_token_issuers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TrustedTokenIssuers" => list(trusted_token_issuer_metadata())
+      }
+      
+  """
+  @type list_trusted_token_issuers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      oidc_jwt_configuration() :: %{
+        "ClaimAttributePath" => String.t() | atom(),
+        "IdentityStoreAttributePath" => String.t() | atom(),
+        "IssuerUrl" => String.t() | atom(),
+        "JwksRetrievalOption" => list(any())
+      }
+      
+  """
+  @type oidc_jwt_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      oidc_jwt_update_configuration() :: %{
+        "ClaimAttributePath" => String.t() | atom(),
+        "IdentityStoreAttributePath" => String.t() | atom(),
+        "JwksRetrievalOption" => list(any())
+      }
+      
+  """
+  @type oidc_jwt_update_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_status_filter() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type operation_status_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      permission_set() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PermissionSetArn" => String.t() | atom(),
+        "RelayState" => String.t() | atom(),
+        "SessionDuration" => String.t() | atom()
+      }
+      
+  """
+  @type permission_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      permission_set_provisioning_status() :: %{
+        "AccountId" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "FailureReason" => String.t() | atom(),
+        "PermissionSetArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type permission_set_provisioning_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      permission_set_provisioning_status_metadata() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "RequestId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type permission_set_provisioning_status_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      permissions_boundary() :: %{
+        "CustomerManagedPolicyReference" => customer_managed_policy_reference(),
+        "ManagedPolicyArn" => String.t() | atom()
+      }
+      
+  """
+  @type permissions_boundary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      portal_options() :: %{
+        "SignInOptions" => sign_in_options(),
+        "Visibility" => list(any())
+      }
+      
+  """
+  @type portal_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provision_permission_set_request() :: %{
+        optional("TargetId") => String.t() | atom(),
         required("InstanceArn") => String.t() | atom(),
         required("PermissionSetArn") => String.t() | atom(),
-        required("PrincipalId") => String.t() | atom(),
-        required("PrincipalType") => list(any()),
-        required("TargetId") => String.t() | atom(),
         required("TargetType") => list(any())
       }
       
   """
-  @type create_account_assignment_request() :: %{(String.t() | atom()) => any()}
+  @type provision_permission_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provision_permission_set_response() :: %{
+        "PermissionSetProvisioningStatus" => permission_set_provisioning_status()
+      }
+      
+  """
+  @type provision_permission_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_application_access_scope_request() :: %{
+        optional("AuthorizedTargets") => list(String.t() | atom()),
+        required("ApplicationArn") => String.t() | atom(),
+        required("Scope") => String.t() | atom()
+      }
+      
+  """
+  @type put_application_access_scope_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_application_assignment_configuration_request() :: %{
+        required("ApplicationArn") => String.t() | atom(),
+        required("AssignmentRequired") => boolean()
+      }
+      
+  """
+  @type put_application_assignment_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_application_assignment_configuration_response() :: %{}
+      
+  """
+  @type put_application_assignment_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_application_authentication_method_request() :: %{
+        required("ApplicationArn") => String.t() | atom(),
+        required("AuthenticationMethod") => list(),
+        required("AuthenticationMethodType") => list(any())
+      }
+      
+  """
+  @type put_application_authentication_method_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_application_grant_request() :: %{
+        required("ApplicationArn") => String.t() | atom(),
+        required("Grant") => list(),
+        required("GrantType") => list(any())
+      }
+      
+  """
+  @type put_application_grant_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_application_session_configuration_request() :: %{
+        optional("UserBackgroundSessionApplicationStatus") => list(any()),
+        required("ApplicationArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_application_session_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_application_session_configuration_response() :: %{}
+      
+  """
+  @type put_application_session_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_inline_policy_to_permission_set_request() :: %{
+        required("InlinePolicy") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_inline_policy_to_permission_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_inline_policy_to_permission_set_response() :: %{}
+      
+  """
+  @type put_inline_policy_to_permission_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_permissions_boundary_to_permission_set_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom(),
+        required("PermissionsBoundary") => permissions_boundary()
+      }
+      
+  """
+  @type put_permissions_boundary_to_permission_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_permissions_boundary_to_permission_set_response() :: %{}
+      
+  """
+  @type put_permissions_boundary_to_permission_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      refresh_token_grant() :: %{}
+      
+  """
+  @type refresh_token_grant() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      region_metadata() :: %{
+        "AddedDate" => non_neg_integer(),
+        "IsPrimaryRegion" => boolean(),
+        "RegionName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type region_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_region_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("RegionName") => String.t() | atom()
+      }
+      
+  """
+  @type remove_region_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_region_response() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type remove_region_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_server_config() :: %{
+        "Scopes" => map()
+      }
+      
+  """
+  @type resource_server_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_server_scope_details() :: %{
+        "DetailedTitle" => String.t() | atom(),
+        "LongDescription" => String.t() | atom()
+      }
+      
+  """
+  @type resource_server_scope_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scope_details() :: %{
+        "AuthorizedTargets" => list(String.t() | atom()),
+        "Scope" => String.t() | atom()
+      }
+      
+  """
+  @type scope_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sign_in_options() :: %{
+        "ApplicationUrl" => String.t() | atom(),
+        "Origin" => list(any())
+      }
+      
+  """
+  @type sign_in_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        optional("InstanceArn") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      token_exchange_grant() :: %{}
+      
+  """
+  @type token_exchange_grant() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      trusted_token_issuer_metadata() :: %{
+        "Name" => String.t() | atom(),
+        "TrustedTokenIssuerArn" => String.t() | atom(),
+        "TrustedTokenIssuerType" => list(any())
+      }
+      
+  """
+  @type trusted_token_issuer_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        optional("InstanceArn") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_application_portal_options() :: %{
+        "SignInOptions" => sign_in_options()
+      }
+      
+  """
+  @type update_application_portal_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2265,88 +2432,22 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
-      delete_inline_policy_from_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
+      update_application_response() :: %{}
       
   """
-  @type delete_inline_policy_from_permission_set_request() :: %{(String.t() | atom()) => any()}
+  @type update_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      list_account_assignments_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AccountId") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom(),
-        required("PermissionSetArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_account_assignments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_assignment_for_principal() :: %{
-        "ApplicationArn" => String.t() | atom(),
-        "PrincipalId" => String.t() | atom(),
-        "PrincipalType" => list(any())
-      }
-      
-  """
-  @type application_assignment_for_principal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_account_assignments_response() :: %{
-        "AccountAssignments" => list(account_assignment()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_account_assignments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_account_assignment_response() :: %{
-        "AccountAssignmentCreationStatus" => account_assignment_operation_status()
-      }
-      
-  """
-  @type create_account_assignment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_application_grant_request() :: %{
-        required("ApplicationArn") => String.t() | atom(),
-        required("Grant") => list(),
-        required("GrantType") => list(any())
-      }
-      
-  """
-  @type put_application_grant_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_instance_access_control_attribute_configuration_request() :: %{
+      update_instance_access_control_attribute_configuration_request() :: %{
+        required("InstanceAccessControlAttributeConfiguration") => instance_access_control_attribute_configuration(),
         required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type describe_instance_access_control_attribute_configuration_request() :: %{
+  @type update_instance_access_control_attribute_configuration_request() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -2354,785 +2455,684 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
-      put_application_authentication_method_request() :: %{
-        required("ApplicationArn") => String.t() | atom(),
-        required("AuthenticationMethod") => list(),
-        required("AuthenticationMethodType") => list(any())
-      }
+      update_instance_access_control_attribute_configuration_response() :: %{}
       
   """
-  @type put_application_authentication_method_request() :: %{(String.t() | atom()) => any()}
+  @type update_instance_access_control_attribute_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      display_data() :: %{
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "IconUrl" => String.t() | atom()
-      }
-      
-  """
-  @type display_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detach_managed_policy_from_permission_set_response() :: %{}
-      
-  """
-  @type detach_managed_policy_from_permission_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_assignments_for_principal_request() :: %{
-        optional("Filter") => list_application_assignments_filter(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InstanceArn") => String.t() | atom(),
-        required("PrincipalId") => String.t() | atom(),
-        required("PrincipalType") => list(any())
-      }
-      
-  """
-  @type list_application_assignments_for_principal_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_permission_set_provisioning_status_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PermissionSetsProvisioningStatus" => list(permission_set_provisioning_status_metadata())
-      }
-      
-  """
-  @type list_permission_set_provisioning_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_account_assignments_for_principal_response() :: %{
-        "AccountAssignments" => list(account_assignment_for_principal()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_account_assignments_for_principal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_permission_set_response() :: %{
-        "PermissionSet" => permission_set()
-      }
-      
-  """
-  @type describe_permission_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_instance_access_control_attribute_configuration_request() :: %{
+      update_instance_request() :: %{
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("Name") => String.t() | atom(),
         required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type delete_instance_access_control_attribute_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type update_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_application_access_scopes_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Scopes" => list(scope_details())
-      }
+      update_instance_response() :: %{}
       
   """
-  @type list_application_access_scopes_response() :: %{(String.t() | atom()) => any()}
+  @type update_instance_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      get_application_assignment_configuration_request() :: %{
-        required("ApplicationArn") => String.t() | atom()
+      update_permission_set_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("RelayState") => String.t() | atom(),
+        optional("SessionDuration") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type get_application_assignment_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type update_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
-        optional("InstanceArn") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
+      update_permission_set_response() :: %{}
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type update_permission_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      list_application_providers_response() :: %{
-        "ApplicationProviders" => list(application_provider()),
-        "NextToken" => String.t() | atom()
+      update_trusted_token_issuer_request() :: %{
+        optional("Name") => String.t() | atom(),
+        optional("TrustedTokenIssuerConfiguration") => list(),
+        required("TrustedTokenIssuerArn") => String.t() | atom()
       }
       
   """
-  @type list_application_providers_response() :: %{(String.t() | atom()) => any()}
+  @type update_trusted_token_issuer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
+      update_trusted_token_issuer_response() :: %{}
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type update_trusted_token_issuer_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      delete_application_assignment_request() :: %{
-        required("ApplicationArn") => String.t() | atom(),
-        required("PrincipalId") => String.t() | atom(),
-        required("PrincipalType") => list(any())
+      validation_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
       
   """
-  @type delete_application_assignment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_assignment_operation_status() :: %{
-        "CreatedDate" => non_neg_integer(),
-        "FailureReason" => String.t() | atom(),
-        "PermissionSetArn" => String.t() | atom(),
-        "PrincipalId" => String.t() | atom(),
-        "PrincipalType" => list(any()),
-        "RequestId" => String.t() | atom(),
-        "Status" => list(any()),
-        "TargetId" => String.t() | atom(),
-        "TargetType" => list(any())
-      }
-      
-  """
-  @type account_assignment_operation_status() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type add_region_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type attach_customer_managed_policy_reference_to_permission_set_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type attach_managed_policy_to_permission_set_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_account_assignment_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_application_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_application_assignment_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_instance_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_instance_access_control_attribute_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_permission_set_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_trusted_token_issuer_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_account_assignment_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_application_access_scope_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_application_assignment_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_application_authentication_method_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_application_grant_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_inline_policy_from_permission_set_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_instance_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_instance_access_control_attribute_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_permission_set_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_permissions_boundary_from_permission_set_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_trusted_token_issuer_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_account_assignment_creation_status_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_account_assignment_deletion_status_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_application_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_application_assignment_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_application_provider_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_instance_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_instance_access_control_attribute_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_permission_set_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_permission_set_provisioning_status_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_region_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_trusted_token_issuer_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type detach_customer_managed_policy_reference_from_permission_set_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type detach_managed_policy_from_permission_set_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_application_access_scope_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_application_assignment_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_application_authentication_method_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_application_grant_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_application_session_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_inline_policy_for_permission_set_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_permissions_boundary_for_permission_set_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_account_assignment_creation_status_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_account_assignment_deletion_status_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_account_assignments_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_account_assignments_for_principal_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_accounts_for_provisioned_permission_set_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_application_access_scopes_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_application_assignments_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_application_assignments_for_principal_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_application_authentication_methods_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_application_grants_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_application_providers_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_applications_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_customer_managed_policy_references_in_permission_set_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_instances_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_managed_policies_in_permission_set_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_permission_set_provisioning_status_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_permission_sets_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_permission_sets_provisioned_to_account_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_regions_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_trusted_token_issuers_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type provision_permission_set_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type put_application_access_scope_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type put_application_assignment_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type put_application_authentication_method_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type put_application_grant_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type put_application_session_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type put_inline_policy_to_permission_set_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type put_permissions_boundary_to_permission_set_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type remove_region_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_instance_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_instance_access_control_attribute_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_permission_set_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_trusted_token_issuer_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{

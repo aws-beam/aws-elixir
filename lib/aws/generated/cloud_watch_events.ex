@@ -38,24 +38,306 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      dead_letter_config() :: %{
-        "Arn" => String.t() | atom()
+      activate_event_source_request() :: %{
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type dead_letter_config() :: %{(String.t() | atom()) => any()}
+  @type activate_event_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_partner_event_source_request() :: %{
-        required("Account") => String.t() | atom(),
+      api_destination() :: %{
+        "ApiDestinationArn" => String.t() | atom(),
+        "ApiDestinationState" => list(any()),
+        "ConnectionArn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "HttpMethod" => list(any()),
+        "InvocationEndpoint" => String.t() | atom(),
+        "InvocationRateLimitPerSecond" => integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type api_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      archive() :: %{
+        "ArchiveName" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "EventCount" => float(),
+        "EventSourceArn" => String.t() | atom(),
+        "RetentionDays" => integer(),
+        "SizeBytes" => float(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom()
+      }
+      
+  """
+  @type archive() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_vpc_configuration() :: %{
+        "AssignPublicIp" => list(any()),
+        "SecurityGroups" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom())
+      }
+      
+  """
+  @type aws_vpc_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_array_properties() :: %{
+        "Size" => integer()
+      }
+      
+  """
+  @type batch_array_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_parameters() :: %{
+        "ArrayProperties" => batch_array_properties(),
+        "JobDefinition" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
+        "RetryStrategy" => batch_retry_strategy()
+      }
+      
+  """
+  @type batch_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_retry_strategy() :: %{
+        "Attempts" => integer()
+      }
+      
+  """
+  @type batch_retry_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_replay_request() :: %{
+        required("ReplayName") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_replay_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_replay_response() :: %{
+        "ReplayArn" => String.t() | atom(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom()
+      }
+      
+  """
+  @type cancel_replay_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_provider_strategy_item() :: %{
+        "base" => integer(),
+        "capacityProvider" => String.t() | atom(),
+        "weight" => integer()
+      }
+      
+  """
+  @type capacity_provider_strategy_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_modification_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      condition() :: %{
+        "Key" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection() :: %{
+        "AuthorizationType" => list(any()),
+        "ConnectionArn" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastAuthorizedTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "StateReason" => String.t() | atom()
+      }
+      
+  """
+  @type connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_api_key_auth_response_parameters() :: %{
+        "ApiKeyName" => String.t() | atom()
+      }
+      
+  """
+  @type connection_api_key_auth_response_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_auth_response_parameters() :: %{
+        "ApiKeyAuthParameters" => connection_api_key_auth_response_parameters(),
+        "BasicAuthParameters" => connection_basic_auth_response_parameters(),
+        "InvocationHttpParameters" => connection_http_parameters(),
+        "OAuthParameters" => connection_o_auth_response_parameters()
+      }
+      
+  """
+  @type connection_auth_response_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_basic_auth_response_parameters() :: %{
+        "Username" => String.t() | atom()
+      }
+      
+  """
+  @type connection_basic_auth_response_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_body_parameter() :: %{
+        "IsValueSecret" => boolean(),
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type connection_body_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_header_parameter() :: %{
+        "IsValueSecret" => boolean(),
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type connection_header_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_http_parameters() :: %{
+        "BodyParameters" => list(connection_body_parameter()),
+        "HeaderParameters" => list(connection_header_parameter()),
+        "QueryStringParameters" => list(connection_query_string_parameter())
+      }
+      
+  """
+  @type connection_http_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_o_auth_client_response_parameters() :: %{
+        "ClientID" => String.t() | atom()
+      }
+      
+  """
+  @type connection_o_auth_client_response_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_o_auth_response_parameters() :: %{
+        "AuthorizationEndpoint" => String.t() | atom(),
+        "ClientParameters" => connection_o_auth_client_response_parameters(),
+        "HttpMethod" => list(any()),
+        "OAuthHttpParameters" => connection_http_parameters()
+      }
+      
+  """
+  @type connection_o_auth_response_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_query_string_parameter() :: %{
+        "IsValueSecret" => boolean(),
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type connection_query_string_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_api_destination_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("InvocationRateLimitPerSecond") => integer(),
+        required("ConnectionArn") => String.t() | atom(),
+        required("HttpMethod") => list(any()),
+        required("InvocationEndpoint") => String.t() | atom(),
         required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_partner_event_source_request() :: %{(String.t() | atom()) => any()}
+  @type create_api_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -75,17 +357,68 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      describe_event_source_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedBy" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "ExpirationTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "State" => list(any())
+      create_archive_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EventPattern") => String.t() | atom(),
+        optional("RetentionDays") => integer(),
+        required("ArchiveName") => String.t() | atom(),
+        required("EventSourceArn") => String.t() | atom()
       }
       
   """
-  @type describe_event_source_response() :: %{(String.t() | atom()) => any()}
+  @type create_archive_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_archive_response() :: %{
+        "ArchiveArn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom()
+      }
+      
+  """
+  @type create_archive_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_api_key_auth_request_parameters() :: %{
+        "ApiKeyName" => String.t() | atom(),
+        "ApiKeyValue" => String.t() | atom()
+      }
+      
+  """
+  @type create_connection_api_key_auth_request_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_auth_request_parameters() :: %{
+        "ApiKeyAuthParameters" => create_connection_api_key_auth_request_parameters(),
+        "BasicAuthParameters" => create_connection_basic_auth_request_parameters(),
+        "InvocationHttpParameters" => connection_http_parameters(),
+        "OAuthParameters" => create_connection_o_auth_request_parameters()
+      }
+      
+  """
+  @type create_connection_auth_request_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_basic_auth_request_parameters() :: %{
+        "Password" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
+      
+  """
+  @type create_connection_basic_auth_request_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -98,6 +431,256 @@ defmodule AWS.CloudWatchEvents do
       
   """
   @type create_connection_o_auth_client_request_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_o_auth_request_parameters() :: %{
+        "AuthorizationEndpoint" => String.t() | atom(),
+        "ClientParameters" => create_connection_o_auth_client_request_parameters(),
+        "HttpMethod" => list(any()),
+        "OAuthHttpParameters" => connection_http_parameters()
+      }
+      
+  """
+  @type create_connection_o_auth_request_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("AuthParameters") => create_connection_auth_request_parameters(),
+        required("AuthorizationType") => list(any()),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_response() :: %{
+        "ConnectionArn" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
+  """
+  @type create_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_event_bus_request() :: %{
+        optional("EventSourceName") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_event_bus_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_event_bus_response() :: %{
+        "EventBusArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_event_bus_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_partner_event_source_request() :: %{
+        required("Account") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_partner_event_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_partner_event_source_response() :: %{
+        "EventSourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_partner_event_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deactivate_event_source_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type deactivate_event_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dead_letter_config() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type dead_letter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deauthorize_connection_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type deauthorize_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deauthorize_connection_response() :: %{
+        "ConnectionArn" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastAuthorizedTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
+  """
+  @type deauthorize_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_api_destination_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_api_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_api_destination_response() :: %{}
+      
+  """
+  @type delete_api_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_archive_request() :: %{
+        required("ArchiveName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_archive_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_archive_response() :: %{}
+      
+  """
+  @type delete_archive_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_connection_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_connection_response() :: %{
+        "ConnectionArn" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastAuthorizedTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
+  """
+  @type delete_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_event_bus_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_event_bus_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_partner_event_source_request() :: %{
+        required("Account") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_partner_event_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rule_request() :: %{
+        optional("EventBusName") => String.t() | atom(),
+        optional("Force") => boolean(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_api_destination_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type describe_api_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -123,270 +706,12 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      update_connection_auth_request_parameters() :: %{
-        "ApiKeyAuthParameters" => update_connection_api_key_auth_request_parameters(),
-        "BasicAuthParameters" => update_connection_basic_auth_request_parameters(),
-        "InvocationHttpParameters" => connection_http_parameters(),
-        "OAuthParameters" => update_connection_o_auth_request_parameters()
-      }
-      
-  """
-  @type update_connection_auth_request_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rule_request() :: %{
-        optional("EventBusName") => String.t() | atom(),
-        optional("Force") => boolean(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_targets_response() :: %{
-        "FailedEntries" => list(put_targets_result_entry()),
-        "FailedEntryCount" => integer()
-      }
-      
-  """
-  @type put_targets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sage_maker_pipeline_parameter() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type sage_maker_pipeline_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rules_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Rules" => list(rule())
-      }
-      
-  """
-  @type list_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_connection_response() :: %{
-        "ConnectionArn" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "CreationTime" => non_neg_integer(),
-        "LastAuthorizedTime" => non_neg_integer(),
-        "LastModifiedTime" => non_neg_integer()
-      }
-      
-  """
-  @type delete_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule() :: %{
-        "Arn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "EventBusName" => String.t() | atom(),
-        "EventPattern" => String.t() | atom(),
-        "ManagedBy" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "ScheduleExpression" => String.t() | atom(),
-        "State" => list(any())
-      }
-      
-  """
-  @type rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_api_destination_response() :: %{
-        "ApiDestinationArn" => String.t() | atom(),
-        "ApiDestinationState" => list(any()),
-        "CreationTime" => non_neg_integer(),
-        "LastModifiedTime" => non_neg_integer()
-      }
-      
-  """
-  @type update_api_destination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_rule_request() :: %{
-        optional("EventBusName") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type enable_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_targets_request() :: %{
-        optional("EventBusName") => String.t() | atom(),
-        required("Rule") => String.t() | atom(),
-        required("Targets") => list(target())
-      }
-      
-  """
-  @type put_targets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rule_names_by_target_request() :: %{
-        optional("EventBusName") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("TargetArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_rule_names_by_target_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_archive_request() :: %{
+      describe_archive_request() :: %{
         required("ArchiveName") => String.t() | atom()
       }
       
   """
-  @type delete_archive_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_events_result_entry() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "EventId" => String.t() | atom()
-      }
-      
-  """
-  @type put_events_result_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      concurrent_modification_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_targets_result_entry() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "TargetId" => String.t() | atom()
-      }
-      
-  """
-  @type remove_targets_result_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_connections_response() :: %{
-        "Connections" => list(connection()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_connections_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_permission_request() :: %{
-        optional("Action") => String.t() | atom(),
-        optional("Condition") => condition(),
-        optional("EventBusName") => String.t() | atom(),
-        optional("Policy") => String.t() | atom(),
-        optional("Principal") => String.t() | atom(),
-        optional("StatementId") => String.t() | atom()
-      }
-      
-  """
-  @type put_permission_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_partner_events_result_entry() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "EventId" => String.t() | atom()
-      }
-      
-  """
-  @type put_partner_events_result_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_archive_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EventPattern") => String.t() | atom(),
-        optional("RetentionDays") => integer(),
-        required("ArchiveName") => String.t() | atom()
-      }
-      
-  """
-  @type update_archive_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_api_destination_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("InvocationRateLimitPerSecond") => integer(),
-        required("ConnectionArn") => String.t() | atom(),
-        required("HttpMethod") => list(any()),
-        required("InvocationEndpoint") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_api_destination_request() :: %{(String.t() | atom()) => any()}
+  @type describe_archive_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -413,36 +738,432 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      put_partner_events_request() :: %{
-        required("Entries") => list(put_partner_events_request_entry())
+      describe_connection_request() :: %{
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type put_partner_events_request() :: %{(String.t() | atom()) => any()}
+  @type describe_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      replay_destination() :: %{
+      describe_connection_response() :: %{
+        "AuthParameters" => connection_auth_response_parameters(),
+        "AuthorizationType" => list(any()),
+        "ConnectionArn" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "LastAuthorizedTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "SecretArn" => String.t() | atom(),
+        "StateReason" => String.t() | atom()
+      }
+      
+  """
+  @type describe_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_event_bus_request() :: %{
+        optional("Name") => String.t() | atom()
+      }
+      
+  """
+  @type describe_event_bus_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_event_bus_response() :: %{
         "Arn" => String.t() | atom(),
-        "FilterArns" => list(String.t() | atom())
+        "Name" => String.t() | atom(),
+        "Policy" => String.t() | atom()
       }
       
   """
-  @type replay_destination() :: %{(String.t() | atom()) => any()}
+  @type describe_event_bus_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      describe_event_source_request() :: %{
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type describe_event_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_event_source_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedBy" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "ExpirationTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "State" => list(any())
+      }
+      
+  """
+  @type describe_event_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_partner_event_source_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type describe_partner_event_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_partner_event_source_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type describe_partner_event_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_replay_request() :: %{
+        required("ReplayName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_replay_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_replay_response() :: %{
+        "Description" => String.t() | atom(),
+        "Destination" => replay_destination(),
+        "EventEndTime" => non_neg_integer(),
+        "EventLastReplayedTime" => non_neg_integer(),
+        "EventSourceArn" => String.t() | atom(),
+        "EventStartTime" => non_neg_integer(),
+        "ReplayArn" => String.t() | atom(),
+        "ReplayEndTime" => non_neg_integer(),
+        "ReplayName" => String.t() | atom(),
+        "ReplayStartTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom()
+      }
+      
+  """
+  @type describe_replay_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rule_request() :: %{
+        optional("EventBusName") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type describe_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rule_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EventBusName" => String.t() | atom(),
+        "EventPattern" => String.t() | atom(),
+        "ManagedBy" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "ScheduleExpression" => String.t() | atom(),
+        "State" => list(any())
+      }
+      
+  """
+  @type describe_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_rule_request() :: %{
+        optional("EventBusName") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type disable_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ecs_parameters() :: %{
+        "CapacityProviderStrategy" => list(capacity_provider_strategy_item()),
+        "EnableECSManagedTags" => boolean(),
+        "EnableExecuteCommand" => boolean(),
+        "Group" => String.t() | atom(),
+        "LaunchType" => list(any()),
+        "NetworkConfiguration" => network_configuration(),
+        "PlacementConstraints" => list(placement_constraint()),
+        "PlacementStrategy" => list(placement_strategy()),
+        "PlatformVersion" => String.t() | atom(),
+        "PropagateTags" => list(any()),
+        "ReferenceId" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "TaskCount" => integer(),
+        "TaskDefinitionArn" => String.t() | atom()
+      }
+      
+  """
+  @type ecs_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_rule_request() :: %{
+        optional("EventBusName") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type enable_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_bus() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Policy" => String.t() | atom()
+      }
+      
+  """
+  @type event_bus() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_source() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedBy" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "ExpirationTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "State" => list(any())
+      }
+      
+  """
+  @type event_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_parameters() :: %{
+        "HeaderParameters" => map(),
+        "PathParameterValues" => list(String.t() | atom()),
+        "QueryStringParameters" => map()
+      }
+      
+  """
+  @type http_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      illegal_status_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type illegal_status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_transformer() :: %{
+        "InputPathsMap" => map(),
+        "InputTemplate" => String.t() | atom()
+      }
+      
+  """
+  @type input_transformer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_event_pattern_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_event_pattern_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_state_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_parameters() :: %{
+        "PartitionKeyPath" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_api_destinations_request() :: %{
+        optional("ConnectionArn") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_api_destinations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_api_destinations_response() :: %{
+        "ApiDestinations" => list(api_destination()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_api_destinations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_archives_request() :: %{
+        optional("EventSourceArn") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("State") => list(any())
+      }
+      
+  """
+  @type list_archives_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_archives_response() :: %{
+        "Archives" => list(archive()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_archives_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connections_request() :: %{
+        optional("ConnectionState") => list(any()),
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_connections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connections_response() :: %{
+        "Connections" => list(connection()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_connections_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_event_buses_request() :: %{
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_event_buses_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -460,6 +1181,219 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
+      list_event_sources_request() :: %{
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_event_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_event_sources_response() :: %{
+        "EventSources" => list(event_source()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_event_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_partner_event_source_accounts_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("EventSourceName") => String.t() | atom()
+      }
+      
+  """
+  @type list_partner_event_source_accounts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_partner_event_source_accounts_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PartnerEventSourceAccounts" => list(partner_event_source_account())
+      }
+      
+  """
+  @type list_partner_event_source_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_partner_event_sources_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("NamePrefix") => String.t() | atom()
+      }
+      
+  """
+  @type list_partner_event_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_partner_event_sources_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PartnerEventSources" => list(partner_event_source())
+      }
+      
+  """
+  @type list_partner_event_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_replays_request() :: %{
+        optional("EventSourceArn") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("State") => list(any())
+      }
+      
+  """
+  @type list_replays_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_replays_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Replays" => list(replay())
+      }
+      
+  """
+  @type list_replays_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rule_names_by_target_request() :: %{
+        optional("EventBusName") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("TargetArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_rule_names_by_target_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rule_names_by_target_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RuleNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_rule_names_by_target_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rules_request() :: %{
+        optional("EventBusName") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rules_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Rules" => list(rule())
+      }
+      
+  """
+  @type list_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_targets_by_rule_request() :: %{
+        optional("EventBusName") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Rule") => String.t() | atom()
+      }
+      
+  """
+  @type list_targets_by_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_targets_by_rule_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Targets" => list(target())
+      }
+      
+  """
+  @type list_targets_by_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_rule_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type managed_rule_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       network_configuration() :: %{
         "awsvpcConfiguration" => aws_vpc_configuration()
       }
@@ -471,44 +1405,193 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      archive() :: %{
-        "ArchiveName" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "EventCount" => float(),
-        "EventSourceArn" => String.t() | atom(),
-        "RetentionDays" => integer(),
-        "SizeBytes" => float(),
-        "State" => list(any()),
-        "StateReason" => String.t() | atom()
+      operation_disabled_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type archive() :: %{(String.t() | atom()) => any()}
+  @type operation_disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_targets_result_entry() :: %{
+      partner_event_source() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type partner_event_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partner_event_source_account() :: %{
+        "Account" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "ExpirationTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
+  """
+  @type partner_event_source_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      placement_constraint() :: %{
+        "expression" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type placement_constraint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      placement_strategy() :: %{
+        "field" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type placement_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_length_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type policy_length_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_events_request() :: %{
+        required("Entries") => list(put_events_request_entry())
+      }
+      
+  """
+  @type put_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_events_request_entry() :: %{
+        "Detail" => String.t() | atom(),
+        "DetailType" => String.t() | atom(),
+        "EventBusName" => String.t() | atom(),
+        "Resources" => list(String.t() | atom()),
+        "Source" => String.t() | atom(),
+        "Time" => non_neg_integer(),
+        "TraceHeader" => String.t() | atom()
+      }
+      
+  """
+  @type put_events_request_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_events_response() :: %{
+        "Entries" => list(put_events_result_entry()),
+        "FailedEntryCount" => integer()
+      }
+      
+  """
+  @type put_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_events_result_entry() :: %{
         "ErrorCode" => String.t() | atom(),
         "ErrorMessage" => String.t() | atom(),
-        "TargetId" => String.t() | atom()
+        "EventId" => String.t() | atom()
       }
       
   """
-  @type put_targets_result_entry() :: %{(String.t() | atom()) => any()}
+  @type put_events_result_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_connection_basic_auth_request_parameters() :: %{
-        "Password" => String.t() | atom(),
-        "Username" => String.t() | atom()
+      put_partner_events_request() :: %{
+        required("Entries") => list(put_partner_events_request_entry())
       }
       
   """
-  @type create_connection_basic_auth_request_parameters() :: %{(String.t() | atom()) => any()}
+  @type put_partner_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_partner_events_request_entry() :: %{
+        "Detail" => String.t() | atom(),
+        "DetailType" => String.t() | atom(),
+        "Resources" => list(String.t() | atom()),
+        "Source" => String.t() | atom(),
+        "Time" => non_neg_integer()
+      }
+      
+  """
+  @type put_partner_events_request_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_partner_events_response() :: %{
+        "Entries" => list(put_partner_events_result_entry()),
+        "FailedEntryCount" => integer()
+      }
+      
+  """
+  @type put_partner_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_partner_events_result_entry() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "EventId" => String.t() | atom()
+      }
+      
+  """
+  @type put_partner_events_result_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_permission_request() :: %{
+        optional("Action") => String.t() | atom(),
+        optional("Condition") => condition(),
+        optional("EventBusName") => String.t() | atom(),
+        optional("Policy") => String.t() | atom(),
+        optional("Principal") => String.t() | atom(),
+        optional("StatementId") => String.t() | atom()
+      }
+      
+  """
+  @type put_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -532,70 +1615,50 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      create_partner_event_source_response() :: %{
-        "EventSourceArn" => String.t() | atom()
+      put_rule_response() :: %{
+        "RuleArn" => String.t() | atom()
       }
       
   """
-  @type create_partner_event_source_response() :: %{(String.t() | atom()) => any()}
+  @type put_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
+      put_targets_request() :: %{
+        optional("EventBusName") => String.t() | atom(),
+        required("Rule") => String.t() | atom(),
+        required("Targets") => list(target())
       }
       
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type put_targets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      connection_api_key_auth_response_parameters() :: %{
-        "ApiKeyName" => String.t() | atom()
+      put_targets_response() :: %{
+        "FailedEntries" => list(put_targets_result_entry()),
+        "FailedEntryCount" => integer()
       }
       
   """
-  @type connection_api_key_auth_response_parameters() :: %{(String.t() | atom()) => any()}
+  @type put_targets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      partner_event_source() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
+      put_targets_result_entry() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "TargetId" => String.t() | atom()
       }
       
   """
-  @type partner_event_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_query_string_parameter() :: %{
-        "IsValueSecret" => boolean(),
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type connection_query_string_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_archive_request() :: %{
-        required("ArchiveName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_archive_request() :: %{(String.t() | atom()) => any()}
+  @type put_targets_result_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -617,77 +1680,6 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      test_event_pattern_response() :: %{
-        "Result" => boolean()
-      }
-      
-  """
-  @type test_event_pattern_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_partner_event_source_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type describe_partner_event_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_partner_events_response() :: %{
-        "Entries" => list(put_partner_events_result_entry()),
-        "FailedEntryCount" => integer()
-      }
-      
-  """
-  @type put_partner_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_basic_auth_response_parameters() :: %{
-        "Username" => String.t() | atom()
-      }
-      
-  """
-  @type connection_basic_auth_response_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_connection_api_key_auth_request_parameters() :: %{
-        "ApiKeyName" => String.t() | atom(),
-        "ApiKeyValue" => String.t() | atom()
-      }
-      
-  """
-  @type update_connection_api_key_auth_request_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      partner_event_source_account() :: %{
-        "Account" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "ExpirationTime" => non_neg_integer(),
-        "State" => list(any())
-      }
-      
-  """
-  @type partner_event_source_account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       remove_permission_request() :: %{
         optional("EventBusName") => String.t() | atom(),
         optional("RemoveAllPermissions") => boolean(),
@@ -701,35 +1693,93 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      list_partner_event_source_accounts_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PartnerEventSourceAccounts" => list(partner_event_source_account())
+      remove_targets_request() :: %{
+        optional("EventBusName") => String.t() | atom(),
+        optional("Force") => boolean(),
+        required("Ids") => list(String.t() | atom()),
+        required("Rule") => String.t() | atom()
       }
       
   """
-  @type list_partner_event_source_accounts_response() :: %{(String.t() | atom()) => any()}
+  @type remove_targets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      policy_length_exceeded_exception() :: %{
+      remove_targets_response() :: %{
+        "FailedEntries" => list(remove_targets_result_entry()),
+        "FailedEntryCount" => integer()
+      }
+      
+  """
+  @type remove_targets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_targets_result_entry() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "TargetId" => String.t() | atom()
+      }
+      
+  """
+  @type remove_targets_result_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replay() :: %{
+        "EventEndTime" => non_neg_integer(),
+        "EventLastReplayedTime" => non_neg_integer(),
+        "EventSourceArn" => String.t() | atom(),
+        "EventStartTime" => non_neg_integer(),
+        "ReplayEndTime" => non_neg_integer(),
+        "ReplayName" => String.t() | atom(),
+        "ReplayStartTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom()
+      }
+      
+  """
+  @type replay() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replay_destination() :: %{
+        "Arn" => String.t() | atom(),
+        "FilterArns" => list(String.t() | atom())
+      }
+      
+  """
+  @type replay_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_already_exists_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type policy_length_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_replay_request() :: %{
-        required("ReplayName") => String.t() | atom()
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type describe_replay_request() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -747,256 +1797,31 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      list_rules_request() :: %{
-        optional("EventBusName") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NamePrefix") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_connection_o_auth_client_request_parameters() :: %{
-        "ClientID" => String.t() | atom(),
-        "ClientSecret" => String.t() | atom()
-      }
-      
-  """
-  @type update_connection_o_auth_client_request_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      operation_disabled_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type operation_disabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_partner_event_sources_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PartnerEventSources" => list(partner_event_source())
-      }
-      
-  """
-  @type list_partner_event_sources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aws_vpc_configuration() :: %{
-        "AssignPublicIp" => list(any()),
-        "SecurityGroups" => list(String.t() | atom()),
-        "Subnets" => list(String.t() | atom())
-      }
-      
-  """
-  @type aws_vpc_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_event_sources_request() :: %{
-        optional("Limit") => integer(),
-        optional("NamePrefix") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_event_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_api_destination_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type describe_api_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      activate_event_source_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type activate_event_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_connection_response() :: %{
-        "ConnectionArn" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "CreationTime" => non_neg_integer(),
-        "LastAuthorizedTime" => non_neg_integer(),
-        "LastModifiedTime" => non_neg_integer()
-      }
-      
-  """
-  @type update_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_connection_request() :: %{
-        optional("Description") => String.t() | atom(),
-        required("AuthParameters") => create_connection_auth_request_parameters(),
-        required("AuthorizationType") => list(any()),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_events_request() :: %{
-        required("Entries") => list(put_events_request_entry())
-      }
-      
-  """
-  @type put_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_replay_request() :: %{
-        required("ReplayName") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_replay_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection() :: %{
-        "AuthorizationType" => list(any()),
-        "ConnectionArn" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "CreationTime" => non_neg_integer(),
-        "LastAuthorizedTime" => non_neg_integer(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "StateReason" => String.t() | atom()
-      }
-      
-  """
-  @type connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_event_bus_response() :: %{
+      rule() :: %{
         "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EventBusName" => String.t() | atom(),
+        "EventPattern" => String.t() | atom(),
+        "ManagedBy" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "Policy" => String.t() | atom()
+        "RoleArn" => String.t() | atom(),
+        "ScheduleExpression" => String.t() | atom(),
+        "State" => list(any())
       }
       
   """
-  @type describe_event_bus_response() :: %{(String.t() | atom()) => any()}
+  @type rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_connections_request() :: %{
-        optional("ConnectionState") => list(any()),
-        optional("Limit") => integer(),
-        optional("NamePrefix") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
+      run_command_parameters() :: %{
+        "RunCommandTargets" => list(run_command_target())
       }
       
   """
-  @type list_connections_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_archive_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EventPattern") => String.t() | atom(),
-        optional("RetentionDays") => integer(),
-        required("ArchiveName") => String.t() | atom(),
-        required("EventSourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_archive_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_event_source_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type describe_event_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      http_parameters() :: %{
-        "HeaderParameters" => map(),
-        "PathParameterValues" => list(String.t() | atom()),
-        "QueryStringParameters" => map()
-      }
-      
-  """
-  @type http_parameters() :: %{(String.t() | atom()) => any()}
+  @type run_command_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1014,12 +1839,35 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      internal_exception() :: %{
-        "message" => String.t() | atom()
+      sage_maker_pipeline_parameter() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type internal_exception() :: %{(String.t() | atom()) => any()}
+  @type sage_maker_pipeline_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sage_maker_pipeline_parameters() :: %{
+        "PipelineParameterList" => list(sage_maker_pipeline_parameter())
+      }
+      
+  """
+  @type sage_maker_pipeline_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sqs_parameters() :: %{
+        "MessageGroupId" => String.t() | atom()
+      }
+      
+  """
+  @type sqs_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1041,104 +1889,39 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      update_connection_o_auth_request_parameters() :: %{
-        "AuthorizationEndpoint" => String.t() | atom(),
-        "ClientParameters" => update_connection_o_auth_client_request_parameters(),
-        "HttpMethod" => list(any()),
-        "OAuthHttpParameters" => connection_http_parameters()
+      start_replay_response() :: %{
+        "ReplayArn" => String.t() | atom(),
+        "ReplayStartTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom()
       }
       
   """
-  @type update_connection_o_auth_request_parameters() :: %{(String.t() | atom()) => any()}
+  @type start_replay_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_api_destinations_response() :: %{
-        "ApiDestinations" => list(api_destination()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_api_destinations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_partner_events_request_entry() :: %{
-        "Detail" => String.t() | atom(),
-        "DetailType" => String.t() | atom(),
-        "Resources" => list(String.t() | atom()),
-        "Source" => String.t() | atom(),
-        "Time" => non_neg_integer()
-      }
-      
-  """
-  @type put_partner_events_request_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_array_properties() :: %{
-        "Size" => integer()
-      }
-      
-  """
-  @type batch_array_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_archives_request() :: %{
-        optional("EventSourceArn") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NamePrefix") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("State") => list(any())
-      }
-      
-  """
-  @type list_archives_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_rule_request() :: %{
-        optional("EventBusName") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type disable_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_header_parameter() :: %{
-        "IsValueSecret" => boolean(),
+      tag() :: %{
         "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
       }
       
   """
-  @type connection_header_parameter() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_event_bus_request() :: %{
-        optional("Name") => String.t() | atom()
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
       }
       
   """
-  @type describe_event_bus_request() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1148,43 +1931,6 @@ defmodule AWS.CloudWatchEvents do
       
   """
   @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_targets_by_rule_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Targets" => list(target())
-      }
-      
-  """
-  @type list_targets_by_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sqs_parameters() :: %{
-        "MessageGroupId" => String.t() | atom()
-      }
-      
-  """
-  @type sqs_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_auth_response_parameters() :: %{
-        "ApiKeyAuthParameters" => connection_api_key_auth_response_parameters(),
-        "BasicAuthParameters" => connection_basic_auth_response_parameters(),
-        "InvocationHttpParameters" => connection_http_parameters(),
-        "OAuthParameters" => connection_o_auth_response_parameters()
-      }
-      
-  """
-  @type connection_auth_response_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1216,178 +1962,24 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      ecs_parameters() :: %{
-        "CapacityProviderStrategy" => list(capacity_provider_strategy_item()),
-        "EnableECSManagedTags" => boolean(),
-        "EnableExecuteCommand" => boolean(),
-        "Group" => String.t() | atom(),
-        "LaunchType" => list(any()),
-        "NetworkConfiguration" => network_configuration(),
-        "PlacementConstraints" => list(placement_constraint()),
-        "PlacementStrategy" => list(placement_strategy()),
-        "PlatformVersion" => String.t() | atom(),
-        "PropagateTags" => list(any()),
-        "ReferenceId" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "TaskCount" => integer(),
-        "TaskDefinitionArn" => String.t() | atom()
+      test_event_pattern_request() :: %{
+        required("Event") => String.t() | atom(),
+        required("EventPattern") => String.t() | atom()
       }
       
   """
-  @type ecs_parameters() :: %{(String.t() | atom()) => any()}
+  @type test_event_pattern_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_partner_event_source_accounts_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("EventSourceName") => String.t() | atom()
+      test_event_pattern_response() :: %{
+        "Result" => boolean()
       }
       
   """
-  @type list_partner_event_source_accounts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_archive_response() :: %{
-        "ArchiveArn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "State" => list(any()),
-        "StateReason" => String.t() | atom()
-      }
-      
-  """
-  @type create_archive_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sage_maker_pipeline_parameters() :: %{
-        "PipelineParameterList" => list(sage_maker_pipeline_parameter())
-      }
-      
-  """
-  @type sage_maker_pipeline_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_o_auth_client_response_parameters() :: %{
-        "ClientID" => String.t() | atom()
-      }
-      
-  """
-  @type connection_o_auth_client_response_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_event_pattern_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_event_pattern_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_connection_response() :: %{
-        "AuthParameters" => connection_auth_response_parameters(),
-        "AuthorizationType" => list(any()),
-        "ConnectionArn" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "LastAuthorizedTime" => non_neg_integer(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "SecretArn" => String.t() | atom(),
-        "StateReason" => String.t() | atom()
-      }
-      
-  """
-  @type describe_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_transformer() :: %{
-        "InputPathsMap" => map(),
-        "InputTemplate" => String.t() | atom()
-      }
-      
-  """
-  @type input_transformer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_connection_o_auth_request_parameters() :: %{
-        "AuthorizationEndpoint" => String.t() | atom(),
-        "ClientParameters" => create_connection_o_auth_client_request_parameters(),
-        "HttpMethod" => list(any()),
-        "OAuthHttpParameters" => connection_http_parameters()
-      }
-      
-  """
-  @type create_connection_o_auth_request_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_replays_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Replays" => list(replay())
-      }
-      
-  """
-  @type list_replays_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      condition() :: %{
-        "Key" => String.t() | atom(),
-        "Type" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rule_names_by_target_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RuleNames" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_rule_names_by_target_response() :: %{(String.t() | atom()) => any()}
+  @type test_event_pattern_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1405,579 +1997,10 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      describe_connection_request() :: %{
-        required("Name") => String.t() | atom()
-      }
+      untag_resource_response() :: %{}
       
   """
-  @type describe_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      api_destination() :: %{
-        "ApiDestinationArn" => String.t() | atom(),
-        "ApiDestinationState" => list(any()),
-        "ConnectionArn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "HttpMethod" => list(any()),
-        "InvocationEndpoint" => String.t() | atom(),
-        "InvocationRateLimitPerSecond" => integer(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type api_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deauthorize_connection_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type deauthorize_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_connection_request() :: %{
-        optional("AuthParameters") => update_connection_auth_request_parameters(),
-        optional("AuthorizationType") => list(any()),
-        optional("Description") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type update_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_parameters() :: %{
-        "ArrayProperties" => batch_array_properties(),
-        "JobDefinition" => String.t() | atom(),
-        "JobName" => String.t() | atom(),
-        "RetryStrategy" => batch_retry_strategy()
-      }
-      
-  """
-  @type batch_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_rule_request() :: %{
-        optional("EventBusName") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type describe_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_replay_response() :: %{
-        "ReplayArn" => String.t() | atom(),
-        "State" => list(any()),
-        "StateReason" => String.t() | atom()
-      }
-      
-  """
-  @type cancel_replay_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_rule_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedBy" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "EventBusName" => String.t() | atom(),
-        "EventPattern" => String.t() | atom(),
-        "ManagedBy" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "ScheduleExpression" => String.t() | atom(),
-        "State" => list(any())
-      }
-      
-  """
-  @type describe_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replay() :: %{
-        "EventEndTime" => non_neg_integer(),
-        "EventLastReplayedTime" => non_neg_integer(),
-        "EventSourceArn" => String.t() | atom(),
-        "EventStartTime" => non_neg_integer(),
-        "ReplayEndTime" => non_neg_integer(),
-        "ReplayName" => String.t() | atom(),
-        "ReplayStartTime" => non_neg_integer(),
-        "State" => list(any()),
-        "StateReason" => String.t() | atom()
-      }
-      
-  """
-  @type replay() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_bus() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Policy" => String.t() | atom()
-      }
-      
-  """
-  @type event_bus() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_api_destination_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_api_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      illegal_status_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type illegal_status_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deactivate_event_source_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type deactivate_event_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_replay_response() :: %{
-        "ReplayArn" => String.t() | atom(),
-        "ReplayStartTime" => non_neg_integer(),
-        "State" => list(any()),
-        "StateReason" => String.t() | atom()
-      }
-      
-  """
-  @type start_replay_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_parameters() :: %{
-        "PartitionKeyPath" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_rule_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type managed_rule_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_event_buses_request() :: %{
-        optional("Limit") => integer(),
-        optional("NamePrefix") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_event_buses_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_connection_response() :: %{
-        "ConnectionArn" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "CreationTime" => non_neg_integer(),
-        "LastModifiedTime" => non_neg_integer()
-      }
-      
-  """
-  @type create_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capacity_provider_strategy_item() :: %{
-        "base" => integer(),
-        "capacityProvider" => String.t() | atom(),
-        "weight" => integer()
-      }
-      
-  """
-  @type capacity_provider_strategy_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_http_parameters() :: %{
-        "BodyParameters" => list(connection_body_parameter()),
-        "HeaderParameters" => list(connection_header_parameter()),
-        "QueryStringParameters" => list(connection_query_string_parameter())
-      }
-      
-  """
-  @type connection_http_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_api_destination_response() :: %{}
-      
-  """
-  @type delete_api_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_body_parameter() :: %{
-        "IsValueSecret" => boolean(),
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type connection_body_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_connection_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_event_bus_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_event_bus_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_connection_basic_auth_request_parameters() :: %{
-        "Password" => String.t() | atom(),
-        "Username" => String.t() | atom()
-      }
-      
-  """
-  @type update_connection_basic_auth_request_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_event_bus_response() :: %{
-        "EventBusArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_event_bus_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_rule_response() :: %{
-        "RuleArn" => String.t() | atom()
-      }
-      
-  """
-  @type put_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_events_request_entry() :: %{
-        "Detail" => String.t() | atom(),
-        "DetailType" => String.t() | atom(),
-        "EventBusName" => String.t() | atom(),
-        "Resources" => list(String.t() | atom()),
-        "Source" => String.t() | atom(),
-        "Time" => non_neg_integer(),
-        "TraceHeader" => String.t() | atom()
-      }
-      
-  """
-  @type put_events_request_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_already_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_replays_request() :: %{
-        optional("EventSourceArn") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NamePrefix") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("State") => list(any())
-      }
-      
-  """
-  @type list_replays_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_api_destinations_request() :: %{
-        optional("ConnectionArn") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NamePrefix") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_api_destinations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_event_pattern_request() :: %{
-        required("Event") => String.t() | atom(),
-        required("EventPattern") => String.t() | atom()
-      }
-      
-  """
-  @type test_event_pattern_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      placement_constraint() :: %{
-        "expression" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type placement_constraint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_o_auth_response_parameters() :: %{
-        "AuthorizationEndpoint" => String.t() | atom(),
-        "ClientParameters" => connection_o_auth_client_response_parameters(),
-        "HttpMethod" => list(any()),
-        "OAuthHttpParameters" => connection_http_parameters()
-      }
-      
-  """
-  @type connection_o_auth_response_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_partner_event_sources_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("NamePrefix") => String.t() | atom()
-      }
-      
-  """
-  @type list_partner_event_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_targets_request() :: %{
-        optional("EventBusName") => String.t() | atom(),
-        optional("Force") => boolean(),
-        required("Ids") => list(String.t() | atom()),
-        required("Rule") => String.t() | atom()
-      }
-      
-  """
-  @type remove_targets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_event_sources_response() :: %{
-        "EventSources" => list(event_source()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_event_sources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_state_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deauthorize_connection_response() :: %{
-        "ConnectionArn" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "CreationTime" => non_neg_integer(),
-        "LastAuthorizedTime" => non_neg_integer(),
-        "LastModifiedTime" => non_neg_integer()
-      }
-      
-  """
-  @type deauthorize_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_connection_api_key_auth_request_parameters() :: %{
-        "ApiKeyName" => String.t() | atom(),
-        "ApiKeyValue" => String.t() | atom()
-      }
-      
-  """
-  @type create_connection_api_key_auth_request_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_partner_event_source_request() :: %{
-        required("Account") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_partner_event_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_archives_response() :: %{
-        "Archives" => list(archive()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_archives_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_connection_auth_request_parameters() :: %{
-        "ApiKeyAuthParameters" => create_connection_api_key_auth_request_parameters(),
-        "BasicAuthParameters" => create_connection_basic_auth_request_parameters(),
-        "InvocationHttpParameters" => connection_http_parameters(),
-        "OAuthParameters" => create_connection_o_auth_request_parameters()
-      }
-      
-  """
-  @type create_connection_auth_request_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      run_command_parameters() :: %{
-        "RunCommandTargets" => list(run_command_target())
-      }
-      
-  """
-  @type run_command_parameters() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -1999,145 +2022,29 @@ defmodule AWS.CloudWatchEvents do
 
   ## Example:
       
-      describe_replay_response() :: %{
-        "Description" => String.t() | atom(),
-        "Destination" => replay_destination(),
-        "EventEndTime" => non_neg_integer(),
-        "EventLastReplayedTime" => non_neg_integer(),
-        "EventSourceArn" => String.t() | atom(),
-        "EventStartTime" => non_neg_integer(),
-        "ReplayArn" => String.t() | atom(),
-        "ReplayEndTime" => non_neg_integer(),
-        "ReplayName" => String.t() | atom(),
-        "ReplayStartTime" => non_neg_integer(),
-        "State" => list(any()),
-        "StateReason" => String.t() | atom()
-      }
-      
-  """
-  @type describe_replay_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_events_response() :: %{
-        "Entries" => list(put_events_result_entry()),
-        "FailedEntryCount" => integer()
-      }
-      
-  """
-  @type put_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      placement_strategy() :: %{
-        "field" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type placement_strategy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_targets_by_rule_request() :: %{
-        optional("EventBusName") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Rule") => String.t() | atom()
-      }
-      
-  """
-  @type list_targets_by_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_event_bus_request() :: %{
-        optional("EventSourceName") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_event_bus_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_partner_event_source_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type describe_partner_event_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_targets_response() :: %{
-        "FailedEntries" => list(remove_targets_result_entry()),
-        "FailedEntryCount" => integer()
-      }
-      
-  """
-  @type remove_targets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_retry_strategy() :: %{
-        "Attempts" => integer()
-      }
-      
-  """
-  @type batch_retry_strategy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_archive_response() :: %{}
-      
-  """
-  @type delete_archive_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_source() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedBy" => String.t() | atom(),
+      update_api_destination_response() :: %{
+        "ApiDestinationArn" => String.t() | atom(),
+        "ApiDestinationState" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "ExpirationTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "State" => list(any())
+        "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type event_source() :: %{(String.t() | atom()) => any()}
+  @type update_api_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
+      update_archive_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EventPattern") => String.t() | atom(),
+        optional("RetentionDays") => integer(),
+        required("ArchiveName") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type update_archive_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2153,228 +2060,321 @@ defmodule AWS.CloudWatchEvents do
   """
   @type update_archive_response() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_api_key_auth_request_parameters() :: %{
+        "ApiKeyName" => String.t() | atom(),
+        "ApiKeyValue" => String.t() | atom()
+      }
+      
+  """
+  @type update_connection_api_key_auth_request_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_auth_request_parameters() :: %{
+        "ApiKeyAuthParameters" => update_connection_api_key_auth_request_parameters(),
+        "BasicAuthParameters" => update_connection_basic_auth_request_parameters(),
+        "InvocationHttpParameters" => connection_http_parameters(),
+        "OAuthParameters" => update_connection_o_auth_request_parameters()
+      }
+      
+  """
+  @type update_connection_auth_request_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_basic_auth_request_parameters() :: %{
+        "Password" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
+      
+  """
+  @type update_connection_basic_auth_request_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_o_auth_client_request_parameters() :: %{
+        "ClientID" => String.t() | atom(),
+        "ClientSecret" => String.t() | atom()
+      }
+      
+  """
+  @type update_connection_o_auth_client_request_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_o_auth_request_parameters() :: %{
+        "AuthorizationEndpoint" => String.t() | atom(),
+        "ClientParameters" => update_connection_o_auth_client_request_parameters(),
+        "HttpMethod" => list(any()),
+        "OAuthHttpParameters" => connection_http_parameters()
+      }
+      
+  """
+  @type update_connection_o_auth_request_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_request() :: %{
+        optional("AuthParameters") => update_connection_auth_request_parameters(),
+        optional("AuthorizationType") => list(any()),
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type update_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_response() :: %{
+        "ConnectionArn" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "LastAuthorizedTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
+  """
+  @type update_connection_response() :: %{(String.t() | atom()) => any()}
+
   @type activate_event_source_errors() ::
-          invalid_state_exception()
-          | internal_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | operation_disabled_exception()
+          | invalid_state_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type cancel_replay_errors() ::
-          illegal_status_exception()
+          resource_not_found_exception()
           | internal_exception()
-          | resource_not_found_exception()
+          | illegal_status_exception()
           | concurrent_modification_exception()
 
   @type create_api_destination_errors() ::
-          resource_already_exists_exception()
-          | internal_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | resource_already_exists_exception()
           | limit_exceeded_exception()
+          | internal_exception()
 
   @type create_archive_errors() ::
-          resource_already_exists_exception()
+          resource_not_found_exception()
+          | resource_already_exists_exception()
+          | limit_exceeded_exception()
           | invalid_event_pattern_exception()
           | internal_exception()
-          | resource_not_found_exception()
-          | limit_exceeded_exception()
           | concurrent_modification_exception()
 
   @type create_connection_errors() ::
-          resource_already_exists_exception() | internal_exception() | limit_exceeded_exception()
+          resource_already_exists_exception() | limit_exceeded_exception() | internal_exception()
 
   @type create_event_bus_errors() ::
-          invalid_state_exception()
+          resource_not_found_exception()
           | resource_already_exists_exception()
-          | internal_exception()
-          | resource_not_found_exception()
           | operation_disabled_exception()
           | limit_exceeded_exception()
+          | invalid_state_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type create_partner_event_source_errors() ::
           resource_already_exists_exception()
-          | internal_exception()
           | operation_disabled_exception()
           | limit_exceeded_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type deactivate_event_source_errors() ::
-          invalid_state_exception()
-          | internal_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | operation_disabled_exception()
+          | invalid_state_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type deauthorize_connection_errors() ::
-          internal_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type delete_api_destination_errors() ::
-          internal_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type delete_archive_errors() ::
-          internal_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type delete_connection_errors() ::
-          internal_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type delete_event_bus_errors() :: internal_exception() | concurrent_modification_exception()
 
   @type delete_partner_event_source_errors() ::
-          internal_exception()
-          | operation_disabled_exception()
+          operation_disabled_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type delete_rule_errors() ::
-          managed_rule_exception()
+          resource_not_found_exception()
+          | managed_rule_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
-  @type describe_api_destination_errors() :: internal_exception() | resource_not_found_exception()
+  @type describe_api_destination_errors() :: resource_not_found_exception() | internal_exception()
 
   @type describe_archive_errors() ::
-          resource_already_exists_exception()
+          resource_not_found_exception()
+          | resource_already_exists_exception()
           | internal_exception()
-          | resource_not_found_exception()
 
-  @type describe_connection_errors() :: internal_exception() | resource_not_found_exception()
+  @type describe_connection_errors() :: resource_not_found_exception() | internal_exception()
 
-  @type describe_event_bus_errors() :: internal_exception() | resource_not_found_exception()
+  @type describe_event_bus_errors() :: resource_not_found_exception() | internal_exception()
 
   @type describe_event_source_errors() ::
-          internal_exception() | resource_not_found_exception() | operation_disabled_exception()
+          resource_not_found_exception() | operation_disabled_exception() | internal_exception()
 
   @type describe_partner_event_source_errors() ::
-          internal_exception() | resource_not_found_exception() | operation_disabled_exception()
+          resource_not_found_exception() | operation_disabled_exception() | internal_exception()
 
-  @type describe_replay_errors() :: internal_exception() | resource_not_found_exception()
+  @type describe_replay_errors() :: resource_not_found_exception() | internal_exception()
 
-  @type describe_rule_errors() :: internal_exception() | resource_not_found_exception()
+  @type describe_rule_errors() :: resource_not_found_exception() | internal_exception()
 
   @type disable_rule_errors() ::
-          managed_rule_exception()
+          resource_not_found_exception()
+          | managed_rule_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type enable_rule_errors() ::
-          managed_rule_exception()
+          resource_not_found_exception()
+          | managed_rule_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type list_api_destinations_errors() :: internal_exception()
 
-  @type list_archives_errors() :: internal_exception() | resource_not_found_exception()
+  @type list_archives_errors() :: resource_not_found_exception() | internal_exception()
 
   @type list_connections_errors() :: internal_exception()
 
   @type list_event_buses_errors() :: internal_exception()
 
-  @type list_event_sources_errors() :: internal_exception() | operation_disabled_exception()
+  @type list_event_sources_errors() :: operation_disabled_exception() | internal_exception()
 
   @type list_partner_event_source_accounts_errors() ::
-          internal_exception() | resource_not_found_exception() | operation_disabled_exception()
+          resource_not_found_exception() | operation_disabled_exception() | internal_exception()
 
   @type list_partner_event_sources_errors() ::
-          internal_exception() | operation_disabled_exception()
+          operation_disabled_exception() | internal_exception()
 
   @type list_replays_errors() :: internal_exception()
 
   @type list_rule_names_by_target_errors() ::
-          internal_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_exception()
 
-  @type list_rules_errors() :: internal_exception() | resource_not_found_exception()
+  @type list_rules_errors() :: resource_not_found_exception() | internal_exception()
 
-  @type list_tags_for_resource_errors() :: internal_exception() | resource_not_found_exception()
+  @type list_tags_for_resource_errors() :: resource_not_found_exception() | internal_exception()
 
-  @type list_targets_by_rule_errors() :: internal_exception() | resource_not_found_exception()
+  @type list_targets_by_rule_errors() :: resource_not_found_exception() | internal_exception()
 
   @type put_events_errors() :: internal_exception()
 
-  @type put_partner_events_errors() :: internal_exception() | operation_disabled_exception()
+  @type put_partner_events_errors() :: operation_disabled_exception() | internal_exception()
 
   @type put_permission_errors() ::
-          internal_exception()
-          | resource_not_found_exception()
-          | operation_disabled_exception()
+          resource_not_found_exception()
           | policy_length_exceeded_exception()
+          | operation_disabled_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type put_rule_errors() ::
-          managed_rule_exception()
+          resource_not_found_exception()
+          | managed_rule_exception()
+          | limit_exceeded_exception()
           | invalid_event_pattern_exception()
           | internal_exception()
-          | resource_not_found_exception()
-          | limit_exceeded_exception()
           | concurrent_modification_exception()
 
   @type put_targets_errors() ::
-          managed_rule_exception()
-          | internal_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | managed_rule_exception()
           | limit_exceeded_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type remove_permission_errors() ::
-          internal_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | operation_disabled_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type remove_targets_errors() ::
-          managed_rule_exception()
+          resource_not_found_exception()
+          | managed_rule_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type start_replay_errors() ::
-          resource_already_exists_exception()
+          resource_not_found_exception()
+          | resource_already_exists_exception()
+          | limit_exceeded_exception()
           | invalid_event_pattern_exception()
           | internal_exception()
-          | resource_not_found_exception()
-          | limit_exceeded_exception()
 
   @type tag_resource_errors() ::
-          managed_rule_exception()
+          resource_not_found_exception()
+          | managed_rule_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type test_event_pattern_errors() :: invalid_event_pattern_exception() | internal_exception()
 
   @type untag_resource_errors() ::
-          managed_rule_exception()
+          resource_not_found_exception()
+          | managed_rule_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type update_api_destination_errors() ::
-          internal_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type update_archive_errors() ::
-          invalid_event_pattern_exception()
-          | internal_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
+          | invalid_event_pattern_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   @type update_connection_errors() ::
-          internal_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
+          | internal_exception()
           | concurrent_modification_exception()
 
   def metadata do

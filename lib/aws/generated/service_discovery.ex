@@ -40,388 +40,39 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
-      list_instances_response() :: %{
-        "Instances" => list(instance_summary()),
-        "NextToken" => String.t() | atom(),
-        "ResourceOwner" => String.t() | atom()
-      }
-      
-  """
-  @type list_instances_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_instance_custom_health_status_request() :: %{
-        required("InstanceId") => String.t() | atom(),
-        required("ServiceId") => String.t() | atom(),
-        required("Status") => list(any())
-      }
-      
-  """
-  @type update_instance_custom_health_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_service_response() :: %{}
-      
-  """
-  @type delete_service_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_service_attributes_response() :: %{}
-      
-  """
-  @type update_service_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_operation_response() :: %{
-        "Operation" => operation()
-      }
-      
-  """
-  @type get_operation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_attributes_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type service_attributes_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_namespace_request() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type get_namespace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_namespaces_request() :: %{
-        optional("Filters") => list(namespace_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_namespaces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      discover_instances_request() :: %{
-        optional("HealthStatus") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("OptionalParameters") => map(),
-        optional("OwnerAccount") => String.t() | atom(),
-        optional("QueryParameters") => map(),
-        required("NamespaceName") => String.t() | atom(),
-        required("ServiceName") => String.t() | atom()
-      }
-      
-  """
-  @type discover_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_public_dns_namespace_response() :: %{
+      create_http_namespace_response() :: %{
         "OperationId" => String.t() | atom()
       }
       
   """
-  @type update_public_dns_namespace_response() :: %{(String.t() | atom()) => any()}
+  @type create_http_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_in_use() :: %{
-        "Message" => String.t() | atom()
+      create_private_dns_namespace_request() :: %{
+        optional("CreatorRequestId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Properties") => private_dns_namespace_properties(),
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom(),
+        required("Vpc") => String.t() | atom()
       }
       
   """
-  @type resource_in_use() :: %{(String.t() | atom()) => any()}
+  @type create_private_dns_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      public_dns_properties_mutable_change() :: %{
-        "SOA" => s_o_a_change()
-      }
-      
-  """
-  @type public_dns_properties_mutable_change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_http_namespace_response() :: %{
+      create_private_dns_namespace_response() :: %{
         "OperationId" => String.t() | atom()
       }
       
   """
-  @type update_http_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_service_attributes_response() :: %{}
-      
-  """
-  @type delete_service_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      private_dns_properties_mutable_change() :: %{
-        "SOA" => s_o_a_change()
-      }
-      
-  """
-  @type private_dns_properties_mutable_change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      health_check_config() :: %{
-        "FailureThreshold" => integer(),
-        "ResourcePath" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type health_check_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_service_attributes_request() :: %{
-        required("Attributes") => list(String.t() | atom()),
-        required("ServiceId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_service_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      http_instance_summary() :: %{
-        "Attributes" => map(),
-        "HealthStatus" => list(any()),
-        "InstanceId" => String.t() | atom(),
-        "NamespaceName" => String.t() | atom(),
-        "ServiceName" => String.t() | atom()
-      }
-      
-  """
-  @type http_instance_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_service_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("Service") => service_change()
-      }
-      
-  """
-  @type update_service_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_filter() :: %{
-        "Condition" => list(any()),
-        "Name" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type service_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      public_dns_namespace_properties_change() :: %{
-        "DnsProperties" => public_dns_properties_mutable_change()
-      }
-      
-  """
-  @type public_dns_namespace_properties_change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_namespace_request() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_namespace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_services_request() :: %{
-        optional("Filters") => list(service_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_services_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      operation_summary() :: %{
-        "Id" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type operation_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_instance_response() :: %{
-        "OperationId" => String.t() | atom()
-      }
-      
-  """
-  @type deregister_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_instances_health_status_request() :: %{
-        optional("Instances") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ServiceId") => String.t() | atom()
-      }
-      
-  """
-  @type get_instances_health_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service() :: %{
-        "Arn" => String.t() | atom(),
-        "CreateDate" => non_neg_integer(),
-        "CreatedByAccount" => String.t() | atom(),
-        "CreatorRequestId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "DnsConfig" => dns_config(),
-        "HealthCheckConfig" => health_check_config(),
-        "HealthCheckCustomConfig" => health_check_custom_config(),
-        "Id" => String.t() | atom(),
-        "InstanceCount" => integer(),
-        "Name" => String.t() | atom(),
-        "NamespaceId" => String.t() | atom(),
-        "ResourceOwner" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type service() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      namespace_not_found() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type namespace_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      namespace_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "CreateDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Properties" => namespace_properties(),
-        "ResourceOwner" => String.t() | atom(),
-        "ServiceCount" => integer(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type namespace_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_instances_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ServiceId") => String.t() | atom()
-      }
-      
-  """
-  @type list_instances_request() :: %{(String.t() | atom()) => any()}
+  @type create_private_dns_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -442,167 +93,12 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
-      duplicate_request() :: %{
-        "DuplicateOperationId" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type duplicate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_service_request() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type get_service_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dns_config_change() :: %{
-        "DnsRecords" => list(dns_record())
-      }
-      
-  """
-  @type dns_config_change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_private_dns_namespace_request() :: %{
-        optional("UpdaterRequestId") => String.t() | atom(),
-        required("Id") => String.t() | atom(),
-        required("Namespace") => private_dns_namespace_change()
-      }
-      
-  """
-  @type update_private_dns_namespace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_instance_response() :: %{
-        "Instance" => instance(),
-        "ResourceOwner" => String.t() | atom()
-      }
-      
-  """
-  @type get_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_change() :: %{
-        "Description" => String.t() | atom(),
-        "DnsConfig" => dns_config_change(),
-        "HealthCheckConfig" => health_check_config()
-      }
-      
-  """
-  @type service_change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_service_response() :: %{
+      create_public_dns_namespace_response() :: %{
         "OperationId" => String.t() | atom()
       }
       
   """
-  @type update_service_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_operation_request() :: %{
-        optional("OwnerAccount") => String.t() | atom(),
-        required("OperationId") => String.t() | atom()
-      }
-      
-  """
-  @type get_operation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_attributes() :: %{
-        "Attributes" => map(),
-        "ResourceOwner" => String.t() | atom(),
-        "ServiceArn" => String.t() | atom()
-      }
-      
-  """
-  @type service_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dns_properties() :: %{
-        "HostedZoneId" => String.t() | atom(),
-        "SOA" => s_o_a()
-      }
-      
-  """
-  @type dns_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_service_attributes_request() :: %{
-        required("Attributes") => map(),
-        required("ServiceId") => String.t() | atom()
-      }
-      
-  """
-  @type update_service_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s_o_a_change() :: %{
-        "TTL" => float()
-      }
-      
-  """
-  @type s_o_a_change() :: %{(String.t() | atom()) => any()}
+  @type create_public_dns_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -627,10 +123,260 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
-      tag_resource_response() :: %{}
+      create_service_response() :: %{
+        "Service" => service()
+      }
       
   """
-  @type tag_resource_response() :: %{}
+  @type create_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_health_not_found() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type custom_health_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_namespace_request() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_namespace_response() :: %{
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_attributes_request() :: %{
+        required("Attributes") => list(String.t() | atom()),
+        required("ServiceId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_service_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_attributes_response() :: %{}
+      
+  """
+  @type delete_service_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_request() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_response() :: %{}
+      
+  """
+  @type delete_service_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_instance_request() :: %{
+        required("InstanceId") => String.t() | atom(),
+        required("ServiceId") => String.t() | atom()
+      }
+      
+  """
+  @type deregister_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_instance_response() :: %{
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type deregister_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discover_instances_request() :: %{
+        optional("HealthStatus") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("OptionalParameters") => map(),
+        optional("OwnerAccount") => String.t() | atom(),
+        optional("QueryParameters") => map(),
+        required("NamespaceName") => String.t() | atom(),
+        required("ServiceName") => String.t() | atom()
+      }
+      
+  """
+  @type discover_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discover_instances_response() :: %{
+        "Instances" => list(http_instance_summary()),
+        "InstancesRevision" => float()
+      }
+      
+  """
+  @type discover_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discover_instances_revision_request() :: %{
+        optional("OwnerAccount") => String.t() | atom(),
+        required("NamespaceName") => String.t() | atom(),
+        required("ServiceName") => String.t() | atom()
+      }
+      
+  """
+  @type discover_instances_revision_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discover_instances_revision_response() :: %{
+        "InstancesRevision" => float()
+      }
+      
+  """
+  @type discover_instances_revision_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dns_config() :: %{
+        "DnsRecords" => list(dns_record()),
+        "NamespaceId" => String.t() | atom(),
+        "RoutingPolicy" => list(any())
+      }
+      
+  """
+  @type dns_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dns_config_change() :: %{
+        "DnsRecords" => list(dns_record())
+      }
+      
+  """
+  @type dns_config_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dns_properties() :: %{
+        "HostedZoneId" => String.t() | atom(),
+        "SOA" => s_o_a()
+      }
+      
+  """
+  @type dns_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dns_record() :: %{
+        "TTL" => float(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type dns_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_request() :: %{
+        "DuplicateOperationId" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_request() :: %{
+        required("InstanceId") => String.t() | atom(),
+        required("ServiceId") => String.t() | atom()
+      }
+      
+  """
+  @type get_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_response() :: %{
+        "Instance" => instance(),
+        "ResourceOwner" => String.t() | atom()
+      }
+      
+  """
+  @type get_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instances_health_status_request() :: %{
+        optional("Instances") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ServiceId") => String.t() | atom()
+      }
+      
+  """
+  @type get_instances_health_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -648,12 +394,151 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
+      get_namespace_request() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type get_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_namespace_response() :: %{
+        "Namespace" => namespace()
+      }
+      
+  """
+  @type get_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_operation_request() :: %{
+        optional("OwnerAccount") => String.t() | atom(),
+        required("OperationId") => String.t() | atom()
+      }
+      
+  """
+  @type get_operation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_operation_response() :: %{
+        "Operation" => operation()
+      }
+      
+  """
+  @type get_operation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_attributes_request() :: %{
+        required("ServiceId") => String.t() | atom()
+      }
+      
+  """
+  @type get_service_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_service_attributes_response() :: %{
         "ServiceAttributes" => service_attributes()
       }
       
   """
   @type get_service_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_request() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type get_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_service_response() :: %{
+        "Service" => service()
+      }
+      
+  """
+  @type get_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      health_check_config() :: %{
+        "FailureThreshold" => integer(),
+        "ResourcePath" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type health_check_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      health_check_custom_config() :: %{
+        "FailureThreshold" => integer()
+      }
+      
+  """
+  @type health_check_custom_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_instance_summary() :: %{
+        "Attributes" => map(),
+        "HealthStatus" => list(any()),
+        "InstanceId" => String.t() | atom(),
+        "NamespaceName" => String.t() | atom(),
+        "ServiceName" => String.t() | atom()
+      }
+      
+  """
+  @type http_instance_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_namespace_change() :: %{
+        "Description" => String.t() | atom()
+      }
+      
+  """
+  @type http_namespace_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_properties() :: %{
+        "HttpName" => String.t() | atom()
+      }
+      
+  """
+  @type http_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -673,44 +558,12 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
-      private_dns_namespace_properties_change() :: %{
-        "DnsProperties" => private_dns_properties_mutable_change()
-      }
-      
-  """
-  @type private_dns_namespace_properties_change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      public_dns_namespace_change() :: %{
-        "Description" => String.t() | atom(),
-        "Properties" => public_dns_namespace_properties_change()
-      }
-      
-  """
-  @type public_dns_namespace_change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      operation_not_found() :: %{
+      instance_not_found() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type operation_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
+  @type instance_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -729,170 +582,63 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
-      create_http_namespace_response() :: %{
-        "OperationId" => String.t() | atom()
-      }
-      
-  """
-  @type create_http_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_private_dns_namespace_response() :: %{
-        "OperationId" => String.t() | atom()
-      }
-      
-  """
-  @type update_private_dns_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_instance_response() :: %{
-        "OperationId" => String.t() | atom()
-      }
-      
-  """
-  @type register_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dns_record() :: %{
-        "TTL" => float(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type dns_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      private_dns_properties_mutable() :: %{
-        "SOA" => s_o_a()
-      }
-      
-  """
-  @type private_dns_properties_mutable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      namespace_properties() :: %{
-        "DnsProperties" => dns_properties(),
-        "HttpProperties" => http_properties()
-      }
-      
-  """
-  @type namespace_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_services_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Services" => list(service_summary())
-      }
-      
-  """
-  @type list_services_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_instance_request() :: %{
-        required("InstanceId") => String.t() | atom(),
-        required("ServiceId") => String.t() | atom()
-      }
-      
-  """
-  @type deregister_instance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_private_dns_namespace_response() :: %{
-        "OperationId" => String.t() | atom()
-      }
-      
-  """
-  @type create_private_dns_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_namespace_response() :: %{
-        "Namespace" => namespace()
-      }
-      
-  """
-  @type get_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      namespace_already_exists() :: %{
-        "CreatorRequestId" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "NamespaceId" => String.t() | atom()
-      }
-      
-  """
-  @type namespace_already_exists() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      operation() :: %{
-        "CreateDate" => non_neg_integer(),
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "OwnerAccount" => String.t() | atom(),
-        "Status" => list(any()),
-        "Targets" => map(),
-        "Type" => list(any()),
-        "UpdateDate" => non_neg_integer()
-      }
-      
-  """
-  @type operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_limit_exceeded() :: %{
+      invalid_input() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type resource_limit_exceeded() :: %{(String.t() | atom()) => any()}
+  @type invalid_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_instances_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ServiceId") => String.t() | atom()
+      }
+      
+  """
+  @type list_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_instances_response() :: %{
+        "Instances" => list(instance_summary()),
+        "NextToken" => String.t() | atom(),
+        "ResourceOwner" => String.t() | atom()
+      }
+      
+  """
+  @type list_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_namespaces_request() :: %{
+        optional("Filters") => list(namespace_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_namespaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_namespaces_response() :: %{
+        "Namespaces" => list(namespace_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_namespaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -911,51 +657,49 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
-      health_check_custom_config() :: %{
-        "FailureThreshold" => integer()
+      list_operations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Operations" => list(operation_summary())
       }
       
   """
-  @type health_check_custom_config() :: %{(String.t() | atom()) => any()}
+  @type list_operations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      http_properties() :: %{
-        "HttpName" => String.t() | atom()
+      list_services_request() :: %{
+        optional("Filters") => list(service_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type http_properties() :: %{(String.t() | atom()) => any()}
+  @type list_services_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      discover_instances_response() :: %{
-        "Instances" => list(http_instance_summary()),
-        "InstancesRevision" => float()
+      list_services_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Services" => list(service_summary())
       }
       
   """
-  @type discover_instances_response() :: %{(String.t() | atom()) => any()}
+  @type list_services_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_private_dns_namespace_request() :: %{
-        optional("CreatorRequestId") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Properties") => private_dns_namespace_properties(),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("Vpc") => String.t() | atom()
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type create_private_dns_namespace_request() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -992,35 +736,214 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
-      too_many_tags_exception() :: %{
+      namespace_already_exists() :: %{
+        "CreatorRequestId" => String.t() | atom(),
         "Message" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
+        "NamespaceId" => String.t() | atom()
       }
       
   """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+  @type namespace_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_service_attributes_request() :: %{
-        required("ServiceId") => String.t() | atom()
+      namespace_filter() :: %{
+        "Condition" => list(any()),
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type get_service_attributes_request() :: %{(String.t() | atom()) => any()}
+  @type namespace_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_service_response() :: %{
-        "Service" => service()
+      namespace_not_found() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type get_service_response() :: %{(String.t() | atom()) => any()}
+  @type namespace_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      namespace_properties() :: %{
+        "DnsProperties" => dns_properties(),
+        "HttpProperties" => http_properties()
+      }
+      
+  """
+  @type namespace_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      namespace_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreateDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Properties" => namespace_properties(),
+        "ResourceOwner" => String.t() | atom(),
+        "ServiceCount" => integer(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type namespace_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation() :: %{
+        "CreateDate" => non_neg_integer(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "OwnerAccount" => String.t() | atom(),
+        "Status" => list(any()),
+        "Targets" => map(),
+        "Type" => list(any()),
+        "UpdateDate" => non_neg_integer()
+      }
+      
+  """
+  @type operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_filter() :: %{
+        "Condition" => list(any()),
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type operation_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_not_found() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type operation_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_summary() :: %{
+        "Id" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type operation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      private_dns_namespace_change() :: %{
+        "Description" => String.t() | atom(),
+        "Properties" => private_dns_namespace_properties_change()
+      }
+      
+  """
+  @type private_dns_namespace_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      private_dns_namespace_properties() :: %{
+        "DnsProperties" => private_dns_properties_mutable()
+      }
+      
+  """
+  @type private_dns_namespace_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      private_dns_namespace_properties_change() :: %{
+        "DnsProperties" => private_dns_properties_mutable_change()
+      }
+      
+  """
+  @type private_dns_namespace_properties_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      private_dns_properties_mutable() :: %{
+        "SOA" => s_o_a()
+      }
+      
+  """
+  @type private_dns_properties_mutable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      private_dns_properties_mutable_change() :: %{
+        "SOA" => s_o_a_change()
+      }
+      
+  """
+  @type private_dns_properties_mutable_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      public_dns_namespace_change() :: %{
+        "Description" => String.t() | atom(),
+        "Properties" => public_dns_namespace_properties_change()
+      }
+      
+  """
+  @type public_dns_namespace_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      public_dns_namespace_properties() :: %{
+        "DnsProperties" => public_dns_properties_mutable()
+      }
+      
+  """
+  @type public_dns_namespace_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      public_dns_namespace_properties_change() :: %{
+        "DnsProperties" => public_dns_properties_mutable_change()
+      }
+      
+  """
+  @type public_dns_namespace_properties_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1037,23 +960,127 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
-      instance_not_found() :: %{
-        "Message" => String.t() | atom()
+      public_dns_properties_mutable_change() :: %{
+        "SOA" => s_o_a_change()
       }
       
   """
-  @type instance_not_found() :: %{(String.t() | atom()) => any()}
+  @type public_dns_properties_mutable_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_namespace_response() :: %{
+      register_instance_request() :: %{
+        optional("CreatorRequestId") => String.t() | atom(),
+        required("Attributes") => map(),
+        required("InstanceId") => String.t() | atom(),
+        required("ServiceId") => String.t() | atom()
+      }
+      
+  """
+  @type register_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_instance_response() :: %{
         "OperationId" => String.t() | atom()
       }
       
   """
-  @type delete_namespace_response() :: %{(String.t() | atom()) => any()}
+  @type register_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_limit_exceeded() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type request_limit_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_in_use() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_in_use() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_limit_exceeded() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_limit_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s_o_a() :: %{
+        "TTL" => float()
+      }
+      
+  """
+  @type s_o_a() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s_o_a_change() :: %{
+        "TTL" => float()
+      }
+      
+  """
+  @type s_o_a_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service() :: %{
+        "Arn" => String.t() | atom(),
+        "CreateDate" => non_neg_integer(),
+        "CreatedByAccount" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DnsConfig" => dns_config(),
+        "HealthCheckConfig" => health_check_config(),
+        "HealthCheckCustomConfig" => health_check_custom_config(),
+        "Id" => String.t() | atom(),
+        "InstanceCount" => integer(),
+        "Name" => String.t() | atom(),
+        "NamespaceId" => String.t() | atom(),
+        "ResourceOwner" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1073,127 +1100,62 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
-      delete_service_request() :: %{
-        required("Id") => String.t() | atom()
+      service_attributes() :: %{
+        "Attributes" => map(),
+        "ResourceOwner" => String.t() | atom(),
+        "ServiceArn" => String.t() | atom()
       }
       
   """
-  @type delete_service_request() :: %{(String.t() | atom()) => any()}
+  @type service_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_namespaces_response() :: %{
-        "Namespaces" => list(namespace_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_namespaces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dns_config() :: %{
-        "DnsRecords" => list(dns_record()),
-        "NamespaceId" => String.t() | atom(),
-        "RoutingPolicy" => list(any())
-      }
-      
-  """
-  @type dns_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_public_dns_namespace_request() :: %{
-        optional("UpdaterRequestId") => String.t() | atom(),
-        required("Id") => String.t() | atom(),
-        required("Namespace") => public_dns_namespace_change()
-      }
-      
-  """
-  @type update_public_dns_namespace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_limit_exceeded() :: %{
+      service_attributes_limit_exceeded_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type request_limit_exceeded() :: %{(String.t() | atom()) => any()}
+  @type service_attributes_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_input() :: %{
+      service_change() :: %{
+        "Description" => String.t() | atom(),
+        "DnsConfig" => dns_config_change(),
+        "HealthCheckConfig" => health_check_config()
+      }
+      
+  """
+  @type service_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_filter() :: %{
+        "Condition" => list(any()),
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type service_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_not_found() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s_o_a() :: %{
-        "TTL" => float()
-      }
-      
-  """
-  @type s_o_a() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_public_dns_namespace_response() :: %{
-        "OperationId" => String.t() | atom()
-      }
-      
-  """
-  @type create_public_dns_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      private_dns_namespace_properties() :: %{
-        "DnsProperties" => private_dns_properties_mutable()
-      }
-      
-  """
-  @type private_dns_namespace_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_health_not_found() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type custom_health_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_service_response() :: %{
-        "Service" => service()
-      }
-      
-  """
-  @type create_service_response() :: %{(String.t() | atom()) => any()}
+  @type service_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1221,71 +1183,67 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
-      service_not_found() :: %{
-        "Message" => String.t() | atom()
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type service_not_found() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      http_namespace_change() :: %{
-        "Description" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
       }
       
   """
-  @type http_namespace_change() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      public_dns_namespace_properties() :: %{
-        "DnsProperties" => public_dns_properties_mutable()
-      }
+      tag_resource_response() :: %{}
       
   """
-  @type public_dns_namespace_properties() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      namespace_filter() :: %{
-        "Condition" => list(any()),
-        "Name" => list(any()),
-        "Values" => list(String.t() | atom())
+      too_many_tags_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
       
   """
-  @type namespace_filter() :: %{(String.t() | atom()) => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_operations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Operations" => list(operation_summary())
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type list_operations_response() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_instance_request() :: %{
-        required("InstanceId") => String.t() | atom(),
-        required("ServiceId") => String.t() | atom()
-      }
+      untag_resource_response() :: %{}
       
   """
-  @type get_instance_request() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -1304,132 +1262,174 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
-      operation_filter() :: %{
-        "Condition" => list(any()),
-        "Name" => list(any()),
-        "Values" => list(String.t() | atom())
+      update_http_namespace_response() :: %{
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type operation_filter() :: %{(String.t() | atom()) => any()}
+  @type update_http_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      discover_instances_revision_request() :: %{
-        optional("OwnerAccount") => String.t() | atom(),
-        required("NamespaceName") => String.t() | atom(),
-        required("ServiceName") => String.t() | atom()
-      }
-      
-  """
-  @type discover_instances_revision_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_instance_request() :: %{
-        optional("CreatorRequestId") => String.t() | atom(),
-        required("Attributes") => map(),
+      update_instance_custom_health_status_request() :: %{
         required("InstanceId") => String.t() | atom(),
+        required("ServiceId") => String.t() | atom(),
+        required("Status") => list(any())
+      }
+      
+  """
+  @type update_instance_custom_health_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_private_dns_namespace_request() :: %{
+        optional("UpdaterRequestId") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("Namespace") => private_dns_namespace_change()
+      }
+      
+  """
+  @type update_private_dns_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_private_dns_namespace_response() :: %{
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type update_private_dns_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_public_dns_namespace_request() :: %{
+        optional("UpdaterRequestId") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("Namespace") => public_dns_namespace_change()
+      }
+      
+  """
+  @type update_public_dns_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_public_dns_namespace_response() :: %{
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type update_public_dns_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_service_attributes_request() :: %{
+        required("Attributes") => map(),
         required("ServiceId") => String.t() | atom()
       }
       
   """
-  @type register_instance_request() :: %{(String.t() | atom()) => any()}
+  @type update_service_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      discover_instances_revision_response() :: %{
-        "InstancesRevision" => float()
-      }
+      update_service_attributes_response() :: %{}
       
   """
-  @type discover_instances_revision_response() :: %{(String.t() | atom()) => any()}
+  @type update_service_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      private_dns_namespace_change() :: %{
-        "Description" => String.t() | atom(),
-        "Properties" => private_dns_namespace_properties_change()
+      update_service_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("Service") => service_change()
       }
       
   """
-  @type private_dns_namespace_change() :: %{(String.t() | atom()) => any()}
+  @type update_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_service_response() :: %{
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type update_service_response() :: %{(String.t() | atom()) => any()}
 
   @type create_http_namespace_errors() ::
-          invalid_input()
-          | too_many_tags_exception()
+          too_many_tags_exception()
           | resource_limit_exceeded()
           | namespace_already_exists()
+          | invalid_input()
           | duplicate_request()
 
   @type create_private_dns_namespace_errors() ::
-          invalid_input()
-          | too_many_tags_exception()
+          too_many_tags_exception()
           | resource_limit_exceeded()
           | namespace_already_exists()
+          | invalid_input()
           | duplicate_request()
 
   @type create_public_dns_namespace_errors() ::
-          invalid_input()
-          | too_many_tags_exception()
+          too_many_tags_exception()
           | resource_limit_exceeded()
           | namespace_already_exists()
+          | invalid_input()
           | duplicate_request()
 
   @type create_service_errors() ::
-          invalid_input()
+          too_many_tags_exception()
           | service_already_exists()
-          | too_many_tags_exception()
           | resource_limit_exceeded()
           | namespace_not_found()
+          | invalid_input()
 
   @type delete_namespace_errors() ::
-          invalid_input() | duplicate_request() | namespace_not_found() | resource_in_use()
+          resource_in_use() | namespace_not_found() | invalid_input() | duplicate_request()
 
-  @type delete_service_errors() :: service_not_found() | invalid_input() | resource_in_use()
+  @type delete_service_errors() :: service_not_found() | resource_in_use() | invalid_input()
 
   @type delete_service_attributes_errors() :: service_not_found() | invalid_input()
 
   @type deregister_instance_errors() ::
           service_not_found()
+          | resource_in_use()
           | invalid_input()
           | instance_not_found()
           | duplicate_request()
-          | resource_in_use()
 
   @type discover_instances_errors() ::
-          service_not_found() | invalid_input() | request_limit_exceeded() | namespace_not_found()
+          service_not_found() | request_limit_exceeded() | namespace_not_found() | invalid_input()
 
   @type discover_instances_revision_errors() ::
-          service_not_found() | invalid_input() | request_limit_exceeded() | namespace_not_found()
+          service_not_found() | request_limit_exceeded() | namespace_not_found() | invalid_input()
 
   @type get_instance_errors() :: service_not_found() | invalid_input() | instance_not_found()
 
   @type get_instances_health_status_errors() ::
           service_not_found() | invalid_input() | instance_not_found()
 
-  @type get_namespace_errors() :: invalid_input() | namespace_not_found()
+  @type get_namespace_errors() :: namespace_not_found() | invalid_input()
 
-  @type get_operation_errors() :: invalid_input() | operation_not_found()
+  @type get_operation_errors() :: operation_not_found() | invalid_input()
 
   @type get_service_errors() :: service_not_found() | invalid_input()
 
@@ -1443,36 +1443,36 @@ defmodule AWS.ServiceDiscovery do
 
   @type list_services_errors() :: invalid_input()
 
-  @type list_tags_for_resource_errors() :: invalid_input() | resource_not_found_exception()
+  @type list_tags_for_resource_errors() :: resource_not_found_exception() | invalid_input()
 
   @type register_instance_errors() ::
           service_not_found()
-          | invalid_input()
           | resource_limit_exceeded()
-          | duplicate_request()
           | resource_in_use()
+          | invalid_input()
+          | duplicate_request()
 
   @type tag_resource_errors() ::
-          invalid_input() | too_many_tags_exception() | resource_not_found_exception()
+          too_many_tags_exception() | resource_not_found_exception() | invalid_input()
 
-  @type untag_resource_errors() :: invalid_input() | resource_not_found_exception()
+  @type untag_resource_errors() :: resource_not_found_exception() | invalid_input()
 
   @type update_http_namespace_errors() ::
-          invalid_input() | duplicate_request() | namespace_not_found() | resource_in_use()
+          resource_in_use() | namespace_not_found() | invalid_input() | duplicate_request()
 
   @type update_instance_custom_health_status_errors() ::
-          service_not_found() | custom_health_not_found() | invalid_input() | instance_not_found()
+          service_not_found() | invalid_input() | instance_not_found() | custom_health_not_found()
 
   @type update_private_dns_namespace_errors() ::
-          invalid_input() | duplicate_request() | namespace_not_found() | resource_in_use()
+          resource_in_use() | namespace_not_found() | invalid_input() | duplicate_request()
 
   @type update_public_dns_namespace_errors() ::
-          invalid_input() | duplicate_request() | namespace_not_found() | resource_in_use()
+          resource_in_use() | namespace_not_found() | invalid_input() | duplicate_request()
 
   @type update_service_errors() :: service_not_found() | invalid_input() | duplicate_request()
 
   @type update_service_attributes_errors() ::
-          service_not_found() | invalid_input() | service_attributes_limit_exceeded_exception()
+          service_not_found() | service_attributes_limit_exceeded_exception() | invalid_input()
 
   def metadata do
     %{

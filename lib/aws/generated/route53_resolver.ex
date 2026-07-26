@@ -57,339 +57,63 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      firewall_rule_type() :: %{
-        "DnsThreatProtection" => dns_threat_protection_rule_type_config(),
-        "FirewallAdvancedContentCategory" => firewall_advanced_content_category_config(),
-        "FirewallAdvancedThreatCategory" => firewall_advanced_threat_category_config(),
-        "PartnerThreatProtection" => partner_threat_protection_config()
-      }
-      
-  """
-  @type firewall_rule_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_config_response() :: %{
-        "ResolverConfig" => resolver_config()
-      }
-      
-  """
-  @type get_resolver_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_query_log_config_policy_response() :: %{
-        "ResolverQueryLogConfigPolicy" => String.t() | atom()
-      }
-      
-  """
-  @type get_resolver_query_log_config_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_firewall_rule_group_policy_request() :: %{
-        required("Arn") => String.t() | atom()
-      }
-      
-  """
-  @type get_firewall_rule_group_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resolver_rule_policy_request() :: %{
-        required("Arn") => String.t() | atom(),
-        required("ResolverRulePolicy") => String.t() | atom()
-      }
-      
-  """
-  @type put_resolver_rule_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_resolver_dnssec_config_request() :: %{
-        required("ResourceId") => String.t() | atom(),
-        required("Validation") => list(any())
-      }
-      
-  """
-  @type update_resolver_dnssec_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_firewall_rule_group_request() :: %{
-        required("FirewallRuleGroupAssociationId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_resolver_endpoint_request() :: %{
-        optional("Dns64Enabled") => boolean(),
-        optional("Ipv6InternetAccessEnabled") => boolean(),
-        optional("Name") => String.t() | atom(),
-        optional("OutpostArn") => String.t() | atom(),
-        optional("PreferredInstanceType") => String.t() | atom(),
-        optional("Protocols") => list(list(any())()),
-        optional("ResolverEndpointType") => list(any()),
-        optional("RniEnhancedMetricsEnabled") => boolean(),
-        optional("Tags") => list(tag()),
-        optional("TargetNameServerMetricsEnabled") => boolean(),
-        required("CreatorRequestId") => String.t() | atom(),
-        required("Direction") => list(any()),
-        required("IpAddresses") => list(ip_address_request()),
-        required("SecurityGroupIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_resolver_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_resolver_rule_response() :: %{
-        "ResolverRuleAssociation" => resolver_rule_association()
-      }
-      
-  """
-  @type associate_resolver_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_query_log_config_association_response() :: %{
-        "ResolverQueryLogConfigAssociation" => resolver_query_log_config_association()
-      }
-      
-  """
-  @type get_resolver_query_log_config_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_firewall_rule_group_policy_response() :: %{
-        "FirewallRuleGroupPolicy" => String.t() | atom()
-      }
-      
-  """
-  @type get_firewall_rule_group_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_resolver_endpoint_response() :: %{
-        "ResolverEndpoint" => resolver_endpoint()
-      }
-      
-  """
-  @type create_resolver_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_outpost_resolvers_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "OutpostResolvers" => list(outpost_resolver())
-      }
-      
-  """
-  @type list_outpost_resolvers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ip_address_response() :: %{
-        "CreationTime" => String.t() | atom(),
-        "Ip" => String.t() | atom(),
-        "IpId" => String.t() | atom(),
-        "Ipv6" => String.t() | atom(),
-        "ModificationTime" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "SubnetId" => String.t() | atom()
-      }
-      
-  """
-  @type ip_address_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_domains_response() :: %{
-        "Domains" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_domains_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_delete_firewall_rule_response() :: %{
-        "DeleteErrors" => list(batch_delete_firewall_rule_error()),
-        "DeletedFirewallRules" => list(firewall_rule())
-      }
-      
-  """
-  @type batch_delete_firewall_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      firewall_domain_list() :: %{
-        "Arn" => String.t() | atom(),
-        "Category" => String.t() | atom(),
-        "CreationTime" => String.t() | atom(),
-        "CreatorRequestId" => String.t() | atom(),
-        "DomainCount" => integer(),
-        "Id" => String.t() | atom(),
-        "ManagedListType" => list(any()),
-        "ManagedOwnerName" => String.t() | atom(),
-        "ModificationTime" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-      
-  """
-  @type firewall_domain_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ip_address_request() :: %{
-        "Ip" => String.t() | atom(),
-        "Ipv6" => String.t() | atom(),
-        "SubnetId" => String.t() | atom()
-      }
-      
-  """
-  @type ip_address_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_rule_types_response() :: %{
-        "FirewallRuleTypes" => list(firewall_rule_type_definition()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_rule_types_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_resolver_config_request() :: %{
-        required("AutodefinedReverseFlag") => list(any()),
-        required("ResourceId") => String.t() | atom()
-      }
-      
-  """
-  @type update_resolver_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      firewall_rule_group_association() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => String.t() | atom(),
-        "CreatorRequestId" => String.t() | atom(),
-        "FirewallRuleGroupId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ManagedOwnerName" => String.t() | atom(),
-        "ModificationTime" => String.t() | atom(),
-        "MutationProtection" => list(any()),
-        "Name" => String.t() | atom(),
-        "Priority" => integer(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type firewall_rule_group_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
+      access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_firewall_config_request() :: %{
-        required("FirewallFailOpen") => list(any()),
-        required("ResourceId") => String.t() | atom()
+      associate_firewall_rule_group_request() :: %{
+        optional("MutationProtection") => list(any()),
+        optional("Tags") => list(tag()),
+        required("CreatorRequestId") => String.t() | atom(),
+        required("FirewallRuleGroupId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Priority") => integer(),
+        required("VpcId") => String.t() | atom()
       }
       
   """
-  @type update_firewall_config_request() :: %{(String.t() | atom()) => any()}
+  @type associate_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_resolver_rules_response() :: %{
-        "MaxResults" => integer(),
-        "NextToken" => String.t() | atom(),
-        "ResolverRules" => list(resolver_rule())
+      associate_firewall_rule_group_response() :: %{
+        "FirewallRuleGroupAssociation" => firewall_rule_group_association()
       }
       
   """
-  @type list_resolver_rules_response() :: %{(String.t() | atom()) => any()}
+  @type associate_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      firewall_rule_group_metadata() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatorRequestId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "ShareStatus" => list(any())
+      associate_resolver_endpoint_ip_address_request() :: %{
+        required("IpAddress") => ip_address_update(),
+        required("ResolverEndpointId") => String.t() | atom()
       }
       
   """
-  @type firewall_rule_group_metadata() :: %{(String.t() | atom()) => any()}
+  @type associate_resolver_endpoint_ip_address_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_resolver_endpoint_ip_address_response() :: %{
+        "ResolverEndpoint" => resolver_endpoint()
+      }
+      
+  """
+  @type associate_resolver_endpoint_ip_address_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,401 +131,179 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      get_resolver_rule_association_request() :: %{
-        required("ResolverRuleAssociationId") => String.t() | atom()
-      }
-      
-  """
-  @type get_resolver_rule_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_outpost_resolver_response() :: %{
-        "OutpostResolver" => outpost_resolver()
-      }
-      
-  """
-  @type update_outpost_resolver_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_firewall_domain_list_request() :: %{
-        required("FirewallDomainListId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_firewall_domain_list_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_policy_document() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_policy_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_domain_lists_response() :: %{
-        "FirewallDomainLists" => list(firewall_domain_list_metadata()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_domain_lists_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_firewall_config_response() :: %{
-        "FirewallConfig" => firewall_config()
-      }
-      
-  """
-  @type get_firewall_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_rule_response() :: %{
-        "ResolverRule" => resolver_rule()
-      }
-      
-  """
-  @type get_resolver_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resolver_query_log_configs_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResolverQueryLogConfigs" => list(resolver_query_log_config()),
-        "TotalCount" => integer(),
-        "TotalFilteredCount" => integer()
-      }
-      
-  """
-  @type list_resolver_query_log_configs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resolver_dnssec_configs_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_resolver_dnssec_configs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_firewall_domains_response() :: %{
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-      
-  """
-  @type import_firewall_domains_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_firewall_domain_list_request() :: %{
-        required("FirewallDomainListId") => String.t() | atom()
-      }
-      
-  """
-  @type get_firewall_domain_list_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_firewall_rule_group_response() :: %{
-        "FirewallRuleGroupAssociation" => firewall_rule_group_association()
-      }
-      
-  """
-  @type associate_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_ip_address() :: %{
-        "IpId" => String.t() | atom(),
-        "Ipv6" => String.t() | atom()
-      }
-      
-  """
-  @type update_ip_address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_resolver_rule_request() :: %{
-        optional("DelegationRecord") => String.t() | atom(),
-        optional("DomainName") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("ResolverEndpointId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("TargetIps") => list(target_address()),
-        required("CreatorRequestId") => String.t() | atom(),
-        required("RuleType") => list(any())
-      }
-      
-  """
-  @type create_resolver_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_dnssec_config_response() :: %{
-        "ResolverDNSSECConfig" => resolver_dnssec_config()
-      }
-      
-  """
-  @type get_resolver_dnssec_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_resolver_config_response() :: %{
-        "ResolverConfig" => resolver_config()
-      }
-      
-  """
-  @type update_resolver_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resolver_endpoint_response() :: %{
-        "ResolverEndpoint" => resolver_endpoint()
-      }
-      
-  """
-  @type delete_resolver_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_resolver_query_log_config_response() :: %{
+      associate_resolver_query_log_config_response() :: %{
         "ResolverQueryLogConfigAssociation" => resolver_query_log_config_association()
       }
       
   """
-  @type disassociate_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
+  @type associate_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_firewall_rules_response() :: %{
-        "FirewallRules" => list(firewall_rule()),
-        "NextToken" => String.t() | atom()
+      associate_resolver_rule_request() :: %{
+        optional("Name") => String.t() | atom(),
+        required("ResolverRuleId") => String.t() | atom(),
+        required("VPCId") => String.t() | atom()
       }
       
   """
-  @type list_firewall_rules_response() :: %{(String.t() | atom()) => any()}
+  @type associate_resolver_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_resolver_rule_request() :: %{
-        required("ResolverRuleId") => String.t() | atom()
+      associate_resolver_rule_response() :: %{
+        "ResolverRuleAssociation" => resolver_rule_association()
       }
       
   """
-  @type delete_resolver_rule_request() :: %{(String.t() | atom()) => any()}
+  @type associate_resolver_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
+      batch_create_firewall_rule_error() :: %{
+        "Code" => String.t() | atom(),
+        "FirewallRule" => create_firewall_rule_entry(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type batch_create_firewall_rule_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resolver_rule() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => String.t() | atom(),
-        "CreatorRequestId" => String.t() | atom(),
-        "DelegationRecord" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ModificationTime" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "ResolverEndpointId" => String.t() | atom(),
-        "RuleType" => list(any()),
-        "ShareStatus" => list(any()),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "TargetIps" => list(target_address())
+      batch_create_firewall_rule_request() :: %{
+        required("CreateFirewallRuleEntries") => list(create_firewall_rule_entry())
       }
       
   """
-  @type resolver_rule() :: %{(String.t() | atom()) => any()}
+  @type batch_create_firewall_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_resolver_rule_policy_request() :: %{
-        required("Arn") => String.t() | atom()
+      batch_create_firewall_rule_response() :: %{
+        "CreateErrors" => list(batch_create_firewall_rule_error()),
+        "CreatedFirewallRules" => list(firewall_rule())
       }
       
   """
-  @type get_resolver_rule_policy_request() :: %{(String.t() | atom()) => any()}
+  @type batch_create_firewall_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      associate_resolver_endpoint_ip_address_response() :: %{
-        "ResolverEndpoint" => resolver_endpoint()
+      batch_delete_firewall_rule_error() :: %{
+        "Code" => String.t() | atom(),
+        "FirewallRule" => delete_firewall_rule_entry(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type associate_resolver_endpoint_ip_address_response() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_firewall_rule_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resolver_rule_association() :: %{
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ResolverRuleId" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "VPCId" => String.t() | atom()
+      batch_delete_firewall_rule_request() :: %{
+        required("DeleteFirewallRuleEntries") => list(delete_firewall_rule_entry())
       }
       
   """
-  @type resolver_rule_association() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_firewall_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_resolver_rule_response() :: %{
-        "ResolverRule" => resolver_rule()
+      batch_delete_firewall_rule_response() :: %{
+        "DeleteErrors" => list(batch_delete_firewall_rule_error()),
+        "DeletedFirewallRules" => list(firewall_rule())
       }
       
   """
-  @type delete_resolver_rule_response() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_firewall_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resolver_rule_config() :: %{
-        "Name" => String.t() | atom(),
-        "ResolverEndpointId" => String.t() | atom(),
-        "TargetIps" => list(target_address())
+      batch_update_firewall_rule_error() :: %{
+        "Code" => String.t() | atom(),
+        "FirewallRule" => update_firewall_rule_entry(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resolver_rule_config() :: %{(String.t() | atom()) => any()}
+  @type batch_update_firewall_rule_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_outpost_resolver_request() :: %{
-        optional("InstanceCount") => integer(),
+      batch_update_firewall_rule_request() :: %{
+        required("UpdateFirewallRuleEntries") => list(update_firewall_rule_entry())
+      }
+      
+  """
+  @type batch_update_firewall_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_update_firewall_rule_response() :: %{
+        "UpdateErrors" => list(batch_update_firewall_rule_error()),
+        "UpdatedFirewallRules" => list(firewall_rule())
+      }
+      
+  """
+  @type batch_update_firewall_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_domain_list_request() :: %{
         optional("Tags") => list(tag()),
         required("CreatorRequestId") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("OutpostArn") => String.t() | atom(),
-        required("PreferredInstanceType") => String.t() | atom()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_outpost_resolver_request() :: %{(String.t() | atom()) => any()}
+  @type create_firewall_domain_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_resolver_endpoints_response() :: %{
-        "MaxResults" => integer(),
-        "NextToken" => String.t() | atom(),
-        "ResolverEndpoints" => list(resolver_endpoint())
+      create_firewall_domain_list_response() :: %{
+        "FirewallDomainList" => firewall_domain_list()
       }
       
   """
-  @type list_resolver_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_firewall_rule_response() :: %{
-        "FirewallRule" => firewall_rule()
-      }
-      
-  """
-  @type delete_firewall_rule_response() :: %{(String.t() | atom()) => any()}
+  @type create_firewall_domain_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -832,59 +334,166 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      delete_firewall_rule_request() :: %{
-        optional("FirewallDomainListId") => String.t() | atom(),
-        optional("FirewallThreatProtectionId") => String.t() | atom(),
-        optional("Qtype") => String.t() | atom(),
-        required("FirewallRuleGroupId") => String.t() | atom()
+      create_firewall_rule_group_request() :: %{
+        optional("Tags") => list(tag()),
+        required("CreatorRequestId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_firewall_rule_request() :: %{(String.t() | atom()) => any()}
+  @type create_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_resolver_dnssec_config_request() :: %{
-        required("ResourceId") => String.t() | atom()
-      }
-      
-  """
-  @type get_resolver_dnssec_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_query_log_config_association_request() :: %{
-        required("ResolverQueryLogConfigAssociationId") => String.t() | atom()
-      }
-      
-  """
-  @type get_resolver_query_log_config_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_firewall_rule_group_response() :: %{
+      create_firewall_rule_group_response() :: %{
         "FirewallRuleGroup" => firewall_rule_group()
       }
       
   """
-  @type get_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
+  @type create_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_rule_request() :: %{
+        optional("BlockOverrideDnsType") => list(any()),
+        optional("BlockOverrideDomain") => String.t() | atom(),
+        optional("BlockOverrideTtl") => integer(),
+        optional("BlockResponse") => list(any()),
+        optional("ConfidenceThreshold") => list(any()),
+        optional("DnsThreatProtection") => list(any()),
+        optional("FirewallDomainListId") => String.t() | atom(),
+        optional("FirewallDomainRedirectionAction") => list(any()),
+        optional("FirewallRuleType") => firewall_rule_type(),
+        optional("Qtype") => String.t() | atom(),
+        required("Action") => list(any()),
+        required("CreatorRequestId") => String.t() | atom(),
+        required("FirewallRuleGroupId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Priority") => integer()
+      }
+      
+  """
+  @type create_firewall_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_rule_response() :: %{
+        "FirewallRule" => firewall_rule()
+      }
+      
+  """
+  @type create_firewall_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_outpost_resolver_request() :: %{
+        optional("InstanceCount") => integer(),
+        optional("Tags") => list(tag()),
+        required("CreatorRequestId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("OutpostArn") => String.t() | atom(),
+        required("PreferredInstanceType") => String.t() | atom()
+      }
+      
+  """
+  @type create_outpost_resolver_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_outpost_resolver_response() :: %{
+        "OutpostResolver" => outpost_resolver()
+      }
+      
+  """
+  @type create_outpost_resolver_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_resolver_endpoint_request() :: %{
+        optional("Dns64Enabled") => boolean(),
+        optional("Ipv6InternetAccessEnabled") => boolean(),
+        optional("Name") => String.t() | atom(),
+        optional("OutpostArn") => String.t() | atom(),
+        optional("PreferredInstanceType") => String.t() | atom(),
+        optional("Protocols") => list(list(any())()),
+        optional("ResolverEndpointType") => list(any()),
+        optional("RniEnhancedMetricsEnabled") => boolean(),
+        optional("Tags") => list(tag()),
+        optional("TargetNameServerMetricsEnabled") => boolean(),
+        required("CreatorRequestId") => String.t() | atom(),
+        required("Direction") => list(any()),
+        required("IpAddresses") => list(ip_address_request()),
+        required("SecurityGroupIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_resolver_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_resolver_endpoint_response() :: %{
+        "ResolverEndpoint" => resolver_endpoint()
+      }
+      
+  """
+  @type create_resolver_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_resolver_query_log_config_request() :: %{
+        optional("Tags") => list(tag()),
+        required("CreatorRequestId") => String.t() | atom(),
+        required("DestinationArn") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_resolver_query_log_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_resolver_query_log_config_response() :: %{
+        "ResolverQueryLogConfig" => resolver_query_log_config()
+      }
+      
+  """
+  @type create_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_resolver_rule_request() :: %{
+        optional("DelegationRecord") => String.t() | atom(),
+        optional("DomainName") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("ResolverEndpointId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("TargetIps") => list(target_address()),
+        required("CreatorRequestId") => String.t() | atom(),
+        required("RuleType") => list(any())
+      }
+      
+  """
+  @type create_resolver_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -901,12 +510,217 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      create_firewall_domain_list_response() :: %{
+      delete_firewall_domain_list_request() :: %{
+        required("FirewallDomainListId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_firewall_domain_list_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_domain_list_response() :: %{
         "FirewallDomainList" => firewall_domain_list()
       }
       
   """
-  @type create_firewall_domain_list_response() :: %{(String.t() | atom()) => any()}
+  @type delete_firewall_domain_list_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_rule_entry() :: %{
+        "FirewallDomainListId" => String.t() | atom(),
+        "FirewallRuleGroupId" => String.t() | atom(),
+        "FirewallThreatProtectionId" => String.t() | atom(),
+        "Qtype" => String.t() | atom()
+      }
+      
+  """
+  @type delete_firewall_rule_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_rule_group_request() :: %{
+        required("FirewallRuleGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_rule_group_response() :: %{
+        "FirewallRuleGroup" => firewall_rule_group()
+      }
+      
+  """
+  @type delete_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_rule_request() :: %{
+        optional("FirewallDomainListId") => String.t() | atom(),
+        optional("FirewallThreatProtectionId") => String.t() | atom(),
+        optional("Qtype") => String.t() | atom(),
+        required("FirewallRuleGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_firewall_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_rule_response() :: %{
+        "FirewallRule" => firewall_rule()
+      }
+      
+  """
+  @type delete_firewall_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_outpost_resolver_request() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_outpost_resolver_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_outpost_resolver_response() :: %{
+        "OutpostResolver" => outpost_resolver()
+      }
+      
+  """
+  @type delete_outpost_resolver_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resolver_endpoint_request() :: %{
+        required("ResolverEndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resolver_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resolver_endpoint_response() :: %{
+        "ResolverEndpoint" => resolver_endpoint()
+      }
+      
+  """
+  @type delete_resolver_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resolver_query_log_config_request() :: %{
+        required("ResolverQueryLogConfigId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resolver_query_log_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resolver_query_log_config_response() :: %{
+        "ResolverQueryLogConfig" => resolver_query_log_config()
+      }
+      
+  """
+  @type delete_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resolver_rule_request() :: %{
+        required("ResolverRuleId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resolver_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resolver_rule_response() :: %{
+        "ResolverRule" => resolver_rule()
+      }
+      
+  """
+  @type delete_resolver_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_firewall_rule_group_request() :: %{
+        required("FirewallRuleGroupAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_firewall_rule_group_response() :: %{
+        "FirewallRuleGroupAssociation" => firewall_rule_group_association()
+      }
+      
+  """
+  @type disassociate_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_resolver_endpoint_ip_address_request() :: %{
+        required("IpAddress") => ip_address_update(),
+        required("ResolverEndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_resolver_endpoint_ip_address_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_resolver_endpoint_ip_address_response() :: %{
+        "ResolverEndpoint" => resolver_endpoint()
+      }
+      
+  """
+  @type disassociate_resolver_endpoint_ip_address_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -924,12 +738,12 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      put_firewall_rule_group_policy_response() :: %{
-        "ReturnValue" => boolean()
+      disassociate_resolver_query_log_config_response() :: %{
+        "ResolverQueryLogConfigAssociation" => resolver_query_log_config_association()
       }
       
   """
-  @type put_firewall_rule_group_policy_response() :: %{(String.t() | atom()) => any()}
+  @type disassociate_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -947,129 +761,47 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      put_resolver_query_log_config_policy_response() :: %{
-        "ReturnValue" => boolean()
+      disassociate_resolver_rule_response() :: %{
+        "ResolverRuleAssociation" => resolver_rule_association()
       }
       
   """
-  @type put_resolver_query_log_config_policy_response() :: %{(String.t() | atom()) => any()}
+  @type disassociate_resolver_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_firewall_domain_list_request() :: %{
-        optional("Tags") => list(tag()),
-        required("CreatorRequestId") => String.t() | atom(),
-        required("Name") => String.t() | atom()
+      dns_threat_protection_rule_type_config() :: %{
+        "ConfidenceThreshold" => list(any()),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type create_firewall_domain_list_request() :: %{(String.t() | atom()) => any()}
+  @type dns_threat_protection_rule_type_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_update_firewall_rule_response() :: %{
-        "UpdateErrors" => list(batch_update_firewall_rule_error()),
-        "UpdatedFirewallRules" => list(firewall_rule())
+      filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type batch_update_firewall_rule_response() :: %{(String.t() | atom()) => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_firewall_domains_request() :: %{
-        required("Domains") => list(String.t() | atom()),
-        required("FirewallDomainListId") => String.t() | atom(),
-        required("Operation") => list(any())
+      firewall_advanced_content_category_config() :: %{
+        "Category" => String.t() | atom()
       }
       
   """
-  @type update_firewall_domains_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_rule_group_associations_response() :: %{
-        "FirewallRuleGroupAssociations" => list(firewall_rule_group_association()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_rule_group_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_rule_group_associations_request() :: %{
-        optional("FirewallRuleGroupId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Priority") => integer(),
-        optional("Status") => list(any()),
-        optional("VpcId") => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_rule_group_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_firewall_rule_request() :: %{
-        optional("Action") => list(any()),
-        optional("BlockOverrideDnsType") => list(any()),
-        optional("BlockOverrideDomain") => String.t() | atom(),
-        optional("BlockOverrideTtl") => integer(),
-        optional("BlockResponse") => list(any()),
-        optional("ConfidenceThreshold") => list(any()),
-        optional("DnsThreatProtection") => list(any()),
-        optional("FirewallDomainListId") => String.t() | atom(),
-        optional("FirewallDomainRedirectionAction") => list(any()),
-        optional("FirewallRuleType") => firewall_rule_type(),
-        optional("FirewallThreatProtectionId") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Priority") => integer(),
-        optional("Qtype") => String.t() | atom(),
-        required("FirewallRuleGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type update_firewall_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_endpoint_response() :: %{
-        "ResolverEndpoint" => resolver_endpoint()
-      }
-      
-  """
-  @type get_resolver_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resolver_query_log_config_associations_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => String.t() | atom(),
-        optional("SortOrder") => list(any())
-      }
-      
-  """
-  @type list_resolver_query_log_config_associations_request() :: %{(String.t() | atom()) => any()}
+  @type firewall_advanced_content_category_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1086,81 +818,54 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      get_resolver_rule_request() :: %{
-        required("ResolverRuleId") => String.t() | atom()
+      firewall_config() :: %{
+        "FirewallFailOpen" => list(any()),
+        "Id" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ResourceId" => String.t() | atom()
       }
       
   """
-  @type get_resolver_rule_request() :: %{(String.t() | atom()) => any()}
+  @type firewall_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_delete_firewall_rule_error() :: %{
-        "Code" => String.t() | atom(),
-        "FirewallRule" => delete_firewall_rule_entry(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type batch_delete_firewall_rule_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_create_firewall_rule_error() :: %{
-        "Code" => String.t() | atom(),
-        "FirewallRule" => create_firewall_rule_entry(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type batch_create_firewall_rule_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      outpost_resolver() :: %{
+      firewall_domain_list() :: %{
         "Arn" => String.t() | atom(),
+        "Category" => String.t() | atom(),
         "CreationTime" => String.t() | atom(),
         "CreatorRequestId" => String.t() | atom(),
+        "DomainCount" => integer(),
         "Id" => String.t() | atom(),
-        "InstanceCount" => integer(),
+        "ManagedListType" => list(any()),
+        "ManagedOwnerName" => String.t() | atom(),
         "ModificationTime" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "OutpostArn" => String.t() | atom(),
-        "PreferredInstanceType" => String.t() | atom(),
         "Status" => list(any()),
         "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type outpost_resolver() :: %{(String.t() | atom()) => any()}
+  @type firewall_domain_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_outpost_resolver_response() :: %{
-        "OutpostResolver" => outpost_resolver()
+      firewall_domain_list_metadata() :: %{
+        "Arn" => String.t() | atom(),
+        "Category" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ManagedListType" => list(any()),
+        "ManagedOwnerName" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type create_outpost_resolver_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_firewall_rule_response() :: %{
-        "FirewallRule" => firewall_rule()
-      }
-      
-  """
-  @type create_firewall_rule_response() :: %{(String.t() | atom()) => any()}
+  @type firewall_domain_list_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1196,64 +901,90 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      list_resolver_configs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      firewall_rule_group() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModificationTime" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "RuleCount" => integer(),
+        "ShareStatus" => list(any()),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type list_resolver_configs_request() :: %{(String.t() | atom()) => any()}
+  @type firewall_rule_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      associate_firewall_rule_group_request() :: %{
-        optional("MutationProtection") => list(any()),
-        optional("Tags") => list(tag()),
-        required("CreatorRequestId") => String.t() | atom(),
-        required("FirewallRuleGroupId") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("Priority") => integer(),
-        required("VpcId") => String.t() | atom()
+      firewall_rule_group_association() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "FirewallRuleGroupId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ManagedOwnerName" => String.t() | atom(),
+        "ModificationTime" => String.t() | atom(),
+        "MutationProtection" => list(any()),
+        "Name" => String.t() | atom(),
+        "Priority" => integer(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type associate_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
+  @type firewall_rule_group_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_resolver_rule_association_response() :: %{
-        "ResolverRuleAssociation" => resolver_rule_association()
+      firewall_rule_group_metadata() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ShareStatus" => list(any())
       }
       
   """
-  @type get_resolver_rule_association_response() :: %{(String.t() | atom()) => any()}
+  @type firewall_rule_group_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      associate_resolver_endpoint_ip_address_request() :: %{
-        required("IpAddress") => ip_address_update(),
-        required("ResolverEndpointId") => String.t() | atom()
+      firewall_rule_type() :: %{
+        "DnsThreatProtection" => dns_threat_protection_rule_type_config(),
+        "FirewallAdvancedContentCategory" => firewall_advanced_content_category_config(),
+        "FirewallAdvancedThreatCategory" => firewall_advanced_threat_category_config(),
+        "PartnerThreatProtection" => partner_threat_protection_config()
       }
       
   """
-  @type associate_resolver_endpoint_ip_address_request() :: %{(String.t() | atom()) => any()}
+  @type firewall_rule_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_firewall_rule_group_association_response() :: %{
-        "FirewallRuleGroupAssociation" => firewall_rule_group_association()
+      firewall_rule_type_definition() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "RuleType" => String.t() | atom(),
+        "SubscriptionInfo" => subscription_info(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type update_firewall_rule_group_association_response() :: %{(String.t() | atom()) => any()}
+  @type firewall_rule_type_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1270,36 +1001,1040 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      batch_update_firewall_rule_request() :: %{
-        required("UpdateFirewallRuleEntries") => list(update_firewall_rule_entry())
+      get_firewall_config_response() :: %{
+        "FirewallConfig" => firewall_config()
       }
       
   """
-  @type batch_update_firewall_rule_request() :: %{(String.t() | atom()) => any()}
+  @type get_firewall_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_not_found_exception() :: %{
+      get_firewall_domain_list_request() :: %{
+        required("FirewallDomainListId") => String.t() | atom()
+      }
+      
+  """
+  @type get_firewall_domain_list_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_firewall_domain_list_response() :: %{
+        "FirewallDomainList" => firewall_domain_list()
+      }
+      
+  """
+  @type get_firewall_domain_list_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_firewall_rule_group_association_request() :: %{
+        required("FirewallRuleGroupAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type get_firewall_rule_group_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_firewall_rule_group_association_response() :: %{
+        "FirewallRuleGroupAssociation" => firewall_rule_group_association()
+      }
+      
+  """
+  @type get_firewall_rule_group_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_firewall_rule_group_policy_request() :: %{
+        required("Arn") => String.t() | atom()
+      }
+      
+  """
+  @type get_firewall_rule_group_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_firewall_rule_group_policy_response() :: %{
+        "FirewallRuleGroupPolicy" => String.t() | atom()
+      }
+      
+  """
+  @type get_firewall_rule_group_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_firewall_rule_group_request() :: %{
+        required("FirewallRuleGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type get_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_firewall_rule_group_response() :: %{
+        "FirewallRuleGroup" => firewall_rule_group()
+      }
+      
+  """
+  @type get_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_outpost_resolver_request() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type get_outpost_resolver_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_outpost_resolver_response() :: %{
+        "OutpostResolver" => outpost_resolver()
+      }
+      
+  """
+  @type get_outpost_resolver_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_config_request() :: %{
+        required("ResourceId") => String.t() | atom()
+      }
+      
+  """
+  @type get_resolver_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_config_response() :: %{
+        "ResolverConfig" => resolver_config()
+      }
+      
+  """
+  @type get_resolver_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_dnssec_config_request() :: %{
+        required("ResourceId") => String.t() | atom()
+      }
+      
+  """
+  @type get_resolver_dnssec_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_dnssec_config_response() :: %{
+        "ResolverDNSSECConfig" => resolver_dnssec_config()
+      }
+      
+  """
+  @type get_resolver_dnssec_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_endpoint_request() :: %{
+        required("ResolverEndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type get_resolver_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_endpoint_response() :: %{
+        "ResolverEndpoint" => resolver_endpoint()
+      }
+      
+  """
+  @type get_resolver_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_query_log_config_association_request() :: %{
+        required("ResolverQueryLogConfigAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type get_resolver_query_log_config_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_query_log_config_association_response() :: %{
+        "ResolverQueryLogConfigAssociation" => resolver_query_log_config_association()
+      }
+      
+  """
+  @type get_resolver_query_log_config_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_query_log_config_policy_request() :: %{
+        required("Arn") => String.t() | atom()
+      }
+      
+  """
+  @type get_resolver_query_log_config_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_query_log_config_policy_response() :: %{
+        "ResolverQueryLogConfigPolicy" => String.t() | atom()
+      }
+      
+  """
+  @type get_resolver_query_log_config_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_query_log_config_request() :: %{
+        required("ResolverQueryLogConfigId") => String.t() | atom()
+      }
+      
+  """
+  @type get_resolver_query_log_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_query_log_config_response() :: %{
+        "ResolverQueryLogConfig" => resolver_query_log_config()
+      }
+      
+  """
+  @type get_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_rule_association_request() :: %{
+        required("ResolverRuleAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type get_resolver_rule_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_rule_association_response() :: %{
+        "ResolverRuleAssociation" => resolver_rule_association()
+      }
+      
+  """
+  @type get_resolver_rule_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_rule_policy_request() :: %{
+        required("Arn") => String.t() | atom()
+      }
+      
+  """
+  @type get_resolver_rule_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_rule_policy_response() :: %{
+        "ResolverRulePolicy" => String.t() | atom()
+      }
+      
+  """
+  @type get_resolver_rule_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_rule_request() :: %{
+        required("ResolverRuleId") => String.t() | atom()
+      }
+      
+  """
+  @type get_resolver_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resolver_rule_response() :: %{
+        "ResolverRule" => resolver_rule()
+      }
+      
+  """
+  @type get_resolver_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_firewall_domains_request() :: %{
+        required("DomainFileUrl") => String.t() | atom(),
+        required("FirewallDomainListId") => String.t() | atom(),
+        required("Operation") => list(any())
+      }
+      
+  """
+  @type import_firewall_domains_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_firewall_domains_response() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+      
+  """
+  @type import_firewall_domains_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_service_error_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_next_token_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "FieldName" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_policy_document() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_policy_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_tag_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_address_request() :: %{
+        "Ip" => String.t() | atom(),
+        "Ipv6" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
+      }
+      
+  """
+  @type ip_address_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_address_response() :: %{
+        "CreationTime" => String.t() | atom(),
+        "Ip" => String.t() | atom(),
+        "IpId" => String.t() | atom(),
+        "Ipv6" => String.t() | atom(),
+        "ModificationTime" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
+      }
+      
+  """
+  @type ip_address_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_address_update() :: %{
+        "Ip" => String.t() | atom(),
+        "IpId" => String.t() | atom(),
+        "Ipv6" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
+      }
+      
+  """
+  @type ip_address_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
         "Message" => String.t() | atom(),
         "ResourceType" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      subscription_info() :: %{
-        "ProductId" => String.t() | atom(),
-        "VendorName" => String.t() | atom()
+      list_firewall_configs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type subscription_info() :: %{(String.t() | atom()) => any()}
+  @type list_firewall_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_configs_response() :: %{
+        "FirewallConfigs" => list(firewall_config()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_domain_lists_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_domain_lists_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_domain_lists_response() :: %{
+        "FirewallDomainLists" => list(firewall_domain_list_metadata()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_domain_lists_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_domains_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("FirewallDomainListId") => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_domains_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_domains_response() :: %{
+        "Domains" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_domains_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_rule_group_associations_request() :: %{
+        optional("FirewallRuleGroupId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Priority") => integer(),
+        optional("Status") => list(any()),
+        optional("VpcId") => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_rule_group_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_rule_group_associations_response() :: %{
+        "FirewallRuleGroupAssociations" => list(firewall_rule_group_association()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_rule_group_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_rule_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_rule_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_rule_groups_response() :: %{
+        "FirewallRuleGroups" => list(firewall_rule_group_metadata()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_rule_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_rule_types_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RuleType") => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_rule_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_rule_types_response() :: %{
+        "FirewallRuleTypes" => list(firewall_rule_type_definition()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_rule_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_rules_request() :: %{
+        optional("Action") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Priority") => integer(),
+        required("FirewallRuleGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_rules_response() :: %{
+        "FirewallRules" => list(firewall_rule()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_outpost_resolvers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OutpostArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_outpost_resolvers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_outpost_resolvers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "OutpostResolvers" => list(outpost_resolver())
+      }
+      
+  """
+  @type list_outpost_resolvers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_configs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_resolver_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_configs_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResolverConfigs" => list(resolver_config())
+      }
+      
+  """
+  @type list_resolver_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_dnssec_configs_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_resolver_dnssec_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_dnssec_configs_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResolverDnssecConfigs" => list(resolver_dnssec_config())
+      }
+      
+  """
+  @type list_resolver_dnssec_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_endpoint_ip_addresses_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResolverEndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type list_resolver_endpoint_ip_addresses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_endpoint_ip_addresses_response() :: %{
+        "IpAddresses" => list(ip_address_response()),
+        "MaxResults" => integer(),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_resolver_endpoint_ip_addresses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_endpoints_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_resolver_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_endpoints_response() :: %{
+        "MaxResults" => integer(),
+        "NextToken" => String.t() | atom(),
+        "ResolverEndpoints" => list(resolver_endpoint())
+      }
+      
+  """
+  @type list_resolver_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_query_log_config_associations_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => String.t() | atom(),
+        optional("SortOrder") => list(any())
+      }
+      
+  """
+  @type list_resolver_query_log_config_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_query_log_config_associations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResolverQueryLogConfigAssociations" => list(resolver_query_log_config_association()),
+        "TotalCount" => integer(),
+        "TotalFilteredCount" => integer()
+      }
+      
+  """
+  @type list_resolver_query_log_config_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_query_log_configs_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => String.t() | atom(),
+        optional("SortOrder") => list(any())
+      }
+      
+  """
+  @type list_resolver_query_log_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_query_log_configs_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResolverQueryLogConfigs" => list(resolver_query_log_config()),
+        "TotalCount" => integer(),
+        "TotalFilteredCount" => integer()
+      }
+      
+  """
+  @type list_resolver_query_log_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_rule_associations_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_resolver_rule_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_rule_associations_response() :: %{
+        "MaxResults" => integer(),
+        "NextToken" => String.t() | atom(),
+        "ResolverRuleAssociations" => list(resolver_rule_association())
+      }
+      
+  """
+  @type list_resolver_rule_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_rules_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_resolver_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resolver_rules_response() :: %{
+        "MaxResults" => integer(),
+        "NextToken" => String.t() | atom(),
+        "ResolverRules" => list(resolver_rule())
+      }
+      
+  """
+  @type list_resolver_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      outpost_resolver() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "InstanceCount" => integer(),
+        "ModificationTime" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OutpostArn" => String.t() | atom(),
+        "PreferredInstanceType" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+      
+  """
+  @type outpost_resolver() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partner_threat_protection_config() :: %{
+        "Partner" => String.t() | atom()
+      }
+      
+  """
+  @type partner_threat_protection_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_firewall_rule_group_policy_request() :: %{
+        required("Arn") => String.t() | atom(),
+        required("FirewallRuleGroupPolicy") => String.t() | atom()
+      }
+      
+  """
+  @type put_firewall_rule_group_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_firewall_rule_group_policy_response() :: %{
+        "ReturnValue" => boolean()
+      }
+      
+  """
+  @type put_firewall_rule_group_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resolver_query_log_config_policy_request() :: %{
+        required("Arn") => String.t() | atom(),
+        required("ResolverQueryLogConfigPolicy") => String.t() | atom()
+      }
+      
+  """
+  @type put_resolver_query_log_config_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resolver_query_log_config_policy_response() :: %{
+        "ReturnValue" => boolean()
+      }
+      
+  """
+  @type put_resolver_query_log_config_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resolver_rule_policy_request() :: %{
+        required("Arn") => String.t() | atom(),
+        required("ResolverRulePolicy") => String.t() | atom()
+      }
+      
+  """
+  @type put_resolver_rule_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resolver_rule_policy_response() :: %{
+        "ReturnValue" => boolean()
+      }
+      
+  """
+  @type put_resolver_rule_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resolver_config() :: %{
+        "AutodefinedReverse" => list(any()),
+        "Id" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ResourceId" => String.t() | atom()
+      }
+      
+  """
+  @type resolver_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resolver_dnssec_config() :: %{
+        "Id" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ValidationStatus" => list(any())
+      }
+      
+  """
+  @type resolver_dnssec_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1335,13 +2070,175 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      batch_create_firewall_rule_response() :: %{
-        "CreateErrors" => list(batch_create_firewall_rule_error()),
-        "CreatedFirewallRules" => list(firewall_rule())
+      resolver_query_log_config() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociationCount" => integer(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "DestinationArn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ShareStatus" => list(any()),
+        "Status" => list(any())
       }
       
   """
-  @type batch_create_firewall_rule_response() :: %{(String.t() | atom()) => any()}
+  @type resolver_query_log_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resolver_query_log_config_association() :: %{
+        "CreationTime" => String.t() | atom(),
+        "Error" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ResolverQueryLogConfigId" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type resolver_query_log_config_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resolver_rule() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "DelegationRecord" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModificationTime" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ResolverEndpointId" => String.t() | atom(),
+        "RuleType" => list(any()),
+        "ShareStatus" => list(any()),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "TargetIps" => list(target_address())
+      }
+      
+  """
+  @type resolver_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resolver_rule_association() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ResolverRuleId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "VPCId" => String.t() | atom()
+      }
+      
+  """
+  @type resolver_rule_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resolver_rule_config() :: %{
+        "Name" => String.t() | atom(),
+        "ResolverEndpointId" => String.t() | atom(),
+        "TargetIps" => list(target_address())
+      }
+      
+  """
+  @type resolver_rule_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_exists_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_in_use_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_unavailable_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subscription_info() :: %{
+        "ProductId" => String.t() | atom(),
+        "VendorName" => String.t() | atom()
+      }
+      
+  """
+  @type subscription_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1359,164 +2256,10 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      delete_resolver_query_log_config_request() :: %{
-        required("ResolverQueryLogConfigId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_resolver_query_log_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_outpost_resolver_response() :: %{
-        "OutpostResolver" => outpost_resolver()
-      }
-      
-  """
-  @type get_outpost_resolver_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_resolver_rule_response() :: %{
-        "ResolverRule" => resolver_rule()
-      }
-      
-  """
-  @type update_resolver_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resolver_rule_associations_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_resolver_rule_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_service_error_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_firewall_rule_response() :: %{
-        "FirewallRule" => firewall_rule()
-      }
-      
-  """
-  @type update_firewall_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      partner_threat_protection_config() :: %{
-        "Partner" => String.t() | atom()
-      }
-      
-  """
-  @type partner_threat_protection_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_resolver_query_log_config_request() :: %{
-        optional("Tags") => list(tag()),
-        required("CreatorRequestId") => String.t() | atom(),
-        required("DestinationArn") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_resolver_query_log_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resolver_query_log_config_policy_request() :: %{
-        required("Arn") => String.t() | atom(),
-        required("ResolverQueryLogConfigPolicy") => String.t() | atom()
-      }
-      
-  """
-  @type put_resolver_query_log_config_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_resolver_endpoint_ip_address_request() :: %{
-        required("IpAddress") => ip_address_update(),
-        required("ResolverEndpointId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_resolver_endpoint_ip_address_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_resolver_query_log_config_response() :: %{
-        "ResolverQueryLogConfig" => resolver_query_log_config()
-      }
-      
-  """
-  @type create_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       tag_resource_response() :: %{}
       
   """
   @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_rule_types_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RuleType") => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_rule_types_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_resolver_rule_request() :: %{
-        optional("Name") => String.t() | atom(),
-        required("ResolverRuleId") => String.t() | atom(),
-        required("VPCId") => String.t() | atom()
-      }
-      
-  """
-  @type associate_resolver_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1537,218 +2280,23 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      create_firewall_rule_group_response() :: %{
-        "FirewallRuleGroup" => firewall_rule_group()
-      }
-      
-  """
-  @type create_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_tag_exception() :: %{
+      throttling_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_in_use_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_config_request() :: %{
-        required("ResourceId") => String.t() | atom()
-      }
-      
-  """
-  @type get_resolver_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_resolver_endpoint_response() :: %{
-        "ResolverEndpoint" => resolver_endpoint()
-      }
-      
-  """
-  @type update_resolver_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_outpost_resolver_request() :: %{
-        optional("InstanceCount") => integer(),
-        optional("Name") => String.t() | atom(),
-        optional("PreferredInstanceType") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type update_outpost_resolver_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      firewall_domain_list_metadata() :: %{
-        "Arn" => String.t() | atom(),
-        "Category" => String.t() | atom(),
-        "CreatorRequestId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ManagedListType" => list(any()),
-        "ManagedOwnerName" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type firewall_domain_list_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
+      unknown_resource_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_query_log_config_policy_request() :: %{
-        required("Arn") => String.t() | atom()
-      }
-      
-  """
-  @type get_resolver_query_log_config_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      firewall_advanced_content_category_config() :: %{
-        "Category" => String.t() | atom()
-      }
-      
-  """
-  @type firewall_advanced_content_category_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_rule_groups_response() :: %{
-        "FirewallRuleGroups" => list(firewall_rule_group_metadata()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_rule_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_outpost_resolver_request() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_outpost_resolver_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_domains_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("FirewallDomainListId") => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_domains_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_firewall_config_response() :: %{
-        "FirewallConfig" => firewall_config()
-      }
-      
-  """
-  @type update_firewall_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resolver_endpoint_ip_addresses_response() :: %{
-        "IpAddresses" => list(ip_address_response()),
-        "MaxResults" => integer(),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_resolver_endpoint_ip_addresses_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resolver_endpoints_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_resolver_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_rules_request() :: %{
-        optional("Action") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Priority") => integer(),
-        required("FirewallRuleGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_rules_request() :: %{(String.t() | atom()) => any()}
+  @type unknown_resource_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1766,82 +2314,60 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      import_firewall_domains_request() :: %{
-        required("DomainFileUrl") => String.t() | atom(),
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_config_request() :: %{
+        required("FirewallFailOpen") => list(any()),
+        required("ResourceId") => String.t() | atom()
+      }
+      
+  """
+  @type update_firewall_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_config_response() :: %{
+        "FirewallConfig" => firewall_config()
+      }
+      
+  """
+  @type update_firewall_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_domains_request() :: %{
+        required("Domains") => list(String.t() | atom()),
         required("FirewallDomainListId") => String.t() | atom(),
         required("Operation") => list(any())
       }
       
   """
-  @type import_firewall_domains_request() :: %{(String.t() | atom()) => any()}
+  @type update_firewall_domains_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_outpost_resolvers_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OutpostArn") => String.t() | atom()
+      update_firewall_domains_response() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type list_outpost_resolvers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_configs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_configs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_resolver_endpoint_request() :: %{
-        optional("Dns64Enabled") => boolean(),
-        optional("Ipv6InternetAccessEnabled") => boolean(),
-        optional("Name") => String.t() | atom(),
-        optional("Protocols") => list(list(any())()),
-        optional("ResolverEndpointType") => list(any()),
-        optional("RniEnhancedMetricsEnabled") => boolean(),
-        optional("TargetNameServerMetricsEnabled") => boolean(),
-        optional("UpdateIpAddresses") => list(update_ip_address()),
-        required("ResolverEndpointId") => String.t() | atom()
-      }
-      
-  """
-  @type update_resolver_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_resolver_rule_response() :: %{
-        "ResolverRuleAssociation" => resolver_rule_association()
-      }
-      
-  """
-  @type disassociate_resolver_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resolver_endpoint_ip_addresses_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResolverEndpointId") => String.t() | atom()
-      }
-      
-  """
-  @type list_resolver_endpoint_ip_addresses_request() :: %{(String.t() | atom()) => any()}
+  @type update_firewall_domains_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1872,25 +2398,175 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      associate_resolver_query_log_config_response() :: %{
-        "ResolverQueryLogConfigAssociation" => resolver_query_log_config_association()
+      update_firewall_rule_group_association_request() :: %{
+        optional("MutationProtection") => list(any()),
+        optional("Name") => String.t() | atom(),
+        optional("Priority") => integer(),
+        required("FirewallRuleGroupAssociationId") => String.t() | atom()
       }
       
   """
-  @type associate_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
+  @type update_firewall_rule_group_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_resolver_rules_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      update_firewall_rule_group_association_response() :: %{
+        "FirewallRuleGroupAssociation" => firewall_rule_group_association()
       }
       
   """
-  @type list_resolver_rules_request() :: %{(String.t() | atom()) => any()}
+  @type update_firewall_rule_group_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_rule_request() :: %{
+        optional("Action") => list(any()),
+        optional("BlockOverrideDnsType") => list(any()),
+        optional("BlockOverrideDomain") => String.t() | atom(),
+        optional("BlockOverrideTtl") => integer(),
+        optional("BlockResponse") => list(any()),
+        optional("ConfidenceThreshold") => list(any()),
+        optional("DnsThreatProtection") => list(any()),
+        optional("FirewallDomainListId") => String.t() | atom(),
+        optional("FirewallDomainRedirectionAction") => list(any()),
+        optional("FirewallRuleType") => firewall_rule_type(),
+        optional("FirewallThreatProtectionId") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Priority") => integer(),
+        optional("Qtype") => String.t() | atom(),
+        required("FirewallRuleGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type update_firewall_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_rule_response() :: %{
+        "FirewallRule" => firewall_rule()
+      }
+      
+  """
+  @type update_firewall_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_ip_address() :: %{
+        "IpId" => String.t() | atom(),
+        "Ipv6" => String.t() | atom()
+      }
+      
+  """
+  @type update_ip_address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_outpost_resolver_request() :: %{
+        optional("InstanceCount") => integer(),
+        optional("Name") => String.t() | atom(),
+        optional("PreferredInstanceType") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type update_outpost_resolver_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_outpost_resolver_response() :: %{
+        "OutpostResolver" => outpost_resolver()
+      }
+      
+  """
+  @type update_outpost_resolver_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resolver_config_request() :: %{
+        required("AutodefinedReverseFlag") => list(any()),
+        required("ResourceId") => String.t() | atom()
+      }
+      
+  """
+  @type update_resolver_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resolver_config_response() :: %{
+        "ResolverConfig" => resolver_config()
+      }
+      
+  """
+  @type update_resolver_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resolver_dnssec_config_request() :: %{
+        required("ResourceId") => String.t() | atom(),
+        required("Validation") => list(any())
+      }
+      
+  """
+  @type update_resolver_dnssec_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resolver_dnssec_config_response() :: %{
+        "ResolverDNSSECConfig" => resolver_dnssec_config()
+      }
+      
+  """
+  @type update_resolver_dnssec_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resolver_endpoint_request() :: %{
+        optional("Dns64Enabled") => boolean(),
+        optional("Ipv6InternetAccessEnabled") => boolean(),
+        optional("Name") => String.t() | atom(),
+        optional("Protocols") => list(list(any())()),
+        optional("ResolverEndpointType") => list(any()),
+        optional("RniEnhancedMetricsEnabled") => boolean(),
+        optional("TargetNameServerMetricsEnabled") => boolean(),
+        optional("UpdateIpAddresses") => list(update_ip_address()),
+        required("ResolverEndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type update_resolver_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resolver_endpoint_response() :: %{
+        "ResolverEndpoint" => resolver_endpoint()
+      }
+      
+  """
+  @type update_resolver_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1908,1250 +2584,574 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
-      update_resolver_dnssec_config_response() :: %{
-        "ResolverDNSSECConfig" => resolver_dnssec_config()
+      update_resolver_rule_response() :: %{
+        "ResolverRule" => resolver_rule()
       }
       
   """
-  @type update_resolver_dnssec_config_response() :: %{(String.t() | atom()) => any()}
+  @type update_resolver_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_firewall_rule_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_rule_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resolver_query_log_config() :: %{
-        "Arn" => String.t() | atom(),
-        "AssociationCount" => integer(),
-        "CreationTime" => String.t() | atom(),
-        "CreatorRequestId" => String.t() | atom(),
-        "DestinationArn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "ShareStatus" => list(any()),
-        "Status" => list(any())
-      }
-      
-  """
-  @type resolver_query_log_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_next_token_exception() :: %{
+      validation_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_firewall_rule_group_association_request() :: %{
-        required("FirewallRuleGroupAssociationId") => String.t() | atom()
-      }
-      
-  """
-  @type get_firewall_rule_group_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unknown_resource_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unknown_resource_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resolver_config() :: %{
-        "AutodefinedReverse" => list(any()),
-        "Id" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "ResourceId" => String.t() | atom()
-      }
-      
-  """
-  @type resolver_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_query_log_config_response() :: %{
-        "ResolverQueryLogConfig" => resolver_query_log_config()
-      }
-      
-  """
-  @type get_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_firewall_rule_group_association_response() :: %{
-        "FirewallRuleGroupAssociation" => firewall_rule_group_association()
-      }
-      
-  """
-  @type get_firewall_rule_group_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ip_address_update() :: %{
-        "Ip" => String.t() | atom(),
-        "IpId" => String.t() | atom(),
-        "Ipv6" => String.t() | atom(),
-        "SubnetId" => String.t() | atom()
-      }
-      
-  """
-  @type ip_address_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_firewall_domain_list_response() :: %{
-        "FirewallDomainList" => firewall_domain_list()
-      }
-      
-  """
-  @type get_firewall_domain_list_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_update_firewall_rule_error() :: %{
-        "Code" => String.t() | atom(),
-        "FirewallRule" => update_firewall_rule_entry(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type batch_update_firewall_rule_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_resolver_endpoint_ip_address_response() :: %{
-        "ResolverEndpoint" => resolver_endpoint()
-      }
-      
-  """
-  @type disassociate_resolver_endpoint_ip_address_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_outpost_resolver_response() :: %{
-        "OutpostResolver" => outpost_resolver()
-      }
-      
-  """
-  @type delete_outpost_resolver_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_firewall_rule_group_request() :: %{
-        required("FirewallRuleGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_unavailable_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resolver_dnssec_configs_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResolverDnssecConfigs" => list(resolver_dnssec_config())
-      }
-      
-  """
-  @type list_resolver_dnssec_configs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resolver_endpoint_request() :: %{
-        required("ResolverEndpointId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_resolver_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_firewall_rule_group_request() :: %{
-        required("FirewallRuleGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type get_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_query_log_config_request() :: %{
-        required("ResolverQueryLogConfigId") => String.t() | atom()
-      }
-      
-  """
-  @type get_resolver_query_log_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      firewall_config() :: %{
-        "FirewallFailOpen" => list(any()),
-        "Id" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "ResourceId" => String.t() | atom()
-      }
-      
-  """
-  @type firewall_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_delete_firewall_rule_request() :: %{
-        required("DeleteFirewallRuleEntries") => list(delete_firewall_rule_entry())
-      }
-      
-  """
-  @type batch_delete_firewall_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resolver_rule_associations_response() :: %{
-        "MaxResults" => integer(),
-        "NextToken" => String.t() | atom(),
-        "ResolverRuleAssociations" => list(resolver_rule_association())
-      }
-      
-  """
-  @type list_resolver_rule_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resolver_dnssec_config() :: %{
-        "Id" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ValidationStatus" => list(any())
-      }
-      
-  """
-  @type resolver_dnssec_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_firewall_rule_group_response() :: %{
-        "FirewallRuleGroupAssociation" => firewall_rule_group_association()
-      }
-      
-  """
-  @type disassociate_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_domain_lists_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_domain_lists_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_exists_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type resource_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      firewall_rule_type_definition() :: %{
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "RuleType" => String.t() | atom(),
-        "SubscriptionInfo" => subscription_info(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type firewall_rule_type_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resolver_query_log_config_association() :: %{
-        "CreationTime" => String.t() | atom(),
-        "Error" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ResolverQueryLogConfigId" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type resolver_query_log_config_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "FieldName" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_firewall_rule_group_response() :: %{
-        "FirewallRuleGroup" => firewall_rule_group()
-      }
-      
-  """
-  @type delete_firewall_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_outpost_resolver_request() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type get_outpost_resolver_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_rule_policy_response() :: %{
-        "ResolverRulePolicy" => String.t() | atom()
-      }
-      
-  """
-  @type get_resolver_rule_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_configs_response() :: %{
-        "FirewallConfigs" => list(firewall_config()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_configs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_firewall_rule_group_request() :: %{
-        optional("Tags") => list(tag()),
-        required("CreatorRequestId") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_firewall_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resolver_query_log_config_associations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResolverQueryLogConfigAssociations" => list(resolver_query_log_config_association()),
-        "TotalCount" => integer(),
-        "TotalFilteredCount" => integer()
-      }
-      
-  """
-  @type list_resolver_query_log_config_associations_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      update_firewall_domains_response() :: %{
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-      
-  """
-  @type update_firewall_domains_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      firewall_rule_group() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => String.t() | atom(),
-        "CreatorRequestId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ModificationTime" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "RuleCount" => integer(),
-        "ShareStatus" => list(any()),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-      
-  """
-  @type firewall_rule_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resolver_query_log_config_response() :: %{
-        "ResolverQueryLogConfig" => resolver_query_log_config()
-      }
-      
-  """
-  @type delete_resolver_query_log_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resolver_configs_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResolverConfigs" => list(resolver_config())
-      }
-      
-  """
-  @type list_resolver_configs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dns_threat_protection_rule_type_config() :: %{
-        "ConfidenceThreshold" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type dns_threat_protection_rule_type_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_firewall_rule_entry() :: %{
-        "FirewallDomainListId" => String.t() | atom(),
-        "FirewallRuleGroupId" => String.t() | atom(),
-        "FirewallThreatProtectionId" => String.t() | atom(),
-        "Qtype" => String.t() | atom()
-      }
-      
-  """
-  @type delete_firewall_rule_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_firewall_rule_group_policy_request() :: %{
-        required("Arn") => String.t() | atom(),
-        required("FirewallRuleGroupPolicy") => String.t() | atom()
-      }
-      
-  """
-  @type put_firewall_rule_group_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resolver_endpoint_request() :: %{
-        required("ResolverEndpointId") => String.t() | atom()
-      }
-      
-  """
-  @type get_resolver_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resolver_rule_policy_response() :: %{
-        "ReturnValue" => boolean()
-      }
-      
-  """
-  @type put_resolver_rule_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_firewall_rule_group_association_request() :: %{
-        optional("MutationProtection") => list(any()),
-        optional("Name") => String.t() | atom(),
-        optional("Priority") => integer(),
-        required("FirewallRuleGroupAssociationId") => String.t() | atom()
-      }
-      
-  """
-  @type update_firewall_rule_group_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_firewall_domain_list_response() :: %{
-        "FirewallDomainList" => firewall_domain_list()
-      }
-      
-  """
-  @type delete_firewall_domain_list_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_firewall_rule_request() :: %{
-        optional("BlockOverrideDnsType") => list(any()),
-        optional("BlockOverrideDomain") => String.t() | atom(),
-        optional("BlockOverrideTtl") => integer(),
-        optional("BlockResponse") => list(any()),
-        optional("ConfidenceThreshold") => list(any()),
-        optional("DnsThreatProtection") => list(any()),
-        optional("FirewallDomainListId") => String.t() | atom(),
-        optional("FirewallDomainRedirectionAction") => list(any()),
-        optional("FirewallRuleType") => firewall_rule_type(),
-        optional("Qtype") => String.t() | atom(),
-        required("Action") => list(any()),
-        required("CreatorRequestId") => String.t() | atom(),
-        required("FirewallRuleGroupId") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("Priority") => integer()
-      }
-      
-  """
-  @type create_firewall_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resolver_query_log_configs_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => String.t() | atom(),
-        optional("SortOrder") => list(any())
-      }
-      
-  """
-  @type list_resolver_query_log_configs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_create_firewall_rule_request() :: %{
-        required("CreateFirewallRuleEntries") => list(create_firewall_rule_entry())
-      }
-      
-  """
-  @type batch_create_firewall_rule_request() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type associate_firewall_rule_group_errors() ::
-          conflict_exception()
-          | internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_service_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type associate_resolver_endpoint_ip_address_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | resource_exists_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
 
   @type associate_resolver_query_log_config_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | resource_exists_exception()
           | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type associate_resolver_rule_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | resource_exists_exception()
+          throttling_exception()
           | resource_unavailable_exception()
-          | internal_service_error_exception()
           | resource_not_found_exception()
+          | resource_exists_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
 
   @type batch_create_firewall_rule_errors() ::
-          internal_service_error_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | limit_exceeded_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type batch_delete_firewall_rule_errors() ::
-          internal_service_error_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | limit_exceeded_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type batch_update_firewall_rule_errors() ::
-          internal_service_error_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | limit_exceeded_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type create_firewall_domain_list_errors() ::
-          internal_service_error_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | limit_exceeded_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type create_firewall_rule_errors() ::
-          internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type create_firewall_rule_group_errors() ::
-          internal_service_error_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | limit_exceeded_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type create_outpost_resolver_errors() ::
-          service_quota_exceeded_exception()
-          | internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type create_resolver_endpoint_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | resource_exists_exception()
           | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_resolver_query_log_config_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | resource_exists_exception()
           | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_resolver_rule_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | resource_exists_exception()
+          throttling_exception()
           | resource_unavailable_exception()
-          | internal_service_error_exception()
           | resource_not_found_exception()
+          | resource_exists_exception()
           | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_firewall_domain_list_errors() ::
-          conflict_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | internal_service_error_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_firewall_rule_errors() ::
-          internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type delete_firewall_rule_group_errors() ::
-          conflict_exception()
-          | internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_outpost_resolver_errors() ::
-          conflict_exception()
-          | internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_resolver_endpoint_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
 
   @type delete_resolver_query_log_config_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_resolver_rule_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | resource_in_use_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | throttling_exception()
+          | resource_in_use_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
 
   @type disassociate_firewall_rule_group_errors() ::
-          conflict_exception()
-          | internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type disassociate_resolver_endpoint_ip_address_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | throttling_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
 
   @type disassociate_resolver_query_log_config_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type disassociate_resolver_rule_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
 
   @type get_firewall_config_errors() ::
-          internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type get_firewall_domain_list_errors() ::
-          internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_firewall_rule_group_errors() ::
-          internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_firewall_rule_group_association_errors() ::
-          internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_firewall_rule_group_policy_errors() ::
-          internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type get_outpost_resolver_errors() ::
-          internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type get_resolver_config_errors() ::
-          invalid_parameter_exception()
-          | internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type get_resolver_dnssec_config_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_resolver_endpoint_errors() ::
-          invalid_parameter_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | throttling_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
 
   @type get_resolver_query_log_config_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_resolver_query_log_config_association_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_resolver_query_log_config_policy_errors() ::
-          invalid_parameter_exception()
+          unknown_resource_exception()
           | invalid_request_exception()
-          | unknown_resource_exception()
+          | invalid_parameter_exception()
           | internal_service_error_exception()
           | access_denied_exception()
 
   @type get_resolver_rule_errors() ::
-          invalid_parameter_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | throttling_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
 
   @type get_resolver_rule_association_errors() ::
-          invalid_parameter_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | throttling_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
 
   @type get_resolver_rule_policy_errors() ::
-          invalid_parameter_exception()
-          | unknown_resource_exception()
+          unknown_resource_exception()
+          | invalid_parameter_exception()
           | internal_service_error_exception()
           | access_denied_exception()
 
   @type import_firewall_domains_errors() ::
-          conflict_exception()
-          | internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_service_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type list_firewall_configs_errors() ::
-          internal_service_error_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_firewall_domain_lists_errors() ::
-          internal_service_error_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_firewall_domains_errors() ::
-          internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_firewall_rule_group_associations_errors() ::
-          internal_service_error_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_firewall_rule_groups_errors() ::
-          internal_service_error_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_firewall_rule_types_errors() ::
-          internal_service_error_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_firewall_rules_errors() ::
-          internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_outpost_resolvers_errors() ::
-          internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_resolver_configs_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_resolver_dnssec_configs_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
           | invalid_request_exception()
+          | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_resolver_endpoint_ip_addresses_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
 
   @type list_resolver_endpoints_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
           | invalid_request_exception()
+          | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
-          | throttling_exception()
 
   @type list_resolver_query_log_config_associations_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_resolver_query_log_configs_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
           | invalid_request_exception()
+          | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_resolver_rule_associations_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
           | invalid_request_exception()
+          | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
-          | throttling_exception()
 
   @type list_resolver_rules_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
           | invalid_request_exception()
+          | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
-          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
+          | resource_not_found_exception()
           | invalid_request_exception()
+          | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
 
   @type put_firewall_rule_group_policy_errors() ::
-          internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type put_resolver_query_log_config_policy_errors() ::
-          invalid_parameter_exception()
+          unknown_resource_exception()
           | invalid_request_exception()
-          | unknown_resource_exception()
-          | internal_service_error_exception()
           | invalid_policy_document()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
 
   @type put_resolver_rule_policy_errors() ::
-          invalid_parameter_exception()
-          | unknown_resource_exception()
-          | internal_service_error_exception()
+          unknown_resource_exception()
           | invalid_policy_document()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
 
   @type tag_resource_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | invalid_tag_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
           | limit_exceeded_exception()
-          | throttling_exception()
+          | invalid_tag_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
 
   @type untag_resource_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | throttling_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
 
   @type update_firewall_config_errors() ::
-          internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type update_firewall_domains_errors() ::
-          conflict_exception()
-          | internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_service_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_firewall_rule_errors() ::
-          conflict_exception()
-          | internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_firewall_rule_group_association_errors() ::
-          conflict_exception()
-          | internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_outpost_resolver_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_resolver_config_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | resource_unavailable_exception()
-          | internal_service_error_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_unavailable_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
 
   @type update_resolver_dnssec_config_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_resolver_endpoint_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | internal_service_error_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_resolver_rule_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_unavailable_exception()
-          | internal_service_error_exception()
           | resource_not_found_exception()
           | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{

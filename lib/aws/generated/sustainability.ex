@@ -3,36 +3,32 @@
 
 defmodule AWS.Sustainability do
   @moduledoc """
-  The AWS Sustainability service provides programmatic access to estimated carbon
-  emissions data for your Amazon Web Services usage.
+  The AWS Sustainability service provides programmatic access to estimated
+  environmental impact data for your Amazon Web Services usage.
 
-  Use the AWS Sustainability service to retrieve, analyze, and track the carbon
-  footprint of your cloud infrastructure over time.
+  Use the AWS Sustainability service to retrieve, analyze, and track the
+  environmental impact of your cloud infrastructure over time.
 
   With the AWS Sustainability service, you can:
 
-    * Retrieve estimated carbon emissions for your Amazon Web Services
-  usage across different time periods
+    * Retrieve estimated carbon emissions and water allocation for your
+  Amazon Web Services usage across different time periods
 
-    * Group emissions data by dimensions such as account, region, and
-  service
+    * Group environmental impact data by dimensions such as account,
+  region, and service
 
-    * Filter emissions data to focus on specific accounts, regions, or
-  services
+    * Filter environmental impact data to focus on specific accounts,
+  regions, or services
 
-    * Access multiple emissions calculation methodologies including
-  Location-based Method (LBM) and Market-based Method (MBM)
+    * Access multiple carbon emissions calculation methodologies
+  including Location-based Method (LBM) and Market-based Method (MBM)
 
-    * Aggregate emissions data at various time granularities including
-  monthly, quarterly, and yearly periods
+    * Aggregate environmental impact data at various time granularities
+  including monthly, quarterly, and yearly periods
 
   The API supports pagination for efficient data retrieval and provides dimension
   values to help you understand the available grouping and filtering options for
   your account.
-
-  All emissions values are calculated using methodologies aligned with the
-  Greenhouse Gas (GHG) Protocol and are provided in metric tons of carbon
-  dioxide-equivalent (MTCO2e).
   """
 
   alias AWS.Client
@@ -55,7 +51,7 @@ defmodule AWS.Sustainability do
 
       dimension_entry() :: %{
         "Dimension" => list(any()),
-        "Value" => [String.t() | atom()]
+        "Value" => String.t() | atom()
       }
 
   """
@@ -86,6 +82,20 @@ defmodule AWS.Sustainability do
 
   """
   @type estimated_carbon_emissions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      estimated_water_allocation() :: %{
+        "AllocationValues" => map(),
+        "DimensionsValues" => map(),
+        "ModelVersion" => String.t() | atom(),
+        "TimePeriod" => time_period()
+      }
+
+  """
+  @type estimated_water_allocation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,6 +172,65 @@ defmodule AWS.Sustainability do
 
   ## Example:
 
+      get_estimated_water_allocation_dimension_values_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Dimensions") => list(list(any())()),
+        required("TimePeriod") => time_period()
+      }
+
+  """
+  @type get_estimated_water_allocation_dimension_values_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_estimated_water_allocation_dimension_values_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Results" => list(dimension_entry())
+      }
+
+  """
+  @type get_estimated_water_allocation_dimension_values_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_estimated_water_allocation_request() :: %{
+        optional("AllocationTypes") => list(list(any())()),
+        optional("FilterBy") => filter_expression(),
+        optional("Granularity") => list(any()),
+        optional("GroupBy") => list(list(any())()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("TimePeriod") => time_period()
+      }
+
+  """
+  @type get_estimated_water_allocation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_estimated_water_allocation_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Results" => list(estimated_water_allocation())
+      }
+
+  """
+  @type get_estimated_water_allocation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       granularity_configuration() :: %{
         "FiscalYearStartMonth" => integer()
       }
@@ -214,6 +283,18 @@ defmodule AWS.Sustainability do
   """
   @type validation_exception() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      water_allocation() :: %{
+        "Unit" => list(any()),
+        "Value" => [float()]
+      }
+
+  """
+  @type water_allocation() :: %{(String.t() | atom()) => any()}
+
   @type get_estimated_carbon_emissions_errors() ::
           validation_exception()
           | throttling_exception()
@@ -221,6 +302,18 @@ defmodule AWS.Sustainability do
           | access_denied_exception()
 
   @type get_estimated_carbon_emissions_dimension_values_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_estimated_water_allocation_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_estimated_water_allocation_dimension_values_errors() ::
           validation_exception()
           | throttling_exception()
           | internal_server_exception()
@@ -292,6 +385,75 @@ defmodule AWS.Sustainability do
           | {:error, get_estimated_carbon_emissions_dimension_values_errors()}
   def get_estimated_carbon_emissions_dimension_values(%Client{} = client, input, options \\ []) do
     url_path = "/v1/estimated-carbon-emissions-dimension-values"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns estimated water allocation values based on customer grouping and
+  filtering parameters.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+  """
+  @spec get_estimated_water_allocation(map(), get_estimated_water_allocation_request(), list()) ::
+          {:ok, get_estimated_water_allocation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_estimated_water_allocation_errors()}
+  def get_estimated_water_allocation(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/estimated-water-allocation"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the possible dimension values available for a customer's account.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+  """
+  @spec get_estimated_water_allocation_dimension_values(
+          map(),
+          get_estimated_water_allocation_dimension_values_request(),
+          list()
+        ) ::
+          {:ok, get_estimated_water_allocation_dimension_values_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_estimated_water_allocation_dimension_values_errors()}
+  def get_estimated_water_allocation_dimension_values(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/estimated-water-allocation-dimension-values"
     headers = []
     custom_headers = []
     query_params = []

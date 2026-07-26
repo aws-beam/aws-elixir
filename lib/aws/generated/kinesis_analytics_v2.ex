@@ -22,25 +22,43 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      resource_provisioned_throughput_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
+      add_application_cloud_watch_logging_option_request() :: %{
+        optional("ConditionalToken") => String.t() | atom(),
+        optional("CurrentApplicationVersionId") => float(),
+        required("ApplicationName") => String.t() | atom(),
+        required("CloudWatchLoggingOption") => cloud_watch_logging_option()
       }
       
   """
-  @type resource_provisioned_throughput_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type add_application_cloud_watch_logging_option_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_application_input_processing_configuration_request() :: %{
+      add_application_cloud_watch_logging_option_response() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationVersionId" => float(),
+        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()),
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type add_application_cloud_watch_logging_option_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_application_input_processing_configuration_request() :: %{
         required("ApplicationName") => String.t() | atom(),
         required("CurrentApplicationVersionId") => float(),
-        required("InputId") => String.t() | atom()
+        required("InputId") => String.t() | atom(),
+        required("InputProcessingConfiguration") => input_processing_configuration()
       }
       
   """
-  @type delete_application_input_processing_configuration_request() :: %{
+  @type add_application_input_processing_configuration_request() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -48,185 +66,15 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      kinesis_firehose_output() :: %{
-        "ResourceARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_firehose_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      code_validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type code_validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_application_configuration_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_application_configuration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_description() :: %{
-        "InAppStreamNames" => list(String.t() | atom()),
+      add_application_input_processing_configuration_response() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationVersionId" => float(),
         "InputId" => String.t() | atom(),
-        "InputParallelism" => input_parallelism(),
-        "InputProcessingConfigurationDescription" => input_processing_configuration_description(),
-        "InputSchema" => source_schema(),
-        "InputStartingPositionConfiguration" => input_starting_position_configuration(),
-        "KinesisFirehoseInputDescription" => kinesis_firehose_input_description(),
-        "KinesisStreamsInputDescription" => kinesis_streams_input_description(),
-        "NamePrefix" => String.t() | atom()
+        "InputProcessingConfigurationDescription" => input_processing_configuration_description()
       }
       
   """
-  @type input_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      glue_data_catalog_configuration_description() :: %{
-        "DatabaseARN" => String.t() | atom()
-      }
-      
-  """
-  @type glue_data_catalog_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_processing_configuration_update() :: %{
-        "InputLambdaProcessorUpdate" => input_lambda_processor_update()
-      }
-      
-  """
-  @type input_processing_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_operations_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Operation") => String.t() | atom(),
-        optional("OperationStatus") => list(any()),
-        required("ApplicationName") => String.t() | atom()
-      }
-      
-  """
-  @type list_application_operations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      code_content() :: %{
-        "S3ContentLocation" => s3_content_location(),
-        "TextContent" => String.t() | atom(),
-        "ZipFileContent" => binary()
-      }
-      
-  """
-  @type code_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_snapshots_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SnapshotSummaries" => list(snapshot_details())
-      }
-      
-  """
-  @type list_application_snapshots_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      glue_data_catalog_configuration_update() :: %{
-        "DatabaseARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type glue_data_catalog_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      zeppelin_monitoring_configuration_description() :: %{
-        "LogLevel" => list(any())
-      }
-      
-  """
-  @type zeppelin_monitoring_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      code_content_update() :: %{
-        "S3ContentLocationUpdate" => s3_content_location_update(),
-        "TextContentUpdate" => String.t() | atom(),
-        "ZipFileContentUpdate" => binary()
-      }
-      
-  """
-  @type code_content_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_unavailable_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_content_base_location_description() :: %{
-        "BasePath" => String.t() | atom(),
-        "BucketARN" => String.t() | atom()
-      }
-      
-  """
-  @type s3_content_base_location_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_application_maintenance_configuration_request() :: %{
-        required("ApplicationMaintenanceConfigurationUpdate") => application_maintenance_configuration_update(),
-        required("ApplicationName") => String.t() | atom()
-      }
-      
-  """
-  @type update_application_maintenance_configuration_request() :: %{
+  @type add_application_input_processing_configuration_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -234,24 +82,53 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      kinesis_firehose_output_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
+      add_application_input_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CurrentApplicationVersionId") => float(),
+        required("Input") => input()
       }
       
   """
-  @type kinesis_firehose_output_description() :: %{(String.t() | atom()) => any()}
+  @type add_application_input_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      concurrent_modification_exception() :: %{
-        "Message" => String.t() | atom()
+      add_application_input_response() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationVersionId" => float(),
+        "InputDescriptions" => list(input_description())
       }
       
   """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+  @type add_application_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_application_output_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CurrentApplicationVersionId") => float(),
+        required("Output") => output()
+      }
+      
+  """
+  @type add_application_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_application_output_response() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationVersionId" => float(),
+        "OutputDescriptions" => list(output_description())
+      }
+      
+  """
+  @type add_application_output_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -270,64 +147,42 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      flink_application_configuration_update() :: %{
-        "CheckpointConfigurationUpdate" => checkpoint_configuration_update(),
-        "MonitoringConfigurationUpdate" => monitoring_configuration_update(),
-        "ParallelismConfigurationUpdate" => parallelism_configuration_update()
+      add_application_reference_data_source_response() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationVersionId" => float(),
+        "ReferenceDataSourceDescriptions" => list(reference_data_source_description())
       }
       
   """
-  @type flink_application_configuration_update() :: %{(String.t() | atom()) => any()}
+  @type add_application_reference_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      input_schema_update() :: %{
-        "RecordColumnUpdates" => list(record_column()),
-        "RecordEncodingUpdate" => String.t() | atom(),
-        "RecordFormatUpdate" => record_format()
+      add_application_vpc_configuration_request() :: %{
+        optional("ConditionalToken") => String.t() | atom(),
+        optional("CurrentApplicationVersionId") => float(),
+        required("ApplicationName") => String.t() | atom(),
+        required("VpcConfiguration") => vpc_configuration()
       }
       
   """
-  @type input_schema_update() :: %{(String.t() | atom()) => any()}
+  @type add_application_vpc_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_application_operations_response() :: %{
-        "ApplicationOperationInfoList" => list(application_operation_info()),
-        "NextToken" => String.t() | atom()
+      add_application_vpc_configuration_response() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationVersionId" => float(),
+        "OperationId" => String.t() | atom(),
+        "VpcConfigurationDescription" => vpc_configuration_description()
       }
       
   """
-  @type list_application_operations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reference_data_source_update() :: %{
-        "ReferenceId" => String.t() | atom(),
-        "ReferenceSchemaUpdate" => source_schema(),
-        "S3ReferenceDataSourceUpdate" => s3_reference_data_source_update(),
-        "TableNameUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type reference_data_source_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      glue_data_catalog_configuration() :: %{
-        "DatabaseARN" => String.t() | atom()
-      }
-      
-  """
-  @type glue_data_catalog_configuration() :: %{(String.t() | atom()) => any()}
+  @type add_application_vpc_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -345,131 +200,44 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      application_version_change_details() :: %{
-        "ApplicationVersionUpdatedFrom" => float(),
-        "ApplicationVersionUpdatedTo" => float()
+      application_code_configuration_description() :: %{
+        "CodeContentDescription" => code_content_description(),
+        "CodeContentType" => list(any())
       }
       
   """
-  @type application_version_change_details() :: %{(String.t() | atom()) => any()}
+  @type application_code_configuration_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_application_request() :: %{
-        optional("RunConfiguration") => run_configuration(),
-        required("ApplicationName") => String.t() | atom()
+      application_code_configuration_update() :: %{
+        "CodeContentTypeUpdate" => list(any()),
+        "CodeContentUpdate" => code_content_update()
       }
       
   """
-  @type start_application_request() :: %{(String.t() | atom()) => any()}
+  @type application_code_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      zeppelin_monitoring_configuration_update() :: %{
-        "LogLevelUpdate" => list(any())
+      application_configuration() :: %{
+        "ApplicationCodeConfiguration" => application_code_configuration(),
+        "ApplicationEncryptionConfiguration" => application_encryption_configuration(),
+        "ApplicationSnapshotConfiguration" => application_snapshot_configuration(),
+        "ApplicationSystemRollbackConfiguration" => application_system_rollback_configuration(),
+        "EnvironmentProperties" => environment_properties(),
+        "FlinkApplicationConfiguration" => flink_application_configuration(),
+        "SqlApplicationConfiguration" => sql_application_configuration(),
+        "VpcConfigurations" => list(vpc_configuration()),
+        "ZeppelinApplicationConfiguration" => zeppelin_application_configuration()
       }
       
   """
-  @type zeppelin_monitoring_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      json_mapping_parameters() :: %{
-        "RecordRowPath" => String.t() | atom()
-      }
-      
-  """
-  @type json_mapping_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snapshot_details() :: %{
-        "ApplicationEncryptionConfigurationDescription" => application_encryption_configuration_description(),
-        "ApplicationVersionId" => float(),
-        "RuntimeEnvironment" => list(any()),
-        "SnapshotCreationTimestamp" => non_neg_integer(),
-        "SnapshotName" => String.t() | atom(),
-        "SnapshotStatus" => list(any())
-      }
-      
-  """
-  @type snapshot_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      catalog_configuration() :: %{
-        "GlueDataCatalogConfiguration" => glue_data_catalog_configuration()
-      }
-      
-  """
-  @type catalog_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logging_option_update() :: %{
-        "CloudWatchLoggingOptionId" => String.t() | atom(),
-        "LogStreamARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logging_option_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_system_rollback_configuration() :: %{
-        "RollbackEnabled" => boolean()
-      }
-      
-  """
-  @type application_system_rollback_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deploy_as_application_configuration_update() :: %{
-        "S3ContentLocationUpdate" => s3_content_base_location_update()
-      }
-      
-  """
-  @type deploy_as_application_configuration_update() :: %{(String.t() | atom()) => any()}
+  @type application_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -495,89 +263,6 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      checkpoint_configuration() :: %{
-        "CheckpointInterval" => float(),
-        "CheckpointingEnabled" => boolean(),
-        "ConfigurationType" => list(any()),
-        "MinPauseBetweenCheckpoints" => float()
-      }
-      
-  """
-  @type checkpoint_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_output_response() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationVersionId" => float()
-      }
-      
-  """
-  @type delete_application_output_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_snapshot_configuration() :: %{
-        "SnapshotsEnabled" => boolean()
-      }
-      
-  """
-  @type application_snapshot_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_response() :: %{
-        "ApplicationDetail" => application_detail()
-      }
-      
-  """
-  @type describe_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_output_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CurrentApplicationVersionId") => float(),
-        required("OutputId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_application_output_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      destination_schema() :: %{
-        "RecordFormatType" => list(any())
-      }
-      
-  """
-  @type destination_schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_streams_input() :: %{
-        "ResourceARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_streams_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       application_configuration_update() :: %{
         "ApplicationCodeConfigurationUpdate" => application_code_configuration_update(),
         "ApplicationEncryptionConfigurationUpdate" => application_encryption_configuration_update(),
@@ -592,599 +277,6 @@ defmodule AWS.KinesisAnalyticsV2 do
       
   """
   @type application_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_application_response() :: %{
-        "OperationId" => String.t() | atom()
-      }
-      
-  """
-  @type start_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logging_option_description() :: %{
-        "CloudWatchLoggingOptionId" => String.t() | atom(),
-        "LogStreamARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logging_option_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_cloud_watch_logging_option_request() :: %{
-        optional("ConditionalToken") => String.t() | atom(),
-        optional("CurrentApplicationVersionId") => float(),
-        required("ApplicationName") => String.t() | atom(),
-        required("CloudWatchLoggingOption") => cloud_watch_logging_option()
-      }
-      
-  """
-  @type add_application_cloud_watch_logging_option_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_code_configuration_update() :: %{
-        "CodeContentTypeUpdate" => list(any()),
-        "CodeContentUpdate" => code_content_update()
-      }
-      
-  """
-  @type application_code_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_application_request() :: %{
-        optional("ApplicationConfiguration") => application_configuration(),
-        optional("ApplicationDescription") => String.t() | atom(),
-        optional("ApplicationMode") => list(any()),
-        optional("CloudWatchLoggingOptions") => list(cloud_watch_logging_option()),
-        optional("Tags") => list(tag()),
-        required("ApplicationName") => String.t() | atom(),
-        required("RuntimeEnvironment") => list(any()),
-        required("ServiceExecutionRole") => String.t() | atom()
-      }
-      
-  """
-  @type create_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_version_response() :: %{
-        "ApplicationVersionDetail" => application_detail()
-      }
-      
-  """
-  @type describe_application_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_input_processing_configuration_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CurrentApplicationVersionId") => float(),
-        required("InputId") => String.t() | atom(),
-        required("InputProcessingConfiguration") => input_processing_configuration()
-      }
-      
-  """
-  @type add_application_input_processing_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_vpc_configuration_request() :: %{
-        optional("ConditionalToken") => String.t() | atom(),
-        optional("CurrentApplicationVersionId") => float(),
-        required("ApplicationName") => String.t() | atom(),
-        required("VpcConfigurationId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_application_vpc_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_versions_response() :: %{
-        "ApplicationVersionSummaries" => list(application_version_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_application_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_encryption_configuration_update() :: %{
-        "KeyIdUpdate" => String.t() | atom(),
-        "KeyTypeUpdate" => list(any())
-      }
-      
-  """
-  @type application_encryption_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_snapshot_configuration_description() :: %{
-        "SnapshotsEnabled" => boolean()
-      }
-      
-  """
-  @type application_snapshot_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_streams_input_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_streams_input_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_snapshot_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("SnapshotName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_application_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_lambda_processor_update() :: %{
-        "ResourceARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type input_lambda_processor_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_application_snapshot_response() :: %{}
-      
-  """
-  @type create_application_snapshot_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      discover_input_schema_request() :: %{
-        optional("InputProcessingConfiguration") => input_processing_configuration(),
-        optional("InputStartingPositionConfiguration") => input_starting_position_configuration(),
-        optional("ResourceARN") => String.t() | atom(),
-        optional("S3Configuration") => s3_configuration(),
-        required("ServiceExecutionRole") => String.t() | atom()
-      }
-      
-  """
-  @type discover_input_schema_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output() :: %{
-        "DestinationSchema" => destination_schema(),
-        "KinesisFirehoseOutput" => kinesis_firehose_output(),
-        "KinesisStreamsOutput" => kinesis_streams_output(),
-        "LambdaOutput" => lambda_output(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mapping_parameters() :: %{
-        "CSVMappingParameters" => csv_mapping_parameters(),
-        "JSONMappingParameters" => json_mapping_parameters()
-      }
-      
-  """
-  @type mapping_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_output_update() :: %{
-        "ResourceARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type lambda_output_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_cloud_watch_logging_option_response() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationVersionId" => float(),
-        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()),
-        "OperationId" => String.t() | atom()
-      }
-      
-  """
-  @type add_application_cloud_watch_logging_option_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_vpc_configuration_response() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationVersionId" => float(),
-        "OperationId" => String.t() | atom()
-      }
-      
-  """
-  @type delete_application_vpc_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_maintenance_configuration_description() :: %{
-        "ApplicationMaintenanceWindowEndTime" => String.t() | atom(),
-        "ApplicationMaintenanceWindowStartTime" => String.t() | atom()
-      }
-      
-  """
-  @type application_maintenance_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      environment_property_descriptions() :: %{
-        "PropertyGroupDescriptions" => list(property_group())
-      }
-      
-  """
-  @type environment_property_descriptions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output_update() :: %{
-        "DestinationSchemaUpdate" => destination_schema(),
-        "KinesisFirehoseOutputUpdate" => kinesis_firehose_output_update(),
-        "KinesisStreamsOutputUpdate" => kinesis_streams_output_update(),
-        "LambdaOutputUpdate" => lambda_output_update(),
-        "NameUpdate" => String.t() | atom(),
-        "OutputId" => String.t() | atom()
-      }
-      
-  """
-  @type output_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_streams_input_update() :: %{
-        "ResourceARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_streams_input_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_firehose_input_update() :: %{
-        "ResourceARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_firehose_input_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rollback_application_response() :: %{
-        "ApplicationDetail" => application_detail(),
-        "OperationId" => String.t() | atom()
-      }
-      
-  """
-  @type rollback_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_application_presigned_url_response() :: %{
-        "AuthorizedUrl" => String.t() | atom()
-      }
-      
-  """
-  @type create_application_presigned_url_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output_description() :: %{
-        "DestinationSchema" => destination_schema(),
-        "KinesisFirehoseOutputDescription" => kinesis_firehose_output_description(),
-        "KinesisStreamsOutputDescription" => kinesis_streams_output_description(),
-        "LambdaOutputDescription" => lambda_output_description(),
-        "Name" => String.t() | atom(),
-        "OutputId" => String.t() | atom()
-      }
-      
-  """
-  @type output_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_firehose_output_update() :: %{
-        "ResourceARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_firehose_output_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rollback_application_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CurrentApplicationVersionId") => float()
-      }
-      
-  """
-  @type rollback_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_input_processing_configuration_response() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationVersionId" => float(),
-        "InputId" => String.t() | atom(),
-        "InputProcessingConfigurationDescription" => input_processing_configuration_description()
-      }
-      
-  """
-  @type add_application_input_processing_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_configuration() :: %{
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_applications_response() :: %{
-        "ApplicationSummaries" => list(application_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_applications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_operation_response() :: %{
-        "ApplicationOperationInfoDetails" => application_operation_info_details()
-      }
-      
-  """
-  @type describe_application_operation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_artifact_configuration() :: %{
-        "ArtifactType" => list(any()),
-        "MavenReference" => maven_reference(),
-        "S3ContentLocation" => s3_content_location()
-      }
-      
-  """
-  @type custom_artifact_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      run_configuration_description() :: %{
-        "ApplicationRestoreConfigurationDescription" => application_restore_configuration(),
-        "FlinkRunConfigurationDescription" => flink_run_configuration()
-      }
-      
-  """
-  @type run_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_reference_data_source_response() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationVersionId" => float(),
-        "ReferenceDataSourceDescriptions" => list(reference_data_source_description())
-      }
-      
-  """
-  @type add_application_reference_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_update() :: %{
-        "InputId" => String.t() | atom(),
-        "InputParallelismUpdate" => input_parallelism_update(),
-        "InputProcessingConfigurationUpdate" => input_processing_configuration_update(),
-        "InputSchemaUpdate" => input_schema_update(),
-        "KinesisFirehoseInputUpdate" => kinesis_firehose_input_update(),
-        "KinesisStreamsInputUpdate" => kinesis_streams_input_update(),
-        "NamePrefixUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type input_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_snapshots_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ApplicationName") => String.t() | atom()
-      }
-      
-  """
-  @type list_application_snapshots_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      flink_application_configuration() :: %{
-        "CheckpointConfiguration" => checkpoint_configuration(),
-        "MonitoringConfiguration" => monitoring_configuration(),
-        "ParallelismConfiguration" => parallelism_configuration()
-      }
-      
-  """
-  @type flink_application_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sql_application_configuration() :: %{
-        "Inputs" => list(input()),
-        "Outputs" => list(output()),
-        "ReferenceDataSources" => list(reference_data_source())
-      }
-      
-  """
-  @type sql_application_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_encryption_configuration() :: %{
-        "KeyId" => String.t() | atom(),
-        "KeyType" => list(any())
-      }
-      
-  """
-  @type application_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_lambda_processor() :: %{
-        "ResourceARN" => String.t() | atom()
-      }
-      
-  """
-  @type input_lambda_processor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      zeppelin_monitoring_configuration() :: %{
-        "LogLevel" => list(any())
-      }
-      
-  """
-  @type zeppelin_monitoring_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1218,231 +310,13 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      unsupported_operation_exception() :: %{
-        "Message" => String.t() | atom()
+      application_encryption_configuration() :: %{
+        "KeyId" => String.t() | atom(),
+        "KeyType" => list(any())
       }
       
   """
-  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CreateTimestamp") => non_neg_integer()
-      }
-      
-  """
-  @type delete_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_snapshot_response() :: %{}
-      
-  """
-  @type delete_application_snapshot_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_application_response() :: %{
-        "ApplicationDetail" => application_detail(),
-        "OperationId" => String.t() | atom()
-      }
-      
-  """
-  @type update_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      catalog_configuration_update() :: %{
-        "GlueDataCatalogConfigurationUpdate" => glue_data_catalog_configuration_update()
-      }
-      
-  """
-  @type catalog_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_operation_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("OperationId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_application_operation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      unable_to_detect_schema_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ProcessedInputRecords" => list(String.t() | atom()),
-        "RawInputRecords" => list(String.t() | atom())
-      }
-      
-  """
-  @type unable_to_detect_schema_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_system_rollback_configuration_description() :: %{
-        "RollbackEnabled" => boolean()
-      }
-      
-  """
-  @type application_system_rollback_configuration_description() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      zeppelin_application_configuration_description() :: %{
-        "CatalogConfigurationDescription" => catalog_configuration_description(),
-        "CustomArtifactsConfigurationDescription" => list(custom_artifact_configuration_description()),
-        "DeployAsApplicationConfigurationDescription" => deploy_as_application_configuration_description(),
-        "MonitoringConfigurationDescription" => zeppelin_monitoring_configuration_description()
-      }
-      
-  """
-  @type zeppelin_application_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      error_info() :: %{
-        "ErrorString" => String.t() | atom()
-      }
-      
-  """
-  @type error_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_argument_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_in_use_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      property_group() :: %{
-        "PropertyGroupId" => String.t() | atom(),
-        "PropertyMap" => map()
-      }
-      
-  """
-  @type property_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_response() :: %{}
-      
-  """
-  @type delete_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_applications_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_applications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      csv_mapping_parameters() :: %{
-        "RecordColumnDelimiter" => String.t() | atom(),
-        "RecordRowDelimiter" => String.t() | atom()
-      }
-      
-  """
-  @type csv_mapping_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_version_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("ApplicationVersionId") => float()
-      }
-      
-  """
-  @type describe_application_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sql_application_configuration_description() :: %{
-        "InputDescriptions" => list(input_description()),
-        "OutputDescriptions" => list(output_description()),
-        "ReferenceDataSourceDescriptions" => list(reference_data_source_description())
-      }
-      
-  """
-  @type sql_application_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_starting_position_configuration() :: %{
-        "InputStartingPosition" => list(any())
-      }
-      
-  """
-  @type input_starting_position_configuration() :: %{(String.t() | atom()) => any()}
+  @type application_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1460,186 +334,51 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      untag_resource_response() :: %{}
+      application_encryption_configuration_update() :: %{
+        "KeyIdUpdate" => String.t() | atom(),
+        "KeyTypeUpdate" => list(any())
+      }
       
   """
-  @type untag_resource_response() :: %{}
+  @type application_encryption_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      input_processing_configuration() :: %{
-        "InputLambdaProcessor" => input_lambda_processor()
+      application_maintenance_configuration_description() :: %{
+        "ApplicationMaintenanceWindowEndTime" => String.t() | atom(),
+        "ApplicationMaintenanceWindowStartTime" => String.t() | atom()
       }
       
   """
-  @type input_processing_configuration() :: %{(String.t() | atom()) => any()}
+  @type application_maintenance_configuration_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_application_request() :: %{
-        optional("IncludeAdditionalDetails") => boolean(),
-        required("ApplicationName") => String.t() | atom()
+      application_maintenance_configuration_update() :: %{
+        "ApplicationMaintenanceWindowStartTimeUpdate" => String.t() | atom()
       }
       
   """
-  @type describe_application_request() :: %{(String.t() | atom()) => any()}
+  @type application_maintenance_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      add_application_output_response() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationVersionId" => float(),
-        "OutputDescriptions" => list(output_description())
+      application_operation_info() :: %{
+        "EndTime" => non_neg_integer(),
+        "Operation" => String.t() | atom(),
+        "OperationId" => String.t() | atom(),
+        "OperationStatus" => list(any()),
+        "StartTime" => non_neg_integer()
       }
       
   """
-  @type add_application_output_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      record_column() :: %{
-        "Mapping" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "SqlType" => String.t() | atom()
-      }
-      
-  """
-  @type record_column() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_content_base_location() :: %{
-        "BasePath" => String.t() | atom(),
-        "BucketARN" => String.t() | atom()
-      }
-      
-  """
-  @type s3_content_base_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parallelism_configuration_description() :: %{
-        "AutoScalingEnabled" => boolean(),
-        "ConfigurationType" => list(any()),
-        "CurrentParallelism" => integer(),
-        "Parallelism" => integer(),
-        "ParallelismPerKPU" => integer()
-      }
-      
-  """
-  @type parallelism_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_reference_data_source_update() :: %{
-        "BucketARNUpdate" => String.t() | atom(),
-        "FileKeyUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type s3_reference_data_source_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      monitoring_configuration_description() :: %{
-        "ConfigurationType" => list(any()),
-        "LogLevel" => list(any()),
-        "MetricsLevel" => list(any())
-      }
-      
-  """
-  @type monitoring_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_input_processing_configuration_response() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationVersionId" => float()
-      }
-      
-  """
-  @type delete_application_input_processing_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      run_configuration_update() :: %{
-        "ApplicationRestoreConfiguration" => application_restore_configuration(),
-        "FlinkRunConfiguration" => flink_run_configuration()
-      }
-      
-  """
-  @type run_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      environment_properties() :: %{
-        "PropertyGroups" => list(property_group())
-      }
-      
-  """
-  @type environment_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_reference_data_source() :: %{
-        "BucketARN" => String.t() | atom(),
-        "FileKey" => String.t() | atom()
-      }
-      
-  """
-  @type s3_reference_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_configuration_description() :: %{
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom()),
-        "VpcConfigurationId" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type vpc_configuration_description() :: %{(String.t() | atom()) => any()}
+  @type application_operation_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1661,207 +400,46 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      delete_application_cloud_watch_logging_option_response() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationVersionId" => float(),
-        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()),
-        "OperationId" => String.t() | atom()
+      application_restore_configuration() :: %{
+        "ApplicationRestoreType" => list(any()),
+        "SnapshotName" => String.t() | atom()
       }
       
   """
-  @type delete_application_cloud_watch_logging_option_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type application_restore_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      parallelism_configuration_update() :: %{
-        "AutoScalingEnabledUpdate" => boolean(),
-        "ConfigurationTypeUpdate" => list(any()),
-        "ParallelismPerKPUUpdate" => integer(),
-        "ParallelismUpdate" => integer()
+      application_snapshot_configuration() :: %{
+        "SnapshotsEnabled" => boolean()
       }
       
   """
-  @type parallelism_configuration_update() :: %{(String.t() | atom()) => any()}
+  @type application_snapshot_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      parallelism_configuration() :: %{
-        "AutoScalingEnabled" => boolean(),
-        "ConfigurationType" => list(any()),
-        "Parallelism" => integer(),
-        "ParallelismPerKPU" => integer()
+      application_snapshot_configuration_description() :: %{
+        "SnapshotsEnabled" => boolean()
       }
       
   """
-  @type parallelism_configuration() :: %{(String.t() | atom()) => any()}
+  @type application_snapshot_configuration_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      add_application_input_response() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationVersionId" => float(),
-        "InputDescriptions" => list(input_description())
+      application_snapshot_configuration_update() :: %{
+        "SnapshotsEnabledUpdate" => boolean()
       }
       
   """
-  @type add_application_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_application_response() :: %{
-        "ApplicationDetail" => application_detail()
-      }
-      
-  """
-  @type create_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_input_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CurrentApplicationVersionId") => float(),
-        required("Input") => input()
-      }
-      
-  """
-  @type add_application_input_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      checkpoint_configuration_description() :: %{
-        "CheckpointInterval" => float(),
-        "CheckpointingEnabled" => boolean(),
-        "ConfigurationType" => list(any()),
-        "MinPauseBetweenCheckpoints" => float()
-      }
-      
-  """
-  @type checkpoint_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_streams_output() :: %{
-        "ResourceARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_streams_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_output_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CurrentApplicationVersionId") => float(),
-        required("Output") => output()
-      }
-      
-  """
-  @type add_application_output_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_operation_info() :: %{
-        "EndTime" => non_neg_integer(),
-        "Operation" => String.t() | atom(),
-        "OperationId" => String.t() | atom(),
-        "OperationStatus" => list(any()),
-        "StartTime" => non_neg_integer()
-      }
-      
-  """
-  @type application_operation_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_application_presigned_url_request() :: %{
-        optional("SessionExpirationDurationInSeconds") => float(),
-        required("ApplicationName") => String.t() | atom(),
-        required("UrlType") => list(any())
-      }
-      
-  """
-  @type create_application_presigned_url_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_version_summary() :: %{
-        "ApplicationStatus" => list(any()),
-        "ApplicationVersionId" => float()
-      }
-      
-  """
-  @type application_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logging_option() :: %{
-        "LogStreamARN" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logging_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_reference_data_source_response() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationVersionId" => float()
-      }
-      
-  """
-  @type delete_application_reference_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_application_request() :: %{
-        optional("Force") => boolean(),
-        required("ApplicationName") => String.t() | atom()
-      }
-      
-  """
-  @type stop_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sql_run_configuration() :: %{
-        "InputId" => String.t() | atom(),
-        "InputStartingPositionConfiguration" => input_starting_position_configuration()
-      }
-      
-  """
-  @type sql_run_configuration() :: %{(String.t() | atom()) => any()}
+  @type application_snapshot_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1883,99 +461,23 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      application_restore_configuration() :: %{
-        "ApplicationRestoreType" => list(any()),
-        "SnapshotName" => String.t() | atom()
+      application_system_rollback_configuration() :: %{
+        "RollbackEnabled" => boolean()
       }
       
   """
-  @type application_restore_configuration() :: %{(String.t() | atom()) => any()}
+  @type application_system_rollback_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      custom_artifact_configuration_description() :: %{
-        "ArtifactType" => list(any()),
-        "MavenReferenceDescription" => maven_reference(),
-        "S3ContentLocationDescription" => s3_content_location()
+      application_system_rollback_configuration_description() :: %{
+        "RollbackEnabled" => boolean()
       }
       
   """
-  @type custom_artifact_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_processing_configuration_description() :: %{
-        "InputLambdaProcessorDescription" => input_lambda_processor_description()
-      }
-      
-  """
-  @type input_processing_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_vpc_configuration_response() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationVersionId" => float(),
-        "OperationId" => String.t() | atom(),
-        "VpcConfigurationDescription" => vpc_configuration_description()
-      }
-      
-  """
-  @type add_application_vpc_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_snapshot_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("SnapshotCreationTimestamp") => non_neg_integer(),
-        required("SnapshotName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_application_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_content_base_location_update() :: %{
-        "BasePathUpdate" => String.t() | atom(),
-        "BucketARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type s3_content_base_location_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_application_maintenance_configuration_response() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationMaintenanceConfigurationDescription" => application_maintenance_configuration_description()
-      }
-      
-  """
-  @type update_application_maintenance_configuration_response() :: %{
+  @type application_system_rollback_configuration_description() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -1983,49 +485,47 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      s3_application_code_location_description() :: %{
-        "BucketARN" => String.t() | atom(),
-        "FileKey" => String.t() | atom(),
-        "ObjectVersion" => String.t() | atom()
+      application_system_rollback_configuration_update() :: %{
+        "RollbackEnabledUpdate" => boolean()
       }
       
   """
-  @type s3_application_code_location_description() :: %{(String.t() | atom()) => any()}
+  @type application_system_rollback_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stop_application_response() :: %{
-        "OperationId" => String.t() | atom()
+      application_version_change_details() :: %{
+        "ApplicationVersionUpdatedFrom" => float(),
+        "ApplicationVersionUpdatedTo" => float()
       }
       
   """
-  @type stop_application_response() :: %{(String.t() | atom()) => any()}
+  @type application_version_change_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      too_many_tags_exception() :: %{
-        "message" => String.t() | atom()
+      application_version_summary() :: %{
+        "ApplicationStatus" => list(any()),
+        "ApplicationVersionId" => float()
       }
       
   """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+  @type application_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      vpc_configuration_update() :: %{
-        "SecurityGroupIdUpdates" => list(String.t() | atom()),
-        "SubnetIdUpdates" => list(String.t() | atom()),
-        "VpcConfigurationId" => String.t() | atom()
+      catalog_configuration() :: %{
+        "GlueDataCatalogConfiguration" => glue_data_catalog_configuration()
       }
       
   """
-  @type vpc_configuration_update() :: %{(String.t() | atom()) => any()}
+  @type catalog_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2042,109 +542,40 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      sql_application_configuration_update() :: %{
-        "InputUpdates" => list(input_update()),
-        "OutputUpdates" => list(output_update()),
-        "ReferenceDataSourceUpdates" => list(reference_data_source_update())
+      catalog_configuration_update() :: %{
+        "GlueDataCatalogConfigurationUpdate" => glue_data_catalog_configuration_update()
       }
       
   """
-  @type sql_application_configuration_update() :: %{(String.t() | atom()) => any()}
+  @type catalog_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      input_parallelism() :: %{
-        "Count" => integer()
+      checkpoint_configuration() :: %{
+        "CheckpointInterval" => float(),
+        "CheckpointingEnabled" => boolean(),
+        "ConfigurationType" => list(any()),
+        "MinPauseBetweenCheckpoints" => float()
       }
       
   """
-  @type input_parallelism() :: %{(String.t() | atom()) => any()}
+  @type checkpoint_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      application_code_configuration_description() :: %{
-        "CodeContentDescription" => code_content_description(),
-        "CodeContentType" => list(any())
+      checkpoint_configuration_description() :: %{
+        "CheckpointInterval" => float(),
+        "CheckpointingEnabled" => boolean(),
+        "ConfigurationType" => list(any()),
+        "MinPauseBetweenCheckpoints" => float()
       }
       
   """
-  @type application_code_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_streams_output_update() :: %{
-        "ResourceARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_streams_output_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      environment_property_updates() :: %{
-        "PropertyGroups" => list(property_group())
-      }
-      
-  """
-  @type environment_property_updates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      flink_run_configuration() :: %{
-        "AllowNonRestoredState" => boolean()
-      }
-      
-  """
-  @type flink_run_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reference_data_source_description() :: %{
-        "ReferenceId" => String.t() | atom(),
-        "ReferenceSchema" => source_schema(),
-        "S3ReferenceDataSourceDescription" => s3_reference_data_source_description(),
-        "TableName" => String.t() | atom()
-      }
-      
-  """
-  @type reference_data_source_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      operation_failure_details() :: %{
-        "ErrorInfo" => error_info(),
-        "RollbackOperationId" => String.t() | atom()
-      }
-      
-  """
-  @type operation_failure_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_content_location() :: %{
-        "BucketARN" => String.t() | atom(),
-        "FileKey" => String.t() | atom(),
-        "ObjectVersion" => String.t() | atom()
-      }
-      
-  """
-  @type s3_content_location() :: %{(String.t() | atom()) => any()}
+  @type checkpoint_configuration_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2164,138 +595,211 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      discover_input_schema_response() :: %{
-        "InputSchema" => source_schema(),
-        "ParsedInputRecords" => list(list(String.t() | atom())()),
-        "ProcessedInputRecords" => list(String.t() | atom()),
-        "RawInputRecords" => list(String.t() | atom())
+      cloud_watch_logging_option() :: %{
+        "LogStreamARN" => String.t() | atom()
       }
       
   """
-  @type discover_input_schema_response() :: %{(String.t() | atom()) => any()}
+  @type cloud_watch_logging_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      input_parallelism_update() :: %{
-        "CountUpdate" => integer()
+      cloud_watch_logging_option_description() :: %{
+        "CloudWatchLoggingOptionId" => String.t() | atom(),
+        "LogStreamARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
       }
       
   """
-  @type input_parallelism_update() :: %{(String.t() | atom()) => any()}
+  @type cloud_watch_logging_option_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      application_snapshot_configuration_update() :: %{
-        "SnapshotsEnabledUpdate" => boolean()
+      cloud_watch_logging_option_update() :: %{
+        "CloudWatchLoggingOptionId" => String.t() | atom(),
+        "LogStreamARNUpdate" => String.t() | atom()
       }
       
   """
-  @type application_snapshot_configuration_update() :: %{(String.t() | atom()) => any()}
+  @type cloud_watch_logging_option_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      monitoring_configuration() :: %{
-        "ConfigurationType" => list(any()),
-        "LogLevel" => list(any()),
-        "MetricsLevel" => list(any())
+      code_content() :: %{
+        "S3ContentLocation" => s3_content_location(),
+        "TextContent" => String.t() | atom(),
+        "ZipFileContent" => binary()
       }
       
   """
-  @type monitoring_configuration() :: %{(String.t() | atom()) => any()}
+  @type code_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_content_location_update() :: %{
-        "BucketARNUpdate" => String.t() | atom(),
-        "FileKeyUpdate" => String.t() | atom(),
-        "ObjectVersionUpdate" => String.t() | atom()
+      code_content_description() :: %{
+        "CodeMD5" => String.t() | atom(),
+        "CodeSize" => float(),
+        "S3ApplicationCodeLocationDescription" => s3_application_code_location_description(),
+        "TextContent" => String.t() | atom()
       }
       
   """
-  @type s3_content_location_update() :: %{(String.t() | atom()) => any()}
+  @type code_content_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_request_exception() :: %{
+      code_content_update() :: %{
+        "S3ContentLocationUpdate" => s3_content_location_update(),
+        "TextContentUpdate" => String.t() | atom(),
+        "ZipFileContentUpdate" => binary()
+      }
+      
+  """
+  @type code_content_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_validation_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+  @type code_validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      application_system_rollback_configuration_update() :: %{
-        "RollbackEnabledUpdate" => boolean()
+      concurrent_modification_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type application_system_rollback_configuration_update() :: %{(String.t() | atom()) => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      source_schema() :: %{
-        "RecordColumns" => list(record_column()),
-        "RecordEncoding" => String.t() | atom(),
-        "RecordFormat" => record_format()
-      }
-      
-  """
-  @type source_schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      monitoring_configuration_update() :: %{
-        "ConfigurationTypeUpdate" => list(any()),
-        "LogLevelUpdate" => list(any()),
-        "MetricsLevelUpdate" => list(any())
-      }
-      
-  """
-  @type monitoring_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      zeppelin_application_configuration_update() :: %{
-        "CatalogConfigurationUpdate" => catalog_configuration_update(),
-        "CustomArtifactsConfigurationUpdate" => list(custom_artifact_configuration()),
-        "DeployAsApplicationConfigurationUpdate" => deploy_as_application_configuration_update(),
-        "MonitoringConfigurationUpdate" => zeppelin_monitoring_configuration_update()
-      }
-      
-  """
-  @type zeppelin_application_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_reference_data_source_request() :: %{
+      create_application_presigned_url_request() :: %{
+        optional("SessionExpirationDurationInSeconds") => float(),
         required("ApplicationName") => String.t() | atom(),
-        required("CurrentApplicationVersionId") => float(),
-        required("ReferenceId") => String.t() | atom()
+        required("UrlType") => list(any())
       }
       
   """
-  @type delete_application_reference_data_source_request() :: %{(String.t() | atom()) => any()}
+  @type create_application_presigned_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_application_presigned_url_response() :: %{
+        "AuthorizedUrl" => String.t() | atom()
+      }
+      
+  """
+  @type create_application_presigned_url_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_application_request() :: %{
+        optional("ApplicationConfiguration") => application_configuration(),
+        optional("ApplicationDescription") => String.t() | atom(),
+        optional("ApplicationMode") => list(any()),
+        optional("CloudWatchLoggingOptions") => list(cloud_watch_logging_option()),
+        optional("Tags") => list(tag()),
+        required("ApplicationName") => String.t() | atom(),
+        required("RuntimeEnvironment") => list(any()),
+        required("ServiceExecutionRole") => String.t() | atom()
+      }
+      
+  """
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_application_response() :: %{
+        "ApplicationDetail" => application_detail()
+      }
+      
+  """
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_application_snapshot_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("SnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type create_application_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_application_snapshot_response() :: %{}
+      
+  """
+  @type create_application_snapshot_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      csv_mapping_parameters() :: %{
+        "RecordColumnDelimiter" => String.t() | atom(),
+        "RecordRowDelimiter" => String.t() | atom()
+      }
+      
+  """
+  @type csv_mapping_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_artifact_configuration() :: %{
+        "ArtifactType" => list(any()),
+        "MavenReference" => maven_reference(),
+        "S3ContentLocation" => s3_content_location()
+      }
+      
+  """
+  @type custom_artifact_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_artifact_configuration_description() :: %{
+        "ArtifactType" => list(any()),
+        "MavenReferenceDescription" => maven_reference(),
+        "S3ContentLocationDescription" => s3_content_location()
+      }
+      
+  """
+  @type custom_artifact_configuration_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2317,6 +821,1328 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      delete_application_cloud_watch_logging_option_response() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationVersionId" => float(),
+        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()),
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_application_cloud_watch_logging_option_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_input_processing_configuration_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CurrentApplicationVersionId") => float(),
+        required("InputId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_application_input_processing_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_input_processing_configuration_response() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationVersionId" => float()
+      }
+      
+  """
+  @type delete_application_input_processing_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_output_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CurrentApplicationVersionId") => float(),
+        required("OutputId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_application_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_output_response() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationVersionId" => float()
+      }
+      
+  """
+  @type delete_application_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_reference_data_source_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CurrentApplicationVersionId") => float(),
+        required("ReferenceId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_application_reference_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_reference_data_source_response() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationVersionId" => float()
+      }
+      
+  """
+  @type delete_application_reference_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CreateTimestamp") => non_neg_integer()
+      }
+      
+  """
+  @type delete_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_response() :: %{}
+      
+  """
+  @type delete_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_snapshot_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("SnapshotCreationTimestamp") => non_neg_integer(),
+        required("SnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_application_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_snapshot_response() :: %{}
+      
+  """
+  @type delete_application_snapshot_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_vpc_configuration_request() :: %{
+        optional("ConditionalToken") => String.t() | atom(),
+        optional("CurrentApplicationVersionId") => float(),
+        required("ApplicationName") => String.t() | atom(),
+        required("VpcConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_application_vpc_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_vpc_configuration_response() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationVersionId" => float(),
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_application_vpc_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deploy_as_application_configuration() :: %{
+        "S3ContentLocation" => s3_content_base_location()
+      }
+      
+  """
+  @type deploy_as_application_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deploy_as_application_configuration_description() :: %{
+        "S3ContentLocationDescription" => s3_content_base_location_description()
+      }
+      
+  """
+  @type deploy_as_application_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deploy_as_application_configuration_update() :: %{
+        "S3ContentLocationUpdate" => s3_content_base_location_update()
+      }
+      
+  """
+  @type deploy_as_application_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_operation_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("OperationId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_application_operation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_operation_response() :: %{
+        "ApplicationOperationInfoDetails" => application_operation_info_details()
+      }
+      
+  """
+  @type describe_application_operation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_request() :: %{
+        optional("IncludeAdditionalDetails") => boolean(),
+        required("ApplicationName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_response() :: %{
+        "ApplicationDetail" => application_detail()
+      }
+      
+  """
+  @type describe_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_snapshot_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("SnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_application_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_snapshot_response() :: %{
+        "SnapshotDetails" => snapshot_details()
+      }
+      
+  """
+  @type describe_application_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_version_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("ApplicationVersionId") => float()
+      }
+      
+  """
+  @type describe_application_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_version_response() :: %{
+        "ApplicationVersionDetail" => application_detail()
+      }
+      
+  """
+  @type describe_application_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination_schema() :: %{
+        "RecordFormatType" => list(any())
+      }
+      
+  """
+  @type destination_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discover_input_schema_request() :: %{
+        optional("InputProcessingConfiguration") => input_processing_configuration(),
+        optional("InputStartingPositionConfiguration") => input_starting_position_configuration(),
+        optional("ResourceARN") => String.t() | atom(),
+        optional("S3Configuration") => s3_configuration(),
+        required("ServiceExecutionRole") => String.t() | atom()
+      }
+      
+  """
+  @type discover_input_schema_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discover_input_schema_response() :: %{
+        "InputSchema" => source_schema(),
+        "ParsedInputRecords" => list(list(String.t() | atom())()),
+        "ProcessedInputRecords" => list(String.t() | atom()),
+        "RawInputRecords" => list(String.t() | atom())
+      }
+      
+  """
+  @type discover_input_schema_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment_properties() :: %{
+        "PropertyGroups" => list(property_group())
+      }
+      
+  """
+  @type environment_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment_property_descriptions() :: %{
+        "PropertyGroupDescriptions" => list(property_group())
+      }
+      
+  """
+  @type environment_property_descriptions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment_property_updates() :: %{
+        "PropertyGroups" => list(property_group())
+      }
+      
+  """
+  @type environment_property_updates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      error_info() :: %{
+        "ErrorString" => String.t() | atom()
+      }
+      
+  """
+  @type error_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flink_application_configuration() :: %{
+        "CheckpointConfiguration" => checkpoint_configuration(),
+        "MonitoringConfiguration" => monitoring_configuration(),
+        "ParallelismConfiguration" => parallelism_configuration()
+      }
+      
+  """
+  @type flink_application_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flink_application_configuration_description() :: %{
+        "CheckpointConfigurationDescription" => checkpoint_configuration_description(),
+        "JobPlanDescription" => String.t() | atom(),
+        "MonitoringConfigurationDescription" => monitoring_configuration_description(),
+        "ParallelismConfigurationDescription" => parallelism_configuration_description()
+      }
+      
+  """
+  @type flink_application_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flink_application_configuration_update() :: %{
+        "CheckpointConfigurationUpdate" => checkpoint_configuration_update(),
+        "MonitoringConfigurationUpdate" => monitoring_configuration_update(),
+        "ParallelismConfigurationUpdate" => parallelism_configuration_update()
+      }
+      
+  """
+  @type flink_application_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flink_run_configuration() :: %{
+        "AllowNonRestoredState" => boolean()
+      }
+      
+  """
+  @type flink_run_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      glue_data_catalog_configuration() :: %{
+        "DatabaseARN" => String.t() | atom()
+      }
+      
+  """
+  @type glue_data_catalog_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      glue_data_catalog_configuration_description() :: %{
+        "DatabaseARN" => String.t() | atom()
+      }
+      
+  """
+  @type glue_data_catalog_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      glue_data_catalog_configuration_update() :: %{
+        "DatabaseARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type glue_data_catalog_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input() :: %{
+        "InputParallelism" => input_parallelism(),
+        "InputProcessingConfiguration" => input_processing_configuration(),
+        "InputSchema" => source_schema(),
+        "KinesisFirehoseInput" => kinesis_firehose_input(),
+        "KinesisStreamsInput" => kinesis_streams_input(),
+        "NamePrefix" => String.t() | atom()
+      }
+      
+  """
+  @type input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_description() :: %{
+        "InAppStreamNames" => list(String.t() | atom()),
+        "InputId" => String.t() | atom(),
+        "InputParallelism" => input_parallelism(),
+        "InputProcessingConfigurationDescription" => input_processing_configuration_description(),
+        "InputSchema" => source_schema(),
+        "InputStartingPositionConfiguration" => input_starting_position_configuration(),
+        "KinesisFirehoseInputDescription" => kinesis_firehose_input_description(),
+        "KinesisStreamsInputDescription" => kinesis_streams_input_description(),
+        "NamePrefix" => String.t() | atom()
+      }
+      
+  """
+  @type input_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_lambda_processor() :: %{
+        "ResourceARN" => String.t() | atom()
+      }
+      
+  """
+  @type input_lambda_processor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_lambda_processor_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type input_lambda_processor_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_lambda_processor_update() :: %{
+        "ResourceARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type input_lambda_processor_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_parallelism() :: %{
+        "Count" => integer()
+      }
+      
+  """
+  @type input_parallelism() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_parallelism_update() :: %{
+        "CountUpdate" => integer()
+      }
+      
+  """
+  @type input_parallelism_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_processing_configuration() :: %{
+        "InputLambdaProcessor" => input_lambda_processor()
+      }
+      
+  """
+  @type input_processing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_processing_configuration_description() :: %{
+        "InputLambdaProcessorDescription" => input_lambda_processor_description()
+      }
+      
+  """
+  @type input_processing_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_processing_configuration_update() :: %{
+        "InputLambdaProcessorUpdate" => input_lambda_processor_update()
+      }
+      
+  """
+  @type input_processing_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_schema_update() :: %{
+        "RecordColumnUpdates" => list(record_column()),
+        "RecordEncodingUpdate" => String.t() | atom(),
+        "RecordFormatUpdate" => record_format()
+      }
+      
+  """
+  @type input_schema_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_starting_position_configuration() :: %{
+        "InputStartingPosition" => list(any())
+      }
+      
+  """
+  @type input_starting_position_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_update() :: %{
+        "InputId" => String.t() | atom(),
+        "InputParallelismUpdate" => input_parallelism_update(),
+        "InputProcessingConfigurationUpdate" => input_processing_configuration_update(),
+        "InputSchemaUpdate" => input_schema_update(),
+        "KinesisFirehoseInputUpdate" => kinesis_firehose_input_update(),
+        "KinesisStreamsInputUpdate" => kinesis_streams_input_update(),
+        "NamePrefixUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type input_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_application_configuration_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_application_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_argument_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      json_mapping_parameters() :: %{
+        "RecordRowPath" => String.t() | atom()
+      }
+      
+  """
+  @type json_mapping_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_input() :: %{
+        "ResourceARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_input_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_input_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_input_update() :: %{
+        "ResourceARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_input_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_output() :: %{
+        "ResourceARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_output_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_output_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_output_update() :: %{
+        "ResourceARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_output_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streams_input() :: %{
+        "ResourceARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_streams_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streams_input_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_streams_input_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streams_input_update() :: %{
+        "ResourceARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_streams_input_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streams_output() :: %{
+        "ResourceARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_streams_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streams_output_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_streams_output_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streams_output_update() :: %{
+        "ResourceARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_streams_output_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_output() :: %{
+        "ResourceARN" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_output_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_output_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_output_update() :: %{
+        "ResourceARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_output_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_operations_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Operation") => String.t() | atom(),
+        optional("OperationStatus") => list(any()),
+        required("ApplicationName") => String.t() | atom()
+      }
+      
+  """
+  @type list_application_operations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_operations_response() :: %{
+        "ApplicationOperationInfoList" => list(application_operation_info()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_application_operations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_snapshots_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ApplicationName") => String.t() | atom()
+      }
+      
+  """
+  @type list_application_snapshots_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_snapshots_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SnapshotSummaries" => list(snapshot_details())
+      }
+      
+  """
+  @type list_application_snapshots_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_versions_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ApplicationName") => String.t() | atom()
+      }
+      
+  """
+  @type list_application_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_versions_response() :: %{
+        "ApplicationVersionSummaries" => list(application_version_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_application_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_applications_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_applications_response() :: %{
+        "ApplicationSummaries" => list(application_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mapping_parameters() :: %{
+        "CSVMappingParameters" => csv_mapping_parameters(),
+        "JSONMappingParameters" => json_mapping_parameters()
+      }
+      
+  """
+  @type mapping_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      maven_reference() :: %{
+        "ArtifactId" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+      
+  """
+  @type maven_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monitoring_configuration() :: %{
+        "ConfigurationType" => list(any()),
+        "LogLevel" => list(any()),
+        "MetricsLevel" => list(any())
+      }
+      
+  """
+  @type monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monitoring_configuration_description() :: %{
+        "ConfigurationType" => list(any()),
+        "LogLevel" => list(any()),
+        "MetricsLevel" => list(any())
+      }
+      
+  """
+  @type monitoring_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monitoring_configuration_update() :: %{
+        "ConfigurationTypeUpdate" => list(any()),
+        "LogLevelUpdate" => list(any()),
+        "MetricsLevelUpdate" => list(any())
+      }
+      
+  """
+  @type monitoring_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_failure_details() :: %{
+        "ErrorInfo" => error_info(),
+        "RollbackOperationId" => String.t() | atom()
+      }
+      
+  """
+  @type operation_failure_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output() :: %{
+        "DestinationSchema" => destination_schema(),
+        "KinesisFirehoseOutput" => kinesis_firehose_output(),
+        "KinesisStreamsOutput" => kinesis_streams_output(),
+        "LambdaOutput" => lambda_output(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_description() :: %{
+        "DestinationSchema" => destination_schema(),
+        "KinesisFirehoseOutputDescription" => kinesis_firehose_output_description(),
+        "KinesisStreamsOutputDescription" => kinesis_streams_output_description(),
+        "LambdaOutputDescription" => lambda_output_description(),
+        "Name" => String.t() | atom(),
+        "OutputId" => String.t() | atom()
+      }
+      
+  """
+  @type output_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_update() :: %{
+        "DestinationSchemaUpdate" => destination_schema(),
+        "KinesisFirehoseOutputUpdate" => kinesis_firehose_output_update(),
+        "KinesisStreamsOutputUpdate" => kinesis_streams_output_update(),
+        "LambdaOutputUpdate" => lambda_output_update(),
+        "NameUpdate" => String.t() | atom(),
+        "OutputId" => String.t() | atom()
+      }
+      
+  """
+  @type output_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parallelism_configuration() :: %{
+        "AutoScalingEnabled" => boolean(),
+        "ConfigurationType" => list(any()),
+        "Parallelism" => integer(),
+        "ParallelismPerKPU" => integer()
+      }
+      
+  """
+  @type parallelism_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parallelism_configuration_description() :: %{
+        "AutoScalingEnabled" => boolean(),
+        "ConfigurationType" => list(any()),
+        "CurrentParallelism" => integer(),
+        "Parallelism" => integer(),
+        "ParallelismPerKPU" => integer()
+      }
+      
+  """
+  @type parallelism_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parallelism_configuration_update() :: %{
+        "AutoScalingEnabledUpdate" => boolean(),
+        "ConfigurationTypeUpdate" => list(any()),
+        "ParallelismPerKPUUpdate" => integer(),
+        "ParallelismUpdate" => integer()
+      }
+      
+  """
+  @type parallelism_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      property_group() :: %{
+        "PropertyGroupId" => String.t() | atom(),
+        "PropertyMap" => map()
+      }
+      
+  """
+  @type property_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      record_column() :: %{
+        "Mapping" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SqlType" => String.t() | atom()
+      }
+      
+  """
+  @type record_column() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      record_format() :: %{
+        "MappingParameters" => mapping_parameters(),
+        "RecordFormatType" => list(any())
+      }
+      
+  """
+  @type record_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reference_data_source() :: %{
+        "ReferenceSchema" => source_schema(),
+        "S3ReferenceDataSource" => s3_reference_data_source(),
+        "TableName" => String.t() | atom()
+      }
+      
+  """
+  @type reference_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reference_data_source_description() :: %{
+        "ReferenceId" => String.t() | atom(),
+        "ReferenceSchema" => source_schema(),
+        "S3ReferenceDataSourceDescription" => s3_reference_data_source_description(),
+        "TableName" => String.t() | atom()
+      }
+      
+  """
+  @type reference_data_source_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reference_data_source_update() :: %{
+        "ReferenceId" => String.t() | atom(),
+        "ReferenceSchemaUpdate" => source_schema(),
+        "S3ReferenceDataSourceUpdate" => s3_reference_data_source_update(),
+        "TableNameUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type reference_data_source_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_in_use_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_provisioned_throughput_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_provisioned_throughput_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rollback_application_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CurrentApplicationVersionId") => float()
+      }
+      
+  """
+  @type rollback_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rollback_application_response() :: %{
+        "ApplicationDetail" => application_detail(),
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type rollback_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      run_configuration() :: %{
+        "ApplicationRestoreConfiguration" => application_restore_configuration(),
+        "FlinkRunConfiguration" => flink_run_configuration(),
+        "SqlRunConfigurations" => list(sql_run_configuration())
+      }
+      
+  """
+  @type run_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      run_configuration_description() :: %{
+        "ApplicationRestoreConfigurationDescription" => application_restore_configuration(),
+        "FlinkRunConfigurationDescription" => flink_run_configuration()
+      }
+      
+  """
+  @type run_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      run_configuration_update() :: %{
+        "ApplicationRestoreConfiguration" => application_restore_configuration(),
+        "FlinkRunConfiguration" => flink_run_configuration()
+      }
+      
+  """
+  @type run_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_application_code_location_description() :: %{
+        "BucketARN" => String.t() | atom(),
+        "FileKey" => String.t() | atom(),
+        "ObjectVersion" => String.t() | atom()
+      }
+      
+  """
+  @type s3_application_code_location_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_configuration() :: %{
         "BucketARN" => String.t() | atom(),
         "FileKey" => String.t() | atom()
@@ -2324,6 +2150,359 @@ defmodule AWS.KinesisAnalyticsV2 do
       
   """
   @type s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_content_base_location() :: %{
+        "BasePath" => String.t() | atom(),
+        "BucketARN" => String.t() | atom()
+      }
+      
+  """
+  @type s3_content_base_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_content_base_location_description() :: %{
+        "BasePath" => String.t() | atom(),
+        "BucketARN" => String.t() | atom()
+      }
+      
+  """
+  @type s3_content_base_location_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_content_base_location_update() :: %{
+        "BasePathUpdate" => String.t() | atom(),
+        "BucketARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type s3_content_base_location_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_content_location() :: %{
+        "BucketARN" => String.t() | atom(),
+        "FileKey" => String.t() | atom(),
+        "ObjectVersion" => String.t() | atom()
+      }
+      
+  """
+  @type s3_content_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_content_location_update() :: %{
+        "BucketARNUpdate" => String.t() | atom(),
+        "FileKeyUpdate" => String.t() | atom(),
+        "ObjectVersionUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type s3_content_location_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_reference_data_source() :: %{
+        "BucketARN" => String.t() | atom(),
+        "FileKey" => String.t() | atom()
+      }
+      
+  """
+  @type s3_reference_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_reference_data_source_description() :: %{
+        "BucketARN" => String.t() | atom(),
+        "FileKey" => String.t() | atom(),
+        "ReferenceRoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type s3_reference_data_source_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_reference_data_source_update() :: %{
+        "BucketARNUpdate" => String.t() | atom(),
+        "FileKeyUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type s3_reference_data_source_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_unavailable_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_details() :: %{
+        "ApplicationEncryptionConfigurationDescription" => application_encryption_configuration_description(),
+        "ApplicationVersionId" => float(),
+        "RuntimeEnvironment" => list(any()),
+        "SnapshotCreationTimestamp" => non_neg_integer(),
+        "SnapshotName" => String.t() | atom(),
+        "SnapshotStatus" => list(any())
+      }
+      
+  """
+  @type snapshot_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_schema() :: %{
+        "RecordColumns" => list(record_column()),
+        "RecordEncoding" => String.t() | atom(),
+        "RecordFormat" => record_format()
+      }
+      
+  """
+  @type source_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sql_application_configuration() :: %{
+        "Inputs" => list(input()),
+        "Outputs" => list(output()),
+        "ReferenceDataSources" => list(reference_data_source())
+      }
+      
+  """
+  @type sql_application_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sql_application_configuration_description() :: %{
+        "InputDescriptions" => list(input_description()),
+        "OutputDescriptions" => list(output_description()),
+        "ReferenceDataSourceDescriptions" => list(reference_data_source_description())
+      }
+      
+  """
+  @type sql_application_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sql_application_configuration_update() :: %{
+        "InputUpdates" => list(input_update()),
+        "OutputUpdates" => list(output_update()),
+        "ReferenceDataSourceUpdates" => list(reference_data_source_update())
+      }
+      
+  """
+  @type sql_application_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sql_run_configuration() :: %{
+        "InputId" => String.t() | atom(),
+        "InputStartingPositionConfiguration" => input_starting_position_configuration()
+      }
+      
+  """
+  @type sql_run_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_application_request() :: %{
+        optional("RunConfiguration") => run_configuration(),
+        required("ApplicationName") => String.t() | atom()
+      }
+      
+  """
+  @type start_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_application_response() :: %{
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type start_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_application_request() :: %{
+        optional("Force") => boolean(),
+        required("ApplicationName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_application_response() :: %{
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type stop_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unable_to_detect_schema_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ProcessedInputRecords" => list(String.t() | atom()),
+        "RawInputRecords" => list(String.t() | atom())
+      }
+      
+  """
+  @type unable_to_detect_schema_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_operation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_application_maintenance_configuration_request() :: %{
+        required("ApplicationMaintenanceConfigurationUpdate") => application_maintenance_configuration_update(),
+        required("ApplicationName") => String.t() | atom()
+      }
+      
+  """
+  @type update_application_maintenance_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      update_application_maintenance_configuration_response() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationMaintenanceConfigurationDescription" => application_maintenance_configuration_description()
+      }
+      
+  """
+  @type update_application_maintenance_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2347,254 +2526,52 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      kinesis_firehose_input_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
+      update_application_response() :: %{
+        "ApplicationDetail" => application_detail(),
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type kinesis_firehose_input_description() :: %{(String.t() | atom()) => any()}
+  @type update_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_application_snapshot_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("SnapshotName") => String.t() | atom()
+      vpc_configuration() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type create_application_snapshot_request() :: %{(String.t() | atom()) => any()}
+  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      lambda_output_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
+      vpc_configuration_description() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcConfigurationId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type lambda_output_description() :: %{(String.t() | atom()) => any()}
+  @type vpc_configuration_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      code_content_description() :: %{
-        "CodeMD5" => String.t() | atom(),
-        "CodeSize" => float(),
-        "S3ApplicationCodeLocationDescription" => s3_application_code_location_description(),
-        "TextContent" => String.t() | atom()
+      vpc_configuration_update() :: %{
+        "SecurityGroupIdUpdates" => list(String.t() | atom()),
+        "SubnetIdUpdates" => list(String.t() | atom()),
+        "VpcConfigurationId" => String.t() | atom()
       }
       
   """
-  @type code_content_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      maven_reference() :: %{
-        "ArtifactId" => String.t() | atom(),
-        "GroupId" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-      
-  """
-  @type maven_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_reference_data_source_description() :: %{
-        "BucketARN" => String.t() | atom(),
-        "FileKey" => String.t() | atom(),
-        "ReferenceRoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type s3_reference_data_source_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_output() :: %{
-        "ResourceARN" => String.t() | atom()
-      }
-      
-  """
-  @type lambda_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deploy_as_application_configuration_description() :: %{
-        "S3ContentLocationDescription" => s3_content_base_location_description()
-      }
-      
-  """
-  @type deploy_as_application_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_configuration() :: %{
-        "ApplicationCodeConfiguration" => application_code_configuration(),
-        "ApplicationEncryptionConfiguration" => application_encryption_configuration(),
-        "ApplicationSnapshotConfiguration" => application_snapshot_configuration(),
-        "ApplicationSystemRollbackConfiguration" => application_system_rollback_configuration(),
-        "EnvironmentProperties" => environment_properties(),
-        "FlinkApplicationConfiguration" => flink_application_configuration(),
-        "SqlApplicationConfiguration" => sql_application_configuration(),
-        "VpcConfigurations" => list(vpc_configuration()),
-        "ZeppelinApplicationConfiguration" => zeppelin_application_configuration()
-      }
-      
-  """
-  @type application_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_streams_output_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_streams_output_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_lambda_processor_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type input_lambda_processor_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      run_configuration() :: %{
-        "ApplicationRestoreConfiguration" => application_restore_configuration(),
-        "FlinkRunConfiguration" => flink_run_configuration(),
-        "SqlRunConfigurations" => list(sql_run_configuration())
-      }
-      
-  """
-  @type run_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      flink_application_configuration_description() :: %{
-        "CheckpointConfigurationDescription" => checkpoint_configuration_description(),
-        "JobPlanDescription" => String.t() | atom(),
-        "MonitoringConfigurationDescription" => monitoring_configuration_description(),
-        "ParallelismConfigurationDescription" => parallelism_configuration_description()
-      }
-      
-  """
-  @type flink_application_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_firehose_input() :: %{
-        "ResourceARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_firehose_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_maintenance_configuration_update() :: %{
-        "ApplicationMaintenanceWindowStartTimeUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type application_maintenance_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      record_format() :: %{
-        "MappingParameters" => mapping_parameters(),
-        "RecordFormatType" => list(any())
-      }
-      
-  """
-  @type record_format() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input() :: %{
-        "InputParallelism" => input_parallelism(),
-        "InputProcessingConfiguration" => input_processing_configuration(),
-        "InputSchema" => source_schema(),
-        "KinesisFirehoseInput" => kinesis_firehose_input(),
-        "KinesisStreamsInput" => kinesis_streams_input(),
-        "NamePrefix" => String.t() | atom()
-      }
-      
-  """
-  @type input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deploy_as_application_configuration() :: %{
-        "S3ContentLocation" => s3_content_base_location()
-      }
-      
-  """
-  @type deploy_as_application_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_versions_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ApplicationName") => String.t() | atom()
-      }
-      
-  """
-  @type list_application_versions_request() :: %{(String.t() | atom()) => any()}
+  @type vpc_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2614,260 +2591,283 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      reference_data_source() :: %{
-        "ReferenceSchema" => source_schema(),
-        "S3ReferenceDataSource" => s3_reference_data_source(),
-        "TableName" => String.t() | atom()
+      zeppelin_application_configuration_description() :: %{
+        "CatalogConfigurationDescription" => catalog_configuration_description(),
+        "CustomArtifactsConfigurationDescription" => list(custom_artifact_configuration_description()),
+        "DeployAsApplicationConfigurationDescription" => deploy_as_application_configuration_description(),
+        "MonitoringConfigurationDescription" => zeppelin_monitoring_configuration_description()
       }
       
   """
-  @type reference_data_source() :: %{(String.t() | atom()) => any()}
+  @type zeppelin_application_configuration_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_application_snapshot_response() :: %{
-        "SnapshotDetails" => snapshot_details()
+      zeppelin_application_configuration_update() :: %{
+        "CatalogConfigurationUpdate" => catalog_configuration_update(),
+        "CustomArtifactsConfigurationUpdate" => list(custom_artifact_configuration()),
+        "DeployAsApplicationConfigurationUpdate" => deploy_as_application_configuration_update(),
+        "MonitoringConfigurationUpdate" => zeppelin_monitoring_configuration_update()
       }
       
   """
-  @type describe_application_snapshot_response() :: %{(String.t() | atom()) => any()}
+  @type zeppelin_application_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      add_application_vpc_configuration_request() :: %{
-        optional("ConditionalToken") => String.t() | atom(),
-        optional("CurrentApplicationVersionId") => float(),
-        required("ApplicationName") => String.t() | atom(),
-        required("VpcConfiguration") => vpc_configuration()
+      zeppelin_monitoring_configuration() :: %{
+        "LogLevel" => list(any())
       }
       
   """
-  @type add_application_vpc_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type zeppelin_monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      zeppelin_monitoring_configuration_description() :: %{
+        "LogLevel" => list(any())
+      }
+      
+  """
+  @type zeppelin_monitoring_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      zeppelin_monitoring_configuration_update() :: %{
+        "LogLevelUpdate" => list(any())
+      }
+      
+  """
+  @type zeppelin_monitoring_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @type add_application_cloud_watch_logging_option_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
-          | concurrent_modification_exception()
           | invalid_application_configuration_exception()
+          | concurrent_modification_exception()
 
   @type add_application_input_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
           | code_validation_exception()
 
   @type add_application_input_processing_configuration_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type add_application_output_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type add_application_reference_data_source_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type add_application_vpc_configuration_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | resource_not_found_exception()
-          | concurrent_modification_exception()
-          | invalid_application_configuration_exception()
-
-  @type create_application_errors() ::
-          invalid_request_exception()
-          | too_many_tags_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
           | invalid_argument_exception()
-          | unsupported_operation_exception()
+          | invalid_application_configuration_exception()
+          | concurrent_modification_exception()
+
+  @type create_application_errors() ::
+          unsupported_operation_exception()
+          | too_many_tags_exception()
+          | resource_in_use_exception()
           | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
           | code_validation_exception()
 
   @type create_application_presigned_url_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | resource_not_found_exception()
-
-  @type create_application_snapshot_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
           | invalid_argument_exception()
-          | unsupported_operation_exception()
+
+  @type create_application_snapshot_errors() ::
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
           | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_argument_exception()
           | invalid_application_configuration_exception()
 
   @type delete_application_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
-          | concurrent_modification_exception()
           | invalid_application_configuration_exception()
+          | concurrent_modification_exception()
 
   @type delete_application_cloud_watch_logging_option_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
-          | concurrent_modification_exception()
           | invalid_application_configuration_exception()
+          | concurrent_modification_exception()
 
   @type delete_application_input_processing_configuration_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type delete_application_output_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type delete_application_reference_data_source_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type delete_application_snapshot_errors() ::
-          invalid_request_exception()
-          | resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_request_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   @type delete_application_vpc_configuration_errors() ::
-          resource_in_use_exception()
+          resource_not_found_exception()
+          | resource_in_use_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
-          | concurrent_modification_exception()
           | invalid_application_configuration_exception()
+          | concurrent_modification_exception()
 
   @type describe_application_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
 
   @type describe_application_operation_errors() ::
-          invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | invalid_argument_exception()
 
   @type describe_application_snapshot_errors() ::
-          invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | invalid_argument_exception()
 
   @type describe_application_version_errors() ::
-          invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | invalid_argument_exception()
 
   @type discover_input_schema_errors() ::
-          invalid_request_exception()
-          | invalid_argument_exception()
+          unsupported_operation_exception()
           | unable_to_detect_schema_exception()
-          | unsupported_operation_exception()
           | service_unavailable_exception()
           | resource_provisioned_throughput_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_argument_exception()
 
   @type list_application_operations_errors() ::
-          invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | invalid_argument_exception()
 
   @type list_application_snapshots_errors() ::
-          invalid_argument_exception() | unsupported_operation_exception()
+          unsupported_operation_exception() | invalid_argument_exception()
 
   @type list_application_versions_errors() ::
-          invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | invalid_argument_exception()
 
   @type list_applications_errors() :: invalid_request_exception()
 
   @type list_tags_for_resource_errors() ::
-          invalid_argument_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   @type rollback_application_errors() ::
-          invalid_request_exception()
-          | resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_request_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   @type start_application_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
           | invalid_application_configuration_exception()
 
   @type stop_application_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
+          | invalid_request_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
-          | concurrent_modification_exception()
           | invalid_application_configuration_exception()
+          | concurrent_modification_exception()
 
   @type tag_resource_errors() ::
           too_many_tags_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type untag_resource_errors() ::
           too_many_tags_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type update_application_errors() ::
-          invalid_request_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
-          | invalid_argument_exception()
-          | resource_not_found_exception()
           | limit_exceeded_exception()
-          | concurrent_modification_exception()
+          | invalid_request_exception()
+          | invalid_argument_exception()
           | invalid_application_configuration_exception()
+          | concurrent_modification_exception()
           | code_validation_exception()
 
   @type update_application_maintenance_configuration_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   def metadata do

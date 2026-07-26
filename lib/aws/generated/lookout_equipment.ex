@@ -15,275 +15,6 @@ defmodule AWS.LookoutEquipment do
 
   ## Example:
       
-      list_label_groups_response() :: %{
-        "LabelGroupSummaries" => list(label_group_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_label_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_model_version_response() :: %{
-        "ModelArn" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
-        "ModelVersion" => float(),
-        "ModelVersionArn" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type import_model_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_ingestion_job_summary() :: %{
-        "DatasetArn" => String.t() | atom(),
-        "DatasetName" => String.t() | atom(),
-        "IngestionInputConfiguration" => ingestion_input_configuration(),
-        "JobId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type data_ingestion_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_label_response() :: %{
-        "LabelId" => String.t() | atom()
-      }
-      
-  """
-  @type create_label_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_pre_processing_configuration() :: %{
-        "TargetSamplingRate" => list(any())
-      }
-      
-  """
-  @type data_pre_processing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_retraining_scheduler_request() :: %{
-        optional("LookbackWindow") => String.t() | atom(),
-        optional("PromoteMode") => list(any()),
-        optional("RetrainingFrequency") => String.t() | atom(),
-        optional("RetrainingStartDate") => non_neg_integer(),
-        required("ModelName") => String.t() | atom()
-      }
-      
-  """
-  @type update_retraining_scheduler_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_request() :: %{
-        optional("PolicyRevisionId") => String.t() | atom(),
-        required("ClientToken") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom(),
-        required("ResourcePolicy") => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      missing_sensor_data() :: %{
-        "AffectedSensorCount" => integer(),
-        "TotalNumberOfMissingValues" => integer()
-      }
-      
-  """
-  @type missing_sensor_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_model_request() :: %{
-        required("ModelName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inference_input_configuration() :: %{
-        "InferenceInputNameConfiguration" => inference_input_name_configuration(),
-        "InputTimeZoneOffset" => String.t() | atom(),
-        "S3InputConfiguration" => inference_s3_input_configuration()
-      }
-      
-  """
-  @type inference_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sensors_with_short_date_range() :: %{
-        "AffectedSensorCount" => integer()
-      }
-      
-  """
-  @type sensors_with_short_date_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_object() :: %{
-        "Bucket" => String.t() | atom(),
-        "Key" => String.t() | atom()
-      }
-      
-  """
-  @type s3_object() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      label_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "EndTime" => non_neg_integer(),
-        "Equipment" => String.t() | atom(),
-        "FaultCode" => String.t() | atom(),
-        "LabelGroupArn" => String.t() | atom(),
-        "LabelGroupName" => String.t() | atom(),
-        "LabelId" => String.t() | atom(),
-        "Rating" => list(any()),
-        "StartTime" => non_neg_integer()
-      }
-      
-  """
-  @type label_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_model_version_response() :: %{
-        "ModelDiagnosticsResultsObject" => s3_object(),
-        "EvaluationDataEndTime" => non_neg_integer(),
-        "ModelDiagnosticsOutputConfiguration" => model_diagnostics_output_configuration(),
-        "SourceType" => list(any()),
-        "RoleArn" => String.t() | atom(),
-        "RetrainingAvailableDataInDays" => integer(),
-        "ModelVersionArn" => String.t() | atom(),
-        "SourceModelVersionArn" => String.t() | atom(),
-        "OffCondition" => String.t() | atom(),
-        "EvaluationDataStartTime" => non_neg_integer(),
-        "CreatedAt" => non_neg_integer(),
-        "DataPreProcessingConfiguration" => data_pre_processing_configuration(),
-        "AutoPromotionResult" => list(any()),
-        "Schema" => String.t() | atom(),
-        "ImportedDataSizeInBytes" => float(),
-        "DatasetArn" => String.t() | atom(),
-        "LabelsInputConfiguration" => labels_input_configuration(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "ModelArn" => String.t() | atom(),
-        "FailedReason" => String.t() | atom(),
-        "Status" => list(any()),
-        "ModelMetrics" => String.t() | atom(),
-        "ImportJobEndTime" => non_neg_integer(),
-        "TrainingDataEndTime" => non_neg_integer(),
-        "ModelQuality" => list(any()),
-        "DatasetName" => String.t() | atom(),
-        "ModelVersion" => float(),
-        "AutoPromotionResultReason" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
-        "TrainingExecutionEndTime" => non_neg_integer(),
-        "PriorModelMetrics" => String.t() | atom(),
-        "TrainingExecutionStartTime" => non_neg_integer(),
-        "ImportJobStartTime" => non_neg_integer(),
-        "TrainingDataStartTime" => non_neg_integer(),
-        "ServerSideKmsKeyId" => String.t() | atom()
-      }
-      
-  """
-  @type describe_model_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_labels_request() :: %{
-        optional("Equipment") => String.t() | atom(),
-        optional("FaultCode") => String.t() | atom(),
-        optional("IntervalEndTime") => non_neg_integer(),
-        optional("IntervalStartTime") => non_neg_integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("LabelGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type list_labels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_dataset_request() :: %{
-        required("DatasetName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_dataset_response() :: %{
-        "DatasetArn" => String.t() | atom(),
-        "DatasetName" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type import_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -295,299 +26,24 @@ defmodule AWS.LookoutEquipment do
 
   ## Example:
       
-      list_sensor_statistics_request() :: %{
-        optional("IngestionJobId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("DatasetName") => String.t() | atom()
-      }
-      
-  """
-  @type list_sensor_statistics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      large_timestamp_gaps() :: %{
-        "MaxTimestampGapInDays" => integer(),
-        "NumberOfLargeTimestampGaps" => integer(),
+      categorical_values() :: %{
+        "NumberOfCategory" => integer(),
         "Status" => list(any())
       }
       
   """
-  @type large_timestamp_gaps() :: %{(String.t() | atom()) => any()}
+  @type categorical_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_sensor_statistics_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SensorStatisticsSummaries" => list(sensor_statistics_summary())
-      }
-      
-  """
-  @type list_sensor_statistics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_retraining_scheduler_request() :: %{
-        required("ModelName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_retraining_scheduler_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_inference_scheduler_request() :: %{
-        required("InferenceSchedulerName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_inference_scheduler_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_retraining_scheduler_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "LookbackWindow" => String.t() | atom(),
-        "ModelArn" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
-        "PromoteMode" => list(any()),
-        "RetrainingFrequency" => String.t() | atom(),
-        "RetrainingStartDate" => non_neg_integer(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type describe_retraining_scheduler_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_retraining_scheduler_request() :: %{
-        optional("PromoteMode") => list(any()),
-        optional("RetrainingStartDate") => non_neg_integer(),
-        required("ClientToken") => String.t() | atom(),
-        required("LookbackWindow") => String.t() | atom(),
-        required("ModelName") => String.t() | atom(),
-        required("RetrainingFrequency") => String.t() | atom()
-      }
-      
-  """
-  @type create_retraining_scheduler_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      labels_s3_input_configuration() :: %{
-        "Bucket" => String.t() | atom(),
-        "Prefix" => String.t() | atom()
-      }
-      
-  """
-  @type labels_s3_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_data_ingestion_job_request() :: %{
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_data_ingestion_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_inference_schedulers_request() :: %{
-        optional("InferenceSchedulerNameBeginsWith") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("ModelName") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
-      }
-      
-  """
-  @type list_inference_schedulers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_data_ingestion_job_response() :: %{
-        "JobId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type start_data_ingestion_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_datasets_response() :: %{
-        "DatasetSummaries" => list(dataset_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inference_execution_summary() :: %{
-        "CustomerResultObject" => s3_object(),
-        "DataEndTime" => non_neg_integer(),
-        "DataInputConfiguration" => inference_input_configuration(),
-        "DataOutputConfiguration" => inference_output_configuration(),
-        "DataStartTime" => non_neg_integer(),
-        "FailedReason" => String.t() | atom(),
-        "InferenceSchedulerArn" => String.t() | atom(),
-        "InferenceSchedulerName" => String.t() | atom(),
-        "ModelArn" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
-        "ModelVersion" => float(),
-        "ModelVersionArn" => String.t() | atom(),
-        "ScheduledStartTime" => non_neg_integer(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type inference_execution_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_active_model_version_request() :: %{
-        required("ModelName") => String.t() | atom(),
-        required("ModelVersion") => float()
-      }
-      
-  """
-  @type update_active_model_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_label_group_request() :: %{
-        required("LabelGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_label_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_model_version_request() :: %{
-        optional("InferenceDataImportStrategy") => list(any()),
-        optional("LabelsInputConfiguration") => labels_input_configuration(),
-        optional("ModelName") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("ServerSideKmsKeyId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ClientToken") => String.t() | atom(),
-        required("DatasetName") => String.t() | atom(),
-        required("SourceModelVersionArn") => String.t() | atom()
-      }
-      
-  """
-  @type import_model_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_model_versions_response() :: %{
-        "ModelVersionSummaries" => list(model_version_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_model_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_label_groups_request() :: %{
-        optional("LabelGroupNameBeginsWith") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_label_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_retraining_schedulers_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("ModelNameBeginsWith") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
-      }
-      
-  """
-  @type list_retraining_schedulers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inference_s3_output_configuration() :: %{
-        "Bucket" => String.t() | atom(),
-        "Prefix" => String.t() | atom()
-      }
-      
-  """
-  @type inference_s3_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
+      conflict_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -605,318 +61,29 @@ defmodule AWS.LookoutEquipment do
 
   ## Example:
       
-      model_diagnostics_s3_output_configuration() :: %{
-        "Bucket" => String.t() | atom(),
-        "Prefix" => String.t() | atom()
-      }
-      
-  """
-  @type model_diagnostics_s3_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_label_request() :: %{
-        optional("Equipment") => String.t() | atom(),
-        optional("FaultCode") => String.t() | atom(),
-        optional("Notes") => String.t() | atom(),
-        required("ClientToken") => String.t() | atom(),
-        required("EndTime") => non_neg_integer(),
-        required("LabelGroupName") => String.t() | atom(),
-        required("Rating") => list(any()),
-        required("StartTime") => non_neg_integer()
-      }
-      
-  """
-  @type create_label_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_sensor_data() :: %{
-        "AffectedSensorCount" => integer(),
-        "TotalNumberOfInvalidValues" => integer()
-      }
-      
-  """
-  @type invalid_sensor_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_model_request() :: %{
-        required("ModelName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_inference_scheduler_request() :: %{
-        required("InferenceSchedulerName") => String.t() | atom()
-      }
-      
-  """
-  @type stop_inference_scheduler_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inference_event_summary() :: %{
-        "Diagnostics" => String.t() | atom(),
-        "EventDurationInSeconds" => float(),
-        "EventEndTime" => non_neg_integer(),
-        "EventStartTime" => non_neg_integer(),
-        "InferenceSchedulerArn" => String.t() | atom(),
-        "InferenceSchedulerName" => String.t() | atom()
-      }
-      
-  """
-  @type inference_event_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_label_group_request() :: %{
-        required("LabelGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_label_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_inference_executions_request() :: %{
-        optional("DataEndTimeBefore") => non_neg_integer(),
-        optional("DataStartTimeAfter") => non_neg_integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any()),
-        required("InferenceSchedulerName") => String.t() | atom()
-      }
-      
-  """
-  @type list_inference_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_retraining_scheduler_request() :: %{
-        required("ModelName") => String.t() | atom()
-      }
-      
-  """
-  @type start_retraining_scheduler_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_retraining_scheduler_request() :: %{
-        required("ModelName") => String.t() | atom()
-      }
-      
-  """
-  @type stop_retraining_scheduler_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_inference_executions_response() :: %{
-        "InferenceExecutionSummaries" => list(inference_execution_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_inference_executions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_label_group_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "FaultCodes" => list(String.t() | atom()),
-        "LabelGroupArn" => String.t() | atom(),
-        "LabelGroupName" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type describe_label_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      multiple_operating_modes() :: %{
-        "Status" => list(any())
-      }
-      
-  """
-  @type multiple_operating_modes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inference_scheduler_summary() :: %{
-        "DataDelayOffsetInMinutes" => float(),
-        "DataUploadFrequency" => list(any()),
-        "InferenceSchedulerArn" => String.t() | atom(),
-        "InferenceSchedulerName" => String.t() | atom(),
-        "LatestInferenceResult" => list(any()),
-        "ModelArn" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type inference_scheduler_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retraining_scheduler_summary() :: %{
-        "LookbackWindow" => String.t() | atom(),
-        "ModelArn" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
-        "RetrainingFrequency" => String.t() | atom(),
-        "RetrainingStartDate" => non_neg_integer(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type retraining_scheduler_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_dataset_request() :: %{
-        optional("DatasetName") => String.t() | atom(),
+      create_dataset_request() :: %{
+        optional("DatasetSchema") => dataset_schema(),
         optional("ServerSideKmsKeyId") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("ClientToken") => String.t() | atom(),
-        required("SourceDatasetArn") => String.t() | atom()
+        required("DatasetName") => String.t() | atom()
       }
       
   """
-  @type import_dataset_request() :: %{(String.t() | atom()) => any()}
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      ingestion_s3_input_configuration() :: %{
-        "Bucket" => String.t() | atom(),
-        "KeyPattern" => String.t() | atom(),
-        "Prefix" => String.t() | atom()
-      }
-      
-  """
-  @type ingestion_s3_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_dataset_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DataEndTime" => non_neg_integer(),
-        "DataQualitySummary" => data_quality_summary(),
-        "DataStartTime" => non_neg_integer(),
+      create_dataset_response() :: %{
         "DatasetArn" => String.t() | atom(),
         "DatasetName" => String.t() | atom(),
-        "IngestedFilesSummary" => ingested_files_summary(),
-        "IngestionInputConfiguration" => ingestion_input_configuration(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "RoleArn" => String.t() | atom(),
-        "Schema" => String.t() | atom(),
-        "ServerSideKmsKeyId" => String.t() | atom(),
-        "SourceDatasetArn" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_model_versions_request() :: %{
-        optional("CreatedAtEndTime") => non_neg_integer(),
-        optional("CreatedAtStartTime") => non_neg_integer(),
-        optional("MaxModelVersion") => float(),
-        optional("MaxResults") => integer(),
-        optional("MinModelVersion") => float(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SourceType") => list(any()),
-        optional("Status") => list(any()),
-        required("ModelName") => String.t() | atom()
-      }
-      
-  """
-  @type list_model_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_inference_scheduler_request() :: %{
-        required("InferenceSchedulerName") => String.t() | atom()
-      }
-      
-  """
-  @type start_inference_scheduler_request() :: %{(String.t() | atom()) => any()}
+  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -942,167 +109,15 @@ defmodule AWS.LookoutEquipment do
 
   ## Example:
       
-      categorical_values() :: %{
-        "NumberOfCategory" => integer(),
+      create_inference_scheduler_response() :: %{
+        "InferenceSchedulerArn" => String.t() | atom(),
+        "InferenceSchedulerName" => String.t() | atom(),
+        "ModelQuality" => list(any()),
         "Status" => list(any())
       }
       
   """
-  @type categorical_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_inference_scheduler_request() :: %{
-        required("InferenceSchedulerName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_inference_scheduler_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_inference_scheduler_request() :: %{
-        optional("DataDelayOffsetInMinutes") => float(),
-        optional("DataInputConfiguration") => inference_input_configuration(),
-        optional("DataOutputConfiguration") => inference_output_configuration(),
-        optional("DataUploadFrequency") => list(any()),
-        optional("RoleArn") => String.t() | atom(),
-        required("InferenceSchedulerName") => String.t() | atom()
-      }
-      
-  """
-  @type update_inference_scheduler_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_sensor_data() :: %{
-        "MissingCompleteSensorData" => missing_complete_sensor_data(),
-        "SensorsWithShortDateRange" => sensors_with_short_date_range()
-      }
-      
-  """
-  @type insufficient_sensor_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_model_response() :: %{
-        "ModelVersionActivatedAt" => non_neg_integer(),
-        "LatestScheduledRetrainingModelVersion" => float(),
-        "EvaluationDataEndTime" => non_neg_integer(),
-        "ModelDiagnosticsOutputConfiguration" => model_diagnostics_output_configuration(),
-        "LatestScheduledRetrainingFailedReason" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "ActiveModelVersion" => float(),
-        "SourceModelVersionArn" => String.t() | atom(),
-        "OffCondition" => String.t() | atom(),
-        "EvaluationDataStartTime" => non_neg_integer(),
-        "PreviousModelVersionActivatedAt" => non_neg_integer(),
-        "CreatedAt" => non_neg_integer(),
-        "DataPreProcessingConfiguration" => data_pre_processing_configuration(),
-        "Schema" => String.t() | atom(),
-        "DatasetArn" => String.t() | atom(),
-        "LabelsInputConfiguration" => labels_input_configuration(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "ModelArn" => String.t() | atom(),
-        "FailedReason" => String.t() | atom(),
-        "LatestScheduledRetrainingAvailableDataInDays" => integer(),
-        "AccumulatedInferenceDataEndTime" => non_neg_integer(),
-        "Status" => list(any()),
-        "ModelMetrics" => String.t() | atom(),
-        "PreviousActiveModelVersion" => float(),
-        "ImportJobEndTime" => non_neg_integer(),
-        "ActiveModelVersionArn" => String.t() | atom(),
-        "TrainingDataEndTime" => non_neg_integer(),
-        "ModelQuality" => list(any()),
-        "DatasetName" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
-        "TrainingExecutionEndTime" => non_neg_integer(),
-        "PriorModelMetrics" => String.t() | atom(),
-        "TrainingExecutionStartTime" => non_neg_integer(),
-        "PreviousActiveModelVersionArn" => String.t() | atom(),
-        "LatestScheduledRetrainingStatus" => list(any()),
-        "ImportJobStartTime" => non_neg_integer(),
-        "TrainingDataStartTime" => non_neg_integer(),
-        "RetrainingSchedulerStatus" => list(any()),
-        "LatestScheduledRetrainingStartTime" => non_neg_integer(),
-        "ServerSideKmsKeyId" => String.t() | atom(),
-        "AccumulatedInferenceDataStartTime" => non_neg_integer(),
-        "NextScheduledRetrainingStartDate" => non_neg_integer()
-      }
-      
-  """
-  @type describe_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      ingestion_input_configuration() :: %{
-        "S3InputConfiguration" => ingestion_s3_input_configuration()
-      }
-      
-  """
-  @type ingestion_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_active_model_version_response() :: %{
-        "CurrentActiveVersion" => float(),
-        "CurrentActiveVersionArn" => String.t() | atom(),
-        "ModelArn" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
-        "PreviousActiveVersion" => float(),
-        "PreviousActiveVersionArn" => String.t() | atom()
-      }
-      
-  """
-  @type update_active_model_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dataset_request() :: %{
-        optional("DatasetSchema") => dataset_schema(),
-        optional("ServerSideKmsKeyId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ClientToken") => String.t() | atom(),
-        required("DatasetName") => String.t() | atom()
-      }
-      
-  """
-  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inference_output_configuration() :: %{
-        "KmsKeyId" => String.t() | atom(),
-        "S3OutputConfiguration" => inference_s3_output_configuration()
-      }
-      
-  """
-  @type inference_output_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_inference_scheduler_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1122,15 +137,134 @@ defmodule AWS.LookoutEquipment do
 
   ## Example:
       
-      start_data_ingestion_job_request() :: %{
-        required("ClientToken") => String.t() | atom(),
-        required("DatasetName") => String.t() | atom(),
-        required("IngestionInputConfiguration") => ingestion_input_configuration(),
-        required("RoleArn") => String.t() | atom()
+      create_label_group_response() :: %{
+        "LabelGroupArn" => String.t() | atom(),
+        "LabelGroupName" => String.t() | atom()
       }
       
   """
-  @type start_data_ingestion_job_request() :: %{(String.t() | atom()) => any()}
+  @type create_label_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_label_request() :: %{
+        optional("Equipment") => String.t() | atom(),
+        optional("FaultCode") => String.t() | atom(),
+        optional("Notes") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("EndTime") => non_neg_integer(),
+        required("LabelGroupName") => String.t() | atom(),
+        required("Rating") => list(any()),
+        required("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type create_label_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_label_response() :: %{
+        "LabelId" => String.t() | atom()
+      }
+      
+  """
+  @type create_label_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_model_request() :: %{
+        optional("DataPreProcessingConfiguration") => data_pre_processing_configuration(),
+        optional("DatasetSchema") => dataset_schema(),
+        optional("EvaluationDataEndTime") => non_neg_integer(),
+        optional("EvaluationDataStartTime") => non_neg_integer(),
+        optional("LabelsInputConfiguration") => labels_input_configuration(),
+        optional("ModelDiagnosticsOutputConfiguration") => model_diagnostics_output_configuration(),
+        optional("OffCondition") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("ServerSideKmsKeyId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("TrainingDataEndTime") => non_neg_integer(),
+        optional("TrainingDataStartTime") => non_neg_integer(),
+        required("ClientToken") => String.t() | atom(),
+        required("DatasetName") => String.t() | atom(),
+        required("ModelName") => String.t() | atom()
+      }
+      
+  """
+  @type create_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_model_response() :: %{
+        "ModelArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type create_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_retraining_scheduler_request() :: %{
+        optional("PromoteMode") => list(any()),
+        optional("RetrainingStartDate") => non_neg_integer(),
+        required("ClientToken") => String.t() | atom(),
+        required("LookbackWindow") => String.t() | atom(),
+        required("ModelName") => String.t() | atom(),
+        required("RetrainingFrequency") => String.t() | atom()
+      }
+      
+  """
+  @type create_retraining_scheduler_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_retraining_scheduler_response() :: %{
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type create_retraining_scheduler_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_ingestion_job_summary() :: %{
+        "DatasetArn" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
+        "IngestionInputConfiguration" => ingestion_input_configuration(),
+        "JobId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type data_ingestion_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_pre_processing_configuration() :: %{
+        "TargetSamplingRate" => list(any())
+      }
+      
+  """
+  @type data_pre_processing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1151,92 +285,82 @@ defmodule AWS.LookoutEquipment do
 
   ## Example:
       
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
+      dataset_schema() :: %{
+        "InlineDataSchema" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type dataset_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_label_response() :: %{
+      dataset_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "EndTime" => non_neg_integer(),
-        "Equipment" => String.t() | atom(),
-        "FaultCode" => String.t() | atom(),
-        "LabelGroupArn" => String.t() | atom(),
-        "LabelGroupName" => String.t() | atom(),
-        "LabelId" => String.t() | atom(),
-        "Notes" => String.t() | atom(),
-        "Rating" => list(any()),
-        "StartTime" => non_neg_integer()
+        "DatasetArn" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
+        "Status" => list(any())
       }
       
   """
-  @type describe_label_response() :: %{(String.t() | atom()) => any()}
+  @type dataset_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_response() :: %{}
+      delete_dataset_request() :: %{
+        required("DatasetName") => String.t() | atom()
+      }
       
   """
-  @type untag_resource_response() :: %{}
+  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_inference_events_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InferenceSchedulerName") => String.t() | atom(),
-        required("IntervalEndTime") => non_neg_integer(),
-        required("IntervalStartTime") => non_neg_integer()
+      delete_inference_scheduler_request() :: %{
+        required("InferenceSchedulerName") => String.t() | atom()
       }
       
   """
-  @type list_inference_events_request() :: %{(String.t() | atom()) => any()}
+  @type delete_inference_scheduler_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_models_response() :: %{
-        "ModelSummaries" => list(model_summary()),
-        "NextToken" => String.t() | atom()
+      delete_label_group_request() :: %{
+        required("LabelGroupName") => String.t() | atom()
       }
       
   """
-  @type list_models_response() :: %{(String.t() | atom()) => any()}
+  @type delete_label_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
+      delete_label_request() :: %{
+        required("LabelGroupName") => String.t() | atom(),
+        required("LabelId") => String.t() | atom()
       }
       
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type delete_label_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_labels_response() :: %{
-        "LabelSummaries" => list(label_summary()),
-        "NextToken" => String.t() | atom()
+      delete_model_request() :: %{
+        required("ModelName") => String.t() | atom()
       }
       
   """
-  @type list_labels_response() :: %{(String.t() | atom()) => any()}
+  @type delete_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1253,13 +377,23 @@ defmodule AWS.LookoutEquipment do
 
   ## Example:
       
-      model_diagnostics_output_configuration() :: %{
-        "KmsKeyId" => String.t() | atom(),
-        "S3OutputConfiguration" => model_diagnostics_s3_output_configuration()
+      delete_retraining_scheduler_request() :: %{
+        required("ModelName") => String.t() | atom()
       }
       
   """
-  @type model_diagnostics_output_configuration() :: %{(String.t() | atom()) => any()}
+  @type delete_retraining_scheduler_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_data_ingestion_job_request() :: %{
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_data_ingestion_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1289,15 +423,1005 @@ defmodule AWS.LookoutEquipment do
 
   ## Example:
       
-      update_model_request() :: %{
-        optional("LabelsInputConfiguration") => labels_input_configuration(),
-        optional("ModelDiagnosticsOutputConfiguration") => model_diagnostics_output_configuration(),
-        optional("RoleArn") => String.t() | atom(),
+      describe_dataset_request() :: %{
+        required("DatasetName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_dataset_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "DataEndTime" => non_neg_integer(),
+        "DataQualitySummary" => data_quality_summary(),
+        "DataStartTime" => non_neg_integer(),
+        "DatasetArn" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
+        "IngestedFilesSummary" => ingested_files_summary(),
+        "IngestionInputConfiguration" => ingestion_input_configuration(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "RoleArn" => String.t() | atom(),
+        "Schema" => String.t() | atom(),
+        "ServerSideKmsKeyId" => String.t() | atom(),
+        "SourceDatasetArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_inference_scheduler_request() :: %{
+        required("InferenceSchedulerName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_inference_scheduler_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_inference_scheduler_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "DataDelayOffsetInMinutes" => float(),
+        "DataInputConfiguration" => inference_input_configuration(),
+        "DataOutputConfiguration" => inference_output_configuration(),
+        "DataUploadFrequency" => list(any()),
+        "InferenceSchedulerArn" => String.t() | atom(),
+        "InferenceSchedulerName" => String.t() | atom(),
+        "LatestInferenceResult" => list(any()),
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "ServerSideKmsKeyId" => String.t() | atom(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type describe_inference_scheduler_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_label_group_request() :: %{
+        required("LabelGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_label_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_label_group_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "FaultCodes" => list(String.t() | atom()),
+        "LabelGroupArn" => String.t() | atom(),
+        "LabelGroupName" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type describe_label_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_label_request() :: %{
+        required("LabelGroupName") => String.t() | atom(),
+        required("LabelId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_label_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_label_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "Equipment" => String.t() | atom(),
+        "FaultCode" => String.t() | atom(),
+        "LabelGroupArn" => String.t() | atom(),
+        "LabelGroupName" => String.t() | atom(),
+        "LabelId" => String.t() | atom(),
+        "Notes" => String.t() | atom(),
+        "Rating" => list(any()),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type describe_label_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_model_request() :: %{
         required("ModelName") => String.t() | atom()
       }
       
   """
-  @type update_model_request() :: %{(String.t() | atom()) => any()}
+  @type describe_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_model_response() :: %{
+        "AccumulatedInferenceDataEndTime" => non_neg_integer(),
+        "AccumulatedInferenceDataStartTime" => non_neg_integer(),
+        "ActiveModelVersion" => float(),
+        "ActiveModelVersionArn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "DataPreProcessingConfiguration" => data_pre_processing_configuration(),
+        "DatasetArn" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
+        "EvaluationDataEndTime" => non_neg_integer(),
+        "EvaluationDataStartTime" => non_neg_integer(),
+        "FailedReason" => String.t() | atom(),
+        "ImportJobEndTime" => non_neg_integer(),
+        "ImportJobStartTime" => non_neg_integer(),
+        "LabelsInputConfiguration" => labels_input_configuration(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "LatestScheduledRetrainingAvailableDataInDays" => integer(),
+        "LatestScheduledRetrainingFailedReason" => String.t() | atom(),
+        "LatestScheduledRetrainingModelVersion" => float(),
+        "LatestScheduledRetrainingStartTime" => non_neg_integer(),
+        "LatestScheduledRetrainingStatus" => list(any()),
+        "ModelArn" => String.t() | atom(),
+        "ModelDiagnosticsOutputConfiguration" => model_diagnostics_output_configuration(),
+        "ModelMetrics" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "ModelQuality" => list(any()),
+        "ModelVersionActivatedAt" => non_neg_integer(),
+        "NextScheduledRetrainingStartDate" => non_neg_integer(),
+        "OffCondition" => String.t() | atom(),
+        "PreviousActiveModelVersion" => float(),
+        "PreviousActiveModelVersionArn" => String.t() | atom(),
+        "PreviousModelVersionActivatedAt" => non_neg_integer(),
+        "PriorModelMetrics" => String.t() | atom(),
+        "RetrainingSchedulerStatus" => list(any()),
+        "RoleArn" => String.t() | atom(),
+        "Schema" => String.t() | atom(),
+        "ServerSideKmsKeyId" => String.t() | atom(),
+        "SourceModelVersionArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "TrainingDataEndTime" => non_neg_integer(),
+        "TrainingDataStartTime" => non_neg_integer(),
+        "TrainingExecutionEndTime" => non_neg_integer(),
+        "TrainingExecutionStartTime" => non_neg_integer()
+      }
+      
+  """
+  @type describe_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_model_version_request() :: %{
+        required("ModelName") => String.t() | atom(),
+        required("ModelVersion") => float()
+      }
+      
+  """
+  @type describe_model_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_model_version_response() :: %{
+        "AutoPromotionResult" => list(any()),
+        "AutoPromotionResultReason" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "DataPreProcessingConfiguration" => data_pre_processing_configuration(),
+        "DatasetArn" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
+        "EvaluationDataEndTime" => non_neg_integer(),
+        "EvaluationDataStartTime" => non_neg_integer(),
+        "FailedReason" => String.t() | atom(),
+        "ImportJobEndTime" => non_neg_integer(),
+        "ImportJobStartTime" => non_neg_integer(),
+        "ImportedDataSizeInBytes" => float(),
+        "LabelsInputConfiguration" => labels_input_configuration(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "ModelArn" => String.t() | atom(),
+        "ModelDiagnosticsOutputConfiguration" => model_diagnostics_output_configuration(),
+        "ModelDiagnosticsResultsObject" => s3_object(),
+        "ModelMetrics" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "ModelQuality" => list(any()),
+        "ModelVersion" => float(),
+        "ModelVersionArn" => String.t() | atom(),
+        "OffCondition" => String.t() | atom(),
+        "PriorModelMetrics" => String.t() | atom(),
+        "RetrainingAvailableDataInDays" => integer(),
+        "RoleArn" => String.t() | atom(),
+        "Schema" => String.t() | atom(),
+        "ServerSideKmsKeyId" => String.t() | atom(),
+        "SourceModelVersionArn" => String.t() | atom(),
+        "SourceType" => list(any()),
+        "Status" => list(any()),
+        "TrainingDataEndTime" => non_neg_integer(),
+        "TrainingDataStartTime" => non_neg_integer(),
+        "TrainingExecutionEndTime" => non_neg_integer(),
+        "TrainingExecutionStartTime" => non_neg_integer()
+      }
+      
+  """
+  @type describe_model_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_resource_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_resource_policy_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "PolicyRevisionId" => String.t() | atom(),
+        "ResourcePolicy" => String.t() | atom()
+      }
+      
+  """
+  @type describe_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_retraining_scheduler_request() :: %{
+        required("ModelName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_retraining_scheduler_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_retraining_scheduler_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "LookbackWindow" => String.t() | atom(),
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "PromoteMode" => list(any()),
+        "RetrainingFrequency" => String.t() | atom(),
+        "RetrainingStartDate" => non_neg_integer(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type describe_retraining_scheduler_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_timestamps() :: %{
+        "TotalNumberOfDuplicateTimestamps" => integer()
+      }
+      
+  """
+  @type duplicate_timestamps() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_dataset_request() :: %{
+        optional("DatasetName") => String.t() | atom(),
+        optional("ServerSideKmsKeyId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ClientToken") => String.t() | atom(),
+        required("SourceDatasetArn") => String.t() | atom()
+      }
+      
+  """
+  @type import_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_dataset_response() :: %{
+        "DatasetArn" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type import_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_model_version_request() :: %{
+        optional("InferenceDataImportStrategy") => list(any()),
+        optional("LabelsInputConfiguration") => labels_input_configuration(),
+        optional("ModelName") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("ServerSideKmsKeyId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ClientToken") => String.t() | atom(),
+        required("DatasetName") => String.t() | atom(),
+        required("SourceModelVersionArn") => String.t() | atom()
+      }
+      
+  """
+  @type import_model_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_model_version_response() :: %{
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "ModelVersion" => float(),
+        "ModelVersionArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type import_model_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_event_summary() :: %{
+        "Diagnostics" => String.t() | atom(),
+        "EventDurationInSeconds" => float(),
+        "EventEndTime" => non_neg_integer(),
+        "EventStartTime" => non_neg_integer(),
+        "InferenceSchedulerArn" => String.t() | atom(),
+        "InferenceSchedulerName" => String.t() | atom()
+      }
+      
+  """
+  @type inference_event_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_execution_summary() :: %{
+        "CustomerResultObject" => s3_object(),
+        "DataEndTime" => non_neg_integer(),
+        "DataInputConfiguration" => inference_input_configuration(),
+        "DataOutputConfiguration" => inference_output_configuration(),
+        "DataStartTime" => non_neg_integer(),
+        "FailedReason" => String.t() | atom(),
+        "InferenceSchedulerArn" => String.t() | atom(),
+        "InferenceSchedulerName" => String.t() | atom(),
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "ModelVersion" => float(),
+        "ModelVersionArn" => String.t() | atom(),
+        "ScheduledStartTime" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type inference_execution_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_input_configuration() :: %{
+        "InferenceInputNameConfiguration" => inference_input_name_configuration(),
+        "InputTimeZoneOffset" => String.t() | atom(),
+        "S3InputConfiguration" => inference_s3_input_configuration()
+      }
+      
+  """
+  @type inference_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_input_name_configuration() :: %{
+        "ComponentTimestampDelimiter" => String.t() | atom(),
+        "TimestampFormat" => String.t() | atom()
+      }
+      
+  """
+  @type inference_input_name_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_output_configuration() :: %{
+        "KmsKeyId" => String.t() | atom(),
+        "S3OutputConfiguration" => inference_s3_output_configuration()
+      }
+      
+  """
+  @type inference_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_s3_input_configuration() :: %{
+        "Bucket" => String.t() | atom(),
+        "Prefix" => String.t() | atom()
+      }
+      
+  """
+  @type inference_s3_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_s3_output_configuration() :: %{
+        "Bucket" => String.t() | atom(),
+        "Prefix" => String.t() | atom()
+      }
+      
+  """
+  @type inference_s3_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_scheduler_summary() :: %{
+        "DataDelayOffsetInMinutes" => float(),
+        "DataUploadFrequency" => list(any()),
+        "InferenceSchedulerArn" => String.t() | atom(),
+        "InferenceSchedulerName" => String.t() | atom(),
+        "LatestInferenceResult" => list(any()),
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type inference_scheduler_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingested_files_summary() :: %{
+        "DiscardedFiles" => list(s3_object()),
+        "IngestedNumberOfFiles" => integer(),
+        "TotalNumberOfFiles" => integer()
+      }
+      
+  """
+  @type ingested_files_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_input_configuration() :: %{
+        "S3InputConfiguration" => ingestion_s3_input_configuration()
+      }
+      
+  """
+  @type ingestion_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_s3_input_configuration() :: %{
+        "Bucket" => String.t() | atom(),
+        "KeyPattern" => String.t() | atom(),
+        "Prefix" => String.t() | atom()
+      }
+      
+  """
+  @type ingestion_s3_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_sensor_data() :: %{
+        "MissingCompleteSensorData" => missing_complete_sensor_data(),
+        "SensorsWithShortDateRange" => sensors_with_short_date_range()
+      }
+      
+  """
+  @type insufficient_sensor_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_sensor_data() :: %{
+        "AffectedSensorCount" => integer(),
+        "TotalNumberOfInvalidValues" => integer()
+      }
+      
+  """
+  @type invalid_sensor_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      label_group_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "LabelGroupArn" => String.t() | atom(),
+        "LabelGroupName" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type label_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      label_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "Equipment" => String.t() | atom(),
+        "FaultCode" => String.t() | atom(),
+        "LabelGroupArn" => String.t() | atom(),
+        "LabelGroupName" => String.t() | atom(),
+        "LabelId" => String.t() | atom(),
+        "Rating" => list(any()),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type label_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      labels_input_configuration() :: %{
+        "LabelGroupName" => String.t() | atom(),
+        "S3InputConfiguration" => labels_s3_input_configuration()
+      }
+      
+  """
+  @type labels_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      labels_s3_input_configuration() :: %{
+        "Bucket" => String.t() | atom(),
+        "Prefix" => String.t() | atom()
+      }
+      
+  """
+  @type labels_s3_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      large_timestamp_gaps() :: %{
+        "MaxTimestampGapInDays" => integer(),
+        "NumberOfLargeTimestampGaps" => integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type large_timestamp_gaps() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_ingestion_jobs_request() :: %{
+        optional("DatasetName") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+      
+  """
+  @type list_data_ingestion_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_ingestion_jobs_response() :: %{
+        "DataIngestionJobSummaries" => list(data_ingestion_job_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_data_ingestion_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_datasets_request() :: %{
+        optional("DatasetNameBeginsWith") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_datasets_response() :: %{
+        "DatasetSummaries" => list(dataset_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_inference_events_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InferenceSchedulerName") => String.t() | atom(),
+        required("IntervalEndTime") => non_neg_integer(),
+        required("IntervalStartTime") => non_neg_integer()
+      }
+      
+  """
+  @type list_inference_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_inference_events_response() :: %{
+        "InferenceEventSummaries" => list(inference_event_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_inference_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_inference_executions_request() :: %{
+        optional("DataEndTimeBefore") => non_neg_integer(),
+        optional("DataStartTimeAfter") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any()),
+        required("InferenceSchedulerName") => String.t() | atom()
+      }
+      
+  """
+  @type list_inference_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_inference_executions_response() :: %{
+        "InferenceExecutionSummaries" => list(inference_execution_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_inference_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_inference_schedulers_request() :: %{
+        optional("InferenceSchedulerNameBeginsWith") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("ModelName") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+      
+  """
+  @type list_inference_schedulers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_inference_schedulers_response() :: %{
+        "InferenceSchedulerSummaries" => list(inference_scheduler_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_inference_schedulers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_label_groups_request() :: %{
+        optional("LabelGroupNameBeginsWith") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_label_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_label_groups_response() :: %{
+        "LabelGroupSummaries" => list(label_group_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_label_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_labels_request() :: %{
+        optional("Equipment") => String.t() | atom(),
+        optional("FaultCode") => String.t() | atom(),
+        optional("IntervalEndTime") => non_neg_integer(),
+        optional("IntervalStartTime") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("LabelGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type list_labels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_labels_response() :: %{
+        "LabelSummaries" => list(label_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_labels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_model_versions_request() :: %{
+        optional("CreatedAtEndTime") => non_neg_integer(),
+        optional("CreatedAtStartTime") => non_neg_integer(),
+        optional("MaxModelVersion") => float(),
+        optional("MaxResults") => integer(),
+        optional("MinModelVersion") => float(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SourceType") => list(any()),
+        optional("Status") => list(any()),
+        required("ModelName") => String.t() | atom()
+      }
+      
+  """
+  @type list_model_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_model_versions_response() :: %{
+        "ModelVersionSummaries" => list(model_version_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_model_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_models_request() :: %{
+        optional("DatasetNameBeginsWith") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("ModelNameBeginsWith") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+      
+  """
+  @type list_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_models_response() :: %{
+        "ModelSummaries" => list(model_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_retraining_schedulers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("ModelNameBeginsWith") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+      
+  """
+  @type list_retraining_schedulers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_retraining_schedulers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RetrainingSchedulerSummaries" => list(retraining_scheduler_summary())
+      }
+      
+  """
+  @type list_retraining_schedulers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sensor_statistics_request() :: %{
+        optional("IngestionJobId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("DatasetName") => String.t() | atom()
+      }
+      
+  """
+  @type list_sensor_statistics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sensor_statistics_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SensorStatisticsSummaries" => list(sensor_statistics_summary())
+      }
+      
+  """
+  @type list_sensor_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      missing_complete_sensor_data() :: %{
+        "AffectedSensorCount" => integer()
+      }
+      
+  """
+  @type missing_complete_sensor_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      missing_sensor_data() :: %{
+        "AffectedSensorCount" => integer(),
+        "TotalNumberOfMissingValues" => integer()
+      }
+      
+  """
+  @type missing_sensor_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      model_diagnostics_output_configuration() :: %{
+        "KmsKeyId" => String.t() | atom(),
+        "S3OutputConfiguration" => model_diagnostics_s3_output_configuration()
+      }
+      
+  """
+  @type model_diagnostics_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      model_diagnostics_s3_output_configuration() :: %{
+        "Bucket" => String.t() | atom(),
+        "Prefix" => String.t() | atom()
+      }
+      
+  """
+  @type model_diagnostics_s3_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1323,42 +1447,6 @@ defmodule AWS.LookoutEquipment do
       
   """
   @type model_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_model_response() :: %{
-        "ModelArn" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type create_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_inference_scheduler_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DataDelayOffsetInMinutes" => float(),
-        "DataInputConfiguration" => inference_input_configuration(),
-        "DataOutputConfiguration" => inference_output_configuration(),
-        "DataUploadFrequency" => list(any()),
-        "InferenceSchedulerArn" => String.t() | atom(),
-        "InferenceSchedulerName" => String.t() | atom(),
-        "LatestInferenceResult" => list(any()),
-        "ModelArn" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "ServerSideKmsKeyId" => String.t() | atom(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type describe_inference_scheduler_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1394,48 +1482,26 @@ defmodule AWS.LookoutEquipment do
 
   ## Example:
       
-      list_inference_events_response() :: %{
-        "InferenceEventSummaries" => list(inference_event_summary()),
-        "NextToken" => String.t() | atom()
+      multiple_operating_modes() :: %{
+        "Status" => list(any())
       }
       
   """
-  @type list_inference_events_response() :: %{(String.t() | atom()) => any()}
+  @type multiple_operating_modes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_model_version_request() :: %{
-        required("ModelName") => String.t() | atom(),
-        required("ModelVersion") => float()
+      put_resource_policy_request() :: %{
+        optional("PolicyRevisionId") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom(),
+        required("ResourcePolicy") => String.t() | atom()
       }
       
   """
-  @type describe_model_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_data_ingestion_jobs_response() :: %{
-        "DataIngestionJobSummaries" => list(data_ingestion_job_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_data_ingestion_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dataset_schema() :: %{
-        "InlineDataSchema" => String.t() | atom()
-      }
-      
-  """
-  @type dataset_schema() :: %{(String.t() | atom()) => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1453,281 +1519,40 @@ defmodule AWS.LookoutEquipment do
 
   ## Example:
       
-      label_group_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "LabelGroupArn" => String.t() | atom(),
-        "LabelGroupName" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type label_group_summary() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_datasets_request() :: %{
-        optional("DatasetNameBeginsWith") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      retraining_scheduler_summary() :: %{
+        "LookbackWindow" => String.t() | atom(),
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "RetrainingFrequency" => String.t() | atom(),
+        "RetrainingStartDate" => non_neg_integer(),
+        "Status" => list(any())
       }
       
   """
-  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
+  @type retraining_scheduler_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_label_request() :: %{
-        required("LabelGroupName") => String.t() | atom(),
-        required("LabelId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_label_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_model_request() :: %{
-        optional("DataPreProcessingConfiguration") => data_pre_processing_configuration(),
-        optional("DatasetSchema") => dataset_schema(),
-        optional("EvaluationDataEndTime") => non_neg_integer(),
-        optional("EvaluationDataStartTime") => non_neg_integer(),
-        optional("LabelsInputConfiguration") => labels_input_configuration(),
-        optional("ModelDiagnosticsOutputConfiguration") => model_diagnostics_output_configuration(),
-        optional("OffCondition") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("ServerSideKmsKeyId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("TrainingDataEndTime") => non_neg_integer(),
-        optional("TrainingDataStartTime") => non_neg_integer(),
-        required("ClientToken") => String.t() | atom(),
-        required("DatasetName") => String.t() | atom(),
-        required("ModelName") => String.t() | atom()
-      }
-      
-  """
-  @type create_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      labels_input_configuration() :: %{
-        "LabelGroupName" => String.t() | atom(),
-        "S3InputConfiguration" => labels_s3_input_configuration()
-      }
-      
-  """
-  @type labels_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inference_s3_input_configuration() :: %{
+      s3_object() :: %{
         "Bucket" => String.t() | atom(),
-        "Prefix" => String.t() | atom()
+        "Key" => String.t() | atom()
       }
       
   """
-  @type inference_s3_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_label_group_request() :: %{
-        optional("FaultCodes") => list(String.t() | atom()),
-        required("LabelGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type update_label_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_resource_policy_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "LastModifiedTime" => non_neg_integer(),
-        "PolicyRevisionId" => String.t() | atom(),
-        "ResourcePolicy" => String.t() | atom()
-      }
-      
-  """
-  @type describe_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dataset_response() :: %{
-        "DatasetArn" => String.t() | atom(),
-        "DatasetName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_inference_scheduler_response() :: %{
-        "InferenceSchedulerArn" => String.t() | atom(),
-        "InferenceSchedulerName" => String.t() | atom(),
-        "ModelQuality" => list(any()),
-        "Status" => list(any())
-      }
-      
-  """
-  @type create_inference_scheduler_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_retraining_scheduler_response() :: %{
-        "ModelArn" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type create_retraining_scheduler_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_inference_scheduler_response() :: %{
-        "InferenceSchedulerArn" => String.t() | atom(),
-        "InferenceSchedulerName" => String.t() | atom(),
-        "ModelArn" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type stop_inference_scheduler_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_resource_policy_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_retraining_schedulers_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RetrainingSchedulerSummaries" => list(retraining_scheduler_summary())
-      }
-      
-  """
-  @type list_retraining_schedulers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      missing_complete_sensor_data() :: %{
-        "AffectedSensorCount" => integer()
-      }
-      
-  """
-  @type missing_complete_sensor_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_retraining_scheduler_response() :: %{
-        "ModelArn" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type start_retraining_scheduler_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_data_ingestion_jobs_request() :: %{
-        optional("DatasetName") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
-      }
-      
-  """
-  @type list_data_ingestion_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ingested_files_summary() :: %{
-        "DiscardedFiles" => list(s3_object()),
-        "IngestedNumberOfFiles" => integer(),
-        "TotalNumberOfFiles" => integer()
-      }
-      
-  """
-  @type ingested_files_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inference_input_name_configuration() :: %{
-        "ComponentTimestampDelimiter" => String.t() | atom(),
-        "TimestampFormat" => String.t() | atom()
-      }
-      
-  """
-  @type inference_input_name_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dataset_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DatasetArn" => String.t() | atom(),
-        "DatasetName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type dataset_summary() :: %{(String.t() | atom()) => any()}
+  @type s3_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1756,109 +1581,60 @@ defmodule AWS.LookoutEquipment do
 
   ## Example:
       
-      stop_retraining_scheduler_response() :: %{
-        "ModelArn" => String.t() | atom(),
-        "ModelName" => String.t() | atom(),
+      sensors_with_short_date_range() :: %{
+        "AffectedSensorCount" => integer()
+      }
+      
+  """
+  @type sensors_with_short_date_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_data_ingestion_job_request() :: %{
+        required("ClientToken") => String.t() | atom(),
+        required("DatasetName") => String.t() | atom(),
+        required("IngestionInputConfiguration") => ingestion_input_configuration(),
+        required("RoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type start_data_ingestion_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_data_ingestion_job_response() :: %{
+        "JobId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type stop_retraining_scheduler_response() :: %{(String.t() | atom()) => any()}
+  @type start_data_ingestion_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_dataset_request() :: %{
-        required("DatasetName") => String.t() | atom()
+      start_inference_scheduler_request() :: %{
+        required("InferenceSchedulerName") => String.t() | atom()
       }
       
   """
-  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      duplicate_timestamps() :: %{
-        "TotalNumberOfDuplicateTimestamps" => integer()
-      }
-      
-  """
-  @type duplicate_timestamps() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_label_request() :: %{
-        required("LabelGroupName") => String.t() | atom(),
-        required("LabelId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_label_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_retraining_scheduler_request() :: %{
-        required("ModelName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_retraining_scheduler_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_label_group_response() :: %{
-        "LabelGroupArn" => String.t() | atom(),
-        "LabelGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type create_label_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_inference_schedulers_response() :: %{
-        "InferenceSchedulerSummaries" => list(inference_scheduler_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_inference_schedulers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_models_request() :: %{
-        optional("DatasetNameBeginsWith") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("ModelNameBeginsWith") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
-      }
-      
-  """
-  @type list_models_request() :: %{(String.t() | atom()) => any()}
+  @type start_inference_scheduler_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1879,12 +1655,119 @@ defmodule AWS.LookoutEquipment do
 
   ## Example:
       
-      service_quota_exceeded_exception() :: %{
+      start_retraining_scheduler_request() :: %{
+        required("ModelName") => String.t() | atom()
+      }
+      
+  """
+  @type start_retraining_scheduler_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_retraining_scheduler_response() :: %{
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type start_retraining_scheduler_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_inference_scheduler_request() :: %{
+        required("InferenceSchedulerName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_inference_scheduler_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_inference_scheduler_response() :: %{
+        "InferenceSchedulerArn" => String.t() | atom(),
+        "InferenceSchedulerName" => String.t() | atom(),
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type stop_inference_scheduler_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_retraining_scheduler_request() :: %{
+        required("ModelName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_retraining_scheduler_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_retraining_scheduler_response() :: %{
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type stop_retraining_scheduler_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1897,375 +1780,492 @@ defmodule AWS.LookoutEquipment do
   """
   @type unsupported_timestamps() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_active_model_version_request() :: %{
+        required("ModelName") => String.t() | atom(),
+        required("ModelVersion") => float()
+      }
+      
+  """
+  @type update_active_model_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_active_model_version_response() :: %{
+        "CurrentActiveVersion" => float(),
+        "CurrentActiveVersionArn" => String.t() | atom(),
+        "ModelArn" => String.t() | atom(),
+        "ModelName" => String.t() | atom(),
+        "PreviousActiveVersion" => float(),
+        "PreviousActiveVersionArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_active_model_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_inference_scheduler_request() :: %{
+        optional("DataDelayOffsetInMinutes") => float(),
+        optional("DataInputConfiguration") => inference_input_configuration(),
+        optional("DataOutputConfiguration") => inference_output_configuration(),
+        optional("DataUploadFrequency") => list(any()),
+        optional("RoleArn") => String.t() | atom(),
+        required("InferenceSchedulerName") => String.t() | atom()
+      }
+      
+  """
+  @type update_inference_scheduler_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_label_group_request() :: %{
+        optional("FaultCodes") => list(String.t() | atom()),
+        required("LabelGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type update_label_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_model_request() :: %{
+        optional("LabelsInputConfiguration") => labels_input_configuration(),
+        optional("ModelDiagnosticsOutputConfiguration") => model_diagnostics_output_configuration(),
+        optional("RoleArn") => String.t() | atom(),
+        required("ModelName") => String.t() | atom()
+      }
+      
+  """
+  @type update_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_retraining_scheduler_request() :: %{
+        optional("LookbackWindow") => String.t() | atom(),
+        optional("PromoteMode") => list(any()),
+        optional("RetrainingFrequency") => String.t() | atom(),
+        optional("RetrainingStartDate") => non_neg_integer(),
+        required("ModelName") => String.t() | atom()
+      }
+      
+  """
+  @type update_retraining_scheduler_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
   @type create_dataset_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_inference_scheduler_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_label_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_label_group_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_model_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_retraining_scheduler_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_dataset_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_inference_scheduler_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_label_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_label_group_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_model_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_resource_policy_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_retraining_scheduler_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_data_ingestion_job_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_dataset_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_inference_scheduler_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_label_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_label_group_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_model_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_model_version_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_resource_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_retraining_scheduler_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type import_dataset_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type import_model_version_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_data_ingestion_jobs_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_datasets_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_inference_events_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_inference_executions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_inference_schedulers_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_label_groups_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_labels_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_model_versions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_models_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_retraining_schedulers_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_sensor_statistics_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_resource_policy_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_data_ingestion_job_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_inference_scheduler_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_retraining_scheduler_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type stop_inference_scheduler_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type stop_retraining_scheduler_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_active_model_version_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_inference_scheduler_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_label_group_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_model_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_retraining_scheduler_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{

@@ -26,70 +26,26 @@ defmodule AWS.SSMContacts do
 
   ## Example:
       
-      delete_contact_channel_result() :: %{}
-      
-  """
-  @type delete_contact_channel_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rotation_override_result() :: %{}
-      
-  """
-  @type delete_rotation_override_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_engagements_request() :: %{
-        optional("IncidentId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("TimeRangeValue") => time_range()
+      accept_page_request() :: %{
+        optional("AcceptCodeValidation") => list(any()),
+        optional("ContactChannelId") => String.t() | atom(),
+        optional("Note") => String.t() | atom(),
+        required("AcceptCode") => String.t() | atom(),
+        required("AcceptType") => list(any()),
+        required("PageId") => String.t() | atom()
       }
       
   """
-  @type list_engagements_request() :: %{(String.t() | atom()) => any()}
+  @type accept_page_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_contact_channels_result() :: %{
-        "ContactChannels" => list(contact_channel()),
-        "NextToken" => String.t() | atom()
-      }
+      accept_page_result() :: %{}
       
   """
-  @type list_contact_channels_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      shift_details() :: %{
-        "OverriddenContactIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type shift_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => String.t() | atom(),
-        "QuotaCode" => String.t() | atom(),
-        "RetryAfterSeconds" => integer(),
-        "ServiceCode" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type accept_page_result() :: %{}
 
   @typedoc """
 
@@ -106,6 +62,226 @@ defmodule AWS.SSMContacts do
 
   ## Example:
       
+      activate_contact_channel_request() :: %{
+        required("ActivationCode") => String.t() | atom(),
+        required("ContactChannelId") => String.t() | atom()
+      }
+      
+  """
+  @type activate_contact_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activate_contact_channel_result() :: %{}
+      
+  """
+  @type activate_contact_channel_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_target_info() :: %{
+        "ContactChannelId" => String.t() | atom(),
+        "RetryIntervalInMinutes" => integer()
+      }
+      
+  """
+  @type channel_target_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "DependentEntities" => list(dependent_entity()),
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      contact() :: %{
+        "Alias" => String.t() | atom(),
+        "ContactArn" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type contact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      contact_channel() :: %{
+        "ActivationStatus" => list(any()),
+        "ContactArn" => String.t() | atom(),
+        "ContactChannelArn" => String.t() | atom(),
+        "DeliveryAddress" => contact_channel_address(),
+        "Name" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type contact_channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      contact_channel_address() :: %{
+        "SimpleAddress" => String.t() | atom()
+      }
+      
+  """
+  @type contact_channel_address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      contact_target_info() :: %{
+        "ContactId" => String.t() | atom(),
+        "IsEssential" => boolean()
+      }
+      
+  """
+  @type contact_target_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      coverage_time() :: %{
+        "End" => hand_off_time(),
+        "Start" => hand_off_time()
+      }
+      
+  """
+  @type coverage_time() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_contact_channel_request() :: %{
+        optional("DeferActivation") => boolean(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        required("ContactId") => String.t() | atom(),
+        required("DeliveryAddress") => contact_channel_address(),
+        required("Name") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_contact_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_contact_channel_result() :: %{
+        "ContactChannelArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_contact_channel_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_contact_request() :: %{
+        optional("DisplayName") => String.t() | atom(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Alias") => String.t() | atom(),
+        required("Plan") => plan(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_contact_result() :: %{
+        "ContactArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_contact_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rotation_override_request() :: %{
+        optional("IdempotencyToken") => String.t() | atom(),
+        required("EndTime") => non_neg_integer(),
+        required("NewContactIds") => list(String.t() | atom()),
+        required("RotationId") => String.t() | atom(),
+        required("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type create_rotation_override_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rotation_override_result() :: %{
+        "RotationOverrideId" => String.t() | atom()
+      }
+      
+  """
+  @type create_rotation_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rotation_request() :: %{
+        optional("IdempotencyToken") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer(),
+        optional("Tags") => list(tag()),
+        required("ContactIds") => list(String.t() | atom()),
+        required("Name") => String.t() | atom(),
+        required("Recurrence") => recurrence_settings(),
+        required("TimeZoneId") => String.t() | atom()
+      }
+      
+  """
+  @type create_rotation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rotation_result() :: %{
+        "RotationArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_rotation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       data_encryption_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -117,81 +293,102 @@ defmodule AWS.SSMContacts do
 
   ## Example:
       
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_page_result() :: %{}
-      
-  """
-  @type accept_page_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      page() :: %{
-        "ContactArn" => String.t() | atom(),
-        "DeliveryTime" => non_neg_integer(),
-        "EngagementArn" => String.t() | atom(),
-        "IncidentId" => String.t() | atom(),
-        "PageArn" => String.t() | atom(),
-        "ReadTime" => non_neg_integer(),
-        "Sender" => String.t() | atom(),
-        "SentTime" => non_neg_integer()
-      }
-      
-  """
-  @type page() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rotation_shifts_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StartTime") => non_neg_integer(),
-        required("EndTime") => non_neg_integer(),
-        required("RotationId") => String.t() | atom()
-      }
-      
-  """
-  @type list_rotation_shifts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_contact_channel_request() :: %{
-        optional("DeliveryAddress") => contact_channel_address(),
-        optional("Name") => String.t() | atom(),
+      deactivate_contact_channel_request() :: %{
         required("ContactChannelId") => String.t() | atom()
       }
       
   """
-  @type update_contact_channel_request() :: %{(String.t() | atom()) => any()}
+  @type deactivate_contact_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_pages_by_contact_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
+      deactivate_contact_channel_result() :: %{}
+      
+  """
+  @type deactivate_contact_channel_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_contact_channel_request() :: %{
+        required("ContactChannelId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_contact_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_contact_channel_result() :: %{}
+      
+  """
+  @type delete_contact_channel_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_contact_request() :: %{
         required("ContactId") => String.t() | atom()
       }
       
   """
-  @type list_pages_by_contact_request() :: %{(String.t() | atom()) => any()}
+  @type delete_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_contact_result() :: %{}
+      
+  """
+  @type delete_contact_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rotation_override_request() :: %{
+        required("RotationId") => String.t() | atom(),
+        required("RotationOverrideId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_rotation_override_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rotation_override_result() :: %{}
+      
+  """
+  @type delete_rotation_override_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rotation_request() :: %{
+        required("RotationId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_rotation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rotation_result() :: %{}
+      
+  """
+  @type delete_rotation_result() :: %{}
 
   @typedoc """
 
@@ -209,26 +406,12 @@ defmodule AWS.SSMContacts do
 
   ## Example:
       
-      stop_engagement_request() :: %{
-        optional("Reason") => String.t() | atom(),
+      describe_engagement_request() :: %{
         required("EngagementId") => String.t() | atom()
       }
       
   """
-  @type stop_engagement_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_pages_by_engagement_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("EngagementId") => String.t() | atom()
-      }
-      
-  """
-  @type list_pages_by_engagement_request() :: %{(String.t() | atom()) => any()}
+  @type describe_engagement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -254,448 +437,12 @@ defmodule AWS.SSMContacts do
 
   ## Example:
       
-      accept_page_request() :: %{
-        optional("AcceptCodeValidation") => list(any()),
-        optional("ContactChannelId") => String.t() | atom(),
-        optional("Note") => String.t() | atom(),
-        required("AcceptCode") => String.t() | atom(),
-        required("AcceptType") => list(any()),
+      describe_page_request() :: %{
         required("PageId") => String.t() | atom()
       }
       
   """
-  @type accept_page_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rotation_shifts_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "RotationShifts" => list(rotation_shift())
-      }
-      
-  """
-  @type list_rotation_shifts_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_contact_request() :: %{
-        required("ContactId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_contact_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_contact_channel_result() :: %{
-        "ContactChannelArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_contact_channel_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_activation_code_result() :: %{}
-      
-  """
-  @type send_activation_code_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rotation_result() :: %{
-        "ContactIds" => list(String.t() | atom()),
-        "Name" => String.t() | atom(),
-        "Recurrence" => recurrence_settings(),
-        "RotationArn" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "TimeZoneId" => String.t() | atom()
-      }
-      
-  """
-  @type get_rotation_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "Fields" => list(validation_exception_field()),
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_engagement_request() :: %{
-        optional("IdempotencyToken") => String.t() | atom(),
-        optional("IncidentId") => String.t() | atom(),
-        optional("PublicContent") => String.t() | atom(),
-        optional("PublicSubject") => String.t() | atom(),
-        required("ContactId") => String.t() | atom(),
-        required("Content") => String.t() | atom(),
-        required("Sender") => String.t() | atom(),
-        required("Subject") => String.t() | atom()
-      }
-      
-  """
-  @type start_engagement_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rotation_override() :: %{
-        "CreateTime" => non_neg_integer(),
-        "EndTime" => non_neg_integer(),
-        "NewContactIds" => list(String.t() | atom()),
-        "RotationOverrideId" => String.t() | atom(),
-        "StartTime" => non_neg_integer()
-      }
-      
-  """
-  @type rotation_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      coverage_time() :: %{
-        "End" => hand_off_time(),
-        "Start" => hand_off_time()
-      }
-      
-  """
-  @type coverage_time() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_rotation_override_result() :: %{
-        "RotationOverrideId" => String.t() | atom()
-      }
-      
-  """
-  @type create_rotation_override_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_contact_channel_request() :: %{
-        required("ContactChannelId") => String.t() | atom()
-      }
-      
-  """
-  @type get_contact_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_rotation_request() :: %{
-        optional("ContactIds") => list(String.t() | atom()),
-        optional("StartTime") => non_neg_integer(),
-        optional("TimeZoneId") => String.t() | atom(),
-        required("Recurrence") => recurrence_settings(),
-        required("RotationId") => String.t() | atom()
-      }
-      
-  """
-  @type update_rotation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rotation_override_result() :: %{
-        "CreateTime" => non_neg_integer(),
-        "EndTime" => non_neg_integer(),
-        "NewContactIds" => list(String.t() | atom()),
-        "RotationArn" => String.t() | atom(),
-        "RotationOverrideId" => String.t() | atom(),
-        "StartTime" => non_neg_integer()
-      }
-      
-  """
-  @type get_rotation_override_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hand_off_time() :: %{
-        "HourOfDay" => integer(),
-        "MinuteOfHour" => integer()
-      }
-      
-  """
-  @type hand_off_time() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deactivate_contact_channel_request() :: %{
-        required("ContactChannelId") => String.t() | atom()
-      }
-      
-  """
-  @type deactivate_contact_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rotation_override_request() :: %{
-        required("RotationId") => String.t() | atom(),
-        required("RotationOverrideId") => String.t() | atom()
-      }
-      
-  """
-  @type get_rotation_override_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RetryAfterSeconds" => integer()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rotation_shift() :: %{
-        "ContactIds" => list(String.t() | atom()),
-        "EndTime" => non_neg_integer(),
-        "ShiftDetails" => shift_details(),
-        "StartTime" => non_neg_integer(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type rotation_shift() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_contact_channel_request() :: %{
-        required("ContactChannelId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_contact_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      engagement() :: %{
-        "ContactArn" => String.t() | atom(),
-        "EngagementArn" => String.t() | atom(),
-        "IncidentId" => String.t() | atom(),
-        "Sender" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "StopTime" => non_neg_integer()
-      }
-      
-  """
-  @type engagement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_engagement_result() :: %{
-        "EngagementArn" => String.t() | atom()
-      }
-      
-  """
-  @type start_engagement_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_rotation_override_request() :: %{
-        optional("IdempotencyToken") => String.t() | atom(),
-        required("EndTime") => non_neg_integer(),
-        required("NewContactIds") => list(String.t() | atom()),
-        required("RotationId") => String.t() | atom(),
-        required("StartTime") => non_neg_integer()
-      }
-      
-  """
-  @type create_rotation_override_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_contact_channel_result() :: %{}
-      
-  """
-  @type update_contact_channel_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      contact_target_info() :: %{
-        "ContactId" => String.t() | atom(),
-        "IsEssential" => boolean()
-      }
-      
-  """
-  @type contact_target_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rotation() :: %{
-        "ContactIds" => list(String.t() | atom()),
-        "Name" => String.t() | atom(),
-        "Recurrence" => recurrence_settings(),
-        "RotationArn" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "TimeZoneId" => String.t() | atom()
-      }
-      
-  """
-  @type rotation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_page_receipts_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("PageId") => String.t() | atom()
-      }
-      
-  """
-  @type list_page_receipts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deactivate_contact_channel_result() :: %{}
-      
-  """
-  @type deactivate_contact_channel_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_engagements_result() :: %{
-        "Engagements" => list(engagement()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_engagements_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_activation_code_request() :: %{
-        required("ContactChannelId") => String.t() | atom()
-      }
-      
-  """
-  @type send_activation_code_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_contact_result() :: %{
-        "ContactArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_contact_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rotations_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "Rotations" => list(rotation())
-      }
-      
-  """
-  @type list_rotations_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      contact_channel() :: %{
-        "ActivationStatus" => list(any()),
-        "ContactArn" => String.t() | atom(),
-        "ContactChannelArn" => String.t() | atom(),
-        "DeliveryAddress" => contact_channel_address(),
-        "Name" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type contact_channel() :: %{(String.t() | atom()) => any()}
+  @type describe_page_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -723,13 +470,28 @@ defmodule AWS.SSMContacts do
 
   ## Example:
       
-      target() :: %{
-        "ChannelTargetInfo" => channel_target_info(),
-        "ContactTargetInfo" => contact_target_info()
+      engagement() :: %{
+        "ContactArn" => String.t() | atom(),
+        "EngagementArn" => String.t() | atom(),
+        "IncidentId" => String.t() | atom(),
+        "Sender" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "StopTime" => non_neg_integer()
       }
       
   """
-  @type target() :: %{(String.t() | atom()) => any()}
+  @type engagement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_contact_channel_request() :: %{
+        required("ContactChannelId") => String.t() | atom()
+      }
+      
+  """
+  @type get_contact_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -751,117 +513,293 @@ defmodule AWS.SSMContacts do
 
   ## Example:
       
-      put_contact_policy_result() :: %{}
-      
-  """
-  @type put_contact_policy_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_contact_request() :: %{
-        optional("DisplayName") => String.t() | atom(),
-        optional("IdempotencyToken") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Alias") => String.t() | atom(),
-        required("Plan") => plan(),
-        required("Type") => list(any())
+      get_contact_policy_request() :: %{
+        required("ContactArn") => String.t() | atom()
       }
       
   """
-  @type create_contact_request() :: %{(String.t() | atom()) => any()}
+  @type get_contact_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_rotation_overrides_request() :: %{
+      get_contact_policy_result() :: %{
+        "ContactArn" => String.t() | atom(),
+        "Policy" => String.t() | atom()
+      }
+      
+  """
+  @type get_contact_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_contact_request() :: %{
+        required("ContactId") => String.t() | atom()
+      }
+      
+  """
+  @type get_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_contact_result() :: %{
+        "Alias" => String.t() | atom(),
+        "ContactArn" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "Plan" => plan(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type get_contact_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rotation_override_request() :: %{
+        required("RotationId") => String.t() | atom(),
+        required("RotationOverrideId") => String.t() | atom()
+      }
+      
+  """
+  @type get_rotation_override_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rotation_override_result() :: %{
+        "CreateTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "NewContactIds" => list(String.t() | atom()),
+        "RotationArn" => String.t() | atom(),
+        "RotationOverrideId" => String.t() | atom(),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type get_rotation_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rotation_request() :: %{
+        required("RotationId") => String.t() | atom()
+      }
+      
+  """
+  @type get_rotation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rotation_result() :: %{
+        "ContactIds" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Recurrence" => recurrence_settings(),
+        "RotationArn" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "TimeZoneId" => String.t() | atom()
+      }
+      
+  """
+  @type get_rotation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hand_off_time() :: %{
+        "HourOfDay" => integer(),
+        "MinuteOfHour" => integer()
+      }
+      
+  """
+  @type hand_off_time() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RetryAfterSeconds" => integer()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_contact_channels_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        required("EndTime") => non_neg_integer(),
-        required("RotationId") => String.t() | atom(),
-        required("StartTime") => non_neg_integer()
+        required("ContactId") => String.t() | atom()
       }
       
   """
-  @type list_rotation_overrides_request() :: %{(String.t() | atom()) => any()}
+  @type list_contact_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_rotation_request() :: %{
-        optional("IdempotencyToken") => String.t() | atom(),
-        optional("StartTime") => non_neg_integer(),
-        optional("Tags") => list(tag()),
-        required("ContactIds") => list(String.t() | atom()),
-        required("Name") => String.t() | atom(),
-        required("Recurrence") => recurrence_settings(),
-        required("TimeZoneId") => String.t() | atom()
+      list_contact_channels_result() :: %{
+        "ContactChannels" => list(contact_channel()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type create_rotation_request() :: %{(String.t() | atom()) => any()}
+  @type list_contact_channels_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_contact_result() :: %{}
+      list_contacts_request() :: %{
+        optional("AliasPrefix") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
       
   """
-  @type update_contact_result() :: %{}
+  @type list_contacts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      conflict_exception() :: %{
-        "DependentEntities" => list(dependent_entity()),
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
+      list_contacts_result() :: %{
+        "Contacts" => list(contact()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type list_contacts_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      monthly_setting() :: %{
-        "DayOfMonth" => integer(),
-        "HandOffTime" => hand_off_time()
+      list_engagements_request() :: %{
+        optional("IncidentId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TimeRangeValue") => time_range()
       }
       
   """
-  @type monthly_setting() :: %{(String.t() | atom()) => any()}
+  @type list_engagements_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      validation_exception_field() :: %{
-        "Message" => String.t() | atom(),
-        "Name" => String.t() | atom()
+      list_engagements_result() :: %{
+        "Engagements" => list(engagement()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+  @type list_engagements_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
+      list_page_receipts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("PageId") => String.t() | atom()
       }
       
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type list_page_receipts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_page_receipts_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "Receipts" => list(receipt())
+      }
+      
+  """
+  @type list_page_receipts_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_page_resolutions_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("PageId") => String.t() | atom()
+      }
+      
+  """
+  @type list_page_resolutions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_page_resolutions_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "PageResolutions" => list(resolution_contact())
+      }
+      
+  """
+  @type list_page_resolutions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pages_by_contact_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ContactId") => String.t() | atom()
+      }
+      
+  """
+  @type list_pages_by_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pages_by_contact_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "Pages" => list(page())
+      }
+      
+  """
+  @type list_pages_by_contact_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pages_by_engagement_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("EngagementId") => String.t() | atom()
+      }
+      
+  """
+  @type list_pages_by_engagement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -874,19 +812,6 @@ defmodule AWS.SSMContacts do
       
   """
   @type list_pages_by_engagement_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      preview_override() :: %{
-        "EndTime" => non_neg_integer(),
-        "NewMembers" => list(String.t() | atom()),
-        "StartTime" => non_neg_integer()
-      }
-      
-  """
-  @type preview_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -911,116 +836,67 @@ defmodule AWS.SSMContacts do
 
   ## Example:
       
-      describe_engagement_request() :: %{
-        required("EngagementId") => String.t() | atom()
+      list_preview_rotation_shifts_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RotationShifts" => list(rotation_shift())
       }
       
   """
-  @type describe_engagement_request() :: %{(String.t() | atom()) => any()}
+  @type list_preview_rotation_shifts_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      plan() :: %{
-        "RotationIds" => list(String.t() | atom()),
-        "Stages" => list(stage())
+      list_rotation_overrides_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("EndTime") => non_neg_integer(),
+        required("RotationId") => String.t() | atom(),
+        required("StartTime") => non_neg_integer()
       }
       
   """
-  @type plan() :: %{(String.t() | atom()) => any()}
+  @type list_rotation_overrides_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resolution_contact() :: %{
-        "ContactArn" => String.t() | atom(),
-        "StageIndex" => integer(),
-        "Type" => list(any())
+      list_rotation_overrides_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RotationOverrides" => list(rotation_override())
       }
       
   """
-  @type resolution_contact() :: %{(String.t() | atom()) => any()}
+  @type list_rotation_overrides_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_result() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      contact_channel_address() :: %{
-        "SimpleAddress" => String.t() | atom()
-      }
-      
-  """
-  @type contact_channel_address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      weekly_setting() :: %{
-        "DayOfWeek" => list(any()),
-        "HandOffTime" => hand_off_time()
-      }
-      
-  """
-  @type weekly_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_contact_policy_request() :: %{
-        required("ContactArn") => String.t() | atom(),
-        required("Policy") => String.t() | atom()
-      }
-      
-  """
-  @type put_contact_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_rotation_result() :: %{
-        "RotationArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_rotation_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_contact_request() :: %{
-        required("ContactId") => String.t() | atom()
-      }
-      
-  """
-  @type get_contact_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rotation_request() :: %{
+      list_rotation_shifts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer(),
+        required("EndTime") => non_neg_integer(),
         required("RotationId") => String.t() | atom()
       }
       
   """
-  @type get_rotation_request() :: %{(String.t() | atom()) => any()}
+  @type list_rotation_shifts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rotation_shifts_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RotationShifts" => list(rotation_shift())
+      }
+      
+  """
+  @type list_rotation_shifts_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1039,118 +915,125 @@ defmodule AWS.SSMContacts do
 
   ## Example:
       
-      get_contact_policy_request() :: %{
-        required("ContactArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_contact_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_result() :: %{}
-      
-  """
-  @type untag_resource_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_page_resolutions_result() :: %{
+      list_rotations_result() :: %{
         "NextToken" => String.t() | atom(),
-        "PageResolutions" => list(resolution_contact())
+        "Rotations" => list(rotation())
       }
       
   """
-  @type list_page_resolutions_result() :: %{(String.t() | atom()) => any()}
+  @type list_rotations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_contacts_result() :: %{
-        "Contacts" => list(contact()),
-        "NextToken" => String.t() | atom()
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_contacts_result() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_rotation_result() :: %{}
-      
-  """
-  @type delete_rotation_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rotation_overrides_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "RotationOverrides" => list(rotation_override())
+      list_tags_for_resource_result() :: %{
+        "Tags" => list(tag())
       }
       
   """
-  @type list_rotation_overrides_result() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      contact() :: %{
-        "Alias" => String.t() | atom(),
+      monthly_setting() :: %{
+        "DayOfMonth" => integer(),
+        "HandOffTime" => hand_off_time()
+      }
+      
+  """
+  @type monthly_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      page() :: %{
         "ContactArn" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "Type" => list(any())
+        "DeliveryTime" => non_neg_integer(),
+        "EngagementArn" => String.t() | atom(),
+        "IncidentId" => String.t() | atom(),
+        "PageArn" => String.t() | atom(),
+        "ReadTime" => non_neg_integer(),
+        "Sender" => String.t() | atom(),
+        "SentTime" => non_neg_integer()
       }
       
   """
-  @type contact() :: %{(String.t() | atom()) => any()}
+  @type page() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_contact_request() :: %{
-        optional("DisplayName") => String.t() | atom(),
-        optional("Plan") => plan(),
-        required("ContactId") => String.t() | atom()
+      plan() :: %{
+        "RotationIds" => list(String.t() | atom()),
+        "Stages" => list(stage())
       }
       
   """
-  @type update_contact_request() :: %{(String.t() | atom()) => any()}
+  @type plan() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_contact_channels_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ContactId") => String.t() | atom()
+      preview_override() :: %{
+        "EndTime" => non_neg_integer(),
+        "NewMembers" => list(String.t() | atom()),
+        "StartTime" => non_neg_integer()
       }
       
   """
-  @type list_contact_channels_request() :: %{(String.t() | atom()) => any()}
+  @type preview_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stage() :: %{
-        "DurationInMinutes" => integer(),
-        "Targets" => list(target())
+      put_contact_policy_request() :: %{
+        required("ContactArn") => String.t() | atom(),
+        required("Policy") => String.t() | atom()
       }
       
   """
-  @type stage() :: %{(String.t() | atom()) => any()}
+  @type put_contact_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_contact_policy_result() :: %{}
+      
+  """
+  @type put_contact_policy_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      receipt() :: %{
+        "ContactChannelArn" => String.t() | atom(),
+        "ReceiptInfo" => String.t() | atom(),
+        "ReceiptTime" => non_neg_integer(),
+        "ReceiptType" => list(any())
+      }
+      
+  """
+  @type receipt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1172,225 +1055,93 @@ defmodule AWS.SSMContacts do
 
   ## Example:
       
-      list_pages_by_contact_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "Pages" => list(page())
-      }
-      
-  """
-  @type list_pages_by_contact_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_contact_result() :: %{
-        "Alias" => String.t() | atom(),
+      resolution_contact() :: %{
         "ContactArn" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "Plan" => plan(),
+        "StageIndex" => integer(),
         "Type" => list(any())
       }
       
   """
-  @type get_contact_result() :: %{(String.t() | atom()) => any()}
+  @type resolution_contact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_rotation_request() :: %{
-        required("RotationId") => String.t() | atom()
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type delete_rotation_request() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_page_resolutions_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("PageId") => String.t() | atom()
+      rotation() :: %{
+        "ContactIds" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Recurrence" => recurrence_settings(),
+        "RotationArn" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "TimeZoneId" => String.t() | atom()
       }
       
   """
-  @type list_page_resolutions_request() :: %{(String.t() | atom()) => any()}
+  @type rotation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      receipt() :: %{
-        "ContactChannelArn" => String.t() | atom(),
-        "ReceiptInfo" => String.t() | atom(),
-        "ReceiptTime" => non_neg_integer(),
-        "ReceiptType" => list(any())
-      }
-      
-  """
-  @type receipt() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_page_request() :: %{
-        required("PageId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_page_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_preview_rotation_shifts_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "RotationShifts" => list(rotation_shift())
-      }
-      
-  """
-  @type list_preview_rotation_shifts_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_range() :: %{
+      rotation_override() :: %{
+        "CreateTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
+        "NewContactIds" => list(String.t() | atom()),
+        "RotationOverrideId" => String.t() | atom(),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type time_range() :: %{(String.t() | atom()) => any()}
+  @type rotation_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_page_receipts_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "Receipts" => list(receipt())
+      rotation_shift() :: %{
+        "ContactIds" => list(String.t() | atom()),
+        "EndTime" => non_neg_integer(),
+        "ShiftDetails" => shift_details(),
+        "StartTime" => non_neg_integer(),
+        "Type" => list(any())
       }
       
   """
-  @type list_page_receipts_result() :: %{(String.t() | atom()) => any()}
+  @type rotation_shift() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_rotation_result() :: %{}
-      
-  """
-  @type update_rotation_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_engagement_result() :: %{}
-      
-  """
-  @type stop_engagement_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_contact_policy_result() :: %{
-        "ContactArn" => String.t() | atom(),
-        "Policy" => String.t() | atom()
-      }
-      
-  """
-  @type get_contact_policy_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      channel_target_info() :: %{
-        "ContactChannelId" => String.t() | atom(),
-        "RetryIntervalInMinutes" => integer()
-      }
-      
-  """
-  @type channel_target_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_contact_result() :: %{}
-      
-  """
-  @type delete_contact_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      activate_contact_channel_request() :: %{
-        required("ActivationCode") => String.t() | atom(),
+      send_activation_code_request() :: %{
         required("ContactChannelId") => String.t() | atom()
       }
       
   """
-  @type activate_contact_channel_request() :: %{(String.t() | atom()) => any()}
+  @type send_activation_code_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_contact_channel_request() :: %{
-        optional("DeferActivation") => boolean(),
-        optional("IdempotencyToken") => String.t() | atom(),
-        required("ContactId") => String.t() | atom(),
-        required("DeliveryAddress") => contact_channel_address(),
-        required("Name") => String.t() | atom(),
-        required("Type") => list(any())
-      }
+      send_activation_code_result() :: %{}
       
   """
-  @type create_contact_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      activate_contact_channel_result() :: %{}
-      
-  """
-  @type activate_contact_channel_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_contacts_request() :: %{
-        optional("AliasPrefix") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Type") => list(any())
-      }
-      
-  """
-  @type list_contacts_request() :: %{(String.t() | atom()) => any()}
+  @type send_activation_code_result() :: %{}
 
   @typedoc """
 
@@ -1411,6 +1162,103 @@ defmodule AWS.SSMContacts do
 
   ## Example:
       
+      shift_details() :: %{
+        "OverriddenContactIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type shift_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stage() :: %{
+        "DurationInMinutes" => integer(),
+        "Targets" => list(target())
+      }
+      
+  """
+  @type stage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_engagement_request() :: %{
+        optional("IdempotencyToken") => String.t() | atom(),
+        optional("IncidentId") => String.t() | atom(),
+        optional("PublicContent") => String.t() | atom(),
+        optional("PublicSubject") => String.t() | atom(),
+        required("ContactId") => String.t() | atom(),
+        required("Content") => String.t() | atom(),
+        required("Sender") => String.t() | atom(),
+        required("Subject") => String.t() | atom()
+      }
+      
+  """
+  @type start_engagement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_engagement_result() :: %{
+        "EngagementArn" => String.t() | atom()
+      }
+      
+  """
+  @type start_engagement_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_engagement_request() :: %{
+        optional("Reason") => String.t() | atom(),
+        required("EngagementId") => String.t() | atom()
+      }
+      
+  """
+  @type stop_engagement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_engagement_result() :: %{}
+      
+  """
+  @type stop_engagement_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_result() :: %{}
       
   """
@@ -1420,306 +1268,458 @@ defmodule AWS.SSMContacts do
 
   ## Example:
       
-      delete_rotation_override_request() :: %{
-        required("RotationId") => String.t() | atom(),
-        required("RotationOverrideId") => String.t() | atom()
+      target() :: %{
+        "ChannelTargetInfo" => channel_target_info(),
+        "ContactTargetInfo" => contact_target_info()
       }
       
   """
-  @type delete_rotation_override_request() :: %{(String.t() | atom()) => any()}
+  @type target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
+        "RetryAfterSeconds" => integer(),
+        "ServiceCode" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_range() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_result() :: %{}
+      
+  """
+  @type untag_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_contact_channel_request() :: %{
+        optional("DeliveryAddress") => contact_channel_address(),
+        optional("Name") => String.t() | atom(),
+        required("ContactChannelId") => String.t() | atom()
+      }
+      
+  """
+  @type update_contact_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_contact_channel_result() :: %{}
+      
+  """
+  @type update_contact_channel_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_contact_request() :: %{
+        optional("DisplayName") => String.t() | atom(),
+        optional("Plan") => plan(),
+        required("ContactId") => String.t() | atom()
+      }
+      
+  """
+  @type update_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_contact_result() :: %{}
+      
+  """
+  @type update_contact_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rotation_request() :: %{
+        optional("ContactIds") => list(String.t() | atom()),
+        optional("StartTime") => non_neg_integer(),
+        optional("TimeZoneId") => String.t() | atom(),
+        required("Recurrence") => recurrence_settings(),
+        required("RotationId") => String.t() | atom()
+      }
+      
+  """
+  @type update_rotation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rotation_result() :: %{}
+      
+  """
+  @type update_rotation_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "Fields" => list(validation_exception_field()),
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      weekly_setting() :: %{
+        "DayOfWeek" => list(any()),
+        "HandOffTime" => hand_off_time()
+      }
+      
+  """
+  @type weekly_setting() :: %{(String.t() | atom()) => any()}
 
   @type accept_page_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type activate_contact_channel_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_contact_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | data_encryption_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | data_encryption_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_contact_channel_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | data_encryption_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | data_encryption_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_rotation_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_rotation_override_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type deactivate_contact_channel_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_contact_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_contact_channel_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_rotation_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_rotation_override_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_engagement_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | data_encryption_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_page_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | data_encryption_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_contact_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | data_encryption_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_contact_channel_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | data_encryption_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_contact_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_rotation_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_rotation_override_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_contact_channels_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | data_encryption_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_contacts_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_engagements_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_page_receipts_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_page_resolutions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_pages_by_contact_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_pages_by_engagement_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_preview_rotation_shifts_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_rotation_overrides_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_rotation_shifts_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_rotations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_contact_policy_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type send_activation_code_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | data_encryption_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_engagement_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | data_encryption_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type stop_engagement_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_contact_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | data_encryption_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_contact_channel_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | data_encryption_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_rotation_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{

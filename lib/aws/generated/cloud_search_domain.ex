@@ -355,85 +355,8 @@ defmodule AWS.CloudSearchDomain do
     query_params = []
 
     query_params =
-      if !is_nil(stats) do
-        [{"stats", stats} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start) do
-        [{"start", start} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(sort) do
-        [{"sort", sort} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(size) do
-        [{"size", size} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(return) do
-        [{"return", return} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(query_parser) do
-        [{"q.parser", query_parser} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(query_options) do
-        [{"q.options", query_options} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(query) do
-        [{"q", query} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(partial) do
-        [{"partial", partial} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(highlight) do
-        [{"highlight", highlight} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(filter_query) do
-        [{"fq", filter_query} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(facet) do
-        [{"facet", facet} | query_params]
+      if !is_nil(cursor) do
+        [{"cursor", cursor} | query_params]
       else
         query_params
       end
@@ -446,8 +369,85 @@ defmodule AWS.CloudSearchDomain do
       end
 
     query_params =
-      if !is_nil(cursor) do
-        [{"cursor", cursor} | query_params]
+      if !is_nil(facet) do
+        [{"facet", facet} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(filter_query) do
+        [{"fq", filter_query} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(highlight) do
+        [{"highlight", highlight} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(partial) do
+        [{"partial", partial} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(query) do
+        [{"q", query} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(query_options) do
+        [{"q.options", query_options} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(query_parser) do
+        [{"q.parser", query_parser} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(return) do
+        [{"return", return} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(size) do
+        [{"size", size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort) do
+        [{"sort", sort} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start) do
+        [{"start", start} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(stats) do
+        [{"stats", stats} | query_params]
       else
         query_params
       end
@@ -494,8 +494,8 @@ defmodule AWS.CloudSearchDomain do
     query_params = []
 
     query_params =
-      if !is_nil(suggester) do
-        [{"suggester", suggester} | query_params]
+      if !is_nil(query) do
+        [{"q", query} | query_params]
       else
         query_params
       end
@@ -508,8 +508,8 @@ defmodule AWS.CloudSearchDomain do
       end
 
     query_params =
-      if !is_nil(query) do
-        [{"q", query} | query_params]
+      if !is_nil(suggester) do
+        [{"suggester", suggester} | query_params]
       else
         query_params
       end

@@ -378,8 +378,8 @@ defmodule AWS.MediaStoreData do
     query_params = []
 
     query_params =
-      if !is_nil(path) do
-        [{"Path", path} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
@@ -392,8 +392,8 @@ defmodule AWS.MediaStoreData do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(path) do
+        [{"Path", path} | query_params]
       else
         query_params
       end

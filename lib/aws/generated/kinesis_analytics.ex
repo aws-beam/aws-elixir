@@ -24,307 +24,6 @@ defmodule AWS.KinesisAnalytics do
 
   ## Example:
       
-      resource_provisioned_throughput_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_provisioned_throughput_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_input_processing_configuration_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CurrentApplicationVersionId") => float(),
-        required("InputId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_application_input_processing_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_firehose_output() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_firehose_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      code_validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type code_validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_application_configuration_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_application_configuration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_description() :: %{
-        "InAppStreamNames" => list(String.t() | atom()),
-        "InputId" => String.t() | atom(),
-        "InputParallelism" => input_parallelism(),
-        "InputProcessingConfigurationDescription" => input_processing_configuration_description(),
-        "InputSchema" => source_schema(),
-        "InputStartingPositionConfiguration" => input_starting_position_configuration(),
-        "KinesisFirehoseInputDescription" => kinesis_firehose_input_description(),
-        "KinesisStreamsInputDescription" => kinesis_streams_input_description(),
-        "NamePrefix" => String.t() | atom()
-      }
-      
-  """
-  @type input_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_processing_configuration_update() :: %{
-        "InputLambdaProcessorUpdate" => input_lambda_processor_update()
-      }
-      
-  """
-  @type input_processing_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_firehose_output_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_firehose_output_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      concurrent_modification_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_reference_data_source_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CurrentApplicationVersionId") => float(),
-        required("ReferenceDataSource") => reference_data_source()
-      }
-      
-  """
-  @type add_application_reference_data_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_schema_update() :: %{
-        "RecordColumnUpdates" => list(record_column()),
-        "RecordEncodingUpdate" => String.t() | atom(),
-        "RecordFormatUpdate" => record_format()
-      }
-      
-  """
-  @type input_schema_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reference_data_source_update() :: %{
-        "ReferenceId" => String.t() | atom(),
-        "ReferenceSchemaUpdate" => source_schema(),
-        "S3ReferenceDataSourceUpdate" => s3_reference_data_source_update(),
-        "TableNameUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type reference_data_source_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_application_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("InputConfigurations") => list(input_configuration())
-      }
-      
-  """
-  @type start_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      json_mapping_parameters() :: %{
-        "RecordRowPath" => String.t() | atom()
-      }
-      
-  """
-  @type json_mapping_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logging_option_update() :: %{
-        "CloudWatchLoggingOptionId" => String.t() | atom(),
-        "LogStreamARNUpdate" => String.t() | atom(),
-        "RoleARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logging_option_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_output_response() :: %{}
-      
-  """
-  @type delete_application_output_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_response() :: %{
-        "ApplicationDetail" => application_detail()
-      }
-      
-  """
-  @type describe_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_output_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CurrentApplicationVersionId") => float(),
-        required("OutputId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_application_output_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      destination_schema() :: %{
-        "RecordFormatType" => list(any())
-      }
-      
-  """
-  @type destination_schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_streams_input() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_streams_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_application_response() :: %{}
-      
-  """
-  @type start_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logging_option_description() :: %{
-        "CloudWatchLoggingOptionId" => String.t() | atom(),
-        "LogStreamARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logging_option_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       add_application_cloud_watch_logging_option_request() :: %{
         required("ApplicationName") => String.t() | atom(),
         required("CloudWatchLoggingOption") => cloud_watch_logging_option(),
@@ -338,18 +37,10 @@ defmodule AWS.KinesisAnalytics do
 
   ## Example:
       
-      create_application_request() :: %{
-        optional("ApplicationCode") => String.t() | atom(),
-        optional("ApplicationDescription") => String.t() | atom(),
-        optional("CloudWatchLoggingOptions") => list(cloud_watch_logging_option()),
-        optional("Inputs") => list(input()),
-        optional("Outputs") => list(output()),
-        optional("Tags") => list(tag()),
-        required("ApplicationName") => String.t() | atom()
-      }
+      add_application_cloud_watch_logging_option_response() :: %{}
       
   """
-  @type create_application_request() :: %{(String.t() | atom()) => any()}
+  @type add_application_cloud_watch_logging_option_response() :: %{}
 
   @typedoc """
 
@@ -371,161 +62,6 @@ defmodule AWS.KinesisAnalytics do
 
   ## Example:
       
-      kinesis_streams_input_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_streams_input_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_lambda_processor_update() :: %{
-        "ResourceARNUpdate" => String.t() | atom(),
-        "RoleARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type input_lambda_processor_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      discover_input_schema_request() :: %{
-        optional("InputProcessingConfiguration") => input_processing_configuration(),
-        optional("InputStartingPositionConfiguration") => input_starting_position_configuration(),
-        optional("ResourceARN") => String.t() | atom(),
-        optional("RoleARN") => String.t() | atom(),
-        optional("S3Configuration") => s3_configuration()
-      }
-      
-  """
-  @type discover_input_schema_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output() :: %{
-        "DestinationSchema" => destination_schema(),
-        "KinesisFirehoseOutput" => kinesis_firehose_output(),
-        "KinesisStreamsOutput" => kinesis_streams_output(),
-        "LambdaOutput" => lambda_output(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mapping_parameters() :: %{
-        "CSVMappingParameters" => csv_mapping_parameters(),
-        "JSONMappingParameters" => json_mapping_parameters()
-      }
-      
-  """
-  @type mapping_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_output_update() :: %{
-        "ResourceARNUpdate" => String.t() | atom(),
-        "RoleARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type lambda_output_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_cloud_watch_logging_option_response() :: %{}
-      
-  """
-  @type add_application_cloud_watch_logging_option_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      output_update() :: %{
-        "DestinationSchemaUpdate" => destination_schema(),
-        "KinesisFirehoseOutputUpdate" => kinesis_firehose_output_update(),
-        "KinesisStreamsOutputUpdate" => kinesis_streams_output_update(),
-        "LambdaOutputUpdate" => lambda_output_update(),
-        "NameUpdate" => String.t() | atom(),
-        "OutputId" => String.t() | atom()
-      }
-      
-  """
-  @type output_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_streams_input_update() :: %{
-        "ResourceARNUpdate" => String.t() | atom(),
-        "RoleARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_streams_input_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_firehose_input_update() :: %{
-        "ResourceARNUpdate" => String.t() | atom(),
-        "RoleARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_firehose_input_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output_description() :: %{
-        "DestinationSchema" => destination_schema(),
-        "KinesisFirehoseOutputDescription" => kinesis_firehose_output_description(),
-        "KinesisStreamsOutputDescription" => kinesis_streams_output_description(),
-        "LambdaOutputDescription" => lambda_output_description(),
-        "Name" => String.t() | atom(),
-        "OutputId" => String.t() | atom()
-      }
-      
-  """
-  @type output_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_firehose_output_update() :: %{
-        "ResourceARNUpdate" => String.t() | atom(),
-        "RoleARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_firehose_output_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       add_application_input_processing_configuration_response() :: %{}
       
   """
@@ -535,24 +71,58 @@ defmodule AWS.KinesisAnalytics do
 
   ## Example:
       
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
+      add_application_input_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CurrentApplicationVersionId") => float(),
+        required("Input") => input()
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type add_application_input_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_applications_response() :: %{
-        "ApplicationSummaries" => list(application_summary()),
-        "HasMoreApplications" => boolean()
+      add_application_input_response() :: %{}
+      
+  """
+  @type add_application_input_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_application_output_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CurrentApplicationVersionId") => float(),
+        required("Output") => output()
       }
       
   """
-  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+  @type add_application_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_application_output_response() :: %{}
+      
+  """
+  @type add_application_output_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_application_reference_data_source_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CurrentApplicationVersionId") => float(),
+        required("ReferenceDataSource") => reference_data_source()
+      }
+      
+  """
+  @type add_application_reference_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,47 +132,6 @@ defmodule AWS.KinesisAnalytics do
       
   """
   @type add_application_reference_data_source_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_update() :: %{
-        "InputId" => String.t() | atom(),
-        "InputParallelismUpdate" => input_parallelism_update(),
-        "InputProcessingConfigurationUpdate" => input_processing_configuration_update(),
-        "InputSchemaUpdate" => input_schema_update(),
-        "KinesisFirehoseInputUpdate" => kinesis_firehose_input_update(),
-        "KinesisStreamsInputUpdate" => kinesis_streams_input_update(),
-        "NamePrefixUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type input_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_lambda_processor() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type input_lambda_processor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -630,24 +159,14 @@ defmodule AWS.KinesisAnalytics do
 
   ## Example:
       
-      unsupported_operation_exception() :: %{
-        "message" => String.t() | atom()
+      application_summary() :: %{
+        "ApplicationARN" => String.t() | atom(),
+        "ApplicationName" => String.t() | atom(),
+        "ApplicationStatus" => list(any())
       }
       
   """
-  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CreateTimestamp") => non_neg_integer()
-      }
-      
-  """
-  @type delete_application_request() :: %{(String.t() | atom()) => any()}
+  @type application_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -668,216 +187,78 @@ defmodule AWS.KinesisAnalytics do
 
   ## Example:
       
-      update_application_response() :: %{}
+      cloud_watch_logging_option() :: %{
+        "LogStreamARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
       
   """
-  @type update_application_response() :: %{}
+  @type cloud_watch_logging_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_response() :: %{}
+      cloud_watch_logging_option_description() :: %{
+        "CloudWatchLoggingOptionId" => String.t() | atom(),
+        "LogStreamARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
       
   """
-  @type tag_resource_response() :: %{}
+  @type cloud_watch_logging_option_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unable_to_detect_schema_exception() :: %{
-        "ProcessedInputRecords" => list(String.t() | atom()),
-        "RawInputRecords" => list(String.t() | atom()),
+      cloud_watch_logging_option_update() :: %{
+        "CloudWatchLoggingOptionId" => String.t() | atom(),
+        "LogStreamARNUpdate" => String.t() | atom(),
+        "RoleARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_watch_logging_option_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_validation_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type unable_to_detect_schema_exception() :: %{(String.t() | atom()) => any()}
+  @type code_validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_argument_exception() :: %{
+      concurrent_modification_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_in_use_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_response() :: %{}
-      
-  """
-  @type delete_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_applications_request() :: %{
-        optional("ExclusiveStartApplicationName") => String.t() | atom(),
-        optional("Limit") => integer()
-      }
-      
-  """
-  @type list_applications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      csv_mapping_parameters() :: %{
-        "RecordColumnDelimiter" => String.t() | atom(),
-        "RecordRowDelimiter" => String.t() | atom()
-      }
-      
-  """
-  @type csv_mapping_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_starting_position_configuration() :: %{
-        "InputStartingPosition" => list(any())
-      }
-      
-  """
-  @type input_starting_position_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_processing_configuration() :: %{
-        "InputLambdaProcessor" => input_lambda_processor()
-      }
-      
-  """
-  @type input_processing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_request() :: %{
+      create_application_request() :: %{
+        optional("ApplicationCode") => String.t() | atom(),
+        optional("ApplicationDescription") => String.t() | atom(),
+        optional("CloudWatchLoggingOptions") => list(cloud_watch_logging_option()),
+        optional("Inputs") => list(input()),
+        optional("Outputs") => list(output()),
+        optional("Tags") => list(tag()),
         required("ApplicationName") => String.t() | atom()
       }
       
   """
-  @type describe_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_output_response() :: %{}
-      
-  """
-  @type add_application_output_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      record_column() :: %{
-        "Mapping" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "SqlType" => String.t() | atom()
-      }
-      
-  """
-  @type record_column() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_reference_data_source_update() :: %{
-        "BucketARNUpdate" => String.t() | atom(),
-        "FileKeyUpdate" => String.t() | atom(),
-        "ReferenceRoleARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type s3_reference_data_source_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_input_processing_configuration_response() :: %{}
-      
-  """
-  @type delete_application_input_processing_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_reference_data_source() :: %{
-        "BucketARN" => String.t() | atom(),
-        "FileKey" => String.t() | atom(),
-        "ReferenceRoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type s3_reference_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_cloud_watch_logging_option_response() :: %{}
-      
-  """
-  @type delete_application_cloud_watch_logging_option_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_input_response() :: %{}
-      
-  """
-  @type add_application_input_response() :: %{}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -894,226 +275,13 @@ defmodule AWS.KinesisAnalytics do
 
   ## Example:
       
-      add_application_input_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CurrentApplicationVersionId") => float(),
-        required("Input") => input()
+      csv_mapping_parameters() :: %{
+        "RecordColumnDelimiter" => String.t() | atom(),
+        "RecordRowDelimiter" => String.t() | atom()
       }
       
   """
-  @type add_application_input_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_streams_output() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_streams_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_application_output_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CurrentApplicationVersionId") => float(),
-        required("Output") => output()
-      }
-      
-  """
-  @type add_application_output_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logging_option() :: %{
-        "LogStreamARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logging_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_reference_data_source_response() :: %{}
-      
-  """
-  @type delete_application_reference_data_source_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_application_request() :: %{
-        required("ApplicationName") => String.t() | atom()
-      }
-      
-  """
-  @type stop_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_summary() :: %{
-        "ApplicationARN" => String.t() | atom(),
-        "ApplicationName" => String.t() | atom(),
-        "ApplicationStatus" => list(any())
-      }
-      
-  """
-  @type application_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_processing_configuration_description() :: %{
-        "InputLambdaProcessorDescription" => input_lambda_processor_description()
-      }
-      
-  """
-  @type input_processing_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_application_response() :: %{}
-      
-  """
-  @type stop_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_tags_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_configuration() :: %{
-        "Id" => String.t() | atom(),
-        "InputStartingPositionConfiguration" => input_starting_position_configuration()
-      }
-      
-  """
-  @type input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_parallelism() :: %{
-        "Count" => integer()
-      }
-      
-  """
-  @type input_parallelism() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_streams_output_update() :: %{
-        "ResourceARNUpdate" => String.t() | atom(),
-        "RoleARNUpdate" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_streams_output_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reference_data_source_description() :: %{
-        "ReferenceId" => String.t() | atom(),
-        "ReferenceSchema" => source_schema(),
-        "S3ReferenceDataSourceDescription" => s3_reference_data_source_description(),
-        "TableName" => String.t() | atom()
-      }
-      
-  """
-  @type reference_data_source_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      discover_input_schema_response() :: %{
-        "InputSchema" => source_schema(),
-        "ParsedInputRecords" => list(list(String.t() | atom())()),
-        "ProcessedInputRecords" => list(String.t() | atom()),
-        "RawInputRecords" => list(String.t() | atom())
-      }
-      
-  """
-  @type discover_input_schema_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_parallelism_update() :: %{
-        "CountUpdate" => integer()
-      }
-      
-  """
-  @type input_parallelism_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_schema() :: %{
-        "RecordColumns" => list(record_column()),
-        "RecordEncoding" => String.t() | atom(),
-        "RecordFormat" => record_format()
-      }
-      
-  """
-  @type source_schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_reference_data_source_request() :: %{
-        required("ApplicationName") => String.t() | atom(),
-        required("CurrentApplicationVersionId") => float(),
-        required("ReferenceId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_application_reference_data_source_request() :: %{(String.t() | atom()) => any()}
+  @type csv_mapping_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1134,135 +302,161 @@ defmodule AWS.KinesisAnalytics do
 
   ## Example:
       
-      s3_configuration() :: %{
-        "BucketARN" => String.t() | atom(),
-        "FileKey" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
+      delete_application_cloud_watch_logging_option_response() :: %{}
       
   """
-  @type s3_configuration() :: %{(String.t() | atom()) => any()}
+  @type delete_application_cloud_watch_logging_option_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      update_application_request() :: %{
+      delete_application_input_processing_configuration_request() :: %{
         required("ApplicationName") => String.t() | atom(),
-        required("ApplicationUpdate") => application_update(),
-        required("CurrentApplicationVersionId") => float()
+        required("CurrentApplicationVersionId") => float(),
+        required("InputId") => String.t() | atom()
       }
       
   """
-  @type update_application_request() :: %{(String.t() | atom()) => any()}
+  @type delete_application_input_processing_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
-      kinesis_firehose_input_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
+      delete_application_input_processing_configuration_response() :: %{}
       
   """
-  @type kinesis_firehose_input_description() :: %{(String.t() | atom()) => any()}
+  @type delete_application_input_processing_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      lambda_output_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
+      delete_application_output_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CurrentApplicationVersionId") => float(),
+        required("OutputId") => String.t() | atom()
       }
       
   """
-  @type lambda_output_description() :: %{(String.t() | atom()) => any()}
+  @type delete_application_output_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_reference_data_source_description() :: %{
-        "BucketARN" => String.t() | atom(),
-        "FileKey" => String.t() | atom(),
-        "ReferenceRoleARN" => String.t() | atom()
-      }
+      delete_application_output_response() :: %{}
       
   """
-  @type s3_reference_data_source_description() :: %{(String.t() | atom()) => any()}
+  @type delete_application_output_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      lambda_output() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
+      delete_application_reference_data_source_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CurrentApplicationVersionId") => float(),
+        required("ReferenceId") => String.t() | atom()
       }
       
   """
-  @type lambda_output() :: %{(String.t() | atom()) => any()}
+  @type delete_application_reference_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      kinesis_streams_output_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
+      delete_application_reference_data_source_response() :: %{}
       
   """
-  @type kinesis_streams_output_description() :: %{(String.t() | atom()) => any()}
+  @type delete_application_reference_data_source_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      input_lambda_processor_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
+      delete_application_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("CreateTimestamp") => non_neg_integer()
       }
       
   """
-  @type input_lambda_processor_description() :: %{(String.t() | atom()) => any()}
+  @type delete_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      kinesis_firehose_input() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
+      delete_application_response() :: %{}
       
   """
-  @type kinesis_firehose_input() :: %{(String.t() | atom()) => any()}
+  @type delete_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
+      describe_application_request() :: %{
+        required("ApplicationName") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type describe_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      record_format() :: %{
-        "MappingParameters" => mapping_parameters(),
+      describe_application_response() :: %{
+        "ApplicationDetail" => application_detail()
+      }
+      
+  """
+  @type describe_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination_schema() :: %{
         "RecordFormatType" => list(any())
       }
       
   """
-  @type record_format() :: %{(String.t() | atom()) => any()}
+  @type destination_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discover_input_schema_request() :: %{
+        optional("InputProcessingConfiguration") => input_processing_configuration(),
+        optional("InputStartingPositionConfiguration") => input_starting_position_configuration(),
+        optional("ResourceARN") => String.t() | atom(),
+        optional("RoleARN") => String.t() | atom(),
+        optional("S3Configuration") => s3_configuration()
+      }
+      
+  """
+  @type discover_input_schema_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discover_input_schema_response() :: %{
+        "InputSchema" => source_schema(),
+        "ParsedInputRecords" => list(list(String.t() | atom())()),
+        "ProcessedInputRecords" => list(String.t() | atom()),
+        "RawInputRecords" => list(String.t() | atom())
+      }
+      
+  """
+  @type discover_input_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1284,6 +478,523 @@ defmodule AWS.KinesisAnalytics do
 
   ## Example:
       
+      input_configuration() :: %{
+        "Id" => String.t() | atom(),
+        "InputStartingPositionConfiguration" => input_starting_position_configuration()
+      }
+      
+  """
+  @type input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_description() :: %{
+        "InAppStreamNames" => list(String.t() | atom()),
+        "InputId" => String.t() | atom(),
+        "InputParallelism" => input_parallelism(),
+        "InputProcessingConfigurationDescription" => input_processing_configuration_description(),
+        "InputSchema" => source_schema(),
+        "InputStartingPositionConfiguration" => input_starting_position_configuration(),
+        "KinesisFirehoseInputDescription" => kinesis_firehose_input_description(),
+        "KinesisStreamsInputDescription" => kinesis_streams_input_description(),
+        "NamePrefix" => String.t() | atom()
+      }
+      
+  """
+  @type input_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_lambda_processor() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type input_lambda_processor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_lambda_processor_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type input_lambda_processor_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_lambda_processor_update() :: %{
+        "ResourceARNUpdate" => String.t() | atom(),
+        "RoleARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type input_lambda_processor_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_parallelism() :: %{
+        "Count" => integer()
+      }
+      
+  """
+  @type input_parallelism() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_parallelism_update() :: %{
+        "CountUpdate" => integer()
+      }
+      
+  """
+  @type input_parallelism_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_processing_configuration() :: %{
+        "InputLambdaProcessor" => input_lambda_processor()
+      }
+      
+  """
+  @type input_processing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_processing_configuration_description() :: %{
+        "InputLambdaProcessorDescription" => input_lambda_processor_description()
+      }
+      
+  """
+  @type input_processing_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_processing_configuration_update() :: %{
+        "InputLambdaProcessorUpdate" => input_lambda_processor_update()
+      }
+      
+  """
+  @type input_processing_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_schema_update() :: %{
+        "RecordColumnUpdates" => list(record_column()),
+        "RecordEncodingUpdate" => String.t() | atom(),
+        "RecordFormatUpdate" => record_format()
+      }
+      
+  """
+  @type input_schema_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_starting_position_configuration() :: %{
+        "InputStartingPosition" => list(any())
+      }
+      
+  """
+  @type input_starting_position_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_update() :: %{
+        "InputId" => String.t() | atom(),
+        "InputParallelismUpdate" => input_parallelism_update(),
+        "InputProcessingConfigurationUpdate" => input_processing_configuration_update(),
+        "InputSchemaUpdate" => input_schema_update(),
+        "KinesisFirehoseInputUpdate" => kinesis_firehose_input_update(),
+        "KinesisStreamsInputUpdate" => kinesis_streams_input_update(),
+        "NamePrefixUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type input_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_application_configuration_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_application_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_argument_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      json_mapping_parameters() :: %{
+        "RecordRowPath" => String.t() | atom()
+      }
+      
+  """
+  @type json_mapping_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_input() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_input_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_input_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_input_update() :: %{
+        "ResourceARNUpdate" => String.t() | atom(),
+        "RoleARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_input_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_output() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_output_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_output_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_output_update() :: %{
+        "ResourceARNUpdate" => String.t() | atom(),
+        "RoleARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_output_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streams_input() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_streams_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streams_input_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_streams_input_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streams_input_update() :: %{
+        "ResourceARNUpdate" => String.t() | atom(),
+        "RoleARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_streams_input_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streams_output() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_streams_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streams_output_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_streams_output_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streams_output_update() :: %{
+        "ResourceARNUpdate" => String.t() | atom(),
+        "RoleARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_streams_output_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_output() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_output_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_output_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_output_update() :: %{
+        "ResourceARNUpdate" => String.t() | atom(),
+        "RoleARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_output_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_applications_request() :: %{
+        optional("ExclusiveStartApplicationName") => String.t() | atom(),
+        optional("Limit") => integer()
+      }
+      
+  """
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_applications_response() :: %{
+        "ApplicationSummaries" => list(application_summary()),
+        "HasMoreApplications" => boolean()
+      }
+      
+  """
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mapping_parameters() :: %{
+        "CSVMappingParameters" => csv_mapping_parameters(),
+        "JSONMappingParameters" => json_mapping_parameters()
+      }
+      
+  """
+  @type mapping_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output() :: %{
+        "DestinationSchema" => destination_schema(),
+        "KinesisFirehoseOutput" => kinesis_firehose_output(),
+        "KinesisStreamsOutput" => kinesis_streams_output(),
+        "LambdaOutput" => lambda_output(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_description() :: %{
+        "DestinationSchema" => destination_schema(),
+        "KinesisFirehoseOutputDescription" => kinesis_firehose_output_description(),
+        "KinesisStreamsOutputDescription" => kinesis_streams_output_description(),
+        "LambdaOutputDescription" => lambda_output_description(),
+        "Name" => String.t() | atom(),
+        "OutputId" => String.t() | atom()
+      }
+      
+  """
+  @type output_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_update() :: %{
+        "DestinationSchemaUpdate" => destination_schema(),
+        "KinesisFirehoseOutputUpdate" => kinesis_firehose_output_update(),
+        "KinesisStreamsOutputUpdate" => kinesis_streams_output_update(),
+        "LambdaOutputUpdate" => lambda_output_update(),
+        "NameUpdate" => String.t() | atom(),
+        "OutputId" => String.t() | atom()
+      }
+      
+  """
+  @type output_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      record_column() :: %{
+        "Mapping" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SqlType" => String.t() | atom()
+      }
+      
+  """
+  @type record_column() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      record_format() :: %{
+        "MappingParameters" => mapping_parameters(),
+        "RecordFormatType" => list(any())
+      }
+      
+  """
+  @type record_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reference_data_source() :: %{
         "ReferenceSchema" => source_schema(),
         "S3ReferenceDataSource" => s3_reference_data_source(),
@@ -1293,129 +1004,418 @@ defmodule AWS.KinesisAnalytics do
   """
   @type reference_data_source() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      reference_data_source_description() :: %{
+        "ReferenceId" => String.t() | atom(),
+        "ReferenceSchema" => source_schema(),
+        "S3ReferenceDataSourceDescription" => s3_reference_data_source_description(),
+        "TableName" => String.t() | atom()
+      }
+      
+  """
+  @type reference_data_source_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reference_data_source_update() :: %{
+        "ReferenceId" => String.t() | atom(),
+        "ReferenceSchemaUpdate" => source_schema(),
+        "S3ReferenceDataSourceUpdate" => s3_reference_data_source_update(),
+        "TableNameUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type reference_data_source_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_in_use_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_provisioned_throughput_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_provisioned_throughput_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_configuration() :: %{
+        "BucketARN" => String.t() | atom(),
+        "FileKey" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_reference_data_source() :: %{
+        "BucketARN" => String.t() | atom(),
+        "FileKey" => String.t() | atom(),
+        "ReferenceRoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type s3_reference_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_reference_data_source_description() :: %{
+        "BucketARN" => String.t() | atom(),
+        "FileKey" => String.t() | atom(),
+        "ReferenceRoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type s3_reference_data_source_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_reference_data_source_update() :: %{
+        "BucketARNUpdate" => String.t() | atom(),
+        "FileKeyUpdate" => String.t() | atom(),
+        "ReferenceRoleARNUpdate" => String.t() | atom()
+      }
+      
+  """
+  @type s3_reference_data_source_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_schema() :: %{
+        "RecordColumns" => list(record_column()),
+        "RecordEncoding" => String.t() | atom(),
+        "RecordFormat" => record_format()
+      }
+      
+  """
+  @type source_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_application_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("InputConfigurations") => list(input_configuration())
+      }
+      
+  """
+  @type start_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_application_response() :: %{}
+      
+  """
+  @type start_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_application_request() :: %{
+        required("ApplicationName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_application_response() :: %{}
+      
+  """
+  @type stop_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unable_to_detect_schema_exception() :: %{
+        "ProcessedInputRecords" => list(String.t() | atom()),
+        "RawInputRecords" => list(String.t() | atom()),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unable_to_detect_schema_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_operation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_application_request() :: %{
+        required("ApplicationName") => String.t() | atom(),
+        required("ApplicationUpdate") => application_update(),
+        required("CurrentApplicationVersionId") => float()
+      }
+      
+  """
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_application_response() :: %{}
+      
+  """
+  @type update_application_response() :: %{}
+
   @type add_application_cloud_watch_logging_option_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   @type add_application_input_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
           | code_validation_exception()
 
   @type add_application_input_processing_configuration_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   @type add_application_output_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   @type add_application_reference_data_source_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   @type create_application_errors() ::
           too_many_tags_exception()
           | resource_in_use_exception()
-          | invalid_argument_exception()
           | limit_exceeded_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
           | code_validation_exception()
 
   @type delete_application_errors() ::
-          resource_in_use_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
           | concurrent_modification_exception()
 
   @type delete_application_cloud_watch_logging_option_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   @type delete_application_input_processing_configuration_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   @type delete_application_output_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   @type delete_application_reference_data_source_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   @type describe_application_errors() ::
           unsupported_operation_exception() | resource_not_found_exception()
 
   @type discover_input_schema_errors() ::
-          invalid_argument_exception()
-          | unable_to_detect_schema_exception()
+          unable_to_detect_schema_exception()
           | service_unavailable_exception()
           | resource_provisioned_throughput_exceeded_exception()
+          | invalid_argument_exception()
 
   @type list_tags_for_resource_errors() ::
-          invalid_argument_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
 
   @type start_application_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
           | invalid_application_configuration_exception()
 
   @type stop_application_errors() ::
-          resource_in_use_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
 
   @type tag_resource_errors() ::
           too_many_tags_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type untag_resource_errors() ::
           too_many_tags_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
           | invalid_argument_exception()
-          | resource_not_found_exception()
           | concurrent_modification_exception()
 
   @type update_application_errors() ::
-          resource_in_use_exception()
-          | invalid_argument_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
           | concurrent_modification_exception()
           | code_validation_exception()
 

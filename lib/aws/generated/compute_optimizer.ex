@@ -31,45 +31,1025 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
-      get_idle_recommendations_response() :: %{
-        "errors" => list(idle_recommendation_error()),
-        "idleRecommendations" => list(idle_recommendation()),
-        "nextToken" => String.t() | atom()
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type get_idle_recommendations_response() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      instance_recommendation_option() :: %{
-        "instanceGpuInfo" => gpu_info(),
+      account_enrollment_status() :: %{
+        "accountId" => String.t() | atom(),
+        "lastUpdatedTimestamp" => non_neg_integer(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom()
+      }
+      
+  """
+  @type account_enrollment_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_scaling_group_configuration() :: %{
+        "allocationStrategy" => list(any()),
+        "desiredCapacity" => integer(),
+        "estimatedInstanceHourReductionPercentage" => float(),
         "instanceType" => String.t() | atom(),
-        "migrationEffort" => list(any()),
-        "performanceRisk" => float(),
-        "platformDifferences" => list(list(any())()),
-        "projectedUtilizationMetrics" => list(utilization_metric()),
-        "rank" => integer(),
-        "savingsOpportunity" => savings_opportunity(),
-        "savingsOpportunityAfterDiscounts" => instance_savings_opportunity_after_discounts()
+        "maxSize" => integer(),
+        "minSize" => integer(),
+        "mixedInstanceTypes" => list(String.t() | atom()),
+        "type" => list(any())
       }
       
   """
-  @type instance_recommendation_option() :: %{(String.t() | atom()) => any()}
+  @type auto_scaling_group_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      idle_summary() :: %{
-        "name" => list(any()),
+      auto_scaling_group_estimated_monthly_savings() :: %{
+        "currency" => list(any()),
         "value" => float()
       }
       
   """
-  @type idle_summary() :: %{(String.t() | atom()) => any()}
+  @type auto_scaling_group_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_scaling_group_recommendation() :: %{
+        "accountId" => String.t() | atom(),
+        "autoScalingGroupArn" => String.t() | atom(),
+        "autoScalingGroupName" => String.t() | atom(),
+        "currentConfiguration" => auto_scaling_group_configuration(),
+        "currentInstanceGpuInfo" => gpu_info(),
+        "currentPerformanceRisk" => list(any()),
+        "effectiveRecommendationPreferences" => effective_recommendation_preferences(),
+        "finding" => list(any()),
+        "inferredWorkloadTypes" => list(list(any())()),
+        "lastRefreshTimestamp" => non_neg_integer(),
+        "lookBackPeriodInDays" => float(),
+        "recommendationOptions" => list(auto_scaling_group_recommendation_option()),
+        "utilizationMetrics" => list(utilization_metric())
+      }
+      
+  """
+  @type auto_scaling_group_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_scaling_group_recommendation_option() :: %{
+        "configuration" => auto_scaling_group_configuration(),
+        "instanceGpuInfo" => gpu_info(),
+        "migrationEffort" => list(any()),
+        "performanceRisk" => float(),
+        "projectedUtilizationMetrics" => list(utilization_metric()),
+        "rank" => integer(),
+        "savingsOpportunity" => savings_opportunity(),
+        "savingsOpportunityAfterDiscounts" => auto_scaling_group_savings_opportunity_after_discounts()
+      }
+      
+  """
+  @type auto_scaling_group_recommendation_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_scaling_group_savings_opportunity_after_discounts() :: %{
+        "estimatedMonthlySavings" => auto_scaling_group_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
+      }
+      
+  """
+  @type auto_scaling_group_savings_opportunity_after_discounts() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      container_configuration() :: %{
+        "containerName" => String.t() | atom(),
+        "cpu" => integer(),
+        "memorySizeConfiguration" => memory_size_configuration()
+      }
+      
+  """
+  @type container_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_recommendation() :: %{
+        "containerName" => String.t() | atom(),
+        "cpu" => integer(),
+        "memorySizeConfiguration" => memory_size_configuration()
+      }
+      
+  """
+  @type container_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      current_performance_risk_ratings() :: %{
+        "high" => float(),
+        "low" => float(),
+        "medium" => float(),
+        "veryLow" => float()
+      }
+      
+  """
+  @type current_performance_risk_ratings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customizable_metric_parameters() :: %{
+        "headroom" => list(any()),
+        "threshold" => list(any())
+      }
+      
+  """
+  @type customizable_metric_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_storage_configuration() :: %{
+        "allocatedStorage" => integer(),
+        "iops" => integer(),
+        "maxAllocatedStorage" => integer(),
+        "storageThroughput" => integer(),
+        "storageType" => String.t() | atom()
+      }
+      
+  """
+  @type db_storage_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_recommendation_preferences_request() :: %{
+        optional("scope") => scope(),
+        required("recommendationPreferenceNames") => list(list(any())()),
+        required("resourceType") => list(any())
+      }
+      
+  """
+  @type delete_recommendation_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_recommendation_preferences_response() :: %{}
+      
+  """
+  @type delete_recommendation_preferences_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_recommendation_export_jobs_request() :: %{
+        optional("filters") => list(job_filter()),
+        optional("jobIds") => list(String.t() | atom()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_recommendation_export_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_recommendation_export_jobs_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "recommendationExportJobs" => list(recommendation_export_job())
+      }
+      
+  """
+  @type describe_recommendation_export_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_effective_recommendation_preferences() :: %{
+        "lookBackPeriod" => list(any()),
+        "savingsEstimationMode" => e_c_s_savings_estimation_mode()
+      }
+      
+  """
+  @type e_c_s_effective_recommendation_preferences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_estimated_monthly_savings() :: %{
+        "currency" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type e_c_s_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_savings_estimation_mode() :: %{
+        "source" => list(any())
+      }
+      
+  """
+  @type e_c_s_savings_estimation_mode() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_savings_opportunity_after_discounts() :: %{
+        "estimatedMonthlySavings" => e_c_s_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
+      }
+      
+  """
+  @type e_c_s_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_service_projected_metric() :: %{
+        "lowerBoundValues" => list(float()),
+        "name" => list(any()),
+        "timestamps" => list(non_neg_integer()),
+        "upperBoundValues" => list(float())
+      }
+      
+  """
+  @type e_c_s_service_projected_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_service_projected_utilization_metric() :: %{
+        "lowerBoundValue" => float(),
+        "name" => list(any()),
+        "statistic" => list(any()),
+        "upperBoundValue" => float()
+      }
+      
+  """
+  @type e_c_s_service_projected_utilization_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_service_recommendation() :: %{
+        "accountId" => String.t() | atom(),
+        "currentPerformanceRisk" => list(any()),
+        "currentServiceConfiguration" => service_configuration(),
+        "effectiveRecommendationPreferences" => e_c_s_effective_recommendation_preferences(),
+        "finding" => list(any()),
+        "findingReasonCodes" => list(list(any())()),
+        "lastRefreshTimestamp" => non_neg_integer(),
+        "launchType" => list(any()),
+        "lookbackPeriodInDays" => float(),
+        "serviceArn" => String.t() | atom(),
+        "serviceRecommendationOptions" => list(e_c_s_service_recommendation_option()),
+        "tags" => list(tag()),
+        "utilizationMetrics" => list(e_c_s_service_utilization_metric())
+      }
+      
+  """
+  @type e_c_s_service_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_service_recommendation_filter() :: %{
+        "name" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type e_c_s_service_recommendation_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_service_recommendation_option() :: %{
+        "containerRecommendations" => list(container_recommendation()),
+        "cpu" => integer(),
+        "memory" => integer(),
+        "projectedUtilizationMetrics" => list(e_c_s_service_projected_utilization_metric()),
+        "savingsOpportunity" => savings_opportunity(),
+        "savingsOpportunityAfterDiscounts" => e_c_s_savings_opportunity_after_discounts()
+      }
+      
+  """
+  @type e_c_s_service_recommendation_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_service_recommended_option_projected_metric() :: %{
+        "projectedMetrics" => list(e_c_s_service_projected_metric()),
+        "recommendedCpuUnits" => integer(),
+        "recommendedMemorySize" => integer()
+      }
+      
+  """
+  @type e_c_s_service_recommended_option_projected_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_service_utilization_metric() :: %{
+        "name" => list(any()),
+        "statistic" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type e_c_s_service_utilization_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ebs_effective_recommendation_preferences() :: %{
+        "lookBackPeriod" => list(any()),
+        "savingsEstimationMode" => ebs_savings_estimation_mode()
+      }
+      
+  """
+  @type ebs_effective_recommendation_preferences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ebs_estimated_monthly_savings() :: %{
+        "currency" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type ebs_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ebs_filter() :: %{
+        "name" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type ebs_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ebs_savings_estimation_mode() :: %{
+        "source" => list(any())
+      }
+      
+  """
+  @type ebs_savings_estimation_mode() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ebs_savings_opportunity_after_discounts() :: %{
+        "estimatedMonthlySavings" => ebs_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
+      }
+      
+  """
+  @type ebs_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ebs_utilization_metric() :: %{
+        "name" => list(any()),
+        "statistic" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type ebs_utilization_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      effective_preferred_resource() :: %{
+        "effectiveIncludeList" => list(String.t() | atom()),
+        "excludeList" => list(String.t() | atom()),
+        "includeList" => list(String.t() | atom()),
+        "name" => list(any())
+      }
+      
+  """
+  @type effective_preferred_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      effective_recommendation_preferences() :: %{
+        "cpuVendorArchitectures" => list(list(any())()),
+        "enhancedInfrastructureMetrics" => list(any()),
+        "externalMetricsPreference" => external_metrics_preference(),
+        "inferredWorkloadTypes" => list(any()),
+        "lookBackPeriod" => list(any()),
+        "preferredResources" => list(effective_preferred_resource()),
+        "savingsEstimationMode" => instance_savings_estimation_mode(),
+        "utilizationPreferences" => list(utilization_preference())
+      }
+      
+  """
+  @type effective_recommendation_preferences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enrollment_filter() :: %{
+        "name" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type enrollment_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      estimated_monthly_savings() :: %{
+        "currency" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_auto_scaling_group_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("fieldsToExport") => list(list(any())()),
+        optional("fileFormat") => list(any()),
+        optional("filters") => list(filter()),
+        optional("includeMemberAccounts") => boolean(),
+        optional("recommendationPreferences") => recommendation_preferences(),
+        required("s3DestinationConfig") => s3_destination_config()
+      }
+      
+  """
+  @type export_auto_scaling_group_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_auto_scaling_group_recommendations_response() :: %{
+        "jobId" => String.t() | atom(),
+        "s3Destination" => s3_destination()
+      }
+      
+  """
+  @type export_auto_scaling_group_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_destination() :: %{
+        "s3" => s3_destination()
+      }
+      
+  """
+  @type export_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_e_c_s_service_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("fieldsToExport") => list(list(any())()),
+        optional("fileFormat") => list(any()),
+        optional("filters") => list(e_c_s_service_recommendation_filter()),
+        optional("includeMemberAccounts") => boolean(),
+        required("s3DestinationConfig") => s3_destination_config()
+      }
+      
+  """
+  @type export_e_c_s_service_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_e_c_s_service_recommendations_response() :: %{
+        "jobId" => String.t() | atom(),
+        "s3Destination" => s3_destination()
+      }
+      
+  """
+  @type export_e_c_s_service_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_ebs_volume_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("fieldsToExport") => list(list(any())()),
+        optional("fileFormat") => list(any()),
+        optional("filters") => list(ebs_filter()),
+        optional("includeMemberAccounts") => boolean(),
+        required("s3DestinationConfig") => s3_destination_config()
+      }
+      
+  """
+  @type export_ebs_volume_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_ebs_volume_recommendations_response() :: %{
+        "jobId" => String.t() | atom(),
+        "s3Destination" => s3_destination()
+      }
+      
+  """
+  @type export_ebs_volume_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_ec2_instance_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("fieldsToExport") => list(list(any())()),
+        optional("fileFormat") => list(any()),
+        optional("filters") => list(filter()),
+        optional("includeMemberAccounts") => boolean(),
+        optional("recommendationPreferences") => recommendation_preferences(),
+        required("s3DestinationConfig") => s3_destination_config()
+      }
+      
+  """
+  @type export_ec2_instance_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_ec2_instance_recommendations_response() :: %{
+        "jobId" => String.t() | atom(),
+        "s3Destination" => s3_destination()
+      }
+      
+  """
+  @type export_ec2_instance_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_idle_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("fieldsToExport") => list(list(any())()),
+        optional("fileFormat") => list(any()),
+        optional("filters") => list(idle_recommendation_filter()),
+        optional("includeMemberAccounts") => boolean(),
+        required("s3DestinationConfig") => s3_destination_config()
+      }
+      
+  """
+  @type export_idle_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_idle_recommendations_response() :: %{
+        "jobId" => String.t() | atom(),
+        "s3Destination" => s3_destination()
+      }
+      
+  """
+  @type export_idle_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_lambda_function_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("fieldsToExport") => list(list(any())()),
+        optional("fileFormat") => list(any()),
+        optional("filters") => list(lambda_function_recommendation_filter()),
+        optional("includeMemberAccounts") => boolean(),
+        required("s3DestinationConfig") => s3_destination_config()
+      }
+      
+  """
+  @type export_lambda_function_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_lambda_function_recommendations_response() :: %{
+        "jobId" => String.t() | atom(),
+        "s3Destination" => s3_destination()
+      }
+      
+  """
+  @type export_lambda_function_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_license_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("fieldsToExport") => list(list(any())()),
+        optional("fileFormat") => list(any()),
+        optional("filters") => list(license_recommendation_filter()),
+        optional("includeMemberAccounts") => boolean(),
+        required("s3DestinationConfig") => s3_destination_config()
+      }
+      
+  """
+  @type export_license_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_license_recommendations_response() :: %{
+        "jobId" => String.t() | atom(),
+        "s3Destination" => s3_destination()
+      }
+      
+  """
+  @type export_license_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_rds_database_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("fieldsToExport") => list(list(any())()),
+        optional("fileFormat") => list(any()),
+        optional("filters") => list(rds_db_recommendation_filter()),
+        optional("includeMemberAccounts") => boolean(),
+        optional("recommendationPreferences") => recommendation_preferences(),
+        required("s3DestinationConfig") => s3_destination_config()
+      }
+      
+  """
+  @type export_rds_database_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_rds_database_recommendations_response() :: %{
+        "jobId" => String.t() | atom(),
+        "s3Destination" => s3_destination()
+      }
+      
+  """
+  @type export_rds_database_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      external_metric_status() :: %{
+        "statusCode" => list(any()),
+        "statusReason" => String.t() | atom()
+      }
+      
+  """
+  @type external_metric_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      external_metrics_preference() :: %{
+        "source" => list(any())
+      }
+      
+  """
+  @type external_metrics_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter() :: %{
+        "name" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_auto_scaling_group_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("autoScalingGroupArns") => list(String.t() | atom()),
+        optional("filters") => list(filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("recommendationPreferences") => recommendation_preferences()
+      }
+      
+  """
+  @type get_auto_scaling_group_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_auto_scaling_group_recommendations_response() :: %{
+        "autoScalingGroupRecommendations" => list(auto_scaling_group_recommendation()),
+        "errors" => list(get_recommendation_error()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_auto_scaling_group_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_e_c_s_service_recommendation_projected_metrics_request() :: %{
+        required("endTime") => non_neg_integer(),
+        required("period") => integer(),
+        required("serviceArn") => String.t() | atom(),
+        required("startTime") => non_neg_integer(),
+        required("stat") => list(any())
+      }
+      
+  """
+  @type get_e_c_s_service_recommendation_projected_metrics_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_e_c_s_service_recommendation_projected_metrics_response() :: %{
+        "recommendedOptionProjectedMetrics" => list(e_c_s_service_recommended_option_projected_metric())
+      }
+      
+  """
+  @type get_e_c_s_service_recommendation_projected_metrics_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_e_c_s_service_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("filters") => list(e_c_s_service_recommendation_filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("serviceArns") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_e_c_s_service_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_e_c_s_service_recommendations_response() :: %{
+        "ecsServiceRecommendations" => list(e_c_s_service_recommendation()),
+        "errors" => list(get_recommendation_error()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_e_c_s_service_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ebs_volume_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("filters") => list(ebs_filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("volumeArns") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_ebs_volume_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ebs_volume_recommendations_response() :: %{
+        "errors" => list(get_recommendation_error()),
+        "nextToken" => String.t() | atom(),
+        "volumeRecommendations" => list(volume_recommendation())
+      }
+      
+  """
+  @type get_ebs_volume_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ec2_instance_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("filters") => list(filter()),
+        optional("instanceArns") => list(String.t() | atom()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("recommendationPreferences") => recommendation_preferences()
+      }
+      
+  """
+  @type get_ec2_instance_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ec2_instance_recommendations_response() :: %{
+        "errors" => list(get_recommendation_error()),
+        "instanceRecommendations" => list(instance_recommendation()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_ec2_instance_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ec2_recommendation_projected_metrics_request() :: %{
+        optional("recommendationPreferences") => recommendation_preferences(),
+        required("endTime") => non_neg_integer(),
+        required("instanceArn") => String.t() | atom(),
+        required("period") => integer(),
+        required("startTime") => non_neg_integer(),
+        required("stat") => list(any())
+      }
+      
+  """
+  @type get_ec2_recommendation_projected_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ec2_recommendation_projected_metrics_response() :: %{
+        "recommendedOptionProjectedMetrics" => list(recommended_option_projected_metric())
+      }
+      
+  """
+  @type get_ec2_recommendation_projected_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_effective_recommendation_preferences_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_effective_recommendation_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_effective_recommendation_preferences_response() :: %{
+        "enhancedInfrastructureMetrics" => list(any()),
+        "externalMetricsPreference" => external_metrics_preference(),
+        "lookBackPeriod" => list(any()),
+        "preferredResources" => list(effective_preferred_resource()),
+        "utilizationPreferences" => list(utilization_preference())
+      }
+      
+  """
+  @type get_effective_recommendation_preferences_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_enrollment_status_request() :: %{}
+      
+  """
+  @type get_enrollment_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_enrollment_status_response() :: %{
+        "lastUpdatedTimestamp" => non_neg_integer(),
+        "memberAccountsEnrolled" => boolean(),
+        "numberOfMemberAccountsOptedIn" => integer(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom()
+      }
+      
+  """
+  @type get_enrollment_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_enrollment_statuses_for_organization_request() :: %{
+        optional("filters") => list(enrollment_filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_enrollment_statuses_for_organization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_enrollment_statuses_for_organization_response() :: %{
+        "accountEnrollmentStatuses" => list(account_enrollment_status()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_enrollment_statuses_for_organization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -86,6 +1066,74 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type get_idle_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_idle_recommendations_response() :: %{
+        "errors" => list(idle_recommendation_error()),
+        "idleRecommendations" => list(idle_recommendation()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_idle_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lambda_function_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("filters") => list(lambda_function_recommendation_filter()),
+        optional("functionArns") => list(String.t() | atom()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_lambda_function_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lambda_function_recommendations_response() :: %{
+        "lambdaFunctionRecommendations" => list(lambda_function_recommendation()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_lambda_function_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_license_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("filters") => list(license_recommendation_filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceArns") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_license_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_license_recommendations_response() :: %{
+        "errors" => list(get_recommendation_error()),
+        "licenseRecommendations" => list(license_recommendation()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_license_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -109,25 +1157,95 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
-      s3_destination_config() :: %{
-        "bucket" => String.t() | atom(),
-        "keyPrefix" => String.t() | atom()
+      get_rds_database_recommendation_projected_metrics_response() :: %{
+        "recommendedOptionProjectedMetrics" => list(rds_database_recommended_option_projected_metric())
       }
       
   """
-  @type s3_destination_config() :: %{(String.t() | atom()) => any()}
+  @type get_rds_database_recommendation_projected_metrics_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
-      estimated_monthly_savings() :: %{
-        "currency" => list(any()),
-        "value" => float()
+      get_rds_database_recommendations_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("filters") => list(rds_db_recommendation_filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("recommendationPreferences") => recommendation_preferences(),
+        optional("resourceArns") => list(String.t() | atom())
       }
       
   """
-  @type estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
+  @type get_rds_database_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rds_database_recommendations_response() :: %{
+        "errors" => list(get_recommendation_error()),
+        "nextToken" => String.t() | atom(),
+        "rdsDBRecommendations" => list(rds_db_recommendation())
+      }
+      
+  """
+  @type get_rds_database_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_recommendation_error() :: %{
+        "code" => String.t() | atom(),
+        "identifier" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type get_recommendation_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_recommendation_preferences_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("scope") => scope(),
+        required("resourceType") => list(any())
+      }
+      
+  """
+  @type get_recommendation_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_recommendation_preferences_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "recommendationPreferencesDetails" => list(recommendation_preferences_detail())
+      }
+      
+  """
+  @type get_recommendation_preferences_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_recommendation_summaries_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_recommendation_summaries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -145,60 +1263,132 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
-      ebs_filter() :: %{
+      gpu() :: %{
+        "gpuCount" => integer(),
+        "gpuMemorySizeInMiB" => integer()
+      }
+      
+  """
+  @type gpu() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gpu_info() :: %{
+        "gpus" => list(gpu())
+      }
+      
+  """
+  @type gpu_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idle_dimension() :: %{
+        "key" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type idle_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idle_estimated_monthly_savings() :: %{
+        "currency" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type idle_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idle_recommendation() :: %{
+        "accountId" => String.t() | atom(),
+        "finding" => list(any()),
+        "findingDescription" => String.t() | atom(),
+        "lastRefreshTimestamp" => non_neg_integer(),
+        "lookBackPeriodInDays" => float(),
+        "resourceArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => list(any()),
+        "savingsOpportunity" => idle_savings_opportunity(),
+        "savingsOpportunityAfterDiscounts" => idle_savings_opportunity_after_discounts(),
+        "tags" => list(tag()),
+        "utilizationMetrics" => list(idle_utilization_metric())
+      }
+      
+  """
+  @type idle_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idle_recommendation_error() :: %{
+        "code" => String.t() | atom(),
+        "identifier" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type idle_recommendation_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idle_recommendation_filter() :: %{
         "name" => list(any()),
         "values" => list(String.t() | atom())
       }
       
   """
-  @type ebs_filter() :: %{(String.t() | atom()) => any()}
+  @type idle_recommendation_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      effective_preferred_resource() :: %{
-        "effectiveIncludeList" => list(String.t() | atom()),
-        "excludeList" => list(String.t() | atom()),
-        "includeList" => list(String.t() | atom()),
-        "name" => list(any())
+      idle_savings_opportunity() :: %{
+        "estimatedMonthlySavings" => idle_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
       }
       
   """
-  @type effective_preferred_resource() :: %{(String.t() | atom()) => any()}
+  @type idle_savings_opportunity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      export_e_c_s_service_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("fieldsToExport") => list(list(any())()),
-        optional("fileFormat") => list(any()),
-        optional("filters") => list(e_c_s_service_recommendation_filter()),
-        optional("includeMemberAccounts") => boolean(),
-        required("s3DestinationConfig") => s3_destination_config()
+      idle_savings_opportunity_after_discounts() :: %{
+        "estimatedMonthlySavings" => idle_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
       }
       
   """
-  @type export_e_c_s_service_recommendations_request() :: %{(String.t() | atom()) => any()}
+  @type idle_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      recommendation_export_job() :: %{
-        "creationTimestamp" => non_neg_integer(),
-        "destination" => export_destination(),
-        "failureReason" => String.t() | atom(),
-        "jobId" => String.t() | atom(),
-        "lastUpdatedTimestamp" => non_neg_integer(),
-        "resourceType" => list(any()),
-        "status" => list(any())
+      idle_summary() :: %{
+        "name" => list(any()),
+        "value" => float()
       }
       
   """
-  @type recommendation_export_job() :: %{(String.t() | atom()) => any()}
+  @type idle_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,39 +1408,25 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
+      inferred_workload_saving() :: %{
+        "estimatedMonthlySavings" => estimated_monthly_savings(),
+        "inferredWorkloadTypes" => list(list(any())())
       }
       
   """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+  @type inferred_workload_saving() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      export_e_c_s_service_recommendations_response() :: %{
-        "jobId" => String.t() | atom(),
-        "s3Destination" => s3_destination()
+      instance_estimated_monthly_savings() :: %{
+        "currency" => list(any()),
+        "value" => float()
       }
       
   """
-  @type export_e_c_s_service_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_lambda_function_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("filters") => list(lambda_function_recommendation_filter()),
-        optional("functionArns") => list(String.t() | atom()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_lambda_function_recommendations_request() :: %{(String.t() | atom()) => any()}
+  @type instance_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -285,170 +1461,88 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
-      container_configuration() :: %{
-        "containerName" => String.t() | atom(),
-        "cpu" => integer(),
-        "memorySizeConfiguration" => memory_size_configuration()
-      }
-      
-  """
-  @type container_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      missing_authentication_token() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type missing_authentication_token() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_license_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("filters") => list(license_recommendation_filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceArns") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_license_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_recommendation_preferences_response() :: %{}
-      
-  """
-  @type delete_recommendation_preferences_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      order_by() :: %{
-        "dimension" => list(any()),
-        "order" => list(any())
-      }
-      
-  """
-  @type order_by() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scope() :: %{
-        "name" => list(any()),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type scope() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      auto_scaling_group_savings_opportunity_after_discounts() :: %{
-        "estimatedMonthlySavings" => auto_scaling_group_estimated_monthly_savings(),
-        "savingsOpportunityPercentage" => float()
-      }
-      
-  """
-  @type auto_scaling_group_savings_opportunity_after_discounts() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recommendation_preferences() :: %{
-        "cpuVendorArchitectures" => list(list(any())())
-      }
-      
-  """
-  @type recommendation_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      utilization_preference() :: %{
-        "metricName" => list(any()),
-        "metricParameters" => customizable_metric_parameters()
-      }
-      
-  """
-  @type utilization_preference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      volume_recommendation_option() :: %{
-        "configuration" => volume_configuration(),
+      instance_recommendation_option() :: %{
+        "instanceGpuInfo" => gpu_info(),
+        "instanceType" => String.t() | atom(),
+        "migrationEffort" => list(any()),
         "performanceRisk" => float(),
+        "platformDifferences" => list(list(any())()),
+        "projectedUtilizationMetrics" => list(utilization_metric()),
         "rank" => integer(),
         "savingsOpportunity" => savings_opportunity(),
-        "savingsOpportunityAfterDiscounts" => ebs_savings_opportunity_after_discounts()
+        "savingsOpportunityAfterDiscounts" => instance_savings_opportunity_after_discounts()
       }
       
   """
-  @type volume_recommendation_option() :: %{(String.t() | atom()) => any()}
+  @type instance_recommendation_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      external_metrics_preference() :: %{
+      instance_savings_estimation_mode() :: %{
         "source" => list(any())
       }
       
   """
-  @type external_metrics_preference() :: %{(String.t() | atom()) => any()}
+  @type instance_savings_estimation_mode() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
+      instance_savings_opportunity_after_discounts() :: %{
+        "estimatedMonthlySavings" => instance_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
       }
       
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type instance_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_value_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_filter() :: %{
+        "name" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type job_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_effective_recommendation_preferences() :: %{
+        "savingsEstimationMode" => lambda_savings_estimation_mode()
+      }
+      
+  """
+  @type lambda_effective_recommendation_preferences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -466,262 +1560,29 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
-      delete_recommendation_preferences_request() :: %{
-        optional("scope") => scope(),
-        required("recommendationPreferenceNames") => list(list(any())()),
-        required("resourceType") => list(any())
-      }
-      
-  """
-  @type delete_recommendation_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_database_projected_metric() :: %{
-        "name" => list(any()),
-        "timestamps" => list(non_neg_integer()),
-        "values" => list(float())
-      }
-      
-  """
-  @type rds_database_projected_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      license_recommendation() :: %{
-        "accountId" => String.t() | atom(),
-        "currentLicenseConfiguration" => license_configuration(),
-        "finding" => list(any()),
-        "findingReasonCodes" => list(list(any())()),
-        "lastRefreshTimestamp" => non_neg_integer(),
-        "licenseRecommendationOptions" => list(license_recommendation_option()),
-        "lookbackPeriodInDays" => float(),
-        "resourceArn" => String.t() | atom(),
-        "tags" => list(tag())
-      }
-      
-  """
-  @type license_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_auto_scaling_group_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("fieldsToExport") => list(list(any())()),
-        optional("fileFormat") => list(any()),
-        optional("filters") => list(filter()),
-        optional("includeMemberAccounts") => boolean(),
-        optional("recommendationPreferences") => recommendation_preferences(),
-        required("s3DestinationConfig") => s3_destination_config()
-      }
-      
-  """
-  @type export_auto_scaling_group_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_db_utilization_metric() :: %{
+      lambda_function_memory_projected_metric() :: %{
         "name" => list(any()),
         "statistic" => list(any()),
         "value" => float()
       }
       
   """
-  @type rds_db_utilization_metric() :: %{(String.t() | atom()) => any()}
+  @type lambda_function_memory_projected_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      inferred_workload_saving() :: %{
-        "estimatedMonthlySavings" => estimated_monthly_savings(),
-        "inferredWorkloadTypes" => list(list(any())())
-      }
-      
-  """
-  @type inferred_workload_saving() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_license_recommendations_response() :: %{
-        "jobId" => String.t() | atom(),
-        "s3Destination" => s3_destination()
-      }
-      
-  """
-  @type export_license_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      e_c_s_savings_estimation_mode() :: %{
-        "source" => list(any())
-      }
-      
-  """
-  @type e_c_s_savings_estimation_mode() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_ebs_volume_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("fieldsToExport") => list(list(any())()),
-        optional("fileFormat") => list(any()),
-        optional("filters") => list(ebs_filter()),
-        optional("includeMemberAccounts") => boolean(),
-        required("s3DestinationConfig") => s3_destination_config()
-      }
-      
-  """
-  @type export_ebs_volume_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_enrollment_statuses_for_organization_response() :: %{
-        "accountEnrollmentStatuses" => list(account_enrollment_status()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_enrollment_statuses_for_organization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      preferred_resource() :: %{
-        "excludeList" => list(String.t() | atom()),
-        "includeList" => list(String.t() | atom()),
-        "name" => list(any())
-      }
-      
-  """
-  @type preferred_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_lambda_function_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("fieldsToExport") => list(list(any())()),
-        optional("fileFormat") => list(any()),
-        optional("filters") => list(lambda_function_recommendation_filter()),
-        optional("includeMemberAccounts") => boolean(),
-        required("s3DestinationConfig") => s3_destination_config()
-      }
-      
-  """
-  @type export_lambda_function_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      auto_scaling_group_configuration() :: %{
-        "allocationStrategy" => list(any()),
-        "desiredCapacity" => integer(),
-        "estimatedInstanceHourReductionPercentage" => float(),
-        "instanceType" => String.t() | atom(),
-        "maxSize" => integer(),
-        "minSize" => integer(),
-        "mixedInstanceTypes" => list(String.t() | atom()),
-        "type" => list(any())
-      }
-      
-  """
-  @type auto_scaling_group_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      gpu() :: %{
-        "gpuCount" => integer(),
-        "gpuMemorySizeInMiB" => integer()
-      }
-      
-  """
-  @type gpu() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      idle_recommendation() :: %{
-        "accountId" => String.t() | atom(),
-        "finding" => list(any()),
-        "findingDescription" => String.t() | atom(),
-        "lastRefreshTimestamp" => non_neg_integer(),
-        "lookBackPeriodInDays" => float(),
-        "resourceArn" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => list(any()),
-        "savingsOpportunity" => idle_savings_opportunity(),
-        "savingsOpportunityAfterDiscounts" => idle_savings_opportunity_after_discounts(),
-        "tags" => list(tag()),
-        "utilizationMetrics" => list(idle_utilization_metric())
-      }
-      
-  """
-  @type idle_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recommendation_summary() :: %{
-        "accountId" => String.t() | atom(),
-        "aggregatedSavingsOpportunity" => savings_opportunity(),
-        "currentPerformanceRiskRatings" => current_performance_risk_ratings(),
-        "idleSavingsOpportunity" => savings_opportunity(),
-        "idleSummaries" => list(idle_summary()),
-        "inferredWorkloadSavings" => list(inferred_workload_saving()),
-        "recommendationResourceType" => list(any()),
+      lambda_function_memory_recommendation_option() :: %{
+        "memorySize" => integer(),
+        "projectedUtilizationMetrics" => list(lambda_function_memory_projected_metric()),
+        "rank" => integer(),
         "savingsOpportunity" => savings_opportunity(),
-        "summaries" => list(summary())
+        "savingsOpportunityAfterDiscounts" => lambda_savings_opportunity_after_discounts()
       }
       
   """
-  @type recommendation_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      e_c_s_savings_opportunity_after_discounts() :: %{
-        "estimatedMonthlySavings" => e_c_s_estimated_monthly_savings(),
-        "savingsOpportunityPercentage" => float()
-      }
-      
-  """
-  @type e_c_s_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
+  @type lambda_function_memory_recommendation_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -751,75 +1612,13 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
-      e_c_s_service_recommendation_filter() :: %{
+      lambda_function_recommendation_filter() :: %{
         "name" => list(any()),
         "values" => list(String.t() | atom())
       }
       
   """
-  @type e_c_s_service_recommendation_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_enrollment_status_response() :: %{
-        "status" => list(any()),
-        "statusReason" => String.t() | atom()
-      }
-      
-  """
-  @type update_enrollment_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      auto_scaling_group_estimated_monthly_savings() :: %{
-        "currency" => list(any()),
-        "value" => float()
-      }
-      
-  """
-  @type auto_scaling_group_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_value_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      opt_in_required_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type opt_in_required_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_ec2_instance_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("filters") => list(filter()),
-        optional("instanceArns") => list(String.t() | atom()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("recommendationPreferences") => recommendation_preferences()
-      }
-      
-  """
-  @type get_ec2_instance_recommendations_request() :: %{(String.t() | atom()) => any()}
+  @type lambda_function_recommendation_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -838,106 +1637,253 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
-      e_c_s_effective_recommendation_preferences() :: %{
-        "lookBackPeriod" => list(any()),
-        "savingsEstimationMode" => e_c_s_savings_estimation_mode()
+      lambda_savings_estimation_mode() :: %{
+        "source" => list(any())
       }
       
   """
-  @type e_c_s_effective_recommendation_preferences() :: %{(String.t() | atom()) => any()}
+  @type lambda_savings_estimation_mode() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      export_idle_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("fieldsToExport") => list(list(any())()),
-        optional("fileFormat") => list(any()),
-        optional("filters") => list(idle_recommendation_filter()),
-        optional("includeMemberAccounts") => boolean(),
-        required("s3DestinationConfig") => s3_destination_config()
+      lambda_savings_opportunity_after_discounts() :: %{
+        "estimatedMonthlySavings" => lambda_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
       }
       
   """
-  @type export_idle_recommendations_request() :: %{(String.t() | atom()) => any()}
+  @type lambda_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      volume_configuration() :: %{
-        "rootVolume" => boolean(),
-        "volumeBaselineIOPS" => integer(),
-        "volumeBaselineThroughput" => integer(),
-        "volumeBurstIOPS" => integer(),
-        "volumeBurstThroughput" => integer(),
-        "volumeSize" => integer(),
-        "volumeType" => String.t() | atom()
+      license_configuration() :: %{
+        "instanceType" => String.t() | atom(),
+        "licenseEdition" => list(any()),
+        "licenseModel" => list(any()),
+        "licenseName" => list(any()),
+        "licenseVersion" => String.t() | atom(),
+        "metricsSource" => list(metric_source()),
+        "numberOfCores" => integer(),
+        "operatingSystem" => String.t() | atom()
       }
       
   """
-  @type volume_configuration() :: %{(String.t() | atom()) => any()}
+  @type license_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      effective_recommendation_preferences() :: %{
-        "cpuVendorArchitectures" => list(list(any())()),
-        "enhancedInfrastructureMetrics" => list(any()),
-        "externalMetricsPreference" => external_metrics_preference(),
-        "inferredWorkloadTypes" => list(any()),
-        "lookBackPeriod" => list(any()),
-        "preferredResources" => list(effective_preferred_resource()),
-        "savingsEstimationMode" => instance_savings_estimation_mode(),
-        "utilizationPreferences" => list(utilization_preference())
+      license_recommendation() :: %{
+        "accountId" => String.t() | atom(),
+        "currentLicenseConfiguration" => license_configuration(),
+        "finding" => list(any()),
+        "findingReasonCodes" => list(list(any())()),
+        "lastRefreshTimestamp" => non_neg_integer(),
+        "licenseRecommendationOptions" => list(license_recommendation_option()),
+        "lookbackPeriodInDays" => float(),
+        "resourceArn" => String.t() | atom(),
+        "tags" => list(tag())
       }
       
   """
-  @type effective_recommendation_preferences() :: %{(String.t() | atom()) => any()}
+  @type license_recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_rds_database_recommendation_projected_metrics_response() :: %{
-        "recommendedOptionProjectedMetrics" => list(rds_database_recommended_option_projected_metric())
+      license_recommendation_filter() :: %{
+        "name" => list(any()),
+        "values" => list(String.t() | atom())
       }
       
   """
-  @type get_rds_database_recommendation_projected_metrics_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type license_recommendation_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      gpu_info() :: %{
-        "gpus" => list(gpu())
+      license_recommendation_option() :: %{
+        "licenseEdition" => list(any()),
+        "licenseModel" => list(any()),
+        "operatingSystem" => String.t() | atom(),
+        "rank" => integer(),
+        "savingsOpportunity" => savings_opportunity()
       }
       
   """
-  @type gpu_info() :: %{(String.t() | atom()) => any()}
+  @type license_recommendation_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      auto_scaling_group_recommendation_option() :: %{
-        "configuration" => auto_scaling_group_configuration(),
-        "instanceGpuInfo" => gpu_info(),
-        "migrationEffort" => list(any()),
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      memory_size_configuration() :: %{
+        "memory" => integer(),
+        "memoryReservation" => integer()
+      }
+      
+  """
+  @type memory_size_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_source() :: %{
+        "provider" => list(any()),
+        "providerArn" => String.t() | atom()
+      }
+      
+  """
+  @type metric_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      missing_authentication_token() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type missing_authentication_token() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opt_in_required_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type opt_in_required_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      order_by() :: %{
+        "dimension" => list(any()),
+        "order" => list(any())
+      }
+      
+  """
+  @type order_by() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      preferred_resource() :: %{
+        "excludeList" => list(String.t() | atom()),
+        "includeList" => list(String.t() | atom()),
+        "name" => list(any())
+      }
+      
+  """
+  @type preferred_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      projected_metric() :: %{
+        "name" => list(any()),
+        "timestamps" => list(non_neg_integer()),
+        "values" => list(float())
+      }
+      
+  """
+  @type projected_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_recommendation_preferences_request() :: %{
+        optional("enhancedInfrastructureMetrics") => list(any()),
+        optional("externalMetricsPreference") => external_metrics_preference(),
+        optional("inferredWorkloadTypes") => list(any()),
+        optional("lookBackPeriod") => list(any()),
+        optional("preferredResources") => list(preferred_resource()),
+        optional("savingsEstimationMode") => list(any()),
+        optional("scope") => scope(),
+        optional("utilizationPreferences") => list(utilization_preference()),
+        required("resourceType") => list(any())
+      }
+      
+  """
+  @type put_recommendation_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_recommendation_preferences_response() :: %{}
+      
+  """
+  @type put_recommendation_preferences_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_database_projected_metric() :: %{
+        "name" => list(any()),
+        "timestamps" => list(non_neg_integer()),
+        "values" => list(float())
+      }
+      
+  """
+  @type rds_database_projected_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_database_recommended_option_projected_metric() :: %{
+        "projectedMetrics" => list(rds_database_projected_metric()),
+        "rank" => integer(),
+        "recommendedDBInstanceClass" => String.t() | atom()
+      }
+      
+  """
+  @type rds_database_recommended_option_projected_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_db_instance_recommendation_option() :: %{
+        "dbInstanceClass" => String.t() | atom(),
         "performanceRisk" => float(),
-        "projectedUtilizationMetrics" => list(utilization_metric()),
+        "projectedUtilizationMetrics" => list(rds_db_utilization_metric()),
         "rank" => integer(),
         "savingsOpportunity" => savings_opportunity(),
-        "savingsOpportunityAfterDiscounts" => auto_scaling_group_savings_opportunity_after_discounts()
+        "savingsOpportunityAfterDiscounts" => rds_instance_savings_opportunity_after_discounts()
       }
       
   """
-  @type auto_scaling_group_recommendation_option() :: %{(String.t() | atom()) => any()}
+  @type rds_db_instance_recommendation_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -975,13 +1921,90 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
-      idle_dimension() :: %{
-        "key" => String.t() | atom(),
+      rds_db_recommendation_filter() :: %{
+        "name" => list(any()),
         "values" => list(String.t() | atom())
       }
       
   """
-  @type idle_dimension() :: %{(String.t() | atom()) => any()}
+  @type rds_db_recommendation_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_db_storage_recommendation_option() :: %{
+        "estimatedMonthlyVolumeIOPsCostVariation" => list(any()),
+        "rank" => integer(),
+        "savingsOpportunity" => savings_opportunity(),
+        "savingsOpportunityAfterDiscounts" => rds_storage_savings_opportunity_after_discounts(),
+        "storageConfiguration" => db_storage_configuration()
+      }
+      
+  """
+  @type rds_db_storage_recommendation_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_db_utilization_metric() :: %{
+        "name" => list(any()),
+        "statistic" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type rds_db_utilization_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_effective_recommendation_preferences() :: %{
+        "cpuVendorArchitectures" => list(list(any())()),
+        "enhancedInfrastructureMetrics" => list(any()),
+        "lookBackPeriod" => list(any()),
+        "savingsEstimationMode" => rds_savings_estimation_mode()
+      }
+      
+  """
+  @type rds_effective_recommendation_preferences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_instance_estimated_monthly_savings() :: %{
+        "currency" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type rds_instance_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_instance_savings_opportunity_after_discounts() :: %{
+        "estimatedMonthlySavings" => rds_instance_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
+      }
+      
+  """
+  @type rds_instance_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_savings_estimation_mode() :: %{
+        "source" => list(any())
+      }
+      
+  """
+  @type rds_savings_estimation_mode() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -994,6 +2017,58 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type rds_storage_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_storage_savings_opportunity_after_discounts() :: %{
+        "estimatedMonthlySavings" => rds_storage_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
+      }
+      
+  """
+  @type rds_storage_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reason_code_summary() :: %{
+        "name" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type reason_code_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recommendation_export_job() :: %{
+        "creationTimestamp" => non_neg_integer(),
+        "destination" => export_destination(),
+        "failureReason" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "lastUpdatedTimestamp" => non_neg_integer(),
+        "resourceType" => list(any()),
+        "status" => list(any())
+      }
+      
+  """
+  @type recommendation_export_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recommendation_preferences() :: %{
+        "cpuVendorArchitectures" => list(list(any())())
+      }
+      
+  """
+  @type recommendation_preferences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1018,25 +2093,105 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
-      license_recommendation_filter() :: %{
-        "name" => list(any()),
-        "values" => list(String.t() | atom())
+      recommendation_source() :: %{
+        "recommendationSourceArn" => String.t() | atom(),
+        "recommendationSourceType" => list(any())
       }
       
   """
-  @type license_recommendation_filter() :: %{(String.t() | atom()) => any()}
+  @type recommendation_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      metric_source() :: %{
-        "provider" => list(any()),
-        "providerArn" => String.t() | atom()
+      recommendation_summary() :: %{
+        "accountId" => String.t() | atom(),
+        "aggregatedSavingsOpportunity" => savings_opportunity(),
+        "currentPerformanceRiskRatings" => current_performance_risk_ratings(),
+        "idleSavingsOpportunity" => savings_opportunity(),
+        "idleSummaries" => list(idle_summary()),
+        "inferredWorkloadSavings" => list(inferred_workload_saving()),
+        "recommendationResourceType" => list(any()),
+        "savingsOpportunity" => savings_opportunity(),
+        "summaries" => list(summary())
       }
       
   """
-  @type metric_source() :: %{(String.t() | atom()) => any()}
+  @type recommendation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recommended_option_projected_metric() :: %{
+        "projectedMetrics" => list(projected_metric()),
+        "rank" => integer(),
+        "recommendedInstanceType" => String.t() | atom()
+      }
+      
+  """
+  @type recommended_option_projected_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_destination() :: %{
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "metadataKey" => String.t() | atom()
+      }
+      
+  """
+  @type s3_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_destination_config() :: %{
+        "bucket" => String.t() | atom(),
+        "keyPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type s3_destination_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_opportunity() :: %{
+        "estimatedMonthlySavings" => estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
+      }
+      
+  """
+  @type savings_opportunity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scope() :: %{
+        "name" => list(any()),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1057,6 +2212,77 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      summary() :: %{
+        "name" => list(any()),
+        "reasonCodeSummaries" => list(reason_code_summary()),
+        "value" => float()
+      }
+      
+  """
+  @type summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_enrollment_status_request() :: %{
+        optional("includeMemberAccounts") => boolean(),
+        required("status") => list(any())
+      }
+      
+  """
+  @type update_enrollment_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_enrollment_status_response() :: %{
+        "status" => list(any()),
+        "statusReason" => String.t() | atom()
+      }
+      
+  """
+  @type update_enrollment_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       utilization_metric() :: %{
         "name" => list(any()),
         "statistic" => list(any()),
@@ -1070,70 +2296,30 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
+      utilization_preference() :: %{
+        "metricName" => list(any()),
+        "metricParameters" => customizable_metric_parameters()
       }
       
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type utilization_preference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_ec2_instance_recommendations_response() :: %{
-        "errors" => list(get_recommendation_error()),
-        "instanceRecommendations" => list(instance_recommendation()),
-        "nextToken" => String.t() | atom()
+      volume_configuration() :: %{
+        "rootVolume" => boolean(),
+        "volumeBaselineIOPS" => integer(),
+        "volumeBaselineThroughput" => integer(),
+        "volumeBurstIOPS" => integer(),
+        "volumeBurstThroughput" => integer(),
+        "volumeSize" => integer(),
+        "volumeType" => String.t() | atom()
       }
       
   """
-  @type get_ec2_instance_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_ec2_recommendation_projected_metrics_response() :: %{
-        "recommendedOptionProjectedMetrics" => list(recommended_option_projected_metric())
-      }
-      
-  """
-  @type get_ec2_recommendation_projected_metrics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      savings_opportunity() :: %{
-        "estimatedMonthlySavings" => estimated_monthly_savings(),
-        "savingsOpportunityPercentage" => float()
-      }
-      
-  """
-  @type savings_opportunity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_savings_estimation_mode() :: %{
-        "source" => list(any())
-      }
-      
-  """
-  @type lambda_savings_estimation_mode() :: %{(String.t() | atom()) => any()}
+  @type volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1160,1475 +2346,289 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
-      auto_scaling_group_recommendation() :: %{
-        "accountId" => String.t() | atom(),
-        "autoScalingGroupArn" => String.t() | atom(),
-        "autoScalingGroupName" => String.t() | atom(),
-        "currentConfiguration" => auto_scaling_group_configuration(),
-        "currentInstanceGpuInfo" => gpu_info(),
-        "currentPerformanceRisk" => list(any()),
-        "effectiveRecommendationPreferences" => effective_recommendation_preferences(),
-        "finding" => list(any()),
-        "inferredWorkloadTypes" => list(list(any())()),
-        "lastRefreshTimestamp" => non_neg_integer(),
-        "lookBackPeriodInDays" => float(),
-        "recommendationOptions" => list(auto_scaling_group_recommendation_option()),
-        "utilizationMetrics" => list(utilization_metric())
-      }
-      
-  """
-  @type auto_scaling_group_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      projected_metric() :: %{
-        "name" => list(any()),
-        "timestamps" => list(non_neg_integer()),
-        "values" => list(float())
-      }
-      
-  """
-  @type projected_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      e_c_s_service_utilization_metric() :: %{
-        "name" => list(any()),
-        "statistic" => list(any()),
-        "value" => float()
-      }
-      
-  """
-  @type e_c_s_service_utilization_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_enrollment_status_response() :: %{
-        "lastUpdatedTimestamp" => non_neg_integer(),
-        "memberAccountsEnrolled" => boolean(),
-        "numberOfMemberAccountsOptedIn" => integer(),
-        "status" => list(any()),
-        "statusReason" => String.t() | atom()
-      }
-      
-  """
-  @type get_enrollment_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      e_c_s_service_projected_metric() :: %{
-        "lowerBoundValues" => list(float()),
-        "name" => list(any()),
-        "timestamps" => list(non_neg_integer()),
-        "upperBoundValues" => list(float())
-      }
-      
-  """
-  @type e_c_s_service_projected_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_recommendation_export_jobs_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "recommendationExportJobs" => list(recommendation_export_job())
-      }
-      
-  """
-  @type describe_recommendation_export_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_auto_scaling_group_recommendations_response() :: %{
-        "jobId" => String.t() | atom(),
-        "s3Destination" => s3_destination()
-      }
-      
-  """
-  @type export_auto_scaling_group_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      idle_savings_opportunity_after_discounts() :: %{
-        "estimatedMonthlySavings" => idle_estimated_monthly_savings(),
-        "savingsOpportunityPercentage" => float()
-      }
-      
-  """
-  @type idle_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_savings_opportunity_after_discounts() :: %{
-        "estimatedMonthlySavings" => lambda_estimated_monthly_savings(),
-        "savingsOpportunityPercentage" => float()
-      }
-      
-  """
-  @type lambda_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_lambda_function_recommendations_response() :: %{
-        "jobId" => String.t() | atom(),
-        "s3Destination" => s3_destination()
-      }
-      
-  """
-  @type export_lambda_function_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_recommendation_preferences_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "recommendationPreferencesDetails" => list(recommendation_preferences_detail())
-      }
-      
-  """
-  @type get_recommendation_preferences_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_enrollment_status_request() :: %{}
-      
-  """
-  @type get_enrollment_status_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_db_instance_recommendation_option() :: %{
-        "dbInstanceClass" => String.t() | atom(),
+      volume_recommendation_option() :: %{
+        "configuration" => volume_configuration(),
         "performanceRisk" => float(),
-        "projectedUtilizationMetrics" => list(rds_db_utilization_metric()),
         "rank" => integer(),
         "savingsOpportunity" => savings_opportunity(),
-        "savingsOpportunityAfterDiscounts" => rds_instance_savings_opportunity_after_discounts()
+        "savingsOpportunityAfterDiscounts" => ebs_savings_opportunity_after_discounts()
       }
       
   """
-  @type rds_db_instance_recommendation_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_enrollment_statuses_for_organization_request() :: %{
-        optional("filters") => list(enrollment_filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_enrollment_statuses_for_organization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_destination() :: %{
-        "s3" => s3_destination()
-      }
-      
-  """
-  @type export_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reason_code_summary() :: %{
-        "name" => list(any()),
-        "value" => float()
-      }
-      
-  """
-  @type reason_code_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_function_memory_projected_metric() :: %{
-        "name" => list(any()),
-        "statistic" => list(any()),
-        "value" => float()
-      }
-      
-  """
-  @type lambda_function_memory_projected_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_ebs_volume_recommendations_response() :: %{
-        "errors" => list(get_recommendation_error()),
-        "nextToken" => String.t() | atom(),
-        "volumeRecommendations" => list(volume_recommendation())
-      }
-      
-  """
-  @type get_ebs_volume_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_db_storage_recommendation_option() :: %{
-        "estimatedMonthlyVolumeIOPsCostVariation" => list(any()),
-        "rank" => integer(),
-        "savingsOpportunity" => savings_opportunity(),
-        "savingsOpportunityAfterDiscounts" => rds_storage_savings_opportunity_after_discounts(),
-        "storageConfiguration" => db_storage_configuration()
-      }
-      
-  """
-  @type rds_db_storage_recommendation_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      instance_savings_estimation_mode() :: %{
-        "source" => list(any())
-      }
-      
-  """
-  @type instance_savings_estimation_mode() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ebs_utilization_metric() :: %{
-        "name" => list(any()),
-        "statistic" => list(any()),
-        "value" => float()
-      }
-      
-  """
-  @type ebs_utilization_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      current_performance_risk_ratings() :: %{
-        "high" => float(),
-        "low" => float(),
-        "medium" => float(),
-        "veryLow" => float()
-      }
-      
-  """
-  @type current_performance_risk_ratings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_effective_recommendation_preferences_response() :: %{
-        "enhancedInfrastructureMetrics" => list(any()),
-        "externalMetricsPreference" => external_metrics_preference(),
-        "lookBackPeriod" => list(any()),
-        "preferredResources" => list(effective_preferred_resource()),
-        "utilizationPreferences" => list(utilization_preference())
-      }
-      
-  """
-  @type get_effective_recommendation_preferences_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      summary() :: %{
-        "name" => list(any()),
-        "reasonCodeSummaries" => list(reason_code_summary()),
-        "value" => float()
-      }
-      
-  """
-  @type summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      e_c_s_service_recommendation_option() :: %{
-        "containerRecommendations" => list(container_recommendation()),
-        "cpu" => integer(),
-        "memory" => integer(),
-        "projectedUtilizationMetrics" => list(e_c_s_service_projected_utilization_metric()),
-        "savingsOpportunity" => savings_opportunity(),
-        "savingsOpportunityAfterDiscounts" => e_c_s_savings_opportunity_after_discounts()
-      }
-      
-  """
-  @type e_c_s_service_recommendation_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_license_recommendations_response() :: %{
-        "errors" => list(get_recommendation_error()),
-        "licenseRecommendations" => list(license_recommendation()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_license_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_ec2_instance_recommendations_response() :: %{
-        "jobId" => String.t() | atom(),
-        "s3Destination" => s3_destination()
-      }
-      
-  """
-  @type export_ec2_instance_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      external_metric_status() :: %{
-        "statusCode" => list(any()),
-        "statusReason" => String.t() | atom()
-      }
-      
-  """
-  @type external_metric_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      idle_savings_opportunity() :: %{
-        "estimatedMonthlySavings" => idle_estimated_monthly_savings(),
-        "savingsOpportunityPercentage" => float()
-      }
-      
-  """
-  @type idle_savings_opportunity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      e_c_s_service_recommendation() :: %{
-        "accountId" => String.t() | atom(),
-        "currentPerformanceRisk" => list(any()),
-        "currentServiceConfiguration" => service_configuration(),
-        "effectiveRecommendationPreferences" => e_c_s_effective_recommendation_preferences(),
-        "finding" => list(any()),
-        "findingReasonCodes" => list(list(any())()),
-        "lastRefreshTimestamp" => non_neg_integer(),
-        "launchType" => list(any()),
-        "lookbackPeriodInDays" => float(),
-        "serviceArn" => String.t() | atom(),
-        "serviceRecommendationOptions" => list(e_c_s_service_recommendation_option()),
-        "tags" => list(tag()),
-        "utilizationMetrics" => list(e_c_s_service_utilization_metric())
-      }
-      
-  """
-  @type e_c_s_service_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      instance_estimated_monthly_savings() :: %{
-        "currency" => list(any()),
-        "value" => float()
-      }
-      
-  """
-  @type instance_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ebs_savings_estimation_mode() :: %{
-        "source" => list(any())
-      }
-      
-  """
-  @type ebs_savings_estimation_mode() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_ebs_volume_recommendations_response() :: %{
-        "jobId" => String.t() | atom(),
-        "s3Destination" => s3_destination()
-      }
-      
-  """
-  @type export_ebs_volume_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_recommendation_error() :: %{
-        "code" => String.t() | atom(),
-        "identifier" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type get_recommendation_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      container_recommendation() :: %{
-        "containerName" => String.t() | atom(),
-        "cpu" => integer(),
-        "memorySizeConfiguration" => memory_size_configuration()
-      }
-      
-  """
-  @type container_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_ebs_volume_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("filters") => list(ebs_filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("volumeArns") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_ebs_volume_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_ec2_instance_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("fieldsToExport") => list(list(any())()),
-        optional("fileFormat") => list(any()),
-        optional("filters") => list(filter()),
-        optional("includeMemberAccounts") => boolean(),
-        optional("recommendationPreferences") => recommendation_preferences(),
-        required("s3DestinationConfig") => s3_destination_config()
-      }
-      
-  """
-  @type export_ec2_instance_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      memory_size_configuration() :: %{
-        "memory" => integer(),
-        "memoryReservation" => integer()
-      }
-      
-  """
-  @type memory_size_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_recommendation_preferences_request() :: %{
-        optional("enhancedInfrastructureMetrics") => list(any()),
-        optional("externalMetricsPreference") => external_metrics_preference(),
-        optional("inferredWorkloadTypes") => list(any()),
-        optional("lookBackPeriod") => list(any()),
-        optional("preferredResources") => list(preferred_resource()),
-        optional("savingsEstimationMode") => list(any()),
-        optional("scope") => scope(),
-        optional("utilizationPreferences") => list(utilization_preference()),
-        required("resourceType") => list(any())
-      }
-      
-  """
-  @type put_recommendation_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_rds_database_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("fieldsToExport") => list(list(any())()),
-        optional("fileFormat") => list(any()),
-        optional("filters") => list(rds_db_recommendation_filter()),
-        optional("includeMemberAccounts") => boolean(),
-        optional("recommendationPreferences") => recommendation_preferences(),
-        required("s3DestinationConfig") => s3_destination_config()
-      }
-      
-  """
-  @type export_rds_database_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_idle_recommendations_response() :: %{
-        "jobId" => String.t() | atom(),
-        "s3Destination" => s3_destination()
-      }
-      
-  """
-  @type export_idle_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      instance_savings_opportunity_after_discounts() :: %{
-        "estimatedMonthlySavings" => instance_estimated_monthly_savings(),
-        "savingsOpportunityPercentage" => float()
-      }
-      
-  """
-  @type instance_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ebs_effective_recommendation_preferences() :: %{
-        "lookBackPeriod" => list(any()),
-        "savingsEstimationMode" => ebs_savings_estimation_mode()
-      }
-      
-  """
-  @type ebs_effective_recommendation_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_effective_recommendation_preferences_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_effective_recommendation_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      e_c_s_service_recommended_option_projected_metric() :: %{
-        "projectedMetrics" => list(e_c_s_service_projected_metric()),
-        "recommendedCpuUnits" => integer(),
-        "recommendedMemorySize" => integer()
-      }
-      
-  """
-  @type e_c_s_service_recommended_option_projected_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      idle_recommendation_filter() :: %{
-        "name" => list(any()),
-        "values" => list(String.t() | atom())
-      }
-      
-  """
-  @type idle_recommendation_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      e_c_s_service_projected_utilization_metric() :: %{
-        "lowerBoundValue" => float(),
-        "name" => list(any()),
-        "statistic" => list(any()),
-        "upperBoundValue" => float()
-      }
-      
-  """
-  @type e_c_s_service_projected_utilization_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recommendation_source() :: %{
-        "recommendationSourceArn" => String.t() | atom(),
-        "recommendationSourceType" => list(any())
-      }
-      
-  """
-  @type recommendation_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_rds_database_recommendations_response() :: %{
-        "jobId" => String.t() | atom(),
-        "s3Destination" => s3_destination()
-      }
-      
-  """
-  @type export_rds_database_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_function_memory_recommendation_option() :: %{
-        "memorySize" => integer(),
-        "projectedUtilizationMetrics" => list(lambda_function_memory_projected_metric()),
-        "rank" => integer(),
-        "savingsOpportunity" => savings_opportunity(),
-        "savingsOpportunityAfterDiscounts" => lambda_savings_opportunity_after_discounts()
-      }
-      
-  """
-  @type lambda_function_memory_recommendation_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_license_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("fieldsToExport") => list(list(any())()),
-        optional("fileFormat") => list(any()),
-        optional("filters") => list(license_recommendation_filter()),
-        optional("includeMemberAccounts") => boolean(),
-        required("s3DestinationConfig") => s3_destination_config()
-      }
-      
-  """
-  @type export_license_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enrollment_filter() :: %{
-        "name" => list(any()),
-        "values" => list(String.t() | atom())
-      }
-      
-  """
-  @type enrollment_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_enrollment_status() :: %{
-        "accountId" => String.t() | atom(),
-        "lastUpdatedTimestamp" => non_neg_integer(),
-        "status" => list(any()),
-        "statusReason" => String.t() | atom()
-      }
-      
-  """
-  @type account_enrollment_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rds_database_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("filters") => list(rds_db_recommendation_filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("recommendationPreferences") => recommendation_preferences(),
-        optional("resourceArns") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_rds_database_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_recommendation_summaries_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_recommendation_summaries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_instance_estimated_monthly_savings() :: %{
-        "currency" => list(any()),
-        "value" => float()
-      }
-      
-  """
-  @type rds_instance_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recommended_option_projected_metric() :: %{
-        "projectedMetrics" => list(projected_metric()),
-        "rank" => integer(),
-        "recommendedInstanceType" => String.t() | atom()
-      }
-      
-  """
-  @type recommended_option_projected_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_e_c_s_service_recommendations_response() :: %{
-        "ecsServiceRecommendations" => list(e_c_s_service_recommendation()),
-        "errors" => list(get_recommendation_error()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_e_c_s_service_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_storage_savings_opportunity_after_discounts() :: %{
-        "estimatedMonthlySavings" => rds_storage_estimated_monthly_savings(),
-        "savingsOpportunityPercentage" => float()
-      }
-      
-  """
-  @type rds_storage_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_effective_recommendation_preferences() :: %{
-        "cpuVendorArchitectures" => list(list(any())()),
-        "enhancedInfrastructureMetrics" => list(any()),
-        "lookBackPeriod" => list(any()),
-        "savingsEstimationMode" => rds_savings_estimation_mode()
-      }
-      
-  """
-  @type rds_effective_recommendation_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_e_c_s_service_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("filters") => list(e_c_s_service_recommendation_filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("serviceArns") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_e_c_s_service_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      license_recommendation_option() :: %{
-        "licenseEdition" => list(any()),
-        "licenseModel" => list(any()),
-        "operatingSystem" => String.t() | atom(),
-        "rank" => integer(),
-        "savingsOpportunity" => savings_opportunity()
-      }
-      
-  """
-  @type license_recommendation_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_enrollment_status_request() :: %{
-        optional("includeMemberAccounts") => boolean(),
-        required("status") => list(any())
-      }
-      
-  """
-  @type update_enrollment_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ebs_estimated_monthly_savings() :: %{
-        "currency" => list(any()),
-        "value" => float()
-      }
-      
-  """
-  @type ebs_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      license_configuration() :: %{
-        "instanceType" => String.t() | atom(),
-        "licenseEdition" => list(any()),
-        "licenseModel" => list(any()),
-        "licenseName" => list(any()),
-        "licenseVersion" => String.t() | atom(),
-        "metricsSource" => list(metric_source()),
-        "numberOfCores" => integer(),
-        "operatingSystem" => String.t() | atom()
-      }
-      
-  """
-  @type license_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_storage_configuration() :: %{
-        "allocatedStorage" => integer(),
-        "iops" => integer(),
-        "maxAllocatedStorage" => integer(),
-        "storageThroughput" => integer(),
-        "storageType" => String.t() | atom()
-      }
-      
-  """
-  @type db_storage_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_lambda_function_recommendations_response() :: %{
-        "lambdaFunctionRecommendations" => list(lambda_function_recommendation()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_lambda_function_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ebs_savings_opportunity_after_discounts() :: %{
-        "estimatedMonthlySavings" => ebs_estimated_monthly_savings(),
-        "savingsOpportunityPercentage" => float()
-      }
-      
-  """
-  @type ebs_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_database_recommended_option_projected_metric() :: %{
-        "projectedMetrics" => list(rds_database_projected_metric()),
-        "rank" => integer(),
-        "recommendedDBInstanceClass" => String.t() | atom()
-      }
-      
-  """
-  @type rds_database_recommended_option_projected_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_e_c_s_service_recommendation_projected_metrics_response() :: %{
-        "recommendedOptionProjectedMetrics" => list(e_c_s_service_recommended_option_projected_metric())
-      }
-      
-  """
-  @type get_e_c_s_service_recommendation_projected_metrics_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      idle_recommendation_error() :: %{
-        "code" => String.t() | atom(),
-        "identifier" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "resourceType" => list(any())
-      }
-      
-  """
-  @type idle_recommendation_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      idle_estimated_monthly_savings() :: %{
-        "currency" => list(any()),
-        "value" => float()
-      }
-      
-  """
-  @type idle_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_e_c_s_service_recommendation_projected_metrics_request() :: %{
-        required("endTime") => non_neg_integer(),
-        required("period") => integer(),
-        required("serviceArn") => String.t() | atom(),
-        required("startTime") => non_neg_integer(),
-        required("stat") => list(any())
-      }
-      
-  """
-  @type get_e_c_s_service_recommendation_projected_metrics_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      get_auto_scaling_group_recommendations_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("autoScalingGroupArns") => list(String.t() | atom()),
-        optional("filters") => list(filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("recommendationPreferences") => recommendation_preferences()
-      }
-      
-  """
-  @type get_auto_scaling_group_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_recommendation_preferences_response() :: %{}
-      
-  """
-  @type put_recommendation_preferences_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_ec2_recommendation_projected_metrics_request() :: %{
-        optional("recommendationPreferences") => recommendation_preferences(),
-        required("endTime") => non_neg_integer(),
-        required("instanceArn") => String.t() | atom(),
-        required("period") => integer(),
-        required("startTime") => non_neg_integer(),
-        required("stat") => list(any())
-      }
-      
-  """
-  @type get_ec2_recommendation_projected_metrics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_savings_estimation_mode() :: %{
-        "source" => list(any())
-      }
-      
-  """
-  @type rds_savings_estimation_mode() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_recommendation_export_jobs_request() :: %{
-        optional("filters") => list(job_filter()),
-        optional("jobIds") => list(String.t() | atom()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_recommendation_export_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_db_recommendation_filter() :: %{
-        "name" => list(any()),
-        "values" => list(String.t() | atom())
-      }
-      
-  """
-  @type rds_db_recommendation_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      e_c_s_estimated_monthly_savings() :: %{
-        "currency" => list(any()),
-        "value" => float()
-      }
-      
-  """
-  @type e_c_s_estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      job_filter() :: %{
-        "name" => list(any()),
-        "values" => list(String.t() | atom())
-      }
-      
-  """
-  @type job_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_recommendation_preferences_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("scope") => scope(),
-        required("resourceType") => list(any())
-      }
-      
-  """
-  @type get_recommendation_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_auto_scaling_group_recommendations_response() :: %{
-        "autoScalingGroupRecommendations" => list(auto_scaling_group_recommendation()),
-        "errors" => list(get_recommendation_error()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_auto_scaling_group_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter() :: %{
-        "name" => list(any()),
-        "values" => list(String.t() | atom())
-      }
-      
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rds_database_recommendations_response() :: %{
-        "errors" => list(get_recommendation_error()),
-        "nextToken" => String.t() | atom(),
-        "rdsDBRecommendations" => list(rds_db_recommendation())
-      }
-      
-  """
-  @type get_rds_database_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_instance_savings_opportunity_after_discounts() :: %{
-        "estimatedMonthlySavings" => rds_instance_estimated_monthly_savings(),
-        "savingsOpportunityPercentage" => float()
-      }
-      
-  """
-  @type rds_instance_savings_opportunity_after_discounts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_function_recommendation_filter() :: %{
-        "name" => list(any()),
-        "values" => list(String.t() | atom())
-      }
-      
-  """
-  @type lambda_function_recommendation_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_destination() :: %{
-        "bucket" => String.t() | atom(),
-        "key" => String.t() | atom(),
-        "metadataKey" => String.t() | atom()
-      }
-      
-  """
-  @type s3_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_effective_recommendation_preferences() :: %{
-        "savingsEstimationMode" => lambda_savings_estimation_mode()
-      }
-      
-  """
-  @type lambda_effective_recommendation_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      customizable_metric_parameters() :: %{
-        "headroom" => list(any()),
-        "threshold" => list(any())
-      }
-      
-  """
-  @type customizable_metric_parameters() :: %{(String.t() | atom()) => any()}
+  @type volume_recommendation_option() :: %{(String.t() | atom()) => any()}
 
   @type delete_recommendation_preferences_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_recommendation_export_jobs_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type export_auto_scaling_group_recommendations_errors() ::
-          internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type export_e_c_s_service_recommendations_errors() ::
-          internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type export_ebs_volume_recommendations_errors() ::
-          internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type export_ec2_instance_recommendations_errors() ::
-          internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type export_idle_recommendations_errors() ::
-          internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type export_lambda_function_recommendations_errors() ::
-          internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type export_license_recommendations_errors() ::
-          internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type export_rds_database_recommendations_errors() ::
-          internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_auto_scaling_group_recommendations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_e_c_s_service_recommendation_projected_metrics_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_e_c_s_service_recommendations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_ebs_volume_recommendations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_ec2_instance_recommendations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_ec2_recommendation_projected_metrics_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_effective_recommendation_preferences_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_enrollment_status_errors() ::
-          internal_server_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_enrollment_statuses_for_organization_errors() ::
-          internal_server_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_idle_recommendations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_lambda_function_recommendations_errors() ::
-          internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_license_recommendations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_rds_database_recommendation_projected_metrics_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_rds_database_recommendations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_recommendation_preferences_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_recommendation_summaries_errors() ::
-          internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_recommendation_preferences_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_enrollment_status_errors() ::
-          internal_server_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
-          | missing_authentication_token()
+          throttling_exception()
           | service_unavailable_exception()
+          | missing_authentication_token()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

@@ -5,18 +5,16 @@ defmodule AWS.BackupGateway do
   @moduledoc """
   Backup gateway
 
-  Backup gateway connects Backup to your hypervisor, so you can
-  create, store, and restore backups of your virtual machines (VMs) anywhere,
-  whether
-  on-premises or in the VMware Cloud (VMC) on Amazon Web Services.
+  Backup gateway connects Backup to your hypervisor, so you can create, store, and
+  restore backups of your virtual machines (VMs) anywhere, whether on-premises or
+  in the VMware Cloud (VMC) on Amazon Web Services.
 
   Add on-premises resources by connecting to a hypervisor through a gateway.
   Backup will automatically discover the resources in your hypervisor.
 
   Use Backup to assign virtual or on-premises resources to a backup plan, or run
   on-demand backups. Once you have backed up your resources, you can view them and
-  restore them
-  like any resource supported by Backup.
+  restore them like any resource supported by Backup.
 
   To download the Amazon Web Services software to get started, navigate to the
   Backup console, choose **Gateways**, then choose **Create gateway**.
@@ -24,143 +22,6 @@ defmodule AWS.BackupGateway do
 
   alias AWS.Client
   alias AWS.Request
-
-  @typedoc """
-
-  ## Example:
-      
-      gateway() :: %{
-        "GatewayArn" => String.t() | atom(),
-        "GatewayDisplayName" => String.t() | atom(),
-        "GatewayType" => String.t() | atom(),
-        "HypervisorId" => String.t() | atom(),
-        "LastSeenTime" => non_neg_integer()
-      }
-      
-  """
-  @type gateway() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      maintenance_start_time() :: %{
-        "DayOfMonth" => integer(),
-        "DayOfWeek" => integer(),
-        "HourOfDay" => integer(),
-        "MinuteOfHour" => integer()
-      }
-      
-  """
-  @type maintenance_start_time() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_gateway_output() :: %{
-        optional("Gateway") => gateway_details()
-      }
-      
-  """
-  @type get_gateway_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_hypervisor_configuration_output() :: %{}
-      
-  """
-  @type test_hypervisor_configuration_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_virtual_machine_output() :: %{
-        optional("VirtualMachine") => virtual_machine_details()
-      }
-      
-  """
-  @type get_virtual_machine_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_gateways_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_gateways_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_output() :: %{
-        optional("ResourceArn") => String.t() | atom(),
-        optional("Tags") => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_gateway_input() :: %{
-        optional("Tags") => list(tag()),
-        required("ActivationKey") => String.t() | atom(),
-        required("GatewayDisplayName") => String.t() | atom(),
-        required("GatewayType") => String.t() | atom()
-      }
-      
-  """
-  @type create_gateway_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_hypervisor_output() :: %{
-        optional("HypervisorArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_hypervisor_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      virtual_machine() :: %{
-        "HostName" => String.t() | atom(),
-        "HypervisorId" => String.t() | atom(),
-        "LastBackupDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Path" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type virtual_machine() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,174 +39,24 @@ defmodule AWS.BackupGateway do
 
   ## Example:
       
-      tag_resource_output() :: %{
-        optional("ResourceARN") => String.t() | atom()
+      associate_gateway_to_server_input() :: %{
+        required("GatewayArn") => String.t() | atom(),
+        required("ServerArn") => String.t() | atom()
       }
       
   """
-  @type tag_resource_output() :: %{(String.t() | atom()) => any()}
+  @type associate_gateway_to_server_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_gateway_software_now_input() :: %{
-        required("GatewayArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_gateway_software_now_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_gateway_information_output() :: %{
+      associate_gateway_to_server_output() :: %{
         optional("GatewayArn") => String.t() | atom()
       }
       
   """
-  @type update_gateway_information_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_bandwidth_rate_limit_schedule_output() :: %{
-        optional("BandwidthRateLimitIntervals") => list(bandwidth_rate_limit_interval()),
-        optional("GatewayArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_bandwidth_rate_limit_schedule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_hypervisor_configuration_input() :: %{
-        optional("KmsKeyArn") => String.t() | atom(),
-        optional("Password") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("Username") => String.t() | atom(),
-        required("Host") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type import_hypervisor_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_gateway_from_server_output() :: %{
-        optional("GatewayArn") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_gateway_from_server_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_gateway_information_input() :: %{
-        optional("GatewayDisplayName") => String.t() | atom(),
-        required("GatewayArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_gateway_information_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_hypervisor_output() :: %{
-        optional("HypervisorArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_hypervisor_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_virtual_machines_output() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("VirtualMachines") => list(virtual_machine())
-      }
-      
-  """
-  @type list_virtual_machines_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_virtual_machines_metadata_sync_output() :: %{
-        optional("HypervisorArn") => String.t() | atom()
-      }
-      
-  """
-  @type start_virtual_machines_metadata_sync_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_gateway_input() :: %{
-        required("GatewayArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_gateway_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      gateway_details() :: %{
-        "DeprecationDate" => non_neg_integer(),
-        "GatewayArn" => String.t() | atom(),
-        "GatewayDisplayName" => String.t() | atom(),
-        "GatewayType" => String.t() | atom(),
-        "HypervisorId" => String.t() | atom(),
-        "LastSeenTime" => non_neg_integer(),
-        "MaintenanceStartTime" => maintenance_start_time(),
-        "NextUpdateAvailabilityTime" => non_neg_integer(),
-        "SoftwareVersion" => String.t() | atom(),
-        "VpcEndpoint" => String.t() | atom()
-      }
-      
-  """
-  @type gateway_details() :: %{(String.t() | atom()) => any()}
+  @type associate_gateway_to_server_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -367,39 +78,49 @@ defmodule AWS.BackupGateway do
 
   ## Example:
       
-      put_maintenance_start_time_input() :: %{
-        optional("DayOfMonth") => integer(),
-        optional("DayOfWeek") => integer(),
-        required("GatewayArn") => String.t() | atom(),
-        required("HourOfDay") => integer(),
-        required("MinuteOfHour") => integer()
+      conflict_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type put_maintenance_start_time_input() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_input() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
+      create_gateway_input() :: %{
+        optional("Tags") => list(tag()),
+        required("ActivationKey") => String.t() | atom(),
+        required("GatewayDisplayName") => String.t() | atom(),
+        required("GatewayType") => String.t() | atom()
       }
       
   """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+  @type create_gateway_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      associate_gateway_to_server_output() :: %{
+      create_gateway_output() :: %{
         optional("GatewayArn") => String.t() | atom()
       }
       
   """
-  @type associate_gateway_to_server_output() :: %{(String.t() | atom()) => any()}
+  @type create_gateway_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_gateway_input() :: %{
+        required("GatewayArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_gateway_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -427,13 +148,147 @@ defmodule AWS.BackupGateway do
 
   ## Example:
       
-      internal_server_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      delete_hypervisor_output() :: %{
+        optional("HypervisorArn") => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_hypervisor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_gateway_from_server_input() :: %{
+        required("GatewayArn") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_gateway_from_server_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_gateway_from_server_output() :: %{
+        optional("GatewayArn") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_gateway_from_server_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway() :: %{
+        "GatewayArn" => String.t() | atom(),
+        "GatewayDisplayName" => String.t() | atom(),
+        "GatewayType" => String.t() | atom(),
+        "HypervisorId" => String.t() | atom(),
+        "LastSeenTime" => non_neg_integer()
+      }
+      
+  """
+  @type gateway() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_details() :: %{
+        "DeprecationDate" => non_neg_integer(),
+        "GatewayArn" => String.t() | atom(),
+        "GatewayDisplayName" => String.t() | atom(),
+        "GatewayType" => String.t() | atom(),
+        "HypervisorId" => String.t() | atom(),
+        "LastSeenTime" => non_neg_integer(),
+        "MaintenanceStartTime" => maintenance_start_time(),
+        "NextUpdateAvailabilityTime" => non_neg_integer(),
+        "SoftwareVersion" => String.t() | atom(),
+        "VpcEndpoint" => String.t() | atom()
+      }
+      
+  """
+  @type gateway_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_bandwidth_rate_limit_schedule_input() :: %{
+        required("GatewayArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_bandwidth_rate_limit_schedule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_bandwidth_rate_limit_schedule_output() :: %{
+        optional("BandwidthRateLimitIntervals") => list(bandwidth_rate_limit_interval()),
+        optional("GatewayArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_bandwidth_rate_limit_schedule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_gateway_input() :: %{
+        required("GatewayArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_gateway_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_gateway_output() :: %{
+        optional("Gateway") => gateway_details()
+      }
+      
+  """
+  @type get_gateway_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_hypervisor_input() :: %{
+        required("HypervisorArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_hypervisor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_hypervisor_output() :: %{
+        optional("Hypervisor") => hypervisor_details()
+      }
+      
+  """
+  @type get_hypervisor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_hypervisor_property_mappings_input() :: %{
+        required("HypervisorArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_hypervisor_property_mappings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -452,111 +307,38 @@ defmodule AWS.BackupGateway do
 
   ## Example:
       
-      list_gateways_output() :: %{
-        optional("Gateways") => list(gateway()),
-        optional("NextToken") => String.t() | atom()
+      get_virtual_machine_input() :: %{
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_gateways_output() :: %{(String.t() | atom()) => any()}
+  @type get_virtual_machine_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_not_found_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      get_virtual_machine_output() :: %{
+        optional("VirtualMachine") => virtual_machine_details()
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type get_virtual_machine_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_input() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
+      hypervisor() :: %{
+        "Host" => String.t() | atom(),
+        "HypervisorArn" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "State" => String.t() | atom()
       }
       
   """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_gateway_from_server_input() :: %{
-        required("GatewayArn") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_gateway_from_server_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_gateway_output() :: %{
-        optional("GatewayArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_gateway_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_hypervisor_input() :: %{
-        optional("Host") => String.t() | atom(),
-        optional("LogGroupArn") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Password") => String.t() | atom(),
-        optional("Username") => String.t() | atom(),
-        required("HypervisorArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_hypervisor_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_hypervisor_configuration_output() :: %{
-        optional("HypervisorArn") => String.t() | atom()
-      }
-      
-  """
-  @type import_hypervisor_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vmware_tag() :: %{
-        "VmwareCategory" => String.t() | atom(),
-        "VmwareTagDescription" => String.t() | atom(),
-        "VmwareTagName" => String.t() | atom()
-      }
-      
-  """
-  @type vmware_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type hypervisor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -581,12 +363,64 @@ defmodule AWS.BackupGateway do
 
   ## Example:
       
-      put_maintenance_start_time_output() :: %{
-        optional("GatewayArn") => String.t() | atom()
+      import_hypervisor_configuration_input() :: %{
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("Password") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("Username") => String.t() | atom(),
+        required("Host") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type put_maintenance_start_time_output() :: %{(String.t() | atom()) => any()}
+  @type import_hypervisor_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_hypervisor_configuration_output() :: %{
+        optional("HypervisorArn") => String.t() | atom()
+      }
+      
+  """
+  @type import_hypervisor_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_gateways_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_gateways_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_gateways_output() :: %{
+        optional("Gateways") => list(gateway()),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_gateways_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -604,12 +438,111 @@ defmodule AWS.BackupGateway do
 
   ## Example:
       
+      list_hypervisors_output() :: %{
+        optional("Hypervisors") => list(hypervisor()),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_hypervisors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_input() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_output() :: %{
+        optional("ResourceArn") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_virtual_machines_input() :: %{
+        optional("HypervisorArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_virtual_machines_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_virtual_machines_output() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("VirtualMachines") => list(virtual_machine())
+      }
+      
+  """
+  @type list_virtual_machines_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      maintenance_start_time() :: %{
+        "DayOfMonth" => integer(),
+        "DayOfWeek" => integer(),
+        "HourOfDay" => integer(),
+        "MinuteOfHour" => integer()
+      }
+      
+  """
+  @type maintenance_start_time() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_bandwidth_rate_limit_schedule_input() :: %{
+        required("BandwidthRateLimitIntervals") => list(bandwidth_rate_limit_interval()),
+        required("GatewayArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_bandwidth_rate_limit_schedule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_bandwidth_rate_limit_schedule_output() :: %{
         optional("GatewayArn") => String.t() | atom()
       }
       
   """
   @type put_bandwidth_rate_limit_schedule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_hypervisor_property_mappings_input() :: %{
+        required("HypervisorArn") => String.t() | atom(),
+        required("IamRoleArn") => String.t() | atom(),
+        required("VmwareToAwsTagMappings") => list(vmware_to_aws_tag_mapping())
+      }
+      
+  """
+  @type put_hypervisor_property_mappings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -626,23 +559,39 @@ defmodule AWS.BackupGateway do
 
   ## Example:
       
-      get_bandwidth_rate_limit_schedule_input() :: %{
-        required("GatewayArn") => String.t() | atom()
+      put_maintenance_start_time_input() :: %{
+        optional("DayOfMonth") => integer(),
+        optional("DayOfWeek") => integer(),
+        required("GatewayArn") => String.t() | atom(),
+        required("HourOfDay") => integer(),
+        required("MinuteOfHour") => integer()
       }
       
   """
-  @type get_bandwidth_rate_limit_schedule_input() :: %{(String.t() | atom()) => any()}
+  @type put_maintenance_start_time_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_hypervisor_input() :: %{
-        required("HypervisorArn") => String.t() | atom()
+      put_maintenance_start_time_output() :: %{
+        optional("GatewayArn") => String.t() | atom()
       }
       
   """
-  @type get_hypervisor_input() :: %{(String.t() | atom()) => any()}
+  @type put_maintenance_start_time_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -659,12 +608,47 @@ defmodule AWS.BackupGateway do
 
   ## Example:
       
-      list_tags_for_resource_input() :: %{
-        required("ResourceArn") => String.t() | atom()
+      start_virtual_machines_metadata_sync_output() :: %{
+        optional("HypervisorArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
+  @type start_virtual_machines_metadata_sync_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_input() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_output() :: %{
+        optional("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type tag_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -684,14 +668,145 @@ defmodule AWS.BackupGateway do
 
   ## Example:
       
-      put_hypervisor_property_mappings_input() :: %{
-        required("HypervisorArn") => String.t() | atom(),
-        required("IamRoleArn") => String.t() | atom(),
-        required("VmwareToAwsTagMappings") => list(vmware_to_aws_tag_mapping())
+      test_hypervisor_configuration_output() :: %{}
+      
+  """
+  @type test_hypervisor_configuration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type put_hypervisor_property_mappings_input() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_input() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_output() :: %{
+        optional("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type untag_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_gateway_information_input() :: %{
+        optional("GatewayDisplayName") => String.t() | atom(),
+        required("GatewayArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_gateway_information_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_gateway_information_output() :: %{
+        optional("GatewayArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_gateway_information_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_gateway_software_now_input() :: %{
+        required("GatewayArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_gateway_software_now_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_gateway_software_now_output() :: %{
+        optional("GatewayArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_gateway_software_now_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_hypervisor_input() :: %{
+        optional("Host") => String.t() | atom(),
+        optional("LogGroupArn") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Password") => String.t() | atom(),
+        optional("Username") => String.t() | atom(),
+        required("HypervisorArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_hypervisor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_hypervisor_output() :: %{
+        optional("HypervisorArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_hypervisor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      virtual_machine() :: %{
+        "HostName" => String.t() | atom(),
+        "HypervisorId" => String.t() | atom(),
+        "LastBackupDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type virtual_machine() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -714,84 +829,14 @@ defmodule AWS.BackupGateway do
 
   ## Example:
       
-      delete_gateway_input() :: %{
-        required("GatewayArn") => String.t() | atom()
+      vmware_tag() :: %{
+        "VmwareCategory" => String.t() | atom(),
+        "VmwareTagDescription" => String.t() | atom(),
+        "VmwareTagName" => String.t() | atom()
       }
       
   """
-  @type delete_gateway_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hypervisor() :: %{
-        "Host" => String.t() | atom(),
-        "HypervisorArn" => String.t() | atom(),
-        "KmsKeyArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "State" => String.t() | atom()
-      }
-      
-  """
-  @type hypervisor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_hypervisor_property_mappings_input() :: %{
-        required("HypervisorArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_hypervisor_property_mappings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_gateway_software_now_output() :: %{
-        optional("GatewayArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_gateway_software_now_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_gateway_to_server_input() :: %{
-        required("GatewayArn") => String.t() | atom(),
-        required("ServerArn") => String.t() | atom()
-      }
-      
-  """
-  @type associate_gateway_to_server_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_bandwidth_rate_limit_schedule_input() :: %{
-        required("BandwidthRateLimitIntervals") => list(bandwidth_rate_limit_interval()),
-        required("GatewayArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_bandwidth_rate_limit_schedule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_virtual_machine_input() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_virtual_machine_input() :: %{(String.t() | atom()) => any()}
+  @type vmware_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -807,62 +852,15 @@ defmodule AWS.BackupGateway do
   """
   @type vmware_to_aws_tag_mapping() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-      
-      list_virtual_machines_input() :: %{
-        optional("HypervisorArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_virtual_machines_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_output() :: %{
-        optional("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type untag_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_hypervisor_output() :: %{
-        optional("Hypervisor") => hypervisor_details()
-      }
-      
-  """
-  @type get_hypervisor_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_hypervisors_output() :: %{
-        optional("Hypervisors") => list(hypervisor()),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_hypervisors_output() :: %{(String.t() | atom()) => any()}
-
   @type associate_gateway_to_server_errors() :: conflict_exception()
 
   @type delete_gateway_errors() :: resource_not_found_exception()
 
   @type delete_hypervisor_errors() ::
-          conflict_exception() | resource_not_found_exception() | access_denied_exception()
+          resource_not_found_exception() | conflict_exception() | access_denied_exception()
 
   @type disassociate_gateway_from_server_errors() ::
-          conflict_exception() | resource_not_found_exception()
+          resource_not_found_exception() | conflict_exception()
 
   @type get_bandwidth_rate_limit_schedule_errors() :: resource_not_found_exception()
 
@@ -882,10 +880,10 @@ defmodule AWS.BackupGateway do
   @type put_bandwidth_rate_limit_schedule_errors() :: resource_not_found_exception()
 
   @type put_hypervisor_property_mappings_errors() ::
-          conflict_exception() | resource_not_found_exception() | access_denied_exception()
+          resource_not_found_exception() | conflict_exception() | access_denied_exception()
 
   @type put_maintenance_start_time_errors() ::
-          conflict_exception() | resource_not_found_exception()
+          resource_not_found_exception() | conflict_exception()
 
   @type start_virtual_machines_metadata_sync_errors() ::
           resource_not_found_exception() | access_denied_exception()
@@ -893,17 +891,17 @@ defmodule AWS.BackupGateway do
   @type tag_resource_errors() :: resource_not_found_exception()
 
   @type test_hypervisor_configuration_errors() ::
-          conflict_exception() | resource_not_found_exception()
+          resource_not_found_exception() | conflict_exception()
 
   @type untag_resource_errors() :: resource_not_found_exception()
 
   @type update_gateway_information_errors() ::
-          conflict_exception() | resource_not_found_exception()
+          resource_not_found_exception() | conflict_exception()
 
   @type update_gateway_software_now_errors() :: resource_not_found_exception()
 
   @type update_hypervisor_errors() ::
-          conflict_exception() | resource_not_found_exception() | access_denied_exception()
+          resource_not_found_exception() | conflict_exception() | access_denied_exception()
 
   def metadata do
     %{
@@ -924,8 +922,8 @@ defmodule AWS.BackupGateway do
   @doc """
   Associates a backup gateway with your server.
 
-  After you complete the association process,
-  you can back up and restore your VMs through the gateway.
+  After you complete the association process, you can back up and restore your VMs
+  through the gateway.
   """
   @spec associate_gateway_to_server(map(), associate_gateway_to_server_input(), list()) ::
           {:ok, associate_gateway_to_server_output(), any()}
@@ -942,8 +940,8 @@ defmodule AWS.BackupGateway do
   @doc """
   Creates a backup gateway.
 
-  After you create a gateway, you can associate it with a server
-  using the `AssociateGatewayToServer` operation.
+  After you create a gateway, you can associate it with a server using the
+  `AssociateGatewayToServer` operation.
   """
   @spec create_gateway(map(), create_gateway_input(), list()) ::
           {:ok, create_gateway_output(), any()}
@@ -989,8 +987,8 @@ defmodule AWS.BackupGateway do
   @doc """
   Disassociates a backup gateway from the specified server.
 
-  After the disassociation process
-  finishes, the gateway can no longer access the virtual machines on the server.
+  After the disassociation process finishes, the gateway can no longer access the
+  virtual machines on the server.
   """
   @spec disassociate_gateway_from_server(map(), disassociate_gateway_from_server_input(), list()) ::
           {:ok, disassociate_gateway_from_server_output(), any()}
@@ -1007,9 +1005,9 @@ defmodule AWS.BackupGateway do
   @doc """
   Retrieves the bandwidth rate limit schedule for a specified gateway.
 
-  By default, gateways do not have bandwidth rate limit schedules, which means
-  no bandwidth rate limiting is in effect. Use this to get a gateway's
-  bandwidth rate limit schedule.
+  By default, gateways do not have bandwidth rate limit schedules, which means no
+  bandwidth rate limiting is in effect. Use this to get a gateway's bandwidth rate
+  limit schedule.
   """
   @spec get_bandwidth_rate_limit_schedule(
           map(),
@@ -1028,8 +1026,7 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  By providing the ARN (Amazon Resource Name), this
-  API returns the gateway.
+  By providing the ARN (Amazon Resource Name), this API returns the gateway.
   """
   @spec get_gateway(map(), get_gateway_input(), list()) ::
           {:ok, get_gateway_output(), any()}
@@ -1048,8 +1045,7 @@ defmodule AWS.BackupGateway do
   gateway will connect.
 
   A hypervisor is hardware, software, or firmware that creates and manages virtual
-  machines,
-  and allocates resources to them.
+  machines, and allocates resources to them.
   """
   @spec get_hypervisor(map(), get_hypervisor_input(), list()) ::
           {:ok, get_hypervisor_output(), any()}
@@ -1177,9 +1173,9 @@ defmodule AWS.BackupGateway do
   @doc """
   This action sets the bandwidth rate limit schedule for a specified gateway.
 
-  By default, gateways do not have a bandwidth rate limit schedule, which means
-  no bandwidth rate limiting is in effect. Use this to initiate a
-  gateway's bandwidth rate limit schedule.
+  By default, gateways do not have a bandwidth rate limit schedule, which means no
+  bandwidth rate limiting is in effect. Use this to initiate a gateway's bandwidth
+  rate limit schedule.
   """
   @spec put_bandwidth_rate_limit_schedule(
           map(),
@@ -1268,8 +1264,7 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Tests your hypervisor configuration to validate that backup gateway can connect
-  with the
-  hypervisor and its resources.
+  with the hypervisor and its resources.
   """
   @spec test_hypervisor_configuration(map(), test_hypervisor_configuration_input(), list()) ::
           {:ok, test_hypervisor_configuration_output(), any()}
@@ -1301,8 +1296,8 @@ defmodule AWS.BackupGateway do
   @doc """
   Updates a gateway's name.
 
-  Specify which gateway to update using the Amazon Resource Name
-  (ARN) of the gateway in your request.
+  Specify which gateway to update using the Amazon Resource Name (ARN) of the
+  gateway in your request.
   """
   @spec update_gateway_information(map(), update_gateway_information_input(), list()) ::
           {:ok, update_gateway_information_output(), any()}
@@ -1321,9 +1316,8 @@ defmodule AWS.BackupGateway do
 
   The request immediately triggers the software update.
 
-  When you make this request, you get a `200 OK`
-  success response immediately. However, it might take some
-  time for the update to complete.
+  When you make this request, you get a `200 OK` success response immediately.
+  However, it might take some time for the update to complete.
   """
   @spec update_gateway_software_now(map(), update_gateway_software_now_input(), list()) ::
           {:ok, update_gateway_software_now_output(), any()}
@@ -1340,10 +1334,8 @@ defmodule AWS.BackupGateway do
   @doc """
   Updates a hypervisor metadata, including its host, username, and password.
 
-  Specify which
-  hypervisor to update using the Amazon Resource Name (ARN) of the hypervisor in
-  your
-  request.
+  Specify which hypervisor to update using the Amazon Resource Name (ARN) of the
+  hypervisor in your request.
   """
   @spec update_hypervisor(map(), update_hypervisor_input(), list()) ::
           {:ok, update_hypervisor_output(), any()}

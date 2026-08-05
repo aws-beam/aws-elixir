@@ -27,28 +27,6 @@ defmodule AWS.RDSData do
 
   ## Example:
 
-      rollback_transaction_request() :: %{
-        "resourceArn" => String.t() | atom(),
-        "secretArn" => String.t() | atom(),
-        "transactionId" => String.t() | atom()
-      }
-
-  """
-  @type rollback_transaction_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      database_unavailable_exception() :: %{}
-
-  """
-  @type database_unavailable_exception() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -60,142 +38,12 @@ defmodule AWS.RDSData do
 
   ## Example:
 
-      invalid_resource_state_exception() :: %{
+      bad_request_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type invalid_resource_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_sql_response() :: %{
-        "sqlStatementResults" => list(sql_statement_result())
-      }
-
-  """
-  @type execute_sql_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_error() :: %{}
-
-  """
-  @type service_unavailable_error() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      result_set_options() :: %{
-        "decimalReturnType" => list(any()),
-        "longReturnType" => list(any())
-      }
-
-  """
-  @type result_set_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      column_metadata() :: %{
-        "arrayBaseColumnType" => integer(),
-        "isAutoIncrement" => boolean(),
-        "isCaseSensitive" => boolean(),
-        "isCurrency" => boolean(),
-        "isSigned" => boolean(),
-        "label" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "nullable" => integer(),
-        "precision" => integer(),
-        "scale" => integer(),
-        "schemaName" => String.t() | atom(),
-        "tableName" => String.t() | atom(),
-        "type" => integer(),
-        "typeName" => String.t() | atom()
-      }
-
-  """
-  @type column_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      begin_transaction_request() :: %{
-        "database" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "schema" => String.t() | atom(),
-        "secretArn" => String.t() | atom()
-      }
-
-  """
-  @type begin_transaction_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      begin_transaction_response() :: %{
-        "transactionId" => String.t() | atom()
-      }
-
-  """
-  @type begin_transaction_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_statement_response() :: %{
-        "columnMetadata" => list(column_metadata()),
-        "formattedRecords" => String.t() | atom(),
-        "generatedFields" => list(list()),
-        "numberOfRecordsUpdated" => float(),
-        "records" => list(list(list())())
-      }
-
-  """
-  @type execute_statement_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      database_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type database_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sql_statement_result() :: %{
-        "numberOfRecordsUpdated" => float(),
-        "resultFrame" => result_frame()
-      }
-
-  """
-  @type sql_statement_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      commit_transaction_response() :: %{
-        "transactionStatus" => String.t() | atom()
-      }
-
-  """
-  @type commit_transaction_response() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -229,55 +77,116 @@ defmodule AWS.RDSData do
 
   ## Example:
 
-      result_set_metadata() :: %{
-        "columnCount" => float(),
-        "columnMetadata" => list(column_metadata())
+      begin_transaction_request() :: %{
+        "database" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "schema" => String.t() | atom(),
+        "secretArn" => String.t() | atom()
       }
 
   """
-  @type result_set_metadata() :: %{(String.t() | atom()) => any()}
+  @type begin_transaction_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      internal_server_error_exception() :: %{}
+      begin_transaction_response() :: %{
+        "transactionId" => String.t() | atom()
+      }
 
   """
-  @type internal_server_error_exception() :: %{}
+  @type begin_transaction_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      http_endpoint_not_enabled_exception() :: %{
+      column_metadata() :: %{
+        "arrayBaseColumnType" => integer(),
+        "isAutoIncrement" => boolean(),
+        "isCaseSensitive" => boolean(),
+        "isCurrency" => boolean(),
+        "isSigned" => boolean(),
+        "label" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "nullable" => integer(),
+        "precision" => integer(),
+        "scale" => integer(),
+        "schemaName" => String.t() | atom(),
+        "tableName" => String.t() | atom(),
+        "type" => integer(),
+        "typeName" => String.t() | atom()
+      }
+
+  """
+  @type column_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      commit_transaction_request() :: %{
+        "resourceArn" => String.t() | atom(),
+        "secretArn" => String.t() | atom(),
+        "transactionId" => String.t() | atom()
+      }
+
+  """
+  @type commit_transaction_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      commit_transaction_response() :: %{
+        "transactionStatus" => String.t() | atom()
+      }
+
+  """
+  @type commit_transaction_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      database_error_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type http_endpoint_not_enabled_exception() :: %{(String.t() | atom()) => any()}
+  @type database_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      struct_value() :: %{
-        "attributes" => list(list())
-      }
-
-  """
-  @type struct_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
+      database_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type database_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      database_resuming_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type database_resuming_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      database_unavailable_exception() :: %{}
+
+  """
+  @type database_unavailable_exception() :: %{}
 
   @typedoc """
 
@@ -298,172 +207,12 @@ defmodule AWS.RDSData do
 
   ## Example:
 
-      unsupported_result_exception() :: %{
-        "message" => String.t() | atom()
+      execute_sql_response() :: %{
+        "sqlStatementResults" => list(sql_statement_result())
       }
 
   """
-  @type unsupported_result_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_secret_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_secret_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      database_resuming_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type database_resuming_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_result() :: %{
-        "generatedFields" => list(list())
-      }
-
-  """
-  @type update_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rdsdata_record() :: %{
-        "values" => list(list())
-      }
-
-  """
-  @type rdsdata_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      statement_timeout_exception() :: %{
-        "dbConnectionId" => float(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type statement_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      secrets_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type secrets_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      result_frame() :: %{
-        "records" => list(record()),
-        "resultSetMetadata" => result_set_metadata()
-      }
-
-  """
-  @type result_frame() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sql_parameter() :: %{
-        "name" => String.t() | atom(),
-        "typeHint" => list(any()),
-        "value" => list()
-      }
-
-  """
-  @type sql_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transaction_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type transaction_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rollback_transaction_response() :: %{
-        "transactionStatus" => String.t() | atom()
-      }
-
-  """
-  @type rollback_transaction_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      database_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type database_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      commit_transaction_request() :: %{
-        "resourceArn" => String.t() | atom(),
-        "secretArn" => String.t() | atom(),
-        "transactionId" => String.t() | atom()
-      }
-
-  """
-  @type commit_transaction_request() :: %{(String.t() | atom()) => any()}
+  @type execute_sql_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -486,98 +235,349 @@ defmodule AWS.RDSData do
   """
   @type execute_statement_request() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      execute_statement_response() :: %{
+        "columnMetadata" => list(column_metadata()),
+        "formattedRecords" => String.t() | atom(),
+        "generatedFields" => list(list()),
+        "numberOfRecordsUpdated" => float(),
+        "records" => list(list(list())())
+      }
+
+  """
+  @type execute_statement_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_endpoint_not_enabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type http_endpoint_not_enabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error_exception() :: %{}
+
+  """
+  @type internal_server_error_exception() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_resource_state_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_resource_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_secret_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_secret_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rdsdata_record() :: %{
+        "values" => list(list())
+      }
+
+  """
+  @type rdsdata_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      result_frame() :: %{
+        "records" => list(record()),
+        "resultSetMetadata" => result_set_metadata()
+      }
+
+  """
+  @type result_frame() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      result_set_metadata() :: %{
+        "columnCount" => float(),
+        "columnMetadata" => list(column_metadata())
+      }
+
+  """
+  @type result_set_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      result_set_options() :: %{
+        "decimalReturnType" => list(any()),
+        "longReturnType" => list(any())
+      }
+
+  """
+  @type result_set_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rollback_transaction_request() :: %{
+        "resourceArn" => String.t() | atom(),
+        "secretArn" => String.t() | atom(),
+        "transactionId" => String.t() | atom()
+      }
+
+  """
+  @type rollback_transaction_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rollback_transaction_response() :: %{
+        "transactionStatus" => String.t() | atom()
+      }
+
+  """
+  @type rollback_transaction_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secrets_error_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type secrets_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_error() :: %{}
+
+  """
+  @type service_unavailable_error() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sql_parameter() :: %{
+        "name" => String.t() | atom(),
+        "typeHint" => list(any()),
+        "value" => list()
+      }
+
+  """
+  @type sql_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sql_statement_result() :: %{
+        "numberOfRecordsUpdated" => float(),
+        "resultFrame" => result_frame()
+      }
+
+  """
+  @type sql_statement_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      statement_timeout_exception() :: %{
+        "dbConnectionId" => float(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type statement_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      struct_value() :: %{
+        "attributes" => list(list())
+      }
+
+  """
+  @type struct_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transaction_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type transaction_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_result_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unsupported_result_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_result() :: %{
+        "generatedFields" => list(list())
+      }
+
+  """
+  @type update_result() :: %{(String.t() | atom()) => any()}
+
   @type batch_execute_statement_errors() ::
-          database_not_found_exception()
-          | transaction_not_found_exception()
-          | bad_request_exception()
-          | forbidden_exception()
-          | secrets_error_exception()
+          transaction_not_found_exception()
           | statement_timeout_exception()
-          | database_resuming_exception()
-          | invalid_secret_exception()
-          | http_endpoint_not_enabled_exception()
-          | internal_server_error_exception()
-          | database_error_exception()
           | service_unavailable_error()
+          | secrets_error_exception()
+          | invalid_secret_exception()
           | invalid_resource_state_exception()
-          | access_denied_exception()
+          | internal_server_error_exception()
+          | http_endpoint_not_enabled_exception()
+          | forbidden_exception()
           | database_unavailable_exception()
+          | database_resuming_exception()
+          | database_not_found_exception()
+          | database_error_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   @type begin_transaction_errors() ::
-          database_not_found_exception()
-          | transaction_not_found_exception()
-          | bad_request_exception()
-          | forbidden_exception()
-          | secrets_error_exception()
+          transaction_not_found_exception()
           | statement_timeout_exception()
-          | database_resuming_exception()
-          | invalid_secret_exception()
-          | http_endpoint_not_enabled_exception()
-          | internal_server_error_exception()
-          | database_error_exception()
           | service_unavailable_error()
+          | secrets_error_exception()
+          | invalid_secret_exception()
           | invalid_resource_state_exception()
-          | access_denied_exception()
+          | internal_server_error_exception()
+          | http_endpoint_not_enabled_exception()
+          | forbidden_exception()
           | database_unavailable_exception()
+          | database_resuming_exception()
+          | database_not_found_exception()
+          | database_error_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   @type commit_transaction_errors() ::
-          database_not_found_exception()
-          | transaction_not_found_exception()
-          | bad_request_exception()
-          | forbidden_exception()
-          | secrets_error_exception()
+          transaction_not_found_exception()
           | statement_timeout_exception()
-          | invalid_secret_exception()
-          | not_found_exception()
-          | http_endpoint_not_enabled_exception()
-          | internal_server_error_exception()
-          | database_error_exception()
           | service_unavailable_error()
+          | secrets_error_exception()
+          | not_found_exception()
+          | invalid_secret_exception()
           | invalid_resource_state_exception()
-          | access_denied_exception()
+          | internal_server_error_exception()
+          | http_endpoint_not_enabled_exception()
+          | forbidden_exception()
           | database_unavailable_exception()
+          | database_not_found_exception()
+          | database_error_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   @type execute_sql_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          service_unavailable_error()
           | internal_server_error_exception()
-          | service_unavailable_error()
+          | forbidden_exception()
+          | bad_request_exception()
           | access_denied_exception()
 
   @type execute_statement_errors() ::
-          database_not_found_exception()
+          unsupported_result_exception()
           | transaction_not_found_exception()
-          | bad_request_exception()
-          | forbidden_exception()
-          | secrets_error_exception()
           | statement_timeout_exception()
-          | database_resuming_exception()
-          | invalid_secret_exception()
-          | unsupported_result_exception()
-          | http_endpoint_not_enabled_exception()
-          | internal_server_error_exception()
-          | database_error_exception()
           | service_unavailable_error()
+          | secrets_error_exception()
+          | invalid_secret_exception()
           | invalid_resource_state_exception()
-          | access_denied_exception()
+          | internal_server_error_exception()
+          | http_endpoint_not_enabled_exception()
+          | forbidden_exception()
           | database_unavailable_exception()
+          | database_resuming_exception()
+          | database_not_found_exception()
+          | database_error_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   @type rollback_transaction_errors() ::
-          database_not_found_exception()
-          | transaction_not_found_exception()
-          | bad_request_exception()
-          | forbidden_exception()
-          | secrets_error_exception()
+          transaction_not_found_exception()
           | statement_timeout_exception()
-          | invalid_secret_exception()
-          | not_found_exception()
-          | http_endpoint_not_enabled_exception()
-          | internal_server_error_exception()
-          | database_error_exception()
           | service_unavailable_error()
+          | secrets_error_exception()
+          | not_found_exception()
+          | invalid_secret_exception()
           | invalid_resource_state_exception()
-          | access_denied_exception()
+          | internal_server_error_exception()
+          | http_endpoint_not_enabled_exception()
+          | forbidden_exception()
           | database_unavailable_exception()
+          | database_not_found_exception()
+          | database_error_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

@@ -85,254 +85,14 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      create_environment_membership_result() :: %{
-        "membership" => environment_member()
-      }
-      
-  """
-  @type create_environment_membership_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_environments_result() :: %{
-        "environmentIds" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_environments_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_environment_result() :: %{}
-      
-  """
-  @type update_environment_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_requests_exception() :: %{
+      bad_request_exception() :: %{
         "className" => String.t() | atom(),
         "code" => integer(),
         "message" => String.t() | atom()
       }
       
   """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_environment_membership_request() :: %{
-        required("environmentId") => String.t() | atom(),
-        required("permissions") => list(any()),
-        required("userArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_environment_membership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_environment_memberships_result() :: %{
-        "memberships" => list(environment_member()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_environment_memberships_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "className" => String.t() | atom(),
-        "code" => integer(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      environment_lifecycle() :: %{
-        "failureResource" => String.t() | atom(),
-        "reason" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type environment_lifecycle() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_environment_membership_request() :: %{
-        required("environmentId") => String.t() | atom(),
-        required("permissions") => list(any()),
-        required("userArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_environment_membership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_environments_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_environments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_environment_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("managedCredentialsAction") => list(any()),
-        optional("name") => String.t() | atom(),
-        required("environmentId") => String.t() | atom()
-      }
-      
-  """
-  @type update_environment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_environment_memberships_request() :: %{
-        optional("environmentId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("permissions") => list(list(any())()),
-        optional("userArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_environment_memberships_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_environment_status_result() :: %{
-        "message" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type describe_environment_status_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      environment_member() :: %{
-        "environmentId" => String.t() | atom(),
-        "lastAccess" => non_neg_integer(),
-        "permissions" => list(any()),
-        "userArn" => String.t() | atom(),
-        "userId" => String.t() | atom()
-      }
-      
-  """
-  @type environment_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_environment_membership_result() :: %{
-        "membership" => environment_member()
-      }
-      
-  """
-  @type update_environment_membership_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_error_exception() :: %{
-        "className" => String.t() | atom(),
-        "code" => integer(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      environment() :: %{
-        "arn" => String.t() | atom(),
-        "connectionType" => list(any()),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lifecycle" => environment_lifecycle(),
-        "managedCredentialsStatus" => list(any()),
-        "name" => String.t() | atom(),
-        "ownerArn" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type environment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -351,10 +111,14 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      delete_environment_result() :: %{}
+      conflict_exception() :: %{
+        "className" => String.t() | atom(),
+        "code" => integer(),
+        "message" => String.t() | atom()
+      }
       
   """
-  @type delete_environment_result() :: %{}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -381,12 +145,36 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      describe_environments_result() :: %{
-        "environments" => list(environment())
+      create_environment_ec2_result() :: %{
+        "environmentId" => String.t() | atom()
       }
       
   """
-  @type describe_environments_result() :: %{(String.t() | atom()) => any()}
+  @type create_environment_ec2_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_environment_membership_request() :: %{
+        required("environmentId") => String.t() | atom(),
+        required("permissions") => list(any()),
+        required("userArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_environment_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_environment_membership_result() :: %{
+        "membership" => environment_member()
+      }
+      
+  """
+  @type create_environment_membership_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -404,53 +192,6 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      conflict_exception() :: %{
-        "className" => String.t() | atom(),
-        "code" => integer(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      not_found_exception() :: %{
-        "className" => String.t() | atom(),
-        "code" => integer(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       delete_environment_membership_result() :: %{}
       
   """
@@ -460,12 +201,48 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
+      delete_environment_request() :: %{
+        required("environmentId") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type delete_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_environment_result() :: %{}
+      
+  """
+  @type delete_environment_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_environment_memberships_request() :: %{
+        optional("environmentId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("permissions") => list(list(any())()),
+        optional("userArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_environment_memberships_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_environment_memberships_result() :: %{
+        "memberships" => list(environment_member()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_environment_memberships_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -482,12 +259,82 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      delete_environment_request() :: %{
-        required("environmentId") => String.t() | atom()
+      describe_environment_status_result() :: %{
+        "message" => String.t() | atom(),
+        "status" => list(any())
       }
       
   """
-  @type delete_environment_request() :: %{(String.t() | atom()) => any()}
+  @type describe_environment_status_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_environments_request() :: %{
+        required("environmentIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_environments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_environments_result() :: %{
+        "environments" => list(environment())
+      }
+      
+  """
+  @type describe_environments_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment() :: %{
+        "arn" => String.t() | atom(),
+        "connectionType" => list(any()),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lifecycle" => environment_lifecycle(),
+        "managedCredentialsStatus" => list(any()),
+        "name" => String.t() | atom(),
+        "ownerArn" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type environment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment_lifecycle() :: %{
+        "failureResource" => String.t() | atom(),
+        "reason" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type environment_lifecycle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment_member() :: %{
+        "environmentId" => String.t() | atom(),
+        "lastAccess" => non_neg_integer(),
+        "permissions" => list(any()),
+        "userArn" => String.t() | atom(),
+        "userId" => String.t() | atom()
+      }
+      
+  """
+  @type environment_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -506,36 +353,51 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      bad_request_exception() :: %{
+      internal_server_error_exception() :: %{
         "className" => String.t() | atom(),
         "code" => integer(),
         "message" => String.t() | atom()
       }
       
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_environment_ec2_result() :: %{
-        "environmentId" => String.t() | atom()
+      limit_exceeded_exception() :: %{
+        "className" => String.t() | atom(),
+        "code" => integer(),
+        "message" => String.t() | atom()
       }
       
   """
-  @type create_environment_ec2_result() :: %{(String.t() | atom()) => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_environments_request() :: %{
-        required("environmentIds") => list(String.t() | atom())
+      list_environments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_environments_request() :: %{(String.t() | atom()) => any()}
+  @type list_environments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_environments_result() :: %{
+        "environmentIds" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_environments_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -548,110 +410,248 @@ defmodule AWS.Cloud9 do
   """
   @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_found_exception() :: %{
+        "className" => String.t() | atom(),
+        "code" => integer(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_requests_exception() :: %{
+        "className" => String.t() | atom(),
+        "code" => integer(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_environment_membership_request() :: %{
+        required("environmentId") => String.t() | atom(),
+        required("permissions") => list(any()),
+        required("userArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_environment_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_environment_membership_result() :: %{
+        "membership" => environment_member()
+      }
+      
+  """
+  @type update_environment_membership_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_environment_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("managedCredentialsAction") => list(any()),
+        optional("name") => String.t() | atom(),
+        required("environmentId") => String.t() | atom()
+      }
+      
+  """
+  @type update_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_environment_result() :: %{}
+      
+  """
+  @type update_environment_result() :: %{}
+
   @type create_environment_ec2_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type create_environment_membership_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type delete_environment_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type delete_environment_membership_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type describe_environment_memberships_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type describe_environment_status_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type describe_environments_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type list_environments_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception() | not_found_exception() | internal_server_error_exception()
+          not_found_exception() | internal_server_error_exception() | bad_request_exception()
 
   @type tag_resource_errors() ::
-          bad_request_exception()
-          | not_found_exception()
-          | concurrent_access_exception()
+          not_found_exception()
           | internal_server_error_exception()
+          | concurrent_access_exception()
+          | bad_request_exception()
 
   @type untag_resource_errors() ::
-          bad_request_exception()
-          | not_found_exception()
-          | concurrent_access_exception()
+          not_found_exception()
           | internal_server_error_exception()
+          | concurrent_access_exception()
+          | bad_request_exception()
 
   @type update_environment_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type update_environment_membership_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   def metadata do
     %{

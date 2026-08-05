@@ -21,102 +21,12 @@ defmodule AWS.SupportAuthZ do
 
   ## Example:
 
-      list_support_permit_requests_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "supportPermitRequests" => list(support_permit_request())
-      }
-
-  """
-  @type list_support_permit_requests_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      permit() :: %{
-        "actions" => list(),
-        "conditions" => list(list()),
-        "resources" => list()
-      }
-
-  """
-  @type permit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_support_permits_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "supportPermits" => list(support_permit_summary())
-      }
-
-  """
-  @type list_support_permits_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_actions_output() :: %{
-        "actionSummaries" => list(action_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_actions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       access_denied_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{}
-
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_support_permit_input() :: %{}
-
-  """
-  @type delete_support_permit_input() :: %{}
 
   @typedoc """
 
@@ -135,122 +45,6 @@ defmodule AWS.SupportAuthZ do
 
   ## Example:
 
-      reject_support_permit_request_input() :: %{}
-
-  """
-  @type reject_support_permit_request_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_action_input() :: %{}
-
-  """
-  @type get_action_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      support_permit_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "permit" => permit(),
-        "signingKeyInfo" => list(),
-        "status" => list(any()),
-        "supportCaseDisplayId" => String.t() | atom()
-      }
-
-  """
-  @type support_permit_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_support_permit_input() :: %{}
-
-  """
-  @type get_support_permit_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_actions_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("service") => String.t() | atom()
-      }
-
-  """
-  @type list_actions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       conflict_exception() :: %{
         "message" => [String.t() | atom()],
         "resourceId" => [String.t() | atom()],
@@ -259,117 +53,6 @@ defmodule AWS.SupportAuthZ do
 
   """
   @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_support_permits_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("supportPermitStatuses") => list(list(any())())
-      }
-
-  """
-  @type list_support_permits_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "path" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_support_permit_requests_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("supportCaseDisplayId") => String.t() | atom()
-      }
-
-  """
-  @type list_support_permit_requests_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      support_permit_request() :: %{
-        "createdAt" => [non_neg_integer()],
-        "permit" => permit(),
-        "requestArn" => String.t() | atom(),
-        "status" => list(any()),
-        "supportCaseDisplayId" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type support_permit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_support_permit_request_output() :: %{
-        "requestArn" => String.t() | atom()
-      }
-
-  """
-  @type reject_support_permit_request_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_support_permit_output() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "permit" => permit(),
-        "signingKeyInfo" => list(),
-        "status" => list(any()),
-        "supportCaseDisplayId" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type get_support_permit_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_support_permit_output() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "permit" => permit(),
-        "signingKeyInfo" => list(),
-        "status" => list(any()),
-        "supportCaseDisplayId" => String.t() | atom()
-      }
-
-  """
-  @type delete_support_permit_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -411,10 +94,37 @@ defmodule AWS.SupportAuthZ do
 
   ## Example:
 
-      untag_resource_output() :: %{}
+      delete_support_permit_input() :: %{}
 
   """
-  @type untag_resource_output() :: %{}
+  @type delete_support_permit_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_support_permit_output() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "permit" => permit(),
+        "signingKeyInfo" => list(),
+        "status" => list(any()),
+        "supportCaseDisplayId" => String.t() | atom()
+      }
+
+  """
+  @type delete_support_permit_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_action_input() :: %{}
+
+  """
+  @type get_action_input() :: %{}
 
   @typedoc """
 
@@ -433,6 +143,187 @@ defmodule AWS.SupportAuthZ do
 
   ## Example:
 
+      get_support_permit_input() :: %{}
+
+  """
+  @type get_support_permit_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_support_permit_output() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "permit" => permit(),
+        "signingKeyInfo" => list(),
+        "status" => list(any()),
+        "supportCaseDisplayId" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type get_support_permit_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_actions_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("service") => String.t() | atom()
+      }
+
+  """
+  @type list_actions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_actions_output() :: %{
+        "actionSummaries" => list(action_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_actions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_support_permit_requests_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("supportCaseDisplayId") => String.t() | atom()
+      }
+
+  """
+  @type list_support_permit_requests_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_support_permit_requests_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "supportPermitRequests" => list(support_permit_request())
+      }
+
+  """
+  @type list_support_permit_requests_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_support_permits_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("supportPermitStatuses") => list(list(any())())
+      }
+
+  """
+  @type list_support_permits_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_support_permits_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "supportPermits" => list(support_permit_summary())
+      }
+
+  """
+  @type list_support_permits_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permit() :: %{
+        "actions" => list(),
+        "conditions" => list(list()),
+        "resources" => list()
+      }
+
+  """
+  @type permit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_support_permit_request_input() :: %{}
+
+  """
+  @type reject_support_permit_request_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_support_permit_request_output() :: %{
+        "requestArn" => String.t() | atom()
+      }
+
+  """
+  @type reject_support_permit_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "message" => [String.t() | atom()],
         "quotaCode" => [String.t() | atom()],
@@ -444,81 +335,190 @@ defmodule AWS.SupportAuthZ do
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      support_permit_request() :: %{
+        "createdAt" => [non_neg_integer()],
+        "permit" => permit(),
+        "requestArn" => String.t() | atom(),
+        "status" => list(any()),
+        "supportCaseDisplayId" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type support_permit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      support_permit_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "permit" => permit(),
+        "signingKeyInfo" => list(),
+        "status" => list(any()),
+        "supportCaseDisplayId" => String.t() | atom()
+      }
+
+  """
+  @type support_permit_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "path" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
   @type create_support_permit_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_support_permit_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type get_action_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_support_permit_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_actions_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_support_permit_requests_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_support_permits_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type reject_support_permit_request_errors() ::
-          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type get_action_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_support_permit_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_actions_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_support_permit_requests_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_support_permits_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type reject_support_permit_request_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -663,8 +663,8 @@ defmodule AWS.SupportAuthZ do
     query_params = []
 
     query_params =
-      if !is_nil(service) do
-        [{"service", service} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -677,8 +677,8 @@ defmodule AWS.SupportAuthZ do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(service) do
+        [{"service", service} | query_params]
       else
         query_params
       end
@@ -716,8 +716,8 @@ defmodule AWS.SupportAuthZ do
     query_params = []
 
     query_params =
-      if !is_nil(support_case_display_id) do
-        [{"supportCaseDisplayId", support_case_display_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -730,8 +730,8 @@ defmodule AWS.SupportAuthZ do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(support_case_display_id) do
+        [{"supportCaseDisplayId", support_case_display_id} | query_params]
       else
         query_params
       end
@@ -769,8 +769,8 @@ defmodule AWS.SupportAuthZ do
     query_params = []
 
     query_params =
-      if !is_nil(support_permit_statuses) do
-        [{"supportPermitStatuses", support_permit_statuses} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -783,8 +783,8 @@ defmodule AWS.SupportAuthZ do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(support_permit_statuses) do
+        [{"supportPermitStatuses", support_permit_statuses} | query_params]
       else
         query_params
       end

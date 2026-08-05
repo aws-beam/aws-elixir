@@ -49,199 +49,67 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      create_event_destination_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("CloudWatchLogsDestination") => cloud_watch_logs_destination(),
-        optional("KinesisFirehoseDestination") => kinesis_firehose_destination(),
-        optional("SnsDestination") => sns_destination(),
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("EventDestinationName") => String.t() | atom(),
-        required("MatchingEventTypes") => list(String.t() | atom())
+      access_denied_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom()
       }
       
   """
-  @type create_event_destination_request() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_registrations_request() :: %{
-        optional("Filters") => list(registration_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RegistrationIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_registrations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_destination_number_verification_code_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom(),
-        optional("Context") => map(),
-        optional("DestinationCountryParameters") => map(),
-        optional("LanguageCode") => String.t() | atom(),
-        optional("OriginationIdentity") => String.t() | atom(),
-        required("VerificationChannel") => String.t() | atom(),
-        required("VerifiedDestinationNumberId") => String.t() | atom()
-      }
-      
-  """
-  @type send_destination_number_verification_code_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protect_configuration_rule_set_number_override() :: %{
-        "Action" => String.t() | atom(),
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | atom(),
-        "ExpirationTimestamp" => [non_neg_integer()],
-        "IsoCountryCode" => String.t() | atom()
-      }
-      
-  """
-  @type protect_configuration_rule_set_number_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_sender_ids_request() :: %{
-        optional("Filters") => list(sender_id_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Owner") => String.t() | atom(),
-        optional("SenderIds") => list(sender_id_and_country())
-      }
-      
-  """
-  @type describe_sender_ids_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_registration_attachment_result() :: %{
-        "AttachmentStatus" => String.t() | atom(),
-        "AttachmentUploadErrorReason" => String.t() | atom(),
-        "CreatedTimestamp" => [non_neg_integer()],
-        "RegistrationAttachmentArn" => [String.t() | atom()],
-        "RegistrationAttachmentId" => [String.t() | atom()]
-      }
-      
-  """
-  @type delete_registration_attachment_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_association_metadata() :: %{
-        "IsoCountryCode" => String.t() | atom(),
-        "PhoneNumber" => String.t() | atom(),
-        "ResourceArn" => [String.t() | atom()],
-        "ResourceId" => [String.t() | atom()],
-        "ResourceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type registration_association_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_notify_countries_request() :: %{
-        optional("Channels") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Tier") => String.t() | atom(),
-        optional("UseCases") => list(String.t() | atom())
-      }
-      
-  """
-  @type list_notify_countries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_verified_destination_number_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | atom(),
-        "VerifiedDestinationNumberArn" => [String.t() | atom()],
-        "VerifiedDestinationNumberId" => [String.t() | atom()]
-      }
-      
-  """
-  @type delete_verified_destination_number_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_opt_out_list_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "OptOutListArn" => [String.t() | atom()],
-        "OptOutListName" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type create_opt_out_list_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_request() :: %{
-        required("Policy") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_version_filter() :: %{
+      account_attribute() :: %{
         "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
+        "Value" => [String.t() | atom()]
       }
       
   """
-  @type registration_version_filter() :: %{(String.t() | atom()) => any()}
+  @type account_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      carrier_lookup_request() :: %{
-        required("PhoneNumber") => String.t() | atom()
+      account_limit() :: %{
+        "Max" => [float()],
+        "Name" => String.t() | atom(),
+        "Used" => [float()]
       }
       
   """
-  @type carrier_lookup_request() :: %{(String.t() | atom()) => any()}
+  @type account_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_verified_destination_numbers_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "VerifiedDestinationNumbers" => list(verified_destination_number_information())
+      associate_origination_identity_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("IsoCountryCode") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom(),
+        required("PoolId") => String.t() | atom()
       }
       
   """
-  @type describe_verified_destination_numbers_result() :: %{(String.t() | atom()) => any()}
+  @type associate_origination_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_origination_identity_result() :: %{
+        "IsoCountryCode" => String.t() | atom(),
+        "OriginationIdentity" => [String.t() | atom()],
+        "OriginationIdentityArn" => [String.t() | atom()],
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()]
+      }
+      
+  """
+  @type associate_origination_identity_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -259,54 +127,68 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      describe_notify_templates_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "NotifyTemplates" => list(notify_template_information())
+      associate_protect_configuration_result() :: %{
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
-  @type describe_notify_templates_result() :: %{(String.t() | atom()) => any()}
+  @type associate_protect_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_event_destination_request() :: %{
-        optional("CloudWatchLogsDestination") => cloud_watch_logs_destination(),
-        optional("Enabled") => [boolean()],
-        optional("KinesisFirehoseDestination") => kinesis_firehose_destination(),
-        optional("MatchingEventTypes") => list(String.t() | atom()),
-        optional("SnsDestination") => sns_destination(),
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("EventDestinationName") => String.t() | atom()
+      carrier_lookup_request() :: %{
+        required("PhoneNumber") => String.t() | atom()
       }
       
   """
-  @type update_event_destination_request() :: %{(String.t() | atom()) => any()}
+  @type carrier_lookup_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_notify_configuration_request() :: %{
-        required("NotifyConfigurationId") => String.t() | atom()
+      carrier_lookup_result() :: %{
+        "Carrier" => [String.t() | atom()],
+        "Country" => [String.t() | atom()],
+        "DialingCountryCode" => String.t() | atom(),
+        "E164PhoneNumber" => String.t() | atom(),
+        "IsoCountryCode" => String.t() | atom(),
+        "MCC" => String.t() | atom(),
+        "MNC" => String.t() | atom(),
+        "PhoneNumberType" => String.t() | atom()
       }
       
   """
-  @type delete_notify_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type carrier_lookup_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_registration_section_definitions_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "RegistrationSectionDefinitions" => list(registration_section_definition()),
-        "RegistrationType" => String.t() | atom()
+      carrier_status_information() :: %{
+        "CarrierName" => [String.t() | atom()],
+        "Status" => String.t() | atom()
       }
       
   """
-  @type describe_registration_section_definitions_result() :: %{(String.t() | atom()) => any()}
+  @type carrier_status_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_logs_destination() :: %{
+        "IamRoleArn" => String.t() | atom(),
+        "LogGroupArn" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_watch_logs_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -324,151 +206,45 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      registration_type_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type registration_type_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_registration_type_definitions_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "RegistrationTypeDefinitions" => list(registration_type_definition())
-      }
-      
-  """
-  @type describe_registration_type_definitions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      discard_registration_version_result() :: %{
-        "RegistrationArn" => [String.t() | atom()],
-        "RegistrationId" => [String.t() | atom()],
-        "RegistrationVersionStatus" => String.t() | atom(),
-        "RegistrationVersionStatusHistory" => registration_version_status_history(),
-        "VersionNumber" => float()
-      }
-      
-  """
-  @type discard_registration_version_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_destination_number_request() :: %{
-        required("VerificationCode") => String.t() | atom(),
-        required("VerifiedDestinationNumberId") => String.t() | atom()
-      }
-      
-  """
-  @type verify_destination_number_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_result() :: %{
+      configuration_set_information() :: %{
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
-        "Policy" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pool_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type pool_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_sender_id_result() :: %{
-        "DeletionProtectionEnabled" => [boolean()],
-        "IsoCountryCode" => String.t() | atom(),
-        "MessageTypes" => list(String.t() | atom()),
-        "MonthlyLeasingPrice" => [String.t() | atom()],
-        "Registered" => [boolean()],
-        "RegistrationId" => [String.t() | atom()],
-        "SenderId" => String.t() | atom(),
-        "SenderIdArn" => [String.t() | atom()]
-      }
-      
-  """
-  @type update_sender_id_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_notify_message_spend_limit_override_result() :: %{
-        "MonthlyLimit" => float()
-      }
-      
-  """
-  @type delete_notify_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_keywords_request() :: %{
-        optional("Filters") => list(keyword_filter()),
-        optional("Keywords") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("OriginationIdentity") => String.t() | atom()
-      }
-      
-  """
-  @type describe_keywords_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_protect_configuration_rule_set_number_override_result() :: %{
-        "Action" => String.t() | atom(),
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | atom(),
-        "ExpirationTimestamp" => [non_neg_integer()],
-        "IsoCountryCode" => String.t() | atom(),
-        "ProtectConfigurationArn" => String.t() | atom(),
+        "DefaultMessageFeedbackEnabled" => [boolean()],
+        "DefaultMessageType" => String.t() | atom(),
+        "DefaultSenderId" => String.t() | atom(),
+        "EventDestinations" => list(event_destination()),
         "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
-  @type put_protect_configuration_rule_set_number_override_result() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type configuration_set_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom(),
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      country_launch_status_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type country_launch_status_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -489,39 +265,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      create_registration_request() :: %{
+      create_configuration_set_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("RegistrationType") => String.t() | atom()
+        required("ConfigurationSetName") => String.t() | atom()
       }
       
   """
-  @type create_registration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_event_destination_result() :: %{
-        "ConfigurationSetArn" => [String.t() | atom()],
-        "ConfigurationSetName" => String.t() | atom(),
-        "EventDestination" => event_destination()
-      }
-      
-  """
-  @type update_event_destination_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_account_default_protect_configuration_result() :: %{
-        "DefaultProtectConfigurationArn" => String.t() | atom(),
-        "DefaultProtectConfigurationId" => String.t() | atom()
-      }
-      
-  """
-  @type set_account_default_protect_configuration_result() :: %{(String.t() | atom()) => any()}
+  @type create_configuration_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,722 +292,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      delete_registration_request() :: %{
-        required("RegistrationId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_registration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      text_validation() :: %{
-        "MaxLength" => [integer()],
-        "MinLength" => [integer()],
-        "Pattern" => [String.t() | atom()]
-      }
-      
-  """
-  @type text_validation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_sender_id_request() :: %{
+      create_event_destination_request() :: %{
         optional("ClientToken") => String.t() | atom(),
-        optional("DeletionProtectionEnabled") => [boolean()],
-        optional("MessageTypes") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        required("IsoCountryCode") => String.t() | atom(),
-        required("SenderId") => String.t() | atom()
+        optional("CloudWatchLogsDestination") => cloud_watch_logs_destination(),
+        optional("KinesisFirehoseDestination") => kinesis_firehose_destination(),
+        optional("SnsDestination") => sns_destination(),
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("EventDestinationName") => String.t() | atom(),
+        required("MatchingEventTypes") => list(String.t() | atom())
       }
       
   """
-  @type request_sender_id_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_information() :: %{
-        "AdditionalAttributes" => map(),
-        "ApprovedVersionNumber" => float(),
-        "CreatedTimestamp" => [non_neg_integer()],
-        "CurrentVersionNumber" => float(),
-        "LatestDeniedVersionNumber" => float(),
-        "RegistrationArn" => [String.t() | atom()],
-        "RegistrationId" => [String.t() | atom()],
-        "RegistrationStatus" => String.t() | atom(),
-        "RegistrationType" => String.t() | atom()
-      }
-      
-  """
-  @type registration_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rcs_agent_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DeletionProtectionEnabled" => [boolean()],
-        "OptOutListName" => String.t() | atom(),
-        "RcsAgentArn" => [String.t() | atom()],
-        "RcsAgentId" => [String.t() | atom()],
-        "SelfManagedOptOutsEnabled" => [boolean()],
-        "Status" => String.t() | atom(),
-        "TwoWayChannelArn" => String.t() | atom(),
-        "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()],
-        "TwoWayRcsEventsEnabled" => list(String.t() | atom())
-      }
-      
-  """
-  @type delete_rcs_agent_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_carousel_card_media() :: %{
-        "FileUrl" => String.t() | atom(),
-        "Height" => [String.t() | atom()],
-        "ThumbnailUrl" => String.t() | atom()
-      }
-      
-  """
-  @type rcs_carousel_card_media() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_protect_configurations_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProtectConfigurations" => list(protect_configuration_information())
-      }
-      
-  """
-  @type describe_protect_configurations_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_account_default_protect_configuration_request() :: %{
-        required("ProtectConfigurationId") => String.t() | atom()
-      }
-      
-  """
-  @type set_account_default_protect_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "Reason" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_rcs_message_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom(),
-        optional("Context") => map(),
-        optional("DryRun") => [boolean()],
-        optional("FallbackConfiguration") => rcs_fallback_configuration(),
-        optional("MaxPrice") => String.t() | atom(),
-        optional("MessageFeedbackEnabled") => [boolean()],
-        optional("MessageTrafficType") => String.t() | atom(),
-        optional("ProtectConfigurationId") => String.t() | atom(),
-        optional("RcsMessageContent") => rcs_message_content(),
-        optional("TimeToLive") => integer(),
-        required("DestinationPhoneNumber") => String.t() | atom(),
-        required("OriginationIdentity") => String.t() | atom()
-      }
-      
-  """
-  @type send_rcs_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_pool_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "MessageType" => String.t() | atom(),
-        "OptOutListName" => String.t() | atom(),
-        "PoolArn" => [String.t() | atom()],
-        "PoolId" => [String.t() | atom()],
-        "SelfManagedOptOutsEnabled" => [boolean()],
-        "SharedRoutesEnabled" => [boolean()],
-        "Status" => String.t() | atom(),
-        "TwoWayChannelArn" => String.t() | atom(),
-        "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()]
-      }
-      
-  """
-  @type delete_pool_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      select_validation() :: %{
-        "MaxChoices" => [integer()],
-        "MinChoices" => [integer()],
-        "Options" => list([String.t() | atom()]())
-      }
-      
-  """
-  @type select_validation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_registration_field_values_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "RegistrationArn" => [String.t() | atom()],
-        "RegistrationFieldValues" => list(registration_field_value_information()),
-        "RegistrationId" => [String.t() | atom()],
-        "VersionNumber" => float()
-      }
-      
-  """
-  @type describe_registration_field_values_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      keyword_information() :: %{
-        "Keyword" => String.t() | atom(),
-        "KeywordAction" => String.t() | atom(),
-        "KeywordMessage" => String.t() | atom()
-      }
-      
-  """
-  @type keyword_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_opted_out_number_request() :: %{
-        required("OptOutListName") => String.t() | atom(),
-        required("OptedOutNumber") => String.t() | atom()
-      }
-      
-  """
-  @type delete_opted_out_number_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_account_default_protect_configuration_result() :: %{
-        "DefaultProtectConfigurationArn" => String.t() | atom(),
-        "DefaultProtectConfigurationId" => String.t() | atom()
-      }
-      
-  """
-  @type delete_account_default_protect_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_opt_out_list_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("OptOutListName") => String.t() | atom()
-      }
-      
-  """
-  @type create_opt_out_list_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      discard_registration_version_request() :: %{
-        required("RegistrationId") => String.t() | atom()
-      }
-      
-  """
-  @type discard_registration_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_opted_out_number_request() :: %{
-        required("OptOutListName") => String.t() | atom(),
-        required("OptedOutNumber") => String.t() | atom()
-      }
-      
-  """
-  @type put_opted_out_number_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_notify_configurations_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "NotifyConfigurations" => list(notify_configuration_information())
-      }
-      
-  """
-  @type describe_notify_configurations_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_carousel() :: %{
-        "CardContents" => list(rcs_carousel_card_content()),
-        "CardWidth" => [String.t() | atom()]
-      }
-      
-  """
-  @type rcs_carousel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_opted_out_number_result() :: %{
-        "EndUserOptedOut" => [boolean()],
-        "OptOutListArn" => [String.t() | atom()],
-        "OptOutListName" => String.t() | atom(),
-        "OptedOutNumber" => String.t() | atom(),
-        "OptedOutTimestamp" => [non_neg_integer()]
-      }
-      
-  """
-  @type put_opted_out_number_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      keyword_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type keyword_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sender_id_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type sender_id_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_sender_id_request() :: %{
-        optional("DeletionProtectionEnabled") => [boolean()],
-        required("IsoCountryCode") => String.t() | atom(),
-        required("SenderId") => String.t() | atom()
-      }
-      
-  """
-  @type update_sender_id_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_registration_version_request() :: %{
-        required("RegistrationId") => String.t() | atom()
-      }
-      
-  """
-  @type create_registration_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_protect_configuration_rule_set_number_overrides_request() :: %{
-        optional("Filters") => list(protect_configuration_rule_set_number_override_filter_item()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ProtectConfigurationId") => String.t() | atom()
-      }
-      
-  """
-  @type list_protect_configuration_rule_set_number_overrides_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_reply_action() :: %{
-        "PostbackData" => String.t() | atom(),
-        "Text" => String.t() | atom()
-      }
-      
-  """
-  @type rcs_reply_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_voice_message_spend_limit_override_request() :: %{}
-      
-  """
-  @type delete_voice_message_spend_limit_override_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      verified_destination_number_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type verified_destination_number_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_rcs_agent_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("DeletionProtectionEnabled") => [boolean()],
-        optional("OptOutListName") => String.t() | atom(),
-        optional("Tags") => list(tag())
-      }
-      
-  """
-  @type create_rcs_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_opt_out_lists_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OptOutListNames") => list(String.t() | atom()),
-        optional("Owner") => String.t() | atom()
-      }
-      
-  """
-  @type describe_opt_out_lists_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_keywords_result() :: %{
-        "Keywords" => list(keyword_information()),
-        "NextToken" => String.t() | atom(),
-        "OriginationIdentity" => [String.t() | atom()],
-        "OriginationIdentityArn" => [String.t() | atom()]
-      }
-      
-  """
-  @type describe_keywords_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_card_media() :: %{
-        "FileUrl" => String.t() | atom(),
-        "Height" => [String.t() | atom()],
-        "ThumbnailUrl" => String.t() | atom()
-      }
-      
-  """
-  @type rcs_card_media() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_notify_configuration_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DefaultTemplateId" => String.t() | atom(),
-        "DeletionProtectionEnabled" => [boolean()],
-        "DisplayName" => String.t() | atom(),
-        "EnabledChannels" => list(String.t() | atom()),
-        "EnabledCountries" => list(String.t() | atom()),
-        "NotifyConfigurationArn" => String.t() | atom(),
-        "NotifyConfigurationId" => String.t() | atom(),
-        "PoolId" => [String.t() | atom()],
-        "RejectionReason" => [String.t() | atom()],
-        "Status" => String.t() | atom(),
-        "Tier" => String.t() | atom(),
-        "TierUpgradeStatus" => String.t() | atom(),
-        "UseCase" => String.t() | atom()
-      }
-      
-  """
-  @type delete_notify_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_media_message_spend_limit_override_result() :: %{
-        "MonthlyLimit" => float()
-      }
-      
-  """
-  @type set_media_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_fallback_configuration() :: %{
-        "Channel" => String.t() | atom(),
-        "MediaUrls" => list(String.t() | atom()),
-        "MessageBody" => String.t() | atom(),
-        "OriginationIdentity" => String.t() | atom()
-      }
-      
-  """
-  @type rcs_fallback_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_pools_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "Pools" => list(pool_information())
-      }
-      
-  """
-  @type describe_pools_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_registration_field_definitions_request() :: %{
-        optional("FieldPaths") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SectionPath") => String.t() | atom(),
-        required("RegistrationType") => String.t() | atom()
-      }
-      
-  """
-  @type describe_registration_field_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_voice_message_spend_limit_override_request() :: %{
-        required("MonthlyLimit") => float()
-      }
-      
-  """
-  @type set_voice_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_association_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type registration_association_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_keyword_result() :: %{
-        "Keyword" => String.t() | atom(),
-        "KeywordAction" => String.t() | atom(),
-        "KeywordMessage" => String.t() | atom(),
-        "OriginationIdentity" => [String.t() | atom()],
-        "OriginationIdentityArn" => [String.t() | atom()]
-      }
-      
-  """
-  @type delete_keyword_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_registration_result() :: %{
-        "AdditionalAttributes" => map(),
-        "ApprovedVersionNumber" => float(),
-        "CreatedTimestamp" => [non_neg_integer()],
-        "CurrentVersionNumber" => float(),
-        "LatestDeniedVersionNumber" => float(),
-        "RegistrationArn" => [String.t() | atom()],
-        "RegistrationId" => [String.t() | atom()],
-        "RegistrationStatus" => String.t() | atom(),
-        "RegistrationType" => String.t() | atom()
-      }
-      
-  """
-  @type delete_registration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      submit_registration_version_request() :: %{
-        optional("AwsReview") => [boolean()],
-        required("RegistrationId") => String.t() | atom()
-      }
-      
-  """
-  @type submit_registration_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      phone_number_information() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DeletionProtectionEnabled" => [boolean()],
-        "InternationalSendingEnabled" => [boolean()],
-        "IsoCountryCode" => String.t() | atom(),
-        "MessageType" => String.t() | atom(),
-        "MonthlyLeasingPrice" => [String.t() | atom()],
-        "NumberCapabilities" => list(String.t() | atom()),
-        "NumberType" => String.t() | atom(),
-        "OptOutListName" => String.t() | atom(),
-        "PhoneNumber" => String.t() | atom(),
-        "PhoneNumberArn" => [String.t() | atom()],
-        "PhoneNumberId" => [String.t() | atom()],
-        "PoolId" => [String.t() | atom()],
-        "RegistrationId" => [String.t() | atom()],
-        "SelfManagedOptOutsEnabled" => [boolean()],
-        "Status" => String.t() | atom(),
-        "TwoWayChannelArn" => String.t() | atom(),
-        "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()]
-      }
-      
-  """
-  @type phone_number_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_version_status_history() :: %{
-        "ApprovedTimestamp" => [non_neg_integer()],
-        "ArchivedTimestamp" => [non_neg_integer()],
-        "AwsReviewingTimestamp" => [non_neg_integer()],
-        "DeniedTimestamp" => [non_neg_integer()],
-        "DiscardedTimestamp" => [non_neg_integer()],
-        "DraftTimestamp" => [non_neg_integer()],
-        "RequiresAuthenticationTimestamp" => [non_neg_integer()],
-        "ReviewingTimestamp" => [non_neg_integer()],
-        "RevokedTimestamp" => [non_neg_integer()],
-        "SubmittedTimestamp" => [non_neg_integer()]
-      }
-      
-  """
-  @type registration_version_status_history() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_pool_origination_identities_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "OriginationIdentities" => list(origination_identity_metadata()),
-        "PoolArn" => [String.t() | atom()],
-        "PoolId" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_pool_origination_identities_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_registration_type_definitions_request() :: %{
-        optional("Filters") => list(registration_type_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RegistrationTypes") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_registration_type_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protect_configuration_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type protect_configuration_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_registration_attachments_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "RegistrationAttachments" => list(registration_attachments_information())
-      }
-      
-  """
-  @type describe_registration_attachments_result() :: %{(String.t() | atom()) => any()}
+  @type create_event_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1270,210 +317,6 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type create_event_destination_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "Fields" => list(validation_exception_field()),
-        "Message" => [String.t() | atom()],
-        "Reason" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_protect_configuration_result() :: %{
-        "AccountDefault" => [boolean()],
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DeletionProtectionEnabled" => [boolean()],
-        "ProtectConfigurationArn" => String.t() | atom(),
-        "ProtectConfigurationId" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type create_protect_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_registration_versions_request() :: %{
-        optional("Filters") => list(registration_version_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("VersionNumbers") => list(float()),
-        required("RegistrationId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_registration_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_default_sender_id_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("SenderId") => String.t() | atom()
-      }
-      
-  """
-  @type set_default_sender_id_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_text_message_spend_limit_override_result() :: %{
-        "MonthlyLimit" => float()
-      }
-      
-  """
-  @type delete_text_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_create_calendar_event_action() :: %{
-        "Description" => String.t() | atom(),
-        "EndTime" => [non_neg_integer()],
-        "PostbackData" => String.t() | atom(),
-        "StartTime" => [non_neg_integer()],
-        "Text" => String.t() | atom(),
-        "Title" => String.t() | atom()
-      }
-      
-  """
-  @type rcs_create_calendar_event_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_default_message_type_result() :: %{
-        "ConfigurationSetArn" => [String.t() | atom()],
-        "ConfigurationSetName" => String.t() | atom(),
-        "MessageType" => String.t() | atom()
-      }
-      
-  """
-  @type delete_default_message_type_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_attachment_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type registration_attachment_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      phone_number_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type phone_number_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_registration_associations_request() :: %{
-        optional("Filters") => list(registration_association_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("RegistrationId") => String.t() | atom()
-      }
-      
-  """
-  @type list_registration_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_dial_phone_action() :: %{
-        "PhoneNumber" => String.t() | atom(),
-        "PostbackData" => String.t() | atom(),
-        "Text" => String.t() | atom()
-      }
-      
-  """
-  @type rcs_dial_phone_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rcs_agent_request() :: %{
-        required("RcsAgentId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_rcs_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_origination_identity_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("IsoCountryCode") => String.t() | atom(),
-        required("OriginationIdentity") => String.t() | atom(),
-        required("PoolId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_origination_identity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      origination_identity_metadata() :: %{
-        "IsoCountryCode" => String.t() | atom(),
-        "NumberCapabilities" => list(String.t() | atom()),
-        "OriginationIdentity" => [String.t() | atom()],
-        "OriginationIdentityArn" => [String.t() | atom()],
-        "PhoneNumber" => String.t() | atom()
-      }
-      
-  """
-  @type origination_identity_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_verified_destination_number_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | atom(),
-        "RcsAgentId" => [String.t() | atom()],
-        "Status" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "VerifiedDestinationNumberArn" => [String.t() | atom()],
-        "VerifiedDestinationNumberId" => [String.t() | atom()]
-      }
-      
-  """
-  @type create_verified_destination_number_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1523,381 +366,28 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      get_resource_policy_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "Policy" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_opted_out_number_result() :: %{
-        "EndUserOptedOut" => [boolean()],
-        "OptOutListArn" => [String.t() | atom()],
-        "OptOutListName" => String.t() | atom(),
-        "OptedOutNumber" => String.t() | atom(),
-        "OptedOutTimestamp" => [non_neg_integer()]
-      }
-      
-  """
-  @type delete_opted_out_number_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_carousel_card_content() :: %{
-        "Description" => String.t() | atom(),
-        "Media" => rcs_carousel_card_media(),
-        "Suggestions" => list(list()),
-        "Title" => String.t() | atom()
-      }
-      
-  """
-  @type rcs_carousel_card_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_policy_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      opted_out_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type opted_out_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      spend_limit() :: %{
-        "EnforcedLimit" => [float()],
-        "MaxLimit" => [float()],
-        "Name" => String.t() | atom(),
-        "Overridden" => [boolean()]
-      }
-      
-  """
-  @type spend_limit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_keyword_request() :: %{
-        optional("KeywordAction") => String.t() | atom(),
-        required("Keyword") => String.t() | atom(),
-        required("KeywordMessage") => String.t() | atom(),
-        required("OriginationIdentity") => String.t() | atom()
-      }
-      
-  """
-  @type put_keyword_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_rcs_agent_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DeletionProtectionEnabled" => [boolean()],
-        "OptOutListName" => String.t() | atom(),
-        "RcsAgentArn" => [String.t() | atom()],
-        "RcsAgentId" => [String.t() | atom()],
-        "SelfManagedOptOutsEnabled" => [boolean()],
-        "Status" => String.t() | atom(),
-        "TwoWayChannelArn" => String.t() | atom(),
-        "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()],
-        "TwoWayMediaS3BucketName" => String.t() | atom(),
-        "TwoWayMediaS3KeyPrefix" => String.t() | atom(),
-        "TwoWayMediaS3Role" => String.t() | atom(),
-        "TwoWayRcsEventsEnabled" => list(String.t() | atom())
-      }
-      
-  """
-  @type update_rcs_agent_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_notify_text_message_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom(),
-        optional("Context") => map(),
-        optional("DryRun") => [boolean()],
-        optional("MessageFeedbackEnabled") => [boolean()],
-        optional("TemplateId") => String.t() | atom(),
-        optional("TimeToLive") => integer(),
-        required("DestinationPhoneNumber") => String.t() | atom(),
-        required("NotifyConfigurationId") => String.t() | atom(),
-        required("TemplateVariables") => map()
-      }
-      
-  """
-  @type send_notify_text_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_open_url_action() :: %{
-        "Application" => [String.t() | atom()],
-        "PostbackData" => String.t() | atom(),
-        "Text" => String.t() | atom(),
-        "Url" => String.t() | atom(),
-        "WebviewViewMode" => [String.t() | atom()]
-      }
-      
-  """
-  @type rcs_open_url_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protect_configuration_rule_set_number_override_filter_item() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type protect_configuration_rule_set_number_override_filter_item() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_template_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type notify_template_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_default_message_feedback_enabled_result() :: %{
-        "ConfigurationSetArn" => [String.t() | atom()],
-        "ConfigurationSetName" => String.t() | atom(),
-        "MessageFeedbackEnabled" => [boolean()]
-      }
-      
-  """
-  @type set_default_message_feedback_enabled_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "RequestId" => [String.t() | atom()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_configuration_set_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_configuration_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_limit() :: %{
-        "Max" => [float()],
-        "Name" => String.t() | atom(),
-        "Used" => [float()]
-      }
-      
-  """
-  @type account_limit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_origination_identity_request() :: %{
+      create_opt_out_list_request() :: %{
         optional("ClientToken") => String.t() | atom(),
-        optional("IsoCountryCode") => String.t() | atom(),
-        required("OriginationIdentity") => String.t() | atom(),
-        required("PoolId") => String.t() | atom()
+        optional("Tags") => list(tag()),
+        required("OptOutListName") => String.t() | atom()
       }
       
   """
-  @type associate_origination_identity_request() :: %{(String.t() | atom()) => any()}
+  @type create_opt_out_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_registration_field_value_request() :: %{
-        required("FieldPath") => String.t() | atom(),
-        required("RegistrationId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_registration_field_value_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_default_message_type_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("MessageType") => String.t() | atom()
-      }
-      
-  """
-  @type set_default_message_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      select_option_description() :: %{
-        "Description" => [String.t() | atom()],
-        "Option" => [String.t() | atom()],
-        "Title" => [String.t() | atom()]
-      }
-      
-  """
-  @type select_option_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "ResourceId" => [String.t() | atom()],
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      configuration_set_information() :: %{
-        "ConfigurationSetArn" => [String.t() | atom()],
-        "ConfigurationSetName" => String.t() | atom(),
+      create_opt_out_list_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "DefaultMessageFeedbackEnabled" => [boolean()],
-        "DefaultMessageType" => String.t() | atom(),
-        "DefaultSenderId" => String.t() | atom(),
-        "EventDestinations" => list(event_destination()),
-        "ProtectConfigurationId" => String.t() | atom()
-      }
-      
-  """
-  @type configuration_set_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_rcs_agents_request() :: %{
-        optional("Filters") => list(rcs_agent_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Owner") => String.t() | atom(),
-        optional("RcsAgentIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_rcs_agents_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      opted_out_number_information() :: %{
-        "EndUserOptedOut" => [boolean()],
-        "OptedOutNumber" => String.t() | atom(),
-        "OptedOutTimestamp" => [non_neg_integer()]
-      }
-      
-  """
-  @type opted_out_number_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_denied_reason_information() :: %{
-        "DocumentationLink" => [String.t() | atom()],
-        "DocumentationTitle" => [String.t() | atom()],
-        "LongDescription" => [String.t() | atom()],
-        "Reason" => [String.t() | atom()],
-        "ShortDescription" => [String.t() | atom()]
-      }
-      
-  """
-  @type registration_denied_reason_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_section_display_hints() :: %{
-        "DocumentationLink" => [String.t() | atom()],
-        "DocumentationTitle" => [String.t() | atom()],
-        "LongDescription" => [String.t() | atom()],
-        "ShortDescription" => [String.t() | atom()],
-        "Title" => [String.t() | atom()]
-      }
-      
-  """
-  @type registration_section_display_hints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_opted_out_numbers_result() :: %{
-        "NextToken" => String.t() | atom(),
         "OptOutListArn" => [String.t() | atom()],
         "OptOutListName" => String.t() | atom(),
-        "OptedOutNumbers" => list(opted_out_number_information())
+        "Tags" => list(tag())
       }
       
   """
-  @type describe_opted_out_numbers_result() :: %{(String.t() | atom()) => any()}
+  @type create_opt_out_list_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1919,13 +409,1330 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
+      create_pool_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "MessageType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "SharedRoutesEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()]
       }
       
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type create_pool_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_protect_configuration_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DeletionProtectionEnabled") => [boolean()],
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_protect_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_protect_configuration_result() :: %{
+        "AccountDefault" => [boolean()],
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type create_protect_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rcs_agent_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DeletionProtectionEnabled") => [boolean()],
+        optional("OptOutListName") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_rcs_agent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rcs_agent_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "OptOutListName" => String.t() | atom(),
+        "RcsAgentArn" => [String.t() | atom()],
+        "RcsAgentId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()],
+        "TwoWayMediaS3BucketName" => String.t() | atom(),
+        "TwoWayMediaS3KeyPrefix" => String.t() | atom(),
+        "TwoWayMediaS3Role" => String.t() | atom(),
+        "TwoWayRcsEventsEnabled" => list(String.t() | atom())
+      }
+      
+  """
+  @type create_rcs_agent_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_registration_association_request() :: %{
+        required("RegistrationId") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
+      }
+      
+  """
+  @type create_registration_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_registration_association_result() :: %{
+        "IsoCountryCode" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationType" => String.t() | atom(),
+        "ResourceArn" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type create_registration_association_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_registration_attachment_request() :: %{
+        optional("AttachmentBody") => binary(),
+        optional("AttachmentUrl") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_registration_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_registration_attachment_result() :: %{
+        "AttachmentStatus" => String.t() | atom(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "RegistrationAttachmentArn" => [String.t() | atom()],
+        "RegistrationAttachmentId" => [String.t() | atom()],
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type create_registration_attachment_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_registration_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("RegistrationType") => String.t() | atom()
+      }
+      
+  """
+  @type create_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_registration_result() :: %{
+        "AdditionalAttributes" => map(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "CurrentVersionNumber" => float(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationStatus" => String.t() | atom(),
+        "RegistrationType" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type create_registration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_registration_version_request() :: %{
+        required("RegistrationId") => String.t() | atom()
+      }
+      
+  """
+  @type create_registration_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_registration_version_result() :: %{
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationVersionStatus" => String.t() | atom(),
+        "RegistrationVersionStatusHistory" => registration_version_status_history(),
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type create_registration_version_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_verified_destination_number_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("RcsAgentId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("DestinationPhoneNumber") => String.t() | atom()
+      }
+      
+  """
+  @type create_verified_destination_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_verified_destination_number_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DestinationPhoneNumber" => String.t() | atom(),
+        "RcsAgentId" => [String.t() | atom()],
+        "Status" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "VerifiedDestinationNumberArn" => [String.t() | atom()],
+        "VerifiedDestinationNumberId" => [String.t() | atom()]
+      }
+      
+  """
+  @type create_verified_destination_number_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_account_default_protect_configuration_request() :: %{}
+      
+  """
+  @type delete_account_default_protect_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_account_default_protect_configuration_result() :: %{
+        "DefaultProtectConfigurationArn" => String.t() | atom(),
+        "DefaultProtectConfigurationId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_account_default_protect_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_configuration_set_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_configuration_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_configuration_set_result() :: %{
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DefaultMessageFeedbackEnabled" => [boolean()],
+        "DefaultMessageType" => String.t() | atom(),
+        "DefaultSenderId" => String.t() | atom(),
+        "EventDestinations" => list(event_destination())
+      }
+      
+  """
+  @type delete_configuration_set_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_default_message_type_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_default_message_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_default_message_type_result() :: %{
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "MessageType" => String.t() | atom()
+      }
+      
+  """
+  @type delete_default_message_type_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_default_sender_id_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_default_sender_id_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_default_sender_id_result() :: %{
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "SenderId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_default_sender_id_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_event_destination_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("EventDestinationName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_event_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_event_destination_result() :: %{
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "EventDestination" => event_destination()
+      }
+      
+  """
+  @type delete_event_destination_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_keyword_request() :: %{
+        required("Keyword") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom()
+      }
+      
+  """
+  @type delete_keyword_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_keyword_result() :: %{
+        "Keyword" => String.t() | atom(),
+        "KeywordAction" => String.t() | atom(),
+        "KeywordMessage" => String.t() | atom(),
+        "OriginationIdentity" => [String.t() | atom()],
+        "OriginationIdentityArn" => [String.t() | atom()]
+      }
+      
+  """
+  @type delete_keyword_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_media_message_spend_limit_override_request() :: %{}
+      
+  """
+  @type delete_media_message_spend_limit_override_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_media_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type delete_media_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_notify_configuration_request() :: %{
+        required("NotifyConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_notify_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_notify_configuration_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DefaultTemplateId" => String.t() | atom(),
+        "DeletionProtectionEnabled" => [boolean()],
+        "DisplayName" => String.t() | atom(),
+        "EnabledChannels" => list(String.t() | atom()),
+        "EnabledCountries" => list(String.t() | atom()),
+        "NotifyConfigurationArn" => String.t() | atom(),
+        "NotifyConfigurationId" => String.t() | atom(),
+        "PoolId" => [String.t() | atom()],
+        "RejectionReason" => [String.t() | atom()],
+        "Status" => String.t() | atom(),
+        "Tier" => String.t() | atom(),
+        "TierUpgradeStatus" => String.t() | atom(),
+        "UseCase" => String.t() | atom()
+      }
+      
+  """
+  @type delete_notify_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_notify_message_spend_limit_override_request() :: %{}
+      
+  """
+  @type delete_notify_message_spend_limit_override_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_notify_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type delete_notify_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_opt_out_list_request() :: %{
+        required("OptOutListName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_opt_out_list_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_opt_out_list_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "OptOutListArn" => [String.t() | atom()],
+        "OptOutListName" => String.t() | atom()
+      }
+      
+  """
+  @type delete_opt_out_list_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_opted_out_number_request() :: %{
+        required("OptOutListName") => String.t() | atom(),
+        required("OptedOutNumber") => String.t() | atom()
+      }
+      
+  """
+  @type delete_opted_out_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_opted_out_number_result() :: %{
+        "EndUserOptedOut" => [boolean()],
+        "OptOutListArn" => [String.t() | atom()],
+        "OptOutListName" => String.t() | atom(),
+        "OptedOutNumber" => String.t() | atom(),
+        "OptedOutTimestamp" => [non_neg_integer()]
+      }
+      
+  """
+  @type delete_opted_out_number_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_pool_request() :: %{
+        required("PoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_pool_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_pool_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "MessageType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "SharedRoutesEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()]
+      }
+      
+  """
+  @type delete_pool_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_protect_configuration_request() :: %{
+        required("ProtectConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_protect_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_protect_configuration_result() :: %{
+        "AccountDefault" => [boolean()],
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_protect_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_protect_configuration_rule_set_number_override_request() :: %{
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("ProtectConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_protect_configuration_rule_set_number_override_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_protect_configuration_rule_set_number_override_result() :: %{
+        "Action" => String.t() | atom(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DestinationPhoneNumber" => String.t() | atom(),
+        "ExpirationTimestamp" => [non_neg_integer()],
+        "IsoCountryCode" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_protect_configuration_rule_set_number_override_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rcs_agent_request() :: %{
+        required("RcsAgentId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_rcs_agent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rcs_agent_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "OptOutListName" => String.t() | atom(),
+        "RcsAgentArn" => [String.t() | atom()],
+        "RcsAgentId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()],
+        "TwoWayRcsEventsEnabled" => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_rcs_agent_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rcs_message_spend_limit_override_request() :: %{}
+      
+  """
+  @type delete_rcs_message_spend_limit_override_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rcs_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type delete_rcs_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_registration_attachment_request() :: %{
+        required("RegistrationAttachmentId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_registration_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_registration_attachment_result() :: %{
+        "AttachmentStatus" => String.t() | atom(),
+        "AttachmentUploadErrorReason" => String.t() | atom(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "RegistrationAttachmentArn" => [String.t() | atom()],
+        "RegistrationAttachmentId" => [String.t() | atom()]
+      }
+      
+  """
+  @type delete_registration_attachment_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_registration_field_value_request() :: %{
+        required("FieldPath") => String.t() | atom(),
+        required("RegistrationId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_registration_field_value_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_registration_field_value_result() :: %{
+        "FieldPath" => String.t() | atom(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationAttachmentId" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "SelectChoices" => list(String.t() | atom()),
+        "TextValue" => String.t() | atom(),
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type delete_registration_field_value_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_registration_request() :: %{
+        required("RegistrationId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_registration_result() :: %{
+        "AdditionalAttributes" => map(),
+        "ApprovedVersionNumber" => float(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "CurrentVersionNumber" => float(),
+        "LatestDeniedVersionNumber" => float(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationStatus" => String.t() | atom(),
+        "RegistrationType" => String.t() | atom()
+      }
+      
+  """
+  @type delete_registration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_resource_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_text_message_spend_limit_override_request() :: %{}
+      
+  """
+  @type delete_text_message_spend_limit_override_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_text_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type delete_text_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_verified_destination_number_request() :: %{
+        required("VerifiedDestinationNumberId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_verified_destination_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_verified_destination_number_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DestinationPhoneNumber" => String.t() | atom(),
+        "VerifiedDestinationNumberArn" => [String.t() | atom()],
+        "VerifiedDestinationNumberId" => [String.t() | atom()]
+      }
+      
+  """
+  @type delete_verified_destination_number_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_voice_message_spend_limit_override_request() :: %{}
+      
+  """
+  @type delete_voice_message_spend_limit_override_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_voice_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type delete_voice_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_attributes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_account_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_attributes_result() :: %{
+        "AccountAttributes" => list(account_attribute()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_account_attributes_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_limits_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_account_limits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_limits_result() :: %{
+        "AccountLimits" => list(account_limit()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_account_limits_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_sets_request() :: %{
+        optional("ConfigurationSetNames") => list(String.t() | atom()),
+        optional("Filters") => list(configuration_set_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_configuration_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_sets_result() :: %{
+        "ConfigurationSets" => list(configuration_set_information()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_configuration_sets_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_keywords_request() :: %{
+        optional("Filters") => list(keyword_filter()),
+        optional("Keywords") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom()
+      }
+      
+  """
+  @type describe_keywords_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_keywords_result() :: %{
+        "Keywords" => list(keyword_information()),
+        "NextToken" => String.t() | atom(),
+        "OriginationIdentity" => [String.t() | atom()],
+        "OriginationIdentityArn" => [String.t() | atom()]
+      }
+      
+  """
+  @type describe_keywords_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_notify_configurations_request() :: %{
+        optional("Filters") => list(notify_configuration_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("NotifyConfigurationIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_notify_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_notify_configurations_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "NotifyConfigurations" => list(notify_configuration_information())
+      }
+      
+  """
+  @type describe_notify_configurations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_notify_templates_request() :: %{
+        optional("Filters") => list(notify_template_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TemplateIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_notify_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_notify_templates_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "NotifyTemplates" => list(notify_template_information())
+      }
+      
+  """
+  @type describe_notify_templates_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_opt_out_lists_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OptOutListNames") => list(String.t() | atom()),
+        optional("Owner") => String.t() | atom()
+      }
+      
+  """
+  @type describe_opt_out_lists_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_opt_out_lists_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "OptOutLists" => list(opt_out_list_information())
+      }
+      
+  """
+  @type describe_opt_out_lists_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_opted_out_numbers_request() :: %{
+        optional("Filters") => list(opted_out_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OptedOutNumbers") => list(String.t() | atom()),
+        required("OptOutListName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_opted_out_numbers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_opted_out_numbers_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "OptOutListArn" => [String.t() | atom()],
+        "OptOutListName" => String.t() | atom(),
+        "OptedOutNumbers" => list(opted_out_number_information())
+      }
+      
+  """
+  @type describe_opted_out_numbers_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_phone_numbers_request() :: %{
+        optional("Filters") => list(phone_number_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
+        optional("PhoneNumberIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_phone_numbers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_phone_numbers_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "PhoneNumbers" => list(phone_number_information())
+      }
+      
+  """
+  @type describe_phone_numbers_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_pools_request() :: %{
+        optional("Filters") => list(pool_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
+        optional("PoolIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_pools_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_pools_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "Pools" => list(pool_information())
+      }
+      
+  """
+  @type describe_pools_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_protect_configurations_request() :: %{
+        optional("Filters") => list(protect_configuration_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProtectConfigurationIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_protect_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_protect_configurations_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProtectConfigurations" => list(protect_configuration_information())
+      }
+      
+  """
+  @type describe_protect_configurations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rcs_agent_country_launch_status_request() :: %{
+        optional("Filters") => list(country_launch_status_filter()),
+        optional("IsoCountryCodes") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("RcsAgentId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_rcs_agent_country_launch_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rcs_agent_country_launch_status_result() :: %{
+        "CountryLaunchStatus" => list(country_launch_status_information()),
+        "NextToken" => String.t() | atom(),
+        "RcsAgentArn" => [String.t() | atom()],
+        "RcsAgentId" => [String.t() | atom()]
+      }
+      
+  """
+  @type describe_rcs_agent_country_launch_status_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rcs_agents_request() :: %{
+        optional("Filters") => list(rcs_agent_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
+        optional("RcsAgentIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_rcs_agents_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rcs_agents_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RcsAgents" => list(rcs_agent_information())
+      }
+      
+  """
+  @type describe_rcs_agents_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registration_attachments_request() :: %{
+        optional("Filters") => list(registration_attachment_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RegistrationAttachmentIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_registration_attachments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registration_attachments_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RegistrationAttachments" => list(registration_attachments_information())
+      }
+      
+  """
+  @type describe_registration_attachments_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registration_field_definitions_request() :: %{
+        optional("FieldPaths") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SectionPath") => String.t() | atom(),
+        required("RegistrationType") => String.t() | atom()
+      }
+      
+  """
+  @type describe_registration_field_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registration_field_definitions_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RegistrationFieldDefinitions" => list(registration_field_definition()),
+        "RegistrationType" => String.t() | atom()
+      }
+      
+  """
+  @type describe_registration_field_definitions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registration_field_values_request() :: %{
+        optional("FieldPaths") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SectionPath") => String.t() | atom(),
+        optional("VersionNumber") => float(),
+        required("RegistrationId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_registration_field_values_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registration_field_values_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationFieldValues" => list(registration_field_value_information()),
+        "RegistrationId" => [String.t() | atom()],
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type describe_registration_field_values_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registration_section_definitions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SectionPaths") => list(String.t() | atom()),
+        required("RegistrationType") => String.t() | atom()
+      }
+      
+  """
+  @type describe_registration_section_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registration_section_definitions_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RegistrationSectionDefinitions" => list(registration_section_definition()),
+        "RegistrationType" => String.t() | atom()
+      }
+      
+  """
+  @type describe_registration_section_definitions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registration_type_definitions_request() :: %{
+        optional("Filters") => list(registration_type_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RegistrationTypes") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_registration_type_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registration_type_definitions_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RegistrationTypeDefinitions" => list(registration_type_definition())
+      }
+      
+  """
+  @type describe_registration_type_definitions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registration_versions_request() :: %{
+        optional("Filters") => list(registration_version_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("VersionNumbers") => list(float()),
+        required("RegistrationId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_registration_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1945,23 +1752,695 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      update_notify_configuration_request() :: %{
-        optional("DefaultTemplateId") => String.t() | atom(),
-        optional("DeletionProtectionEnabled") => [boolean()],
-        optional("EnabledChannels") => list(String.t() | atom()),
-        optional("EnabledCountries") => list(String.t() | atom()),
-        optional("PoolId") => String.t() | atom(),
-        required("NotifyConfigurationId") => String.t() | atom()
+      describe_registrations_request() :: %{
+        optional("Filters") => list(registration_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RegistrationIds") => list(String.t() | atom())
       }
       
   """
-  @type update_notify_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type describe_registrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_protect_configuration_result() :: %{
+      describe_registrations_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "Registrations" => list(registration_information())
+      }
+      
+  """
+  @type describe_registrations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_sender_ids_request() :: %{
+        optional("Filters") => list(sender_id_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
+        optional("SenderIds") => list(sender_id_and_country())
+      }
+      
+  """
+  @type describe_sender_ids_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_sender_ids_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "SenderIds" => list(sender_id_information())
+      }
+      
+  """
+  @type describe_sender_ids_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_spend_limits_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_spend_limits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_spend_limits_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "SpendLimits" => list(spend_limit())
+      }
+      
+  """
+  @type describe_spend_limits_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_verified_destination_numbers_request() :: %{
+        optional("DestinationPhoneNumbers") => list(String.t() | atom()),
+        optional("Filters") => list(verified_destination_number_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("VerifiedDestinationNumberIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_verified_destination_numbers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_verified_destination_numbers_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "VerifiedDestinationNumbers" => list(verified_destination_number_information())
+      }
+      
+  """
+  @type describe_verified_destination_numbers_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_origination_identity_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("IsoCountryCode") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom(),
+        required("PoolId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_origination_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_origination_identity_result() :: %{
+        "IsoCountryCode" => String.t() | atom(),
+        "OriginationIdentity" => [String.t() | atom()],
+        "OriginationIdentityArn" => [String.t() | atom()],
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()]
+      }
+      
+  """
+  @type disassociate_origination_identity_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_protect_configuration_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("ProtectConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_protect_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_protect_configuration_result() :: %{
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_protect_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discard_registration_version_request() :: %{
+        required("RegistrationId") => String.t() | atom()
+      }
+      
+  """
+  @type discard_registration_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discard_registration_version_result() :: %{
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationVersionStatus" => String.t() | atom(),
+        "RegistrationVersionStatusHistory" => registration_version_status_history(),
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type discard_registration_version_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_destination() :: %{
+        "CloudWatchLogsDestination" => cloud_watch_logs_destination(),
+        "Enabled" => [boolean()],
+        "EventDestinationName" => String.t() | atom(),
+        "KinesisFirehoseDestination" => kinesis_firehose_destination(),
+        "MatchingEventTypes" => list(String.t() | atom()),
+        "SnsDestination" => sns_destination()
+      }
+      
+  """
+  @type event_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_protect_configuration_country_rule_set_request() :: %{
+        required("NumberCapability") => String.t() | atom(),
+        required("ProtectConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type get_protect_configuration_country_rule_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_protect_configuration_country_rule_set_result() :: %{
+        "CountryRuleSet" => map(),
+        "NumberCapability" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
+      }
+      
+  """
+  @type get_protect_configuration_country_rule_set_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      keyword_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type keyword_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      keyword_information() :: %{
+        "Keyword" => String.t() | atom(),
+        "KeywordAction" => String.t() | atom(),
+        "KeywordMessage" => String.t() | atom()
+      }
+      
+  """
+  @type keyword_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_destination() :: %{
+        "DeliveryStreamArn" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_notify_countries_request() :: %{
+        optional("Channels") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Tier") => String.t() | atom(),
+        optional("UseCases") => list(String.t() | atom())
+      }
+      
+  """
+  @type list_notify_countries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_notify_countries_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "NotifyCountries" => list(notify_country_information())
+      }
+      
+  """
+  @type list_notify_countries_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pool_origination_identities_request() :: %{
+        optional("Filters") => list(pool_origination_identities_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("PoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_pool_origination_identities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pool_origination_identities_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "OriginationIdentities" => list(origination_identity_metadata()),
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_pool_origination_identities_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_protect_configuration_rule_set_number_overrides_request() :: %{
+        optional("Filters") => list(protect_configuration_rule_set_number_override_filter_item()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ProtectConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type list_protect_configuration_rule_set_number_overrides_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_protect_configuration_rule_set_number_overrides_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom(),
+        "RuleSetNumberOverrides" => list(protect_configuration_rule_set_number_override())
+      }
+      
+  """
+  @type list_protect_configuration_rule_set_number_overrides_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_registration_associations_request() :: %{
+        optional("Filters") => list(registration_association_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("RegistrationId") => String.t() | atom()
+      }
+      
+  """
+  @type list_registration_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_registration_associations_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationAssociations" => list(registration_association_metadata()),
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationType" => String.t() | atom()
+      }
+      
+  """
+  @type list_registration_associations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_result() :: %{
+        "ResourceArn" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_configuration_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type notify_configuration_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_configuration_information() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DefaultTemplateId" => String.t() | atom(),
+        "DeletionProtectionEnabled" => [boolean()],
+        "DisplayName" => String.t() | atom(),
+        "EnabledChannels" => list(String.t() | atom()),
+        "EnabledCountries" => list(String.t() | atom()),
+        "NotifyConfigurationArn" => String.t() | atom(),
+        "NotifyConfigurationId" => String.t() | atom(),
+        "PoolId" => [String.t() | atom()],
+        "RejectionReason" => [String.t() | atom()],
+        "Status" => String.t() | atom(),
+        "Tier" => String.t() | atom(),
+        "TierUpgradeStatus" => String.t() | atom(),
+        "UseCase" => String.t() | atom()
+      }
+      
+  """
+  @type notify_configuration_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_country_information() :: %{
+        "CountryName" => [String.t() | atom()],
+        "CustomerOwnedIdentityRequired" => [boolean()],
+        "IsoCountryCode" => String.t() | atom(),
+        "SupportedChannels" => list(String.t() | atom()),
+        "SupportedTiers" => list(String.t() | atom()),
+        "SupportedUseCases" => list(String.t() | atom())
+      }
+      
+  """
+  @type notify_country_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_template_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type notify_template_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_template_information() :: %{
+        "Channels" => list(String.t() | atom()),
+        "Content" => String.t() | atom(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "LanguageCode" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "SupportedCountries" => list(String.t() | atom()),
+        "SupportedVoiceIds" => list(String.t() | atom()),
+        "TemplateId" => String.t() | atom(),
+        "TemplateType" => String.t() | atom(),
+        "TierAccess" => list(String.t() | atom()),
+        "Variables" => map(),
+        "Version" => integer()
+      }
+      
+  """
+  @type notify_template_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opt_out_list_information() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "OptOutListArn" => [String.t() | atom()],
+        "OptOutListName" => String.t() | atom()
+      }
+      
+  """
+  @type opt_out_list_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opted_out_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type opted_out_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opted_out_number_information() :: %{
+        "EndUserOptedOut" => [boolean()],
+        "OptedOutNumber" => String.t() | atom(),
+        "OptedOutTimestamp" => [non_neg_integer()]
+      }
+      
+  """
+  @type opted_out_number_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      origination_identity_metadata() :: %{
+        "IsoCountryCode" => String.t() | atom(),
+        "NumberCapabilities" => list(String.t() | atom()),
+        "OriginationIdentity" => [String.t() | atom()],
+        "OriginationIdentityArn" => [String.t() | atom()],
+        "PhoneNumber" => String.t() | atom()
+      }
+      
+  """
+  @type origination_identity_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      phone_number_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type phone_number_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      phone_number_information() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "InternationalSendingEnabled" => [boolean()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageType" => String.t() | atom(),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
+        "NumberCapabilities" => list(String.t() | atom()),
+        "NumberType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "PhoneNumberArn" => [String.t() | atom()],
+        "PhoneNumberId" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()]
+      }
+      
+  """
+  @type phone_number_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pool_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type pool_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pool_information() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "MessageType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "SharedRoutesEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()]
+      }
+      
+  """
+  @type pool_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pool_origination_identities_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type pool_origination_identities_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      protect_configuration_country_rule_set_information() :: %{
+        "ProtectStatus" => String.t() | atom()
+      }
+      
+  """
+  @type protect_configuration_country_rule_set_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      protect_configuration_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type protect_configuration_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      protect_configuration_information() :: %{
         "AccountDefault" => [boolean()],
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
@@ -1970,7 +2449,942 @@ defmodule AWS.PinpointSMSVoiceV2 do
       }
       
   """
-  @type delete_protect_configuration_result() :: %{(String.t() | atom()) => any()}
+  @type protect_configuration_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      protect_configuration_rule_set_number_override() :: %{
+        "Action" => String.t() | atom(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DestinationPhoneNumber" => String.t() | atom(),
+        "ExpirationTimestamp" => [non_neg_integer()],
+        "IsoCountryCode" => String.t() | atom()
+      }
+      
+  """
+  @type protect_configuration_rule_set_number_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      protect_configuration_rule_set_number_override_filter_item() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type protect_configuration_rule_set_number_override_filter_item() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      put_keyword_request() :: %{
+        optional("KeywordAction") => String.t() | atom(),
+        required("Keyword") => String.t() | atom(),
+        required("KeywordMessage") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom()
+      }
+      
+  """
+  @type put_keyword_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_keyword_result() :: %{
+        "Keyword" => String.t() | atom(),
+        "KeywordAction" => String.t() | atom(),
+        "KeywordMessage" => String.t() | atom(),
+        "OriginationIdentity" => [String.t() | atom()],
+        "OriginationIdentityArn" => [String.t() | atom()]
+      }
+      
+  """
+  @type put_keyword_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_message_feedback_request() :: %{
+        required("MessageFeedbackStatus") => String.t() | atom(),
+        required("MessageId") => String.t() | atom()
+      }
+      
+  """
+  @type put_message_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_message_feedback_result() :: %{
+        "MessageFeedbackStatus" => String.t() | atom(),
+        "MessageId" => String.t() | atom()
+      }
+      
+  """
+  @type put_message_feedback_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_opted_out_number_request() :: %{
+        required("OptOutListName") => String.t() | atom(),
+        required("OptedOutNumber") => String.t() | atom()
+      }
+      
+  """
+  @type put_opted_out_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_opted_out_number_result() :: %{
+        "EndUserOptedOut" => [boolean()],
+        "OptOutListArn" => [String.t() | atom()],
+        "OptOutListName" => String.t() | atom(),
+        "OptedOutNumber" => String.t() | atom(),
+        "OptedOutTimestamp" => [non_neg_integer()]
+      }
+      
+  """
+  @type put_opted_out_number_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_protect_configuration_rule_set_number_override_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ExpirationTimestamp") => [non_neg_integer()],
+        required("Action") => String.t() | atom(),
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("ProtectConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type put_protect_configuration_rule_set_number_override_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      put_protect_configuration_rule_set_number_override_result() :: %{
+        "Action" => String.t() | atom(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DestinationPhoneNumber" => String.t() | atom(),
+        "ExpirationTimestamp" => [non_neg_integer()],
+        "IsoCountryCode" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
+      }
+      
+  """
+  @type put_protect_configuration_rule_set_number_override_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      put_registration_field_value_request() :: %{
+        optional("RegistrationAttachmentId") => String.t() | atom(),
+        optional("SelectChoices") => list(String.t() | atom()),
+        optional("TextValue") => String.t() | atom(),
+        required("FieldPath") => String.t() | atom(),
+        required("RegistrationId") => String.t() | atom()
+      }
+      
+  """
+  @type put_registration_field_value_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_registration_field_value_result() :: %{
+        "FieldPath" => String.t() | atom(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationAttachmentId" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "SelectChoices" => list(String.t() | atom()),
+        "TextValue" => String.t() | atom(),
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type put_registration_field_value_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_request() :: %{
+        required("Policy") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_agent_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type rcs_agent_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_agent_information() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "OptOutListName" => String.t() | atom(),
+        "PoolId" => [String.t() | atom()],
+        "RcsAgentArn" => [String.t() | atom()],
+        "RcsAgentId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "TestingAgent" => testing_agent_information(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()],
+        "TwoWayMediaS3BucketName" => String.t() | atom(),
+        "TwoWayMediaS3KeyPrefix" => String.t() | atom(),
+        "TwoWayMediaS3Role" => String.t() | atom(),
+        "TwoWayRcsEventsEnabled" => list(String.t() | atom())
+      }
+      
+  """
+  @type rcs_agent_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_card_content() :: %{
+        "Description" => String.t() | atom(),
+        "Media" => rcs_card_media(),
+        "Suggestions" => list(list()),
+        "Title" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_card_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_card_media() :: %{
+        "FileUrl" => String.t() | atom(),
+        "Height" => [String.t() | atom()],
+        "ThumbnailUrl" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_card_media() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_carousel() :: %{
+        "CardContents" => list(rcs_carousel_card_content()),
+        "CardWidth" => [String.t() | atom()]
+      }
+      
+  """
+  @type rcs_carousel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_carousel_card_content() :: %{
+        "Description" => String.t() | atom(),
+        "Media" => rcs_carousel_card_media(),
+        "Suggestions" => list(list()),
+        "Title" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_carousel_card_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_carousel_card_media() :: %{
+        "FileUrl" => String.t() | atom(),
+        "Height" => [String.t() | atom()],
+        "ThumbnailUrl" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_carousel_card_media() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_create_calendar_event_action() :: %{
+        "Description" => String.t() | atom(),
+        "EndTime" => [non_neg_integer()],
+        "PostbackData" => String.t() | atom(),
+        "StartTime" => [non_neg_integer()],
+        "Text" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_create_calendar_event_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_dial_phone_action() :: %{
+        "PhoneNumber" => String.t() | atom(),
+        "PostbackData" => String.t() | atom(),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_dial_phone_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_fallback_configuration() :: %{
+        "Channel" => String.t() | atom(),
+        "MediaUrls" => list(String.t() | atom()),
+        "MessageBody" => String.t() | atom(),
+        "OriginationIdentity" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_fallback_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_file_message() :: %{
+        "FileUrl" => String.t() | atom(),
+        "ThumbnailUrl" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_file_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_message_content() :: %{
+        "Content" => list(),
+        "Suggestions" => list(list())
+      }
+      
+  """
+  @type rcs_message_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_open_url_action() :: %{
+        "Application" => [String.t() | atom()],
+        "PostbackData" => String.t() | atom(),
+        "Text" => String.t() | atom(),
+        "Url" => String.t() | atom(),
+        "WebviewViewMode" => [String.t() | atom()]
+      }
+      
+  """
+  @type rcs_open_url_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_reply_action() :: %{
+        "PostbackData" => String.t() | atom(),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_reply_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_request_location_action() :: %{
+        "PostbackData" => String.t() | atom(),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_request_location_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_show_location_action() :: %{
+        "Label" => String.t() | atom(),
+        "Latitude" => [float()],
+        "Longitude" => [float()],
+        "PostbackData" => String.t() | atom(),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_show_location_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_standalone_card() :: %{
+        "CardContent" => rcs_card_content(),
+        "CardOrientation" => [String.t() | atom()],
+        "ThumbnailImageAlignment" => [String.t() | atom()]
+      }
+      
+  """
+  @type rcs_standalone_card() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_text_message() :: %{
+        "Body" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_text_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_association_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type registration_association_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_association_metadata() :: %{
+        "IsoCountryCode" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "ResourceArn" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type registration_association_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_attachment_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type registration_attachment_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_attachments_information() :: %{
+        "AttachmentStatus" => String.t() | atom(),
+        "AttachmentUploadErrorReason" => String.t() | atom(),
+        "AttachmentUrl" => [String.t() | atom()],
+        "CreatedTimestamp" => [non_neg_integer()],
+        "RegistrationAttachmentArn" => [String.t() | atom()],
+        "RegistrationAttachmentId" => [String.t() | atom()]
+      }
+      
+  """
+  @type registration_attachments_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_denied_reason_information() :: %{
+        "DocumentationLink" => [String.t() | atom()],
+        "DocumentationTitle" => [String.t() | atom()],
+        "LongDescription" => [String.t() | atom()],
+        "Reason" => [String.t() | atom()],
+        "ShortDescription" => [String.t() | atom()]
+      }
+      
+  """
+  @type registration_denied_reason_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_field_definition() :: %{
+        "DisplayHints" => registration_field_display_hints(),
+        "FieldPath" => String.t() | atom(),
+        "FieldRequirement" => String.t() | atom(),
+        "FieldType" => String.t() | atom(),
+        "SectionPath" => String.t() | atom(),
+        "SelectValidation" => select_validation(),
+        "TextValidation" => text_validation()
+      }
+      
+  """
+  @type registration_field_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_field_display_hints() :: %{
+        "DocumentationLink" => [String.t() | atom()],
+        "DocumentationTitle" => [String.t() | atom()],
+        "ExampleTextValue" => [String.t() | atom()],
+        "LongDescription" => [String.t() | atom()],
+        "SelectOptionDescriptions" => list(select_option_description()),
+        "ShortDescription" => [String.t() | atom()],
+        "TextValidationDescription" => [String.t() | atom()],
+        "Title" => [String.t() | atom()]
+      }
+      
+  """
+  @type registration_field_display_hints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_field_value_information() :: %{
+        "DeniedReason" => [String.t() | atom()],
+        "Feedback" => [String.t() | atom()],
+        "FieldPath" => String.t() | atom(),
+        "RegistrationAttachmentId" => String.t() | atom(),
+        "SelectChoices" => list(String.t() | atom()),
+        "TextValue" => String.t() | atom()
+      }
+      
+  """
+  @type registration_field_value_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type registration_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_information() :: %{
+        "AdditionalAttributes" => map(),
+        "ApprovedVersionNumber" => float(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "CurrentVersionNumber" => float(),
+        "LatestDeniedVersionNumber" => float(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationStatus" => String.t() | atom(),
+        "RegistrationType" => String.t() | atom()
+      }
+      
+  """
+  @type registration_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_section_definition() :: %{
+        "DisplayHints" => registration_section_display_hints(),
+        "SectionPath" => String.t() | atom()
+      }
+      
+  """
+  @type registration_section_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_section_display_hints() :: %{
+        "DocumentationLink" => [String.t() | atom()],
+        "DocumentationTitle" => [String.t() | atom()],
+        "LongDescription" => [String.t() | atom()],
+        "ShortDescription" => [String.t() | atom()],
+        "Title" => [String.t() | atom()]
+      }
+      
+  """
+  @type registration_section_display_hints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_type_definition() :: %{
+        "DisplayHints" => registration_type_display_hints(),
+        "RegistrationType" => String.t() | atom(),
+        "SupportedAssociations" => list(supported_association())
+      }
+      
+  """
+  @type registration_type_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_type_display_hints() :: %{
+        "DocumentationLink" => [String.t() | atom()],
+        "DocumentationTitle" => [String.t() | atom()],
+        "LongDescription" => [String.t() | atom()],
+        "ShortDescription" => [String.t() | atom()],
+        "Title" => [String.t() | atom()]
+      }
+      
+  """
+  @type registration_type_display_hints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_type_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type registration_type_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_version_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type registration_version_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_version_information() :: %{
+        "DeniedReasons" => list(registration_denied_reason_information()),
+        "Feedback" => [String.t() | atom()],
+        "RegistrationVersionStatus" => String.t() | atom(),
+        "RegistrationVersionStatusHistory" => registration_version_status_history(),
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type registration_version_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registration_version_status_history() :: %{
+        "ApprovedTimestamp" => [non_neg_integer()],
+        "ArchivedTimestamp" => [non_neg_integer()],
+        "AwsReviewingTimestamp" => [non_neg_integer()],
+        "DeniedTimestamp" => [non_neg_integer()],
+        "DiscardedTimestamp" => [non_neg_integer()],
+        "DraftTimestamp" => [non_neg_integer()],
+        "RequiresAuthenticationTimestamp" => [non_neg_integer()],
+        "ReviewingTimestamp" => [non_neg_integer()],
+        "RevokedTimestamp" => [non_neg_integer()],
+        "SubmittedTimestamp" => [non_neg_integer()]
+      }
+      
+  """
+  @type registration_version_status_history() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      release_phone_number_request() :: %{
+        required("PhoneNumberId") => String.t() | atom()
+      }
+      
+  """
+  @type release_phone_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      release_phone_number_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageType" => String.t() | atom(),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
+        "NumberCapabilities" => list(String.t() | atom()),
+        "NumberType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "PhoneNumberArn" => [String.t() | atom()],
+        "PhoneNumberId" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()]
+      }
+      
+  """
+  @type release_phone_number_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      release_sender_id_request() :: %{
+        required("IsoCountryCode") => String.t() | atom(),
+        required("SenderId") => String.t() | atom()
+      }
+      
+  """
+  @type release_sender_id_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      release_sender_id_result() :: %{
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageTypes" => list(String.t() | atom()),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
+        "Registered" => [boolean()],
+        "RegistrationId" => [String.t() | atom()],
+        "SenderId" => String.t() | atom(),
+        "SenderIdArn" => [String.t() | atom()]
+      }
+      
+  """
+  @type release_sender_id_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_phone_number_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DeletionProtectionEnabled") => [boolean()],
+        optional("InternationalSendingEnabled") => [boolean()],
+        optional("OptOutListName") => String.t() | atom(),
+        optional("PoolId") => String.t() | atom(),
+        optional("RegistrationId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("IsoCountryCode") => String.t() | atom(),
+        required("MessageType") => String.t() | atom(),
+        required("NumberCapabilities") => list(String.t() | atom()),
+        required("NumberType") => String.t() | atom()
+      }
+      
+  """
+  @type request_phone_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_phone_number_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "InternationalSendingEnabled" => [boolean()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageType" => String.t() | atom(),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
+        "NumberCapabilities" => list(String.t() | atom()),
+        "NumberType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "PhoneNumberArn" => [String.t() | atom()],
+        "PhoneNumberId" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()]
+      }
+      
+  """
+  @type request_phone_number_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_sender_id_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DeletionProtectionEnabled") => [boolean()],
+        optional("MessageTypes") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        required("IsoCountryCode") => String.t() | atom(),
+        required("SenderId") => String.t() | atom()
+      }
+      
+  """
+  @type request_sender_id_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_sender_id_result() :: %{
+        "DeletionProtectionEnabled" => [boolean()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageTypes" => list(String.t() | atom()),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
+        "Registered" => [boolean()],
+        "SenderId" => String.t() | atom(),
+        "SenderIdArn" => [String.t() | atom()],
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type request_sender_id_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      select_option_description() :: %{
+        "Description" => [String.t() | atom()],
+        "Option" => [String.t() | atom()],
+        "Title" => [String.t() | atom()]
+      }
+      
+  """
+  @type select_option_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      select_validation() :: %{
+        "MaxChoices" => [integer()],
+        "MinChoices" => [integer()],
+        "Options" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type select_validation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_destination_number_verification_code_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        optional("Context") => map(),
+        optional("DestinationCountryParameters") => map(),
+        optional("LanguageCode") => String.t() | atom(),
+        optional("OriginationIdentity") => String.t() | atom(),
+        required("VerificationChannel") => String.t() | atom(),
+        required("VerifiedDestinationNumberId") => String.t() | atom()
+      }
+      
+  """
+  @type send_destination_number_verification_code_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_destination_number_verification_code_result() :: %{
+        "MessageId" => [String.t() | atom()]
+      }
+      
+  """
+  @type send_destination_number_verification_code_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1997,56 +3411,110 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      describe_rcs_agent_country_launch_status_request() :: %{
-        optional("Filters") => list(country_launch_status_filter()),
-        optional("IsoCountryCodes") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("RcsAgentId") => String.t() | atom()
+      send_media_message_result() :: %{
+        "MessageId" => [String.t() | atom()]
       }
       
   """
-  @type describe_rcs_agent_country_launch_status_request() :: %{(String.t() | atom()) => any()}
+  @type send_media_message_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_spend_limits_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "SpendLimits" => list(spend_limit())
+      send_notify_text_message_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        optional("Context") => map(),
+        optional("DryRun") => [boolean()],
+        optional("MessageFeedbackEnabled") => [boolean()],
+        optional("TemplateId") => String.t() | atom(),
+        optional("TimeToLive") => integer(),
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("NotifyConfigurationId") => String.t() | atom(),
+        required("TemplateVariables") => map()
       }
       
   """
-  @type describe_spend_limits_result() :: %{(String.t() | atom()) => any()}
+  @type send_notify_text_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      opt_out_list_information() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "OptOutListArn" => [String.t() | atom()],
-        "OptOutListName" => String.t() | atom()
+      send_notify_text_message_result() :: %{
+        "MessageId" => [String.t() | atom()],
+        "ResolvedMessageBody" => [String.t() | atom()],
+        "TemplateId" => String.t() | atom()
       }
       
   """
-  @type opt_out_list_information() :: %{(String.t() | atom()) => any()}
+  @type send_notify_text_message_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_phone_numbers_request() :: %{
-        optional("Filters") => list(phone_number_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Owner") => String.t() | atom(),
-        optional("PhoneNumberIds") => list(String.t() | atom())
+      send_notify_voice_message_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        optional("Context") => map(),
+        optional("DryRun") => [boolean()],
+        optional("MessageFeedbackEnabled") => [boolean()],
+        optional("TemplateId") => String.t() | atom(),
+        optional("TimeToLive") => integer(),
+        optional("VoiceId") => String.t() | atom(),
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("NotifyConfigurationId") => String.t() | atom(),
+        required("TemplateVariables") => map()
       }
       
   """
-  @type describe_phone_numbers_request() :: %{(String.t() | atom()) => any()}
+  @type send_notify_voice_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_notify_voice_message_result() :: %{
+        "MessageId" => [String.t() | atom()],
+        "ResolvedMessageBody" => [String.t() | atom()],
+        "TemplateId" => String.t() | atom()
+      }
+      
+  """
+  @type send_notify_voice_message_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_rcs_message_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        optional("Context") => map(),
+        optional("DryRun") => [boolean()],
+        optional("FallbackConfiguration") => rcs_fallback_configuration(),
+        optional("MaxPrice") => String.t() | atom(),
+        optional("MessageFeedbackEnabled") => [boolean()],
+        optional("MessageTrafficType") => String.t() | atom(),
+        optional("ProtectConfigurationId") => String.t() | atom(),
+        optional("RcsMessageContent") => rcs_message_content(),
+        optional("TimeToLive") => integer(),
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom()
+      }
+      
+  """
+  @type send_rcs_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_rcs_message_result() :: %{
+        "MessageId" => [String.t() | atom()]
+      }
+      
+  """
+  @type send_rcs_message_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2075,17 +3543,263 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      submit_registration_version_result() :: %{
-        "AwsReview" => [boolean()],
-        "RegistrationArn" => [String.t() | atom()],
-        "RegistrationId" => [String.t() | atom()],
-        "RegistrationVersionStatus" => String.t() | atom(),
-        "RegistrationVersionStatusHistory" => registration_version_status_history(),
-        "VersionNumber" => float()
+      send_text_message_result() :: %{
+        "MessageId" => [String.t() | atom()]
       }
       
   """
-  @type submit_registration_version_result() :: %{(String.t() | atom()) => any()}
+  @type send_text_message_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_voice_message_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        optional("Context") => map(),
+        optional("DryRun") => [boolean()],
+        optional("MaxPricePerMinute") => String.t() | atom(),
+        optional("MessageBody") => String.t() | atom(),
+        optional("MessageBodyTextType") => String.t() | atom(),
+        optional("MessageFeedbackEnabled") => [boolean()],
+        optional("ProtectConfigurationId") => String.t() | atom(),
+        optional("TimeToLive") => integer(),
+        optional("VoiceId") => String.t() | atom(),
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom()
+      }
+      
+  """
+  @type send_voice_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_voice_message_result() :: %{
+        "MessageId" => [String.t() | atom()]
+      }
+      
+  """
+  @type send_voice_message_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sender_id_and_country() :: %{
+        "IsoCountryCode" => String.t() | atom(),
+        "SenderId" => String.t() | atom()
+      }
+      
+  """
+  @type sender_id_and_country() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sender_id_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type sender_id_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sender_id_information() :: %{
+        "DeletionProtectionEnabled" => [boolean()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageTypes" => list(String.t() | atom()),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
+        "Registered" => [boolean()],
+        "RegistrationId" => [String.t() | atom()],
+        "SenderId" => String.t() | atom(),
+        "SenderIdArn" => [String.t() | atom()]
+      }
+      
+  """
+  @type sender_id_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_account_default_protect_configuration_request() :: %{
+        required("ProtectConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type set_account_default_protect_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_account_default_protect_configuration_result() :: %{
+        "DefaultProtectConfigurationArn" => String.t() | atom(),
+        "DefaultProtectConfigurationId" => String.t() | atom()
+      }
+      
+  """
+  @type set_account_default_protect_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_default_message_feedback_enabled_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("MessageFeedbackEnabled") => [boolean()]
+      }
+      
+  """
+  @type set_default_message_feedback_enabled_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_default_message_feedback_enabled_result() :: %{
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "MessageFeedbackEnabled" => [boolean()]
+      }
+      
+  """
+  @type set_default_message_feedback_enabled_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_default_message_type_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("MessageType") => String.t() | atom()
+      }
+      
+  """
+  @type set_default_message_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_default_message_type_result() :: %{
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "MessageType" => String.t() | atom()
+      }
+      
+  """
+  @type set_default_message_type_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_default_sender_id_request() :: %{
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("SenderId") => String.t() | atom()
+      }
+      
+  """
+  @type set_default_sender_id_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_default_sender_id_result() :: %{
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "SenderId" => String.t() | atom()
+      }
+      
+  """
+  @type set_default_sender_id_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_media_message_spend_limit_override_request() :: %{
+        required("MonthlyLimit") => float()
+      }
+      
+  """
+  @type set_media_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_media_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type set_media_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_notify_message_spend_limit_override_request() :: %{
+        required("MonthlyLimit") => float()
+      }
+      
+  """
+  @type set_notify_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_notify_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type set_notify_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_rcs_message_spend_limit_override_request() :: %{
+        required("MonthlyLimit") => float()
+      }
+      
+  """
+  @type set_rcs_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_rcs_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type set_rcs_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2102,58 +3816,258 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      describe_registration_field_values_request() :: %{
-        optional("FieldPaths") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SectionPath") => String.t() | atom(),
-        optional("VersionNumber") => float(),
+      set_text_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type set_text_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_voice_message_spend_limit_override_request() :: %{
+        required("MonthlyLimit") => float()
+      }
+      
+  """
+  @type set_voice_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_voice_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type set_voice_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sns_destination() :: %{
+        "TopicArn" => String.t() | atom()
+      }
+      
+  """
+  @type sns_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      spend_limit() :: %{
+        "EnforcedLimit" => [float()],
+        "MaxLimit" => [float()],
+        "Name" => String.t() | atom(),
+        "Overridden" => [boolean()]
+      }
+      
+  """
+  @type spend_limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      submit_registration_version_request() :: %{
+        optional("AwsReview") => [boolean()],
         required("RegistrationId") => String.t() | atom()
       }
       
   """
-  @type describe_registration_field_values_request() :: %{(String.t() | atom()) => any()}
+  @type submit_registration_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_registration_associations_result() :: %{
-        "NextToken" => String.t() | atom(),
+      submit_registration_version_result() :: %{
+        "AwsReview" => [boolean()],
         "RegistrationArn" => [String.t() | atom()],
-        "RegistrationAssociations" => list(registration_association_metadata()),
         "RegistrationId" => [String.t() | atom()],
-        "RegistrationType" => String.t() | atom()
+        "RegistrationVersionStatus" => String.t() | atom(),
+        "RegistrationVersionStatusHistory" => registration_version_status_history(),
+        "VersionNumber" => float()
       }
       
   """
-  @type list_registration_associations_result() :: %{(String.t() | atom()) => any()}
+  @type submit_registration_version_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_message_feedback_result() :: %{
-        "MessageFeedbackStatus" => String.t() | atom(),
-        "MessageId" => String.t() | atom()
+      supported_association() :: %{
+        "AssociationBehavior" => String.t() | atom(),
+        "DisassociationBehavior" => String.t() | atom(),
+        "IsoCountryCode" => String.t() | atom(),
+        "ResourceType" => [String.t() | atom()]
       }
       
   """
-  @type put_message_feedback_result() :: %{(String.t() | atom()) => any()}
+  @type supported_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_registration_section_definitions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SectionPaths") => list(String.t() | atom()),
-        required("RegistrationType") => String.t() | atom()
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type describe_registration_section_definitions_request() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_result() :: %{}
+      
+  """
+  @type tag_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      template_variable_metadata() :: %{
+        "DefaultValue" => [String.t() | atom()],
+        "Description" => [String.t() | atom()],
+        "MaxLength" => [integer()],
+        "MaxValue" => [integer()],
+        "MinValue" => [integer()],
+        "Pattern" => [String.t() | atom()],
+        "Required" => [boolean()],
+        "Sample" => [String.t() | atom()],
+        "Source" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type template_variable_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      testing_agent_information() :: %{
+        "RegistrationId" => [String.t() | atom()],
+        "Status" => String.t() | atom(),
+        "TestingAgentId" => [String.t() | atom()]
+      }
+      
+  """
+  @type testing_agent_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      text_validation() :: %{
+        "MaxLength" => [integer()],
+        "MinLength" => [integer()],
+        "Pattern" => [String.t() | atom()]
+      }
+      
+  """
+  @type text_validation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_result() :: %{}
+      
+  """
+  @type untag_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_event_destination_request() :: %{
+        optional("CloudWatchLogsDestination") => cloud_watch_logs_destination(),
+        optional("Enabled") => [boolean()],
+        optional("KinesisFirehoseDestination") => kinesis_firehose_destination(),
+        optional("MatchingEventTypes") => list(String.t() | atom()),
+        optional("SnsDestination") => sns_destination(),
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("EventDestinationName") => String.t() | atom()
+      }
+      
+  """
+  @type update_event_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_event_destination_result() :: %{
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "EventDestination" => event_destination()
+      }
+      
+  """
+  @type update_event_destination_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_notify_configuration_request() :: %{
+        optional("DefaultTemplateId") => String.t() | atom(),
+        optional("DeletionProtectionEnabled") => [boolean()],
+        optional("EnabledChannels") => list(String.t() | atom()),
+        optional("EnabledCountries") => list(String.t() | atom()),
+        optional("PoolId") => String.t() | atom(),
+        required("NotifyConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type update_notify_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2201,1037 +4115,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      registration_field_display_hints() :: %{
-        "DocumentationLink" => [String.t() | atom()],
-        "DocumentationTitle" => [String.t() | atom()],
-        "ExampleTextValue" => [String.t() | atom()],
-        "LongDescription" => [String.t() | atom()],
-        "SelectOptionDescriptions" => list(select_option_description()),
-        "ShortDescription" => [String.t() | atom()],
-        "TextValidationDescription" => [String.t() | atom()],
-        "Title" => [String.t() | atom()]
-      }
-      
-  """
-  @type registration_field_display_hints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_attributes_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_account_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_media_message_spend_limit_override_request() :: %{}
-      
-  """
-  @type delete_media_message_spend_limit_override_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_voice_message_result() :: %{
-        "MessageId" => [String.t() | atom()]
-      }
-      
-  """
-  @type send_voice_message_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_attributes_result() :: %{
-        "AccountAttributes" => list(account_attribute()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_account_attributes_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_message_feedback_request() :: %{
-        required("MessageFeedbackStatus") => String.t() | atom(),
-        required("MessageId") => String.t() | atom()
-      }
-      
-  """
-  @type put_message_feedback_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_voice_message_spend_limit_override_result() :: %{
-        "MonthlyLimit" => float()
-      }
-      
-  """
-  @type delete_voice_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_media_message_spend_limit_override_result() :: %{
-        "MonthlyLimit" => float()
-      }
-      
-  """
-  @type delete_media_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_registration_attachment_result() :: %{
-        "AttachmentStatus" => String.t() | atom(),
-        "CreatedTimestamp" => [non_neg_integer()],
-        "RegistrationAttachmentArn" => [String.t() | atom()],
-        "RegistrationAttachmentId" => [String.t() | atom()],
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type create_registration_attachment_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_agent_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type rcs_agent_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_pool_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DeletionProtectionEnabled" => [boolean()],
-        "MessageType" => String.t() | atom(),
-        "OptOutListName" => String.t() | atom(),
-        "PoolArn" => [String.t() | atom()],
-        "PoolId" => [String.t() | atom()],
-        "SelfManagedOptOutsEnabled" => [boolean()],
-        "SharedRoutesEnabled" => [boolean()],
-        "Status" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "TwoWayChannelArn" => String.t() | atom(),
-        "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()]
-      }
-      
-  """
-  @type create_pool_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_field_value_information() :: %{
-        "DeniedReason" => [String.t() | atom()],
-        "Feedback" => [String.t() | atom()],
-        "FieldPath" => String.t() | atom(),
-        "RegistrationAttachmentId" => String.t() | atom(),
-        "SelectChoices" => list(String.t() | atom()),
-        "TextValue" => String.t() | atom()
-      }
-      
-  """
-  @type registration_field_value_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_default_message_type_result() :: %{
-        "ConfigurationSetArn" => [String.t() | atom()],
-        "ConfigurationSetName" => String.t() | atom(),
-        "MessageType" => String.t() | atom()
-      }
-      
-  """
-  @type set_default_message_type_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_text_message_spend_limit_override_request() :: %{}
-      
-  """
-  @type delete_text_message_spend_limit_override_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_rcs_agent_request() :: %{
-        optional("DeletionProtectionEnabled") => [boolean()],
-        optional("OptOutListName") => String.t() | atom(),
-        optional("SelfManagedOptOutsEnabled") => [boolean()],
-        optional("TwoWayChannelArn") => String.t() | atom(),
-        optional("TwoWayChannelRole") => String.t() | atom(),
-        optional("TwoWayEnabled") => [boolean()],
-        optional("TwoWayMediaS3BucketName") => String.t() | atom(),
-        optional("TwoWayMediaS3KeyPrefix") => String.t() | atom(),
-        optional("TwoWayMediaS3Role") => String.t() | atom(),
-        optional("TwoWayRcsEventsEnabled") => list(String.t() | atom()),
-        required("RcsAgentId") => String.t() | atom()
-      }
-      
-  """
-  @type update_rcs_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_default_sender_id_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_default_sender_id_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_registration_field_value_request() :: %{
-        optional("RegistrationAttachmentId") => String.t() | atom(),
-        optional("SelectChoices") => list(String.t() | atom()),
-        optional("TextValue") => String.t() | atom(),
-        required("FieldPath") => String.t() | atom(),
-        required("RegistrationId") => String.t() | atom()
-      }
-      
-  """
-  @type put_registration_field_value_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_file_message() :: %{
-        "FileUrl" => String.t() | atom(),
-        "ThumbnailUrl" => String.t() | atom()
-      }
-      
-  """
-  @type rcs_file_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "Reason" => String.t() | atom(),
-        "ResourceId" => [String.t() | atom()],
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_registration_association_request() :: %{
-        required("RegistrationId") => String.t() | atom(),
-        required("ResourceId") => String.t() | atom()
-      }
-      
-  """
-  @type create_registration_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_attribute() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => [String.t() | atom()]
-      }
-      
-  """
-  @type account_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_registration_attachment_request() :: %{
-        optional("AttachmentBody") => binary(),
-        optional("AttachmentUrl") => String.t() | atom(),
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => list(tag())
-      }
-      
-  """
-  @type create_registration_attachment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_rcs_message_spend_limit_override_result() :: %{
-        "MonthlyLimit" => float()
-      }
-      
-  """
-  @type set_rcs_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_notify_countries_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "NotifyCountries" => list(notify_country_information())
-      }
-      
-  """
-  @type list_notify_countries_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_request_location_action() :: %{
-        "PostbackData" => String.t() | atom(),
-        "Text" => String.t() | atom()
-      }
-      
-  """
-  @type rcs_request_location_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_registration_field_definitions_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "RegistrationFieldDefinitions" => list(registration_field_definition()),
-        "RegistrationType" => String.t() | atom()
-      }
-      
-  """
-  @type describe_registration_field_definitions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_protect_configuration_request() :: %{
-        required("ProtectConfigurationId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_protect_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protect_configuration_country_rule_set_information() :: %{
-        "ProtectStatus" => String.t() | atom()
-      }
-      
-  """
-  @type protect_configuration_country_rule_set_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      country_launch_status_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type country_launch_status_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
-        "Message" => [String.t() | atom()],
-        "Name" => [String.t() | atom()]
-      }
-      
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verified_destination_number_information() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | atom(),
-        "RcsAgentId" => [String.t() | atom()],
-        "Status" => String.t() | atom(),
-        "VerifiedDestinationNumberArn" => [String.t() | atom()],
-        "VerifiedDestinationNumberId" => [String.t() | atom()]
-      }
-      
-  """
-  @type verified_destination_number_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_registration_field_value_result() :: %{
-        "FieldPath" => String.t() | atom(),
-        "RegistrationArn" => [String.t() | atom()],
-        "RegistrationAttachmentId" => [String.t() | atom()],
-        "RegistrationId" => [String.t() | atom()],
-        "SelectChoices" => list(String.t() | atom()),
-        "TextValue" => String.t() | atom(),
-        "VersionNumber" => float()
-      }
-      
-  """
-  @type delete_registration_field_value_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_rcs_message_result() :: %{
-        "MessageId" => [String.t() | atom()]
-      }
-      
-  """
-  @type send_rcs_message_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_opt_out_list_request() :: %{
-        required("OptOutListName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_opt_out_list_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_protect_configuration_country_rule_set_result() :: %{
-        "CountryRuleSet" => map(),
-        "NumberCapability" => String.t() | atom(),
-        "ProtectConfigurationArn" => String.t() | atom(),
-        "ProtectConfigurationId" => String.t() | atom()
-      }
-      
-  """
-  @type get_protect_configuration_country_rule_set_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_pool_origination_identities_request() :: %{
-        optional("Filters") => list(pool_origination_identities_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("PoolId") => String.t() | atom()
-      }
-      
-  """
-  @type list_pool_origination_identities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_policy_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_registration_association_result() :: %{
-        "IsoCountryCode" => String.t() | atom(),
-        "PhoneNumber" => String.t() | atom(),
-        "RegistrationArn" => [String.t() | atom()],
-        "RegistrationId" => [String.t() | atom()],
-        "RegistrationType" => String.t() | atom(),
-        "ResourceArn" => [String.t() | atom()],
-        "ResourceId" => [String.t() | atom()],
-        "ResourceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type create_registration_association_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_default_sender_id_result() :: %{
-        "ConfigurationSetArn" => [String.t() | atom()],
-        "ConfigurationSetName" => String.t() | atom(),
-        "SenderId" => String.t() | atom()
-      }
-      
-  """
-  @type delete_default_sender_id_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_limits_result() :: %{
-        "AccountLimits" => list(account_limit()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_account_limits_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_configuration_information() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DefaultTemplateId" => String.t() | atom(),
-        "DeletionProtectionEnabled" => [boolean()],
-        "DisplayName" => String.t() | atom(),
-        "EnabledChannels" => list(String.t() | atom()),
-        "EnabledCountries" => list(String.t() | atom()),
-        "NotifyConfigurationArn" => String.t() | atom(),
-        "NotifyConfigurationId" => String.t() | atom(),
-        "PoolId" => [String.t() | atom()],
-        "RejectionReason" => [String.t() | atom()],
-        "Status" => String.t() | atom(),
-        "Tier" => String.t() | atom(),
-        "TierUpgradeStatus" => String.t() | atom(),
-        "UseCase" => String.t() | atom()
-      }
-      
-  """
-  @type notify_configuration_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_text_message_spend_limit_override_result() :: %{
-        "MonthlyLimit" => float()
-      }
-      
-  """
-  @type set_text_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_notify_voice_message_result() :: %{
-        "MessageId" => [String.t() | atom()],
-        "ResolvedMessageBody" => [String.t() | atom()],
-        "TemplateId" => String.t() | atom()
-      }
-      
-  """
-  @type send_notify_voice_message_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_protect_configuration_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("DeletionProtectionEnabled") => [boolean()],
-        optional("Tags") => list(tag())
-      }
-      
-  """
-  @type create_protect_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_keyword_result() :: %{
-        "Keyword" => String.t() | atom(),
-        "KeywordAction" => String.t() | atom(),
-        "KeywordMessage" => String.t() | atom(),
-        "OriginationIdentity" => [String.t() | atom()],
-        "OriginationIdentityArn" => [String.t() | atom()]
-      }
-      
-  """
-  @type put_keyword_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_protect_configuration_country_rule_set_request() :: %{
-        required("CountryRuleSetUpdates") => map(),
-        required("NumberCapability") => String.t() | atom(),
-        required("ProtectConfigurationId") => String.t() | atom()
-      }
-      
-  """
-  @type update_protect_configuration_country_rule_set_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      sender_id_and_country() :: %{
-        "IsoCountryCode" => String.t() | atom(),
-        "SenderId" => String.t() | atom()
-      }
-      
-  """
-  @type sender_id_and_country() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_policy_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "Policy" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type delete_resource_policy_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_destination_number_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "VerifiedDestinationNumberArn" => [String.t() | atom()],
-        "VerifiedDestinationNumberId" => [String.t() | atom()]
-      }
-      
-  """
-  @type verify_destination_number_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_result() :: %{
-        "ResourceArn" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sender_id_information() :: %{
-        "DeletionProtectionEnabled" => [boolean()],
-        "IsoCountryCode" => String.t() | atom(),
-        "MessageTypes" => list(String.t() | atom()),
-        "MonthlyLeasingPrice" => [String.t() | atom()],
-        "Registered" => [boolean()],
-        "RegistrationId" => [String.t() | atom()],
-        "SenderId" => String.t() | atom(),
-        "SenderIdArn" => [String.t() | atom()]
-      }
-      
-  """
-  @type sender_id_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_origination_identity_result() :: %{
-        "IsoCountryCode" => String.t() | atom(),
-        "OriginationIdentity" => [String.t() | atom()],
-        "OriginationIdentityArn" => [String.t() | atom()],
-        "PoolArn" => [String.t() | atom()],
-        "PoolId" => [String.t() | atom()]
-      }
-      
-  """
-  @type associate_origination_identity_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_text_message_result() :: %{
-        "MessageId" => [String.t() | atom()]
-      }
-      
-  """
-  @type send_text_message_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_notify_voice_message_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom(),
-        optional("Context") => map(),
-        optional("DryRun") => [boolean()],
-        optional("MessageFeedbackEnabled") => [boolean()],
-        optional("TemplateId") => String.t() | atom(),
-        optional("TimeToLive") => integer(),
-        optional("VoiceId") => String.t() | atom(),
-        required("DestinationPhoneNumber") => String.t() | atom(),
-        required("NotifyConfigurationId") => String.t() | atom(),
-        required("TemplateVariables") => map()
-      }
-      
-  """
-  @type send_notify_voice_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_sets_result() :: %{
-        "ConfigurationSets" => list(configuration_set_information()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_configuration_sets_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_sender_ids_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "SenderIds" => list(sender_id_information())
-      }
-      
-  """
-  @type describe_sender_ids_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_registration_attachments_request() :: %{
-        optional("Filters") => list(registration_attachment_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RegistrationAttachmentIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_registration_attachments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_media_message_spend_limit_override_request() :: %{
-        required("MonthlyLimit") => float()
-      }
-      
-  """
-  @type set_media_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_text_message() :: %{
-        "Body" => String.t() | atom()
-      }
-      
-  """
-  @type rcs_text_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_limits_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_account_limits_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_attachments_information() :: %{
-        "AttachmentStatus" => String.t() | atom(),
-        "AttachmentUploadErrorReason" => String.t() | atom(),
-        "AttachmentUrl" => [String.t() | atom()],
-        "CreatedTimestamp" => [non_neg_integer()],
-        "RegistrationAttachmentArn" => [String.t() | atom()],
-        "RegistrationAttachmentId" => [String.t() | atom()]
-      }
-      
-  """
-  @type registration_attachments_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_registration_version_result() :: %{
-        "RegistrationArn" => [String.t() | atom()],
-        "RegistrationId" => [String.t() | atom()],
-        "RegistrationVersionStatus" => String.t() | atom(),
-        "RegistrationVersionStatusHistory" => registration_version_status_history(),
-        "VersionNumber" => float()
-      }
-      
-  """
-  @type create_registration_version_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_verified_destination_number_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("RcsAgentId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("DestinationPhoneNumber") => String.t() | atom()
-      }
-      
-  """
-  @type create_verified_destination_number_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_verified_destination_number_request() :: %{
-        required("VerifiedDestinationNumberId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_verified_destination_number_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_configuration_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type notify_configuration_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_rcs_message_spend_limit_override_request() :: %{
-        required("MonthlyLimit") => float()
-      }
-      
-  """
-  @type set_rcs_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      template_variable_metadata() :: %{
-        "DefaultValue" => [String.t() | atom()],
-        "Description" => [String.t() | atom()],
-        "MaxLength" => [integer()],
-        "MaxValue" => [integer()],
-        "MinValue" => [integer()],
-        "Pattern" => [String.t() | atom()],
-        "Required" => [boolean()],
-        "Sample" => [String.t() | atom()],
-        "Source" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-      
-  """
-  @type template_variable_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_phone_numbers_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "PhoneNumbers" => list(phone_number_information())
-      }
-      
-  """
-  @type describe_phone_numbers_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_account_default_protect_configuration_request() :: %{}
-      
-  """
-  @type delete_account_default_protect_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type registration_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_notify_message_spend_limit_override_request() :: %{
-        required("MonthlyLimit") => float()
-      }
-      
-  """
-  @type set_notify_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_protect_configurations_request() :: %{
-        optional("Filters") => list(protect_configuration_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ProtectConfigurationIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_protect_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_result() :: %{}
-      
-  """
-  @type untag_resource_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_registration_result() :: %{
-        "AdditionalAttributes" => map(),
-        "CreatedTimestamp" => [non_neg_integer()],
-        "CurrentVersionNumber" => float(),
-        "RegistrationArn" => [String.t() | atom()],
-        "RegistrationId" => [String.t() | atom()],
-        "RegistrationStatus" => String.t() | atom(),
-        "RegistrationType" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type create_registration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      release_sender_id_request() :: %{
-        required("IsoCountryCode") => String.t() | atom(),
-        required("SenderId") => String.t() | atom()
-      }
-      
-  """
-  @type release_sender_id_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_field_definition() :: %{
-        "DisplayHints" => registration_field_display_hints(),
-        "FieldPath" => String.t() | atom(),
-        "FieldRequirement" => String.t() | atom(),
-        "FieldType" => String.t() | atom(),
-        "SectionPath" => String.t() | atom(),
-        "SelectValidation" => select_validation(),
-        "TextValidation" => text_validation()
-      }
-      
-  """
-  @type registration_field_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_phone_number_result() :: %{
+      update_phone_number_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
         "InternationalSendingEnabled" => [boolean()],
@@ -3244,386 +4128,16 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "PhoneNumber" => String.t() | atom(),
         "PhoneNumberArn" => [String.t() | atom()],
         "PhoneNumberId" => [String.t() | atom()],
-        "PoolId" => [String.t() | atom()],
         "RegistrationId" => [String.t() | atom()],
         "SelfManagedOptOutsEnabled" => [boolean()],
         "Status" => String.t() | atom(),
-        "Tags" => list(tag()),
         "TwoWayChannelArn" => String.t() | atom(),
         "TwoWayChannelRole" => String.t() | atom(),
         "TwoWayEnabled" => [boolean()]
       }
       
   """
-  @type request_phone_number_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_protect_configuration_rule_set_number_overrides_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProtectConfigurationArn" => String.t() | atom(),
-        "ProtectConfigurationId" => String.t() | atom(),
-        "RuleSetNumberOverrides" => list(protect_configuration_rule_set_number_override())
-      }
-      
-  """
-  @type list_protect_configuration_rule_set_number_overrides_result() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_opted_out_numbers_request() :: %{
-        optional("Filters") => list(opted_out_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OptedOutNumbers") => list(String.t() | atom()),
-        required("OptOutListName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_opted_out_numbers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_country_information() :: %{
-        "CountryName" => [String.t() | atom()],
-        "CustomerOwnedIdentityRequired" => [boolean()],
-        "IsoCountryCode" => String.t() | atom(),
-        "SupportedChannels" => list(String.t() | atom()),
-        "SupportedTiers" => list(String.t() | atom()),
-        "SupportedUseCases" => list(String.t() | atom())
-      }
-      
-  """
-  @type notify_country_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_protect_configuration_result() :: %{
-        "ConfigurationSetArn" => [String.t() | atom()],
-        "ConfigurationSetName" => String.t() | atom(),
-        "ProtectConfigurationArn" => String.t() | atom(),
-        "ProtectConfigurationId" => String.t() | atom()
-      }
-      
-  """
-  @type associate_protect_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_pool_request() :: %{
-        required("PoolId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_pool_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pool_origination_identities_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type pool_origination_identities_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      supported_association() :: %{
-        "AssociationBehavior" => String.t() | atom(),
-        "DisassociationBehavior" => String.t() | atom(),
-        "IsoCountryCode" => String.t() | atom(),
-        "ResourceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type supported_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_notify_message_spend_limit_override_result() :: %{
-        "MonthlyLimit" => float()
-      }
-      
-  """
-  @type set_notify_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_voice_message_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom(),
-        optional("Context") => map(),
-        optional("DryRun") => [boolean()],
-        optional("MaxPricePerMinute") => String.t() | atom(),
-        optional("MessageBody") => String.t() | atom(),
-        optional("MessageBodyTextType") => String.t() | atom(),
-        optional("MessageFeedbackEnabled") => [boolean()],
-        optional("ProtectConfigurationId") => String.t() | atom(),
-        optional("TimeToLive") => integer(),
-        optional("VoiceId") => String.t() | atom(),
-        required("DestinationPhoneNumber") => String.t() | atom(),
-        required("OriginationIdentity") => String.t() | atom()
-      }
-      
-  """
-  @type send_voice_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_verified_destination_numbers_request() :: %{
-        optional("DestinationPhoneNumbers") => list(String.t() | atom()),
-        optional("Filters") => list(verified_destination_number_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("VerifiedDestinationNumberIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_verified_destination_numbers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_rcs_agent_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DeletionProtectionEnabled" => [boolean()],
-        "OptOutListName" => String.t() | atom(),
-        "RcsAgentArn" => [String.t() | atom()],
-        "RcsAgentId" => [String.t() | atom()],
-        "SelfManagedOptOutsEnabled" => [boolean()],
-        "Status" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "TwoWayChannelArn" => String.t() | atom(),
-        "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()],
-        "TwoWayMediaS3BucketName" => String.t() | atom(),
-        "TwoWayMediaS3KeyPrefix" => String.t() | atom(),
-        "TwoWayMediaS3Role" => String.t() | atom(),
-        "TwoWayRcsEventsEnabled" => list(String.t() | atom())
-      }
-      
-  """
-  @type create_rcs_agent_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_protect_configuration_country_rule_set_result() :: %{
-        "CountryRuleSet" => map(),
-        "NumberCapability" => String.t() | atom(),
-        "ProtectConfigurationArn" => String.t() | atom(),
-        "ProtectConfigurationId" => String.t() | atom()
-      }
-      
-  """
-  @type update_protect_configuration_country_rule_set_result() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_notify_configurations_request() :: %{
-        optional("Filters") => list(notify_configuration_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("NotifyConfigurationIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_notify_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_protect_configuration_rule_set_number_override_result() :: %{
-        "Action" => String.t() | atom(),
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | atom(),
-        "ExpirationTimestamp" => [non_neg_integer()],
-        "IsoCountryCode" => String.t() | atom(),
-        "ProtectConfigurationArn" => String.t() | atom(),
-        "ProtectConfigurationId" => String.t() | atom()
-      }
-      
-  """
-  @type delete_protect_configuration_rule_set_number_override_result() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_firehose_destination() :: %{
-        "DeliveryStreamArn" => String.t() | atom(),
-        "IamRoleArn" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_firehose_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_rcs_agent_country_launch_status_result() :: %{
-        "CountryLaunchStatus" => list(country_launch_status_information()),
-        "NextToken" => String.t() | atom(),
-        "RcsAgentArn" => [String.t() | atom()],
-        "RcsAgentId" => [String.t() | atom()]
-      }
-      
-  """
-  @type describe_rcs_agent_country_launch_status_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_show_location_action() :: %{
-        "Label" => String.t() | atom(),
-        "Latitude" => [float()],
-        "Longitude" => [float()],
-        "PostbackData" => String.t() | atom(),
-        "Text" => String.t() | atom()
-      }
-      
-  """
-  @type rcs_show_location_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_protect_configuration_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("ProtectConfigurationId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_protect_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pool_information() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DeletionProtectionEnabled" => [boolean()],
-        "MessageType" => String.t() | atom(),
-        "OptOutListName" => String.t() | atom(),
-        "PoolArn" => [String.t() | atom()],
-        "PoolId" => [String.t() | atom()],
-        "SelfManagedOptOutsEnabled" => [boolean()],
-        "SharedRoutesEnabled" => [boolean()],
-        "Status" => String.t() | atom(),
-        "TwoWayChannelArn" => String.t() | atom(),
-        "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()]
-      }
-      
-  """
-  @type pool_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      carrier_status_information() :: %{
-        "CarrierName" => [String.t() | atom()],
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type carrier_status_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rcs_message_spend_limit_override_result() :: %{
-        "MonthlyLimit" => float()
-      }
-      
-  """
-  @type delete_rcs_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_sets_request() :: %{
-        optional("ConfigurationSetNames") => list(String.t() | atom()),
-        optional("Filters") => list(configuration_set_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_configuration_sets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_protect_configuration_request() :: %{
-        optional("DeletionProtectionEnabled") => [boolean()],
-        required("ProtectConfigurationId") => String.t() | atom()
-      }
-      
-  """
-  @type update_protect_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_spend_limits_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_spend_limits_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_section_definition() :: %{
-        "DisplayHints" => registration_section_display_hints(),
-        "SectionPath" => String.t() | atom()
-      }
-      
-  """
-  @type registration_section_definition() :: %{(String.t() | atom()) => any()}
+  @type update_phone_number_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3669,471 +4183,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      delete_notify_message_spend_limit_override_request() :: %{}
-      
-  """
-  @type delete_notify_message_spend_limit_override_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_protect_configuration_rule_set_number_override_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("ExpirationTimestamp") => [non_neg_integer()],
-        required("Action") => String.t() | atom(),
-        required("DestinationPhoneNumber") => String.t() | atom(),
-        required("ProtectConfigurationId") => String.t() | atom()
-      }
-      
-  """
-  @type put_protect_configuration_rule_set_number_override_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_agent_information() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DeletionProtectionEnabled" => [boolean()],
-        "OptOutListName" => String.t() | atom(),
-        "PoolId" => [String.t() | atom()],
-        "RcsAgentArn" => [String.t() | atom()],
-        "RcsAgentId" => [String.t() | atom()],
-        "SelfManagedOptOutsEnabled" => [boolean()],
-        "Status" => String.t() | atom(),
-        "TestingAgent" => testing_agent_information(),
-        "TwoWayChannelArn" => String.t() | atom(),
-        "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()],
-        "TwoWayMediaS3BucketName" => String.t() | atom(),
-        "TwoWayMediaS3KeyPrefix" => String.t() | atom(),
-        "TwoWayMediaS3Role" => String.t() | atom(),
-        "TwoWayRcsEventsEnabled" => list(String.t() | atom())
-      }
-      
-  """
-  @type rcs_agent_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      carrier_lookup_result() :: %{
-        "Carrier" => [String.t() | atom()],
-        "Country" => [String.t() | atom()],
-        "DialingCountryCode" => String.t() | atom(),
-        "E164PhoneNumber" => String.t() | atom(),
-        "IsoCountryCode" => String.t() | atom(),
-        "MCC" => String.t() | atom(),
-        "MNC" => String.t() | atom(),
-        "PhoneNumberType" => String.t() | atom()
-      }
-      
-  """
-  @type carrier_lookup_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      release_phone_number_request() :: %{
-        required("PhoneNumberId") => String.t() | atom()
-      }
-      
-  """
-  @type release_phone_number_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_registration_attachment_request() :: %{
-        required("RegistrationAttachmentId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_registration_attachment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_default_sender_id_result() :: %{
-        "ConfigurationSetArn" => [String.t() | atom()],
-        "ConfigurationSetName" => String.t() | atom(),
-        "SenderId" => String.t() | atom()
-      }
-      
-  """
-  @type set_default_sender_id_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_opt_out_list_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "OptOutListArn" => [String.t() | atom()],
-        "OptOutListName" => String.t() | atom()
-      }
-      
-  """
-  @type delete_opt_out_list_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      release_sender_id_result() :: %{
-        "IsoCountryCode" => String.t() | atom(),
-        "MessageTypes" => list(String.t() | atom()),
-        "MonthlyLeasingPrice" => [String.t() | atom()],
-        "Registered" => [boolean()],
-        "RegistrationId" => [String.t() | atom()],
-        "SenderId" => String.t() | atom(),
-        "SenderIdArn" => [String.t() | atom()]
-      }
-      
-  """
-  @type release_sender_id_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_protect_configuration_result() :: %{
-        "ConfigurationSetArn" => [String.t() | atom()],
-        "ConfigurationSetName" => String.t() | atom(),
-        "ProtectConfigurationArn" => String.t() | atom(),
-        "ProtectConfigurationId" => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_protect_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_opt_out_lists_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "OptOutLists" => list(opt_out_list_information())
-      }
-      
-  """
-  @type describe_opt_out_lists_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_type_definition() :: %{
-        "DisplayHints" => registration_type_display_hints(),
-        "RegistrationType" => String.t() | atom(),
-        "SupportedAssociations" => list(supported_association())
-      }
-      
-  """
-  @type registration_type_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_notify_templates_request() :: %{
-        optional("Filters") => list(notify_template_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("TemplateIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_notify_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      release_phone_number_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "IsoCountryCode" => String.t() | atom(),
-        "MessageType" => String.t() | atom(),
-        "MonthlyLeasingPrice" => [String.t() | atom()],
-        "NumberCapabilities" => list(String.t() | atom()),
-        "NumberType" => String.t() | atom(),
-        "OptOutListName" => String.t() | atom(),
-        "PhoneNumber" => String.t() | atom(),
-        "PhoneNumberArn" => [String.t() | atom()],
-        "PhoneNumberId" => [String.t() | atom()],
-        "RegistrationId" => [String.t() | atom()],
-        "SelfManagedOptOutsEnabled" => [boolean()],
-        "Status" => String.t() | atom(),
-        "TwoWayChannelArn" => String.t() | atom(),
-        "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()]
-      }
-      
-  """
-  @type release_phone_number_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_voice_message_spend_limit_override_result() :: %{
-        "MonthlyLimit" => float()
-      }
-      
-  """
-  @type set_voice_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logs_destination() :: %{
-        "IamRoleArn" => String.t() | atom(),
-        "LogGroupArn" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logs_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rcs_message_spend_limit_override_request() :: %{}
-      
-  """
-  @type delete_rcs_message_spend_limit_override_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_phone_number_result() :: %{
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DeletionProtectionEnabled" => [boolean()],
-        "InternationalSendingEnabled" => [boolean()],
-        "IsoCountryCode" => String.t() | atom(),
-        "MessageType" => String.t() | atom(),
-        "MonthlyLeasingPrice" => [String.t() | atom()],
-        "NumberCapabilities" => list(String.t() | atom()),
-        "NumberType" => String.t() | atom(),
-        "OptOutListName" => String.t() | atom(),
-        "PhoneNumber" => String.t() | atom(),
-        "PhoneNumberArn" => [String.t() | atom()],
-        "PhoneNumberId" => [String.t() | atom()],
-        "RegistrationId" => [String.t() | atom()],
-        "SelfManagedOptOutsEnabled" => [boolean()],
-        "Status" => String.t() | atom(),
-        "TwoWayChannelArn" => String.t() | atom(),
-        "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()]
-      }
-      
-  """
-  @type update_phone_number_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_configuration_set_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ConfigurationSetName") => String.t() | atom()
-      }
-      
-  """
-  @type create_configuration_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_card_content() :: %{
-        "Description" => String.t() | atom(),
-        "Media" => rcs_card_media(),
-        "Suggestions" => list(list()),
-        "Title" => String.t() | atom()
-      }
-      
-  """
-  @type rcs_card_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_destination() :: %{
-        "CloudWatchLogsDestination" => cloud_watch_logs_destination(),
-        "Enabled" => [boolean()],
-        "EventDestinationName" => String.t() | atom(),
-        "KinesisFirehoseDestination" => kinesis_firehose_destination(),
-        "MatchingEventTypes" => list(String.t() | atom()),
-        "SnsDestination" => sns_destination()
-      }
-      
-  """
-  @type event_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_protect_configuration_country_rule_set_request() :: %{
+      update_protect_configuration_country_rule_set_request() :: %{
+        required("CountryRuleSetUpdates") => map(),
         required("NumberCapability") => String.t() | atom(),
         required("ProtectConfigurationId") => String.t() | atom()
       }
       
   """
-  @type get_protect_configuration_country_rule_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_sender_id_result() :: %{
-        "DeletionProtectionEnabled" => [boolean()],
-        "IsoCountryCode" => String.t() | atom(),
-        "MessageTypes" => list(String.t() | atom()),
-        "MonthlyLeasingPrice" => [String.t() | atom()],
-        "Registered" => [boolean()],
-        "SenderId" => String.t() | atom(),
-        "SenderIdArn" => [String.t() | atom()],
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type request_sender_id_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registration_version_information() :: %{
-        "DeniedReasons" => list(registration_denied_reason_information()),
-        "Feedback" => [String.t() | atom()],
-        "RegistrationVersionStatus" => String.t() | atom(),
-        "RegistrationVersionStatusHistory" => registration_version_status_history(),
-        "VersionNumber" => float()
-      }
-      
-  """
-  @type registration_version_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_media_message_result() :: %{
-        "MessageId" => [String.t() | atom()]
-      }
-      
-  """
-  @type send_media_message_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rcs_message_content() :: %{
-        "Content" => list(),
-        "Suggestions" => list(list())
-      }
-      
-  """
-  @type rcs_message_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_origination_identity_result() :: %{
-        "IsoCountryCode" => String.t() | atom(),
-        "OriginationIdentity" => [String.t() | atom()],
-        "OriginationIdentityArn" => [String.t() | atom()],
-        "PoolArn" => [String.t() | atom()],
-        "PoolId" => [String.t() | atom()]
-      }
-      
-  """
-  @type disassociate_origination_identity_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_configuration_set_result() :: %{
-        "ConfigurationSetArn" => [String.t() | atom()],
-        "ConfigurationSetName" => String.t() | atom(),
-        "CreatedTimestamp" => [non_neg_integer()],
-        "DefaultMessageFeedbackEnabled" => [boolean()],
-        "DefaultMessageType" => String.t() | atom(),
-        "DefaultSenderId" => String.t() | atom(),
-        "EventDestinations" => list(event_destination())
-      }
-      
-  """
-  @type delete_configuration_set_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      testing_agent_information() :: %{
-        "RegistrationId" => [String.t() | atom()],
-        "Status" => String.t() | atom(),
-        "TestingAgentId" => [String.t() | atom()]
-      }
-      
-  """
-  @type testing_agent_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sns_destination() :: %{
-        "TopicArn" => String.t() | atom()
-      }
-      
-  """
-  @type sns_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_registration_field_value_result() :: %{
-        "FieldPath" => String.t() | atom(),
-        "RegistrationArn" => [String.t() | atom()],
-        "RegistrationAttachmentId" => [String.t() | atom()],
-        "RegistrationId" => [String.t() | atom()],
-        "SelectChoices" => list(String.t() | atom()),
-        "TextValue" => String.t() | atom(),
-        "VersionNumber" => float()
-      }
-      
-  """
-  @type put_registration_field_value_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_protect_configuration_rule_set_number_override_request() :: %{
-        required("DestinationPhoneNumber") => String.t() | atom(),
-        required("ProtectConfigurationId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_protect_configuration_rule_set_number_override_request() :: %{
+  @type update_protect_configuration_country_rule_set_request() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -4141,22 +4198,29 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      request_phone_number_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("DeletionProtectionEnabled") => [boolean()],
-        optional("InternationalSendingEnabled") => [boolean()],
-        optional("OptOutListName") => String.t() | atom(),
-        optional("PoolId") => String.t() | atom(),
-        optional("RegistrationId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("IsoCountryCode") => String.t() | atom(),
-        required("MessageType") => String.t() | atom(),
-        required("NumberCapabilities") => list(String.t() | atom()),
-        required("NumberType") => String.t() | atom()
+      update_protect_configuration_country_rule_set_result() :: %{
+        "CountryRuleSet" => map(),
+        "NumberCapability" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
-  @type request_phone_number_request() :: %{(String.t() | atom()) => any()}
+  @type update_protect_configuration_country_rule_set_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      update_protect_configuration_request() :: %{
+        optional("DeletionProtectionEnabled") => [boolean()],
+        required("ProtectConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type update_protect_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4177,1035 +4241,971 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
+      update_rcs_agent_request() :: %{
+        optional("DeletionProtectionEnabled") => [boolean()],
+        optional("OptOutListName") => String.t() | atom(),
+        optional("SelfManagedOptOutsEnabled") => [boolean()],
+        optional("TwoWayChannelArn") => String.t() | atom(),
+        optional("TwoWayChannelRole") => String.t() | atom(),
+        optional("TwoWayEnabled") => [boolean()],
+        optional("TwoWayMediaS3BucketName") => String.t() | atom(),
+        optional("TwoWayMediaS3KeyPrefix") => String.t() | atom(),
+        optional("TwoWayMediaS3Role") => String.t() | atom(),
+        optional("TwoWayRcsEventsEnabled") => list(String.t() | atom()),
+        required("RcsAgentId") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type update_rcs_agent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_event_destination_result() :: %{
-        "ConfigurationSetArn" => [String.t() | atom()],
-        "ConfigurationSetName" => String.t() | atom(),
-        "EventDestination" => event_destination()
-      }
-      
-  """
-  @type delete_event_destination_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protect_configuration_information() :: %{
-        "AccountDefault" => [boolean()],
+      update_rcs_agent_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
-        "ProtectConfigurationArn" => String.t() | atom(),
-        "ProtectConfigurationId" => String.t() | atom()
+        "OptOutListName" => String.t() | atom(),
+        "RcsAgentArn" => [String.t() | atom()],
+        "RcsAgentId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()],
+        "TwoWayMediaS3BucketName" => String.t() | atom(),
+        "TwoWayMediaS3KeyPrefix" => String.t() | atom(),
+        "TwoWayMediaS3Role" => String.t() | atom(),
+        "TwoWayRcsEventsEnabled" => list(String.t() | atom())
       }
       
   """
-  @type protect_configuration_information() :: %{(String.t() | atom()) => any()}
+  @type update_rcs_agent_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_keyword_request() :: %{
-        required("Keyword") => String.t() | atom(),
-        required("OriginationIdentity") => String.t() | atom()
+      update_sender_id_request() :: %{
+        optional("DeletionProtectionEnabled") => [boolean()],
+        required("IsoCountryCode") => String.t() | atom(),
+        required("SenderId") => String.t() | atom()
       }
       
   """
-  @type delete_keyword_request() :: %{(String.t() | atom()) => any()}
+  @type update_sender_id_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_pools_request() :: %{
-        optional("Filters") => list(pool_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Owner") => String.t() | atom(),
-        optional("PoolIds") => list(String.t() | atom())
+      update_sender_id_result() :: %{
+        "DeletionProtectionEnabled" => [boolean()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageTypes" => list(String.t() | atom()),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
+        "Registered" => [boolean()],
+        "RegistrationId" => [String.t() | atom()],
+        "SenderId" => String.t() | atom(),
+        "SenderIdArn" => [String.t() | atom()]
       }
       
   """
-  @type describe_pools_request() :: %{(String.t() | atom()) => any()}
+  @type update_sender_id_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      rcs_standalone_card() :: %{
-        "CardContent" => rcs_card_content(),
-        "CardOrientation" => [String.t() | atom()],
-        "ThumbnailImageAlignment" => [String.t() | atom()]
-      }
-      
-  """
-  @type rcs_standalone_card() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_destination_number_verification_code_result() :: %{
-        "MessageId" => [String.t() | atom()]
-      }
-      
-  """
-  @type send_destination_number_verification_code_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
+      validation_exception() :: %{
+        "Fields" => list(validation_exception_field()),
         "Message" => [String.t() | atom()],
         "Reason" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      send_notify_text_message_result() :: %{
-        "MessageId" => [String.t() | atom()],
-        "ResolvedMessageBody" => [String.t() | atom()],
-        "TemplateId" => String.t() | atom()
+      validation_exception_field() :: %{
+        "Message" => [String.t() | atom()],
+        "Name" => [String.t() | atom()]
       }
       
   """
-  @type send_notify_text_message_result() :: %{(String.t() | atom()) => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_result() :: %{}
-      
-  """
-  @type tag_resource_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_default_message_type_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom()
+      verified_destination_number_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type delete_default_message_type_request() :: %{(String.t() | atom()) => any()}
+  @type verified_destination_number_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_rcs_agents_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "RcsAgents" => list(rcs_agent_information())
-      }
-      
-  """
-  @type describe_rcs_agents_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_registrations_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "Registrations" => list(registration_information())
-      }
-      
-  """
-  @type describe_registrations_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_default_message_feedback_enabled_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("MessageFeedbackEnabled") => [boolean()]
-      }
-      
-  """
-  @type set_default_message_feedback_enabled_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_event_destination_request() :: %{
-        required("ConfigurationSetName") => String.t() | atom(),
-        required("EventDestinationName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_event_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_template_information() :: %{
-        "Channels" => list(String.t() | atom()),
-        "Content" => String.t() | atom(),
+      verified_destination_number_information() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "LanguageCode" => String.t() | atom(),
+        "DestinationPhoneNumber" => String.t() | atom(),
+        "RcsAgentId" => [String.t() | atom()],
         "Status" => String.t() | atom(),
-        "SupportedCountries" => list(String.t() | atom()),
-        "SupportedVoiceIds" => list(String.t() | atom()),
-        "TemplateId" => String.t() | atom(),
-        "TemplateType" => String.t() | atom(),
-        "TierAccess" => list(String.t() | atom()),
-        "Variables" => map(),
-        "Version" => integer()
+        "VerifiedDestinationNumberArn" => [String.t() | atom()],
+        "VerifiedDestinationNumberId" => [String.t() | atom()]
       }
       
   """
-  @type notify_template_information() :: %{(String.t() | atom()) => any()}
+  @type verified_destination_number_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      registration_type_display_hints() :: %{
-        "DocumentationLink" => [String.t() | atom()],
-        "DocumentationTitle" => [String.t() | atom()],
-        "LongDescription" => [String.t() | atom()],
-        "ShortDescription" => [String.t() | atom()],
-        "Title" => [String.t() | atom()]
+      verify_destination_number_request() :: %{
+        required("VerificationCode") => String.t() | atom(),
+        required("VerifiedDestinationNumberId") => String.t() | atom()
       }
       
   """
-  @type registration_type_display_hints() :: %{(String.t() | atom()) => any()}
+  @type verify_destination_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_destination_number_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DestinationPhoneNumber" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "VerifiedDestinationNumberArn" => [String.t() | atom()],
+        "VerifiedDestinationNumberId" => [String.t() | atom()]
+      }
+      
+  """
+  @type verify_destination_number_result() :: %{(String.t() | atom()) => any()}
 
   @type associate_origination_identity_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type associate_protect_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type carrier_lookup_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_configuration_set_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_event_destination_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_notify_configuration_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_opt_out_list_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_pool_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_protect_configuration_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_rcs_agent_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_registration_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_registration_association_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_registration_attachment_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_registration_version_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_verified_destination_number_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_account_default_protect_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_configuration_set_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_default_message_type_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_default_sender_id_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_event_destination_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_keyword_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_media_message_spend_limit_override_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_notify_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_notify_message_spend_limit_override_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_opt_out_list_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_opted_out_number_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_pool_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_protect_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_protect_configuration_rule_set_number_override_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_rcs_agent_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_rcs_message_spend_limit_override_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_registration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_registration_attachment_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_registration_field_value_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_resource_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_text_message_spend_limit_override_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_verified_destination_number_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_voice_message_spend_limit_override_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_account_attributes_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_account_limits_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_configuration_sets_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_keywords_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_notify_configurations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_notify_templates_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_opt_out_lists_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_opted_out_numbers_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_phone_numbers_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_pools_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_protect_configurations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_rcs_agent_country_launch_status_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_rcs_agents_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_registration_attachments_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_registration_field_definitions_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_registration_field_values_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_registration_section_definitions_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_registration_type_definitions_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_registration_versions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_registrations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_sender_ids_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_spend_limits_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_verified_destination_numbers_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type disassociate_origination_identity_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type disassociate_protect_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type discard_registration_version_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_protect_configuration_country_rule_set_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_resource_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_notify_countries_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_pool_origination_identities_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_protect_configuration_rule_set_number_overrides_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_registration_associations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_keyword_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type put_message_feedback_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_opted_out_number_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_protect_configuration_rule_set_number_override_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type put_registration_field_value_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type put_resource_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type release_phone_number_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type release_sender_id_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type request_phone_number_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type request_sender_id_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type send_destination_number_verification_code_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type send_media_message_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type send_notify_text_message_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type send_notify_voice_message_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type send_rcs_message_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type send_text_message_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type send_voice_message_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type set_account_default_protect_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type set_default_message_feedback_enabled_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type set_default_message_type_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type set_default_sender_id_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type set_media_message_spend_limit_override_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type set_notify_message_spend_limit_override_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type set_rcs_message_spend_limit_override_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type set_text_message_spend_limit_override_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type set_voice_message_spend_limit_override_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type submit_registration_version_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_event_destination_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_notify_configuration_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_phone_number_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_pool_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_protect_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_protect_configuration_country_rule_set_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_rcs_agent_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_sender_id_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type verify_destination_number_errors() ::
-          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type verify_destination_number_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

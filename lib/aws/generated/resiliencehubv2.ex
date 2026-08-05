@@ -18,31 +18,90 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      service_function_created_metadata() :: %{
-        "serviceFunctionId" => [String.t() | atom()],
-        "serviceFunctionName" => [String.t() | atom()]
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_function_created_metadata() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      input_source_summary() :: %{
-        "cfnStackArn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "designFileS3Url" => String.t() | atom(),
-        "eks" => eks_source(),
-        "inputSourceId" => String.t() | atom(),
-        "resourceTags" => list(resource_tag()),
-        "tfStateFileUrl" => String.t() | atom(),
-        "type" => list(any())
+      achievability() :: %{
+        "availabilitySlo" => list(any()),
+        "dataRecoveryTimeBetweenBackups" => list(any()),
+        "multiAzRtoRpo" => list(any()),
+        "multiRegionRtoRpo" => list(any())
       }
 
   """
-  @type input_source_summary() :: %{(String.t() | atom()) => any()}
+  @type achievability() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assertion() :: %{
+        "assertionId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "serviceArn" => String.t() | atom(),
+        "source" => list(any()),
+        "text" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type assertion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assertion_created_metadata() :: %{
+        "assertionId" => [String.t() | atom()],
+        "assertionName" => [String.t() | atom()]
+      }
+
+  """
+  @type assertion_created_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assertion_deleted_metadata() :: %{
+        "assertionId" => [String.t() | atom()],
+        "assertionName" => [String.t() | atom()]
+      }
+
+  """
+  @type assertion_deleted_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assertion_updated_metadata() :: %{
+        "assertionId" => [String.t() | atom()],
+        "assertionName" => [String.t() | atom()]
+      }
+
+  """
+  @type assertion_updated_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_cost() :: %{
+        "amount" => [float()],
+        "currency" => list(any())
+      }
+
+  """
+  @type assessment_cost() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -70,370 +129,85 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      policy() :: %{
-        "associatedServiceCount" => [integer()],
-        "availabilitySlo" => availability_slo(),
-        "createdAt" => [non_neg_integer()],
-        "dataRecovery" => data_recovery_targets(),
-        "description" => String.t() | atom(),
-        "kmsKeyId" => String.t() | atom(),
-        "multiAz" => multi_az_targets(),
-        "multiRegion" => multi_region_targets(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "tags" => map(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disaster_recovery_source() :: %{
-        "policyName" => String.t() | atom(),
-        "source" => list(any()),
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type disaster_recovery_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_input_sources_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("type") => list(any()),
-        required("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_input_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_report_response() :: %{
-        "reportGenerationResult" => report_generation_result()
-      }
-
-  """
-  @type create_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_response() :: %{
-        "serviceArn" => String.t() | atom()
-      }
-
-  """
-  @type delete_service_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policies_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_deleted_metadata() :: %{}
-
-  """
-  @type system_deleted_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_user_journey_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("policyArn") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("systemArn") => String.t() | atom()
-      }
-
-  """
-  @type create_user_journey_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_journey_request() :: %{
-        required("systemArn") => String.t() | atom(),
-        required("userJourneyId") => String.t() | atom()
-      }
-
-  """
-  @type get_user_journey_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_user_journey_response() :: %{
-        "userJourneyId" => String.t() | atom()
-      }
-
-  """
-  @type delete_user_journey_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_failure_mode_assessments_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_failure_mode_assessments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_event_details() :: %{
-        "description" => [String.t() | atom()],
-        "eventMetadata" => list(),
-        "title" => [String.t() | atom()]
-      }
-
-  """
-  @type service_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_event() :: %{
-        "actor" => event_actor(),
-        "eventDetails" => system_event_details(),
-        "eventId" => String.t() | atom(),
-        "eventType" => list(any()),
+      associated_system() :: %{
         "systemArn" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()]
+        "systemName" => String.t() | atom(),
+        "userJourneyIds" => list(String.t() | atom())
       }
 
   """
-  @type system_event() :: %{(String.t() | atom()) => any()}
+  @type associated_system() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
+      availability_slo() :: %{
+        "target" => [float()]
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type availability_slo() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_resources_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "serviceFunctionId" => String.t() | atom(),
-        "serviceResources" => list(service_resource())
-      }
-
-  """
-  @type list_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reports_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "reportGenerationResults" => list(report_generation_result())
-      }
-
-  """
-  @type list_reports_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_user_journey_deleted_metadata() :: %{
-        "associatedServicesAtDeletion" => list(service_reference()),
-        "userJourneyName" => [String.t() | atom()]
-      }
-
-  """
-  @type system_user_journey_deleted_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dependency_request() :: %{
-        optional("comment") => [String.t() | atom()],
-        optional("criticality") => list(any()),
-        required("dependencyId") => String.t() | atom(),
-        required("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type update_dependency_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_system_response() :: %{
-        "system" => system()
-      }
-
-  """
-  @type update_system_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      eks_source() :: %{
-        "clusterArn" => String.t() | atom(),
-        "namespaces" => list(String.t() | atom())
-      }
-
-  """
-  @type eks_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      permission_model() :: %{
-        "crossAccountRoles" => list(cross_account_role()),
-        "invokerRoleName" => String.t() | atom()
-      }
-
-  """
-  @type permission_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
+      conflict_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_resources_disassociated_metadata() :: %{
-        "resourceCount" => [integer()],
-        "resourceTypes" => list([String.t() | atom()]())
+      create_assertion_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom(),
+        required("text") => String.t() | atom()
       }
 
   """
-  @type service_resources_disassociated_metadata() :: %{(String.t() | atom()) => any()}
+  @type create_assertion_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      string_change() :: %{
-        "newValue" => [String.t() | atom()],
-        "oldValue" => [String.t() | atom()]
+      create_assertion_response() :: %{
+        "assertion" => assertion()
       }
 
   """
-  @type string_change() :: %{(String.t() | atom()) => any()}
+  @type create_assertion_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_assertion_request() :: %{
-        required("assertionId") => String.t() | atom(),
+      create_input_source_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("resourceConfiguration") => list(),
         required("serviceArn") => String.t() | atom()
       }
 
   """
-  @type delete_assertion_request() :: %{(String.t() | atom()) => any()}
+  @type create_input_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_input_source_request() :: %{
-        required("inputSourceId") => String.t() | atom(),
-        required("serviceArn") => String.t() | atom()
+      create_input_source_response() :: %{
+        "inputSourceId" => String.t() | atom(),
+        "serviceArn" => String.t() | atom()
       }
 
   """
-  @type delete_input_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_actor() :: %{
-        "accountId" => [String.t() | atom()],
-        "principalId" => [String.t() | atom()],
-        "type" => list(any()),
-        "userName" => [String.t() | atom()]
-      }
-
-  """
-  @type event_actor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failed_report_output() :: %{
-        "errorCode" => list(any()),
-        "errorMessage" => [String.t() | atom()]
-      }
-
-  """
-  @type failed_report_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_service_disassociated_metadata() :: %{
-        "comment" => [String.t() | atom()],
-        "serviceArn" => String.t() | atom(),
-        "serviceName" => [String.t() | atom()],
-        "userJourneysAffected" => list([String.t() | atom()]())
-      }
-
-  """
-  @type system_service_disassociated_metadata() :: %{(String.t() | atom()) => any()}
+  @type create_input_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -458,35 +232,467 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      get_policy_response() :: %{
+      create_policy_response() :: %{
         "policy" => policy()
       }
 
   """
-  @type get_policy_response() :: %{(String.t() | atom()) => any()}
+  @type create_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_input_sources_updated_metadata() :: %{}
-
-  """
-  @type service_input_sources_updated_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assertions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("source") => list(any()),
+      create_report_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("reportType") => list(any()),
         required("serviceArn") => String.t() | atom()
       }
 
   """
-  @type list_assertions_request() :: %{(String.t() | atom()) => any()}
+  @type create_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_report_response() :: %{
+        "reportGenerationResult" => report_generation_result()
+      }
+
+  """
+  @type create_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_function_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("criticality") => list(any()),
+        required("name") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type create_service_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_function_resources_request() :: %{
+        required("resources") => list([String.t() | atom()]()),
+        required("serviceArn") => String.t() | atom(),
+        required("serviceFunctionId") => String.t() | atom()
+      }
+
+  """
+  @type create_service_function_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_function_resources_response() :: %{
+        "resources" => list([String.t() | atom()]()),
+        "serviceArn" => String.t() | atom(),
+        "serviceFunctionId" => String.t() | atom()
+      }
+
+  """
+  @type create_service_function_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_function_response() :: %{
+        "serviceFunction" => service_function()
+      }
+
+  """
+  @type create_service_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_request() :: %{
+        optional("associatedSystems") => list(associated_system()),
+        optional("clientToken") => String.t() | atom(),
+        optional("dependencyDiscovery") => list(any()),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("policyArn") => String.t() | atom(),
+        optional("reportConfiguration") => service_report_configuration(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("permissionModel") => permission_model(),
+        required("regions") => list(String.t() | atom())
+      }
+
+  """
+  @type create_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_response() :: %{
+        "service" => service()
+      }
+
+  """
+  @type create_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_system_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("sharingEnabled") => [boolean()],
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_system_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_system_response() :: %{
+        "system" => system()
+      }
+
+  """
+  @type create_system_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_test_request() :: %{
+        optional("loggingConfiguration") => logging_configuration(),
+        optional("parameters") => map(),
+        optional("roleName") => String.t() | atom(),
+        optional("stopConditions") => list(stop_condition()),
+        required("serviceArn") => String.t() | atom(),
+        required("testTemplateArn") => String.t() | atom()
+      }
+
+  """
+  @type create_test_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_test_response() :: %{
+        "test" => test()
+      }
+
+  """
+  @type create_test_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_journey_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("policyArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("systemArn") => String.t() | atom()
+      }
+
+  """
+  @type create_user_journey_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_journey_response() :: %{
+        "userJourney" => user_journey()
+      }
+
+  """
+  @type create_user_journey_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cross_account_role() :: %{
+        "crossAccountRoleArn" => String.t() | atom(),
+        "externalId" => [String.t() | atom()]
+      }
+
+  """
+  @type cross_account_role() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_recovery_targets() :: %{
+        "timeBetweenBackupsInMinutes" => [integer()]
+      }
+
+  """
+  @type data_recovery_targets() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assertion_request() :: %{
+        required("assertionId") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_assertion_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assertion_response() :: %{
+        "assertionId" => String.t() | atom()
+      }
+
+  """
+  @type delete_assertion_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_input_source_request() :: %{
+        required("inputSourceId") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_input_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_input_source_response() :: %{
+        "inputSourceId" => String.t() | atom(),
+        "serviceArn" => String.t() | atom()
+      }
+
+  """
+  @type delete_input_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_request() :: %{
+        required("policyArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_response() :: %{
+        "policyArn" => String.t() | atom()
+      }
+
+  """
+  @type delete_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_function_request() :: %{
+        required("serviceArn") => String.t() | atom(),
+        required("serviceFunctionId") => String.t() | atom()
+      }
+
+  """
+  @type delete_service_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_function_resources_request() :: %{
+        required("resources") => list([String.t() | atom()]()),
+        required("serviceArn") => String.t() | atom(),
+        required("serviceFunctionId") => String.t() | atom()
+      }
+
+  """
+  @type delete_service_function_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_function_resources_response() :: %{
+        "resources" => list([String.t() | atom()]()),
+        "serviceArn" => String.t() | atom(),
+        "serviceFunctionId" => String.t() | atom()
+      }
+
+  """
+  @type delete_service_function_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_function_response() :: %{
+        "serviceFunctionId" => String.t() | atom()
+      }
+
+  """
+  @type delete_service_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_request() :: %{
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_response() :: %{
+        "serviceArn" => String.t() | atom()
+      }
+
+  """
+  @type delete_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_system_request() :: %{
+        required("systemArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_system_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_system_response() :: %{
+        "systemArn" => String.t() | atom()
+      }
+
+  """
+  @type delete_system_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_test_request() :: %{
+        required("serviceArn") => String.t() | atom(),
+        required("testId") => String.t() | atom()
+      }
+
+  """
+  @type delete_test_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_test_response() :: %{
+        "testId" => String.t() | atom()
+      }
+
+  """
+  @type delete_test_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_test_sources_request() :: %{
+        required("serviceArn") => String.t() | atom(),
+        required("testId") => String.t() | atom(),
+        required("testSources") => list(list())
+      }
+
+  """
+  @type delete_test_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_test_sources_response() :: %{}
+
+  """
+  @type delete_test_sources_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_journey_request() :: %{
+        required("systemArn") => String.t() | atom(),
+        required("userJourneyId") => String.t() | atom()
+      }
+
+  """
+  @type delete_user_journey_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_journey_response() :: %{
+        "userJourneyId" => String.t() | atom()
+      }
+
+  """
+  @type delete_user_journey_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_discovery_config() :: %{
+        "eligibleResourceCount" => [integer()],
+        "message" => [String.t() | atom()],
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type dependency_discovery_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -513,6 +719,444 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
+      disaster_recovery_source() :: %{
+        "policyName" => String.t() | atom(),
+        "source" => list(any()),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type disaster_recovery_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      edge_property_summary() :: %{
+        "label" => [String.t() | atom()],
+        "topologyType" => list(any())
+      }
+
+  """
+  @type edge_property_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      effective_policy_values() :: %{
+        "availabilitySlo" => slo_source(),
+        "dataRecoveryTimeBetweenBackups" => target_source(),
+        "multiAzDrApproach" => disaster_recovery_source(),
+        "multiAzRpo" => target_source(),
+        "multiAzRto" => target_source(),
+        "multiRegionDrApproach" => disaster_recovery_source(),
+        "multiRegionRpo" => target_source(),
+        "multiRegionRto" => target_source()
+      }
+
+  """
+  @type effective_policy_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      eks_source() :: %{
+        "clusterArn" => String.t() | atom(),
+        "namespaces" => list(String.t() | atom())
+      }
+
+  """
+  @type eks_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_actor() :: %{
+        "accountId" => [String.t() | atom()],
+        "principalId" => [String.t() | atom()],
+        "type" => list(any()),
+        "userName" => [String.t() | atom()]
+      }
+
+  """
+  @type event_actor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_details() :: %{
+        "details" => [String.t() | atom()],
+        "experimentArn" => String.t() | atom()
+      }
+
+  """
+  @type experiment_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failed_report_output() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type failed_report_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding() :: %{
+        "comment" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "failureCategory" => list(any()),
+        "findingId" => String.t() | atom(),
+        "infrastructureAndCodeRecommendations" => list(infrastructure_and_code_recommendation()),
+        "name" => [String.t() | atom()],
+        "observabilityRecommendations" => list(observability_recommendation()),
+        "policyComponent" => list(any()),
+        "reasoning" => [String.t() | atom()],
+        "serviceFunctions" => list(String.t() | atom()),
+        "severity" => list(any()),
+        "status" => list(any()),
+        "testingRecommendations" => list(testing_recommendation()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_summary() :: %{
+        "description" => String.t() | atom(),
+        "failureCategory" => list(any()),
+        "findingId" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "policyComponent" => list(any()),
+        "serviceArn" => String.t() | atom(),
+        "severity" => list(any()),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type finding_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_failure_mode_finding_request() :: %{
+        required("findingId") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type get_failure_mode_finding_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_failure_mode_finding_response() :: %{
+        "finding" => finding()
+      }
+
+  """
+  @type get_failure_mode_finding_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_request() :: %{
+        required("policyArn") => String.t() | atom()
+      }
+
+  """
+  @type get_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_response() :: %{
+        "policy" => policy()
+      }
+
+  """
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_request() :: %{
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type get_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_response() :: %{
+        "service" => service()
+      }
+
+  """
+  @type get_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_system_request() :: %{
+        required("systemArn") => String.t() | atom()
+      }
+
+  """
+  @type get_system_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_system_response() :: %{
+        "system" => system()
+      }
+
+  """
+  @type get_system_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_test_request() :: %{
+        required("serviceArn") => String.t() | atom(),
+        required("testId") => String.t() | atom()
+      }
+
+  """
+  @type get_test_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_test_response() :: %{
+        "test" => test()
+      }
+
+  """
+  @type get_test_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_test_run_request() :: %{
+        required("serviceArn") => String.t() | atom(),
+        required("testRunId") => String.t() | atom()
+      }
+
+  """
+  @type get_test_run_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_test_run_response() :: %{
+        "testRun" => test_run()
+      }
+
+  """
+  @type get_test_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_test_template_request() :: %{
+        required("testTemplateArn") => String.t() | atom()
+      }
+
+  """
+  @type get_test_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_test_template_response() :: %{
+        "testTemplate" => test_template()
+      }
+
+  """
+  @type get_test_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_journey_request() :: %{
+        required("systemArn") => String.t() | atom(),
+        required("userJourneyId") => String.t() | atom()
+      }
+
+  """
+  @type get_user_journey_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_journey_response() :: %{
+        "userJourney" => user_journey()
+      }
+
+  """
+  @type get_user_journey_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_app_request() :: %{
+        optional("associatedSystems") => list(associated_system()),
+        optional("clientToken") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("policyArn") => String.t() | atom(),
+        optional("skipManuallyAddedResources") => [boolean()],
+        optional("tags") => map(),
+        required("v1AppArn") => String.t() | atom()
+      }
+
+  """
+  @type import_app_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_app_response() :: %{
+        "service" => service()
+      }
+
+  """
+  @type import_app_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_policy_request() :: %{
+        optional("availabilitySlo") => availability_slo(),
+        optional("clientToken") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("multiAzDisasterRecoveryApproach") => list(any()),
+        optional("multiRegionDisasterRecoveryApproach") => list(any()),
+        optional("tags") => map(),
+        required("v1PolicyArn") => String.t() | atom()
+      }
+
+  """
+  @type import_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_policy_response() :: %{
+        "policy" => policy()
+      }
+
+  """
+  @type import_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      infrastructure_and_code_recommendation() :: %{
+        "suggestedChanges" => list(String.t() | atom())
+      }
+
+  """
+  @type infrastructure_and_code_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_source() :: %{
+        "identifier" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type input_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_source_summary() :: %{
+        "cfnStackArn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "designFileS3Url" => String.t() | atom(),
+        "eks" => eks_source(),
+        "inputSourceId" => String.t() | atom(),
+        "resourceTags" => list(resource_tag()),
+        "tfStateFileUrl" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type input_source_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assertions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("source") => list(any()),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_assertions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_assertions_response() :: %{
         "assertions" => list(assertion()),
         "nextToken" => String.t() | atom()
@@ -525,71 +1169,297 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      update_service_request() :: %{
-        optional("associatedSystems") => list(associated_system()),
-        optional("dependencyDiscovery") => list(any()),
-        optional("description") => String.t() | atom(),
-        optional("permissionModel") => permission_model(),
-        optional("policyArn") => String.t() | atom(),
-        optional("regions") => list(String.t() | atom()),
-        optional("reportConfiguration") => service_report_configuration(),
+      list_dependencies_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("queryRangeEndTime") => [non_neg_integer()],
+        optional("queryRangeGranularity") => list(any()),
+        optional("queryRangeStartTime") => [non_neg_integer()],
+        optional("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_dependencies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dependencies_response() :: %{
+        "dependencySummaries" => list(dependency_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_dependencies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_failure_mode_assessments_request() :: %{
+        optional("assessmentStatuses") => list(list(any())()),
+        optional("endedBefore") => [non_neg_integer()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("startedAfter") => [non_neg_integer()],
         required("serviceArn") => String.t() | atom()
       }
 
   """
-  @type update_service_request() :: %{(String.t() | atom()) => any()}
+  @type list_failure_mode_assessments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_service_function_request() :: %{
-        required("serviceArn") => String.t() | atom(),
-        required("serviceFunctionId") => String.t() | atom()
+      list_failure_mode_assessments_response() :: %{
+        "assessmentSummaries" => list(assessment_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type delete_service_function_request() :: %{(String.t() | atom()) => any()}
+  @type list_failure_mode_assessments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      query_data_point() :: %{
-        "queryCount" => [float()],
-        "timestamp" => [non_neg_integer()]
+      list_failure_mode_findings_request() :: %{
+        optional("failureCategory") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("severity") => list(any()),
+        optional("status") => list(any()),
+        required("serviceArn") => String.t() | atom()
       }
 
   """
-  @type query_data_point() :: %{(String.t() | atom()) => any()}
+  @type list_failure_mode_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      assertion() :: %{
-        "assertionId" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "serviceArn" => String.t() | atom(),
-        "source" => list(any()),
-        "text" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()]
+      list_failure_mode_findings_response() :: %{
+        "findingsSummary" => list(finding_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type assertion() :: %{(String.t() | atom()) => any()}
+  @type list_failure_mode_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      system_user_journey_updated_metadata() :: %{
-        "changes" => user_journey_changes(),
-        "userJourneyName" => [String.t() | atom()]
+      list_input_sources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("type") => list(any()),
+        required("serviceArn") => String.t() | atom()
       }
 
   """
-  @type system_user_journey_updated_metadata() :: %{(String.t() | atom()) => any()}
+  @type list_input_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_input_sources_response() :: %{
+        "inputSourceSummaries" => list(input_source_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_input_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policies_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policies_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policySummaries" => list(policy_summary())
+      }
+
+  """
+  @type list_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reports_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("reportType") => list(any()),
+        optional("serviceArn") => String.t() | atom(),
+        optional("testRunId") => String.t() | atom()
+      }
+
+  """
+  @type list_reports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reports_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "reportGenerationResults" => list(report_generation_result())
+      }
+
+  """
+  @type list_reports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resolved_test_run_target_resources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_resolved_test_run_target_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resolved_test_run_target_resources_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "resolvedTargetResources" => list(resolved_target_resource())
+      }
+
+  """
+  @type list_resolved_test_run_target_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resources_request() :: %{
+        optional("awsRegion") => String.t() | atom(),
+        optional("billable") => [boolean()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceTypes") => list(String.t() | atom()),
+        optional("serviceFunctionId") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resources_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "serviceFunctionId" => String.t() | atom(),
+        "serviceResources" => list(service_resource())
+      }
+
+  """
+  @type list_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_events_request() :: %{
+        optional("endTime") => [non_neg_integer()],
+        optional("eventTypes") => list(list(any())()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("startTime") => [non_neg_integer()],
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_service_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_events_response() :: %{
+        "events" => list(service_event()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_service_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_functions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_service_functions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_functions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "serviceFunctions" => list(service_function())
+      }
+
+  """
+  @type list_service_functions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_topology_edges_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_service_topology_edges_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_topology_edges_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "serviceTopologyEdgeSummaries" => list(service_topology_edge_summary())
+      }
+
+  """
+  @type list_service_topology_edges_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -613,195 +1483,545 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      update_assertion_response() :: %{
-        "assertion" => assertion()
+      list_services_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "serviceSummaries" => list(service_summary())
       }
 
   """
-  @type update_assertion_response() :: %{(String.t() | atom()) => any()}
+  @type list_services_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_failure_mode_finding_request() :: %{
-        required("findingId") => String.t() | atom(),
-        required("serviceArn") => String.t() | atom()
+      list_system_events_request() :: %{
+        optional("endTime") => [non_neg_integer()],
+        optional("eventTypes") => list(list(any())()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("startTime") => [non_neg_integer()],
+        required("systemArn") => String.t() | atom()
       }
 
   """
-  @type get_failure_mode_finding_request() :: %{(String.t() | atom()) => any()}
+  @type list_system_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_policy_response() :: %{
-        "policyArn" => String.t() | atom()
-      }
-
-  """
-  @type delete_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_input_source_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("resourceConfiguration") => list(),
-        required("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type create_input_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_input_sources_response() :: %{
-        "inputSourceSummaries" => list(input_source_summary()),
+      list_system_events_response() :: %{
+        "events" => list(system_event()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_input_sources_response() :: %{(String.t() | atom()) => any()}
+  @type list_system_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      system_policy_disassociated_metadata() :: %{
-        "policyArn" => String.t() | atom(),
-        "policyName" => [String.t() | atom()]
-      }
-
-  """
-  @type system_policy_disassociated_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cross_account_role() :: %{
-        "crossAccountRoleArn" => String.t() | atom(),
-        "externalId" => [String.t() | atom()]
-      }
-
-  """
-  @type cross_account_role() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_functions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "serviceFunctions" => list(service_function())
-      }
-
-  """
-  @type list_service_functions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_failure_mode_findings_request() :: %{
-        optional("failureCategory") => list(any()),
+      list_systems_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        optional("severity") => list(any()),
-        optional("status") => list(any()),
+        optional("ouId") => String.t() | atom()
+      }
+
+  """
+  @type list_systems_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_systems_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "systemSummaries" => list(system_summary())
+      }
+
+  """
+  @type list_systems_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_run_events_request() :: %{
+        optional("endedAt") => [non_neg_integer()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("startedAt") => [non_neg_integer()],
         required("serviceArn") => String.t() | atom()
       }
 
   """
-  @type list_failure_mode_findings_request() :: %{(String.t() | atom()) => any()}
+  @type list_test_run_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_input_source_response() :: %{
-        "inputSourceId" => String.t() | atom(),
-        "serviceArn" => String.t() | atom()
+      list_test_run_events_response() :: %{
+        "events" => list(test_run_event()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type delete_input_source_response() :: %{(String.t() | atom()) => any()}
+  @type list_test_run_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_reference_changes() :: %{
-        "added" => list(service_reference()),
-        "removed" => list(service_reference())
+      list_test_run_sources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("type") => list(any()),
+        required("serviceArn") => String.t() | atom()
       }
 
   """
-  @type service_reference_changes() :: %{(String.t() | atom()) => any()}
+  @type list_test_run_sources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      system() :: %{
+      list_test_run_sources_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "testRunSources" => list(list())
+      }
+
+  """
+  @type list_test_run_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_runs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("testId") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_test_runs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_runs_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "testRuns" => list(test_run_summary())
+      }
+
+  """
+  @type list_test_runs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_sources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("type") => list(any()),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_test_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_sources_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "testSources" => list(list())
+      }
+
+  """
+  @type list_test_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_templates_request() :: %{}
+
+  """
+  @type list_test_templates_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_templates_response() :: %{
+        "testTemplates" => list(test_template_summary())
+      }
+
+  """
+  @type list_test_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tests_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_tests_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tests_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "tests" => list(test_summary())
+      }
+
+  """
+  @type list_tests_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_user_journeys_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("systemArn") => String.t() | atom()
+      }
+
+  """
+  @type list_user_journeys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_user_journeys_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "userJourneySummaries" => list(user_journey_summary())
+      }
+
+  """
+  @type list_user_journeys_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_configuration() :: %{
+        "cloudWatchLogGroupArn" => String.t() | atom(),
+        "logSchemaVersion" => [String.t() | atom()],
+        "s3BucketName" => [String.t() | atom()]
+      }
+
+  """
+  @type logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multi_az_targets() :: %{
+        "disasterRecoveryApproach" => list(any()),
+        "rpoInMinutes" => [integer()],
+        "rtoInMinutes" => [integer()]
+      }
+
+  """
+  @type multi_az_targets() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multi_region_targets() :: %{
+        "disasterRecoveryApproach" => list(any()),
+        "rpoInMinutes" => [integer()],
+        "rtoInMinutes" => [integer()]
+      }
+
+  """
+  @type multi_region_targets() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      observability_alarm_input() :: %{
+        "alarmArn" => String.t() | atom()
+      }
+
+  """
+  @type observability_alarm_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      observability_alarm_summary() :: %{
+        "accountId" => [String.t() | atom()],
+        "alarmArn" => String.t() | atom(),
+        "alarmName" => [String.t() | atom()],
         "createdAt" => [non_neg_integer()],
+        "region" => [String.t() | atom()]
+      }
+
+  """
+  @type observability_alarm_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      observability_recommendation() :: %{
+        "suggestedChanges" => list(String.t() | atom())
+      }
+
+  """
+  @type observability_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission_model() :: %{
+        "crossAccountRoles" => list(cross_account_role()),
+        "invokerRoleName" => String.t() | atom()
+      }
+
+  """
+  @type permission_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy() :: %{
+        "associatedServiceCount" => [integer()],
+        "availabilitySlo" => availability_slo(),
+        "createdAt" => [non_neg_integer()],
+        "dataRecovery" => data_recovery_targets(),
         "description" => String.t() | atom(),
         "kmsKeyId" => String.t() | atom(),
+        "multiAz" => multi_az_targets(),
+        "multiRegion" => multi_region_targets(),
         "name" => String.t() | atom(),
-        "organizationId" => String.t() | atom(),
-        "ouId" => String.t() | atom(),
-        "sharingEnabled" => [boolean()],
-        "systemArn" => String.t() | atom(),
-        "systemId" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
         "tags" => map(),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type system() :: %{(String.t() | atom()) => any()}
+  @type policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      assertion_updated_metadata() :: %{
-        "assertionId" => [String.t() | atom()],
-        "assertionName" => [String.t() | atom()]
+      policy_summary() :: %{
+        "associatedServiceCount" => [integer()],
+        "availabilitySlo" => availability_slo(),
+        "createdAt" => [non_neg_integer()],
+        "dataRecovery" => data_recovery_targets(),
+        "multiAz" => multi_az_targets(),
+        "multiRegion" => multi_region_targets(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type assertion_updated_metadata() :: %{(String.t() | atom()) => any()}
+  @type policy_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_service_function_resources_request() :: %{
-        required("resources") => list([String.t() | atom()]()),
+      put_test_sources_request() :: %{
         required("serviceArn") => String.t() | atom(),
-        required("serviceFunctionId") => String.t() | atom()
+        required("testId") => String.t() | atom(),
+        required("testSources") => list(list())
       }
 
   """
-  @type delete_service_function_resources_request() :: %{(String.t() | atom()) => any()}
+  @type put_test_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_test_sources_response() :: %{}
+
+  """
+  @type put_test_sources_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      query_data_point() :: %{
+        "queryCount" => [float()],
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type query_data_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_range() :: %{
+        "dataPoints" => list(query_data_point()),
+        "endTime" => [non_neg_integer()],
+        "granularity" => list(any()),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type query_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      report_generation_result() :: %{
+        "assessmentId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "reportOutput" => list(),
+        "reportType" => list(any()),
+        "serviceArn" => String.t() | atom(),
+        "status" => list(any()),
+        "testRunId" => String.t() | atom(),
+        "testTemplateArn" => String.t() | atom()
+      }
+
+  """
+  @type report_generation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resolved_target_resource() :: %{
+        "resourceType" => [String.t() | atom()],
+        "targetInformation" => map(),
+        "targetName" => [String.t() | atom()]
+      }
+
+  """
+  @type resolved_target_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "awsRegion" => String.t() | atom(),
+        "identifier" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_discovery_status() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => [String.t() | atom()],
+        "lastRunAt" => [non_neg_integer()],
+        "status" => list(any())
+      }
+
+  """
+  @type resource_discovery_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_tag() :: %{
+        "key" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_report_output() :: %{
+        "s3ObjectKey" => [String.t() | atom()]
+      }
+
+  """
+  @type s3_report_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_report_output_configuration() :: %{
+        "bucketOwner" => String.t() | atom(),
+        "bucketPath" => String.t() | atom()
+      }
+
+  """
+  @type s3_report_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -841,543 +2061,6 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      infrastructure_and_code_recommendation() :: %{
-        "suggestedChanges" => list(String.t() | atom())
-      }
-
-  """
-  @type infrastructure_and_code_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_report_output_configuration() :: %{
-        "bucketOwner" => String.t() | atom(),
-        "bucketPath" => String.t() | atom()
-      }
-
-  """
-  @type s3_report_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_journey_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("policyArn") => String.t() | atom(),
-        required("systemArn") => String.t() | atom(),
-        required("userJourneyId") => String.t() | atom()
-      }
-
-  """
-  @type update_user_journey_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_report_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("reportType") => list(any()),
-        required("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type create_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_user_journey_request() :: %{
-        required("systemArn") => String.t() | atom(),
-        required("userJourneyId") => String.t() | atom()
-      }
-
-  """
-  @type delete_user_journey_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_function_resources_request() :: %{
-        required("resources") => list([String.t() | atom()]()),
-        required("serviceArn") => String.t() | atom(),
-        required("serviceFunctionId") => String.t() | atom()
-      }
-
-  """
-  @type create_service_function_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dependency_response() :: %{
-        "comment" => [String.t() | atom()],
-        "criticality" => list(any()),
-        "dependencyId" => String.t() | atom(),
-        "dependencyName" => [String.t() | atom()],
-        "location" => [String.t() | atom()],
-        "provider" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type update_dependency_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_app_request() :: %{
-        optional("associatedSystems") => list(associated_system()),
-        optional("clientToken") => String.t() | atom(),
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("policyArn") => String.t() | atom(),
-        optional("skipManuallyAddedResources") => [boolean()],
-        optional("tags") => map(),
-        required("v1AppArn") => String.t() | atom()
-      }
-
-  """
-  @type import_app_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_workflow_updated_metadata() :: %{
-        "serviceFunctionId" => [String.t() | atom()],
-        "serviceFunctionName" => [String.t() | atom()]
-      }
-
-  """
-  @type service_workflow_updated_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_request() :: %{
-        required("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type get_service_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_created_metadata() :: %{}
-
-  """
-  @type system_created_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_request() :: %{
-        required("policyArn") => String.t() | atom()
-      }
-
-  """
-  @type get_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_system_response() :: %{
-        "system" => system()
-      }
-
-  """
-  @type create_system_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_functions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_service_functions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      edge_property_summary() :: %{
-        "label" => [String.t() | atom()],
-        "topologyType" => list(any())
-      }
-
-  """
-  @type edge_property_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dependency_discovery_config() :: %{
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type dependency_discovery_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_response() :: %{
-        "service" => service()
-      }
-
-  """
-  @type update_service_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      observability_recommendation() :: %{
-        "suggestedChanges" => list(String.t() | atom())
-      }
-
-  """
-  @type observability_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_source() :: %{
-        "policyName" => String.t() | atom(),
-        "source" => list(any()),
-        "value" => [integer()]
-      }
-
-  """
-  @type target_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_policy_request() :: %{
-        optional("availabilitySlo") => availability_slo(),
-        optional("clientToken") => String.t() | atom(),
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("multiAzDisasterRecoveryApproach") => list(any()),
-        optional("multiRegionDisasterRecoveryApproach") => list(any()),
-        optional("tags") => map(),
-        required("v1PolicyArn") => String.t() | atom()
-      }
-
-  """
-  @type import_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_policy_disassociated_metadata() :: %{
-        "policyArn" => String.t() | atom(),
-        "policyName" => [String.t() | atom()]
-      }
-
-  """
-  @type service_policy_disassociated_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_tag() :: %{
-        "key" => String.t() | atom(),
-        "values" => list(String.t() | atom())
-      }
-
-  """
-  @type resource_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_policy_request() :: %{
-        required("policyArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_system_events_request() :: %{
-        optional("endTime") => [non_neg_integer()],
-        optional("eventTypes") => list(list(any())()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("startTime") => [non_neg_integer()],
-        required("systemArn") => String.t() | atom()
-      }
-
-  """
-  @type list_system_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_request() :: %{
-        optional("associatedSystems") => list(associated_system()),
-        optional("clientToken") => String.t() | atom(),
-        optional("dependencyDiscovery") => list(any()),
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("policyArn") => String.t() | atom(),
-        optional("reportConfiguration") => service_report_configuration(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("permissionModel") => permission_model(),
-        required("regions") => list(String.t() | atom())
-      }
-
-  """
-  @type create_service_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      effective_policy_values() :: %{
-        "availabilitySlo" => slo_source(),
-        "dataRecoveryTimeBetweenBackups" => target_source(),
-        "multiAzDrApproach" => disaster_recovery_source(),
-        "multiAzRpo" => target_source(),
-        "multiAzRto" => target_source(),
-        "multiRegionDrApproach" => disaster_recovery_source(),
-        "multiRegionRpo" => target_source(),
-        "multiRegionRto" => target_source()
-      }
-
-  """
-  @type effective_policy_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_resources_associated_metadata() :: %{
-        "resourceCount" => [integer()],
-        "resourceTypes" => list([String.t() | atom()]())
-      }
-
-  """
-  @type service_resources_associated_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_resource() :: %{
-        "inputSource" => input_source(),
-        "resource" => resource(),
-        "resourceIdentifier" => [String.t() | atom()]
-      }
-
-  """
-  @type service_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_failure_mode_assessment_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type start_failure_mode_assessment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_function_resources_removed_metadata() :: %{
-        "resourcesRemoved" => list(String.t() | atom()),
-        "serviceFunctionId" => [String.t() | atom()],
-        "serviceFunctionName" => [String.t() | atom()]
-      }
-
-  """
-  @type service_function_resources_removed_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_function_resources_response() :: %{
-        "resources" => list([String.t() | atom()]()),
-        "serviceArn" => String.t() | atom(),
-        "serviceFunctionId" => String.t() | atom()
-      }
-
-  """
-  @type delete_service_function_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_system_associated_metadata() :: %{
-        "systemArn" => String.t() | atom(),
-        "systemName" => [String.t() | atom()]
-      }
-
-  """
-  @type service_system_associated_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_function_response() :: %{
-        "serviceFunction" => service_function()
-      }
-
-  """
-  @type update_service_function_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_input_source_response() :: %{
-        "inputSourceId" => String.t() | atom(),
-        "serviceArn" => String.t() | atom()
-      }
-
-  """
-  @type create_input_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_system_request() :: %{
-        required("systemArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_system_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "organizationId" => String.t() | atom(),
-        "ouId" => String.t() | atom(),
-        "servicesCount" => [integer()],
-        "systemArn" => String.t() | atom(),
-        "systemId" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()],
-        "userJourneysCount" => [integer()]
-      }
-
-  """
-  @type system_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_policy_response() :: %{
-        "policy" => policy()
-      }
-
-  """
-  @type create_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       service_achievability_updated_metadata() :: %{
         "assessmentId" => [String.t() | atom()],
         "availabilitySlo" => [String.t() | atom()],
@@ -1392,253 +2075,19 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      untag_resource_response() :: %{}
+      service_created_metadata() :: %{}
 
   """
-  @type untag_resource_response() :: %{}
+  @type service_created_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      slo_source() :: %{
-        "policyName" => String.t() | atom(),
-        "source" => list(any()),
-        "value" => [float()]
-      }
+      service_deleted_metadata() :: %{}
 
   """
-  @type slo_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_policy_associated_metadata() :: %{
-        "policyArn" => String.t() | atom(),
-        "policyName" => [String.t() | atom()]
-      }
-
-  """
-  @type system_policy_associated_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_failure_mode_assessments_response() :: %{
-        "assessmentSummaries" => list(assessment_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_failure_mode_assessments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_failure_mode_finding_response() :: %{
-        "finding" => finding()
-      }
-
-  """
-  @type update_failure_mode_finding_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_function_response() :: %{
-        "serviceFunction" => service_function()
-      }
-
-  """
-  @type create_service_function_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_service_associated_metadata() :: %{
-        "serviceArn" => String.t() | atom(),
-        "serviceName" => [String.t() | atom()],
-        "userJourneys" => list([String.t() | atom()]())
-      }
-
-  """
-  @type system_service_associated_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_journey_response() :: %{
-        "userJourney" => user_journey()
-      }
-
-  """
-  @type get_user_journey_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reports_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("reportType") => list(any()),
-        optional("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_reports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_function_updated_metadata() :: %{
-        "resourcesAdded" => list(String.t() | atom()),
-        "resourcesRemoved" => list(String.t() | atom()),
-        "serviceFunctionId" => [String.t() | atom()],
-        "serviceFunctionName" => [String.t() | atom()]
-      }
-
-  """
-  @type service_function_updated_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_function_resources_response() :: %{
-        "resources" => list([String.t() | atom()]()),
-        "serviceArn" => String.t() | atom(),
-        "serviceFunctionId" => String.t() | atom()
-      }
-
-  """
-  @type create_service_function_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_recovery_targets() :: %{
-        "timeBetweenBackupsInMinutes" => [integer()]
-      }
-
-  """
-  @type data_recovery_targets() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_topology_edges_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_service_topology_edges_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_app_response() :: %{
-        "service" => service()
-      }
-
-  """
-  @type import_app_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_services_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "serviceSummaries" => list(service_summary())
-      }
-
-  """
-  @type list_services_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_system_request() :: %{
-        required("systemArn") => String.t() | atom()
-      }
-
-  """
-  @type get_system_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_journey_response() :: %{
-        "userJourney" => user_journey()
-      }
-
-  """
-  @type update_user_journey_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_function_request() :: %{
-        optional("criticality") => list(any()),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        required("serviceArn") => String.t() | atom(),
-        required("serviceFunctionId") => String.t() | atom()
-      }
-
-  """
-  @type update_service_function_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_failure_mode_findings_response() :: %{
-        "findingsSummary" => list(finding_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_failure_mode_findings_response() :: %{(String.t() | atom()) => any()}
+  @type service_deleted_metadata() :: %{}
 
   @typedoc """
 
@@ -1660,433 +2109,14 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      service_report_configuration() :: %{
-        "reportOutputs" => list(list())
-      }
-
-  """
-  @type service_report_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_discovery_status() :: %{
-        "errorCode" => list(any()),
-        "errorMessage" => [String.t() | atom()],
-        "lastRunAt" => [non_neg_integer()],
-        "status" => list(any())
-      }
-
-  """
-  @type resource_discovery_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_user_journey_created_metadata() :: %{
-        "associatedServices" => list(service_reference()),
-        "userJourneyName" => [String.t() | atom()]
-      }
-
-  """
-  @type system_user_journey_created_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_policy_associated_metadata() :: %{
-        "policyArn" => String.t() | atom(),
-        "policyName" => [String.t() | atom()]
-      }
-
-  """
-  @type service_policy_associated_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_user_journeys_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "userJourneySummaries" => list(user_journey_summary())
-      }
-
-  """
-  @type list_user_journeys_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_system_response() :: %{
-        "systemArn" => String.t() | atom()
-      }
-
-  """
-  @type delete_system_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_events_response() :: %{
-        "events" => list(service_event()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_service_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_event_details() :: %{
+      service_event_details() :: %{
         "description" => [String.t() | atom()],
         "eventMetadata" => list(),
         "title" => [String.t() | atom()]
       }
 
   """
-  @type system_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_user_journeys_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("systemArn") => String.t() | atom()
-      }
-
-  """
-  @type list_user_journeys_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      testing_recommendation() :: %{
-        "suggestedChanges" => list(String.t() | atom())
-      }
-
-  """
-  @type testing_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_policy_response() :: %{
-        "policy" => policy()
-      }
-
-  """
-  @type import_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_system_events_response() :: %{
-        "events" => list(system_event()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_system_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_function_deleted_metadata() :: %{
-        "serviceFunctionId" => [String.t() | atom()],
-        "serviceFunctionName" => [String.t() | atom()]
-      }
-
-  """
-  @type service_function_deleted_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_user_journey_response() :: %{
-        "userJourney" => user_journey()
-      }
-
-  """
-  @type create_user_journey_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_systems_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("ouId") => String.t() | atom()
-      }
-
-  """
-  @type list_systems_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multi_region_targets() :: %{
-        "disasterRecoveryApproach" => list(any()),
-        "rpoInMinutes" => [integer()],
-        "rtoInMinutes" => [integer()]
-      }
-
-  """
-  @type multi_region_targets() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multi_az_targets() :: %{
-        "disasterRecoveryApproach" => list(any()),
-        "rpoInMinutes" => [integer()],
-        "rtoInMinutes" => [integer()]
-      }
-
-  """
-  @type multi_az_targets() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assertion_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("serviceArn") => String.t() | atom(),
-        required("text") => String.t() | atom()
-      }
-
-  """
-  @type create_assertion_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_system_disassociated_metadata() :: %{
-        "systemArn" => String.t() | atom(),
-        "systemId" => [String.t() | atom()],
-        "systemName" => [String.t() | atom()]
-      }
-
-  """
-  @type service_system_disassociated_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_response() :: %{
-        "service" => service()
-      }
-
-  """
-  @type get_service_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      report_generation_result() :: %{
-        "assessmentId" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "reportOutput" => list(),
-        "reportType" => list(any()),
-        "serviceArn" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type report_generation_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_events_request() :: %{
-        optional("endTime") => [non_neg_integer()],
-        optional("eventTypes") => list(list(any())()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("startTime") => [non_neg_integer()],
-        required("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_service_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_journey_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()],
-        "userJourneyId" => String.t() | atom()
-      }
-
-  """
-  @type user_journey_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_report_output() :: %{
-        "s3ObjectKey" => [String.t() | atom()]
-      }
-
-  """
-  @type s3_report_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_failure_mode_assessment_response() :: %{
-        "assessmentId" => String.t() | atom(),
-        "assessmentStatus" => list(any()),
-        "serviceArn" => String.t() | atom(),
-        "startedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type start_failure_mode_assessment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_function_resources_added_metadata() :: %{
-        "resourcesAdded" => list(String.t() | atom()),
-        "serviceFunctionId" => [String.t() | atom()],
-        "serviceFunctionName" => [String.t() | atom()]
-      }
-
-  """
-  @type service_function_resources_added_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_request() :: %{
-        required("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_service_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_system_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("sharingEnabled") => [boolean()],
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_system_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_topology_edges_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "serviceTopologyEdgeSummaries" => list(service_topology_edge_summary())
-      }
-
-  """
-  @type list_service_topology_edges_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding() :: %{
-        "comment" => [String.t() | atom()],
-        "description" => String.t() | atom(),
-        "failureCategory" => list(any()),
-        "findingId" => String.t() | atom(),
-        "infrastructureAndCodeRecommendations" => list(infrastructure_and_code_recommendation()),
-        "name" => [String.t() | atom()],
-        "observabilityRecommendations" => list(observability_recommendation()),
-        "policyComponent" => list(any()),
-        "reasoning" => [String.t() | atom()],
-        "serviceFunctions" => list(String.t() | atom()),
-        "severity" => list(any()),
-        "status" => list(any()),
-        "testingRecommendations" => list(testing_recommendation()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_journey() :: %{
-        "createdAt" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()],
-        "userJourneyId" => String.t() | atom()
-      }
-
-  """
-  @type user_journey() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resources_request() :: %{
-        optional("awsRegion") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("serviceFunctionId") => String.t() | atom(),
-        required("serviceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_resources_request() :: %{(String.t() | atom()) => any()}
+  @type service_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2111,62 +2141,181 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      achievability() :: %{
-        "availabilitySlo" => list(any()),
-        "multiAzRtoRpo" => list(any()),
-        "multiRegionRtoRpo" => list(any())
+      service_function_created_metadata() :: %{
+        "serviceFunctionId" => [String.t() | atom()],
+        "serviceFunctionName" => [String.t() | atom()]
       }
 
   """
-  @type achievability() :: %{(String.t() | atom()) => any()}
+  @type service_function_created_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_policy_request() :: %{
-        optional("availabilitySlo") => availability_slo(),
-        optional("dataRecovery") => data_recovery_targets(),
-        optional("description") => String.t() | atom(),
-        optional("multiAz") => multi_az_targets(),
-        optional("multiRegion") => multi_region_targets(),
-        required("policyArn") => String.t() | atom()
+      service_function_deleted_metadata() :: %{
+        "serviceFunctionId" => [String.t() | atom()],
+        "serviceFunctionName" => [String.t() | atom()]
       }
 
   """
-  @type update_policy_request() :: %{(String.t() | atom()) => any()}
+  @type service_function_deleted_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_systems_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "systemSummaries" => list(system_summary())
+      service_function_resources_added_metadata() :: %{
+        "resourcesAdded" => list(String.t() | atom()),
+        "serviceFunctionId" => [String.t() | atom()],
+        "serviceFunctionName" => [String.t() | atom()]
       }
 
   """
-  @type list_systems_response() :: %{(String.t() | atom()) => any()}
+  @type service_function_resources_added_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_deleted_metadata() :: %{}
+      service_function_resources_removed_metadata() :: %{
+        "resourcesRemoved" => list(String.t() | atom()),
+        "serviceFunctionId" => [String.t() | atom()],
+        "serviceFunctionName" => [String.t() | atom()]
+      }
 
   """
-  @type service_deleted_metadata() :: %{}
+  @type service_function_resources_removed_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_service_response() :: %{
-        "service" => service()
+      service_function_updated_metadata() :: %{
+        "resourcesAdded" => list(String.t() | atom()),
+        "resourcesRemoved" => list(String.t() | atom()),
+        "serviceFunctionId" => [String.t() | atom()],
+        "serviceFunctionName" => [String.t() | atom()]
       }
 
   """
-  @type create_service_response() :: %{(String.t() | atom()) => any()}
+  @type service_function_updated_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_input_sources_updated_metadata() :: %{}
+
+  """
+  @type service_input_sources_updated_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_policy_associated_metadata() :: %{
+        "policyArn" => String.t() | atom(),
+        "policyName" => [String.t() | atom()]
+      }
+
+  """
+  @type service_policy_associated_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_policy_disassociated_metadata() :: %{
+        "policyArn" => String.t() | atom(),
+        "policyName" => [String.t() | atom()]
+      }
+
+  """
+  @type service_policy_disassociated_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_reference() :: %{
+        "serviceId" => [String.t() | atom()],
+        "serviceName" => [String.t() | atom()]
+      }
+
+  """
+  @type service_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_reference_changes() :: %{
+        "added" => list(service_reference()),
+        "removed" => list(service_reference())
+      }
+
+  """
+  @type service_reference_changes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_report_configuration() :: %{
+        "reportOutputs" => list(list())
+      }
+
+  """
+  @type service_report_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_resource() :: %{
+        "inputSource" => input_source(),
+        "resource" => resource(),
+        "resourceIdentifier" => [String.t() | atom()]
+      }
+
+  """
+  @type service_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_resources_associated_metadata() :: %{
+        "resourceCount" => [integer()],
+        "resourceTypes" => list([String.t() | atom()]())
+      }
+
+  """
+  @type service_resources_associated_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_resources_disassociated_metadata() :: %{
+        "resourceCount" => [integer()],
+        "resourceTypes" => list([String.t() | atom()]())
+      }
+
+  """
+  @type service_resources_disassociated_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2197,78 +2346,38 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      list_dependencies_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("queryRangeEndTime") => [non_neg_integer()],
-        optional("queryRangeGranularity") => list(any()),
-        optional("queryRangeStartTime") => [non_neg_integer()],
-        optional("serviceArn") => String.t() | atom()
+      service_system_associated_metadata() :: %{
+        "systemArn" => String.t() | atom(),
+        "systemName" => [String.t() | atom()]
       }
 
   """
-  @type list_dependencies_request() :: %{(String.t() | atom()) => any()}
+  @type service_system_associated_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_assertion_response() :: %{
-        "assertionId" => String.t() | atom()
+      service_system_disassociated_metadata() :: %{
+        "systemArn" => String.t() | atom(),
+        "systemId" => [String.t() | atom()],
+        "systemName" => [String.t() | atom()]
       }
 
   """
-  @type delete_assertion_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      availability_slo() :: %{
-        "target" => [float()]
-      }
-
-  """
-  @type availability_slo() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_summary() :: %{
-        "description" => String.t() | atom(),
-        "failureCategory" => list(any()),
-        "findingId" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "policyComponent" => list(any()),
-        "serviceArn" => String.t() | atom(),
-        "severity" => list(any()),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type finding_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assertion_deleted_metadata() :: %{
-        "assertionId" => [String.t() | atom()],
-        "assertionName" => [String.t() | atom()]
-      }
-
-  """
-  @type assertion_deleted_metadata() :: %{(String.t() | atom()) => any()}
+  @type service_system_disassociated_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_topology_edge_summary() :: %{
+        "destinationAccount" => String.t() | atom(),
+        "destinationRegion" => String.t() | atom(),
         "destinationResourceIdentifier" => [String.t() | atom()],
         "properties" => list(edge_property_summary()),
+        "sourceAccount" => String.t() | atom(),
+        "sourceRegion" => String.t() | atom(),
         "sourceResourceIdentifier" => [String.t() | atom()]
       }
 
@@ -2279,12 +2388,673 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      delete_service_function_response() :: %{
-        "serviceFunctionId" => String.t() | atom()
+      service_workflow_updated_metadata() :: %{
+        "serviceFunctionId" => [String.t() | atom()],
+        "serviceFunctionName" => [String.t() | atom()]
       }
 
   """
-  @type delete_service_function_response() :: %{(String.t() | atom()) => any()}
+  @type service_workflow_updated_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slo_source() :: %{
+        "policyName" => String.t() | atom(),
+        "source" => list(any()),
+        "value" => [float()]
+      }
+
+  """
+  @type slo_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_failure_mode_assessment_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type start_failure_mode_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_failure_mode_assessment_response() :: %{
+        "assessmentId" => String.t() | atom(),
+        "assessmentStatus" => list(any()),
+        "serviceArn" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type start_failure_mode_assessment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_test_run_request() :: %{
+        required("serviceArn") => String.t() | atom(),
+        required("testId") => String.t() | atom()
+      }
+
+  """
+  @type start_test_run_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_test_run_response() :: %{
+        "experimentArns" => list(String.t() | atom()),
+        "status" => list(any()),
+        "testRunId" => String.t() | atom()
+      }
+
+  """
+  @type start_test_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_condition() :: %{
+        "source" => list(any()),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type stop_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_test_run_request() :: %{
+        required("serviceArn") => String.t() | atom(),
+        required("testRunId") => String.t() | atom()
+      }
+
+  """
+  @type stop_test_run_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_test_run_response() :: %{
+        "status" => list(any()),
+        "testRunId" => String.t() | atom()
+      }
+
+  """
+  @type stop_test_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      string_change() :: %{
+        "newValue" => [String.t() | atom()],
+        "oldValue" => [String.t() | atom()]
+      }
+
+  """
+  @type string_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      success_criteria_alarm_input() :: %{
+        "alarmArn" => String.t() | atom()
+      }
+
+  """
+  @type success_criteria_alarm_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      success_criteria_alarm_summary() :: %{
+        "accountId" => [String.t() | atom()],
+        "alarmArn" => String.t() | atom(),
+        "alarmName" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "region" => [String.t() | atom()]
+      }
+
+  """
+  @type success_criteria_alarm_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "organizationId" => String.t() | atom(),
+        "ouId" => String.t() | atom(),
+        "sharingEnabled" => [boolean()],
+        "systemArn" => String.t() | atom(),
+        "systemId" => String.t() | atom(),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type system() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_created_metadata() :: %{}
+
+  """
+  @type system_created_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      system_deleted_metadata() :: %{}
+
+  """
+  @type system_deleted_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      system_event() :: %{
+        "actor" => event_actor(),
+        "eventDetails" => system_event_details(),
+        "eventId" => String.t() | atom(),
+        "eventType" => list(any()),
+        "systemArn" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type system_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_event_details() :: %{
+        "description" => [String.t() | atom()],
+        "eventMetadata" => list(),
+        "title" => [String.t() | atom()]
+      }
+
+  """
+  @type system_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_policy_associated_metadata() :: %{
+        "policyArn" => String.t() | atom(),
+        "policyName" => [String.t() | atom()]
+      }
+
+  """
+  @type system_policy_associated_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_policy_disassociated_metadata() :: %{
+        "policyArn" => String.t() | atom(),
+        "policyName" => [String.t() | atom()]
+      }
+
+  """
+  @type system_policy_disassociated_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_service_associated_metadata() :: %{
+        "serviceArn" => String.t() | atom(),
+        "serviceName" => [String.t() | atom()],
+        "userJourneys" => list([String.t() | atom()]())
+      }
+
+  """
+  @type system_service_associated_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_service_disassociated_metadata() :: %{
+        "comment" => [String.t() | atom()],
+        "serviceArn" => String.t() | atom(),
+        "serviceName" => [String.t() | atom()],
+        "userJourneysAffected" => list([String.t() | atom()]())
+      }
+
+  """
+  @type system_service_disassociated_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "organizationId" => String.t() | atom(),
+        "ouId" => String.t() | atom(),
+        "servicesCount" => [integer()],
+        "systemArn" => String.t() | atom(),
+        "systemId" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()],
+        "userJourneysCount" => [integer()]
+      }
+
+  """
+  @type system_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_user_journey_created_metadata() :: %{
+        "associatedServices" => list(service_reference()),
+        "userJourneyName" => [String.t() | atom()]
+      }
+
+  """
+  @type system_user_journey_created_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_user_journey_deleted_metadata() :: %{
+        "associatedServicesAtDeletion" => list(service_reference()),
+        "userJourneyName" => [String.t() | atom()]
+      }
+
+  """
+  @type system_user_journey_deleted_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_user_journey_updated_metadata() :: %{
+        "changes" => user_journey_changes(),
+        "userJourneyName" => [String.t() | atom()]
+      }
+
+  """
+  @type system_user_journey_updated_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      target_source() :: %{
+        "policyName" => String.t() | atom(),
+        "source" => list(any()),
+        "value" => [integer()]
+      }
+
+  """
+  @type target_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test() :: %{
+        "actions" => list(test_action()),
+        "creationTime" => [non_neg_integer()],
+        "loggingConfiguration" => logging_configuration(),
+        "name" => [String.t() | atom()],
+        "parameters" => map(),
+        "roleName" => String.t() | atom(),
+        "serviceArn" => String.t() | atom(),
+        "stopConditions" => list(stop_condition()),
+        "successfulTestRuns" => [integer()],
+        "testId" => String.t() | atom(),
+        "testTemplateArn" => String.t() | atom(),
+        "totalTestRuns" => [integer()]
+      }
+
+  """
+  @type test() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_action() :: %{
+        "actionId" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type test_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_run() :: %{
+        "accountTargeting" => list(any()),
+        "endedAt" => [non_neg_integer()],
+        "errorMessage" => [String.t() | atom()],
+        "eventCount" => [integer()],
+        "experiments" => list(experiment_details()),
+        "loggingConfiguration" => logging_configuration(),
+        "parameters" => map(),
+        "permissionModel" => permission_model(),
+        "policy" => test_run_policy_snapshot(),
+        "regionSwitchExecutionId" => String.t() | atom(),
+        "regionSwitchPlanArn" => String.t() | atom(),
+        "regions" => list(String.t() | atom()),
+        "reportConfiguration" => test_run_report_configuration(),
+        "reportOutput" => report_generation_result(),
+        "roleName" => String.t() | atom(),
+        "serviceArn" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "stopConditions" => list(stop_condition()),
+        "testId" => String.t() | atom(),
+        "testRunId" => String.t() | atom(),
+        "testTemplateArn" => String.t() | atom()
+      }
+
+  """
+  @type test_run() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_run_event() :: %{
+        "attributes" => map(),
+        "eventId" => [String.t() | atom()],
+        "eventType" => [String.t() | atom()],
+        "message" => [String.t() | atom()],
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type test_run_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_run_observability_alarm_summary() :: %{
+        "accountId" => [String.t() | atom()],
+        "alarmArn" => String.t() | atom(),
+        "alarmName" => [String.t() | atom()],
+        "region" => [String.t() | atom()]
+      }
+
+  """
+  @type test_run_observability_alarm_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_run_policy_snapshot() :: %{
+        "availabilitySlo" => availability_slo(),
+        "dataRecovery" => data_recovery_targets(),
+        "multiAz" => multi_az_targets(),
+        "multiRegion" => multi_region_targets(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom()
+      }
+
+  """
+  @type test_run_policy_snapshot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_run_report_configuration() :: %{
+        "reportOutput" => list(list())
+      }
+
+  """
+  @type test_run_report_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_run_success_criteria_alarm_summary() :: %{
+        "accountId" => [String.t() | atom()],
+        "alarmArn" => String.t() | atom(),
+        "alarmName" => [String.t() | atom()],
+        "outcome" => list(any()),
+        "outcomeReason" => [String.t() | atom()],
+        "region" => [String.t() | atom()]
+      }
+
+  """
+  @type test_run_success_criteria_alarm_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_run_summary() :: %{
+        "accountTargeting" => list(any()),
+        "endedAt" => [non_neg_integer()],
+        "errorMessage" => [String.t() | atom()],
+        "serviceArn" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "testRunId" => String.t() | atom(),
+        "testTemplateArn" => String.t() | atom()
+      }
+
+  """
+  @type test_run_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_summary() :: %{
+        "creationTime" => [non_neg_integer()],
+        "serviceArn" => String.t() | atom(),
+        "successfulTestRuns" => [integer()],
+        "testId" => String.t() | atom(),
+        "testTemplateArn" => String.t() | atom(),
+        "totalTestRuns" => [integer()]
+      }
+
+  """
+  @type test_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_template() :: %{
+        "actions" => list(test_action()),
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "parameters" => list(test_template_parameter()),
+        "testTemplateArn" => String.t() | atom()
+      }
+
+  """
+  @type test_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_template_parameter() :: %{
+        "defaultValue" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "maxValues" => [integer()],
+        "name" => [String.t() | atom()],
+        "required" => [boolean()],
+        "type" => list(any())
+      }
+
+  """
+  @type test_template_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_template_summary() :: %{
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "testTemplateArn" => String.t() | atom()
+      }
+
+  """
+  @type test_template_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      testing_recommendation() :: %{
+        "suggestedChanges" => list(String.t() | atom())
+      }
+
+  """
+  @type testing_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assertion_request() :: %{
+        optional("text") => String.t() | atom(),
+        required("assertionId") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type update_assertion_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assertion_response() :: %{
+        "assertion" => assertion()
+      }
+
+  """
+  @type update_assertion_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dependency_request() :: %{
+        optional("comment") => [String.t() | atom()],
+        optional("criticality") => list(any()),
+        required("dependencyId") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type update_dependency_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dependency_response() :: %{
+        "comment" => [String.t() | atom()],
+        "criticality" => list(any()),
+        "dependencyId" => String.t() | atom(),
+        "dependencyName" => [String.t() | atom()],
+        "location" => [String.t() | atom()],
+        "provider" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_dependency_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2304,50 +3074,28 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      resource() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "awsRegion" => String.t() | atom(),
-        "identifier" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_failure_mode_finding_response() :: %{
+      update_failure_mode_finding_response() :: %{
         "finding" => finding()
       }
 
   """
-  @type get_failure_mode_finding_response() :: %{(String.t() | atom()) => any()}
+  @type update_failure_mode_finding_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      assertion_created_metadata() :: %{
-        "assertionId" => [String.t() | atom()],
-        "assertionName" => [String.t() | atom()]
+      update_policy_request() :: %{
+        optional("availabilitySlo") => availability_slo(),
+        optional("dataRecovery") => data_recovery_targets(),
+        optional("description") => String.t() | atom(),
+        optional("multiAz") => multi_az_targets(),
+        optional("multiRegion") => multi_region_targets(),
+        required("policyArn") => String.t() | atom()
       }
 
   """
-  @type assertion_created_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policies_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "policySummaries" => list(policy_summary())
-      }
-
-  """
-  @type list_policies_response() :: %{(String.t() | atom()) => any()}
+  @type update_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2364,60 +3112,56 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      query_range() :: %{
-        "dataPoints" => list(query_data_point()),
-        "endTime" => [non_neg_integer()],
-        "granularity" => list(any()),
-        "startTime" => [non_neg_integer()]
+      update_service_function_request() :: %{
+        optional("criticality") => list(any()),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom(),
+        required("serviceFunctionId") => String.t() | atom()
       }
 
   """
-  @type query_range() :: %{(String.t() | atom()) => any()}
+  @type update_service_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_assertion_response() :: %{
-        "assertion" => assertion()
+      update_service_function_response() :: %{
+        "serviceFunction" => service_function()
       }
 
   """
-  @type create_assertion_response() :: %{(String.t() | atom()) => any()}
+  @type update_service_function_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      assessment_cost() :: %{
-        "amount" => [float()],
-        "currency" => list(any())
-      }
-
-  """
-  @type assessment_cost() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assertion_request() :: %{
-        optional("text") => String.t() | atom(),
-        required("assertionId") => String.t() | atom(),
+      update_service_request() :: %{
+        optional("associatedSystems") => list(associated_system()),
+        optional("dependencyDiscovery") => list(any()),
+        optional("description") => String.t() | atom(),
+        optional("permissionModel") => permission_model(),
+        optional("policyArn") => String.t() | atom(),
+        optional("regions") => list(String.t() | atom()),
+        optional("reportConfiguration") => service_report_configuration(),
         required("serviceArn") => String.t() | atom()
       }
 
   """
-  @type update_assertion_request() :: %{(String.t() | atom()) => any()}
+  @type update_service_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_created_metadata() :: %{}
+      update_service_response() :: %{
+        "service" => service()
+      }
 
   """
-  @type service_created_metadata() :: %{}
+  @type update_service_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2436,64 +3180,81 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      policy_summary() :: %{
-        "associatedServiceCount" => [integer()],
-        "availabilitySlo" => availability_slo(),
-        "createdAt" => [non_neg_integer()],
-        "dataRecovery" => data_recovery_targets(),
-        "multiAz" => multi_az_targets(),
-        "multiRegion" => multi_region_targets(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type policy_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_source() :: %{
-        "identifier" => [String.t() | atom()],
-        "type" => list(any())
-      }
-
-  """
-  @type input_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dependencies_response() :: %{
-        "dependencySummaries" => list(dependency_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_dependencies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_system_response() :: %{
+      update_system_response() :: %{
         "system" => system()
       }
 
   """
-  @type get_system_response() :: %{(String.t() | atom()) => any()}
+  @type update_system_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_test_request() :: %{
+        optional("loggingConfiguration") => logging_configuration(),
+        optional("parameters") => map(),
+        optional("roleName") => String.t() | atom(),
+        optional("stopConditions") => list(stop_condition()),
+        required("serviceArn") => String.t() | atom(),
+        required("testId") => String.t() | atom()
+      }
+
+  """
+  @type update_test_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_test_response() :: %{
+        "test" => test()
+      }
+
+  """
+  @type update_test_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_journey_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("policyArn") => String.t() | atom(),
+        required("systemArn") => String.t() | atom(),
+        required("userJourneyId") => String.t() | atom()
+      }
+
+  """
+  @type update_user_journey_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_journey_response() :: %{
+        "userJourney" => user_journey()
+      }
+
+  """
+  @type update_user_journey_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_journey() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()],
+        "userJourneyId" => String.t() | atom()
+      }
+
+  """
+  @type user_journey() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2511,385 +3272,480 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      create_service_function_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        required("criticality") => list(any()),
-        required("name") => String.t() | atom(),
-        required("serviceArn") => String.t() | atom()
+      user_journey_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()],
+        "userJourneyId" => String.t() | atom()
       }
 
   """
-  @type create_service_function_request() :: %{(String.t() | atom()) => any()}
+  @type user_journey_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associated_system() :: %{
-        "systemArn" => String.t() | atom(),
-        "systemName" => String.t() | atom(),
-        "userJourneyIds" => list(String.t() | atom())
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
       }
 
   """
-  @type associated_system() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_reference() :: %{
-        "serviceId" => [String.t() | atom()],
-        "serviceName" => [String.t() | atom()]
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type service_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type create_assertion_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_input_source_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_policy_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_report_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_service_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_service_function_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_service_function_resources_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_system_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_test_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_user_journey_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_assertion_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type delete_input_source_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type delete_policy_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_service_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_service_function_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_service_function_resources_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_system_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_test_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_test_sources_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_user_journey_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type get_failure_mode_finding_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_policy_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_service_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_system_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | access_denied_exception()
+
+  @type get_test_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_test_run_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_test_template_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type get_user_journey_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type import_app_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type import_policy_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type list_assertions_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_dependencies_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_failure_mode_assessments_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_failure_mode_findings_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_input_sources_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_policies_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_reports_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_resolved_test_run_target_resources_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_resources_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_service_events_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_service_functions_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_service_topology_edges_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_services_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_system_events_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_systems_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_test_run_events_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_test_run_sources_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_test_runs_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_test_sources_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_test_templates_errors() ::
+          validation_exception() | internal_server_exception() | access_denied_exception()
+
+  @type list_tests_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_user_journeys_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | access_denied_exception()
+
+  @type put_test_sources_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type start_failure_mode_assessment_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
+
+  @type start_test_run_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type stop_test_run_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type update_assertion_errors() ::
-          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | access_denied_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_assertion_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_dependency_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_failure_mode_finding_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_policy_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_service_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_service_function_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_system_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_test_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_user_journey_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   def metadata do
@@ -3148,6 +4004,37 @@ defmodule AWS.Resiliencehubv2 do
   end
 
   @doc """
+  Creates a test for a service by configuring a test template.
+
+  Each service has one test per template.
+  """
+  @spec create_test(map(), create_test_request(), list()) ::
+          {:ok, create_test_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_test_errors()}
+  def create_test(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/create-test"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a user journey within a system.
   """
   @spec create_user_journey(map(), create_user_journey_request(), list()) ::
@@ -3384,6 +4271,67 @@ defmodule AWS.Resiliencehubv2 do
   end
 
   @doc """
+  Deletes a test.
+  """
+  @spec delete_test(map(), delete_test_request(), list()) ::
+          {:ok, delete_test_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_test_errors()}
+  def delete_test(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/delete-test"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes monitoring sources from a test.
+
+  The operation is transactional and idempotent — removing a source that is not
+  attached is a no-op.
+  """
+  @spec delete_test_sources(map(), delete_test_sources_request(), list()) ::
+          {:ok, delete_test_sources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_test_sources_errors()}
+  def delete_test_sources(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/delete-test-sources"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a user journey.
   """
   @spec delete_user_journey(map(), delete_user_journey_request(), list()) ::
@@ -3426,15 +4374,15 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(service_arn) do
-        [{"serviceArn", service_arn} | query_params]
+      if !is_nil(finding_id) do
+        [{"findingId", finding_id} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(finding_id) do
-        [{"findingId", finding_id} | query_params]
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
       else
         query_params
       end
@@ -3520,6 +4468,97 @@ defmodule AWS.Resiliencehubv2 do
   end
 
   @doc """
+  Retrieves a test by ID.
+  """
+  @spec get_test(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_test_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_test_errors()}
+  def get_test(%Client{} = client, service_arn, test_id, options \\ []) do
+    url_path = "/v2/get-test"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(test_id) do
+        [{"testId", test_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a test run by ID, including its status, results, and the configuration
+  snapshotted when the run started.
+  """
+  @spec get_test_run(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_test_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_test_run_errors()}
+  def get_test_run(%Client{} = client, service_arn, test_run_id, options \\ []) do
+    url_path = "/v2/get-test-run"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(test_run_id) do
+        [{"testRunId", test_run_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a resilience test template by ARN, including the parameters it accepts
+  and the fault actions it runs.
+  """
+  @spec get_test_template(map(), String.t() | atom(), list()) ::
+          {:ok, get_test_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_test_template_errors()}
+  def get_test_template(%Client{} = client, test_template_arn, options \\ []) do
+    url_path = "/v2/get-test-template"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(test_template_arn) do
+        [{"testTemplateArn", test_template_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a user journey.
   """
   @spec get_user_journey(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -3533,15 +4572,15 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(user_journey_id) do
-        [{"userJourneyId", user_journey_id} | query_params]
+      if !is_nil(system_arn) do
+        [{"systemArn", system_arn} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(system_arn) do
-        [{"systemArn", system_arn} | query_params]
+      if !is_nil(user_journey_id) do
+        [{"userJourneyId", user_journey_id} | query_params]
       else
         query_params
       end
@@ -3638,15 +4677,8 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(source) do
-        [{"source", source} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(service_arn) do
-        [{"serviceArn", service_arn} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -3659,8 +4691,15 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(source) do
+        [{"source", source} | query_params]
       else
         query_params
       end
@@ -3702,29 +4741,8 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(service_arn) do
-        [{"serviceArn", service_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(query_range_start_time) do
-        [{"queryRangeStartTime", query_range_start_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(query_range_granularity) do
-        [{"queryRangeGranularity", query_range_granularity} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(query_range_end_time) do
-        [{"queryRangeEndTime", query_range_end_time} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -3737,8 +4755,29 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(query_range_end_time) do
+        [{"queryRangeEndTime", query_range_end_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(query_range_granularity) do
+        [{"queryRangeGranularity", query_range_granularity} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(query_range_start_time) do
+        [{"queryRangeStartTime", query_range_start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
       else
         query_params
       end
@@ -3755,7 +4794,12 @@ defmodule AWS.Resiliencehubv2 do
           map(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_failure_mode_assessments_response(), any()}
@@ -3764,9 +4808,14 @@ defmodule AWS.Resiliencehubv2 do
           | {:error, list_failure_mode_assessments_errors()}
   def list_failure_mode_assessments(
         %Client{} = client,
+        assessment_statuses \\ nil,
+        ended_before \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         service_arn,
+        sort_by \\ nil,
+        sort_order \\ nil,
+        started_after \\ nil,
         options \\ []
       ) do
     url_path = "/v2/list-failure-mode-assessments"
@@ -3774,8 +4823,22 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(service_arn) do
-        [{"serviceArn", service_arn} | query_params]
+      if !is_nil(assessment_statuses) do
+        [{"assessmentStatuses", assessment_statuses} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ended_before) do
+        [{"endedBefore", ended_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -3788,8 +4851,29 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(started_after) do
+        [{"startedAfter", started_after} | query_params]
       else
         query_params
       end
@@ -3831,29 +4915,8 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(severity) do
-        [{"severity", severity} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(service_arn) do
-        [{"serviceArn", service_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(failure_category) do
+        [{"failureCategory", failure_category} | query_params]
       else
         query_params
       end
@@ -3866,8 +4929,29 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(failure_category) do
-        [{"failureCategory", failure_category} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(severity) do
+        [{"severity", severity} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -3905,15 +4989,8 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(service_arn) do
-        [{"serviceArn", service_arn} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -3926,8 +5003,15 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
       else
         query_params
       end
@@ -3951,15 +5035,15 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -3979,6 +5063,7 @@ defmodule AWS.Resiliencehubv2 do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_reports_response(), any()}
@@ -3991,6 +5076,7 @@ defmodule AWS.Resiliencehubv2 do
         next_token \\ nil,
         report_type \\ nil,
         service_arn \\ nil,
+        test_run_id \\ nil,
         options \\ []
       ) do
     url_path = "/v2/list-reports"
@@ -3998,15 +5084,8 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(service_arn) do
-        [{"serviceArn", service_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(report_type) do
-        [{"reportType", report_type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -4019,8 +5098,76 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
+      if !is_nil(report_type) do
+        [{"reportType", report_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(test_run_id) do
+        [{"testRunId", test_run_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the AWS resources that AWS Fault Injection Service (AWS FIS) resolved as
+  targets for a test run.
+  """
+  @spec list_resolved_test_run_target_resources(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_resolved_test_run_target_resources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_resolved_test_run_target_resources_errors()}
+  def list_resolved_test_run_target_resources(
+        %Client{} = client,
+        test_run_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        service_arn,
+        options \\ []
+      ) do
+    url_path = "/v2/test-runs/#{AWS.Util.encode_uri(test_run_id)}/resolved-target-resources"
+    headers = []
+    query_params = []
+
+    query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
       else
         query_params
       end
@@ -4038,6 +5185,8 @@ defmodule AWS.Resiliencehubv2 do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
           String.t() | atom() | nil,
           list()
@@ -4049,8 +5198,10 @@ defmodule AWS.Resiliencehubv2 do
   def list_resources(
         %Client{} = client,
         aws_region \\ nil,
+        billable \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        resource_types \\ nil,
         service_arn,
         service_function_id \\ nil,
         options \\ []
@@ -4060,22 +5211,15 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(service_function_id) do
-        [{"serviceFunctionId", service_function_id} | query_params]
+      if !is_nil(aws_region) do
+        [{"awsRegion", aws_region} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(service_arn) do
-        [{"serviceArn", service_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(billable) do
+        [{"billable", billable} | query_params]
       else
         query_params
       end
@@ -4088,8 +5232,29 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(aws_region) do
-        [{"awsRegion", aws_region} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_types) do
+        [{"resourceTypes", resource_types} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_function_id) do
+        [{"serviceFunctionId", service_function_id} | query_params]
       else
         query_params
       end
@@ -4131,29 +5296,8 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(service_arn) do
-        [{"serviceArn", service_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
       else
         query_params
       end
@@ -4166,8 +5310,29 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
       else
         query_params
       end
@@ -4203,8 +5368,8 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(service_arn) do
-        [{"serviceArn", service_arn} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -4217,8 +5382,8 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
       else
         query_params
       end
@@ -4254,8 +5419,8 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(service_arn) do
-        [{"serviceArn", service_arn} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -4268,8 +5433,8 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
       else
         query_params
       end
@@ -4315,43 +5480,8 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(user_journey_id) do
-        [{"userJourneyId", user_journey_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(system_arn) do
-        [{"systemArn", system_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(policy_arn) do
-        [{"policyArn", policy_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(ou_id) do
-        [{"ouId", ou_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(account_id) do
+        [{"accountId", account_id} | query_params]
       else
         query_params
       end
@@ -4364,8 +5494,43 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"accountId", account_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ou_id) do
+        [{"ouId", ou_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(policy_arn) do
+        [{"policyArn", policy_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(system_arn) do
+        [{"systemArn", system_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(user_journey_id) do
+        [{"userJourneyId", user_journey_id} | query_params]
       else
         query_params
       end
@@ -4407,29 +5572,8 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(system_arn) do
-        [{"systemArn", system_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
       else
         query_params
       end
@@ -4442,8 +5586,29 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(system_arn) do
+        [{"systemArn", system_arn} | query_params]
       else
         query_params
       end
@@ -4479,8 +5644,8 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(ou_id) do
-        [{"ouId", ou_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -4493,8 +5658,8 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(ou_id) do
+        [{"ouId", ou_id} | query_params]
       else
         query_params
       end
@@ -4516,6 +5681,334 @@ defmodule AWS.Resiliencehubv2 do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the events in a test run's timeline.
+  """
+  @spec list_test_run_events(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_test_run_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_test_run_events_errors()}
+  def list_test_run_events(
+        %Client{} = client,
+        test_run_id,
+        ended_at \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        service_arn,
+        started_at \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/test-runs/#{AWS.Util.encode_uri(test_run_id)}/events"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(ended_at) do
+        [{"endedAt", ended_at} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(started_at) do
+        [{"startedAt", started_at} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the monitoring source snapshots captured for a test run, optionally
+  filtered by type.
+  """
+  @spec list_test_run_sources(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_test_run_sources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_test_run_sources_errors()}
+  def list_test_run_sources(
+        %Client{} = client,
+        test_run_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        service_arn,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/test-runs/#{AWS.Util.encode_uri(test_run_id)}/sources"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the runs of a test, or all test runs for a service.
+  """
+  @spec list_test_runs(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_test_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_test_runs_errors()}
+  def list_test_runs(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        service_arn,
+        test_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/list-test-runs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(test_id) do
+        [{"testId", test_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the monitoring sources attached to a test, optionally filtered by type.
+  """
+  @spec list_test_sources(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_test_sources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_test_sources_errors()}
+  def list_test_sources(
+        %Client{} = client,
+        test_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        service_arn,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/tests/#{AWS.Util.encode_uri(test_id)}/sources"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the available resilience test templates.
+
+  A test template is a pre-configured, AWS recommended test that defines which
+  resilience capability to validate.
+  """
+  @spec list_test_templates(map(), list()) ::
+          {:ok, list_test_templates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_test_templates_errors()}
+  def list_test_templates(%Client{} = client, options \\ []) do
+    url_path = "/v2/list-test-templates"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the tests configured for a service.
+  """
+  @spec list_tests(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_tests_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_tests_errors()}
+  def list_tests(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        service_arn,
+        options \\ []
+      ) do
+    url_path = "/v2/list-tests"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -4548,8 +6041,8 @@ defmodule AWS.Resiliencehubv2 do
     query_params = []
 
     query_params =
-      if !is_nil(system_arn) do
-        [{"systemArn", system_arn} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -4562,8 +6055,8 @@ defmodule AWS.Resiliencehubv2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(system_arn) do
+        [{"systemArn", system_arn} | query_params]
       else
         query_params
       end
@@ -4574,7 +6067,39 @@ defmodule AWS.Resiliencehubv2 do
   end
 
   @doc """
-  Start a failure mode assessment.
+  Adds or updates the monitoring sources on a test.
+
+  The operation is transactional — either every source is written or the call
+  fails and nothing is written.
+  """
+  @spec put_test_sources(map(), put_test_sources_request(), list()) ::
+          {:ok, put_test_sources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_test_sources_errors()}
+  def put_test_sources(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/put-test-sources"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a failure mode assessment.
   """
   @spec start_failure_mode_assessment(map(), start_failure_mode_assessment_request(), list()) ::
           {:ok, start_failure_mode_assessment_response(), any()}
@@ -4583,6 +6108,67 @@ defmodule AWS.Resiliencehubv2 do
           | {:error, start_failure_mode_assessment_errors()}
   def start_failure_mode_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/v2/start-failure-mode-assessment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a run of a test.
+
+  Each run scopes to the current resources in the service and produces a pass or
+  fail outcome.
+  """
+  @spec start_test_run(map(), start_test_run_request(), list()) ::
+          {:ok, start_test_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_test_run_errors()}
+  def start_test_run(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/start-test-run"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops an in-progress test run.
+  """
+  @spec stop_test_run(map(), stop_test_run_request(), list()) ::
+          {:ok, stop_test_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_test_run_errors()}
+  def stop_test_run(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/stop-test-run"
     headers = []
     custom_headers = []
     query_params = []
@@ -4849,6 +6435,35 @@ defmodule AWS.Resiliencehubv2 do
           | {:error, update_system_errors()}
   def update_system(%Client{} = client, input, options \\ []) do
     url_path = "/v2/update-system"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the configuration of an existing test.
+  """
+  @spec update_test(map(), update_test_request(), list()) ::
+          {:ok, update_test_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_test_errors()}
+  def update_test(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/update-test"
     headers = []
     custom_headers = []
     query_params = []

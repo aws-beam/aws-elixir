@@ -52,44 +52,19 @@ defmodule AWS.PI do
 
   ## Example:
       
-      dimension_group() :: %{
-        "Dimensions" => list(String.t() | atom()),
-        "Group" => String.t() | atom(),
-        "Limit" => integer()
-      }
-      
-  """
-  @type dimension_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_metrics_response() :: %{
-        "AlignedEndTime" => non_neg_integer(),
-        "AlignedStartTime" => non_neg_integer(),
+      analysis_report() :: %{
+        "AnalysisReportId" => String.t() | atom(),
+        "CreateTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
         "Identifier" => String.t() | atom(),
-        "MetricList" => list(metric_key_data_points()),
-        "NextToken" => String.t() | atom()
+        "Insights" => list(insight()),
+        "ServiceType" => list(any()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any())
       }
       
   """
-  @type get_resource_metrics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_dimension_key_details_request() :: %{
-        optional("RequestedDimensions") => list(String.t() | atom()),
-        required("Group") => String.t() | atom(),
-        required("GroupIdentifier") => String.t() | atom(),
-        required("Identifier") => String.t() | atom(),
-        required("ServiceType") => list(any())
-      }
-      
-  """
-  @type get_dimension_key_details_request() :: %{(String.t() | atom()) => any()}
+  @type analysis_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -111,83 +86,38 @@ defmodule AWS.PI do
 
   ## Example:
       
-      delete_performance_analysis_report_response() :: %{}
+      create_performance_analysis_report_request() :: %{
+        optional("EndTime") => non_neg_integer(),
+        optional("Tags") => list(tag()),
+        required("Identifier") => String.t() | atom(),
+        required("ServiceType") => list(any()),
+        required("StartTime") => non_neg_integer()
+      }
       
   """
-  @type delete_performance_analysis_report_response() :: %{}
+  @type create_performance_analysis_report_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      metric_dimension_groups() :: %{
-        "Groups" => list(dimension_group_detail()),
-        "Metric" => String.t() | atom()
+      create_performance_analysis_report_response() :: %{
+        "AnalysisReportId" => String.t() | atom()
       }
       
   """
-  @type metric_dimension_groups() :: %{(String.t() | atom()) => any()}
+  @type create_performance_analysis_report_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      insight() :: %{
-        "BaselineData" => list(data()),
-        "Context" => list(any()),
-        "Description" => String.t() | atom(),
-        "EndTime" => non_neg_integer(),
-        "InsightData" => list(data()),
-        "InsightId" => String.t() | atom(),
-        "InsightType" => String.t() | atom(),
-        "Recommendations" => list(recommendation()),
-        "Severity" => list(any()),
-        "StartTime" => non_neg_integer(),
-        "SupportingInsights" => list(insight())
+      data() :: %{
+        "PerformanceInsightsMetric" => performance_insights_metric()
       }
       
   """
-  @type insight() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dimension_key_description() :: %{
-        "AdditionalMetrics" => map(),
-        "Dimensions" => map(),
-        "Partitions" => list(float()),
-        "Total" => float()
-      }
-      
-  """
-  @type dimension_key_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_performance_analysis_report_recommendations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Recommendations" => list(recommendation())
-      }
-      
-  """
-  @type list_performance_analysis_report_recommendations_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -205,200 +135,23 @@ defmodule AWS.PI do
 
   ## Example:
       
-      get_performance_analysis_report_request() :: %{
-        optional("AcceptLanguage") => list(any()),
-        optional("TextFormat") => list(any()),
+      delete_performance_analysis_report_request() :: %{
         required("AnalysisReportId") => String.t() | atom(),
         required("Identifier") => String.t() | atom(),
         required("ServiceType") => list(any())
       }
       
   """
-  @type get_performance_analysis_report_request() :: %{(String.t() | atom()) => any()}
+  @type delete_performance_analysis_report_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      dimension_key_detail() :: %{
-        "Dimension" => String.t() | atom(),
-        "Status" => list(any()),
-        "Value" => String.t() | atom()
-      }
+      delete_performance_analysis_report_response() :: %{}
       
   """
-  @type dimension_key_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_available_resource_metrics_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Identifier") => String.t() | atom(),
-        required("MetricTypes") => list(String.t() | atom()),
-        required("ServiceType") => list(any())
-      }
-      
-  """
-  @type list_available_resource_metrics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_query() :: %{
-        "Filter" => map(),
-        "GroupBy" => dimension_group(),
-        "Metric" => String.t() | atom()
-      }
-      
-  """
-  @type metric_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_dimension_keys_response() :: %{
-        "AlignedEndTime" => non_neg_integer(),
-        "AlignedStartTime" => non_neg_integer(),
-        "Keys" => list(dimension_key_description()),
-        "NextToken" => String.t() | atom(),
-        "PartitionKeys" => list(response_partition_key())
-      }
-      
-  """
-  @type describe_dimension_keys_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_performance_analysis_reports_request() :: %{
-        optional("ListTags") => boolean(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Identifier") => String.t() | atom(),
-        required("ServiceType") => list(any())
-      }
-      
-  """
-  @type list_performance_analysis_reports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_available_resource_dimensions_response() :: %{
-        "MetricDimensions" => list(metric_dimension_groups()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_available_resource_dimensions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dimension_detail() :: %{
-        "Identifier" => String.t() | atom()
-      }
-      
-  """
-  @type dimension_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_available_resource_dimensions_request() :: %{
-        optional("AuthorizedActions") => list(list(any())()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Identifier") => String.t() | atom(),
-        required("Metrics") => list(String.t() | atom()),
-        required("ServiceType") => list(any())
-      }
-      
-  """
-  @type list_available_resource_dimensions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data() :: %{
-        "PerformanceInsightsMetric" => performance_insights_metric()
-      }
-      
-  """
-  @type data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("ServiceType") => list(any()),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_metrics_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("PeriodAlignment") => list(any()),
-        optional("PeriodInSeconds") => integer(),
-        required("EndTime") => non_neg_integer(),
-        required("Identifier") => String.t() | atom(),
-        required("MetricQueries") => list(metric_query()),
-        required("ServiceType") => list(any()),
-        required("StartTime") => non_neg_integer()
-      }
-      
-  """
-  @type get_resource_metrics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      response_partition_key() :: %{
-        "Dimensions" => map()
-      }
-      
-  """
-  @type response_partition_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_argument_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_performance_analysis_report_response() :: %{}
 
   @typedoc """
 
@@ -426,230 +179,40 @@ defmodule AWS.PI do
 
   ## Example:
       
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_available_resource_metrics_response() :: %{
-        "Metrics" => list(response_resource_metric()),
-        "NextToken" => String.t() | atom()
+      describe_dimension_keys_response() :: %{
+        "AlignedEndTime" => non_neg_integer(),
+        "AlignedStartTime" => non_neg_integer(),
+        "Keys" => list(dimension_key_description()),
+        "NextToken" => String.t() | atom(),
+        "PartitionKeys" => list(response_partition_key())
       }
       
   """
-  @type list_available_resource_metrics_response() :: %{(String.t() | atom()) => any()}
+  @type describe_dimension_keys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_performance_analysis_report_request() :: %{
-        optional("EndTime") => non_neg_integer(),
-        optional("Tags") => list(tag()),
-        required("Identifier") => String.t() | atom(),
-        required("ServiceType") => list(any()),
-        required("StartTime") => non_neg_integer()
-      }
-      
-  """
-  @type create_performance_analysis_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("ServiceType") => list(any()),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_performance_analysis_report_request() :: %{
-        required("AnalysisReportId") => String.t() | atom(),
-        required("Identifier") => String.t() | atom(),
-        required("ServiceType") => list(any())
-      }
-      
-  """
-  @type delete_performance_analysis_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      not_authorized_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_key_data_points() :: %{
-        "DataPoints" => list(data_point()),
-        "Key" => response_resource_metric_key()
-      }
-      
-  """
-  @type metric_key_data_points() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_performance_analysis_reports_response() :: %{
-        "AnalysisReports" => list(analysis_report_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_performance_analysis_reports_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_performance_analysis_report_response() :: %{
-        "AnalysisReport" => analysis_report()
-      }
-      
-  """
-  @type get_performance_analysis_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      feature_metadata() :: %{
-        "Status" => list(any())
-      }
-      
-  """
-  @type feature_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recommendation() :: %{
-        "RecommendationDescription" => String.t() | atom(),
-        "RecommendationDetails" => String.t() | atom(),
-        "RecommendationId" => String.t() | atom()
-      }
-      
-  """
-  @type recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      response_resource_metric_key() :: %{
-        "Dimensions" => map(),
-        "Metric" => String.t() | atom()
-      }
-      
-  """
-  @type response_resource_metric_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_metadata_request() :: %{
-        required("Identifier") => String.t() | atom(),
-        required("ServiceType") => list(any())
-      }
-      
-  """
-  @type get_resource_metadata_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_dimension_key_details_response() :: %{
-        "Dimensions" => list(dimension_key_detail())
-      }
-      
-  """
-  @type get_dimension_key_details_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_performance_analysis_report_response() :: %{
-        "AnalysisReportId" => String.t() | atom()
-      }
-      
-  """
-  @type create_performance_analysis_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_metadata_response() :: %{
-        "Features" => map(),
+      dimension_detail() :: %{
         "Identifier" => String.t() | atom()
       }
       
   """
-  @type get_resource_metadata_response() :: %{(String.t() | atom()) => any()}
+  @type dimension_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      response_resource_metric() :: %{
-        "Description" => String.t() | atom(),
-        "Metric" => String.t() | atom(),
-        "Unit" => String.t() | atom()
+      dimension_group() :: %{
+        "Dimensions" => list(String.t() | atom()),
+        "Group" => String.t() | atom(),
+        "Limit" => integer()
       }
       
   """
-  @type response_resource_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      performance_insights_metric() :: %{
-        "Dimensions" => map(),
-        "DisplayName" => String.t() | atom(),
-        "Filter" => map(),
-        "Metric" => String.t() | atom(),
-        "Value" => float()
-      }
-      
-  """
-  @type performance_insights_metric() :: %{(String.t() | atom()) => any()}
+  @type dimension_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -667,31 +230,247 @@ defmodule AWS.PI do
 
   ## Example:
       
-      analysis_report() :: %{
-        "AnalysisReportId" => String.t() | atom(),
-        "CreateTime" => non_neg_integer(),
-        "EndTime" => non_neg_integer(),
-        "Identifier" => String.t() | atom(),
-        "Insights" => list(insight()),
-        "ServiceType" => list(any()),
-        "StartTime" => non_neg_integer(),
-        "Status" => list(any())
+      dimension_key_description() :: %{
+        "AdditionalMetrics" => map(),
+        "Dimensions" => map(),
+        "Partitions" => list(float()),
+        "Total" => float()
       }
       
   """
-  @type analysis_report() :: %{(String.t() | atom()) => any()}
+  @type dimension_key_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
+      dimension_key_detail() :: %{
+        "Dimension" => String.t() | atom(),
+        "Status" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type dimension_key_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      feature_metadata() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type feature_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dimension_key_details_request() :: %{
+        optional("RequestedDimensions") => list(String.t() | atom()),
+        required("Group") => String.t() | atom(),
+        required("GroupIdentifier") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
         required("ServiceType") => list(any())
       }
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type get_dimension_key_details_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dimension_key_details_response() :: %{
+        "Dimensions" => list(dimension_key_detail())
+      }
+      
+  """
+  @type get_dimension_key_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_performance_analysis_report_request() :: %{
+        optional("AcceptLanguage") => list(any()),
+        optional("TextFormat") => list(any()),
+        required("AnalysisReportId") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        required("ServiceType") => list(any())
+      }
+      
+  """
+  @type get_performance_analysis_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_performance_analysis_report_response() :: %{
+        "AnalysisReport" => analysis_report()
+      }
+      
+  """
+  @type get_performance_analysis_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_metadata_request() :: %{
+        required("Identifier") => String.t() | atom(),
+        required("ServiceType") => list(any())
+      }
+      
+  """
+  @type get_resource_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_metadata_response() :: %{
+        "Features" => map(),
+        "Identifier" => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_metrics_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PeriodAlignment") => list(any()),
+        optional("PeriodInSeconds") => integer(),
+        required("EndTime") => non_neg_integer(),
+        required("Identifier") => String.t() | atom(),
+        required("MetricQueries") => list(metric_query()),
+        required("ServiceType") => list(any()),
+        required("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type get_resource_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_metrics_response() :: %{
+        "AlignedEndTime" => non_neg_integer(),
+        "AlignedStartTime" => non_neg_integer(),
+        "Identifier" => String.t() | atom(),
+        "MetricList" => list(metric_key_data_points()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insight() :: %{
+        "BaselineData" => list(data()),
+        "Context" => list(any()),
+        "Description" => String.t() | atom(),
+        "EndTime" => non_neg_integer(),
+        "InsightData" => list(data()),
+        "InsightId" => String.t() | atom(),
+        "InsightType" => String.t() | atom(),
+        "Recommendations" => list(recommendation()),
+        "Severity" => list(any()),
+        "StartTime" => non_neg_integer(),
+        "SupportingInsights" => list(insight())
+      }
+      
+  """
+  @type insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_service_error() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_service_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_argument_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_available_resource_dimensions_request() :: %{
+        optional("AuthorizedActions") => list(list(any())()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        required("Metrics") => list(String.t() | atom()),
+        required("ServiceType") => list(any())
+      }
+      
+  """
+  @type list_available_resource_dimensions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_available_resource_dimensions_response() :: %{
+        "MetricDimensions" => list(metric_dimension_groups()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_available_resource_dimensions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_available_resource_metrics_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        required("MetricTypes") => list(String.t() | atom()),
+        required("ServiceType") => list(any())
+      }
+      
+  """
+  @type list_available_resource_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_available_resource_metrics_response() :: %{
+        "Metrics" => list(response_resource_metric()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_available_resource_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -715,54 +494,275 @@ defmodule AWS.PI do
 
   ## Example:
       
-      internal_service_error() :: %{
+      list_performance_analysis_report_recommendations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Recommendations" => list(recommendation())
+      }
+      
+  """
+  @type list_performance_analysis_report_recommendations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_performance_analysis_reports_request() :: %{
+        optional("ListTags") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        required("ServiceType") => list(any())
+      }
+      
+  """
+  @type list_performance_analysis_reports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_performance_analysis_reports_response() :: %{
+        "AnalysisReports" => list(analysis_report_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_performance_analysis_reports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("ServiceType") => list(any())
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_dimension_groups() :: %{
+        "Groups" => list(dimension_group_detail()),
+        "Metric" => String.t() | atom()
+      }
+      
+  """
+  @type metric_dimension_groups() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_key_data_points() :: %{
+        "DataPoints" => list(data_point()),
+        "Key" => response_resource_metric_key()
+      }
+      
+  """
+  @type metric_key_data_points() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_query() :: %{
+        "Filter" => map(),
+        "GroupBy" => dimension_group(),
+        "Metric" => String.t() | atom()
+      }
+      
+  """
+  @type metric_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_authorized_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type internal_service_error() :: %{(String.t() | atom()) => any()}
+  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      performance_insights_metric() :: %{
+        "Dimensions" => map(),
+        "DisplayName" => String.t() | atom(),
+        "Filter" => map(),
+        "Metric" => String.t() | atom(),
+        "Value" => float()
+      }
+      
+  """
+  @type performance_insights_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recommendation() :: %{
+        "RecommendationDescription" => String.t() | atom(),
+        "RecommendationDetails" => String.t() | atom(),
+        "RecommendationId" => String.t() | atom()
+      }
+      
+  """
+  @type recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      response_partition_key() :: %{
+        "Dimensions" => map()
+      }
+      
+  """
+  @type response_partition_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      response_resource_metric() :: %{
+        "Description" => String.t() | atom(),
+        "Metric" => String.t() | atom(),
+        "Unit" => String.t() | atom()
+      }
+      
+  """
+  @type response_resource_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      response_resource_metric_key() :: %{
+        "Dimensions" => map(),
+        "Metric" => String.t() | atom()
+      }
+      
+  """
+  @type response_resource_metric_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("ServiceType") => list(any()),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("ServiceType") => list(any()),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
 
   @type create_performance_analysis_report_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type delete_performance_analysis_report_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type describe_dimension_keys_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type get_dimension_key_details_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type get_performance_analysis_report_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type get_resource_metadata_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type get_resource_metrics_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type list_available_resource_dimensions_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type list_available_resource_metrics_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type list_performance_analysis_report_recommendations_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type list_performance_analysis_reports_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type list_tags_for_resource_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type tag_resource_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   @type untag_resource_errors() ::
-          internal_service_error() | not_authorized_exception() | invalid_argument_exception()
+          not_authorized_exception() | invalid_argument_exception() | internal_service_error()
 
   def metadata do
     %{

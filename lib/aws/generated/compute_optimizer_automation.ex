@@ -24,6 +24,56 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_info() :: %{
+        "accountId" => String.t() | atom(),
+        "lastUpdatedTimestamp" => [non_neg_integer()],
+        "organizationRuleMode" => list(any()),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type account_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_accounts_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("accountIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type associate_accounts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_accounts_response() :: %{
+        "accountIds" => list(String.t() | atom()),
+        "errors" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type associate_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       automation_event() :: %{
         "accountId" => String.t() | atom(),
         "completedTimestamp" => [non_neg_integer()],
@@ -49,103 +99,6 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
-      list_automation_events_request() :: %{
-        optional("endTimeExclusive") => [non_neg_integer()],
-        optional("filters") => list(automation_event_filter()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("startTimeInclusive") => [non_neg_integer()]
-      }
-      
-  """
-  @type list_automation_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_automation_rule_preview_request() :: %{
-        optional("criteria") => criteria(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("organizationScope") => organization_scope(),
-        required("recommendedActionTypes") => list(list(any())()),
-        required("ruleType") => list(any())
-      }
-      
-  """
-  @type list_automation_rule_preview_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accounts_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_accounts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      estimated_monthly_savings() :: %{
-        "afterDiscountSavings" => [float()],
-        "beforeDiscountSavings" => [float()],
-        "currency" => [String.t() | atom()],
-        "savingsEstimationMode" => list(any())
-      }
-      
-  """
-  @type estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_automation_rule_request() :: %{
-        required("ruleArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_automation_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_unavailable_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      criteria() :: %{
-        "ebsVolumeSizeInGib" => list(integer_criteria_condition()),
-        "ebsVolumeType" => list(string_criteria_condition()),
-        "estimatedMonthlySavings" => list(double_criteria_condition()),
-        "lookBackPeriodInDays" => list(integer_criteria_condition()),
-        "region" => list(string_criteria_condition()),
-        "resourceArn" => list(string_criteria_condition()),
-        "resourceTag" => list(resource_tags_criteria_condition()),
-        "restartNeeded" => list(string_criteria_condition())
-      }
-      
-  """
-  @type criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       automation_event_filter() :: %{
         "name" => String.t() | atom(),
         "values" => list(String.t() | atom())
@@ -158,374 +111,33 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_accounts_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("accountIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type associate_accounts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recommended_action_filter() :: %{
-        "name" => String.t() | atom(),
-        "values" => list(String.t() | atom())
-      }
-      
-  """
-  @type recommended_action_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accounts_response() :: %{
-        "accounts" => list(account_info()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_accounts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_accounts_response() :: %{
-        "accountIds" => list(String.t() | atom()),
-        "errors" => list([String.t() | atom()]())
-      }
-      
-  """
-  @type associate_accounts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      double_criteria_condition() :: %{
-        "comparison" => list(any()),
-        "values" => list([float()]())
-      }
-      
-  """
-  @type double_criteria_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_automation_rule_preview_summaries_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "previewResultSummaries" => list(preview_result_summary())
-      }
-      
-  """
-  @type list_automation_rule_preview_summaries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_automation_event_steps_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("eventId") => String.t() | atom()
-      }
-      
-  """
-  @type list_automation_event_steps_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      summary_dimension() :: %{
-        "key" => String.t() | atom(),
-        "value" => [String.t() | atom()]
-      }
-      
-  """
-  @type summary_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_recommended_actions_request() :: %{
-        optional("filters") => list(recommended_action_filter()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_recommended_actions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organization_configuration() :: %{
-        "accountIds" => list(String.t() | atom()),
-        "ruleApplyOrder" => list(any())
-      }
-      
-  """
-  @type organization_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ebs_volume() :: %{
-        "configuration" => ebs_volume_configuration()
-      }
-      
-  """
-  @type ebs_volume() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      idempotent_parameter_mismatch_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      idempotency_token_in_use_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type idempotency_token_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_automation_rule_preview_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "previewResults" => list(preview_result())
-      }
-      
-  """
-  @type list_automation_rule_preview_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ebs_volume_configuration() :: %{
-        "iops" => [integer()],
-        "sizeInGib" => [integer()],
-        "throughput" => [integer()],
-        "type" => [String.t() | atom()]
-      }
-      
-  """
-  @type ebs_volume_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_value_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_recommended_actions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "recommendedActions" => list(recommended_action())
-      }
-      
-  """
-  @type list_recommended_actions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      opt_in_required_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type opt_in_required_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_accounts_response() :: %{
-        "accountIds" => list(String.t() | atom()),
-        "errors" => list([String.t() | atom()]())
-      }
-      
-  """
-  @type disassociate_accounts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recommended_action_total() :: %{
+      automation_event_step() :: %{
+        "completedTimestamp" => [non_neg_integer()],
         "estimatedMonthlySavings" => estimated_monthly_savings(),
-        "recommendedActionCount" => [integer()]
+        "eventId" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "startTimestamp" => [non_neg_integer()],
+        "stepId" => String.t() | atom(),
+        "stepStatus" => list(any()),
+        "stepType" => list(any())
       }
       
   """
-  @type recommended_action_total() :: %{(String.t() | atom()) => any()}
+  @type automation_event_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      integer_criteria_condition() :: %{
-        "comparison" => list(any()),
-        "values" => list([integer()]())
+      automation_event_summary() :: %{
+        "dimensions" => list(summary_dimension()),
+        "key" => [String.t() | atom()],
+        "timePeriod" => time_period(),
+        "total" => summary_totals()
       }
       
   """
-  @type integer_criteria_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      string_criteria_condition() :: %{
-        "comparison" => list(any()),
-        "values" => list(String.t() | atom())
-      }
-      
-  """
-  @type string_criteria_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_recommended_action_summaries_request() :: %{
-        optional("filters") => list(recommended_action_filter()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_recommended_action_summaries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_automation_rule_response() :: %{
-        "createdTimestamp" => [non_neg_integer()],
-        "criteria" => criteria(),
-        "description" => [String.t() | atom()],
-        "lastUpdatedTimestamp" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "organizationConfiguration" => organization_configuration(),
-        "priority" => [String.t() | atom()],
-        "recommendedActionTypes" => list(list(any())()),
-        "ruleArn" => String.t() | atom(),
-        "ruleRevision" => [float()],
-        "ruleType" => list(any()),
-        "schedule" => schedule(),
-        "status" => list(any())
-      }
-      
-  """
-  @type update_automation_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_tags_criteria_condition() :: %{
-        "comparison" => list(any()),
-        "key" => String.t() | atom(),
-        "values" => list(String.t() | atom())
-      }
-      
-  """
-  @type resource_tags_criteria_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_automation_rule_preview_summaries_request() :: %{
-        optional("criteria") => criteria(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("organizationScope") => organization_scope(),
-        required("recommendedActionTypes") => list(list(any())()),
-        required("ruleType") => list(any())
-      }
-      
-  """
-  @type list_automation_rule_preview_summaries_request() :: %{(String.t() | atom()) => any()}
+  @type automation_event_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -555,60 +167,22 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
-      update_enrollment_configuration_response() :: %{
-        "lastUpdatedTimestamp" => [non_neg_integer()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type update_enrollment_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_accounts_request() :: %{
+      create_automation_rule_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        required("accountIds") => list(String.t() | atom())
+        optional("criteria") => criteria(),
+        optional("description") => String.t() | atom(),
+        optional("organizationConfiguration") => organization_configuration(),
+        optional("priority") => [String.t() | atom()],
+        optional("tags") => list(tag()),
+        required("name") => String.t() | atom(),
+        required("recommendedActionTypes") => list(list(any())()),
+        required("ruleType") => list(any()),
+        required("schedule") => schedule(),
+        required("status") => list(any())
       }
       
   """
-  @type disassociate_accounts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_automation_rule_response() :: %{}
-      
-  """
-  @type delete_automation_rule_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom(),
-        required("ruleRevision") => [float()],
-        required("tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type create_automation_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -638,150 +212,150 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
-      recommended_action_summary() :: %{
-        "key" => [String.t() | atom()],
-        "total" => recommended_action_total()
+      criteria() :: %{
+        "ebsVolumeSizeInGib" => list(integer_criteria_condition()),
+        "ebsVolumeType" => list(string_criteria_condition()),
+        "estimatedMonthlySavings" => list(double_criteria_condition()),
+        "lookBackPeriodInDays" => list(integer_criteria_condition()),
+        "region" => list(string_criteria_condition()),
+        "resourceArn" => list(string_criteria_condition()),
+        "resourceTag" => list(resource_tags_criteria_condition()),
+        "restartNeeded" => list(string_criteria_condition())
       }
       
   """
-  @type recommended_action_summary() :: %{(String.t() | atom()) => any()}
+  @type criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      automation_event_step() :: %{
-        "completedTimestamp" => [non_neg_integer()],
-        "estimatedMonthlySavings" => estimated_monthly_savings(),
-        "eventId" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "startTimestamp" => [non_neg_integer()],
-        "stepId" => String.t() | atom(),
-        "stepStatus" => list(any()),
-        "stepType" => list(any())
-      }
-      
-  """
-  @type automation_event_step() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_enrollment_configuration_request() :: %{
+      delete_automation_rule_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        required("status") => list(any())
+        required("ruleArn") => String.t() | atom(),
+        required("ruleRevision") => [float()]
       }
       
   """
-  @type update_enrollment_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type delete_automation_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_enrollment_configuration_request() :: %{}
+      delete_automation_rule_response() :: %{}
       
   """
-  @type get_enrollment_configuration_request() :: %{}
+  @type delete_automation_rule_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      rollback_automation_event_response() :: %{
-        "eventId" => String.t() | atom(),
-        "eventStatus" => list(any())
-      }
-      
-  """
-  @type rollback_automation_event_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_automation_event_summaries_request() :: %{
-        optional("endDateExclusive") => [String.t() | atom()],
-        optional("filters") => list(automation_event_filter()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("startDateInclusive") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_automation_event_summaries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_enrollment_configuration_response() :: %{
-        "lastUpdatedTimestamp" => [non_neg_integer()],
-        "organizationRuleMode" => list(any()),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type get_enrollment_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_info() :: %{
-        "accountId" => String.t() | atom(),
-        "lastUpdatedTimestamp" => [non_neg_integer()],
-        "organizationRuleMode" => list(any()),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type account_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_recommended_action_summaries_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "recommendedActionSummaries" => list(recommended_action_summary())
-      }
-      
-  """
-  @type list_recommended_action_summaries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_automation_event_request() :: %{
+      disassociate_accounts_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        required("recommendedActionId") => String.t() | atom()
+        required("accountIds") => list(String.t() | atom())
       }
       
   """
-  @type start_automation_event_request() :: %{(String.t() | atom()) => any()}
+  @type disassociate_accounts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_accounts_response() :: %{
+        "accountIds" => list(String.t() | atom()),
+        "errors" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type disassociate_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      double_criteria_condition() :: %{
+        "comparison" => list(any()),
+        "values" => list([float()]())
+      }
+      
+  """
+  @type double_criteria_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ebs_volume() :: %{
+        "configuration" => ebs_volume_configuration()
+      }
+      
+  """
+  @type ebs_volume() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ebs_volume_configuration() :: %{
+        "iops" => [integer()],
+        "sizeInGib" => [integer()],
+        "throughput" => [integer()],
+        "type" => [String.t() | atom()]
+      }
+      
+  """
+  @type ebs_volume_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      estimated_monthly_savings() :: %{
+        "afterDiscountSavings" => [float()],
+        "beforeDiscountSavings" => [float()],
+        "currency" => [String.t() | atom()],
+        "savingsEstimationMode" => list(any())
+      }
+      
+  """
+  @type estimated_monthly_savings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter() :: %{
+        "name" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      forbidden_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_automation_event_request() :: %{
+        required("eventId") => String.t() | atom()
+      }
+      
+  """
+  @type get_automation_event_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -807,6 +381,17 @@ defmodule AWS.ComputeOptimizerAutomation do
       
   """
   @type get_automation_event_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_automation_rule_request() :: %{
+        required("ruleArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_automation_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -838,97 +423,171 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
-      summary_totals() :: %{
-        "automationEventCount" => [integer()],
-        "estimatedMonthlySavings" => estimated_monthly_savings()
-      }
+      get_enrollment_configuration_request() :: %{}
       
   """
-  @type summary_totals() :: %{(String.t() | atom()) => any()}
+  @type get_enrollment_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom(),
-        required("ruleRevision") => [float()],
-        required("tagKeys") => list([String.t() | atom()]())
+      get_enrollment_configuration_response() :: %{
+        "lastUpdatedTimestamp" => [non_neg_integer()],
+        "organizationRuleMode" => list(any()),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
       }
       
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type get_enrollment_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_automation_rule_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("criteria") => criteria(),
-        optional("description") => String.t() | atom(),
-        optional("organizationConfiguration") => organization_configuration(),
-        optional("priority") => [String.t() | atom()],
-        optional("tags") => list(tag()),
-        required("name") => String.t() | atom(),
-        required("recommendedActionTypes") => list(list(any())()),
-        required("ruleType") => list(any()),
-        required("schedule") => schedule(),
-        required("status") => list(any())
+      idempotency_token_in_use_exception() :: %{
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type create_automation_rule_request() :: %{(String.t() | atom()) => any()}
+  @type idempotency_token_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      rollback_automation_event_request() :: %{
-        optional("clientToken") => String.t() | atom(),
+      idempotent_parameter_mismatch_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      integer_criteria_condition() :: %{
+        "comparison" => list(any()),
+        "values" => list([integer()]())
+      }
+      
+  """
+  @type integer_criteria_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_value_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accounts_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_accounts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accounts_response() :: %{
+        "accounts" => list(account_info()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_automation_event_steps_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
         required("eventId") => String.t() | atom()
       }
       
   """
-  @type rollback_automation_event_request() :: %{(String.t() | atom()) => any()}
+  @type list_automation_event_steps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      automation_event_summary() :: %{
-        "dimensions" => list(summary_dimension()),
-        "key" => [String.t() | atom()],
-        "timePeriod" => time_period(),
-        "total" => summary_totals()
+      list_automation_event_steps_response() :: %{
+        "automationEventSteps" => list(automation_event_step()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type automation_event_summary() :: %{(String.t() | atom()) => any()}
+  @type list_automation_event_steps_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      rule_preview_total() :: %{
-        "estimatedMonthlySavings" => estimated_monthly_savings(),
-        "recommendedActionCount" => [integer()]
+      list_automation_event_summaries_request() :: %{
+        optional("endDateExclusive") => [String.t() | atom()],
+        optional("filters") => list(automation_event_filter()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("startDateInclusive") => [String.t() | atom()]
       }
       
   """
-  @type rule_preview_total() :: %{(String.t() | atom()) => any()}
+  @type list_automation_event_summaries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "tags" => list(tag())
+      list_automation_event_summaries_response() :: %{
+        "automationEventSummaries" => list(automation_event_summary()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type list_automation_event_summaries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_automation_events_request() :: %{
+        optional("endTimeExclusive") => [non_neg_integer()],
+        optional("filters") => list(automation_event_filter()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("startTimeInclusive") => [non_neg_integer()]
+      }
+      
+  """
+  @type list_automation_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -946,12 +605,57 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
-      not_management_account_exception() :: %{
-        "message" => [String.t() | atom()]
+      list_automation_rule_preview_request() :: %{
+        optional("criteria") => criteria(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("organizationScope") => organization_scope(),
+        required("recommendedActionTypes") => list(list(any())()),
+        required("ruleType") => list(any())
       }
       
   """
-  @type not_management_account_exception() :: %{(String.t() | atom()) => any()}
+  @type list_automation_rule_preview_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_automation_rule_preview_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "previewResults" => list(preview_result())
+      }
+      
+  """
+  @type list_automation_rule_preview_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_automation_rule_preview_summaries_request() :: %{
+        optional("criteria") => criteria(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("organizationScope") => organization_scope(),
+        required("recommendedActionTypes") => list(list(any())()),
+        required("ruleType") => list(any())
+      }
+      
+  """
+  @type list_automation_rule_preview_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_automation_rule_preview_summaries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "previewResultSummaries" => list(preview_result_summary())
+      }
+      
+  """
+  @type list_automation_rule_preview_summaries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -970,18 +674,6 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
-      list_automation_event_steps_response() :: %{
-        "automationEventSteps" => list(automation_event_step()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_automation_event_steps_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       list_automation_rules_response() :: %{
         "automationRules" => list(automation_rule()),
         "nextToken" => String.t() | atom()
@@ -994,57 +686,143 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
-      forbidden_exception() :: %{
+      list_recommended_action_summaries_request() :: %{
+        optional("filters") => list(recommended_action_filter()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_recommended_action_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_recommended_action_summaries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "recommendedActionSummaries" => list(recommended_action_summary())
+      }
+      
+  """
+  @type list_recommended_action_summaries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_recommended_actions_request() :: %{
+        optional("filters") => list(recommended_action_filter()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_recommended_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_recommended_actions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "recommendedActions" => list(recommended_action())
+      }
+      
+  """
+  @type list_recommended_actions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_management_account_exception() :: %{
         "message" => [String.t() | atom()]
       }
       
   """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+  @type not_management_account_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_automation_rule_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("criteria") => criteria(),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("organizationConfiguration") => organization_configuration(),
-        optional("priority") => [String.t() | atom()],
-        optional("recommendedActionTypes") => list(list(any())()),
-        optional("ruleType") => list(any()),
-        optional("schedule") => schedule(),
-        optional("status") => list(any()),
-        required("ruleArn") => String.t() | atom(),
-        required("ruleRevision") => [float()]
+      opt_in_required_exception() :: %{
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type update_automation_rule_request() :: %{(String.t() | atom()) => any()}
+  @type opt_in_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      time_period() :: %{
-        "endTimeExclusive" => [non_neg_integer()],
-        "startTimeInclusive" => [non_neg_integer()]
+      organization_configuration() :: %{
+        "accountIds" => list(String.t() | atom()),
+        "ruleApplyOrder" => list(any())
       }
       
   """
-  @type time_period() :: %{(String.t() | atom()) => any()}
+  @type organization_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_automation_event_request() :: %{
-        required("eventId") => String.t() | atom()
+      organization_scope() :: %{
+        "accountIds" => list(String.t() | atom())
       }
       
   """
-  @type get_automation_event_request() :: %{(String.t() | atom()) => any()}
+  @type organization_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      preview_result() :: %{
+        "accountId" => String.t() | atom(),
+        "currentResourceDetails" => list(),
+        "currentResourceSummary" => [String.t() | atom()],
+        "estimatedMonthlySavings" => estimated_monthly_savings(),
+        "lookBackPeriodInDays" => [integer()],
+        "recommendedActionId" => String.t() | atom(),
+        "recommendedActionType" => list(any()),
+        "recommendedResourceDetails" => list(),
+        "recommendedResourceSummary" => [String.t() | atom()],
+        "region" => [String.t() | atom()],
+        "resourceArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceTags" => list(tag()),
+        "resourceType" => list(any()),
+        "restartNeeded" => [boolean()]
+      }
+      
+  """
+  @type preview_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1087,12 +865,144 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
-      organization_scope() :: %{
-        "accountIds" => list(String.t() | atom())
+      recommended_action_filter() :: %{
+        "name" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
       
   """
-  @type organization_scope() :: %{(String.t() | atom()) => any()}
+  @type recommended_action_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recommended_action_summary() :: %{
+        "key" => [String.t() | atom()],
+        "total" => recommended_action_total()
+      }
+      
+  """
+  @type recommended_action_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recommended_action_total() :: %{
+        "estimatedMonthlySavings" => estimated_monthly_savings(),
+        "recommendedActionCount" => [integer()]
+      }
+      
+  """
+  @type recommended_action_total() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_tags_criteria_condition() :: %{
+        "comparison" => list(any()),
+        "key" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type resource_tags_criteria_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rollback_automation_event_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("eventId") => String.t() | atom()
+      }
+      
+  """
+  @type rollback_automation_event_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rollback_automation_event_response() :: %{
+        "eventId" => String.t() | atom(),
+        "eventStatus" => list(any())
+      }
+      
+  """
+  @type rollback_automation_event_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_preview_total() :: %{
+        "estimatedMonthlySavings" => estimated_monthly_savings(),
+        "recommendedActionCount" => [integer()]
+      }
+      
+  """
+  @type rule_preview_total() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schedule() :: %{
+        "executionWindowInMinutes" => [integer()],
+        "scheduleExpression" => [String.t() | atom()],
+        "scheduleExpressionTimezone" => [String.t() | atom()]
+      }
+      
+  """
+  @type schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_unavailable_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_automation_event_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("recommendedActionId") => String.t() | atom()
+      }
+      
+  """
+  @type start_automation_event_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1111,344 +1021,434 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
-      delete_automation_rule_request() :: %{
+      string_criteria_condition() :: %{
+        "comparison" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type string_criteria_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      summary_dimension() :: %{
+        "key" => String.t() | atom(),
+        "value" => [String.t() | atom()]
+      }
+      
+  """
+  @type summary_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      summary_totals() :: %{
+        "automationEventCount" => [integer()],
+        "estimatedMonthlySavings" => estimated_monthly_savings()
+      }
+      
+  """
+  @type summary_totals() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom(),
+        required("ruleRevision") => [float()],
+        required("tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_period() :: %{
+        "endTimeExclusive" => [non_neg_integer()],
+        "startTimeInclusive" => [non_neg_integer()]
+      }
+      
+  """
+  @type time_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom(),
+        required("ruleRevision") => [float()],
+        required("tagKeys") => list([String.t() | atom()]())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_automation_rule_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("criteria") => criteria(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("organizationConfiguration") => organization_configuration(),
+        optional("priority") => [String.t() | atom()],
+        optional("recommendedActionTypes") => list(list(any())()),
+        optional("ruleType") => list(any()),
+        optional("schedule") => schedule(),
+        optional("status") => list(any()),
         required("ruleArn") => String.t() | atom(),
         required("ruleRevision") => [float()]
       }
       
   """
-  @type delete_automation_rule_request() :: %{(String.t() | atom()) => any()}
+  @type update_automation_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      preview_result() :: %{
-        "accountId" => String.t() | atom(),
-        "currentResourceDetails" => list(),
-        "currentResourceSummary" => [String.t() | atom()],
-        "estimatedMonthlySavings" => estimated_monthly_savings(),
-        "lookBackPeriodInDays" => [integer()],
-        "recommendedActionId" => String.t() | atom(),
-        "recommendedActionType" => list(any()),
-        "recommendedResourceDetails" => list(),
-        "recommendedResourceSummary" => [String.t() | atom()],
-        "region" => [String.t() | atom()],
-        "resourceArn" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceTags" => list(tag()),
-        "resourceType" => list(any()),
-        "restartNeeded" => [boolean()]
-      }
-      
-  """
-  @type preview_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_automation_event_summaries_response() :: %{
-        "automationEventSummaries" => list(automation_event_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_automation_event_summaries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter() :: %{
+      update_automation_rule_response() :: %{
+        "createdTimestamp" => [non_neg_integer()],
+        "criteria" => criteria(),
+        "description" => [String.t() | atom()],
+        "lastUpdatedTimestamp" => [non_neg_integer()],
         "name" => String.t() | atom(),
-        "values" => list(String.t() | atom())
+        "organizationConfiguration" => organization_configuration(),
+        "priority" => [String.t() | atom()],
+        "recommendedActionTypes" => list(list(any())()),
+        "ruleArn" => String.t() | atom(),
+        "ruleRevision" => [float()],
+        "ruleType" => list(any()),
+        "schedule" => schedule(),
+        "status" => list(any())
       }
       
   """
-  @type filter() :: %{(String.t() | atom()) => any()}
+  @type update_automation_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
+      update_enrollment_configuration_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("status") => list(any())
       }
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type update_enrollment_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
+      update_enrollment_configuration_response() :: %{
+        "lastUpdatedTimestamp" => [non_neg_integer()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      schedule() :: %{
-        "executionWindowInMinutes" => [integer()],
-        "scheduleExpression" => [String.t() | atom()],
-        "scheduleExpressionTimezone" => [String.t() | atom()]
-      }
-      
-  """
-  @type schedule() :: %{(String.t() | atom()) => any()}
+  @type update_enrollment_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @type associate_accounts_errors() ::
-          forbidden_exception()
-          | not_management_account_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | idempotency_token_in_use_exception()
-          | idempotent_parameter_mismatch_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | not_management_account_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | idempotent_parameter_mismatch_exception()
+          | idempotency_token_in_use_exception()
+          | forbidden_exception()
+          | access_denied_exception()
 
   @type create_automation_rule_errors() ::
-          service_quota_exceeded_exception()
-          | forbidden_exception()
+          throttling_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
-          | idempotency_token_in_use_exception()
+          | internal_server_exception()
           | idempotent_parameter_mismatch_exception()
+          | idempotency_token_in_use_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type delete_automation_rule_errors() ::
-          forbidden_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
-          | idempotency_token_in_use_exception()
+          | internal_server_exception()
           | idempotent_parameter_mismatch_exception()
+          | idempotency_token_in_use_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type disassociate_accounts_errors() ::
-          forbidden_exception()
-          | not_management_account_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | idempotency_token_in_use_exception()
-          | idempotent_parameter_mismatch_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | not_management_account_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | idempotent_parameter_mismatch_exception()
+          | idempotency_token_in_use_exception()
+          | forbidden_exception()
+          | access_denied_exception()
 
   @type get_automation_event_errors() ::
-          forbidden_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type get_automation_rule_errors() ::
-          forbidden_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type get_enrollment_configuration_errors() ::
-          forbidden_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_accounts_errors() ::
-          forbidden_exception()
-          | not_management_account_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | opt_in_required_exception()
+          | not_management_account_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
+          | access_denied_exception()
 
   @type list_automation_event_steps_errors() ::
-          forbidden_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_automation_event_summaries_errors() ::
-          forbidden_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_automation_events_errors() ::
-          forbidden_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_automation_rule_preview_errors() ::
-          forbidden_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_automation_rule_preview_summaries_errors() ::
-          forbidden_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_automation_rules_errors() ::
-          forbidden_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_recommended_action_summaries_errors() ::
-          forbidden_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_recommended_actions_errors() ::
-          forbidden_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_tags_for_resource_errors() ::
-          forbidden_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type rollback_automation_event_errors() ::
-          forbidden_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
-          | idempotency_token_in_use_exception()
+          | internal_server_exception()
           | idempotent_parameter_mismatch_exception()
+          | idempotency_token_in_use_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type start_automation_event_errors() ::
-          service_quota_exceeded_exception()
-          | forbidden_exception()
+          throttling_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
-          | idempotency_token_in_use_exception()
+          | internal_server_exception()
           | idempotent_parameter_mismatch_exception()
+          | idempotency_token_in_use_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type tag_resource_errors() ::
-          forbidden_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
-          | idempotency_token_in_use_exception()
+          | internal_server_exception()
           | idempotent_parameter_mismatch_exception()
+          | idempotency_token_in_use_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type untag_resource_errors() ::
-          forbidden_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
-          | idempotency_token_in_use_exception()
+          | internal_server_exception()
           | idempotent_parameter_mismatch_exception()
+          | idempotency_token_in_use_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type update_automation_rule_errors() ::
-          forbidden_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | opt_in_required_exception()
           | invalid_parameter_value_exception()
-          | idempotency_token_in_use_exception()
+          | internal_server_exception()
           | idempotent_parameter_mismatch_exception()
+          | idempotency_token_in_use_exception()
+          | forbidden_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type update_enrollment_configuration_errors() ::
-          forbidden_exception()
-          | not_management_account_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | opt_in_required_exception()
-          | invalid_parameter_value_exception()
-          | idempotency_token_in_use_exception()
-          | idempotent_parameter_mismatch_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | opt_in_required_exception()
+          | not_management_account_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | idempotent_parameter_mismatch_exception()
+          | idempotency_token_in_use_exception()
+          | forbidden_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

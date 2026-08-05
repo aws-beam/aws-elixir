@@ -15,6 +15,149 @@ defmodule AWS.PartnerCentralBenefits do
 
   ## Example:
       
+      access_denied_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_details() :: %{
+        "Description" => [String.t() | atom()]
+      }
+      
+  """
+  @type access_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      amend_benefit_application_input() :: %{
+        required("AmendmentReason") => [String.t() | atom()],
+        required("Amendments") => list(amendment()),
+        required("Catalog") => String.t() | atom(),
+        required("ClientToken") => [String.t() | atom()],
+        required("Identifier") => String.t() | atom(),
+        required("Revision") => [String.t() | atom()]
+      }
+      
+  """
+  @type amend_benefit_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      amend_benefit_application_output() :: %{}
+      
+  """
+  @type amend_benefit_application_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      amendment() :: %{
+        "FieldPath" => [String.t() | atom()],
+        "NewValue" => [String.t() | atom()]
+      }
+      
+  """
+  @type amendment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_benefit_application_resource_input() :: %{
+        required("BenefitApplicationIdentifier") => String.t() | atom(),
+        required("Catalog") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type associate_benefit_application_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_benefit_application_resource_output() :: %{
+        "Arn" => [String.t() | atom()],
+        "Id" => String.t() | atom(),
+        "Revision" => [String.t() | atom()]
+      }
+      
+  """
+  @type associate_benefit_application_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associated_resource() :: %{
+        "ResourceArn" => String.t() | atom(),
+        "ResourceIdentifier" => [String.t() | atom()],
+        "ResourceType" => list(any())
+      }
+      
+  """
+  @type associated_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      benefit_allocation_summary() :: %{
+        "ApplicableBenefitIds" => list(String.t() | atom()),
+        "Arn" => [String.t() | atom()],
+        "BenefitApplicationId" => String.t() | atom(),
+        "BenefitId" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "ExpiresAt" => non_neg_integer(),
+        "FulfillmentTypes" => list(list(any())()),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type benefit_allocation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      benefit_application_summary() :: %{
+        "Arn" => [String.t() | atom()],
+        "AssociatedResources" => list(String.t() | atom()),
+        "BenefitApplicationDetails" => map(),
+        "BenefitId" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "FulfillmentTypes" => list(list(any())()),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Programs" => list(String.t() | atom()),
+        "Stage" => String.t() | atom(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type benefit_application_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       benefit_summary() :: %{
         "Arn" => [String.t() | atom()],
         "Catalog" => String.t() | atom(),
@@ -28,6 +171,250 @@ defmodule AWS.PartnerCentralBenefits do
       
   """
   @type benefit_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_benefit_application_input() :: %{
+        optional("Reason") => [String.t() | atom()],
+        required("Catalog") => String.t() | atom(),
+        required("ClientToken") => [String.t() | atom()],
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_benefit_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_benefit_application_output() :: %{}
+      
+  """
+  @type cancel_benefit_application_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      consumable_details() :: %{
+        "AllocatedAmount" => monetary_value(),
+        "IssuanceDetails" => issuance_detail(),
+        "RemainingAmount" => monetary_value(),
+        "UtilizedAmount" => monetary_value()
+      }
+      
+  """
+  @type consumable_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      contact() :: %{
+        "BusinessTitle" => [String.t() | atom()],
+        "Email" => String.t() | atom(),
+        "FirstName" => String.t() | atom(),
+        "LastName" => String.t() | atom(),
+        "Phone" => String.t() | atom()
+      }
+      
+  """
+  @type contact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_benefit_application_input() :: %{
+        optional("AssociatedResources") => list(String.t() | atom()),
+        optional("BenefitApplicationDetails") => [any()],
+        optional("Description") => String.t() | atom(),
+        optional("FileDetails") => list(file_input()),
+        optional("FulfillmentTypes") => list(list(any())()),
+        optional("Name") => String.t() | atom(),
+        optional("PartnerContacts") => list(contact()),
+        optional("Tags") => list(tag()),
+        required("BenefitIdentifier") => [String.t() | atom()],
+        required("Catalog") => String.t() | atom(),
+        required("ClientToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type create_benefit_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_benefit_application_output() :: %{
+        "Arn" => [String.t() | atom()],
+        "Id" => String.t() | atom(),
+        "Revision" => [String.t() | atom()]
+      }
+      
+  """
+  @type create_benefit_application_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      credit_code() :: %{
+        "AwsAccountId" => [String.t() | atom()],
+        "AwsCreditCode" => [String.t() | atom()],
+        "ExpiresAt" => non_neg_integer(),
+        "IssuedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "Value" => monetary_value()
+      }
+      
+  """
+  @type credit_code() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      credit_details() :: %{
+        "AllocatedAmount" => monetary_value(),
+        "Codes" => list(credit_code()),
+        "IssuedAmount" => monetary_value()
+      }
+      
+  """
+  @type credit_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_benefit_application_resource_input() :: %{
+        required("BenefitApplicationIdentifier") => String.t() | atom(),
+        required("Catalog") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_benefit_application_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_benefit_application_resource_output() :: %{
+        "Arn" => [String.t() | atom()],
+        "Id" => String.t() | atom(),
+        "Revision" => [String.t() | atom()]
+      }
+      
+  """
+  @type disassociate_benefit_application_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disbursement_details() :: %{
+        "DisbursedAmount" => monetary_value(),
+        "IssuanceDetails" => issuance_detail()
+      }
+      
+  """
+  @type disbursement_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_detail() :: %{
+        "BusinessUseCase" => [String.t() | atom()],
+        "CreatedAt" => non_neg_integer(),
+        "CreatedBy" => [String.t() | atom()],
+        "FileName" => [String.t() | atom()],
+        "FileStatus" => [String.t() | atom()],
+        "FileStatusReason" => [String.t() | atom()],
+        "FileType" => list(any()),
+        "FileURI" => String.t() | atom()
+      }
+      
+  """
+  @type file_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_input() :: %{
+        "BusinessUseCase" => [String.t() | atom()],
+        "FileURI" => String.t() | atom()
+      }
+      
+  """
+  @type file_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_benefit_allocation_input() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_benefit_allocation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_benefit_allocation_output() :: %{
+        "ApplicableBenefitIds" => list(String.t() | atom()),
+        "Arn" => String.t() | atom(),
+        "BenefitApplicationId" => String.t() | atom(),
+        "BenefitId" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => [String.t() | atom()],
+        "ExpiresAt" => non_neg_integer(),
+        "FulfillmentDetail" => list(),
+        "FulfillmentType" => list(any()),
+        "Id" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "StartsAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusReason" => [String.t() | atom()],
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type get_benefit_allocation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_benefit_application_input() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_benefit_application_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -75,239 +462,6 @@ defmodule AWS.PartnerCentralBenefits do
 
   ## Example:
       
-      submit_benefit_application_input() :: %{
-        required("Catalog") => String.t() | atom(),
-        required("Identifier") => String.t() | atom()
-      }
-      
-  """
-  @type submit_benefit_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_benefit_application_resource_input() :: %{
-        required("BenefitApplicationIdentifier") => String.t() | atom(),
-        required("Catalog") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_benefit_application_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      credit_code() :: %{
-        "AwsAccountId" => [String.t() | atom()],
-        "AwsCreditCode" => [String.t() | atom()],
-        "ExpiresAt" => non_neg_integer(),
-        "IssuedAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "Value" => monetary_value()
-      }
-      
-  """
-  @type credit_code() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      credit_details() :: %{
-        "AllocatedAmount" => monetary_value(),
-        "Codes" => list(credit_code()),
-        "IssuedAmount" => monetary_value()
-      }
-      
-  """
-  @type credit_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      benefit_application_summary() :: %{
-        "Arn" => [String.t() | atom()],
-        "AssociatedResources" => list(String.t() | atom()),
-        "BenefitApplicationDetails" => map(),
-        "BenefitId" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "FulfillmentTypes" => list(list(any())()),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Programs" => list(String.t() | atom()),
-        "Stage" => String.t() | atom(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type benefit_application_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_benefit_application_output() :: %{
-        "Arn" => [String.t() | atom()],
-        "Id" => String.t() | atom(),
-        "Revision" => [String.t() | atom()]
-      }
-      
-  """
-  @type update_benefit_application_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_details() :: %{
-        "Description" => [String.t() | atom()]
-      }
-      
-  """
-  @type access_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      consumable_details() :: %{
-        "AllocatedAmount" => monetary_value(),
-        "IssuanceDetails" => issuance_detail(),
-        "RemainingAmount" => monetary_value(),
-        "UtilizedAmount" => monetary_value()
-      }
-      
-  """
-  @type consumable_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_input() :: %{
-        "BusinessUseCase" => [String.t() | atom()],
-        "FileURI" => String.t() | atom()
-      }
-      
-  """
-  @type file_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disbursement_details() :: %{
-        "DisbursedAmount" => monetary_value(),
-        "IssuanceDetails" => issuance_detail()
-      }
-      
-  """
-  @type disbursement_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      amendment() :: %{
-        "FieldPath" => [String.t() | atom()],
-        "NewValue" => [String.t() | atom()]
-      }
-      
-  """
-  @type amendment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_benefit_application_output() :: %{}
-      
-  """
-  @type cancel_benefit_application_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_benefit_allocation_output() :: %{
-        "ApplicableBenefitIds" => list(String.t() | atom()),
-        "Arn" => String.t() | atom(),
-        "BenefitApplicationId" => String.t() | atom(),
-        "BenefitId" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => [String.t() | atom()],
-        "ExpiresAt" => non_neg_integer(),
-        "FulfillmentDetail" => list(),
-        "FulfillmentType" => list(any()),
-        "Id" => String.t() | atom(),
-        "Name" => [String.t() | atom()],
-        "StartsAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "StatusReason" => [String.t() | atom()],
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type get_benefit_allocation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "FieldList" => list(validation_exception_field()),
-        "Message" => [String.t() | atom()],
-        "Reason" => list(any())
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       get_benefit_output() :: %{
         "Arn" => [String.t() | atom()],
         "BenefitRequestSchema" => [any()],
@@ -327,198 +481,12 @@ defmodule AWS.PartnerCentralBenefits do
 
   ## Example:
       
-      cancel_benefit_application_input() :: %{
-        optional("Reason") => [String.t() | atom()],
-        required("Catalog") => String.t() | atom(),
-        required("ClientToken") => [String.t() | atom()],
-        required("Identifier") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_benefit_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_benefit_application_resource_output() :: %{
-        "Arn" => [String.t() | atom()],
-        "Id" => String.t() | atom(),
-        "Revision" => [String.t() | atom()]
-      }
-      
-  """
-  @type associate_benefit_application_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_benefit_allocations_output() :: %{
-        "BenefitAllocationSummaries" => list(benefit_allocation_summary()),
-        "NextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_benefit_allocations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       internal_server_exception() :: %{
         "Message" => [String.t() | atom()]
       }
       
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recall_benefit_application_output() :: %{}
-      
-  """
-  @type recall_benefit_application_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_benefit_application_input() :: %{
-        required("Catalog") => String.t() | atom(),
-        required("Identifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_benefit_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      amend_benefit_application_output() :: %{}
-      
-  """
-  @type amend_benefit_application_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_benefit_allocation_input() :: %{
-        required("Catalog") => String.t() | atom(),
-        required("Identifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_benefit_allocation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_detail() :: %{
-        "BusinessUseCase" => [String.t() | atom()],
-        "CreatedAt" => non_neg_integer(),
-        "CreatedBy" => [String.t() | atom()],
-        "FileName" => [String.t() | atom()],
-        "FileStatus" => [String.t() | atom()],
-        "FileStatusReason" => [String.t() | atom()],
-        "FileType" => list(any()),
-        "FileURI" => String.t() | atom()
-      }
-      
-  """
-  @type file_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_benefit_application_input() :: %{
-        optional("BenefitApplicationDetails") => [any()],
-        optional("Description") => String.t() | atom(),
-        optional("FileDetails") => list(file_input()),
-        optional("Name") => String.t() | atom(),
-        optional("PartnerContacts") => list(contact()),
-        required("Catalog") => String.t() | atom(),
-        required("ClientToken") => [String.t() | atom()],
-        required("Identifier") => String.t() | atom(),
-        required("Revision") => [String.t() | atom()]
-      }
-      
-  """
-  @type update_benefit_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      amend_benefit_application_input() :: %{
-        required("AmendmentReason") => [String.t() | atom()],
-        required("Amendments") => list(amendment()),
-        required("Catalog") => String.t() | atom(),
-        required("ClientToken") => [String.t() | atom()],
-        required("Identifier") => String.t() | atom(),
-        required("Revision") => [String.t() | atom()]
-      }
-      
-  """
-  @type amend_benefit_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -532,143 +500,6 @@ defmodule AWS.PartnerCentralBenefits do
       
   """
   @type issuance_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
-        "Code" => list(any()),
-        "Message" => [String.t() | atom()],
-        "Name" => [String.t() | atom()]
-      }
-      
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_benefit_applications_output() :: %{
-        "BenefitApplicationSummaries" => list(benefit_application_summary()),
-        "NextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_benefit_applications_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_benefit_application_resource_input() :: %{
-        required("BenefitApplicationIdentifier") => String.t() | atom(),
-        required("Catalog") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type associate_benefit_application_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recall_benefit_application_input() :: %{
-        optional("ClientToken") => [String.t() | atom()],
-        required("Catalog") => String.t() | atom(),
-        required("Identifier") => String.t() | atom(),
-        required("Reason") => [String.t() | atom()]
-      }
-      
-  """
-  @type recall_benefit_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      contact() :: %{
-        "BusinessTitle" => [String.t() | atom()],
-        "Email" => String.t() | atom(),
-        "FirstName" => String.t() | atom(),
-        "LastName" => String.t() | atom(),
-        "Phone" => String.t() | atom()
-      }
-      
-  """
-  @type contact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      submit_benefit_application_output() :: %{}
-      
-  """
-  @type submit_benefit_application_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_benefit_application_resource_output() :: %{
-        "Arn" => [String.t() | atom()],
-        "Id" => String.t() | atom(),
-        "Revision" => [String.t() | atom()]
-      }
-      
-  """
-  @type disassociate_benefit_application_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associated_resource() :: %{
-        "ResourceArn" => String.t() | atom(),
-        "ResourceIdentifier" => [String.t() | atom()],
-        "ResourceType" => list(any())
-      }
-      
-  """
-  @type associated_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_benefits_output() :: %{
-        "BenefitSummaries" => list(benefit_summary()),
-        "NextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_benefits_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -691,36 +522,13 @@ defmodule AWS.PartnerCentralBenefits do
 
   ## Example:
       
-      create_benefit_application_output() :: %{
-        "Arn" => [String.t() | atom()],
-        "Id" => String.t() | atom(),
-        "Revision" => [String.t() | atom()]
+      list_benefit_allocations_output() :: %{
+        "BenefitAllocationSummaries" => list(benefit_allocation_summary()),
+        "NextToken" => [String.t() | atom()]
       }
       
   """
-  @type create_benefit_application_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      benefit_allocation_summary() :: %{
-        "ApplicableBenefitIds" => list(String.t() | atom()),
-        "Arn" => [String.t() | atom()],
-        "BenefitApplicationId" => String.t() | atom(),
-        "BenefitId" => String.t() | atom(),
-        "Catalog" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "ExpiresAt" => non_neg_integer(),
-        "FulfillmentTypes" => list(list(any())()),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type benefit_allocation_summary() :: %{(String.t() | atom()) => any()}
+  @type list_benefit_allocations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -746,6 +554,18 @@ defmodule AWS.PartnerCentralBenefits do
 
   ## Example:
       
+      list_benefit_applications_output() :: %{
+        "BenefitApplicationSummaries" => list(benefit_application_summary()),
+        "NextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_benefit_applications_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_benefits_input() :: %{
         optional("FulfillmentTypes") => list(list(any())()),
         optional("MaxResults") => [integer()],
@@ -762,22 +582,13 @@ defmodule AWS.PartnerCentralBenefits do
 
   ## Example:
       
-      create_benefit_application_input() :: %{
-        optional("AssociatedResources") => list(String.t() | atom()),
-        optional("BenefitApplicationDetails") => [any()],
-        optional("Description") => String.t() | atom(),
-        optional("FileDetails") => list(file_input()),
-        optional("FulfillmentTypes") => list(list(any())()),
-        optional("Name") => String.t() | atom(),
-        optional("PartnerContacts") => list(contact()),
-        optional("Tags") => list(tag()),
-        required("BenefitIdentifier") => [String.t() | atom()],
-        required("Catalog") => String.t() | atom(),
-        required("ClientToken") => [String.t() | atom()]
+      list_benefits_output() :: %{
+        "BenefitSummaries" => list(benefit_summary()),
+        "NextToken" => [String.t() | atom()]
       }
       
   """
-  @type create_benefit_application_input() :: %{(String.t() | atom()) => any()}
+  @type list_benefits_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -789,6 +600,17 @@ defmodule AWS.PartnerCentralBenefits do
       
   """
   @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -806,6 +628,40 @@ defmodule AWS.PartnerCentralBenefits do
 
   ## Example:
       
+      recall_benefit_application_input() :: %{
+        optional("ClientToken") => [String.t() | atom()],
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        required("Reason") => [String.t() | atom()]
+      }
+      
+  """
+  @type recall_benefit_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recall_benefit_application_output() :: %{}
+      
+  """
+  @type recall_benefit_application_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_quota_exceeded_exception() :: %{
         "Message" => [String.t() | atom()],
         "QuotaCode" => [String.t() | atom()],
@@ -816,137 +672,281 @@ defmodule AWS.PartnerCentralBenefits do
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      submit_benefit_application_input() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type submit_benefit_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      submit_benefit_application_output() :: %{}
+      
+  """
+  @type submit_benefit_application_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_benefit_application_input() :: %{
+        optional("BenefitApplicationDetails") => [any()],
+        optional("Description") => String.t() | atom(),
+        optional("FileDetails") => list(file_input()),
+        optional("Name") => String.t() | atom(),
+        optional("PartnerContacts") => list(contact()),
+        required("Catalog") => String.t() | atom(),
+        required("ClientToken") => [String.t() | atom()],
+        required("Identifier") => String.t() | atom(),
+        required("Revision") => [String.t() | atom()]
+      }
+      
+  """
+  @type update_benefit_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_benefit_application_output() :: %{
+        "Arn" => [String.t() | atom()],
+        "Id" => String.t() | atom(),
+        "Revision" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_benefit_application_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "FieldList" => list(validation_exception_field()),
+        "Message" => [String.t() | atom()],
+        "Reason" => list(any())
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "Code" => list(any()),
+        "Message" => [String.t() | atom()],
+        "Name" => [String.t() | atom()]
+      }
+      
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
   @type amend_benefit_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type associate_benefit_application_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type cancel_benefit_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_benefit_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type disassociate_benefit_application_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_benefit_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_benefit_allocation_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_benefit_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_benefit_allocations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_benefit_applications_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_benefits_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type recall_benefit_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type submit_benefit_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_benefit_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{

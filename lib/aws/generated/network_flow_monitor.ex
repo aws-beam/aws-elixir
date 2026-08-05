@@ -31,25 +31,120 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
-      get_query_results_monitor_top_contributors_output() :: %{
-        "nextToken" => [String.t() | atom()],
-        "topContributors" => list(monitor_top_contributors_row()),
-        "unit" => list(any())
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type get_query_results_monitor_top_contributors_output() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_query_status_monitor_top_contributors_output() :: %{
-        "status" => list(any())
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type get_query_status_monitor_top_contributors_output() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_monitor_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("remoteResources") => list(monitor_remote_resource()),
+        optional("tags") => map(),
+        required("localResources") => list(monitor_local_resource()),
+        required("monitorName") => String.t() | atom(),
+        required("scopeArn") => String.t() | atom()
+      }
+
+  """
+  @type create_monitor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_monitor_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "localResources" => list(monitor_local_resource()),
+        "modifiedAt" => non_neg_integer(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
+        "monitorStatus" => list(any()),
+        "remoteResources" => list(monitor_remote_resource()),
+        "tags" => map()
+      }
+
+  """
+  @type create_monitor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_scope_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("targets") => list(target_resource())
+      }
+
+  """
+  @type create_scope_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_scope_output() :: %{
+        "scopeArn" => String.t() | atom(),
+        "scopeId" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type create_scope_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_monitor_input() :: %{}
+
+  """
+  @type delete_monitor_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_monitor_output() :: %{}
+
+  """
+  @type delete_monitor_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_scope_input() :: %{}
+
+  """
+  @type delete_scope_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_scope_output() :: %{}
+
+  """
+  @type delete_scope_output() :: %{}
 
   @typedoc """
 
@@ -64,59 +159,56 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
-      list_scopes_output() :: %{
-        "nextToken" => [String.t() | atom()],
-        "scopes" => list(scope_summary())
-      }
-
-  """
-  @type list_scopes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_query_workload_insights_top_contributors_output() :: %{}
-
-  """
-  @type stop_query_workload_insights_top_contributors_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_query_monitor_top_contributors_input() :: %{
-        optional("limit") => integer(),
-        required("destinationCategory") => list(any()),
-        required("endTime") => [non_neg_integer()],
-        required("metricName") => list(any()),
-        required("startTime") => [non_neg_integer()]
-      }
-
-  """
-  @type start_query_monitor_top_contributors_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
+      get_monitor_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "localResources" => list(monitor_local_resource()),
+        "modifiedAt" => non_neg_integer(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
+        "monitorStatus" => list(any()),
+        "remoteResources" => list(monitor_remote_resource()),
         "tags" => map()
       }
 
   """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+  @type get_monitor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_query_workload_insights_top_contributors_data_output() :: %{
-        "queryId" => [String.t() | atom()]
+      get_query_results_monitor_top_contributors_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type start_query_workload_insights_top_contributors_data_output() :: %{
+  @type get_query_results_monitor_top_contributors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_results_monitor_top_contributors_output() :: %{
+        "nextToken" => [String.t() | atom()],
+        "topContributors" => list(monitor_top_contributors_row()),
+        "unit" => list(any())
+      }
+
+  """
+  @type get_query_results_monitor_top_contributors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_results_workload_insights_top_contributors_data_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type get_query_results_workload_insights_top_contributors_data_input() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -124,12 +216,30 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
+      get_query_results_workload_insights_top_contributors_data_output() :: %{
+        "datapoints" => list(workload_insights_top_contributors_data_point()),
+        "nextToken" => [String.t() | atom()],
+        "unit" => list(any())
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type get_query_results_workload_insights_top_contributors_data_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_results_workload_insights_top_contributors_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type get_query_results_workload_insights_top_contributors_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -149,6 +259,134 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
+      get_query_status_monitor_top_contributors_input() :: %{}
+
+  """
+  @type get_query_status_monitor_top_contributors_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_status_monitor_top_contributors_output() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type get_query_status_monitor_top_contributors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_status_workload_insights_top_contributors_data_input() :: %{}
+
+  """
+  @type get_query_status_workload_insights_top_contributors_data_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_status_workload_insights_top_contributors_data_output() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type get_query_status_workload_insights_top_contributors_data_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_status_workload_insights_top_contributors_input() :: %{}
+
+  """
+  @type get_query_status_workload_insights_top_contributors_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_status_workload_insights_top_contributors_output() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type get_query_status_workload_insights_top_contributors_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_scope_input() :: %{}
+
+  """
+  @type get_scope_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_scope_output() :: %{
+        "scopeArn" => String.t() | atom(),
+        "scopeId" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "targets" => list(target_resource())
+      }
+
+  """
+  @type get_scope_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kubernetes_metadata() :: %{
+        "localPodName" => [String.t() | atom()],
+        "localPodNamespace" => [String.t() | atom()],
+        "localServiceName" => [String.t() | atom()],
+        "remotePodName" => [String.t() | atom()],
+        "remotePodNamespace" => [String.t() | atom()],
+        "remoteServiceName" => [String.t() | atom()]
+      }
+
+  """
+  @type kubernetes_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_monitors_input() :: %{
+        optional("maxResults") => integer(),
+        optional("monitorStatus") => list(any()),
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_monitors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_monitors_output() :: %{
         "monitors" => list(monitor_summary()),
         "nextToken" => [String.t() | atom()]
@@ -161,54 +399,82 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
-      update_monitor_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("localResourcesToAdd") => list(monitor_local_resource()),
-        optional("localResourcesToRemove") => list(monitor_local_resource()),
-        optional("remoteResourcesToAdd") => list(monitor_remote_resource()),
-        optional("remoteResourcesToRemove") => list(monitor_remote_resource())
+      list_scopes_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type update_monitor_input() :: %{(String.t() | atom()) => any()}
+  @type list_scopes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
+      list_scopes_output() :: %{
+        "nextToken" => [String.t() | atom()],
+        "scopes" => list(scope_summary())
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type list_scopes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_output() :: %{}
+      list_tags_for_resource_input() :: %{}
 
   """
-  @type tag_resource_output() :: %{}
+  @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_monitor_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "localResources" => list(monitor_local_resource()),
-        "modifiedAt" => non_neg_integer(),
-        "monitorArn" => String.t() | atom(),
-        "monitorName" => String.t() | atom(),
-        "monitorStatus" => list(any()),
-        "remoteResources" => list(monitor_remote_resource()),
+      list_tags_for_resource_output() :: %{
         "tags" => map()
       }
 
   """
-  @type update_monitor_output() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      monitor_local_resource() :: %{
+        "identifier" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type monitor_local_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      monitor_remote_resource() :: %{
+        "identifier" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type monitor_remote_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      monitor_summary() :: %{
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
+        "monitorStatus" => list(any())
+      }
+
+  """
+  @type monitor_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -249,118 +515,62 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
-      monitor_local_resource() :: %{
-        "identifier" => [String.t() | atom()],
-        "type" => list(any())
-      }
-
-  """
-  @type monitor_local_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_status_monitor_top_contributors_input() :: %{}
-
-  """
-  @type get_query_status_monitor_top_contributors_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_results_workload_insights_top_contributors_data_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type get_query_results_workload_insights_top_contributors_data_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_results_monitor_top_contributors_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type get_query_results_monitor_top_contributors_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
+      resource_not_found_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      workload_insights_top_contributors_row() :: %{
-        "accountId" => String.t() | atom(),
-        "localAz" => String.t() | atom(),
-        "localRegion" => String.t() | atom(),
-        "localSubnetArn" => String.t() | atom(),
-        "localSubnetId" => String.t() | atom(),
-        "localVpcArn" => String.t() | atom(),
-        "localVpcId" => String.t() | atom(),
-        "remoteIdentifier" => [String.t() | atom()],
-        "value" => [float()]
-      }
-
-  """
-  @type workload_insights_top_contributors_row() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_status_workload_insights_top_contributors_output() :: %{
+      scope_summary() :: %{
+        "scopeArn" => String.t() | atom(),
+        "scopeId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type get_query_status_workload_insights_top_contributors_output() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type scope_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_monitor_input() :: %{}
-
-  """
-  @type delete_monitor_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_monitor_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "localResources" => list(monitor_local_resource()),
-        "modifiedAt" => non_neg_integer(),
-        "monitorArn" => String.t() | atom(),
-        "monitorName" => String.t() | atom(),
-        "monitorStatus" => list(any()),
-        "remoteResources" => list(monitor_remote_resource()),
-        "tags" => map()
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type create_monitor_output() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_query_monitor_top_contributors_input() :: %{
+        optional("limit") => integer(),
+        required("destinationCategory") => list(any()),
+        required("endTime") => [non_neg_integer()],
+        required("metricName") => list(any()),
+        required("startTime") => [non_neg_integer()]
+      }
+
+  """
+  @type start_query_monitor_top_contributors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_query_monitor_top_contributors_output() :: %{
+        "queryId" => [String.t() | atom()]
+      }
+
+  """
+  @type start_query_monitor_top_contributors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -382,6 +592,103 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
+      start_query_workload_insights_top_contributors_data_output() :: %{
+        "queryId" => [String.t() | atom()]
+      }
+
+  """
+  @type start_query_workload_insights_top_contributors_data_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      start_query_workload_insights_top_contributors_input() :: %{
+        optional("limit") => integer(),
+        required("destinationCategory") => list(any()),
+        required("endTime") => [non_neg_integer()],
+        required("metricName") => list(any()),
+        required("startTime") => [non_neg_integer()]
+      }
+
+  """
+  @type start_query_workload_insights_top_contributors_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      start_query_workload_insights_top_contributors_output() :: %{
+        "queryId" => [String.t() | atom()]
+      }
+
+  """
+  @type start_query_workload_insights_top_contributors_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      stop_query_monitor_top_contributors_input() :: %{}
+
+  """
+  @type stop_query_monitor_top_contributors_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_query_monitor_top_contributors_output() :: %{}
+
+  """
+  @type stop_query_monitor_top_contributors_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_query_workload_insights_top_contributors_data_input() :: %{}
+
+  """
+  @type stop_query_workload_insights_top_contributors_data_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_query_workload_insights_top_contributors_data_output() :: %{}
+
+  """
+  @type stop_query_workload_insights_top_contributors_data_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_query_workload_insights_top_contributors_input() :: %{}
+
+  """
+  @type stop_query_workload_insights_top_contributors_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_query_workload_insights_top_contributors_output() :: %{}
+
+  """
+  @type stop_query_workload_insights_top_contributors_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_input() :: %{
         required("tags") => map()
       }
@@ -393,62 +700,45 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
-      get_query_status_workload_insights_top_contributors_data_output() :: %{
-        "status" => list(any())
-      }
+      tag_resource_output() :: %{}
 
   """
-  @type get_query_status_workload_insights_top_contributors_data_output() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      internal_server_exception() :: %{
+      target_identifier() :: %{
+        "targetId" => list(),
+        "targetType" => list(any())
+      }
+
+  """
+  @type target_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_resource() :: %{
+        "region" => String.t() | atom(),
+        "targetIdentifier" => target_identifier()
+      }
+
+  """
+  @type target_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_query_monitor_top_contributors_output() :: %{
-        "queryId" => [String.t() | atom()]
-      }
-
-  """
-  @type start_query_monitor_top_contributors_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_scope_output() :: %{
-        "scopeArn" => String.t() | atom(),
-        "scopeId" => String.t() | atom(),
-        "status" => list(any()),
-        "tags" => map(),
-        "targets" => list(target_resource())
-      }
-
-  """
-  @type get_scope_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -479,20 +769,31 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
-      create_scope_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("targets") => list(target_resource())
-      }
+      untag_resource_output() :: %{}
 
   """
-  @type create_scope_input() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_monitor_output() :: %{
+      update_monitor_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("localResourcesToAdd") => list(monitor_local_resource()),
+        optional("localResourcesToRemove") => list(monitor_local_resource()),
+        optional("remoteResourcesToAdd") => list(monitor_remote_resource()),
+        optional("remoteResourcesToRemove") => list(monitor_remote_resource())
+      }
+
+  """
+  @type update_monitor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_monitor_output() :: %{
         "createdAt" => non_neg_integer(),
         "localResources" => list(monitor_local_resource()),
         "modifiedAt" => non_neg_integer(),
@@ -504,7 +805,19 @@ defmodule AWS.NetworkFlowMonitor do
       }
 
   """
-  @type get_monitor_output() :: %{(String.t() | atom()) => any()}
+  @type update_monitor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_scope_input() :: %{
+        optional("resourcesToAdd") => list(target_resource()),
+        optional("resourcesToDelete") => list(target_resource())
+      }
+
+  """
+  @type update_scope_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -524,201 +837,12 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
-      get_query_results_workload_insights_top_contributors_data_output() :: %{
-        "datapoints" => list(workload_insights_top_contributors_data_point()),
-        "nextToken" => [String.t() | atom()],
-        "unit" => list(any())
-      }
-
-  """
-  @type get_query_results_workload_insights_top_contributors_data_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      stop_query_workload_insights_top_contributors_input() :: %{}
-
-  """
-  @type stop_query_workload_insights_top_contributors_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
+      validation_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_query_workload_insights_top_contributors_data_input() :: %{}
-
-  """
-  @type stop_query_workload_insights_top_contributors_data_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      target_identifier() :: %{
-        "targetId" => list(),
-        "targetType" => list(any())
-      }
-
-  """
-  @type target_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_scope_input() :: %{}
-
-  """
-  @type get_scope_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_query_workload_insights_top_contributors_output() :: %{
-        "queryId" => [String.t() | atom()]
-      }
-
-  """
-  @type start_query_workload_insights_top_contributors_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_scope_output() :: %{
-        "scopeArn" => String.t() | atom(),
-        "scopeId" => String.t() | atom(),
-        "status" => list(any()),
-        "tags" => map()
-      }
-
-  """
-  @type create_scope_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scopes_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_scopes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_scope_input() :: %{
-        optional("resourcesToAdd") => list(target_resource()),
-        optional("resourcesToDelete") => list(target_resource())
-      }
-
-  """
-  @type update_scope_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_query_monitor_top_contributors_output() :: %{}
-
-  """
-  @type stop_query_monitor_top_contributors_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_status_workload_insights_top_contributors_data_input() :: %{}
-
-  """
-  @type get_query_status_workload_insights_top_contributors_data_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_status_workload_insights_top_contributors_input() :: %{}
-
-  """
-  @type get_query_status_workload_insights_top_contributors_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_results_workload_insights_top_contributors_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type get_query_results_workload_insights_top_contributors_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_scope_output() :: %{}
-
-  """
-  @type delete_scope_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      monitor_remote_resource() :: %{
-        "identifier" => [String.t() | atom()],
-        "type" => list(any())
-      }
-
-  """
-  @type monitor_remote_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      monitor_summary() :: %{
-        "monitorArn" => String.t() | atom(),
-        "monitorName" => String.t() | atom(),
-        "monitorStatus" => list(any())
-      }
-
-  """
-  @type monitor_summary() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -737,332 +861,208 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
-      delete_monitor_output() :: %{}
-
-  """
-  @type delete_monitor_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_monitors_input() :: %{
-        optional("maxResults") => integer(),
-        optional("monitorStatus") => list(any()),
-        optional("nextToken") => [String.t() | atom()]
+      workload_insights_top_contributors_row() :: %{
+        "accountId" => String.t() | atom(),
+        "localAz" => String.t() | atom(),
+        "localRegion" => String.t() | atom(),
+        "localSubnetArn" => String.t() | atom(),
+        "localSubnetId" => String.t() | atom(),
+        "localVpcArn" => String.t() | atom(),
+        "localVpcId" => String.t() | atom(),
+        "remoteIdentifier" => [String.t() | atom()],
+        "value" => [float()]
       }
 
   """
-  @type list_monitors_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_query_workload_insights_top_contributors_input() :: %{
-        optional("limit") => integer(),
-        required("destinationCategory") => list(any()),
-        required("endTime") => [non_neg_integer()],
-        required("metricName") => list(any()),
-        required("startTime") => [non_neg_integer()]
-      }
-
-  """
-  @type start_query_workload_insights_top_contributors_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_monitor_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("remoteResources") => list(monitor_remote_resource()),
-        optional("tags") => map(),
-        required("localResources") => list(monitor_local_resource()),
-        required("monitorName") => String.t() | atom(),
-        required("scopeArn") => String.t() | atom()
-      }
-
-  """
-  @type create_monitor_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scope_summary() :: %{
-        "scopeArn" => String.t() | atom(),
-        "scopeId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type scope_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kubernetes_metadata() :: %{
-        "localPodName" => [String.t() | atom()],
-        "localPodNamespace" => [String.t() | atom()],
-        "localServiceName" => [String.t() | atom()],
-        "remotePodName" => [String.t() | atom()],
-        "remotePodNamespace" => [String.t() | atom()],
-        "remoteServiceName" => [String.t() | atom()]
-      }
-
-  """
-  @type kubernetes_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{}
-
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      target_resource() :: %{
-        "region" => String.t() | atom(),
-        "targetIdentifier" => target_identifier()
-      }
-
-  """
-  @type target_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_scope_input() :: %{}
-
-  """
-  @type delete_scope_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_query_monitor_top_contributors_input() :: %{}
-
-  """
-  @type stop_query_monitor_top_contributors_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_query_workload_insights_top_contributors_data_output() :: %{}
-
-  """
-  @type stop_query_workload_insights_top_contributors_data_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type workload_insights_top_contributors_row() :: %{(String.t() | atom()) => any()}
 
   @type create_monitor_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_scope_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_monitor_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_scope_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_monitor_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_query_results_monitor_top_contributors_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_query_results_workload_insights_top_contributors_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_query_results_workload_insights_top_contributors_data_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_query_status_monitor_top_contributors_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_query_status_workload_insights_top_contributors_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_query_status_workload_insights_top_contributors_data_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_scope_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_monitors_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_scopes_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_query_monitor_top_contributors_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type start_query_workload_insights_top_contributors_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type start_query_workload_insights_top_contributors_data_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type stop_query_monitor_top_contributors_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type stop_query_workload_insights_top_contributors_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type stop_query_workload_insights_top_contributors_data_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_monitor_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type update_scope_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type update_scope_errors() ::
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -1290,15 +1290,15 @@ defmodule AWS.NetworkFlowMonitor do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1355,15 +1355,15 @@ defmodule AWS.NetworkFlowMonitor do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1423,15 +1423,15 @@ defmodule AWS.NetworkFlowMonitor do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1623,8 +1623,8 @@ defmodule AWS.NetworkFlowMonitor do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -1637,8 +1637,8 @@ defmodule AWS.NetworkFlowMonitor do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1662,15 +1662,15 @@ defmodule AWS.NetworkFlowMonitor do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

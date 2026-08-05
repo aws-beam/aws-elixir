@@ -13,128 +13,125 @@ defmodule AWS.AmplifyBackend do
 
   ## Example:
 
-      delete_token_request() :: %{}
-
-  """
-  @type delete_token_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_api_models_request() :: %{
-        required("ResourceName") => String.t() | atom()
+      backend_api_app_sync_auth_settings() :: %{
+        "CognitoUserPoolId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "ExpirationTime" => float(),
+        "OpenIDAuthTTL" => String.t() | atom(),
+        "OpenIDClientId" => String.t() | atom(),
+        "OpenIDIatTTL" => String.t() | atom(),
+        "OpenIDIssueURL" => String.t() | atom(),
+        "OpenIDProviderName" => String.t() | atom()
       }
 
   """
-  @type get_backend_api_models_request() :: %{(String.t() | atom()) => any()}
+  @type backend_api_app_sync_auth_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_backend_request() :: %{}
-
-  """
-  @type delete_backend_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_auth_resource_config() :: %{
-        "AuthResources" => list(any()),
-        "IdentityPoolConfigs" => create_backend_auth_identity_pool_config(),
-        "Service" => list(any()),
-        "UserPoolConfigs" => create_backend_auth_user_pool_config()
+      backend_api_auth_type() :: %{
+        "Mode" => list(any()),
+        "Settings" => backend_api_app_sync_auth_settings()
       }
 
   """
-  @type create_backend_auth_resource_config() :: %{(String.t() | atom()) => any()}
+  @type backend_api_auth_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_backend_auth_o_auth_config() :: %{
-        "DomainPrefix" => String.t() | atom(),
-        "OAuthGrantType" => list(any()),
-        "OAuthScopes" => list(list(any())()),
-        "RedirectSignInURIs" => list(String.t() | atom()),
-        "RedirectSignOutURIs" => list(String.t() | atom()),
-        "SocialProviderSettings" => social_provider_settings()
+      backend_api_conflict_resolution() :: %{
+        "ResolutionStrategy" => list(any())
       }
 
   """
-  @type create_backend_auth_o_auth_config() :: %{(String.t() | atom()) => any()}
+  @type backend_api_conflict_resolution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_token_request() :: %{}
+      backend_api_resource_config() :: %{
+        "AdditionalAuthTypes" => list(backend_api_auth_type()),
+        "ApiName" => String.t() | atom(),
+        "ConflictResolution" => backend_api_conflict_resolution(),
+        "DefaultAuthType" => backend_api_auth_type(),
+        "Service" => String.t() | atom(),
+        "TransformSchema" => String.t() | atom()
+      }
 
   """
-  @type get_token_request() :: %{}
+  @type backend_api_resource_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_backend_api_response() :: %{
+      backend_auth_apple_provider_config() :: %{
+        "ClientId" => String.t() | atom(),
+        "KeyId" => String.t() | atom(),
+        "PrivateKey" => String.t() | atom(),
+        "TeamId" => String.t() | atom()
+      }
+
+  """
+  @type backend_auth_apple_provider_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backend_auth_social_provider_config() :: %{
+        "ClientId" => String.t() | atom(),
+        "ClientSecret" => String.t() | atom()
+      }
+
+  """
+  @type backend_auth_social_provider_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backend_job_resp_obj() :: %{
         "AppId" => String.t() | atom(),
         "BackendEnvironmentName" => String.t() | atom(),
+        "CreateTime" => String.t() | atom(),
         "Error" => String.t() | atom(),
         "JobId" => String.t() | atom(),
         "Operation" => String.t() | atom(),
-        "Status" => String.t() | atom()
+        "Status" => String.t() | atom(),
+        "UpdateTime" => String.t() | atom()
       }
 
   """
-  @type delete_backend_api_response() :: %{(String.t() | atom()) => any()}
+  @type backend_job_resp_obj() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_backend_storage_request() :: %{
-        required("BackendEnvironmentName") => String.t() | atom(),
-        required("ResourceConfig") => create_backend_storage_resource_config(),
-        required("ResourceName") => String.t() | atom()
+      backend_storage_permissions() :: %{
+        "Authenticated" => list(list(any())()),
+        "UnAuthenticated" => list(list(any())())
       }
 
   """
-  @type create_backend_storage_request() :: %{(String.t() | atom()) => any()}
+  @type backend_storage_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      social_provider_settings() :: %{
-        "Facebook" => backend_auth_social_provider_config(),
-        "Google" => backend_auth_social_provider_config(),
-        "LoginWithAmazon" => backend_auth_social_provider_config(),
-        "SignInWithApple" => backend_auth_apple_provider_config()
+      bad_request_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type social_provider_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_backend_auth_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "Error" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Operation" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type import_backend_auth_response() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -151,214 +148,30 @@ defmodule AWS.AmplifyBackend do
 
   ## Example:
 
-      get_backend_api_request() :: %{
-        optional("ResourceConfig") => backend_api_resource_config(),
-        required("ResourceName") => String.t() | atom()
-      }
-
-  """
-  @type get_backend_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_job_request() :: %{}
-
-  """
-  @type get_backend_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_auth_mfa_config() :: %{
-        "MFAMode" => list(any()),
-        "Settings" => settings()
-      }
-
-  """
-  @type update_backend_auth_mfa_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backend_jobs_request() :: %{
-        optional("JobId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Operation") => String.t() | atom(),
-        optional("Status") => String.t() | atom()
-      }
-
-  """
-  @type list_backend_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_backend_config_request() :: %{}
-
-  """
-  @type remove_backend_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_token_response() :: %{
-        "AppId" => String.t() | atom(),
-        "ChallengeCode" => String.t() | atom(),
-        "SessionId" => String.t() | atom(),
-        "Ttl" => String.t() | atom()
-      }
-
-  """
-  @type create_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_storage_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "ResourceConfig" => get_backend_storage_resource_config(),
-        "ResourceName" => String.t() | atom()
-      }
-
-  """
-  @type get_backend_storage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "LimitType" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_storage_resource_config() :: %{
-        "BucketName" => String.t() | atom(),
-        "Permissions" => backend_storage_permissions(),
-        "ServiceName" => list(any())
-      }
-
-  """
-  @type create_backend_storage_resource_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_job_request() :: %{
-        optional("Operation") => String.t() | atom(),
-        optional("Status") => String.t() | atom()
-      }
-
-  """
-  @type update_backend_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_auth_verification_message_config() :: %{
-        "DeliveryMethod" => list(any()),
-        "EmailSettings" => email_settings(),
-        "SmsSettings" => sms_settings()
-      }
-
-  """
-  @type create_backend_auth_verification_message_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_auth_forgot_password_config() :: %{
-        "DeliveryMethod" => list(any()),
-        "EmailSettings" => email_settings(),
-        "SmsSettings" => sms_settings()
-      }
-
-  """
-  @type update_backend_auth_forgot_password_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_token_response() :: %{
-        "AppId" => String.t() | atom(),
-        "ChallengeCode" => String.t() | atom(),
-        "SessionId" => String.t() | atom(),
-        "Ttl" => String.t() | atom()
-      }
-
-  """
-  @type get_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_api_response() :: %{
+      clone_backend_response() :: %{
         "AppId" => String.t() | atom(),
         "BackendEnvironmentName" => String.t() | atom(),
         "Error" => String.t() | atom(),
-        "ResourceConfig" => backend_api_resource_config(),
-        "ResourceName" => String.t() | atom()
+        "JobId" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type get_backend_api_response() :: %{(String.t() | atom()) => any()}
+  @type clone_backend_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_backend_auth_identity_pool_config() :: %{
-        "IdentityPoolName" => String.t() | atom(),
-        "UnauthenticatedLogin" => boolean()
-      }
-
-  """
-  @type create_backend_auth_identity_pool_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_backend_storage_request() :: %{
-        required("ResourceName") => String.t() | atom(),
-        required("ServiceName") => list(any())
-      }
-
-  """
-  @type delete_backend_storage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_storage_request() :: %{
-        required("ResourceConfig") => update_backend_storage_resource_config(),
+      create_backend_api_request() :: %{
+        required("BackendEnvironmentName") => String.t() | atom(),
+        required("ResourceConfig") => backend_api_resource_config(),
         required("ResourceName") => String.t() | atom()
       }
 
   """
-  @type update_backend_storage_request() :: %{(String.t() | atom()) => any()}
+  @type create_backend_api_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -380,13 +193,54 @@ defmodule AWS.AmplifyBackend do
 
   ## Example:
 
-      list_s3_buckets_response() :: %{
-        "Buckets" => list(s3_bucket_info()),
-        "NextToken" => String.t() | atom()
+      create_backend_auth_forgot_password_config() :: %{
+        "DeliveryMethod" => list(any()),
+        "EmailSettings" => email_settings(),
+        "SmsSettings" => sms_settings()
       }
 
   """
-  @type list_s3_buckets_response() :: %{(String.t() | atom()) => any()}
+  @type create_backend_auth_forgot_password_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_auth_identity_pool_config() :: %{
+        "IdentityPoolName" => String.t() | atom(),
+        "UnauthenticatedLogin" => boolean()
+      }
+
+  """
+  @type create_backend_auth_identity_pool_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_auth_mfa_config() :: %{
+        "MFAMode" => list(any()),
+        "Settings" => settings()
+      }
+
+  """
+  @type create_backend_auth_mfa_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_auth_o_auth_config() :: %{
+        "DomainPrefix" => String.t() | atom(),
+        "OAuthGrantType" => list(any()),
+        "OAuthScopes" => list(list(any())()),
+        "RedirectSignInURIs" => list(String.t() | atom()),
+        "RedirectSignOutURIs" => list(String.t() | atom()),
+        "SocialProviderSettings" => social_provider_settings()
+      }
+
+  """
+  @type create_backend_auth_o_auth_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -404,14 +258,763 @@ defmodule AWS.AmplifyBackend do
 
   ## Example:
 
-      create_backend_api_request() :: %{
+      create_backend_auth_request() :: %{
         required("BackendEnvironmentName") => String.t() | atom(),
-        required("ResourceConfig") => backend_api_resource_config(),
+        required("ResourceConfig") => create_backend_auth_resource_config(),
         required("ResourceName") => String.t() | atom()
       }
 
   """
-  @type create_backend_api_request() :: %{(String.t() | atom()) => any()}
+  @type create_backend_auth_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_auth_resource_config() :: %{
+        "AuthResources" => list(any()),
+        "IdentityPoolConfigs" => create_backend_auth_identity_pool_config(),
+        "Service" => list(any()),
+        "UserPoolConfigs" => create_backend_auth_user_pool_config()
+      }
+
+  """
+  @type create_backend_auth_resource_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_auth_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type create_backend_auth_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_auth_user_pool_config() :: %{
+        "ForgotPassword" => create_backend_auth_forgot_password_config(),
+        "Mfa" => create_backend_auth_mfa_config(),
+        "OAuth" => create_backend_auth_o_auth_config(),
+        "PasswordPolicy" => create_backend_auth_password_policy_config(),
+        "RequiredSignUpAttributes" => list(list(any())()),
+        "SignInMethod" => list(any()),
+        "UserPoolName" => String.t() | atom(),
+        "VerificationMessage" => create_backend_auth_verification_message_config()
+      }
+
+  """
+  @type create_backend_auth_user_pool_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_auth_verification_message_config() :: %{
+        "DeliveryMethod" => list(any()),
+        "EmailSettings" => email_settings(),
+        "SmsSettings" => sms_settings()
+      }
+
+  """
+  @type create_backend_auth_verification_message_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_config_request() :: %{
+        optional("BackendManagerAppId") => String.t() | atom()
+      }
+
+  """
+  @type create_backend_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_config_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type create_backend_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_request() :: %{
+        optional("ResourceConfig") => resource_config(),
+        optional("ResourceName") => String.t() | atom(),
+        required("AppId") => String.t() | atom(),
+        required("AppName") => String.t() | atom(),
+        required("BackendEnvironmentName") => String.t() | atom()
+      }
+
+  """
+  @type create_backend_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type create_backend_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_storage_request() :: %{
+        required("BackendEnvironmentName") => String.t() | atom(),
+        required("ResourceConfig") => create_backend_storage_resource_config(),
+        required("ResourceName") => String.t() | atom()
+      }
+
+  """
+  @type create_backend_storage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_storage_resource_config() :: %{
+        "BucketName" => String.t() | atom(),
+        "Permissions" => backend_storage_permissions(),
+        "ServiceName" => list(any())
+      }
+
+  """
+  @type create_backend_storage_resource_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_storage_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type create_backend_storage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_token_request() :: %{}
+
+  """
+  @type create_token_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_token_response() :: %{
+        "AppId" => String.t() | atom(),
+        "ChallengeCode" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
+        "Ttl" => String.t() | atom()
+      }
+
+  """
+  @type create_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backend_api_request() :: %{
+        optional("ResourceConfig") => backend_api_resource_config(),
+        required("ResourceName") => String.t() | atom()
+      }
+
+  """
+  @type delete_backend_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backend_api_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type delete_backend_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backend_auth_request() :: %{
+        required("ResourceName") => String.t() | atom()
+      }
+
+  """
+  @type delete_backend_auth_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backend_auth_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type delete_backend_auth_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backend_request() :: %{}
+
+  """
+  @type delete_backend_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backend_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type delete_backend_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backend_storage_request() :: %{
+        required("ResourceName") => String.t() | atom(),
+        required("ServiceName") => list(any())
+      }
+
+  """
+  @type delete_backend_storage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backend_storage_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type delete_backend_storage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_token_request() :: %{}
+
+  """
+  @type delete_token_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_token_response() :: %{
+        "IsSuccess" => boolean()
+      }
+
+  """
+  @type delete_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_settings() :: %{
+        "EmailMessage" => String.t() | atom(),
+        "EmailSubject" => String.t() | atom()
+      }
+
+  """
+  @type email_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_timeout_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type gateway_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_backend_api_models_request() :: %{
+        required("ResourceName") => String.t() | atom()
+      }
+
+  """
+  @type generate_backend_api_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_backend_api_models_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type generate_backend_api_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_api_models_request() :: %{
+        required("ResourceName") => String.t() | atom()
+      }
+
+  """
+  @type get_backend_api_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_api_models_response() :: %{
+        "ModelIntrospectionSchema" => String.t() | atom(),
+        "Models" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_backend_api_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_api_request() :: %{
+        optional("ResourceConfig") => backend_api_resource_config(),
+        required("ResourceName") => String.t() | atom()
+      }
+
+  """
+  @type get_backend_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_api_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "ResourceConfig" => backend_api_resource_config(),
+        "ResourceName" => String.t() | atom()
+      }
+
+  """
+  @type get_backend_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_auth_request() :: %{
+        required("ResourceName") => String.t() | atom()
+      }
+
+  """
+  @type get_backend_auth_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_auth_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "ResourceConfig" => create_backend_auth_resource_config(),
+        "ResourceName" => String.t() | atom()
+      }
+
+  """
+  @type get_backend_auth_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_job_request() :: %{}
+
+  """
+  @type get_backend_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_job_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "CreateTime" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "UpdateTime" => String.t() | atom()
+      }
+
+  """
+  @type get_backend_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_request() :: %{
+        optional("BackendEnvironmentName") => String.t() | atom()
+      }
+
+  """
+  @type get_backend_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_response() :: %{
+        "AmplifyFeatureFlags" => String.t() | atom(),
+        "AmplifyMetaConfig" => String.t() | atom(),
+        "AppId" => String.t() | atom(),
+        "AppName" => String.t() | atom(),
+        "BackendEnvironmentList" => list(String.t() | atom()),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "Error" => String.t() | atom()
+      }
+
+  """
+  @type get_backend_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_storage_request() :: %{
+        required("ResourceName") => String.t() | atom()
+      }
+
+  """
+  @type get_backend_storage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_storage_resource_config() :: %{
+        "BucketName" => String.t() | atom(),
+        "Imported" => boolean(),
+        "Permissions" => backend_storage_permissions(),
+        "ServiceName" => list(any())
+      }
+
+  """
+  @type get_backend_storage_resource_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_storage_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "ResourceConfig" => get_backend_storage_resource_config(),
+        "ResourceName" => String.t() | atom()
+      }
+
+  """
+  @type get_backend_storage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_token_request() :: %{}
+
+  """
+  @type get_token_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_token_response() :: %{
+        "AppId" => String.t() | atom(),
+        "ChallengeCode" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
+        "Ttl" => String.t() | atom()
+      }
+
+  """
+  @type get_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_backend_auth_request() :: %{
+        optional("IdentityPoolId") => String.t() | atom(),
+        required("NativeClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom(),
+        required("WebClientId") => String.t() | atom()
+      }
+
+  """
+  @type import_backend_auth_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_backend_auth_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type import_backend_auth_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_backend_storage_request() :: %{
+        optional("BucketName") => String.t() | atom(),
+        required("ServiceName") => list(any())
+      }
+
+  """
+  @type import_backend_storage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_backend_storage_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type import_backend_storage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backend_jobs_request() :: %{
+        optional("JobId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Operation") => String.t() | atom(),
+        optional("Status") => String.t() | atom()
+      }
+
+  """
+  @type list_backend_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backend_jobs_response() :: %{
+        "Jobs" => list(backend_job_resp_obj()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_backend_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_s3_buckets_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_s3_buckets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_s3_buckets_response() :: %{
+        "Buckets" => list(s3_bucket_info()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_s3_buckets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      login_auth_config_req_obj() :: %{
+        "AwsCognitoIdentityPoolId" => String.t() | atom(),
+        "AwsCognitoRegion" => String.t() | atom(),
+        "AwsUserPoolsId" => String.t() | atom(),
+        "AwsUserPoolsWebClientId" => String.t() | atom()
+      }
+
+  """
+  @type login_auth_config_req_obj() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_all_backends_request() :: %{
+        optional("CleanAmplifyApp") => boolean()
+      }
+
+  """
+  @type remove_all_backends_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_all_backends_response() :: %{
+        "AppId" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type remove_all_backends_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_backend_config_request() :: %{}
+
+  """
+  @type remove_backend_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_backend_config_response() :: %{
+        "Error" => String.t() | atom()
+      }
+
+  """
+  @type remove_backend_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_config() :: %{}
+
+  """
+  @type resource_config() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_bucket_info() :: %{
+        "CreationDate" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type s3_bucket_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -424,6 +1027,161 @@ defmodule AWS.AmplifyBackend do
 
   """
   @type settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sms_settings() :: %{
+        "SmsMessage" => String.t() | atom()
+      }
+
+  """
+  @type sms_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      social_provider_settings() :: %{
+        "Facebook" => backend_auth_social_provider_config(),
+        "Google" => backend_auth_social_provider_config(),
+        "LoginWithAmazon" => backend_auth_social_provider_config(),
+        "SignInWithApple" => backend_auth_apple_provider_config()
+      }
+
+  """
+  @type social_provider_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "LimitType" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_backend_api_request() :: %{
+        optional("ResourceConfig") => backend_api_resource_config(),
+        required("ResourceName") => String.t() | atom()
+      }
+
+  """
+  @type update_backend_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_backend_api_response() :: %{
+        "AppId" => String.t() | atom(),
+        "BackendEnvironmentName" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type update_backend_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_backend_auth_forgot_password_config() :: %{
+        "DeliveryMethod" => list(any()),
+        "EmailSettings" => email_settings(),
+        "SmsSettings" => sms_settings()
+      }
+
+  """
+  @type update_backend_auth_forgot_password_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_backend_auth_identity_pool_config() :: %{
+        "UnauthenticatedLogin" => boolean()
+      }
+
+  """
+  @type update_backend_auth_identity_pool_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_backend_auth_mfa_config() :: %{
+        "MFAMode" => list(any()),
+        "Settings" => settings()
+      }
+
+  """
+  @type update_backend_auth_mfa_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_backend_auth_o_auth_config() :: %{
+        "DomainPrefix" => String.t() | atom(),
+        "OAuthGrantType" => list(any()),
+        "OAuthScopes" => list(list(any())()),
+        "RedirectSignInURIs" => list(String.t() | atom()),
+        "RedirectSignOutURIs" => list(String.t() | atom()),
+        "SocialProviderSettings" => social_provider_settings()
+      }
+
+  """
+  @type update_backend_auth_o_auth_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_backend_auth_password_policy_config() :: %{
+        "AdditionalConstraints" => list(list(any())()),
+        "MinimumLength" => float()
+      }
+
+  """
+  @type update_backend_auth_password_policy_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_backend_auth_request() :: %{
+        required("ResourceConfig") => update_backend_auth_resource_config(),
+        required("ResourceName") => String.t() | atom()
+      }
+
+  """
+  @type update_backend_auth_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_backend_auth_resource_config() :: %{
+        "AuthResources" => list(any()),
+        "IdentityPoolConfigs" => update_backend_auth_identity_pool_config(),
+        "Service" => list(any()),
+        "UserPoolConfigs" => update_backend_auth_user_pool_config()
+      }
+
+  """
+  @type update_backend_auth_resource_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -460,153 +1218,14 @@ defmodule AWS.AmplifyBackend do
 
   ## Example:
 
-      get_backend_auth_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "Error" => String.t() | atom(),
-        "ResourceConfig" => create_backend_auth_resource_config(),
-        "ResourceName" => String.t() | atom()
+      update_backend_auth_verification_message_config() :: %{
+        "DeliveryMethod" => list(any()),
+        "EmailSettings" => email_settings(),
+        "SmsSettings" => sms_settings()
       }
 
   """
-  @type get_backend_auth_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_auth_resource_config() :: %{
-        "AuthResources" => list(any()),
-        "IdentityPoolConfigs" => update_backend_auth_identity_pool_config(),
-        "Service" => list(any()),
-        "UserPoolConfigs" => update_backend_auth_user_pool_config()
-      }
-
-  """
-  @type update_backend_auth_resource_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_backend_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "Error" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Operation" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type delete_backend_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_auth_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "Error" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Operation" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type create_backend_auth_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_all_backends_request() :: %{
-        optional("CleanAmplifyApp") => boolean()
-      }
-
-  """
-  @type remove_all_backends_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_timeout_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type gateway_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_token_request() :: %{}
-
-  """
-  @type create_token_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      backend_api_auth_type() :: %{
-        "Mode" => list(any()),
-        "Settings" => backend_api_app_sync_auth_settings()
-      }
-
-  """
-  @type backend_api_auth_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_auth_user_pool_config() :: %{
-        "ForgotPassword" => create_backend_auth_forgot_password_config(),
-        "Mfa" => create_backend_auth_mfa_config(),
-        "OAuth" => create_backend_auth_o_auth_config(),
-        "PasswordPolicy" => create_backend_auth_password_policy_config(),
-        "RequiredSignUpAttributes" => list(list(any())()),
-        "SignInMethod" => list(any()),
-        "UserPoolName" => String.t() | atom(),
-        "VerificationMessage" => create_backend_auth_verification_message_config()
-      }
-
-  """
-  @type create_backend_auth_user_pool_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      login_auth_config_req_obj() :: %{
-        "AwsCognitoIdentityPoolId" => String.t() | atom(),
-        "AwsCognitoRegion" => String.t() | atom(),
-        "AwsUserPoolsId" => String.t() | atom(),
-        "AwsUserPoolsWebClientId" => String.t() | atom()
-      }
-
-  """
-  @type login_auth_config_req_obj() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "Error" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Operation" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type create_backend_response() :: %{(String.t() | atom()) => any()}
+  @type update_backend_auth_verification_message_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -618,554 +1237,6 @@ defmodule AWS.AmplifyBackend do
 
   """
   @type update_backend_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backend_api_resource_config() :: %{
-        "AdditionalAuthTypes" => list(backend_api_auth_type()),
-        "ApiName" => String.t() | atom(),
-        "ConflictResolution" => backend_api_conflict_resolution(),
-        "DefaultAuthType" => backend_api_auth_type(),
-        "Service" => String.t() | atom(),
-        "TransformSchema" => String.t() | atom()
-      }
-
-  """
-  @type backend_api_resource_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_response() :: %{
-        "AmplifyFeatureFlags" => String.t() | atom(),
-        "AmplifyMetaConfig" => String.t() | atom(),
-        "AppId" => String.t() | atom(),
-        "AppName" => String.t() | atom(),
-        "BackendEnvironmentList" => list(String.t() | atom()),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "Error" => String.t() | atom()
-      }
-
-  """
-  @type get_backend_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_backend_storage_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type delete_backend_storage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_all_backends_response() :: %{
-        "AppId" => String.t() | atom(),
-        "Error" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Operation" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type remove_all_backends_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_storage_request() :: %{
-        required("ResourceName") => String.t() | atom()
-      }
-
-  """
-  @type get_backend_storage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_backend_config_response() :: %{
-        "Error" => String.t() | atom()
-      }
-
-  """
-  @type remove_backend_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backend_jobs_response() :: %{
-        "Jobs" => list(backend_job_resp_obj()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_backend_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_backend_storage_request() :: %{
-        optional("BucketName") => String.t() | atom(),
-        required("ServiceName") => list(any())
-      }
-
-  """
-  @type import_backend_storage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      clone_backend_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "Error" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Operation" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type clone_backend_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_auth_request() :: %{
-        required("ResourceName") => String.t() | atom()
-      }
-
-  """
-  @type get_backend_auth_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_bucket_info() :: %{
-        "CreationDate" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type s3_bucket_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_request() :: %{
-        optional("BackendEnvironmentName") => String.t() | atom()
-      }
-
-  """
-  @type get_backend_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_auth_o_auth_config() :: %{
-        "DomainPrefix" => String.t() | atom(),
-        "OAuthGrantType" => list(any()),
-        "OAuthScopes" => list(list(any())()),
-        "RedirectSignInURIs" => list(String.t() | atom()),
-        "RedirectSignOutURIs" => list(String.t() | atom()),
-        "SocialProviderSettings" => social_provider_settings()
-      }
-
-  """
-  @type update_backend_auth_o_auth_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_backend_api_models_request() :: %{
-        required("ResourceName") => String.t() | atom()
-      }
-
-  """
-  @type generate_backend_api_models_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_backend_auth_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "Error" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Operation" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type delete_backend_auth_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sms_settings() :: %{
-        "SmsMessage" => String.t() | atom()
-      }
-
-  """
-  @type sms_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_api_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "Error" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Operation" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type update_backend_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_backend_storage_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type import_backend_storage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_auth_identity_pool_config() :: %{
-        "UnauthenticatedLogin" => boolean()
-      }
-
-  """
-  @type update_backend_auth_identity_pool_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backend_storage_permissions() :: %{
-        "Authenticated" => list(list(any())()),
-        "UnAuthenticated" => list(list(any())())
-      }
-
-  """
-  @type backend_storage_permissions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backend_api_app_sync_auth_settings() :: %{
-        "CognitoUserPoolId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "ExpirationTime" => float(),
-        "OpenIDAuthTTL" => String.t() | atom(),
-        "OpenIDClientId" => String.t() | atom(),
-        "OpenIDIatTTL" => String.t() | atom(),
-        "OpenIDIssueURL" => String.t() | atom(),
-        "OpenIDProviderName" => String.t() | atom()
-      }
-
-  """
-  @type backend_api_app_sync_auth_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_api_request() :: %{
-        optional("ResourceConfig") => backend_api_resource_config(),
-        required("ResourceName") => String.t() | atom()
-      }
-
-  """
-  @type update_backend_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_api_models_response() :: %{
-        "ModelIntrospectionSchema" => String.t() | atom(),
-        "Models" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type get_backend_api_models_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_auth_mfa_config() :: %{
-        "MFAMode" => list(any()),
-        "Settings" => settings()
-      }
-
-  """
-  @type create_backend_auth_mfa_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_backend_auth_request() :: %{
-        optional("IdentityPoolId") => String.t() | atom(),
-        required("NativeClientId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom(),
-        required("WebClientId") => String.t() | atom()
-      }
-
-  """
-  @type import_backend_auth_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backend_auth_apple_provider_config() :: %{
-        "ClientId" => String.t() | atom(),
-        "KeyId" => String.t() | atom(),
-        "PrivateKey" => String.t() | atom(),
-        "TeamId" => String.t() | atom()
-      }
-
-  """
-  @type backend_auth_apple_provider_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_storage_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type update_backend_storage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_storage_resource_config() :: %{
-        "BucketName" => String.t() | atom(),
-        "Imported" => boolean(),
-        "Permissions" => backend_storage_permissions(),
-        "ServiceName" => list(any())
-      }
-
-  """
-  @type get_backend_storage_resource_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_backend_auth_request() :: %{
-        required("ResourceName") => String.t() | atom()
-      }
-
-  """
-  @type delete_backend_auth_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_auth_request() :: %{
-        required("BackendEnvironmentName") => String.t() | atom(),
-        required("ResourceConfig") => create_backend_auth_resource_config(),
-        required("ResourceName") => String.t() | atom()
-      }
-
-  """
-  @type create_backend_auth_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_settings() :: %{
-        "EmailMessage" => String.t() | atom(),
-        "EmailSubject" => String.t() | atom()
-      }
-
-  """
-  @type email_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_request() :: %{
-        optional("ResourceConfig") => resource_config(),
-        optional("ResourceName") => String.t() | atom(),
-        required("AppId") => String.t() | atom(),
-        required("AppName") => String.t() | atom(),
-        required("BackendEnvironmentName") => String.t() | atom()
-      }
-
-  """
-  @type create_backend_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_token_response() :: %{
-        "IsSuccess" => boolean()
-      }
-
-  """
-  @type delete_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_auth_forgot_password_config() :: %{
-        "DeliveryMethod" => list(any()),
-        "EmailSettings" => email_settings(),
-        "SmsSettings" => sms_settings()
-      }
-
-  """
-  @type create_backend_auth_forgot_password_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backend_api_conflict_resolution() :: %{
-        "ResolutionStrategy" => list(any())
-      }
-
-  """
-  @type backend_api_conflict_resolution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_config() :: %{}
-
-  """
-  @type resource_config() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_backend_api_request() :: %{
-        optional("ResourceConfig") => backend_api_resource_config(),
-        required("ResourceName") => String.t() | atom()
-      }
-
-  """
-  @type delete_backend_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_storage_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type create_backend_storage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_backend_api_models_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "Error" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Operation" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type generate_backend_api_models_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_storage_resource_config() :: %{
-        "Permissions" => backend_storage_permissions(),
-        "ServiceName" => list(any())
-      }
-
-  """
-  @type update_backend_storage_resource_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1185,14 +1256,13 @@ defmodule AWS.AmplifyBackend do
 
   ## Example:
 
-      update_backend_auth_verification_message_config() :: %{
-        "DeliveryMethod" => list(any()),
-        "EmailSettings" => email_settings(),
-        "SmsSettings" => sms_settings()
+      update_backend_job_request() :: %{
+        optional("Operation") => String.t() | atom(),
+        optional("Status") => String.t() | atom()
       }
 
   """
-  @type update_backend_auth_verification_message_config() :: %{(String.t() | atom()) => any()}
+  @type update_backend_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1216,101 +1286,31 @@ defmodule AWS.AmplifyBackend do
 
   ## Example:
 
-      create_backend_config_request() :: %{
-        optional("BackendManagerAppId") => String.t() | atom()
-      }
-
-  """
-  @type create_backend_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_auth_password_policy_config() :: %{
-        "AdditionalConstraints" => list(list(any())()),
-        "MinimumLength" => float()
-      }
-
-  """
-  @type update_backend_auth_password_policy_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_s3_buckets_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_s3_buckets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backend_auth_social_provider_config() :: %{
-        "ClientId" => String.t() | atom(),
-        "ClientSecret" => String.t() | atom()
-      }
-
-  """
-  @type backend_auth_social_provider_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_job_response() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "CreateTime" => String.t() | atom(),
-        "Error" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Operation" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "UpdateTime" => String.t() | atom()
-      }
-
-  """
-  @type get_backend_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backend_job_resp_obj() :: %{
-        "AppId" => String.t() | atom(),
-        "BackendEnvironmentName" => String.t() | atom(),
-        "CreateTime" => String.t() | atom(),
-        "Error" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Operation" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "UpdateTime" => String.t() | atom()
-      }
-
-  """
-  @type backend_job_resp_obj() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backend_auth_request() :: %{
-        required("ResourceConfig") => update_backend_auth_resource_config(),
+      update_backend_storage_request() :: %{
+        required("ResourceConfig") => update_backend_storage_resource_config(),
         required("ResourceName") => String.t() | atom()
       }
 
   """
-  @type update_backend_auth_request() :: %{(String.t() | atom()) => any()}
+  @type update_backend_storage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_backend_config_response() :: %{
+      update_backend_storage_resource_config() :: %{
+        "Permissions" => backend_storage_permissions(),
+        "ServiceName" => list(any())
+      }
+
+  """
+  @type update_backend_storage_resource_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_backend_storage_response() :: %{
         "AppId" => String.t() | atom(),
         "BackendEnvironmentName" => String.t() | atom(),
         "JobId" => String.t() | atom(),
@@ -1318,193 +1318,193 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type create_backend_config_response() :: %{(String.t() | atom()) => any()}
+  @type update_backend_storage_response() :: %{(String.t() | atom()) => any()}
 
   @type clone_backend_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type create_backend_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type create_backend_api_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type create_backend_auth_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type create_backend_config_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type create_backend_storage_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type create_token_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type delete_backend_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type delete_backend_api_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type delete_backend_auth_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type delete_backend_storage_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type delete_token_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type generate_backend_api_models_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type get_backend_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type get_backend_api_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type get_backend_api_models_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type get_backend_auth_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type get_backend_job_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type get_backend_storage_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type get_token_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type import_backend_auth_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type import_backend_storage_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type list_backend_jobs_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type list_s3_buckets_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type remove_all_backends_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type remove_backend_config_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type update_backend_api_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type update_backend_auth_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type update_backend_config_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type update_backend_job_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   @type update_backend_storage_errors() ::
-          bad_request_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | gateway_timeout_exception()
-          | too_many_requests_exception()
+          | bad_request_exception()
 
   def metadata do
     %{

@@ -466,8 +466,8 @@ defmodule AWS.LambdaCore do
     query_params = []
 
     query_params =
-      if !is_nil(state) do
-        [{"State", state} | query_params]
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
       else
         query_params
       end
@@ -480,8 +480,8 @@ defmodule AWS.LambdaCore do
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if !is_nil(state) do
+        [{"State", state} | query_params]
       else
         query_params
       end

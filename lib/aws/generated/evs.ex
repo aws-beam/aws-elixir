@@ -19,190 +19,72 @@ defmodule AWS.Evs do
 
   ## Example:
       
-      environment_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "environmentArn" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "environmentName" => String.t() | atom(),
-        "environmentState" => list(any()),
-        "environmentStatus" => list(any()),
-        "modifiedAt" => [non_neg_integer()],
-        "vcfVersion" => list(any())
-      }
-      
-  """
-  @type environment_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      initial_vlans() :: %{
-        "edgeVTep" => initial_vlan_info(),
-        "expansionVlan1" => initial_vlan_info(),
-        "expansionVlan2" => initial_vlan_info(),
-        "hcx" => initial_vlan_info(),
-        "hcxNetworkAclId" => String.t() | atom(),
-        "isHcxPublic" => [boolean()],
-        "nsxUplink" => initial_vlan_info(),
-        "vMotion" => initial_vlan_info(),
-        "vSan" => initial_vlan_info(),
-        "vTep" => initial_vlan_info(),
-        "vmManagement" => initial_vlan_info(),
-        "vmkManagement" => initial_vlan_info()
-      }
-      
-  """
-  @type initial_vlans() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_environment_connector_response() :: %{
-        "connector" => connector()
-      }
-      
-  """
-  @type update_environment_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      initial_vlan_info() :: %{
-        "cidr" => String.t() | atom()
-      }
-      
-  """
-  @type initial_vlan_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_environment_connectors_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_environment_connectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_environment_connector_request() :: %{
-        optional("applianceFqdn") => String.t() | atom(),
+      associate_eip_to_vlan_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        optional("secretIdentifier") => String.t() | atom()
+        required("allocationId") => String.t() | atom(),
+        required("environmentId") => String.t() | atom(),
+        required("vlanName") => [String.t() | atom()]
       }
       
   """
-  @type update_environment_connector_request() :: %{(String.t() | atom()) => any()}
+  @type associate_eip_to_vlan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_environment_response() :: %{
-        "environment" => environment()
-      }
-      
-  """
-  @type get_environment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_depot_url_response() :: %{
-        "depotUrl" => [String.t() | atom()],
-        "token" => [String.t() | atom()]
-      }
-      
-  """
-  @type get_depot_url_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_environment_connector_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("applianceFqdn") => String.t() | atom(),
-        required("secretIdentifier") => String.t() | atom(),
-        required("type") => list(any())
-      }
-      
-  """
-  @type create_environment_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_eip_from_vlan_response() :: %{
+      associate_eip_to_vlan_response() :: %{
         "vlan" => vlan()
       }
       
   """
-  @type disassociate_eip_from_vlan_response() :: %{(String.t() | atom()) => any()}
+  @type associate_eip_to_vlan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_environment_response() :: %{
-        "environment" => environment()
+      check() :: %{
+        "id" => [String.t() | atom()],
+        "impairedSince" => [non_neg_integer()],
+        "result" => list(any()),
+        "type" => list(any())
       }
       
   """
-  @type create_environment_response() :: %{(String.t() | atom()) => any()}
+  @type check() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      vm_entitlement() :: %{
+      connectivity_info() :: %{
+        "privateRouteServerPeerings" => list(String.t() | atom())
+      }
+      
+  """
+  @type connectivity_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector() :: %{
+        "applianceFqdn" => String.t() | atom(),
+        "checks" => list(connector_check()),
         "connectorId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
         "environmentId" => String.t() | atom(),
-        "errorDetail" => error_detail(),
-        "lastSyncedAt" => [non_neg_integer()],
-        "startedAt" => [non_neg_integer()],
+        "modifiedAt" => [non_neg_integer()],
+        "secretArn" => String.t() | atom(),
+        "state" => list(any()),
+        "stateDetails" => String.t() | atom(),
         "status" => list(any()),
-        "stoppedAt" => [non_neg_integer()],
-        "type" => list(any()),
-        "vmId" => String.t() | atom(),
-        "vmName" => String.t() | atom()
+        "type" => list(any())
       }
       
   """
-  @type vm_entitlement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_environment_connector_response() :: %{
-        "connector" => connector()
-      }
-      
-  """
-  @type create_environment_connector_response() :: %{(String.t() | atom()) => any()}
+  @type connector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -222,49 +104,176 @@ defmodule AWS.Evs do
 
   ## Example:
       
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
+      create_entitlement_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("connectorId") => String.t() | atom(),
+        required("entitlementType") => list(any()),
+        required("environmentId") => String.t() | atom(),
+        required("vmIds") => list(String.t() | atom())
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type create_entitlement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      service_access_security_groups() :: %{
-        "securityGroups" => list(String.t() | atom())
+      create_entitlement_response() :: %{
+        "entitlements" => list(vm_entitlement())
       }
       
   """
-  @type service_access_security_groups() :: %{(String.t() | atom()) => any()}
+  @type create_entitlement_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_environments_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("state") => list(list(any())())
+      create_environment_connector_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("applianceFqdn") => String.t() | atom(),
+        required("secretIdentifier") => String.t() | atom(),
+        required("type") => list(any())
       }
       
   """
-  @type list_environments_request() :: %{(String.t() | atom()) => any()}
+  @type create_environment_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      connectivity_info() :: %{
-        "privateRouteServerPeerings" => list(String.t() | atom())
+      create_environment_connector_response() :: %{
+        "connector" => connector()
       }
       
   """
-  @type connectivity_info() :: %{(String.t() | atom()) => any()}
+  @type create_environment_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_environment_host_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("esxVersion") => String.t() | atom(),
+        required("environmentId") => String.t() | atom(),
+        required("host") => host_info_for_create()
+      }
+      
+  """
+  @type create_environment_host_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_environment_host_response() :: %{
+        "environmentSummary" => environment_summary(),
+        "host" => host()
+      }
+      
+  """
+  @type create_environment_host_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_environment_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("connectivityInfo") => connectivity_info(),
+        optional("environmentName") => String.t() | atom(),
+        optional("hosts") => list(host_info_for_create()),
+        optional("kmsKeyId") => [String.t() | atom()],
+        optional("licenseInfo") => list(license_info()),
+        optional("serviceAccessSecurityGroups") => service_access_security_groups(),
+        optional("siteId") => [String.t() | atom()],
+        optional("tags") => map(),
+        optional("vcfHostnames") => vcf_hostnames(),
+        required("initialVlans") => initial_vlans(),
+        required("serviceAccessSubnetId") => String.t() | atom(),
+        required("termsAccepted") => [boolean()],
+        required("vcfVersion") => list(any()),
+        required("vpcId") => String.t() | atom()
+      }
+      
+  """
+  @type create_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_environment_response() :: %{
+        "environment" => environment()
+      }
+      
+  """
+  @type create_environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_entitlement_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("connectorId") => String.t() | atom(),
+        required("entitlementType") => list(any()),
+        required("environmentId") => String.t() | atom(),
+        required("vmIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_entitlement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_entitlement_response() :: %{
+        "entitlements" => list(vm_entitlement())
+      }
+      
+  """
+  @type delete_entitlement_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_environment_connector_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+      
+  """
+  @type delete_environment_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_environment_connector_response() :: %{
+        "connector" => connector(),
+        "environmentSummary" => environment_summary()
+      }
+      
+  """
+  @type delete_environment_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_environment_host_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("environmentId") => String.t() | atom(),
+        required("hostName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_environment_host_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -282,12 +291,48 @@ defmodule AWS.Evs do
 
   ## Example:
       
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
+      delete_environment_request() :: %{
+        optional("clientToken") => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_environment_response() :: %{
+        "environment" => environment()
+      }
+      
+  """
+  @type delete_environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_eip_from_vlan_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("associationId") => String.t() | atom(),
+        required("environmentId") => String.t() | atom(),
+        required("vlanName") => [String.t() | atom()]
+      }
+      
+  """
+  @type disassociate_eip_from_vlan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_eip_from_vlan_response() :: %{
+        "vlan" => vlan()
+      }
+      
+  """
+  @type disassociate_eip_from_vlan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,91 +346,6 @@ defmodule AWS.Evs do
       
   """
   @type eip_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      network_interface() :: %{
-        "networkInterfaceId" => String.t() | atom()
-      }
-      
-  """
-  @type network_interface() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => map()
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_environment_request() :: %{}
-      
-  """
-  @type get_environment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_eip_to_vlan_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("allocationId") => String.t() | atom(),
-        required("environmentId") => String.t() | atom(),
-        required("vlanName") => [String.t() | atom()]
-      }
-      
-  """
-  @type associate_eip_to_vlan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_environment_hosts_response() :: %{
-        "environmentHosts" => list(host()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_environment_hosts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      check() :: %{
-        "id" => [String.t() | atom()],
-        "impairedSince" => [non_neg_integer()],
-        "result" => list(any()),
-        "type" => list(any())
-      }
-      
-  """
-  @type check() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -421,190 +381,19 @@ defmodule AWS.Evs do
 
   ## Example:
       
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_environment_response() :: %{
-        "environment" => environment()
+      environment_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "environmentArn" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "environmentName" => String.t() | atom(),
+        "environmentState" => list(any()),
+        "environmentStatus" => list(any()),
+        "modifiedAt" => [non_neg_integer()],
+        "vcfVersion" => list(any())
       }
       
   """
-  @type delete_environment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_environment_vlans_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_environment_vlans_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_environment_host_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("environmentId") => String.t() | atom(),
-        required("hostName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_environment_host_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_entitlement_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("connectorId") => String.t() | atom(),
-        required("entitlementType") => list(any()),
-        required("environmentId") => String.t() | atom(),
-        required("vmIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_entitlement_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_entitlement_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("connectorId") => String.t() | atom(),
-        required("entitlementType") => list(any()),
-        required("environmentId") => String.t() | atom(),
-        required("vmIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type delete_entitlement_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_vm_entitlements_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("connectorId") => String.t() | atom(),
-        required("entitlementType") => list(any()),
-        required("environmentId") => String.t() | atom()
-      }
-      
-  """
-  @type list_vm_entitlements_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_environment_vlans_response() :: %{
-        "environmentVlans" => list(vlan()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_environment_vlans_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vcf_hostnames() :: %{
-        "cloudBuilder" => String.t() | atom(),
-        "nsx" => String.t() | atom(),
-        "nsxEdge1" => String.t() | atom(),
-        "nsxEdge2" => String.t() | atom(),
-        "nsxManager1" => String.t() | atom(),
-        "nsxManager2" => String.t() | atom(),
-        "nsxManager3" => String.t() | atom(),
-        "sddcManager" => String.t() | atom(),
-        "vCenter" => String.t() | atom()
-      }
-      
-  """
-  @type vcf_hostnames() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_versions_request() :: %{}
-      
-  """
-  @type get_versions_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-      
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_environment_host_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("esxVersion") => String.t() | atom(),
-        required("environmentId") => String.t() | atom(),
-        required("host") => host_info_for_create()
-      }
-      
-  """
-  @type create_environment_host_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_environment_hosts_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_environment_hosts_request() :: %{(String.t() | atom()) => any()}
+  @type environment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -622,62 +411,6 @@ defmodule AWS.Evs do
 
   ## Example:
       
-      create_entitlement_response() :: %{
-        "entitlements" => list(vm_entitlement())
-      }
-      
-  """
-  @type create_entitlement_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_tags_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      secret() :: %{
-        "secretArn" => [String.t() | atom()]
-      }
-      
-  """
-  @type secret() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_environments_response() :: %{
-        "environmentSummaries" => list(environment_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_environments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       get_depot_url_request() :: %{
         optional("rotate") => [boolean()]
       }
@@ -689,13 +422,42 @@ defmodule AWS.Evs do
 
   ## Example:
       
-      list_vm_entitlements_response() :: %{
-        "entitlements" => list(vm_entitlement()),
-        "nextToken" => String.t() | atom()
+      get_depot_url_response() :: %{
+        "depotUrl" => [String.t() | atom()],
+        "token" => [String.t() | atom()]
       }
       
   """
-  @type list_vm_entitlements_response() :: %{(String.t() | atom()) => any()}
+  @type get_depot_url_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_environment_request() :: %{}
+      
+  """
+  @type get_environment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_environment_response() :: %{
+        "environment" => environment()
+      }
+      
+  """
+  @type get_environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_versions_request() :: %{}
+      
+  """
+  @type get_versions_request() :: %{}
 
   @typedoc """
 
@@ -708,229 +470,6 @@ defmodule AWS.Evs do
       
   """
   @type get_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_environment_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-      
-  """
-  @type delete_environment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_environment_host_response() :: %{
-        "environmentSummary" => environment_summary(),
-        "host" => host()
-      }
-      
-  """
-  @type create_environment_host_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      license_info() :: %{
-        "solutionKey" => String.t() | atom(),
-        "vsanKey" => String.t() | atom()
-      }
-      
-  """
-  @type license_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_policy_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type tag_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      host_info_for_create() :: %{
-        "dedicatedHostId" => String.t() | atom(),
-        "hostName" => String.t() | atom(),
-        "instanceType" => list(any()),
-        "keyName" => String.t() | atom(),
-        "placementGroupId" => String.t() | atom()
-      }
-      
-  """
-  @type host_info_for_create() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vcf_version_info() :: %{
-        "defaultEsxVersion" => [String.t() | atom()],
-        "instanceTypes" => list(list(any())()),
-        "status" => [String.t() | atom()],
-        "vcfVersion" => list(any())
-      }
-      
-  """
-  @type vcf_version_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_environment_connector_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-      
-  """
-  @type delete_environment_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_eip_to_vlan_response() :: %{
-        "vlan" => vlan()
-      }
-      
-  """
-  @type associate_eip_to_vlan_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_environment_connector_response() :: %{
-        "connector" => connector(),
-        "environmentSummary" => environment_summary()
-      }
-      
-  """
-  @type delete_environment_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vlan() :: %{
-        "availabilityZone" => [String.t() | atom()],
-        "cidr" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "eipAssociations" => list(eip_association()),
-        "functionName" => [String.t() | atom()],
-        "isPublic" => [boolean()],
-        "modifiedAt" => [non_neg_integer()],
-        "networkAclId" => String.t() | atom(),
-        "stateDetails" => String.t() | atom(),
-        "subnetId" => String.t() | atom(),
-        "vlanId" => integer(),
-        "vlanState" => list(any())
-      }
-      
-  """
-  @type vlan() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_entitlement_response() :: %{
-        "entitlements" => list(vm_entitlement())
-      }
-      
-  """
-  @type delete_entitlement_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_eip_from_vlan_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("associationId") => String.t() | atom(),
-        required("environmentId") => String.t() | atom(),
-        required("vlanName") => [String.t() | atom()]
-      }
-      
-  """
-  @type disassociate_eip_from_vlan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      instance_type_esx_versions_info() :: %{
-        "esxVersions" => list([String.t() | atom()]()),
-        "instanceType" => list(any())
-      }
-      
-  """
-  @type instance_type_esx_versions_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connector() :: %{
-        "applianceFqdn" => String.t() | atom(),
-        "checks" => list(connector_check()),
-        "connectorId" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "environmentId" => String.t() | atom(),
-        "modifiedAt" => [non_neg_integer()],
-        "secretArn" => String.t() | atom(),
-        "state" => list(any()),
-        "stateDetails" => String.t() | atom(),
-        "status" => list(any()),
-        "type" => list(any())
-      }
-      
-  """
-  @type connector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_environment_connectors_response() :: %{
-        "connectors" => list(connector()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_environment_connectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -958,84 +497,545 @@ defmodule AWS.Evs do
 
   ## Example:
       
-      create_environment_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("connectivityInfo") => connectivity_info(),
-        optional("environmentName") => String.t() | atom(),
-        optional("hosts") => list(host_info_for_create()),
-        optional("kmsKeyId") => [String.t() | atom()],
-        optional("licenseInfo") => list(license_info()),
-        optional("serviceAccessSecurityGroups") => service_access_security_groups(),
-        optional("siteId") => [String.t() | atom()],
-        optional("tags") => map(),
-        optional("vcfHostnames") => vcf_hostnames(),
-        required("initialVlans") => initial_vlans(),
-        required("serviceAccessSubnetId") => String.t() | atom(),
-        required("termsAccepted") => [boolean()],
-        required("vcfVersion") => list(any()),
-        required("vpcId") => String.t() | atom()
+      host_info_for_create() :: %{
+        "dedicatedHostId" => String.t() | atom(),
+        "hostName" => String.t() | atom(),
+        "instanceType" => list(any()),
+        "keyName" => String.t() | atom(),
+        "placementGroupId" => String.t() | atom()
       }
       
   """
-  @type create_environment_request() :: %{(String.t() | atom()) => any()}
+  @type host_info_for_create() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      initial_vlan_info() :: %{
+        "cidr" => String.t() | atom()
+      }
+      
+  """
+  @type initial_vlan_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      initial_vlans() :: %{
+        "edgeVTep" => initial_vlan_info(),
+        "expansionVlan1" => initial_vlan_info(),
+        "expansionVlan2" => initial_vlan_info(),
+        "hcx" => initial_vlan_info(),
+        "hcxNetworkAclId" => String.t() | atom(),
+        "isHcxPublic" => [boolean()],
+        "nsxUplink" => initial_vlan_info(),
+        "vMotion" => initial_vlan_info(),
+        "vSan" => initial_vlan_info(),
+        "vTep" => initial_vlan_info(),
+        "vmManagement" => initial_vlan_info(),
+        "vmkManagement" => initial_vlan_info()
+      }
+      
+  """
+  @type initial_vlans() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_type_esx_versions_info() :: %{
+        "esxVersions" => list([String.t() | atom()]()),
+        "instanceType" => list(any())
+      }
+      
+  """
+  @type instance_type_esx_versions_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      license_info() :: %{
+        "solutionKey" => String.t() | atom(),
+        "vsanKey" => String.t() | atom()
+      }
+      
+  """
+  @type license_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_environment_connectors_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_environment_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_environment_connectors_response() :: %{
+        "connectors" => list(connector()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_environment_connectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_environment_hosts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_environment_hosts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_environment_hosts_response() :: %{
+        "environmentHosts" => list(host()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_environment_hosts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_environment_vlans_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_environment_vlans_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_environment_vlans_response() :: %{
+        "environmentVlans" => list(vlan()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_environment_vlans_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_environments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("state") => list(list(any())())
+      }
+      
+  """
+  @type list_environments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_environments_response() :: %{
+        "environmentSummaries" => list(environment_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_environments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vm_entitlements_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("connectorId") => String.t() | atom(),
+        required("entitlementType") => list(any()),
+        required("environmentId") => String.t() | atom()
+      }
+      
+  """
+  @type list_vm_entitlements_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vm_entitlements_response() :: %{
+        "entitlements" => list(vm_entitlement()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_vm_entitlements_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_interface() :: %{
+        "networkInterfaceId" => String.t() | atom()
+      }
+      
+  """
+  @type network_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      secret() :: %{
+        "secretArn" => [String.t() | atom()]
+      }
+      
+  """
+  @type secret() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_access_security_groups() :: %{
+        "securityGroups" => list(String.t() | atom())
+      }
+      
+  """
+  @type service_access_security_groups() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_policy_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type tag_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => map()
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_tags_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_environment_connector_request() :: %{
+        optional("applianceFqdn") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("secretIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type update_environment_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_environment_connector_response() :: %{
+        "connector" => connector()
+      }
+      
+  """
+  @type update_environment_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+      
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vcf_hostnames() :: %{
+        "cloudBuilder" => String.t() | atom(),
+        "nsx" => String.t() | atom(),
+        "nsxEdge1" => String.t() | atom(),
+        "nsxEdge2" => String.t() | atom(),
+        "nsxManager1" => String.t() | atom(),
+        "nsxManager2" => String.t() | atom(),
+        "nsxManager3" => String.t() | atom(),
+        "sddcManager" => String.t() | atom(),
+        "vCenter" => String.t() | atom()
+      }
+      
+  """
+  @type vcf_hostnames() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vcf_version_info() :: %{
+        "defaultEsxVersion" => [String.t() | atom()],
+        "instanceTypes" => list(list(any())()),
+        "status" => [String.t() | atom()],
+        "vcfVersion" => list(any())
+      }
+      
+  """
+  @type vcf_version_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vlan() :: %{
+        "availabilityZone" => [String.t() | atom()],
+        "cidr" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "eipAssociations" => list(eip_association()),
+        "functionName" => [String.t() | atom()],
+        "isPublic" => [boolean()],
+        "modifiedAt" => [non_neg_integer()],
+        "networkAclId" => String.t() | atom(),
+        "stateDetails" => String.t() | atom(),
+        "subnetId" => String.t() | atom(),
+        "vlanId" => integer(),
+        "vlanState" => list(any())
+      }
+      
+  """
+  @type vlan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vm_entitlement() :: %{
+        "connectorId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "errorDetail" => error_detail(),
+        "lastSyncedAt" => [non_neg_integer()],
+        "startedAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "stoppedAt" => [non_neg_integer()],
+        "type" => list(any()),
+        "vmId" => String.t() | atom(),
+        "vmName" => String.t() | atom()
+      }
+      
+  """
+  @type vm_entitlement() :: %{(String.t() | atom()) => any()}
 
   @type associate_eip_to_vlan_errors() ::
-          resource_not_found_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | resource_not_found_exception()
 
   @type create_entitlement_errors() ::
-          resource_not_found_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | resource_not_found_exception()
 
   @type create_environment_errors() :: validation_exception()
 
   @type create_environment_connector_errors() ::
-          resource_not_found_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | resource_not_found_exception()
 
   @type create_environment_host_errors() :: validation_exception() | throttling_exception()
 
   @type delete_entitlement_errors() ::
-          resource_not_found_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | resource_not_found_exception()
 
-  @type delete_environment_errors() :: resource_not_found_exception() | validation_exception()
+  @type delete_environment_errors() :: validation_exception() | resource_not_found_exception()
 
   @type delete_environment_connector_errors() ::
-          resource_not_found_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | resource_not_found_exception()
 
   @type delete_environment_host_errors() ::
-          resource_not_found_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception()
 
   @type disassociate_eip_from_vlan_errors() ::
-          resource_not_found_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | resource_not_found_exception()
 
   @type get_depot_url_errors() ::
-          resource_not_found_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | resource_not_found_exception()
 
-  @type get_environment_errors() :: resource_not_found_exception() | validation_exception()
+  @type get_environment_errors() :: validation_exception() | resource_not_found_exception()
 
-  @type get_versions_errors() :: internal_server_exception() | throttling_exception()
+  @type get_versions_errors() :: throttling_exception() | internal_server_exception()
 
   @type list_environment_connectors_errors() ::
-          resource_not_found_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception()
 
-  @type list_environment_hosts_errors() :: resource_not_found_exception() | validation_exception()
+  @type list_environment_hosts_errors() :: validation_exception() | resource_not_found_exception()
 
-  @type list_environment_vlans_errors() :: resource_not_found_exception() | validation_exception()
+  @type list_environment_vlans_errors() :: validation_exception() | resource_not_found_exception()
 
   @type list_environments_errors() :: validation_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
-  @type list_vm_entitlements_errors() :: resource_not_found_exception() | validation_exception()
+  @type list_vm_entitlements_errors() :: validation_exception() | resource_not_found_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
+          too_many_tags_exception()
           | tag_policy_exception()
-          | too_many_tags_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
   @type untag_resource_errors() :: tag_policy_exception() | resource_not_found_exception()
 
   @type update_environment_connector_errors() ::
-          resource_not_found_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | resource_not_found_exception()
 
   def metadata do
     %{

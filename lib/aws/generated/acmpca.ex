@@ -36,154 +36,62 @@ defmodule AWS.ACMPCA do
 
   ## Example:
       
-      certificate_authority_configuration() :: %{
-        "CsrExtensions" => csr_extensions(),
-        "KeyAlgorithm" => list(any()),
-        "SigningAlgorithm" => list(any()),
+      a_s_n1_subject() :: %{
+        "CommonName" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "CustomAttributes" => list(custom_attribute()),
+        "DistinguishedNameQualifier" => String.t() | atom(),
+        "GenerationQualifier" => String.t() | atom(),
+        "GivenName" => String.t() | atom(),
+        "Initials" => String.t() | atom(),
+        "Locality" => String.t() | atom(),
+        "Organization" => String.t() | atom(),
+        "OrganizationalUnit" => String.t() | atom(),
+        "Pseudonym" => String.t() | atom(),
+        "SerialNumber" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "Surname" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+      
+  """
+  @type a_s_n1_subject() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_description() :: %{
+        "AccessLocation" => general_name(),
+        "AccessMethod" => access_method()
+      }
+      
+  """
+  @type access_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_method() :: %{
+        "AccessMethodType" => list(any()),
+        "CustomObjectIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type access_method() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      api_passthrough() :: %{
+        "Extensions" => extensions(),
         "Subject" => a_s_n1_subject()
       }
       
   """
-  @type certificate_authority_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      edi_party_name() :: %{
-        "NameAssigner" => String.t() | atom(),
-        "PartyName" => String.t() | atom()
-      }
-      
-  """
-  @type edi_party_name() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_certificate_authority_csr_request() :: %{
-        required("CertificateAuthorityArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_certificate_authority_csr_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_extension() :: %{
-        "Critical" => boolean(),
-        "ObjectIdentifier" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type custom_extension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_certificate_response() :: %{
-        "Certificate" => String.t() | atom(),
-        "CertificateChain" => String.t() | atom()
-      }
-      
-  """
-  @type get_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_qualifier_info() :: %{
-        "PolicyQualifierId" => list(any()),
-        "Qualifier" => qualifier()
-      }
-      
-  """
-  @type policy_qualifier_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      malformed_c_s_r_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type malformed_c_s_r_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      concurrent_modification_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_mismatch_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type certificate_mismatch_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_failed_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type request_failed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_policy_request() :: %{
-        required("Policy") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_args_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_args_exception() :: %{(String.t() | atom()) => any()}
+  @type api_passthrough() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -214,47 +122,62 @@ defmodule AWS.ACMPCA do
 
   ## Example:
       
-      limit_exceeded_exception() :: %{
+      certificate_authority_configuration() :: %{
+        "CsrExtensions" => csr_extensions(),
+        "KeyAlgorithm" => list(any()),
+        "SigningAlgorithm" => list(any()),
+        "Subject" => a_s_n1_subject()
+      }
+      
+  """
+  @type certificate_authority_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificate_mismatch_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type certificate_mismatch_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      csr_extensions() :: %{
-        "KeyUsage" => key_usage(),
-        "SubjectInformationAccess" => list(access_description())
+      concurrent_modification_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type csr_extensions() :: %{(String.t() | atom()) => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_policy_response() :: %{
-        "Policy" => String.t() | atom()
+      create_certificate_authority_audit_report_request() :: %{
+        required("AuditReportResponseFormat") => list(any()),
+        required("CertificateAuthorityArn") => String.t() | atom(),
+        required("S3BucketName") => String.t() | atom()
       }
       
   """
-  @type get_policy_response() :: %{(String.t() | atom()) => any()}
+  @type create_certificate_authority_audit_report_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_permissions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Permissions" => list(permission())
+      create_certificate_authority_audit_report_response() :: %{
+        "AuditReportId" => String.t() | atom(),
+        "S3Key" => String.t() | atom()
       }
       
   """
-  @type list_permissions_response() :: %{(String.t() | atom()) => any()}
+  @type create_certificate_authority_audit_report_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -277,6 +200,97 @@ defmodule AWS.ACMPCA do
 
   ## Example:
       
+      create_certificate_authority_response() :: %{
+        "CertificateAuthorityArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_certificate_authority_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_permission_request() :: %{
+        optional("SourceAccount") => String.t() | atom(),
+        required("Actions") => list(list(any())()),
+        required("CertificateAuthorityArn") => String.t() | atom(),
+        required("Principal") => String.t() | atom()
+      }
+      
+  """
+  @type create_permission_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crl_configuration() :: %{
+        "CrlDistributionPointExtensionConfiguration" => crl_distribution_point_extension_configuration(),
+        "CrlType" => list(any()),
+        "CustomCname" => String.t() | atom(),
+        "CustomPath" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "ExpirationInDays" => integer(),
+        "S3BucketName" => String.t() | atom(),
+        "S3ObjectAcl" => list(any())
+      }
+      
+  """
+  @type crl_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crl_distribution_point_extension_configuration() :: %{
+        "OmitExtension" => boolean()
+      }
+      
+  """
+  @type crl_distribution_point_extension_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      csr_extensions() :: %{
+        "KeyUsage" => key_usage(),
+        "SubjectInformationAccess" => list(access_description())
+      }
+      
+  """
+  @type csr_extensions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_attribute() :: %{
+        "ObjectIdentifier" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type custom_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_extension() :: %{
+        "Critical" => boolean(),
+        "ObjectIdentifier" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type custom_extension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_certificate_authority_request() :: %{
         optional("PermanentDeletionTimeInDays") => integer(),
         required("CertificateAuthorityArn") => String.t() | atom()
@@ -289,13 +303,37 @@ defmodule AWS.ACMPCA do
 
   ## Example:
       
-      tag_certificate_authority_request() :: %{
+      delete_permission_request() :: %{
+        optional("SourceAccount") => String.t() | atom(),
         required("CertificateAuthorityArn") => String.t() | atom(),
-        required("Tags") => list(tag())
+        required("Principal") => String.t() | atom()
       }
       
   """
-  @type tag_certificate_authority_request() :: %{(String.t() | atom()) => any()}
+  @type delete_permission_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_certificate_authority_audit_report_request() :: %{
+        required("AuditReportId") => String.t() | atom(),
+        required("CertificateAuthorityArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_certificate_authority_audit_report_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -312,6 +350,338 @@ defmodule AWS.ACMPCA do
   @type describe_certificate_authority_audit_report_response() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_certificate_authority_request() :: %{
+        required("CertificateAuthorityArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_certificate_authority_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_certificate_authority_response() :: %{
+        "CertificateAuthority" => certificate_authority()
+      }
+      
+  """
+  @type describe_certificate_authority_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      edi_party_name() :: %{
+        "NameAssigner" => String.t() | atom(),
+        "PartyName" => String.t() | atom()
+      }
+      
+  """
+  @type edi_party_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extended_key_usage() :: %{
+        "ExtendedKeyUsageObjectIdentifier" => String.t() | atom(),
+        "ExtendedKeyUsageType" => list(any())
+      }
+      
+  """
+  @type extended_key_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extensions() :: %{
+        "CertificatePolicies" => list(policy_information()),
+        "CustomExtensions" => list(custom_extension()),
+        "ExtendedKeyUsage" => list(extended_key_usage()),
+        "KeyUsage" => key_usage(),
+        "SubjectAlternativeNames" => list(general_name())
+      }
+      
+  """
+  @type extensions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      general_name() :: %{
+        "DirectoryName" => a_s_n1_subject(),
+        "DnsName" => String.t() | atom(),
+        "EdiPartyName" => edi_party_name(),
+        "IpAddress" => String.t() | atom(),
+        "OtherName" => other_name(),
+        "RegisteredId" => String.t() | atom(),
+        "Rfc822Name" => String.t() | atom(),
+        "UniformResourceIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type general_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificate_authority_certificate_request() :: %{
+        required("CertificateAuthorityArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_authority_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificate_authority_certificate_response() :: %{
+        "Certificate" => String.t() | atom(),
+        "CertificateChain" => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_authority_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificate_authority_csr_request() :: %{
+        required("CertificateAuthorityArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_authority_csr_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificate_authority_csr_response() :: %{
+        "Csr" => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_authority_csr_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom(),
+        required("CertificateAuthorityArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificate_response() :: %{
+        "Certificate" => String.t() | atom(),
+        "CertificateChain" => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policy_response() :: %{
+        "Policy" => String.t() | atom()
+      }
+      
+  """
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_certificate_authority_certificate_request() :: %{
+        optional("CertificateChain") => binary(),
+        required("Certificate") => binary(),
+        required("CertificateAuthorityArn") => String.t() | atom()
+      }
+      
+  """
+  @type import_certificate_authority_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_args_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_args_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_arn_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_arn_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_next_token_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_policy_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_state_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_tag_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      issue_certificate_request() :: %{
+        optional("ApiPassthrough") => api_passthrough(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        optional("TemplateArn") => String.t() | atom(),
+        optional("ValidityNotBefore") => validity(),
+        required("CertificateAuthorityArn") => String.t() | atom(),
+        required("Csr") => binary(),
+        required("SigningAlgorithm") => list(any()),
+        required("Validity") => validity()
+      }
+      
+  """
+  @type issue_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      issue_certificate_response() :: %{
+        "CertificateArn" => String.t() | atom()
+      }
+      
+  """
+  @type issue_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_usage() :: %{
+        "CRLSign" => boolean(),
+        "DataEncipherment" => boolean(),
+        "DecipherOnly" => boolean(),
+        "DigitalSignature" => boolean(),
+        "EncipherOnly" => boolean(),
+        "KeyAgreement" => boolean(),
+        "KeyCertSign" => boolean(),
+        "KeyEncipherment" => boolean(),
+        "NonRepudiation" => boolean()
+      }
+      
+  """
+  @type key_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_certificate_authorities_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceOwner") => list(any())
+      }
+      
+  """
+  @type list_certificate_authorities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,126 +712,26 @@ defmodule AWS.ACMPCA do
 
   ## Example:
       
-      restore_certificate_authority_request() :: %{
-        required("CertificateAuthorityArn") => String.t() | atom()
+      list_permissions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Permissions" => list(permission())
       }
       
   """
-  @type restore_certificate_authority_request() :: %{(String.t() | atom()) => any()}
+  @type list_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_permission_request() :: %{
-        optional("SourceAccount") => String.t() | atom(),
-        required("CertificateAuthorityArn") => String.t() | atom(),
-        required("Principal") => String.t() | atom()
-      }
-      
-  """
-  @type delete_permission_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      general_name() :: %{
-        "DirectoryName" => a_s_n1_subject(),
-        "DnsName" => String.t() | atom(),
-        "EdiPartyName" => edi_party_name(),
-        "IpAddress" => String.t() | atom(),
-        "OtherName" => other_name(),
-        "RegisteredId" => String.t() | atom(),
-        "Rfc822Name" => String.t() | atom(),
-        "UniformResourceIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type general_name() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_certificate_authority_request() :: %{
-        required("CertificateAuthorityArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type untag_certificate_authority_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_certificate_authorities_request() :: %{
+      list_tags_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        optional("ResourceOwner") => list(any())
-      }
-      
-  """
-  @type list_certificate_authorities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_certificate_authority_audit_report_request() :: %{
-        required("AuditReportId") => String.t() | atom(),
         required("CertificateAuthorityArn") => String.t() | atom()
       }
       
   """
-  @type describe_certificate_authority_audit_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validity() :: %{
-        "Type" => list(any()),
-        "Value" => float()
-      }
-      
-  """
-  @type validity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_description() :: %{
-        "AccessLocation" => general_name(),
-        "AccessMethod" => access_method()
-      }
-      
-  """
-  @type access_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_policy_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type list_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -479,85 +749,6 @@ defmodule AWS.ACMPCA do
 
   ## Example:
       
-      describe_certificate_authority_request() :: %{
-        required("CertificateAuthorityArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_certificate_authority_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom(),
-        required("CertificateAuthorityArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_policy_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      issue_certificate_response() :: %{
-        "CertificateArn" => String.t() | atom()
-      }
-      
-  """
-  @type issue_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_certificate_authority_audit_report_response() :: %{
-        "AuditReportId" => String.t() | atom(),
-        "S3Key" => String.t() | atom()
-      }
-      
-  """
-  @type create_certificate_authority_audit_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_tag_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      crl_distribution_point_extension_configuration() :: %{
-        "OmitExtension" => boolean()
-      }
-      
-  """
-  @type crl_distribution_point_extension_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       lockout_prevented_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -569,26 +760,47 @@ defmodule AWS.ACMPCA do
 
   ## Example:
       
-      permission_already_exists_exception() :: %{
+      malformed_c_s_r_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type permission_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type malformed_c_s_r_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_permission_request() :: %{
-        optional("SourceAccount") => String.t() | atom(),
-        required("Actions") => list(list(any())()),
-        required("CertificateAuthorityArn") => String.t() | atom(),
-        required("Principal") => String.t() | atom()
+      malformed_certificate_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type create_permission_request() :: %{(String.t() | atom()) => any()}
+  @type malformed_certificate_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ocsp_configuration() :: %{
+        "Enabled" => boolean(),
+        "OcspCustomCname" => String.t() | atom()
+      }
+      
+  """
+  @type ocsp_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      other_name() :: %{
+        "TypeId" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type other_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -610,63 +822,59 @@ defmodule AWS.ACMPCA do
 
   ## Example:
       
-      get_certificate_authority_certificate_response() :: %{
-        "Certificate" => String.t() | atom(),
-        "CertificateChain" => String.t() | atom()
-      }
-      
-  """
-  @type get_certificate_authority_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_certificate_authority_request() :: %{
-        optional("RevocationConfiguration") => revocation_configuration(),
-        optional("Status") => list(any()),
-        required("CertificateAuthorityArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_certificate_authority_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_next_token_exception() :: %{
+      permission_already_exists_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+  @type permission_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      request_in_progress_exception() :: %{
-        "message" => String.t() | atom()
+      policy_information() :: %{
+        "CertPolicyId" => String.t() | atom(),
+        "PolicyQualifiers" => list(policy_qualifier_info())
       }
       
   """
-  @type request_in_progress_exception() :: %{(String.t() | atom()) => any()}
+  @type policy_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      extensions() :: %{
-        "CertificatePolicies" => list(policy_information()),
-        "CustomExtensions" => list(custom_extension()),
-        "ExtendedKeyUsage" => list(extended_key_usage()),
-        "KeyUsage" => key_usage(),
-        "SubjectAlternativeNames" => list(general_name())
+      policy_qualifier_info() :: %{
+        "PolicyQualifierId" => list(any()),
+        "Qualifier" => qualifier()
       }
       
   """
-  @type extensions() :: %{(String.t() | atom()) => any()}
+  @type policy_qualifier_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_policy_request() :: %{
+        required("Policy") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      qualifier() :: %{
+        "CpsUri" => String.t() | atom()
+      }
+      
+  """
+  @type qualifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -683,31 +891,57 @@ defmodule AWS.ACMPCA do
 
   ## Example:
       
-      extended_key_usage() :: %{
-        "ExtendedKeyUsageObjectIdentifier" => String.t() | atom(),
-        "ExtendedKeyUsageType" => list(any())
+      request_failed_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type extended_key_usage() :: %{(String.t() | atom()) => any()}
+  @type request_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      crl_configuration() :: %{
-        "CrlDistributionPointExtensionConfiguration" => crl_distribution_point_extension_configuration(),
-        "CrlType" => list(any()),
-        "CustomCname" => String.t() | atom(),
-        "CustomPath" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "ExpirationInDays" => integer(),
-        "S3BucketName" => String.t() | atom(),
-        "S3ObjectAcl" => list(any())
+      request_in_progress_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type crl_configuration() :: %{(String.t() | atom()) => any()}
+  @type request_in_progress_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_certificate_authority_request() :: %{
+        required("CertificateAuthorityArn") => String.t() | atom()
+      }
+      
+  """
+  @type restore_certificate_authority_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revocation_configuration() :: %{
+        "CrlConfiguration" => crl_configuration(),
+        "OcspConfiguration" => ocsp_configuration()
+      }
+      
+  """
+  @type revocation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -726,25 +960,25 @@ defmodule AWS.ACMPCA do
 
   ## Example:
       
-      list_tags_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("CertificateAuthorityArn") => String.t() | atom()
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type list_tags_request() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      qualifier() :: %{
-        "CpsUri" => String.t() | atom()
+      tag_certificate_authority_request() :: %{
+        required("CertificateAuthorityArn") => String.t() | atom(),
+        required("Tags") => list(tag())
       }
       
   """
-  @type qualifier() :: %{(String.t() | atom()) => any()}
+  @type tag_certificate_authority_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -761,419 +995,185 @@ defmodule AWS.ACMPCA do
 
   ## Example:
       
-      malformed_certificate_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type malformed_certificate_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_certificate_authority_response() :: %{
-        "CertificateAuthority" => certificate_authority()
-      }
-      
-  """
-  @type describe_certificate_authority_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_certificate_authority_csr_response() :: %{
-        "Csr" => String.t() | atom()
-      }
-      
-  """
-  @type get_certificate_authority_csr_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      other_name() :: %{
-        "TypeId" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type other_name() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      a_s_n1_subject() :: %{
-        "CommonName" => String.t() | atom(),
-        "Country" => String.t() | atom(),
-        "CustomAttributes" => list(custom_attribute()),
-        "DistinguishedNameQualifier" => String.t() | atom(),
-        "GenerationQualifier" => String.t() | atom(),
-        "GivenName" => String.t() | atom(),
-        "Initials" => String.t() | atom(),
-        "Locality" => String.t() | atom(),
-        "Organization" => String.t() | atom(),
-        "OrganizationalUnit" => String.t() | atom(),
-        "Pseudonym" => String.t() | atom(),
-        "SerialNumber" => String.t() | atom(),
-        "State" => String.t() | atom(),
-        "Surname" => String.t() | atom(),
-        "Title" => String.t() | atom()
-      }
-      
-  """
-  @type a_s_n1_subject() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_state_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      issue_certificate_request() :: %{
-        optional("ApiPassthrough") => api_passthrough(),
-        optional("IdempotencyToken") => String.t() | atom(),
-        optional("TemplateArn") => String.t() | atom(),
-        optional("ValidityNotBefore") => validity(),
+      untag_certificate_authority_request() :: %{
         required("CertificateAuthorityArn") => String.t() | atom(),
-        required("Csr") => binary(),
-        required("SigningAlgorithm") => list(any()),
-        required("Validity") => validity()
+        required("Tags") => list(tag())
       }
       
   """
-  @type issue_certificate_request() :: %{(String.t() | atom()) => any()}
+  @type untag_certificate_authority_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      key_usage() :: %{
-        "CRLSign" => boolean(),
-        "DataEncipherment" => boolean(),
-        "DecipherOnly" => boolean(),
-        "DigitalSignature" => boolean(),
-        "EncipherOnly" => boolean(),
-        "KeyAgreement" => boolean(),
-        "KeyCertSign" => boolean(),
-        "KeyEncipherment" => boolean(),
-        "NonRepudiation" => boolean()
-      }
-      
-  """
-  @type key_usage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      revocation_configuration() :: %{
-        "CrlConfiguration" => crl_configuration(),
-        "OcspConfiguration" => ocsp_configuration()
-      }
-      
-  """
-  @type revocation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_attribute() :: %{
-        "ObjectIdentifier" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type custom_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_certificate_authority_response() :: %{
-        "CertificateAuthorityArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_certificate_authority_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_arn_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_arn_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_policy_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      api_passthrough() :: %{
-        "Extensions" => extensions(),
-        "Subject" => a_s_n1_subject()
-      }
-      
-  """
-  @type api_passthrough() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ocsp_configuration() :: %{
-        "Enabled" => boolean(),
-        "OcspCustomCname" => String.t() | atom()
-      }
-      
-  """
-  @type ocsp_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_information() :: %{
-        "CertPolicyId" => String.t() | atom(),
-        "PolicyQualifiers" => list(policy_qualifier_info())
-      }
-      
-  """
-  @type policy_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_certificate_authority_certificate_request() :: %{
+      update_certificate_authority_request() :: %{
+        optional("RevocationConfiguration") => revocation_configuration(),
+        optional("Status") => list(any()),
         required("CertificateAuthorityArn") => String.t() | atom()
       }
       
   """
-  @type get_certificate_authority_certificate_request() :: %{(String.t() | atom()) => any()}
+  @type update_certificate_authority_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      import_certificate_authority_certificate_request() :: %{
-        optional("CertificateChain") => binary(),
-        required("Certificate") => binary(),
-        required("CertificateAuthorityArn") => String.t() | atom()
+      validity() :: %{
+        "Type" => list(any()),
+        "Value" => float()
       }
       
   """
-  @type import_certificate_authority_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_method() :: %{
-        "AccessMethodType" => list(any()),
-        "CustomObjectIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type access_method() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_certificate_authority_audit_report_request() :: %{
-        required("AuditReportResponseFormat") => list(any()),
-        required("CertificateAuthorityArn") => String.t() | atom(),
-        required("S3BucketName") => String.t() | atom()
-      }
-      
-  """
-  @type create_certificate_authority_audit_report_request() :: %{(String.t() | atom()) => any()}
+  @type validity() :: %{(String.t() | atom()) => any()}
 
   @type create_certificate_authority_errors() ::
-          invalid_policy_exception()
+          limit_exceeded_exception()
           | invalid_tag_exception()
-          | limit_exceeded_exception()
+          | invalid_policy_exception()
           | invalid_args_exception()
 
   @type create_certificate_authority_audit_report_errors() ::
-          invalid_arn_exception()
-          | invalid_state_exception()
+          resource_not_found_exception()
           | request_in_progress_exception()
-          | resource_not_found_exception()
-          | invalid_args_exception()
           | request_failed_exception()
+          | invalid_state_exception()
+          | invalid_arn_exception()
+          | invalid_args_exception()
 
   @type create_permission_errors() ::
-          invalid_arn_exception()
-          | invalid_state_exception()
-          | permission_already_exists_exception()
-          | resource_not_found_exception()
-          | limit_exceeded_exception()
+          resource_not_found_exception()
           | request_failed_exception()
+          | permission_already_exists_exception()
+          | limit_exceeded_exception()
+          | invalid_state_exception()
+          | invalid_arn_exception()
 
   @type delete_certificate_authority_errors() ::
-          invalid_arn_exception()
+          resource_not_found_exception()
           | invalid_state_exception()
-          | resource_not_found_exception()
+          | invalid_arn_exception()
           | concurrent_modification_exception()
 
   @type delete_permission_errors() ::
-          invalid_arn_exception()
-          | invalid_state_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | request_failed_exception()
+          | invalid_state_exception()
+          | invalid_arn_exception()
 
   @type delete_policy_errors() ::
-          invalid_arn_exception()
-          | invalid_state_exception()
-          | lockout_prevented_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | request_failed_exception()
+          | lockout_prevented_exception()
+          | invalid_state_exception()
+          | invalid_arn_exception()
           | concurrent_modification_exception()
 
   @type describe_certificate_authority_errors() ::
-          invalid_arn_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_arn_exception()
 
   @type describe_certificate_authority_audit_report_errors() ::
-          invalid_arn_exception() | resource_not_found_exception() | invalid_args_exception()
+          resource_not_found_exception() | invalid_arn_exception() | invalid_args_exception()
 
   @type get_certificate_errors() ::
-          invalid_arn_exception()
-          | invalid_state_exception()
+          resource_not_found_exception()
           | request_in_progress_exception()
-          | resource_not_found_exception()
           | request_failed_exception()
+          | invalid_state_exception()
+          | invalid_arn_exception()
 
   @type get_certificate_authority_certificate_errors() ::
-          invalid_arn_exception() | invalid_state_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_state_exception() | invalid_arn_exception()
 
   @type get_certificate_authority_csr_errors() ::
-          invalid_arn_exception()
-          | invalid_state_exception()
+          resource_not_found_exception()
           | request_in_progress_exception()
-          | resource_not_found_exception()
           | request_failed_exception()
+          | invalid_state_exception()
+          | invalid_arn_exception()
 
   @type get_policy_errors() ::
-          invalid_arn_exception()
-          | invalid_state_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | request_failed_exception()
+          | invalid_state_exception()
+          | invalid_arn_exception()
 
   @type import_certificate_authority_certificate_errors() ::
-          invalid_arn_exception()
-          | invalid_request_exception()
-          | invalid_state_exception()
-          | malformed_certificate_exception()
+          resource_not_found_exception()
           | request_in_progress_exception()
-          | resource_not_found_exception()
           | request_failed_exception()
-          | certificate_mismatch_exception()
+          | malformed_certificate_exception()
+          | invalid_state_exception()
+          | invalid_request_exception()
+          | invalid_arn_exception()
           | concurrent_modification_exception()
+          | certificate_mismatch_exception()
 
   @type issue_certificate_errors() ::
-          invalid_arn_exception()
-          | invalid_state_exception()
-          | resource_not_found_exception()
-          | limit_exceeded_exception()
-          | invalid_args_exception()
+          resource_not_found_exception()
           | malformed_c_s_r_exception()
+          | limit_exceeded_exception()
+          | invalid_state_exception()
+          | invalid_arn_exception()
+          | invalid_args_exception()
 
   @type list_certificate_authorities_errors() :: invalid_next_token_exception()
 
   @type list_permissions_errors() ::
-          invalid_arn_exception()
+          resource_not_found_exception()
+          | request_failed_exception()
           | invalid_state_exception()
           | invalid_next_token_exception()
-          | resource_not_found_exception()
-          | request_failed_exception()
+          | invalid_arn_exception()
 
   @type list_tags_errors() ::
-          invalid_arn_exception()
-          | invalid_state_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | request_failed_exception()
+          | invalid_state_exception()
+          | invalid_arn_exception()
 
   @type put_policy_errors() ::
-          invalid_policy_exception()
-          | invalid_arn_exception()
-          | invalid_state_exception()
-          | lockout_prevented_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | request_failed_exception()
+          | lockout_prevented_exception()
+          | invalid_state_exception()
+          | invalid_policy_exception()
+          | invalid_arn_exception()
           | concurrent_modification_exception()
 
   @type restore_certificate_authority_errors() ::
-          invalid_arn_exception() | invalid_state_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_state_exception() | invalid_arn_exception()
 
   @type revoke_certificate_errors() ::
-          invalid_arn_exception()
-          | invalid_request_exception()
-          | invalid_state_exception()
-          | request_already_processed_exception()
+          resource_not_found_exception()
           | request_in_progress_exception()
-          | resource_not_found_exception()
-          | limit_exceeded_exception()
           | request_failed_exception()
+          | request_already_processed_exception()
+          | limit_exceeded_exception()
+          | invalid_state_exception()
+          | invalid_request_exception()
+          | invalid_arn_exception()
           | concurrent_modification_exception()
 
   @type tag_certificate_authority_errors() ::
-          invalid_arn_exception()
-          | invalid_state_exception()
-          | too_many_tags_exception()
-          | invalid_tag_exception()
+          too_many_tags_exception()
           | resource_not_found_exception()
+          | invalid_tag_exception()
+          | invalid_state_exception()
+          | invalid_arn_exception()
 
   @type untag_certificate_authority_errors() ::
-          invalid_arn_exception()
-          | invalid_state_exception()
+          resource_not_found_exception()
           | invalid_tag_exception()
-          | resource_not_found_exception()
+          | invalid_state_exception()
+          | invalid_arn_exception()
 
   @type update_certificate_authority_errors() ::
-          invalid_policy_exception()
-          | invalid_arn_exception()
+          resource_not_found_exception()
           | invalid_state_exception()
-          | resource_not_found_exception()
+          | invalid_policy_exception()
+          | invalid_arn_exception()
           | invalid_args_exception()
           | concurrent_modification_exception()
 

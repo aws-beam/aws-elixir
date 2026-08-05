@@ -40,46 +40,217 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      initialize_service_output() :: %{}
-      
-  """
-  @type initialize_service_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_odb_peering_connection_output() :: %{}
-      
-  """
-  @type delete_odb_peering_connection_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      cross_region_disaster_recovery_configuration() :: %{
-        "isReplicateAutomaticBackups" => [boolean()],
-        "remoteDisasterRecoveryType" => list(any()),
-        "sourceAutonomousDatabaseArn" => String.t() | atom()
+      accept_marketplace_registration_input() :: %{
+        required("marketplaceRegistrationToken") => [String.t() | atom()]
       }
       
   """
-  @type cross_region_disaster_recovery_configuration() :: %{(String.t() | atom()) => any()}
+  @type accept_marketplace_registration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_autonomous_database_output() :: %{
-        "autonomousDatabaseId" => [String.t() | atom()],
+      accept_marketplace_registration_output() :: %{}
+      
+  """
+  @type accept_marketplace_registration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_password_source_summary() :: %{
+        "adminPasswordSource" => list(any()),
+        "adminPasswordSourceConfiguration" => list()
+      }
+      
+  """
+  @type admin_password_source_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_iam_role_to_resource_input() :: %{
+        required("awsIntegration") => list(any()),
+        required("iamRoleArn") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type associate_iam_role_to_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_iam_role_to_resource_output() :: %{}
+      
+  """
+  @type associate_iam_role_to_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      autonomous_database() :: %{
+        "actualUsedDataStorageSizeInTBs" => [float()],
+        "adminPasswordSourceSummary" => admin_password_source_summary(),
+        "allocatedStorageSizeInTBs" => [float()],
+        "allowlistedIps" => list([String.t() | atom()]()),
+        "apexDetails" => autonomous_database_apex(),
+        "autoRefreshFrequencyInSeconds" => [integer()],
+        "autoRefreshPointLagInSeconds" => [integer()],
+        "autonomousDatabaseArn" => String.t() | atom(),
+        "autonomousDatabaseId" => String.t() | atom(),
+        "autonomousMaintenanceScheduleType" => list(any()),
+        "availabilityZone" => [String.t() | atom()],
+        "availabilityZoneId" => [String.t() | atom()],
+        "availableUpgradeVersions" => list([String.t() | atom()]()),
+        "backupRetentionPeriodInDays" => [integer()],
+        "byolComputeCountLimit" => [integer()],
+        "characterSet" => [String.t() | atom()],
+        "cloneTableSpaceList" => list([integer()]()),
+        "computeCount" => [float()],
+        "computeModel" => list(any()),
+        "connectionStringDetails" => autonomous_database_connection_strings(),
+        "connectionUrls" => autonomous_database_connection_urls(),
+        "cpuCoreCount" => [integer()],
+        "createdAt" => [non_neg_integer()],
+        "customerContacts" => list(customer_contact()),
+        "dataSafeStatus" => list(any()),
+        "dataStorageSizeInGBs" => [integer()],
+        "dataStorageSizeInTBs" => [float()],
+        "databaseEdition" => list(any()),
+        "databaseManagementStatus" => list(any()),
+        "databaseType" => list(any()),
+        "dbName" => [String.t() | atom()],
+        "dbToolsDetails" => list(database_tool()),
+        "dbVersion" => [String.t() | atom()],
+        "dbWorkload" => list(any()),
         "displayName" => [String.t() | atom()],
+        "encryptionSummary" => encryption_summary(),
+        "failedDataRecoveryInSeconds" => [integer()],
+        "inMemoryAreaInGBs" => [integer()],
+        "isAutoScalingEnabled" => [boolean()],
+        "isAutoScalingForStorageEnabled" => [boolean()],
+        "isBackupRetentionLocked" => [boolean()],
+        "isLocalDataGuardEnabled" => [boolean()],
+        "isMtlsConnectionRequired" => [boolean()],
+        "isReconnectCloneEnabled" => [boolean()],
+        "isRefreshableClone" => [boolean()],
+        "isRemoteDataGuardEnabled" => [boolean()],
+        "licenseModel" => list(any()),
+        "localAdgAutoFailoverMaxDataLossLimit" => [integer()],
+        "localDisasterRecoveryType" => list(any()),
+        "localStandbyDb" => database_standby_summary(),
+        "longTermBackupSchedule" => long_term_backup_schedule(),
+        "maintenanceTargetComponent" => [String.t() | atom()],
+        "memoryPerOracleComputeUnitInGBs" => [integer()],
+        "ncharacterSet" => [String.t() | atom()],
+        "netServicesArchitecture" => list(any()),
+        "nextLongTermBackupTimeStamp" => [non_neg_integer()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociUrl" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "odbNetworkArn" => String.t() | atom(),
+        "odbNetworkId" => String.t() | atom(),
+        "openMode" => list(any()),
+        "operationsInsightsStatus" => list(any()),
+        "peerDbIds" => list([String.t() | atom()]()),
+        "percentProgress" => [float()],
+        "permissionLevel" => list(any()),
+        "privateEndpoint" => [String.t() | atom()],
+        "privateEndpointIp" => [String.t() | atom()],
+        "privateEndpointLabel" => [String.t() | atom()],
+        "provisionableCpus" => list([integer()]()),
+        "refreshableMode" => list(any()),
+        "refreshableStatus" => list(any()),
+        "remoteDisasterRecoveryConfiguration" => disaster_recovery_configuration(),
+        "resourcePoolLeaderId" => [String.t() | atom()],
+        "resourcePoolSummary" => resource_pool_summary(),
+        "role" => list(any()),
+        "scheduledOperations" => list(scheduled_operation_details()),
+        "serviceConsoleUrl" => [String.t() | atom()],
+        "sourceId" => [String.t() | atom()],
+        "sqlWebDeveloperUrl" => [String.t() | atom()],
+        "standbyAllowlistedIps" => list([String.t() | atom()]()),
+        "standbyAllowlistedIpsSource" => list(any()),
+        "standbyDb" => database_standby_summary(),
         "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
+        "statusReason" => [String.t() | atom()],
+        "timeDataGuardRoleChanged" => [non_neg_integer()],
+        "timeDeletionOfFreeAutonomousDatabase" => [non_neg_integer()],
+        "timeDisasterRecoveryRoleChanged" => [non_neg_integer()],
+        "timeLocalDataGuardEnabled" => [non_neg_integer()],
+        "timeMaintenanceBegin" => [non_neg_integer()],
+        "timeMaintenanceEnd" => [non_neg_integer()],
+        "timeOfAutoRefreshStart" => [non_neg_integer()],
+        "timeOfLastBackup" => [non_neg_integer()],
+        "timeOfLastFailover" => [non_neg_integer()],
+        "timeOfLastRefresh" => [non_neg_integer()],
+        "timeOfLastRefreshPoint" => [non_neg_integer()],
+        "timeOfLastSwitchover" => [non_neg_integer()],
+        "timeOfNextRefresh" => [non_neg_integer()],
+        "timeReclamationOfFreeAutonomousDatabase" => [non_neg_integer()],
+        "timeUndeleted" => [non_neg_integer()],
+        "timeUntilReconnectCloneEnabled" => [non_neg_integer()],
+        "totalBackupStorageSizeInGBs" => [float()],
+        "usedDataStorageSizeInGBs" => [integer()],
+        "usedDataStorageSizeInTBs" => [float()]
       }
       
   """
-  @type start_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+  @type autonomous_database() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      autonomous_database_apex() :: %{
+        "apexVersion" => [String.t() | atom()],
+        "ordsVersion" => [String.t() | atom()]
+      }
+      
+  """
+  @type autonomous_database_apex() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      autonomous_database_backup() :: %{
+        "autonomousDatabaseBackupArn" => String.t() | atom(),
+        "autonomousDatabaseBackupId" => String.t() | atom(),
+        "autonomousDatabaseId" => String.t() | atom(),
+        "dbVersion" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "isAutomatic" => [boolean()],
+        "ocid" => [String.t() | atom()],
+        "retentionPeriodInDays" => [integer()],
+        "sizeInTBs" => [float()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "timeAvailableTill" => [non_neg_integer()],
+        "timeEnded" => [non_neg_integer()],
+        "timeStarted" => [non_neg_integer()],
+        "type" => list(any())
+      }
+      
+  """
+  @type autonomous_database_backup() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -110,143 +281,171 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      data_collection_options() :: %{
-        "isDiagnosticsEventsEnabled" => [boolean()],
-        "isHealthMonitoringEnabled" => [boolean()],
-        "isIncidentLogsEnabled" => [boolean()]
+      autonomous_database_character_set_summary() :: %{
+        "characterSet" => [String.t() | atom()]
       }
       
   """
-  @type data_collection_options() :: %{(String.t() | atom()) => any()}
+  @type autonomous_database_character_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      customer_contact() :: %{
-        "email" => String.t() | atom()
+      autonomous_database_connection_strings() :: %{
+        "allConnectionStrings" => map(),
+        "dedicated" => [String.t() | atom()],
+        "high" => [String.t() | atom()],
+        "low" => [String.t() | atom()],
+        "medium" => [String.t() | atom()],
+        "profiles" => list(database_connection_string_profile())
       }
       
   """
-  @type customer_contact() :: %{(String.t() | atom()) => any()}
+  @type autonomous_database_connection_strings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_odb_peering_connection_input() :: %{}
+      autonomous_database_connection_urls() :: %{
+        "apexUrl" => [String.t() | atom()],
+        "databaseTransformsUrl" => [String.t() | atom()],
+        "graphStudioUrl" => [String.t() | atom()],
+        "machineLearningNotebookUrl" => [String.t() | atom()],
+        "machineLearningUserManagementUrl" => [String.t() | atom()],
+        "mongoDbUrl" => [String.t() | atom()],
+        "ordsUrl" => [String.t() | atom()],
+        "spatialStudioUrl" => [String.t() | atom()],
+        "sqlDevWebUrl" => [String.t() | atom()]
+      }
       
   """
-  @type delete_odb_peering_connection_input() :: %{}
+  @type autonomous_database_connection_urls() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      autonomous_database_peer_summary() :: %{
+        "autonomousDatabaseArn" => String.t() | atom(),
+        "autonomousDatabaseId" => String.t() | atom(),
+        "ocid" => [String.t() | atom()],
+        "region" => [String.t() | atom()]
+      }
+      
+  """
+  @type autonomous_database_peer_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       autonomous_database_summary() :: %{
-        "ociResourceAnchorName" => [String.t() | atom()],
-        "sqlWebDeveloperUrl" => [String.t() | atom()],
-        "autoRefreshPointLagInSeconds" => [integer()],
-        "createdAt" => [non_neg_integer()],
-        "privateEndpointLabel" => [String.t() | atom()],
-        "refreshableStatus" => list(any()),
-        "odbNetworkArn" => String.t() | atom(),
-        "dbName" => [String.t() | atom()],
-        "isRefreshableClone" => [boolean()],
-        "inMemoryAreaInGBs" => [integer()],
-        "operationsInsightsStatus" => list(any()),
-        "timeOfLastRefreshPoint" => [non_neg_integer()],
-        "standbyAllowlistedIpsSource" => list(any()),
-        "ocid" => [String.t() | atom()],
-        "cpuCoreCount" => [integer()],
-        "timeOfAutoRefreshStart" => [non_neg_integer()],
-        "provisionableCpus" => list([integer()]()),
-        "ociUrl" => [String.t() | atom()],
-        "isRemoteDataGuardEnabled" => [boolean()],
-        "permissionLevel" => list(any()),
-        "isAutoScalingEnabled" => [boolean()],
-        "serviceConsoleUrl" => [String.t() | atom()],
-        "databaseEdition" => list(any()),
-        "timeOfLastSwitchover" => [non_neg_integer()],
-        "isReconnectCloneEnabled" => [boolean()],
-        "localAdgAutoFailoverMaxDataLossLimit" => [integer()],
-        "timeMaintenanceEnd" => [non_neg_integer()],
+        "actualUsedDataStorageSizeInTBs" => [float()],
+        "adminPasswordSourceSummary" => admin_password_source_summary(),
+        "allocatedStorageSizeInTBs" => [float()],
+        "allowlistedIps" => list([String.t() | atom()]()),
         "apexDetails" => autonomous_database_apex(),
-        "dbToolsDetails" => list(database_tool()),
-        "role" => list(any()),
-        "failedDataRecoveryInSeconds" => [integer()],
-        "privateEndpointIp" => [String.t() | atom()],
-        "resourcePoolSummary" => resource_pool_summary(),
-        "displayName" => [String.t() | atom()],
-        "isLocalDataGuardEnabled" => [boolean()],
-        "cloneTableSpaceList" => list([integer()]()),
-        "timeDisasterRecoveryRoleChanged" => [non_neg_integer()],
-        "status" => list(any()),
-        "dbWorkload" => list(any()),
-        "longTermBackupSchedule" => long_term_backup_schedule(),
+        "autoRefreshFrequencyInSeconds" => [integer()],
+        "autoRefreshPointLagInSeconds" => [integer()],
+        "autonomousDatabaseArn" => String.t() | atom(),
         "autonomousDatabaseId" => String.t() | atom(),
-        "timeMaintenanceBegin" => [non_neg_integer()],
+        "autonomousMaintenanceScheduleType" => list(any()),
+        "availabilityZone" => [String.t() | atom()],
+        "availabilityZoneId" => [String.t() | atom()],
+        "availableUpgradeVersions" => list([String.t() | atom()]()),
+        "backupRetentionPeriodInDays" => [integer()],
+        "byolComputeCountLimit" => [integer()],
         "characterSet" => [String.t() | atom()],
+        "cloneTableSpaceList" => list([integer()]()),
+        "computeCount" => [float()],
+        "computeModel" => list(any()),
+        "connectionStringDetails" => autonomous_database_connection_strings(),
+        "connectionUrls" => autonomous_database_connection_urls(),
+        "cpuCoreCount" => [integer()],
+        "createdAt" => [non_neg_integer()],
         "customerContacts" => list(customer_contact()),
         "dataSafeStatus" => list(any()),
-        "standbyAllowlistedIps" => list([String.t() | atom()]()),
-        "localStandbyDb" => database_standby_summary(),
-        "availabilityZone" => [String.t() | atom()],
-        "usedDataStorageSizeInGBs" => [integer()],
-        "dbVersion" => [String.t() | atom()],
-        "memoryPerOracleComputeUnitInGBs" => [integer()],
-        "dataStorageSizeInTBs" => [float()],
-        "timeReclamationOfFreeAutonomousDatabase" => [non_neg_integer()],
-        "licenseModel" => list(any()),
-        "timeOfLastBackup" => [non_neg_integer()],
-        "privateEndpoint" => [String.t() | atom()],
-        "timeOfNextRefresh" => [non_neg_integer()],
-        "connectionUrls" => autonomous_database_connection_urls(),
-        "databaseType" => list(any()),
-        "computeModel" => list(any()),
-        "isAutoScalingForStorageEnabled" => [boolean()],
-        "timeOfLastFailover" => [non_neg_integer()],
-        "backupRetentionPeriodInDays" => [integer()],
-        "localDisasterRecoveryType" => list(any()),
-        "isMtlsConnectionRequired" => [boolean()],
-        "nextLongTermBackupTimeStamp" => [non_neg_integer()],
-        "encryptionSummary" => encryption_summary(),
-        "timeDeletionOfFreeAutonomousDatabase" => [non_neg_integer()],
-        "netServicesArchitecture" => list(any()),
-        "allowlistedIps" => list([String.t() | atom()]()),
-        "availabilityZoneId" => [String.t() | atom()],
-        "sourceId" => [String.t() | atom()],
-        "resourcePoolLeaderId" => [String.t() | atom()],
         "dataStorageSizeInGBs" => [integer()],
-        "autonomousDatabaseArn" => String.t() | atom(),
-        "refreshableMode" => list(any()),
-        "standbyDb" => database_standby_summary(),
-        "odbNetworkId" => String.t() | atom(),
-        "timeDataGuardRoleChanged" => [non_neg_integer()],
-        "timeLocalDataGuardEnabled" => [non_neg_integer()],
-        "allocatedStorageSizeInTBs" => [float()],
-        "timeUntilReconnectCloneEnabled" => [non_neg_integer()],
-        "byolComputeCountLimit" => [integer()],
-        "timeUndeleted" => [non_neg_integer()],
-        "openMode" => list(any()),
-        "scheduledOperations" => list(scheduled_operation_details()),
-        "peerDbIds" => list([String.t() | atom()]()),
-        "isBackupRetentionLocked" => [boolean()],
-        "timeOfLastRefresh" => [non_neg_integer()],
+        "dataStorageSizeInTBs" => [float()],
+        "databaseEdition" => list(any()),
         "databaseManagementStatus" => list(any()),
-        "autonomousMaintenanceScheduleType" => list(any()),
-        "autoRefreshFrequencyInSeconds" => [integer()],
-        "availableUpgradeVersions" => list([String.t() | atom()]()),
-        "totalBackupStorageSizeInGBs" => [float()],
-        "ncharacterSet" => [String.t() | atom()],
-        "computeCount" => [float()],
+        "databaseType" => list(any()),
+        "dbName" => [String.t() | atom()],
+        "dbToolsDetails" => list(database_tool()),
+        "dbVersion" => [String.t() | atom()],
+        "dbWorkload" => list(any()),
+        "displayName" => [String.t() | atom()],
+        "encryptionSummary" => encryption_summary(),
+        "failedDataRecoveryInSeconds" => [integer()],
+        "inMemoryAreaInGBs" => [integer()],
+        "isAutoScalingEnabled" => [boolean()],
+        "isAutoScalingForStorageEnabled" => [boolean()],
+        "isBackupRetentionLocked" => [boolean()],
+        "isLocalDataGuardEnabled" => [boolean()],
+        "isMtlsConnectionRequired" => [boolean()],
+        "isReconnectCloneEnabled" => [boolean()],
+        "isRefreshableClone" => [boolean()],
+        "isRemoteDataGuardEnabled" => [boolean()],
+        "licenseModel" => list(any()),
+        "localAdgAutoFailoverMaxDataLossLimit" => [integer()],
+        "localDisasterRecoveryType" => list(any()),
+        "localStandbyDb" => database_standby_summary(),
+        "longTermBackupSchedule" => long_term_backup_schedule(),
         "maintenanceTargetComponent" => [String.t() | atom()],
+        "memoryPerOracleComputeUnitInGBs" => [integer()],
+        "ncharacterSet" => [String.t() | atom()],
+        "netServicesArchitecture" => list(any()),
+        "nextLongTermBackupTimeStamp" => [non_neg_integer()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociUrl" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "odbNetworkArn" => String.t() | atom(),
+        "odbNetworkId" => String.t() | atom(),
+        "openMode" => list(any()),
+        "operationsInsightsStatus" => list(any()),
+        "peerDbIds" => list([String.t() | atom()]()),
+        "percentProgress" => [float()],
+        "permissionLevel" => list(any()),
+        "privateEndpoint" => [String.t() | atom()],
+        "privateEndpointIp" => [String.t() | atom()],
+        "privateEndpointLabel" => [String.t() | atom()],
+        "provisionableCpus" => list([integer()]()),
+        "refreshableMode" => list(any()),
+        "refreshableStatus" => list(any()),
         "remoteDisasterRecoveryConfiguration" => disaster_recovery_configuration(),
-        "usedDataStorageSizeInTBs" => [float()],
+        "resourcePoolLeaderId" => [String.t() | atom()],
+        "resourcePoolSummary" => resource_pool_summary(),
+        "role" => list(any()),
+        "scheduledOperations" => list(scheduled_operation_details()),
+        "serviceConsoleUrl" => [String.t() | atom()],
+        "sourceId" => [String.t() | atom()],
+        "sqlWebDeveloperUrl" => [String.t() | atom()],
+        "standbyAllowlistedIps" => list([String.t() | atom()]()),
+        "standbyAllowlistedIpsSource" => list(any()),
+        "standbyDb" => database_standby_summary(),
+        "status" => list(any()),
         "statusReason" => [String.t() | atom()],
-        "actualUsedDataStorageSizeInTBs" => [float()],
-        "connectionStringDetails" => autonomous_database_connection_strings(),
-        "percentProgress" => [float()]
+        "timeDataGuardRoleChanged" => [non_neg_integer()],
+        "timeDeletionOfFreeAutonomousDatabase" => [non_neg_integer()],
+        "timeDisasterRecoveryRoleChanged" => [non_neg_integer()],
+        "timeLocalDataGuardEnabled" => [non_neg_integer()],
+        "timeMaintenanceBegin" => [non_neg_integer()],
+        "timeMaintenanceEnd" => [non_neg_integer()],
+        "timeOfAutoRefreshStart" => [non_neg_integer()],
+        "timeOfLastBackup" => [non_neg_integer()],
+        "timeOfLastFailover" => [non_neg_integer()],
+        "timeOfLastRefresh" => [non_neg_integer()],
+        "timeOfLastRefreshPoint" => [non_neg_integer()],
+        "timeOfLastSwitchover" => [non_neg_integer()],
+        "timeOfNextRefresh" => [non_neg_integer()],
+        "timeReclamationOfFreeAutonomousDatabase" => [non_neg_integer()],
+        "timeUndeleted" => [non_neg_integer()],
+        "timeUntilReconnectCloneEnabled" => [non_neg_integer()],
+        "totalBackupStorageSizeInGBs" => [float()],
+        "usedDataStorageSizeInGBs" => [integer()],
+        "usedDataStorageSizeInTBs" => [float()]
       }
       
   """
@@ -256,273 +455,547 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      list_cloud_autonomous_vm_clusters_output() :: %{
-        "cloudAutonomousVmClusters" => list(cloud_autonomous_vm_cluster_summary()),
-        "nextToken" => [String.t() | atom()]
+      autonomous_database_version_summary() :: %{
+        "dbWorkload" => list(any()),
+        "details" => [String.t() | atom()],
+        "version" => [String.t() | atom()]
       }
       
   """
-  @type list_cloud_autonomous_vm_clusters_output() :: %{(String.t() | atom()) => any()}
+  @type autonomous_database_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_cloud_vm_cluster_output() :: %{
-        "cloudVmCluster" => cloud_vm_cluster()
-      }
-      
-  """
-  @type get_cloud_vm_cluster_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_odb_network_input() :: %{
-        optional("crossRegionS3RestoreSourcesToDisable") => list([String.t() | atom()]()),
-        optional("crossRegionS3RestoreSourcesToEnable") => list([String.t() | atom()]()),
-        optional("displayName") => String.t() | atom(),
-        optional("kmsAccess") => list(any()),
-        optional("kmsPolicyDocument") => String.t() | atom(),
-        optional("peeredCidrsToBeAdded") => list([String.t() | atom()]()),
-        optional("peeredCidrsToBeRemoved") => list([String.t() | atom()]()),
-        optional("s3Access") => list(any()),
-        optional("s3PolicyDocument") => String.t() | atom(),
-        optional("stsAccess") => list(any()),
-        optional("stsPolicyDocument") => String.t() | atom(),
-        optional("zeroEtlAccess") => list(any())
-      }
-      
-  """
-  @type update_odb_network_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      odb_peering_connection() :: %{
-        "createdAt" => [non_neg_integer()],
-        "displayName" => [String.t() | atom()],
-        "odbNetworkArn" => [String.t() | atom()],
-        "odbPeeringConnectionArn" => [String.t() | atom()],
-        "odbPeeringConnectionId" => String.t() | atom(),
-        "odbPeeringConnectionType" => [String.t() | atom()],
-        "peerNetworkArn" => [String.t() | atom()],
-        "peerNetworkCidrs" => list(String.t() | atom()),
-        "percentProgress" => [float()],
+      autonomous_database_wallet_details() :: %{
+        "passwordSourceSummary" => wallet_password_source_summary(),
         "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
+        "timeRotated" => [non_neg_integer()]
       }
       
   """
-  @type odb_peering_connection() :: %{(String.t() | atom()) => any()}
+  @type autonomous_database_wallet_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_cloud_vm_cluster_output() :: %{}
-      
-  """
-  @type delete_cloud_vm_cluster_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_odb_peering_connection_output() :: %{
-        "displayName" => [String.t() | atom()],
-        "odbPeeringConnectionId" => [String.t() | atom()],
+      autonomous_virtual_machine_summary() :: %{
+        "autonomousVirtualMachineId" => String.t() | atom(),
+        "clientIpAddress" => [String.t() | atom()],
+        "cloudAutonomousVmClusterId" => [String.t() | atom()],
+        "cpuCoreCount" => [integer()],
+        "dbNodeStorageSizeInGBs" => [integer()],
+        "dbServerDisplayName" => [String.t() | atom()],
+        "dbServerId" => String.t() | atom(),
+        "memorySizeInGBs" => [integer()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
         "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
+        "statusReason" => [String.t() | atom()],
+        "vmName" => [String.t() | atom()]
       }
       
   """
-  @type create_odb_peering_connection_output() :: %{(String.t() | atom()) => any()}
+  @type autonomous_virtual_machine_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      oci_iam_role() :: %{
-        "awsIntegration" => list(any()),
-        "iamRoleArn" => String.t() | atom()
+      aws_encryption_key_configuration() :: %{
+        "externalIdType" => list(any()),
+        "iamRoleArn" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom()
       }
       
   """
-  @type oci_iam_role() :: %{(String.t() | atom()) => any()}
+  @type aws_encryption_key_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_db_nodes_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
+      aws_encryption_key_configuration_input() :: %{
+        "externalIdType" => list(any()),
+        "iamRoleArn" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom()
       }
       
   """
-  @type list_db_nodes_input() :: %{(String.t() | atom()) => any()}
+  @type aws_encryption_key_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_cloud_autonomous_vm_clusters_input() :: %{
-        optional("cloudExadataInfrastructureId") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_cloud_autonomous_vm_clusters_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_oci_onboarding_status_input() :: %{}
-      
-  """
-  @type get_oci_onboarding_status_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      shrink_autonomous_database_output() :: %{
-        "autonomousDatabaseId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type shrink_autonomous_database_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cloud_exadata_infrastructure_input() :: %{}
-      
-  """
-  @type delete_cloud_exadata_infrastructure_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      subscription_error() :: %{
-        "errorMessage" => [String.t() | atom()]
-      }
-      
-  """
-  @type subscription_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      odb_peering_connection_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "displayName" => [String.t() | atom()],
-        "odbNetworkArn" => [String.t() | atom()],
-        "odbPeeringConnectionArn" => [String.t() | atom()],
-        "odbPeeringConnectionId" => String.t() | atom(),
-        "odbPeeringConnectionType" => [String.t() | atom()],
-        "peerNetworkArn" => [String.t() | atom()],
-        "peerNetworkCidrs" => list(String.t() | atom()),
-        "percentProgress" => [float()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type odb_peering_connection_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_db_node_output() :: %{
-        "dbNodeId" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type start_db_node_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_autonomous_virtual_machines_output() :: %{
-        "autonomousVirtualMachines" => list(autonomous_virtual_machine_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_autonomous_virtual_machines_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      point_in_time_restore_configuration() :: %{
-        "cloneTableSpaceList" => list([integer()]()),
+      clone_to_refreshable_configuration() :: %{
+        "autoRefreshFrequencyInSeconds" => [integer()],
+        "autoRefreshPointLagInSeconds" => [integer()],
         "cloneType" => list(any()),
+        "openMode" => list(any()),
+        "refreshableMode" => list(any()),
         "sourceAutonomousDatabaseId" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()],
-        "useLatestAvailableBackupTimestamp" => [boolean()]
+        "timeOfAutoRefreshStart" => [non_neg_integer()]
       }
       
   """
-  @type point_in_time_restore_configuration() :: %{(String.t() | atom()) => any()}
+  @type clone_to_refreshable_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stop_db_node_output() :: %{
-        "dbNodeId" => [String.t() | atom()],
+      cloud_autonomous_vm_cluster() :: %{
+        "autonomousDataStoragePercentage" => [float()],
+        "autonomousDataStorageSizeInTBs" => [float()],
+        "availableAutonomousDataStorageSizeInTBs" => [float()],
+        "availableContainerDatabases" => [integer()],
+        "availableCpus" => [float()],
+        "cloudAutonomousVmClusterArn" => [String.t() | atom()],
+        "cloudAutonomousVmClusterId" => String.t() | atom(),
+        "cloudExadataInfrastructureArn" => String.t() | atom(),
+        "cloudExadataInfrastructureId" => String.t() | atom(),
+        "computeModel" => list(any()),
+        "cpuCoreCount" => [integer()],
+        "cpuCoreCountPerNode" => [integer()],
+        "cpuPercentage" => [float()],
+        "createdAt" => [non_neg_integer()],
+        "dataStorageSizeInGBs" => [float()],
+        "dataStorageSizeInTBs" => [float()],
+        "dbNodeStorageSizeInGBs" => [integer()],
+        "dbServers" => list([String.t() | atom()]()),
+        "description" => [String.t() | atom()],
+        "displayName" => String.t() | atom(),
+        "domain" => [String.t() | atom()],
+        "exadataStorageInTBsLowestScaledValue" => [float()],
+        "hostname" => [String.t() | atom()],
+        "iamRoles" => list(iam_role()),
+        "isMtlsEnabledVmCluster" => [boolean()],
+        "licenseModel" => list(any()),
+        "maintenanceWindow" => maintenance_window(),
+        "maxAcdsLowestScaledValue" => [integer()],
+        "memoryPerOracleComputeUnitInGBs" => [integer()],
+        "memorySizeInGBs" => [integer()],
+        "nodeCount" => [integer()],
+        "nonProvisionableAutonomousContainerDatabases" => [integer()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociUrl" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "odbNetworkArn" => String.t() | atom(),
+        "odbNetworkId" => String.t() | atom(),
+        "percentProgress" => [float()],
+        "provisionableAutonomousContainerDatabases" => [integer()],
+        "provisionedAutonomousContainerDatabases" => [integer()],
+        "provisionedCpus" => [float()],
+        "reclaimableCpus" => [float()],
+        "reservedCpus" => [float()],
+        "scanListenerPortNonTls" => [integer()],
+        "scanListenerPortTls" => [integer()],
+        "shape" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "timeDatabaseSslCertificateExpires" => [non_neg_integer()],
+        "timeOrdsCertificateExpires" => [non_neg_integer()],
+        "timeZone" => [String.t() | atom()],
+        "totalContainerDatabases" => [integer()]
+      }
+      
+  """
+  @type cloud_autonomous_vm_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_autonomous_vm_cluster_resource_details() :: %{
+        "cloudAutonomousVmClusterId" => String.t() | atom(),
+        "unallocatedAdbStorageInTBs" => [float()]
+      }
+      
+  """
+  @type cloud_autonomous_vm_cluster_resource_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_autonomous_vm_cluster_summary() :: %{
+        "autonomousDataStoragePercentage" => [float()],
+        "autonomousDataStorageSizeInTBs" => [float()],
+        "availableAutonomousDataStorageSizeInTBs" => [float()],
+        "availableContainerDatabases" => [integer()],
+        "availableCpus" => [float()],
+        "cloudAutonomousVmClusterArn" => [String.t() | atom()],
+        "cloudAutonomousVmClusterId" => String.t() | atom(),
+        "cloudExadataInfrastructureArn" => String.t() | atom(),
+        "cloudExadataInfrastructureId" => String.t() | atom(),
+        "computeModel" => list(any()),
+        "cpuCoreCount" => [integer()],
+        "cpuCoreCountPerNode" => [integer()],
+        "cpuPercentage" => [float()],
+        "createdAt" => [non_neg_integer()],
+        "dataStorageSizeInGBs" => [float()],
+        "dataStorageSizeInTBs" => [float()],
+        "dbNodeStorageSizeInGBs" => [integer()],
+        "dbServers" => list([String.t() | atom()]()),
+        "description" => [String.t() | atom()],
+        "displayName" => String.t() | atom(),
+        "domain" => [String.t() | atom()],
+        "exadataStorageInTBsLowestScaledValue" => [float()],
+        "hostname" => [String.t() | atom()],
+        "iamRoles" => list(iam_role()),
+        "isMtlsEnabledVmCluster" => [boolean()],
+        "licenseModel" => list(any()),
+        "maintenanceWindow" => maintenance_window(),
+        "maxAcdsLowestScaledValue" => [integer()],
+        "memoryPerOracleComputeUnitInGBs" => [integer()],
+        "memorySizeInGBs" => [integer()],
+        "nodeCount" => [integer()],
+        "nonProvisionableAutonomousContainerDatabases" => [integer()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociUrl" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "odbNetworkArn" => String.t() | atom(),
+        "odbNetworkId" => String.t() | atom(),
+        "percentProgress" => [float()],
+        "provisionableAutonomousContainerDatabases" => [integer()],
+        "provisionedAutonomousContainerDatabases" => [integer()],
+        "provisionedCpus" => [float()],
+        "reclaimableCpus" => [float()],
+        "reservedCpus" => [float()],
+        "scanListenerPortNonTls" => [integer()],
+        "scanListenerPortTls" => [integer()],
+        "shape" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "timeDatabaseSslCertificateExpires" => [non_neg_integer()],
+        "timeOrdsCertificateExpires" => [non_neg_integer()],
+        "timeZone" => [String.t() | atom()],
+        "totalContainerDatabases" => [integer()]
+      }
+      
+  """
+  @type cloud_autonomous_vm_cluster_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_exadata_infrastructure() :: %{
+        "activatedStorageCount" => [integer()],
+        "additionalStorageCount" => [integer()],
+        "availabilityZone" => [String.t() | atom()],
+        "availabilityZoneId" => [String.t() | atom()],
+        "availableStorageSizeInGBs" => [integer()],
+        "cloudExadataInfrastructureArn" => [String.t() | atom()],
+        "cloudExadataInfrastructureId" => String.t() | atom(),
+        "computeCount" => [integer()],
+        "computeModel" => list(any()),
+        "cpuCount" => [integer()],
+        "createdAt" => [non_neg_integer()],
+        "customerContactsToSendToOCI" => list(customer_contact()),
+        "dataStorageSizeInTBs" => [float()],
+        "databaseServerType" => [String.t() | atom()],
+        "dbNodeStorageSizeInGBs" => [integer()],
+        "dbServerVersion" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "lastMaintenanceRunId" => [String.t() | atom()],
+        "maintenanceWindow" => maintenance_window(),
+        "maxCpuCount" => [integer()],
+        "maxDataStorageInTBs" => [float()],
+        "maxDbNodeStorageSizeInGBs" => [integer()],
+        "maxMemoryInGBs" => [integer()],
+        "memorySizeInGBs" => [integer()],
+        "monthlyDbServerVersion" => [String.t() | atom()],
+        "monthlyStorageServerVersion" => [String.t() | atom()],
+        "nextMaintenanceRunId" => [String.t() | atom()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociUrl" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "percentProgress" => [float()],
+        "shape" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "storageCount" => [integer()],
+        "storageServerType" => [String.t() | atom()],
+        "storageServerVersion" => [String.t() | atom()],
+        "totalStorageSizeInGBs" => [integer()]
+      }
+      
+  """
+  @type cloud_exadata_infrastructure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_exadata_infrastructure_summary() :: %{
+        "activatedStorageCount" => [integer()],
+        "additionalStorageCount" => [integer()],
+        "availabilityZone" => [String.t() | atom()],
+        "availabilityZoneId" => [String.t() | atom()],
+        "availableStorageSizeInGBs" => [integer()],
+        "cloudExadataInfrastructureArn" => [String.t() | atom()],
+        "cloudExadataInfrastructureId" => String.t() | atom(),
+        "computeCount" => [integer()],
+        "computeModel" => list(any()),
+        "cpuCount" => [integer()],
+        "createdAt" => [non_neg_integer()],
+        "customerContactsToSendToOCI" => list(customer_contact()),
+        "dataStorageSizeInTBs" => [float()],
+        "databaseServerType" => [String.t() | atom()],
+        "dbNodeStorageSizeInGBs" => [integer()],
+        "dbServerVersion" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "lastMaintenanceRunId" => [String.t() | atom()],
+        "maintenanceWindow" => maintenance_window(),
+        "maxCpuCount" => [integer()],
+        "maxDataStorageInTBs" => [float()],
+        "maxDbNodeStorageSizeInGBs" => [integer()],
+        "maxMemoryInGBs" => [integer()],
+        "memorySizeInGBs" => [integer()],
+        "monthlyDbServerVersion" => [String.t() | atom()],
+        "monthlyStorageServerVersion" => [String.t() | atom()],
+        "nextMaintenanceRunId" => [String.t() | atom()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociUrl" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "percentProgress" => [float()],
+        "shape" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "storageCount" => [integer()],
+        "storageServerType" => [String.t() | atom()],
+        "storageServerVersion" => [String.t() | atom()],
+        "totalStorageSizeInGBs" => [integer()]
+      }
+      
+  """
+  @type cloud_exadata_infrastructure_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_exadata_infrastructure_unallocated_resources() :: %{
+        "cloudAutonomousVmClusters" => list(cloud_autonomous_vm_cluster_resource_details()),
+        "cloudExadataInfrastructureDisplayName" => [String.t() | atom()],
+        "cloudExadataInfrastructureId" => String.t() | atom(),
+        "exadataStorageInTBs" => [float()],
+        "localStorageInGBs" => [integer()],
+        "memoryInGBs" => [integer()],
+        "ocpus" => [integer()]
+      }
+      
+  """
+  @type cloud_exadata_infrastructure_unallocated_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_vm_cluster() :: %{
+        "cloudExadataInfrastructureArn" => String.t() | atom(),
+        "cloudExadataInfrastructureId" => [String.t() | atom()],
+        "cloudVmClusterArn" => [String.t() | atom()],
+        "cloudVmClusterId" => String.t() | atom(),
+        "clusterName" => [String.t() | atom()],
+        "computeModel" => list(any()),
+        "cpuCoreCount" => [integer()],
+        "createdAt" => [non_neg_integer()],
+        "dataCollectionOptions" => data_collection_options(),
+        "dataStorageSizeInTBs" => [float()],
+        "dbNodeStorageSizeInGBs" => [integer()],
+        "dbServers" => list([String.t() | atom()]()),
+        "diskRedundancy" => list(any()),
+        "displayName" => [String.t() | atom()],
+        "domain" => [String.t() | atom()],
+        "giVersion" => [String.t() | atom()],
+        "hostname" => [String.t() | atom()],
+        "iamRoles" => list(iam_role()),
+        "iormConfigCache" => exadata_iorm_config(),
+        "isLocalBackupEnabled" => [boolean()],
+        "isSparseDiskgroupEnabled" => [boolean()],
+        "lastUpdateHistoryEntryId" => [String.t() | atom()],
+        "licenseModel" => list(any()),
+        "listenerPort" => [integer()],
+        "memorySizeInGBs" => [integer()],
+        "nodeCount" => [integer()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociUrl" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "odbNetworkArn" => String.t() | atom(),
+        "odbNetworkId" => String.t() | atom(),
+        "percentProgress" => [float()],
+        "scanDnsName" => [String.t() | atom()],
+        "scanDnsRecordId" => [String.t() | atom()],
+        "scanIpIds" => list([String.t() | atom()]()),
+        "shape" => [String.t() | atom()],
+        "sshPublicKeys" => list(String.t() | atom()),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "storageSizeInGBs" => [integer()],
+        "systemVersion" => [String.t() | atom()],
+        "timeZone" => [String.t() | atom()],
+        "vipIds" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type cloud_vm_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_vm_cluster_summary() :: %{
+        "cloudExadataInfrastructureArn" => String.t() | atom(),
+        "cloudExadataInfrastructureId" => [String.t() | atom()],
+        "cloudVmClusterArn" => [String.t() | atom()],
+        "cloudVmClusterId" => String.t() | atom(),
+        "clusterName" => [String.t() | atom()],
+        "computeModel" => list(any()),
+        "cpuCoreCount" => [integer()],
+        "createdAt" => [non_neg_integer()],
+        "dataCollectionOptions" => data_collection_options(),
+        "dataStorageSizeInTBs" => [float()],
+        "dbNodeStorageSizeInGBs" => [integer()],
+        "dbServers" => list([String.t() | atom()]()),
+        "diskRedundancy" => list(any()),
+        "displayName" => [String.t() | atom()],
+        "domain" => [String.t() | atom()],
+        "giVersion" => [String.t() | atom()],
+        "hostname" => [String.t() | atom()],
+        "iamRoles" => list(iam_role()),
+        "iormConfigCache" => exadata_iorm_config(),
+        "isLocalBackupEnabled" => [boolean()],
+        "isSparseDiskgroupEnabled" => [boolean()],
+        "lastUpdateHistoryEntryId" => [String.t() | atom()],
+        "licenseModel" => list(any()),
+        "listenerPort" => [integer()],
+        "memorySizeInGBs" => [integer()],
+        "nodeCount" => [integer()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociUrl" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "odbNetworkArn" => String.t() | atom(),
+        "odbNetworkId" => String.t() | atom(),
+        "percentProgress" => [float()],
+        "scanDnsName" => [String.t() | atom()],
+        "scanDnsRecordId" => [String.t() | atom()],
+        "scanIpIds" => list([String.t() | atom()]()),
+        "shape" => [String.t() | atom()],
+        "sshPublicKeys" => list(String.t() | atom()),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "storageSizeInGBs" => [integer()],
+        "systemVersion" => [String.t() | atom()],
+        "timeZone" => [String.t() | atom()],
+        "vipIds" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type cloud_vm_cluster_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_autonomous_database_backup_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("retentionPeriodInDays") => [integer()],
+        optional("tags") => map(),
+        required("autonomousDatabaseId") => String.t() | atom()
+      }
+      
+  """
+  @type create_autonomous_database_backup_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_autonomous_database_backup_output() :: %{
+        "autonomousDatabaseBackupId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
         "status" => list(any()),
         "statusReason" => [String.t() | atom()]
       }
       
   """
-  @type stop_db_node_output() :: %{(String.t() | atom()) => any()}
+  @type create_autonomous_database_backup_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
+      create_autonomous_database_input() :: %{
+        optional("adminPassword") => String.t() | atom(),
+        optional("adminPasswordSource") => list(any()),
+        optional("adminPasswordSourceConfiguration") => list(),
+        optional("allowlistedIps") => list([String.t() | atom()]()),
+        optional("autonomousMaintenanceScheduleType") => list(any()),
+        optional("backupRetentionPeriodInDays") => [integer()],
+        optional("byolComputeCountLimit") => [float()],
+        optional("characterSet") => [String.t() | atom()],
+        optional("clientToken") => String.t() | atom(),
+        optional("computeCount") => [float()],
+        optional("cpuCoreCount") => [integer()],
+        optional("customerContactsToSendToOCI") => list(customer_contact()),
+        optional("dataStorageSizeInGBs") => [integer()],
+        optional("dataStorageSizeInTBs") => [integer()],
+        optional("databaseEdition") => list(any()),
+        optional("dbName") => [String.t() | atom()],
+        optional("dbToolsDetails") => list(database_tool()),
+        optional("dbVersion") => [String.t() | atom()],
+        optional("dbWorkload") => list(any()),
+        optional("displayName") => String.t() | atom(),
+        optional("encryptionKeyConfiguration") => list(),
+        optional("encryptionKeyProvider") => list(any()),
+        optional("isAutoScalingEnabled") => [boolean()],
+        optional("isAutoScalingForStorageEnabled") => [boolean()],
+        optional("isBackupRetentionLocked") => [boolean()],
+        optional("isLocalDataGuardEnabled") => [boolean()],
+        optional("isMtlsConnectionRequired") => [boolean()],
+        optional("licenseModel") => list(any()),
+        optional("ncharacterSet") => [String.t() | atom()],
+        optional("odbNetworkId") => String.t() | atom(),
+        optional("privateEndpointIp") => [String.t() | atom()],
+        optional("privateEndpointLabel") => [String.t() | atom()],
+        optional("resourcePoolLeaderId") => String.t() | atom(),
+        optional("resourcePoolSummary") => resource_pool_summary(),
+        optional("scheduledOperations") => list(scheduled_operation_details()),
+        optional("source") => list(any()),
+        optional("sourceConfiguration") => list(),
+        optional("standbyAllowlistedIps") => list([String.t() | atom()]()),
+        optional("standbyAllowlistedIpsSource") => list(any()),
+        optional("tags") => map(),
+        optional("transportableTablespace") => transportable_tablespace()
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type create_autonomous_database_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      month() :: %{
-        "name" => list(any())
-      }
-      
-  """
-  @type month() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_autonomous_database_output() :: %{
+      create_autonomous_database_output() :: %{
         "autonomousDatabaseId" => [String.t() | atom()],
         "displayName" => [String.t() | atom()],
         "status" => list(any()),
@@ -530,33 +1003,7 @@ defmodule AWS.Odb do
       }
       
   """
-  @type stop_autonomous_database_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_iam_role_from_resource_input() :: %{
-        required("awsIntegration") => list(any()),
-        required("iamRoleArn") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_iam_role_from_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_autonomous_database_character_sets_input() :: %{
-        optional("characterSetType") => list(any()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_autonomous_database_character_sets_input() :: %{(String.t() | atom()) => any()}
+  @type create_autonomous_database_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -564,9 +1011,11 @@ defmodule AWS.Odb do
       
       create_autonomous_database_wallet_input() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("password") => String.t() | atom(),
+        optional("passwordSource") => list(any()),
+        optional("passwordSourceConfiguration") => list(),
         optional("walletType") => list(any()),
-        required("autonomousDatabaseId") => String.t() | atom(),
-        required("password") => String.t() | atom()
+        required("autonomousDatabaseId") => String.t() | atom()
       }
       
   """
@@ -576,61 +1025,134 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
+      create_autonomous_database_wallet_output() :: %{
+        "autonomousDatabaseWalletFile" => binary()
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type create_autonomous_database_wallet_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_autonomous_database_input() :: %{
-        optional("odbNetworkId") => String.t() | atom(),
-        optional("resourcePoolLeaderId") => String.t() | atom(),
-        optional("cpuCoreCount") => [integer()],
-        optional("privateEndpointIp") => [String.t() | atom()],
-        optional("standbyAllowlistedIps") => list([String.t() | atom()]()),
+      create_cloud_autonomous_vm_cluster_input() :: %{
         optional("clientToken") => String.t() | atom(),
-        optional("isBackupRetentionLocked") => [boolean()],
-        optional("isAutoScalingForStorageEnabled") => [boolean()],
-        optional("autonomousMaintenanceScheduleType") => list(any()),
-        optional("adminPassword") => String.t() | atom(),
-        optional("encryptionKeyConfiguration") => list(),
-        optional("dbToolsDetails") => list(database_tool()),
-        optional("dataStorageSizeInGBs") => [integer()],
+        optional("dbServers") => list([String.t() | atom()]()),
+        optional("description") => [String.t() | atom()],
+        optional("isMtlsEnabledVmCluster") => [boolean()],
         optional("licenseModel") => list(any()),
-        optional("sourceConfiguration") => list(),
-        optional("dataStorageSizeInTBs") => [integer()],
-        optional("databaseEdition") => list(any()),
-        optional("transportableTablespace") => transportable_tablespace(),
-        optional("computeCount") => [float()],
-        optional("isMtlsConnectionRequired") => [boolean()],
-        optional("allowlistedIps") => list([String.t() | atom()]()),
-        optional("byolComputeCountLimit") => [float()],
-        optional("displayName") => String.t() | atom(),
-        optional("encryptionKeyProvider") => list(any()),
+        optional("maintenanceWindow") => maintenance_window(),
+        optional("scanListenerPortNonTls") => [integer()],
+        optional("scanListenerPortTls") => [integer()],
         optional("tags") => map(),
-        optional("privateEndpointLabel") => [String.t() | atom()],
-        optional("ncharacterSet") => [String.t() | atom()],
-        optional("source") => list(any()),
-        optional("dbWorkload") => list(any()),
-        optional("dbVersion") => [String.t() | atom()],
-        optional("isAutoScalingEnabled") => [boolean()],
-        optional("isLocalDataGuardEnabled") => [boolean()],
-        optional("customerContactsToSendToOCI") => list(customer_contact()),
-        optional("characterSet") => [String.t() | atom()],
-        optional("dbName") => [String.t() | atom()],
-        optional("resourcePoolSummary") => resource_pool_summary(),
-        optional("backupRetentionPeriodInDays") => [integer()],
-        optional("scheduledOperations") => list(scheduled_operation_details()),
-        optional("standbyAllowlistedIpsSource") => list(any())
+        optional("timeZone") => [String.t() | atom()],
+        required("autonomousDataStorageSizeInTBs") => [float()],
+        required("cloudExadataInfrastructureId") => String.t() | atom(),
+        required("cpuCoreCountPerNode") => [integer()],
+        required("displayName") => String.t() | atom(),
+        required("memoryPerOracleComputeUnitInGBs") => [integer()],
+        required("odbNetworkId") => String.t() | atom(),
+        required("totalContainerDatabases") => [integer()]
       }
       
   """
-  @type create_autonomous_database_input() :: %{(String.t() | atom()) => any()}
+  @type create_cloud_autonomous_vm_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cloud_autonomous_vm_cluster_output() :: %{
+        "cloudAutonomousVmClusterId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type create_cloud_autonomous_vm_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cloud_exadata_infrastructure_input() :: %{
+        optional("availabilityZone") => [String.t() | atom()],
+        optional("availabilityZoneId") => [String.t() | atom()],
+        optional("clientToken") => String.t() | atom(),
+        optional("customerContactsToSendToOCI") => list(customer_contact()),
+        optional("databaseServerType") => String.t() | atom(),
+        optional("maintenanceWindow") => maintenance_window(),
+        optional("storageServerType") => String.t() | atom(),
+        optional("tags") => map(),
+        required("computeCount") => [integer()],
+        required("displayName") => String.t() | atom(),
+        required("shape") => String.t() | atom(),
+        required("storageCount") => [integer()]
+      }
+      
+  """
+  @type create_cloud_exadata_infrastructure_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cloud_exadata_infrastructure_output() :: %{
+        "cloudExadataInfrastructureId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type create_cloud_exadata_infrastructure_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cloud_vm_cluster_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("clusterName") => String.t() | atom(),
+        optional("dataCollectionOptions") => data_collection_options(),
+        optional("dataStorageSizeInTBs") => [float()],
+        optional("dbNodeStorageSizeInGBs") => [integer()],
+        optional("dbServers") => list([String.t() | atom()]()),
+        optional("isLocalBackupEnabled") => [boolean()],
+        optional("isSparseDiskgroupEnabled") => [boolean()],
+        optional("licenseModel") => list(any()),
+        optional("memorySizeInGBs") => [integer()],
+        optional("scanListenerPortTcp") => [integer()],
+        optional("systemVersion") => [String.t() | atom()],
+        optional("tags") => map(),
+        optional("timeZone") => [String.t() | atom()],
+        required("cloudExadataInfrastructureId") => String.t() | atom(),
+        required("cpuCoreCount") => [integer()],
+        required("displayName") => String.t() | atom(),
+        required("giVersion") => [String.t() | atom()],
+        required("hostname") => String.t() | atom(),
+        required("odbNetworkId") => String.t() | atom(),
+        required("sshPublicKeys") => list([String.t() | atom()]())
+      }
+      
+  """
+  @type create_cloud_vm_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cloud_vm_cluster_output() :: %{
+        "cloudVmClusterId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type create_cloud_vm_cluster_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -663,304 +1185,46 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      start_db_node_input() :: %{}
-      
-  """
-  @type start_db_node_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_s3_backup_access() :: %{
-        "ipv4Addresses" => list([String.t() | atom()]()),
-        "status" => list(any())
-      }
-      
-  """
-  @type managed_s3_backup_access() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      gi_version_summary() :: %{
-        "version" => [String.t() | atom()]
-      }
-      
-  """
-  @type gi_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_odb_peering_connection_input() :: %{
-        optional("displayName") => String.t() | atom(),
-        optional("peerNetworkCidrsToBeAdded") => list(String.t() | atom()),
-        optional("peerNetworkCidrsToBeRemoved") => list(String.t() | atom())
-      }
-      
-  """
-  @type update_odb_peering_connection_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cloud_exadata_infrastructure_unallocated_resources_output() :: %{
-        "cloudExadataInfrastructureUnallocatedResources" => cloud_exadata_infrastructure_unallocated_resources()
-      }
-      
-  """
-  @type get_cloud_exadata_infrastructure_unallocated_resources_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_odb_network_input() :: %{
-        required("deleteAssociatedResources") => [boolean()]
-      }
-      
-  """
-  @type delete_odb_network_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_marketplace_registration_input() :: %{
-        required("marketplaceRegistrationToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type accept_marketplace_registration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_db_node_input() :: %{}
-      
-  """
-  @type stop_db_node_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      database_clone_configuration() :: %{
-        "cloneType" => list(any()),
-        "sourceAutonomousDatabaseId" => String.t() | atom()
-      }
-      
-  """
-  @type database_clone_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_autonomous_database_input() :: %{
-        required("autonomousDatabaseId") => String.t() | atom(),
-        required("timestamp") => [non_neg_integer()]
-      }
-      
-  """
-  @type restore_autonomous_database_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cloud_exadata_infrastructure_output() :: %{}
-      
-  """
-  @type delete_cloud_exadata_infrastructure_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_access() :: %{
-        "domainName" => [String.t() | atom()],
-        "ipv4Addresses" => list([String.t() | atom()]()),
-        "kmsPolicyDocument" => [String.t() | atom()],
-        "status" => list(any())
-      }
-      
-  """
-  @type kms_access() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cloud_exadata_infrastructure_unallocated_resources_input() :: %{
-        optional("dbServers") => list([String.t() | atom()]())
-      }
-      
-  """
-  @type get_cloud_exadata_infrastructure_unallocated_resources_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      list_db_servers_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_db_servers_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_gi_versions_output() :: %{
-        "giVersions" => list(gi_version_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_gi_versions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cloud_autonomous_vm_cluster_output() :: %{
-        "cloudAutonomousVmCluster" => cloud_autonomous_vm_cluster()
-      }
-      
-  """
-  @type get_cloud_autonomous_vm_cluster_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_node_summary() :: %{
-        "additionalDetails" => [String.t() | atom()],
-        "backupIpId" => [String.t() | atom()],
-        "backupVnic2Id" => [String.t() | atom()],
-        "backupVnicId" => [String.t() | atom()],
-        "cpuCoreCount" => [integer()],
-        "createdAt" => [non_neg_integer()],
-        "dbNodeArn" => String.t() | atom(),
-        "dbNodeId" => String.t() | atom(),
-        "dbNodeStorageSizeInGBs" => [integer()],
-        "dbServerId" => String.t() | atom(),
-        "dbSystemId" => [String.t() | atom()],
-        "faultDomain" => [String.t() | atom()],
-        "hostIpId" => [String.t() | atom()],
-        "hostname" => [String.t() | atom()],
-        "maintenanceType" => list(any()),
-        "memorySizeInGBs" => [integer()],
-        "ociResourceAnchorName" => [String.t() | atom()],
-        "ocid" => [String.t() | atom()],
-        "softwareStorageSizeInGB" => [integer()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "timeMaintenanceWindowEnd" => [String.t() | atom()],
-        "timeMaintenanceWindowStart" => [String.t() | atom()],
-        "totalCpuCoreCount" => [integer()],
-        "vnic2Id" => [String.t() | atom()],
-        "vnicId" => [String.t() | atom()]
-      }
-      
-  """
-  @type db_node_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      oci_dns_forwarding_config() :: %{
-        "domainName" => [String.t() | atom()],
-        "ociDnsListenerIp" => [String.t() | atom()]
-      }
-      
-  """
-  @type oci_dns_forwarding_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_services() :: %{
-        "crossRegionS3RestoreSourcesAccess" => list(cross_region_s3_restore_sources_access()),
-        "kmsAccess" => kms_access(),
-        "managedS3BackupAccess" => managed_s3_backup_access(),
-        "managedServicesIpv4Cidrs" => list([String.t() | atom()]()),
-        "resourceGatewayArn" => String.t() | atom(),
-        "s3Access" => s3_access(),
-        "serviceNetworkArn" => String.t() | atom(),
-        "serviceNetworkEndpoint" => service_network_endpoint(),
-        "stsAccess" => sts_access(),
-        "zeroEtlAccess" => zero_etl_access()
-      }
-      
-  """
-  @type managed_services() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_odb_network_output() :: %{}
-      
-  """
-  @type delete_odb_network_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      database_tool() :: %{
-        "computeCount" => [float()],
-        "isEnabled" => [boolean()],
-        "maxIdleTimeInMinutes" => [integer()],
-        "name" => [String.t() | atom()]
-      }
-      
-  """
-  @type database_tool() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cloud_exadata_infrastructures_output() :: %{
-        "cloudExadataInfrastructures" => list(cloud_exadata_infrastructure_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_cloud_exadata_infrastructures_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      oci_identity_domain() :: %{
-        "accountSetupCloudFormationUrl" => [String.t() | atom()],
-        "ociIdentityDomainId" => [String.t() | atom()],
-        "ociIdentityDomainResourceUrl" => [String.t() | atom()],
-        "ociIdentityDomainUrl" => [String.t() | atom()],
+      create_odb_network_output() :: %{
+        "displayName" => [String.t() | atom()],
+        "odbNetworkId" => [String.t() | atom()],
         "status" => list(any()),
         "statusReason" => [String.t() | atom()]
       }
       
   """
-  @type oci_identity_domain() :: %{(String.t() | atom()) => any()}
+  @type create_odb_network_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_odb_peering_connection_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("peerNetworkCidrsToBeAdded") => list(String.t() | atom()),
+        optional("peerNetworkRouteTableIds") => list(String.t() | atom()),
+        optional("tags") => map(),
+        required("odbNetworkId") => String.t() | atom(),
+        required("peerNetworkId") => String.t() | atom()
+      }
+      
+  """
+  @type create_odb_peering_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_odb_peering_connection_output() :: %{
+        "displayName" => [String.t() | atom()],
+        "odbPeeringConnectionId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type create_odb_peering_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -977,431 +1241,89 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      list_odb_peering_connections_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("odbNetworkId") => String.t() | atom()
+      cross_region_disaster_recovery_configuration() :: %{
+        "isReplicateAutomaticBackups" => [boolean()],
+        "remoteDisasterRecoveryType" => list(any()),
+        "sourceAutonomousDatabaseArn" => String.t() | atom()
       }
       
   """
-  @type list_odb_peering_connections_input() :: %{(String.t() | atom()) => any()}
+  @type cross_region_disaster_recovery_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_cloud_exadata_infrastructure_input() :: %{}
-      
-  """
-  @type get_cloud_exadata_infrastructure_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_iam_role_from_resource_output() :: %{}
-      
-  """
-  @type disassociate_iam_role_from_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cloud_vm_clusters_output() :: %{
-        "cloudVmClusters" => list(cloud_vm_cluster_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_cloud_vm_clusters_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_autonomous_database_output() :: %{
-        "autonomousDatabaseId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type update_autonomous_database_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_autonomous_database_input() :: %{
-        required("autonomousDatabaseId") => String.t() | atom()
-      }
-      
-  """
-  @type stop_autonomous_database_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_autonomous_database_clones_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_autonomous_database_clones_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cloud_autonomous_vm_cluster_output() :: %{
-        "cloudAutonomousVmClusterId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type create_cloud_autonomous_vm_cluster_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_iam_role_to_resource_output() :: %{}
-      
-  """
-  @type associate_iam_role_to_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_odb_peering_connection_output() :: %{
-        "odbPeeringConnection" => odb_peering_connection()
-      }
-      
-  """
-  @type get_odb_peering_connection_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_autonomous_database_peers_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_autonomous_database_peers_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failover_autonomous_database_input() :: %{
-        optional("peerDbArn") => String.t() | atom(),
-        required("autonomousDatabaseId") => String.t() | atom()
-      }
-      
-  """
-  @type failover_autonomous_database_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_autonomous_database_output() :: %{
-        "autonomousDatabaseId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type create_autonomous_database_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_gi_versions_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("shape") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_gi_versions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      system_version_summary() :: %{
-        "giVersion" => [String.t() | atom()],
-        "shape" => [String.t() | atom()],
-        "systemVersions" => list([String.t() | atom()]())
-      }
-      
-  """
-  @type system_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      day_of_week() :: %{
-        "name" => list(any())
-      }
-      
-  """
-  @type day_of_week() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_system_shape_summary() :: %{
-        "areServerTypesSupported" => [boolean()],
-        "availableCoreCount" => [integer()],
-        "availableCoreCountPerNode" => [integer()],
-        "availableDataStorageInTBs" => [integer()],
-        "availableDataStoragePerServerInTBs" => [integer()],
-        "availableDbNodePerNodeInGBs" => [integer()],
-        "availableDbNodeStorageInGBs" => [integer()],
-        "availableMemoryInGBs" => [integer()],
-        "availableMemoryPerNodeInGBs" => [integer()],
-        "computeModel" => list(any()),
-        "coreCountIncrement" => [integer()],
-        "maxStorageCount" => [integer()],
-        "maximumNodeCount" => [integer()],
-        "minCoreCountPerNode" => [integer()],
-        "minDataStorageInTBs" => [integer()],
-        "minDbNodeStoragePerNodeInGBs" => [integer()],
-        "minMemoryPerNodeInGBs" => [integer()],
-        "minStorageCount" => [integer()],
-        "minimumCoreCount" => [integer()],
-        "minimumNodeCount" => [integer()],
-        "name" => [String.t() | atom()],
-        "runtimeMinimumCoreCount" => [integer()],
-        "shapeFamily" => [String.t() | atom()],
-        "shapeType" => list(any())
-      }
-      
-  """
-  @type db_system_shape_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cloud_vm_cluster_output() :: %{
-        "cloudVmClusterId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type create_cloud_vm_cluster_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_server() :: %{
-        "autonomousVirtualMachineIds" => list([String.t() | atom()]()),
-        "autonomousVmClusterIds" => list([String.t() | atom()]()),
-        "computeModel" => list(any()),
-        "cpuCoreCount" => [integer()],
-        "createdAt" => [non_neg_integer()],
-        "dbNodeStorageSizeInGBs" => [integer()],
-        "dbServerId" => String.t() | atom(),
-        "dbServerPatchingDetails" => db_server_patching_details(),
-        "displayName" => [String.t() | atom()],
-        "exadataInfrastructureId" => [String.t() | atom()],
-        "maxCpuCount" => [integer()],
-        "maxDbNodeStorageInGBs" => [integer()],
-        "maxMemoryInGBs" => [integer()],
-        "memorySizeInGBs" => [integer()],
-        "ociResourceAnchorName" => [String.t() | atom()],
-        "ocid" => [String.t() | atom()],
-        "shape" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "vmClusterIds" => list([String.t() | atom()]())
-      }
-      
-  """
-  @type db_server() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_autonomous_databases_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_autonomous_databases_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_exadata_infrastructure_summary() :: %{
-        "maxDataStorageInTBs" => [float()],
-        "ociResourceAnchorName" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "ocid" => [String.t() | atom()],
-        "maxDbNodeStorageSizeInGBs" => [integer()],
-        "maintenanceWindow" => maintenance_window(),
-        "ociUrl" => [String.t() | atom()],
-        "monthlyStorageServerVersion" => [String.t() | atom()],
-        "availableStorageSizeInGBs" => [integer()],
-        "dbServerVersion" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "totalStorageSizeInGBs" => [integer()],
-        "status" => list(any()),
-        "availabilityZone" => [String.t() | atom()],
-        "customerContactsToSendToOCI" => list(customer_contact()),
-        "dataStorageSizeInTBs" => [float()],
-        "cpuCount" => [integer()],
-        "maxCpuCount" => [integer()],
-        "activatedStorageCount" => [integer()],
-        "computeModel" => list(any()),
-        "nextMaintenanceRunId" => [String.t() | atom()],
-        "availabilityZoneId" => [String.t() | atom()],
-        "monthlyDbServerVersion" => [String.t() | atom()],
-        "databaseServerType" => [String.t() | atom()],
-        "dbNodeStorageSizeInGBs" => [integer()],
-        "storageServerVersion" => [String.t() | atom()],
-        "storageCount" => [integer()],
-        "cloudExadataInfrastructureArn" => [String.t() | atom()],
-        "lastMaintenanceRunId" => [String.t() | atom()],
-        "additionalStorageCount" => [integer()],
-        "maxMemoryInGBs" => [integer()],
-        "storageServerType" => [String.t() | atom()],
-        "computeCount" => [integer()],
-        "shape" => [String.t() | atom()],
-        "cloudExadataInfrastructureId" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()],
-        "memorySizeInGBs" => [integer()],
-        "percentProgress" => [float()]
-      }
-      
-  """
-  @type cloud_exadata_infrastructure_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cloud_exadata_infrastructure_output() :: %{
-        "cloudExadataInfrastructureId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type create_cloud_exadata_infrastructure_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_odb_networks_output() :: %{
-        "nextToken" => [String.t() | atom()],
-        "odbNetworks" => list(odb_network_summary())
-      }
-      
-  """
-  @type list_odb_networks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_autonomous_database_versions_input() :: %{
-        optional("dbWorkload") => list(any()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_autonomous_database_versions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      shrink_autonomous_database_input() :: %{
-        required("autonomousDatabaseId") => String.t() | atom()
-      }
-      
-  """
-  @type shrink_autonomous_database_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_server_patching_details() :: %{
-        "estimatedPatchDuration" => [integer()],
-        "patchingStatus" => list(any()),
-        "timePatchingEnded" => [String.t() | atom()],
-        "timePatchingStarted" => [String.t() | atom()]
-      }
-      
-  """
-  @type db_server_patching_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_access() :: %{
-        "domainName" => [String.t() | atom()],
+      cross_region_s3_restore_sources_access() :: %{
         "ipv4Addresses" => list([String.t() | atom()]()),
-        "s3PolicyDocument" => [String.t() | atom()],
+        "region" => [String.t() | atom()],
         "status" => list(any())
       }
       
   """
-  @type s3_access() :: %{(String.t() | atom()) => any()}
+  @type cross_region_s3_restore_sources_access() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_contact() :: %{
+        "email" => String.t() | atom()
+      }
+      
+  """
+  @type customer_contact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_managed_aws_secret_configuration() :: %{
+        "externalIdType" => list(any()),
+        "iamRoleArn" => String.t() | atom(),
+        "secretId" => String.t() | atom()
+      }
+      
+  """
+  @type customer_managed_aws_secret_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_managed_aws_secret_configuration_input() :: %{
+        "externalIdType" => list(any()),
+        "iamRoleArn" => String.t() | atom(),
+        "secretId" => String.t() | atom()
+      }
+      
+  """
+  @type customer_managed_aws_secret_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_collection_options() :: %{
+        "isDiagnosticsEventsEnabled" => [boolean()],
+        "isHealthMonitoringEnabled" => [boolean()],
+        "isIncidentLogsEnabled" => [boolean()]
+      }
+      
+  """
+  @type data_collection_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      database_clone_configuration() :: %{
+        "cloneType" => list(any()),
+        "sourceAutonomousDatabaseId" => String.t() | atom()
+      }
+      
+  """
+  @type database_clone_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1426,163 +1348,58 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      create_odb_peering_connection_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("peerNetworkCidrsToBeAdded") => list(String.t() | atom()),
-        optional("peerNetworkRouteTableIds") => list(String.t() | atom()),
-        optional("tags") => map(),
-        required("odbNetworkId") => String.t() | atom(),
-        required("peerNetworkId") => String.t() | atom()
-      }
-      
-  """
-  @type create_odb_peering_connection_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_odb_network_output() :: %{
-        "odbNetwork" => odb_network()
-      }
-      
-  """
-  @type get_odb_network_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reboot_db_node_input() :: %{}
-      
-  """
-  @type reboot_db_node_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_odb_network_output() :: %{
-        "displayName" => [String.t() | atom()],
-        "odbNetworkId" => [String.t() | atom()],
+      database_standby_summary() :: %{
+        "availabilityDomain" => [String.t() | atom()],
+        "lagTimeInSeconds" => [integer()],
+        "maintenanceTargetComponent" => [String.t() | atom()],
         "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type create_odb_network_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      autonomous_database_version_summary() :: %{
-        "dbWorkload" => list(any()),
-        "details" => [String.t() | atom()],
-        "version" => [String.t() | atom()]
-      }
-      
-  """
-  @type autonomous_database_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cloud_vm_cluster_input() :: %{}
-      
-  """
-  @type get_cloud_vm_cluster_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      autonomous_database_peer_summary() :: %{
-        "autonomousDatabaseArn" => String.t() | atom(),
-        "autonomousDatabaseId" => String.t() | atom(),
-        "ocid" => [String.t() | atom()],
-        "region" => [String.t() | atom()]
-      }
-      
-  """
-  @type autonomous_database_peer_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_autonomous_database_backup_output() :: %{}
-      
-  """
-  @type delete_autonomous_database_backup_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_vm_cluster_summary() :: %{
-        "ociResourceAnchorName" => [String.t() | atom()],
-        "scanIpIds" => list([String.t() | atom()]()),
-        "clusterName" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "odbNetworkArn" => String.t() | atom(),
-        "ocid" => [String.t() | atom()],
-        "cpuCoreCount" => [integer()],
-        "isLocalBackupEnabled" => [boolean()],
-        "ociUrl" => [String.t() | atom()],
-        "giVersion" => [String.t() | atom()],
-        "scanDnsName" => [String.t() | atom()],
-        "systemVersion" => [String.t() | atom()],
-        "vipIds" => list([String.t() | atom()]()),
-        "timeZone" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "lastUpdateHistoryEntryId" => [String.t() | atom()],
-        "storageSizeInGBs" => [integer()],
-        "status" => list(any()),
-        "domain" => [String.t() | atom()],
-        "dataStorageSizeInTBs" => [float()],
-        "cloudVmClusterId" => String.t() | atom(),
-        "licenseModel" => list(any()),
-        "nodeCount" => [integer()],
-        "computeModel" => list(any()),
-        "diskRedundancy" => list(any()),
-        "scanDnsRecordId" => [String.t() | atom()],
-        "odbNetworkId" => String.t() | atom(),
-        "dbNodeStorageSizeInGBs" => [integer()],
-        "sshPublicKeys" => list(String.t() | atom()),
-        "hostname" => [String.t() | atom()],
-        "listenerPort" => [integer()],
-        "cloudExadataInfrastructureArn" => String.t() | atom(),
-        "isSparseDiskgroupEnabled" => [boolean()],
-        "cloudVmClusterArn" => [String.t() | atom()],
-        "iamRoles" => list(iam_role()),
-        "shape" => [String.t() | atom()],
-        "iormConfigCache" => exadata_iorm_config(),
-        "cloudExadataInfrastructureId" => [String.t() | atom()],
         "statusReason" => [String.t() | atom()],
-        "dataCollectionOptions" => data_collection_options(),
-        "dbServers" => list([String.t() | atom()]()),
-        "memorySizeInGBs" => [integer()],
-        "percentProgress" => [float()]
+        "timeDataGuardRoleChanged" => [non_neg_integer()],
+        "timeDisasterRecoveryRoleChanged" => [non_neg_integer()],
+        "timeMaintenanceBegin" => [non_neg_integer()],
+        "timeMaintenanceEnd" => [non_neg_integer()]
       }
       
   """
-  @type cloud_vm_cluster_summary() :: %{(String.t() | atom()) => any()}
+  @type database_standby_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      database_tool() :: %{
+        "computeCount" => [float()],
+        "isEnabled" => [boolean()],
+        "maxIdleTimeInMinutes" => [integer()],
+        "name" => [String.t() | atom()]
+      }
+      
+  """
+  @type database_tool() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      day_of_week() :: %{
+        "name" => list(any())
+      }
+      
+  """
+  @type day_of_week() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_iorm_config() :: %{
+        "dbName" => [String.t() | atom()],
+        "flashCacheLimit" => [String.t() | atom()],
+        "share" => [integer()]
+      }
+      
+  """
+  @type db_iorm_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1626,930 +1443,81 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => map()
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cloud_vm_clusters_input() :: %{
-        optional("cloudExadataInfrastructureId") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_cloud_vm_clusters_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_autonomous_database_backup_input() :: %{}
-      
-  """
-  @type delete_autonomous_database_backup_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_autonomous_database_backup_input() :: %{}
-      
-  """
-  @type get_autonomous_database_backup_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      autonomous_database() :: %{
-        "ociResourceAnchorName" => [String.t() | atom()],
-        "sqlWebDeveloperUrl" => [String.t() | atom()],
-        "autoRefreshPointLagInSeconds" => [integer()],
+      db_node_summary() :: %{
+        "additionalDetails" => [String.t() | atom()],
+        "backupIpId" => [String.t() | atom()],
+        "backupVnic2Id" => [String.t() | atom()],
+        "backupVnicId" => [String.t() | atom()],
+        "cpuCoreCount" => [integer()],
         "createdAt" => [non_neg_integer()],
-        "privateEndpointLabel" => [String.t() | atom()],
-        "refreshableStatus" => list(any()),
-        "odbNetworkArn" => String.t() | atom(),
-        "dbName" => [String.t() | atom()],
-        "isRefreshableClone" => [boolean()],
-        "inMemoryAreaInGBs" => [integer()],
-        "operationsInsightsStatus" => list(any()),
-        "timeOfLastRefreshPoint" => [non_neg_integer()],
-        "standbyAllowlistedIpsSource" => list(any()),
-        "ocid" => [String.t() | atom()],
-        "cpuCoreCount" => [integer()],
-        "timeOfAutoRefreshStart" => [non_neg_integer()],
-        "provisionableCpus" => list([integer()]()),
-        "ociUrl" => [String.t() | atom()],
-        "isRemoteDataGuardEnabled" => [boolean()],
-        "permissionLevel" => list(any()),
-        "isAutoScalingEnabled" => [boolean()],
-        "serviceConsoleUrl" => [String.t() | atom()],
-        "databaseEdition" => list(any()),
-        "timeOfLastSwitchover" => [non_neg_integer()],
-        "isReconnectCloneEnabled" => [boolean()],
-        "localAdgAutoFailoverMaxDataLossLimit" => [integer()],
-        "timeMaintenanceEnd" => [non_neg_integer()],
-        "apexDetails" => autonomous_database_apex(),
-        "dbToolsDetails" => list(database_tool()),
-        "role" => list(any()),
-        "failedDataRecoveryInSeconds" => [integer()],
-        "privateEndpointIp" => [String.t() | atom()],
-        "resourcePoolSummary" => resource_pool_summary(),
-        "displayName" => [String.t() | atom()],
-        "isLocalDataGuardEnabled" => [boolean()],
-        "cloneTableSpaceList" => list([integer()]()),
-        "timeDisasterRecoveryRoleChanged" => [non_neg_integer()],
-        "status" => list(any()),
-        "dbWorkload" => list(any()),
-        "longTermBackupSchedule" => long_term_backup_schedule(),
-        "autonomousDatabaseId" => String.t() | atom(),
-        "timeMaintenanceBegin" => [non_neg_integer()],
-        "characterSet" => [String.t() | atom()],
-        "customerContacts" => list(customer_contact()),
-        "dataSafeStatus" => list(any()),
-        "standbyAllowlistedIps" => list([String.t() | atom()]()),
-        "localStandbyDb" => database_standby_summary(),
-        "availabilityZone" => [String.t() | atom()],
-        "usedDataStorageSizeInGBs" => [integer()],
-        "dbVersion" => [String.t() | atom()],
-        "memoryPerOracleComputeUnitInGBs" => [integer()],
-        "dataStorageSizeInTBs" => [float()],
-        "timeReclamationOfFreeAutonomousDatabase" => [non_neg_integer()],
-        "licenseModel" => list(any()),
-        "timeOfLastBackup" => [non_neg_integer()],
-        "privateEndpoint" => [String.t() | atom()],
-        "timeOfNextRefresh" => [non_neg_integer()],
-        "connectionUrls" => autonomous_database_connection_urls(),
-        "databaseType" => list(any()),
-        "computeModel" => list(any()),
-        "isAutoScalingForStorageEnabled" => [boolean()],
-        "timeOfLastFailover" => [non_neg_integer()],
-        "backupRetentionPeriodInDays" => [integer()],
-        "localDisasterRecoveryType" => list(any()),
-        "isMtlsConnectionRequired" => [boolean()],
-        "nextLongTermBackupTimeStamp" => [non_neg_integer()],
-        "encryptionSummary" => encryption_summary(),
-        "timeDeletionOfFreeAutonomousDatabase" => [non_neg_integer()],
-        "netServicesArchitecture" => list(any()),
-        "allowlistedIps" => list([String.t() | atom()]()),
-        "availabilityZoneId" => [String.t() | atom()],
-        "sourceId" => [String.t() | atom()],
-        "resourcePoolLeaderId" => [String.t() | atom()],
-        "dataStorageSizeInGBs" => [integer()],
-        "autonomousDatabaseArn" => String.t() | atom(),
-        "refreshableMode" => list(any()),
-        "standbyDb" => database_standby_summary(),
-        "odbNetworkId" => String.t() | atom(),
-        "timeDataGuardRoleChanged" => [non_neg_integer()],
-        "timeLocalDataGuardEnabled" => [non_neg_integer()],
-        "allocatedStorageSizeInTBs" => [float()],
-        "timeUntilReconnectCloneEnabled" => [non_neg_integer()],
-        "byolComputeCountLimit" => [integer()],
-        "timeUndeleted" => [non_neg_integer()],
-        "openMode" => list(any()),
-        "scheduledOperations" => list(scheduled_operation_details()),
-        "peerDbIds" => list([String.t() | atom()]()),
-        "isBackupRetentionLocked" => [boolean()],
-        "timeOfLastRefresh" => [non_neg_integer()],
-        "databaseManagementStatus" => list(any()),
-        "autonomousMaintenanceScheduleType" => list(any()),
-        "autoRefreshFrequencyInSeconds" => [integer()],
-        "availableUpgradeVersions" => list([String.t() | atom()]()),
-        "totalBackupStorageSizeInGBs" => [float()],
-        "ncharacterSet" => [String.t() | atom()],
-        "computeCount" => [float()],
-        "maintenanceTargetComponent" => [String.t() | atom()],
-        "remoteDisasterRecoveryConfiguration" => disaster_recovery_configuration(),
-        "usedDataStorageSizeInTBs" => [float()],
-        "statusReason" => [String.t() | atom()],
-        "actualUsedDataStorageSizeInTBs" => [float()],
-        "connectionStringDetails" => autonomous_database_connection_strings(),
-        "percentProgress" => [float()]
-      }
-      
-  """
-  @type autonomous_database() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scheduled_operation_details() :: %{
-        "dayOfWeek" => day_of_week(),
-        "scheduledStartTime" => [String.t() | atom()],
-        "scheduledStopTime" => [String.t() | atom()]
-      }
-      
-  """
-  @type scheduled_operation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aws_encryption_key_configuration_input() :: %{
-        "externalIdType" => list(any()),
-        "iamRoleArn" => String.t() | atom(),
-        "kmsKeyId" => String.t() | atom()
-      }
-      
-  """
-  @type aws_encryption_key_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_autonomous_database_backup_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("retentionPeriodInDays") => [integer()],
-        optional("tags") => map(),
-        required("autonomousDatabaseId") => String.t() | atom()
-      }
-      
-  """
-  @type create_autonomous_database_backup_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      clone_to_refreshable_configuration() :: %{
-        "autoRefreshFrequencyInSeconds" => [integer()],
-        "autoRefreshPointLagInSeconds" => [integer()],
-        "cloneType" => list(any()),
-        "openMode" => list(any()),
-        "refreshableMode" => list(any()),
-        "sourceAutonomousDatabaseId" => String.t() | atom(),
-        "timeOfAutoRefreshStart" => [non_neg_integer()]
-      }
-      
-  """
-  @type clone_to_refreshable_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      autonomous_database_character_set_summary() :: %{
-        "characterSet" => [String.t() | atom()]
-      }
-      
-  """
-  @type autonomous_database_character_set_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_autonomous_vm_cluster_resource_details() :: %{
-        "cloudAutonomousVmClusterId" => String.t() | atom(),
-        "unallocatedAdbStorageInTBs" => [float()]
-      }
-      
-  """
-  @type cloud_autonomous_vm_cluster_resource_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_autonomous_database_wallet_details_output() :: %{
-        "autonomousDatabaseWalletDetails" => autonomous_database_wallet_details()
-      }
-      
-  """
-  @type get_autonomous_database_wallet_details_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_autonomous_database_input() :: %{
-        required("autonomousDatabaseId") => String.t() | atom()
-      }
-      
-  """
-  @type start_autonomous_database_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_system_versions_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        required("giVersion") => [String.t() | atom()],
-        required("shape") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_system_versions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_autonomous_databases_output() :: %{
-        "autonomousDatabases" => list(autonomous_database_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_autonomous_databases_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_autonomous_database_backups_output() :: %{
-        "autonomousDatabaseBackups" => list(autonomous_database_backup_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_autonomous_database_backups_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reboot_db_node_output() :: %{
-        "dbNodeId" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type reboot_db_node_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_autonomous_database_backups_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("status") => list(any()),
-        optional("type") => list(any())
-      }
-      
-  """
-  @type list_autonomous_database_backups_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_cloud_exadata_infrastructure_input() :: %{
-        optional("maintenanceWindow") => maintenance_window()
-      }
-      
-  """
-  @type update_cloud_exadata_infrastructure_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_iorm_config() :: %{
-        "dbName" => [String.t() | atom()],
-        "flashCacheLimit" => [String.t() | atom()],
-        "share" => [integer()]
-      }
-      
-  """
-  @type db_iorm_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_autonomous_virtual_machines_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_autonomous_virtual_machines_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      autonomous_database_wallet_details() :: %{
-        "status" => list(any()),
-        "timeRotated" => [non_neg_integer()]
-      }
-      
-  """
-  @type autonomous_database_wallet_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_cloud_exadata_infrastructure_output() :: %{
-        "cloudExadataInfrastructureId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type update_cloud_exadata_infrastructure_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_iam_role_to_resource_input() :: %{
-        required("awsIntegration") => list(any()),
-        required("iamRoleArn") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type associate_iam_role_to_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-      
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_marketplace_registration_output() :: %{}
-      
-  """
-  @type accept_marketplace_registration_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cloud_autonomous_vm_cluster_input() :: %{}
-      
-  """
-  @type delete_cloud_autonomous_vm_cluster_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      autonomous_database_connection_urls() :: %{
-        "apexUrl" => [String.t() | atom()],
-        "databaseTransformsUrl" => [String.t() | atom()],
-        "graphStudioUrl" => [String.t() | atom()],
-        "machineLearningNotebookUrl" => [String.t() | atom()],
-        "machineLearningUserManagementUrl" => [String.t() | atom()],
-        "mongoDbUrl" => [String.t() | atom()],
-        "ordsUrl" => [String.t() | atom()],
-        "spatialStudioUrl" => [String.t() | atom()],
-        "sqlDevWebUrl" => [String.t() | atom()]
-      }
-      
-  """
-  @type autonomous_database_connection_urls() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_db_node_output() :: %{
-        "dbNode" => db_node()
-      }
-      
-  """
-  @type get_db_node_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failover_autonomous_database_output() :: %{
-        "autonomousDatabaseId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type failover_autonomous_database_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      autonomous_database_backup() :: %{
-        "autonomousDatabaseBackupArn" => String.t() | atom(),
-        "autonomousDatabaseBackupId" => String.t() | atom(),
-        "autonomousDatabaseId" => String.t() | atom(),
-        "dbVersion" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "isAutomatic" => [boolean()],
-        "ocid" => [String.t() | atom()],
-        "retentionPeriodInDays" => [integer()],
-        "sizeInTBs" => [float()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "timeAvailableTill" => [non_neg_integer()],
-        "timeEnded" => [non_neg_integer()],
-        "timeStarted" => [non_neg_integer()],
-        "type" => list(any())
-      }
-      
-  """
-  @type autonomous_database_backup() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_autonomous_database_wallet_details_input() :: %{
-        required("autonomousDatabaseId") => String.t() | atom()
-      }
-      
-  """
-  @type get_autonomous_database_wallet_details_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_db_nodes_output() :: %{
-        "dbNodes" => list(db_node_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_db_nodes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_network_endpoint() :: %{
-        "vpcEndpointId" => [String.t() | atom()],
-        "vpcEndpointType" => list(any())
-      }
-      
-  """
-  @type service_network_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cloud_exadata_infrastructure_output() :: %{
-        "cloudExadataInfrastructure" => cloud_exadata_infrastructure()
-      }
-      
-  """
-  @type get_cloud_exadata_infrastructure_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_db_system_shapes_input() :: %{
-        optional("availabilityZone") => [String.t() | atom()],
-        optional("availabilityZoneId") => [String.t() | atom()],
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_db_system_shapes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_autonomous_database_clones_output() :: %{
-        "autonomousDatabaseClones" => list(autonomous_database_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_autonomous_database_clones_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_vm_cluster() :: %{
-        "ociResourceAnchorName" => [String.t() | atom()],
-        "scanIpIds" => list([String.t() | atom()]()),
-        "clusterName" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "odbNetworkArn" => String.t() | atom(),
-        "ocid" => [String.t() | atom()],
-        "cpuCoreCount" => [integer()],
-        "isLocalBackupEnabled" => [boolean()],
-        "ociUrl" => [String.t() | atom()],
-        "giVersion" => [String.t() | atom()],
-        "scanDnsName" => [String.t() | atom()],
-        "systemVersion" => [String.t() | atom()],
-        "vipIds" => list([String.t() | atom()]()),
-        "timeZone" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "lastUpdateHistoryEntryId" => [String.t() | atom()],
-        "storageSizeInGBs" => [integer()],
-        "status" => list(any()),
-        "domain" => [String.t() | atom()],
-        "dataStorageSizeInTBs" => [float()],
-        "cloudVmClusterId" => String.t() | atom(),
-        "licenseModel" => list(any()),
-        "nodeCount" => [integer()],
-        "computeModel" => list(any()),
-        "diskRedundancy" => list(any()),
-        "scanDnsRecordId" => [String.t() | atom()],
-        "odbNetworkId" => String.t() | atom(),
+        "dbNodeArn" => String.t() | atom(),
+        "dbNodeId" => String.t() | atom(),
         "dbNodeStorageSizeInGBs" => [integer()],
-        "sshPublicKeys" => list(String.t() | atom()),
-        "hostname" => [String.t() | atom()],
-        "listenerPort" => [integer()],
-        "cloudExadataInfrastructureArn" => String.t() | atom(),
-        "isSparseDiskgroupEnabled" => [boolean()],
-        "cloudVmClusterArn" => [String.t() | atom()],
-        "iamRoles" => list(iam_role()),
-        "shape" => [String.t() | atom()],
-        "iormConfigCache" => exadata_iorm_config(),
-        "cloudExadataInfrastructureId" => [String.t() | atom()],
-        "statusReason" => [String.t() | atom()],
-        "dataCollectionOptions" => data_collection_options(),
-        "dbServers" => list([String.t() | atom()]()),
-        "memorySizeInGBs" => [integer()],
-        "percentProgress" => [float()]
-      }
-      
-  """
-  @type cloud_vm_cluster() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_autonomous_database_backup_input() :: %{
-        optional("retentionPeriodInDays") => [integer()]
-      }
-      
-  """
-  @type update_autonomous_database_backup_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cloud_exadata_infrastructures_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_cloud_exadata_infrastructures_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_autonomous_database_output() :: %{}
-      
-  """
-  @type delete_autonomous_database_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reboot_autonomous_database_output() :: %{
-        "autonomousDatabaseId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type reboot_autonomous_database_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      iam_role() :: %{
-        "awsIntegration" => list(any()),
-        "iamRoleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type iam_role() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      autonomous_virtual_machine_summary() :: %{
-        "autonomousVirtualMachineId" => String.t() | atom(),
-        "clientIpAddress" => [String.t() | atom()],
-        "cloudAutonomousVmClusterId" => [String.t() | atom()],
-        "cpuCoreCount" => [integer()],
-        "dbNodeStorageSizeInGBs" => [integer()],
-        "dbServerDisplayName" => [String.t() | atom()],
         "dbServerId" => String.t() | atom(),
+        "dbSystemId" => [String.t() | atom()],
+        "faultDomain" => [String.t() | atom()],
+        "hostIpId" => [String.t() | atom()],
+        "hostname" => [String.t() | atom()],
+        "maintenanceType" => list(any()),
         "memorySizeInGBs" => [integer()],
         "ociResourceAnchorName" => [String.t() | atom()],
         "ocid" => [String.t() | atom()],
+        "softwareStorageSizeInGB" => [integer()],
         "status" => list(any()),
         "statusReason" => [String.t() | atom()],
-        "vmName" => [String.t() | atom()]
+        "timeMaintenanceWindowEnd" => [String.t() | atom()],
+        "timeMaintenanceWindowStart" => [String.t() | atom()],
+        "totalCpuCoreCount" => [integer()],
+        "vnic2Id" => [String.t() | atom()],
+        "vnicId" => [String.t() | atom()]
       }
       
   """
-  @type autonomous_virtual_machine_summary() :: %{(String.t() | atom()) => any()}
+  @type db_node_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      switchover_autonomous_database_input() :: %{
-        optional("peerDbArn") => String.t() | atom(),
-        required("autonomousDatabaseId") => String.t() | atom()
-      }
-      
-  """
-  @type switchover_autonomous_database_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cloud_vm_cluster_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("clusterName") => String.t() | atom(),
-        optional("dataCollectionOptions") => data_collection_options(),
-        optional("dataStorageSizeInTBs") => [float()],
-        optional("dbNodeStorageSizeInGBs") => [integer()],
-        optional("dbServers") => list([String.t() | atom()]()),
-        optional("isLocalBackupEnabled") => [boolean()],
-        optional("isSparseDiskgroupEnabled") => [boolean()],
-        optional("licenseModel") => list(any()),
-        optional("memorySizeInGBs") => [integer()],
-        optional("scanListenerPortTcp") => [integer()],
-        optional("systemVersion") => [String.t() | atom()],
-        optional("tags") => map(),
-        optional("timeZone") => [String.t() | atom()],
-        required("cloudExadataInfrastructureId") => String.t() | atom(),
-        required("cpuCoreCount") => [integer()],
-        required("displayName") => String.t() | atom(),
-        required("giVersion") => [String.t() | atom()],
-        required("hostname") => String.t() | atom(),
-        required("odbNetworkId") => String.t() | atom(),
-        required("sshPublicKeys") => list([String.t() | atom()]())
-      }
-      
-  """
-  @type create_cloud_vm_cluster_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_odb_peering_connection_output() :: %{
-        "displayName" => [String.t() | atom()],
-        "odbPeeringConnectionId" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type update_odb_peering_connection_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      autonomous_database_connection_strings() :: %{
-        "allConnectionStrings" => map(),
-        "dedicated" => [String.t() | atom()],
-        "high" => [String.t() | atom()],
-        "low" => [String.t() | atom()],
-        "medium" => [String.t() | atom()],
-        "profiles" => list(database_connection_string_profile())
-      }
-      
-  """
-  @type autonomous_database_connection_strings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_autonomous_database_backup_output() :: %{
-        "autonomousDatabaseBackupId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type update_autonomous_database_backup_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_exadata_infrastructure() :: %{
-        "maxDataStorageInTBs" => [float()],
-        "ociResourceAnchorName" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "ocid" => [String.t() | atom()],
-        "maxDbNodeStorageSizeInGBs" => [integer()],
-        "maintenanceWindow" => maintenance_window(),
-        "ociUrl" => [String.t() | atom()],
-        "monthlyStorageServerVersion" => [String.t() | atom()],
-        "availableStorageSizeInGBs" => [integer()],
-        "dbServerVersion" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "totalStorageSizeInGBs" => [integer()],
-        "status" => list(any()),
-        "availabilityZone" => [String.t() | atom()],
-        "customerContactsToSendToOCI" => list(customer_contact()),
-        "dataStorageSizeInTBs" => [float()],
-        "cpuCount" => [integer()],
-        "maxCpuCount" => [integer()],
-        "activatedStorageCount" => [integer()],
+      db_server() :: %{
+        "autonomousVirtualMachineIds" => list([String.t() | atom()]()),
+        "autonomousVmClusterIds" => list([String.t() | atom()]()),
         "computeModel" => list(any()),
-        "nextMaintenanceRunId" => [String.t() | atom()],
-        "availabilityZoneId" => [String.t() | atom()],
-        "monthlyDbServerVersion" => [String.t() | atom()],
-        "databaseServerType" => [String.t() | atom()],
+        "cpuCoreCount" => [integer()],
+        "createdAt" => [non_neg_integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
-        "storageServerVersion" => [String.t() | atom()],
-        "storageCount" => [integer()],
-        "cloudExadataInfrastructureArn" => [String.t() | atom()],
-        "lastMaintenanceRunId" => [String.t() | atom()],
-        "additionalStorageCount" => [integer()],
+        "dbServerId" => String.t() | atom(),
+        "dbServerPatchingDetails" => db_server_patching_details(),
+        "displayName" => [String.t() | atom()],
+        "exadataInfrastructureId" => [String.t() | atom()],
+        "maxCpuCount" => [integer()],
+        "maxDbNodeStorageInGBs" => [integer()],
         "maxMemoryInGBs" => [integer()],
-        "storageServerType" => [String.t() | atom()],
-        "computeCount" => [integer()],
-        "shape" => [String.t() | atom()],
-        "cloudExadataInfrastructureId" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()],
         "memorySizeInGBs" => [integer()],
-        "percentProgress" => [float()]
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "shape" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "vmClusterIds" => list([String.t() | atom()]())
       }
       
   """
-  @type cloud_exadata_infrastructure() :: %{(String.t() | atom()) => any()}
+  @type db_server() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_autonomous_database_peers_output() :: %{
-        "autonomousDatabasePeers" => list(autonomous_database_peer_summary()),
-        "nextToken" => [String.t() | atom()]
+      db_server_patching_details() :: %{
+        "estimatedPatchDuration" => [integer()],
+        "patchingStatus" => list(any()),
+        "timePatchingEnded" => [String.t() | atom()],
+        "timePatchingStarted" => [String.t() | atom()]
       }
       
   """
-  @type list_autonomous_database_peers_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reboot_autonomous_database_input() :: %{
-        optional("isOnlineReboot") => [boolean()],
-        required("autonomousDatabaseId") => String.t() | atom()
-      }
-      
-  """
-  @type reboot_autonomous_database_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_autonomous_database_output() :: %{
-        "autonomousDatabase" => autonomous_database()
-      }
-      
-  """
-  @type get_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+  @type db_server_patching_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2585,13 +1553,53 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      list_db_servers_output() :: %{
-        "dbServers" => list(db_server_summary()),
-        "nextToken" => [String.t() | atom()]
+      db_system_shape_summary() :: %{
+        "areServerTypesSupported" => [boolean()],
+        "availableCoreCount" => [integer()],
+        "availableCoreCountPerNode" => [integer()],
+        "availableDataStorageInTBs" => [integer()],
+        "availableDataStoragePerServerInTBs" => [integer()],
+        "availableDbNodePerNodeInGBs" => [integer()],
+        "availableDbNodeStorageInGBs" => [integer()],
+        "availableMemoryInGBs" => [integer()],
+        "availableMemoryPerNodeInGBs" => [integer()],
+        "computeModel" => list(any()),
+        "coreCountIncrement" => [integer()],
+        "maxStorageCount" => [integer()],
+        "maximumNodeCount" => [integer()],
+        "minCoreCountPerNode" => [integer()],
+        "minDataStorageInTBs" => [integer()],
+        "minDbNodeStoragePerNodeInGBs" => [integer()],
+        "minMemoryPerNodeInGBs" => [integer()],
+        "minStorageCount" => [integer()],
+        "minimumCoreCount" => [integer()],
+        "minimumNodeCount" => [integer()],
+        "name" => [String.t() | atom()],
+        "runtimeMinimumCoreCount" => [integer()],
+        "shapeFamily" => [String.t() | atom()],
+        "shapeType" => list(any())
       }
       
   """
-  @type list_db_servers_output() :: %{(String.t() | atom()) => any()}
+  @type db_system_shape_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_autonomous_database_backup_input() :: %{}
+      
+  """
+  @type delete_autonomous_database_backup_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_autonomous_database_backup_output() :: %{}
+      
+  """
+  @type delete_autonomous_database_backup_output() :: %{}
 
   @typedoc """
 
@@ -2606,86 +1614,199 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      initialize_service_input() :: %{
-        optional("ociIdentityDomain") => [boolean()]
+      delete_autonomous_database_output() :: %{}
+      
+  """
+  @type delete_autonomous_database_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cloud_autonomous_vm_cluster_input() :: %{}
+      
+  """
+  @type delete_cloud_autonomous_vm_cluster_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cloud_autonomous_vm_cluster_output() :: %{}
+      
+  """
+  @type delete_cloud_autonomous_vm_cluster_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cloud_exadata_infrastructure_input() :: %{}
+      
+  """
+  @type delete_cloud_exadata_infrastructure_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cloud_exadata_infrastructure_output() :: %{}
+      
+  """
+  @type delete_cloud_exadata_infrastructure_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cloud_vm_cluster_input() :: %{}
+      
+  """
+  @type delete_cloud_vm_cluster_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cloud_vm_cluster_output() :: %{}
+      
+  """
+  @type delete_cloud_vm_cluster_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_odb_network_input() :: %{
+        required("deleteAssociatedResources") => [boolean()]
       }
       
   """
-  @type initialize_service_input() :: %{(String.t() | atom()) => any()}
+  @type delete_odb_network_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_autonomous_database_input() :: %{}
+      delete_odb_network_output() :: %{}
       
   """
-  @type get_autonomous_database_input() :: %{}
+  @type delete_odb_network_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      list_autonomous_database_character_sets_output() :: %{
-        "autonomousDatabaseCharacterSets" => list(autonomous_database_character_set_summary()),
-        "nextToken" => [String.t() | atom()]
+      delete_odb_peering_connection_input() :: %{}
+      
+  """
+  @type delete_odb_peering_connection_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_odb_peering_connection_output() :: %{}
+      
+  """
+  @type delete_odb_peering_connection_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_iam_role_from_resource_input() :: %{
+        required("awsIntegration") => list(any()),
+        required("iamRoleArn") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type list_autonomous_database_character_sets_output() :: %{(String.t() | atom()) => any()}
+  @type disassociate_iam_role_from_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_db_server_input() :: %{}
+      disassociate_iam_role_from_resource_output() :: %{}
       
   """
-  @type get_db_server_input() :: %{}
+  @type disassociate_iam_role_from_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      odb_network_summary() :: %{
-        "availabilityZone" => [String.t() | atom()],
-        "availabilityZoneId" => [String.t() | atom()],
-        "backupSubnetCidr" => [String.t() | atom()],
-        "clientSubnetCidr" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "customDomainName" => [String.t() | atom()],
-        "defaultDnsPrefix" => [String.t() | atom()],
+      disaster_recovery_configuration() :: %{
+        "disasterRecoveryType" => list(any()),
+        "isReplicateAutomaticBackups" => [boolean()],
+        "isSnapshotStandby" => [boolean()],
+        "timeSnapshotStandbyEnabledTill" => [non_neg_integer()]
+      }
+      
+  """
+  @type disaster_recovery_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_summary() :: %{
+        "encryptionKeyConfiguration" => list(),
+        "encryptionKeyProvider" => list(any())
+      }
+      
+  """
+  @type encryption_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      exadata_iorm_config() :: %{
+        "dbPlans" => list(db_iorm_config()),
+        "lifecycleDetails" => [String.t() | atom()],
+        "lifecycleState" => list(any()),
+        "objective" => list(any())
+      }
+      
+  """
+  @type exadata_iorm_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failover_autonomous_database_input() :: %{
+        optional("peerDbArn") => String.t() | atom(),
+        required("autonomousDatabaseId") => String.t() | atom()
+      }
+      
+  """
+  @type failover_autonomous_database_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failover_autonomous_database_output() :: %{
+        "autonomousDatabaseId" => [String.t() | atom()],
         "displayName" => [String.t() | atom()],
-        "ec2PlacementGroupIds" => list(String.t() | atom()),
-        "managedServices" => managed_services(),
-        "ociDnsForwardingConfigs" => list(oci_dns_forwarding_config()),
-        "ociNetworkAnchorId" => [String.t() | atom()],
-        "ociNetworkAnchorUrl" => [String.t() | atom()],
-        "ociResourceAnchorName" => [String.t() | atom()],
-        "ociVcnId" => [String.t() | atom()],
-        "ociVcnUrl" => [String.t() | atom()],
-        "odbNetworkArn" => [String.t() | atom()],
-        "odbNetworkId" => String.t() | atom(),
-        "peeredCidrs" => list([String.t() | atom()]()),
-        "percentProgress" => [float()],
         "status" => list(any()),
         "statusReason" => [String.t() | atom()]
       }
       
   """
-  @type odb_network_summary() :: %{(String.t() | atom()) => any()}
+  @type failover_autonomous_database_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      oci_encryption_key_configuration() :: %{
-        "kmsKeyId" => [String.t() | atom()],
-        "vaultId" => [String.t() | atom()]
-      }
+      get_autonomous_database_backup_input() :: %{}
       
   """
-  @type oci_encryption_key_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_autonomous_database_backup_input() :: %{}
 
   @typedoc """
 
@@ -2702,29 +1823,178 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      long_term_backup_schedule() :: %{
-        "isDisabled" => [boolean()],
-        "repeatCadence" => list(any()),
-        "retentionPeriodInDays" => [integer()],
-        "timeOfBackup" => [non_neg_integer()]
-      }
+      get_autonomous_database_input() :: %{}
       
   """
-  @type long_term_backup_schedule() :: %{(String.t() | atom()) => any()}
+  @type get_autonomous_database_input() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      create_autonomous_database_backup_output() :: %{
-        "autonomousDatabaseBackupId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
+      get_autonomous_database_output() :: %{
+        "autonomousDatabase" => autonomous_database()
       }
       
   """
-  @type create_autonomous_database_backup_output() :: %{(String.t() | atom()) => any()}
+  @type get_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_autonomous_database_wallet_details_input() :: %{
+        required("autonomousDatabaseId") => String.t() | atom()
+      }
+      
+  """
+  @type get_autonomous_database_wallet_details_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_autonomous_database_wallet_details_output() :: %{
+        "autonomousDatabaseWalletDetails" => autonomous_database_wallet_details()
+      }
+      
+  """
+  @type get_autonomous_database_wallet_details_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cloud_autonomous_vm_cluster_input() :: %{}
+      
+  """
+  @type get_cloud_autonomous_vm_cluster_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cloud_autonomous_vm_cluster_output() :: %{
+        "cloudAutonomousVmCluster" => cloud_autonomous_vm_cluster()
+      }
+      
+  """
+  @type get_cloud_autonomous_vm_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cloud_exadata_infrastructure_input() :: %{}
+      
+  """
+  @type get_cloud_exadata_infrastructure_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cloud_exadata_infrastructure_output() :: %{
+        "cloudExadataInfrastructure" => cloud_exadata_infrastructure()
+      }
+      
+  """
+  @type get_cloud_exadata_infrastructure_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cloud_exadata_infrastructure_unallocated_resources_input() :: %{
+        optional("dbServers") => list([String.t() | atom()]())
+      }
+      
+  """
+  @type get_cloud_exadata_infrastructure_unallocated_resources_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cloud_exadata_infrastructure_unallocated_resources_output() :: %{
+        "cloudExadataInfrastructureUnallocatedResources" => cloud_exadata_infrastructure_unallocated_resources()
+      }
+      
+  """
+  @type get_cloud_exadata_infrastructure_unallocated_resources_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cloud_vm_cluster_input() :: %{}
+      
+  """
+  @type get_cloud_vm_cluster_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cloud_vm_cluster_output() :: %{
+        "cloudVmCluster" => cloud_vm_cluster()
+      }
+      
+  """
+  @type get_cloud_vm_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_db_node_input() :: %{}
+      
+  """
+  @type get_db_node_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_db_node_output() :: %{
+        "dbNode" => db_node()
+      }
+      
+  """
+  @type get_db_node_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_db_server_input() :: %{}
+      
+  """
+  @type get_db_server_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_db_server_output() :: %{
+        "dbServer" => db_server()
+      }
+      
+  """
+  @type get_db_server_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_oci_onboarding_status_input() :: %{}
+      
+  """
+  @type get_oci_onboarding_status_input() :: %{}
 
   @typedoc """
 
@@ -2748,109 +2018,21 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      database_standby_summary() :: %{
-        "availabilityDomain" => [String.t() | atom()],
-        "lagTimeInSeconds" => [integer()],
-        "maintenanceTargetComponent" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "timeDataGuardRoleChanged" => [non_neg_integer()],
-        "timeDisasterRecoveryRoleChanged" => [non_neg_integer()],
-        "timeMaintenanceBegin" => [non_neg_integer()],
-        "timeMaintenanceEnd" => [non_neg_integer()]
-      }
+      get_odb_network_input() :: %{}
       
   """
-  @type database_standby_summary() :: %{(String.t() | atom()) => any()}
+  @type get_odb_network_input() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      get_db_server_output() :: %{
-        "dbServer" => db_server()
+      get_odb_network_output() :: %{
+        "odbNetwork" => odb_network()
       }
       
   """
-  @type get_db_server_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cloud_exadata_infrastructure_input() :: %{
-        optional("availabilityZone") => [String.t() | atom()],
-        optional("availabilityZoneId") => [String.t() | atom()],
-        optional("clientToken") => String.t() | atom(),
-        optional("customerContactsToSendToOCI") => list(customer_contact()),
-        optional("databaseServerType") => String.t() | atom(),
-        optional("maintenanceWindow") => maintenance_window(),
-        optional("storageServerType") => String.t() | atom(),
-        optional("tags") => map(),
-        required("computeCount") => [integer()],
-        required("displayName") => String.t() | atom(),
-        required("shape") => String.t() | atom(),
-        required("storageCount") => [integer()]
-      }
-      
-  """
-  @type create_cloud_exadata_infrastructure_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_from_backup_configuration() :: %{
-        "autonomousDatabaseBackupId" => String.t() | atom(),
-        "cloneTableSpaceList" => list([integer()]()),
-        "cloneType" => list(any())
-      }
-      
-  """
-  @type restore_from_backup_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cloud_vm_cluster_input() :: %{}
-      
-  """
-  @type delete_cloud_vm_cluster_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_odb_network_output() :: %{
-        "displayName" => [String.t() | atom()],
-        "odbNetworkId" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type update_odb_network_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      maintenance_window() :: %{
-        "customActionTimeoutInMins" => [integer()],
-        "daysOfWeek" => list(day_of_week()),
-        "hoursOfDay" => list([integer()]()),
-        "isCustomActionTimeoutEnabled" => [boolean()],
-        "leadTimeInWeeks" => [integer()],
-        "months" => list(month()),
-        "patchingMode" => list(any()),
-        "preference" => list(any()),
-        "skipRu" => [boolean()],
-        "weeksOfMonth" => list([integer()]())
-      }
-      
-  """
-  @type maintenance_window() :: %{(String.t() | atom()) => any()}
+  @type get_odb_network_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2865,149 +2047,196 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      zero_etl_access() :: %{
-        "cidr" => [String.t() | atom()],
-        "status" => list(any())
+      get_odb_peering_connection_output() :: %{
+        "odbPeeringConnection" => odb_peering_connection()
       }
       
   """
-  @type zero_etl_access() :: %{(String.t() | atom()) => any()}
+  @type get_odb_peering_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      switchover_autonomous_database_output() :: %{
-        "autonomousDatabaseId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
+      gi_version_summary() :: %{
+        "version" => [String.t() | atom()]
+      }
+      
+  """
+  @type gi_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iam_role() :: %{
+        "awsIntegration" => list(any()),
+        "iamRoleArn" => String.t() | atom(),
         "status" => list(any()),
         "statusReason" => [String.t() | atom()]
       }
       
   """
-  @type switchover_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+  @type iam_role() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_odb_network_input() :: %{}
+      initialize_service_input() :: %{
+        optional("autonomousDatabaseOciAwsSecretsManagerIntegration") => list(any()),
+        optional("ociIdentityDomain") => [boolean()]
+      }
       
   """
-  @type get_odb_network_input() :: %{}
+  @type initialize_service_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_odb_networks_input() :: %{
+      initialize_service_output() :: %{}
+      
+  """
+  @type initialize_service_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_access() :: %{
+        "domainName" => [String.t() | atom()],
+        "ipv4Addresses" => list([String.t() | atom()]()),
+        "kmsPolicyDocument" => [String.t() | atom()],
+        "status" => list(any())
+      }
+      
+  """
+  @type kms_access() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_autonomous_database_backups_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("status") => list(any()),
+        optional("type") => list(any())
+      }
+      
+  """
+  @type list_autonomous_database_backups_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_autonomous_database_backups_output() :: %{
+        "autonomousDatabaseBackups" => list(autonomous_database_backup_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_autonomous_database_backups_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_autonomous_database_character_sets_input() :: %{
+        optional("characterSetType") => list(any()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()]
       }
       
   """
-  @type list_odb_networks_input() :: %{(String.t() | atom()) => any()}
+  @type list_autonomous_database_character_sets_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      exadata_iorm_config() :: %{
-        "dbPlans" => list(db_iorm_config()),
-        "lifecycleDetails" => [String.t() | atom()],
-        "lifecycleState" => list(any()),
-        "objective" => list(any())
-      }
-      
-  """
-  @type exadata_iorm_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      transportable_tablespace() :: %{
-        "ttsBundleUrl" => [String.t() | atom()]
-      }
-      
-  """
-  @type transportable_tablespace() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_autonomous_database_output() :: %{
-        "autonomousDatabaseId" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-      
-  """
-  @type restore_autonomous_database_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      okv_encryption_key_configuration() :: %{
-        "certificateDirectoryName" => [String.t() | atom()],
-        "certificateId" => [String.t() | atom()],
-        "directoryName" => [String.t() | atom()],
-        "okvKmsKey" => [String.t() | atom()],
-        "okvUri" => [String.t() | atom()]
-      }
-      
-  """
-  @type okv_encryption_key_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_db_node_input() :: %{}
-      
-  """
-  @type get_db_node_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_db_system_shapes_output() :: %{
-        "dbSystemShapes" => list(db_system_shape_summary()),
+      list_autonomous_database_character_sets_output() :: %{
+        "autonomousDatabaseCharacterSets" => list(autonomous_database_character_set_summary()),
         "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type list_db_system_shapes_output() :: %{(String.t() | atom()) => any()}
+  @type list_autonomous_database_character_sets_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      aws_encryption_key_configuration() :: %{
-        "externalIdType" => list(any()),
-        "iamRoleArn" => String.t() | atom(),
-        "kmsKeyId" => String.t() | atom()
+      list_autonomous_database_clones_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
       }
       
   """
-  @type aws_encryption_key_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_autonomous_database_clones_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cross_region_s3_restore_sources_access() :: %{
-        "ipv4Addresses" => list([String.t() | atom()]()),
-        "region" => [String.t() | atom()],
-        "status" => list(any())
+      list_autonomous_database_clones_output() :: %{
+        "autonomousDatabaseClones" => list(autonomous_database_summary()),
+        "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type cross_region_s3_restore_sources_access() :: %{(String.t() | atom()) => any()}
+  @type list_autonomous_database_clones_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_autonomous_database_peers_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_autonomous_database_peers_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_autonomous_database_peers_output() :: %{
+        "autonomousDatabasePeers" => list(autonomous_database_peer_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_autonomous_database_peers_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_autonomous_database_versions_input() :: %{
+        optional("dbWorkload") => list(any()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_autonomous_database_versions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3025,159 +2254,285 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      update_autonomous_database_input() :: %{
-        optional("resourcePoolLeaderId") => String.t() | atom(),
-        optional("cpuCoreCount") => [integer()],
-        optional("isDisconnectPeer") => [boolean()],
-        optional("privateEndpointIp") => [String.t() | atom()],
-        optional("autoRefreshFrequencyInSeconds") => [integer()],
-        optional("isRefreshableClone") => [boolean()],
-        optional("standbyAllowlistedIps") => list([String.t() | atom()]()),
-        optional("isBackupRetentionLocked") => [boolean()],
-        optional("isAutoScalingForStorageEnabled") => [boolean()],
-        optional("autonomousMaintenanceScheduleType") => list(any()),
-        optional("adminPassword") => String.t() | atom(),
-        optional("peerDbId") => String.t() | atom(),
-        optional("encryptionKeyConfiguration") => list(),
-        optional("dbToolsDetails") => list(database_tool()),
-        optional("refreshableMode") => list(any()),
-        optional("dataStorageSizeInGBs") => [integer()],
-        optional("licenseModel") => list(any()),
-        optional("dataStorageSizeInTBs") => [integer()],
-        optional("databaseEdition") => list(any()),
-        required("autonomousDatabaseId") => String.t() | atom(),
-        optional("computeCount") => [float()],
-        optional("isMtlsConnectionRequired") => [boolean()],
-        optional("timeOfAutoRefreshStart") => [non_neg_integer()],
-        optional("allowlistedIps") => list([String.t() | atom()]()),
-        optional("byolComputeCountLimit") => [float()],
-        optional("openMode") => list(any()),
-        optional("displayName") => String.t() | atom(),
-        optional("encryptionKeyProvider") => list(any()),
-        optional("privateEndpointLabel") => [String.t() | atom()],
-        optional("longTermBackupSchedule") => long_term_backup_schedule(),
-        optional("dbWorkload") => list(any()),
-        optional("dbVersion") => [String.t() | atom()],
-        optional("isAutoScalingEnabled") => [boolean()],
-        optional("isLocalDataGuardEnabled") => [boolean()],
-        optional("customerContactsToSendToOCI") => list(customer_contact()),
-        optional("localAdgAutoFailoverMaxDataLossLimit") => [integer()],
-        optional("dbName") => [String.t() | atom()],
-        optional("resourcePoolSummary") => resource_pool_summary(),
-        optional("backupRetentionPeriodInDays") => [integer()],
-        optional("autoRefreshPointLagInSeconds") => [integer()],
-        optional("permissionLevel") => list(any()),
-        optional("scheduledOperations") => list(scheduled_operation_details()),
-        optional("standbyAllowlistedIpsSource") => list(any())
+      list_autonomous_databases_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
       }
       
   """
-  @type update_autonomous_database_input() :: %{(String.t() | atom()) => any()}
+  @type list_autonomous_databases_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cloud_autonomous_vm_cluster_summary() :: %{
-        "ociResourceAnchorName" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "description" => [String.t() | atom()],
-        "odbNetworkArn" => String.t() | atom(),
-        "exadataStorageInTBsLowestScaledValue" => [float()],
-        "ocid" => [String.t() | atom()],
-        "cpuCoreCount" => [integer()],
-        "provisionedAutonomousContainerDatabases" => [integer()],
-        "maintenanceWindow" => maintenance_window(),
-        "ociUrl" => [String.t() | atom()],
-        "nonProvisionableAutonomousContainerDatabases" => [integer()],
-        "scanListenerPortNonTls" => [integer()],
-        "timeZone" => [String.t() | atom()],
-        "reservedCpus" => [float()],
-        "displayName" => String.t() | atom(),
-        "reclaimableCpus" => [float()],
-        "status" => list(any()),
-        "cpuCoreCountPerNode" => [integer()],
-        "domain" => [String.t() | atom()],
-        "maxAcdsLowestScaledValue" => [integer()],
-        "memoryPerOracleComputeUnitInGBs" => [integer()],
-        "availableCpus" => [float()],
-        "totalContainerDatabases" => [integer()],
-        "dataStorageSizeInTBs" => [float()],
-        "licenseModel" => list(any()),
-        "autonomousDataStoragePercentage" => [float()],
-        "provisionedCpus" => [float()],
-        "nodeCount" => [integer()],
-        "computeModel" => list(any()),
-        "isMtlsEnabledVmCluster" => [boolean()],
-        "cpuPercentage" => [float()],
-        "availableContainerDatabases" => [integer()],
-        "dataStorageSizeInGBs" => [float()],
-        "odbNetworkId" => String.t() | atom(),
-        "autonomousDataStorageSizeInTBs" => [float()],
-        "provisionableAutonomousContainerDatabases" => [integer()],
-        "dbNodeStorageSizeInGBs" => [integer()],
-        "timeDatabaseSslCertificateExpires" => [non_neg_integer()],
-        "hostname" => [String.t() | atom()],
-        "scanListenerPortTls" => [integer()],
-        "cloudAutonomousVmClusterId" => String.t() | atom(),
-        "cloudExadataInfrastructureArn" => String.t() | atom(),
-        "cloudAutonomousVmClusterArn" => [String.t() | atom()],
-        "iamRoles" => list(iam_role()),
-        "availableAutonomousDataStorageSizeInTBs" => [float()],
-        "shape" => [String.t() | atom()],
-        "cloudExadataInfrastructureId" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()],
-        "timeOrdsCertificateExpires" => [non_neg_integer()],
-        "dbServers" => list([String.t() | atom()]()),
-        "memorySizeInGBs" => [integer()],
-        "percentProgress" => [float()]
+      list_autonomous_databases_output() :: %{
+        "autonomousDatabases" => list(autonomous_database_summary()),
+        "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type cloud_autonomous_vm_cluster_summary() :: %{(String.t() | atom()) => any()}
+  @type list_autonomous_databases_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_cloud_autonomous_vm_cluster_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("dbServers") => list([String.t() | atom()]()),
-        optional("description") => [String.t() | atom()],
-        optional("isMtlsEnabledVmCluster") => [boolean()],
-        optional("licenseModel") => list(any()),
-        optional("maintenanceWindow") => maintenance_window(),
-        optional("scanListenerPortNonTls") => [integer()],
-        optional("scanListenerPortTls") => [integer()],
-        optional("tags") => map(),
-        optional("timeZone") => [String.t() | atom()],
-        required("autonomousDataStorageSizeInTBs") => [float()],
-        required("cloudExadataInfrastructureId") => String.t() | atom(),
-        required("cpuCoreCountPerNode") => [integer()],
-        required("displayName") => String.t() | atom(),
-        required("memoryPerOracleComputeUnitInGBs") => [integer()],
-        required("odbNetworkId") => String.t() | atom(),
-        required("totalContainerDatabases") => [integer()]
+      list_autonomous_virtual_machines_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
       }
       
   """
-  @type create_cloud_autonomous_vm_cluster_input() :: %{(String.t() | atom()) => any()}
+  @type list_autonomous_virtual_machines_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_pool_summary() :: %{
-        "availableComputeCapacity" => [integer()],
-        "availableStorageCapacityInTBs" => [float()],
-        "isDisabled" => [boolean()],
-        "poolSize" => [integer()],
-        "poolStorageSizeInTBs" => [integer()],
-        "totalComputeCapacity" => [integer()]
+      list_autonomous_virtual_machines_output() :: %{
+        "autonomousVirtualMachines" => list(autonomous_virtual_machine_summary()),
+        "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type resource_pool_summary() :: %{(String.t() | atom()) => any()}
+  @type list_autonomous_virtual_machines_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cloud_autonomous_vm_clusters_input() :: %{
+        optional("cloudExadataInfrastructureId") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_cloud_autonomous_vm_clusters_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cloud_autonomous_vm_clusters_output() :: %{
+        "cloudAutonomousVmClusters" => list(cloud_autonomous_vm_cluster_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_cloud_autonomous_vm_clusters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cloud_exadata_infrastructures_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_cloud_exadata_infrastructures_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cloud_exadata_infrastructures_output() :: %{
+        "cloudExadataInfrastructures" => list(cloud_exadata_infrastructure_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_cloud_exadata_infrastructures_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cloud_vm_clusters_input() :: %{
+        optional("cloudExadataInfrastructureId") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_cloud_vm_clusters_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cloud_vm_clusters_output() :: %{
+        "cloudVmClusters" => list(cloud_vm_cluster_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_cloud_vm_clusters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_nodes_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_db_nodes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_nodes_output() :: %{
+        "dbNodes" => list(db_node_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_db_nodes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_servers_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_db_servers_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_servers_output() :: %{
+        "dbServers" => list(db_server_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_db_servers_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_system_shapes_input() :: %{
+        optional("availabilityZone") => [String.t() | atom()],
+        optional("availabilityZoneId") => [String.t() | atom()],
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_db_system_shapes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_system_shapes_output() :: %{
+        "dbSystemShapes" => list(db_system_shape_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_db_system_shapes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_gi_versions_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("shape") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_gi_versions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_gi_versions_output() :: %{
+        "giVersions" => list(gi_version_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_gi_versions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_odb_networks_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_odb_networks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_odb_networks_output() :: %{
+        "nextToken" => [String.t() | atom()],
+        "odbNetworks" => list(odb_network_summary())
+      }
+      
+  """
+  @type list_odb_networks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_odb_peering_connections_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("odbNetworkId") => String.t() | atom()
+      }
+      
+  """
+  @type list_odb_peering_connections_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_odb_peering_connections_output() :: %{
+        "nextToken" => [String.t() | atom()],
+        "odbPeeringConnections" => list(odb_peering_connection_summary())
+      }
+      
+  """
+  @type list_odb_peering_connections_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_system_versions_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        required("giVersion") => [String.t() | atom()],
+        required("shape") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_system_versions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3206,13 +2561,143 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      autonomous_database_apex() :: %{
-        "apexVersion" => [String.t() | atom()],
-        "ordsVersion" => [String.t() | atom()]
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
       }
       
   """
-  @type autonomous_database_apex() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      long_term_backup_schedule() :: %{
+        "isDisabled" => [boolean()],
+        "repeatCadence" => list(any()),
+        "retentionPeriodInDays" => [integer()],
+        "timeOfBackup" => [non_neg_integer()]
+      }
+      
+  """
+  @type long_term_backup_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      maintenance_window() :: %{
+        "customActionTimeoutInMins" => [integer()],
+        "daysOfWeek" => list(day_of_week()),
+        "hoursOfDay" => list([integer()]()),
+        "isCustomActionTimeoutEnabled" => [boolean()],
+        "leadTimeInWeeks" => [integer()],
+        "months" => list(month()),
+        "patchingMode" => list(any()),
+        "preference" => list(any()),
+        "skipRu" => [boolean()],
+        "weeksOfMonth" => list([integer()]())
+      }
+      
+  """
+  @type maintenance_window() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_s3_backup_access() :: %{
+        "ipv4Addresses" => list([String.t() | atom()]()),
+        "status" => list(any())
+      }
+      
+  """
+  @type managed_s3_backup_access() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_services() :: %{
+        "crossRegionS3RestoreSourcesAccess" => list(cross_region_s3_restore_sources_access()),
+        "kmsAccess" => kms_access(),
+        "managedS3BackupAccess" => managed_s3_backup_access(),
+        "managedServicesIpv4Cidrs" => list([String.t() | atom()]()),
+        "resourceGatewayArn" => String.t() | atom(),
+        "s3Access" => s3_access(),
+        "serviceNetworkArn" => String.t() | atom(),
+        "serviceNetworkEndpoint" => service_network_endpoint(),
+        "stsAccess" => sts_access(),
+        "zeroEtlAccess" => zero_etl_access()
+      }
+      
+  """
+  @type managed_services() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      month() :: %{
+        "name" => list(any())
+      }
+      
+  """
+  @type month() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      oci_dns_forwarding_config() :: %{
+        "domainName" => [String.t() | atom()],
+        "ociDnsListenerIp" => [String.t() | atom()]
+      }
+      
+  """
+  @type oci_dns_forwarding_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      oci_encryption_key_configuration() :: %{
+        "kmsKeyId" => [String.t() | atom()],
+        "vaultId" => [String.t() | atom()]
+      }
+      
+  """
+  @type oci_encryption_key_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      oci_iam_role() :: %{
+        "awsIntegration" => list(any()),
+        "iamRoleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type oci_iam_role() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      oci_identity_domain() :: %{
+        "accountSetupCloudFormationUrl" => [String.t() | atom()],
+        "ociIdentityDomainId" => [String.t() | atom()],
+        "ociIdentityDomainResourceUrl" => [String.t() | atom()],
+        "ociIdentityDomainUrl" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type oci_identity_domain() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3250,98 +2735,260 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      list_odb_peering_connections_output() :: %{
-        "nextToken" => [String.t() | atom()],
-        "odbPeeringConnections" => list(odb_peering_connection_summary())
-      }
-      
-  """
-  @type list_odb_peering_connections_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_autonomous_vm_cluster() :: %{
-        "ociResourceAnchorName" => [String.t() | atom()],
+      odb_network_summary() :: %{
+        "availabilityZone" => [String.t() | atom()],
+        "availabilityZoneId" => [String.t() | atom()],
+        "backupSubnetCidr" => [String.t() | atom()],
+        "clientSubnetCidr" => [String.t() | atom()],
         "createdAt" => [non_neg_integer()],
-        "description" => [String.t() | atom()],
-        "odbNetworkArn" => String.t() | atom(),
-        "exadataStorageInTBsLowestScaledValue" => [float()],
-        "ocid" => [String.t() | atom()],
-        "cpuCoreCount" => [integer()],
-        "provisionedAutonomousContainerDatabases" => [integer()],
-        "maintenanceWindow" => maintenance_window(),
-        "ociUrl" => [String.t() | atom()],
-        "nonProvisionableAutonomousContainerDatabases" => [integer()],
-        "scanListenerPortNonTls" => [integer()],
-        "timeZone" => [String.t() | atom()],
-        "reservedCpus" => [float()],
-        "displayName" => String.t() | atom(),
-        "reclaimableCpus" => [float()],
-        "status" => list(any()),
-        "cpuCoreCountPerNode" => [integer()],
-        "domain" => [String.t() | atom()],
-        "maxAcdsLowestScaledValue" => [integer()],
-        "memoryPerOracleComputeUnitInGBs" => [integer()],
-        "availableCpus" => [float()],
-        "totalContainerDatabases" => [integer()],
-        "dataStorageSizeInTBs" => [float()],
-        "licenseModel" => list(any()),
-        "autonomousDataStoragePercentage" => [float()],
-        "provisionedCpus" => [float()],
-        "nodeCount" => [integer()],
-        "computeModel" => list(any()),
-        "isMtlsEnabledVmCluster" => [boolean()],
-        "cpuPercentage" => [float()],
-        "availableContainerDatabases" => [integer()],
-        "dataStorageSizeInGBs" => [float()],
+        "customDomainName" => [String.t() | atom()],
+        "defaultDnsPrefix" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "ec2PlacementGroupIds" => list(String.t() | atom()),
+        "managedServices" => managed_services(),
+        "ociDnsForwardingConfigs" => list(oci_dns_forwarding_config()),
+        "ociNetworkAnchorId" => [String.t() | atom()],
+        "ociNetworkAnchorUrl" => [String.t() | atom()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociVcnId" => [String.t() | atom()],
+        "ociVcnUrl" => [String.t() | atom()],
+        "odbNetworkArn" => [String.t() | atom()],
         "odbNetworkId" => String.t() | atom(),
-        "autonomousDataStorageSizeInTBs" => [float()],
-        "provisionableAutonomousContainerDatabases" => [integer()],
-        "dbNodeStorageSizeInGBs" => [integer()],
-        "timeDatabaseSslCertificateExpires" => [non_neg_integer()],
-        "hostname" => [String.t() | atom()],
-        "scanListenerPortTls" => [integer()],
-        "cloudAutonomousVmClusterId" => String.t() | atom(),
-        "cloudExadataInfrastructureArn" => String.t() | atom(),
-        "cloudAutonomousVmClusterArn" => [String.t() | atom()],
-        "iamRoles" => list(iam_role()),
-        "availableAutonomousDataStorageSizeInTBs" => [float()],
-        "shape" => [String.t() | atom()],
-        "cloudExadataInfrastructureId" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()],
-        "timeOrdsCertificateExpires" => [non_neg_integer()],
-        "dbServers" => list([String.t() | atom()]()),
-        "memorySizeInGBs" => [integer()],
-        "percentProgress" => [float()]
+        "peeredCidrs" => list([String.t() | atom()]()),
+        "percentProgress" => [float()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
       }
       
   """
-  @type cloud_autonomous_vm_cluster() :: %{(String.t() | atom()) => any()}
+  @type odb_network_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      disaster_recovery_configuration() :: %{
-        "disasterRecoveryType" => list(any()),
-        "isReplicateAutomaticBackups" => [boolean()],
-        "isSnapshotStandby" => [boolean()],
-        "timeSnapshotStandbyEnabledTill" => [non_neg_integer()]
+      odb_peering_connection() :: %{
+        "createdAt" => [non_neg_integer()],
+        "displayName" => [String.t() | atom()],
+        "odbNetworkArn" => [String.t() | atom()],
+        "odbPeeringConnectionArn" => [String.t() | atom()],
+        "odbPeeringConnectionId" => String.t() | atom(),
+        "odbPeeringConnectionType" => [String.t() | atom()],
+        "peerNetworkArn" => [String.t() | atom()],
+        "peerNetworkCidrs" => list(String.t() | atom()),
+        "percentProgress" => [float()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
       }
       
   """
-  @type disaster_recovery_configuration() :: %{(String.t() | atom()) => any()}
+  @type odb_peering_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_cloud_autonomous_vm_cluster_output() :: %{}
+      odb_peering_connection_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "displayName" => [String.t() | atom()],
+        "odbNetworkArn" => [String.t() | atom()],
+        "odbPeeringConnectionArn" => [String.t() | atom()],
+        "odbPeeringConnectionId" => String.t() | atom(),
+        "odbPeeringConnectionType" => [String.t() | atom()],
+        "peerNetworkArn" => [String.t() | atom()],
+        "peerNetworkCidrs" => list(String.t() | atom()),
+        "percentProgress" => [float()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
       
   """
-  @type delete_cloud_autonomous_vm_cluster_output() :: %{}
+  @type odb_peering_connection_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      okv_encryption_key_configuration() :: %{
+        "certificateDirectoryName" => [String.t() | atom()],
+        "certificateId" => [String.t() | atom()],
+        "directoryName" => [String.t() | atom()],
+        "okvKmsKey" => [String.t() | atom()],
+        "okvUri" => [String.t() | atom()]
+      }
+      
+  """
+  @type okv_encryption_key_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      point_in_time_restore_configuration() :: %{
+        "cloneTableSpaceList" => list([integer()]()),
+        "cloneType" => list(any()),
+        "sourceAutonomousDatabaseId" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()],
+        "useLatestAvailableBackupTimestamp" => [boolean()]
+      }
+      
+  """
+  @type point_in_time_restore_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_autonomous_database_input() :: %{
+        optional("isOnlineReboot") => [boolean()],
+        required("autonomousDatabaseId") => String.t() | atom()
+      }
+      
+  """
+  @type reboot_autonomous_database_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_autonomous_database_output() :: %{
+        "autonomousDatabaseId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type reboot_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_db_node_input() :: %{}
+      
+  """
+  @type reboot_db_node_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_db_node_output() :: %{
+        "dbNodeId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type reboot_db_node_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_pool_summary() :: %{
+        "availableComputeCapacity" => [integer()],
+        "availableStorageCapacityInTBs" => [float()],
+        "isDisabled" => [boolean()],
+        "poolSize" => [integer()],
+        "poolStorageSizeInTBs" => [integer()],
+        "totalComputeCapacity" => [integer()]
+      }
+      
+  """
+  @type resource_pool_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_autonomous_database_input() :: %{
+        required("autonomousDatabaseId") => String.t() | atom(),
+        required("timestamp") => [non_neg_integer()]
+      }
+      
+  """
+  @type restore_autonomous_database_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_autonomous_database_output() :: %{
+        "autonomousDatabaseId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type restore_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_from_backup_configuration() :: %{
+        "autonomousDatabaseBackupId" => String.t() | atom(),
+        "cloneTableSpaceList" => list([integer()]()),
+        "cloneType" => list(any())
+      }
+      
+  """
+  @type restore_from_backup_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_access() :: %{
+        "domainName" => [String.t() | atom()],
+        "ipv4Addresses" => list([String.t() | atom()]()),
+        "s3PolicyDocument" => [String.t() | atom()],
+        "status" => list(any())
+      }
+      
+  """
+  @type s3_access() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduled_operation_details() :: %{
+        "dayOfWeek" => day_of_week(),
+        "scheduledStartTime" => [String.t() | atom()],
+        "scheduledStopTime" => [String.t() | atom()]
+      }
+      
+  """
+  @type scheduled_operation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_network_endpoint() :: %{
+        "vpcEndpointId" => [String.t() | atom()],
+        "vpcEndpointType" => list(any())
+      }
+      
+  """
+  @type service_network_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3361,10 +3008,120 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      get_cloud_autonomous_vm_cluster_input() :: %{}
+      shrink_autonomous_database_input() :: %{
+        required("autonomousDatabaseId") => String.t() | atom()
+      }
       
   """
-  @type get_cloud_autonomous_vm_cluster_input() :: %{}
+  @type shrink_autonomous_database_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      shrink_autonomous_database_output() :: %{
+        "autonomousDatabaseId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type shrink_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_autonomous_database_input() :: %{
+        required("autonomousDatabaseId") => String.t() | atom()
+      }
+      
+  """
+  @type start_autonomous_database_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_autonomous_database_output() :: %{
+        "autonomousDatabaseId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type start_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_db_node_input() :: %{}
+      
+  """
+  @type start_db_node_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_db_node_output() :: %{
+        "dbNodeId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type start_db_node_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_autonomous_database_input() :: %{
+        required("autonomousDatabaseId") => String.t() | atom()
+      }
+      
+  """
+  @type stop_autonomous_database_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_autonomous_database_output() :: %{
+        "autonomousDatabaseId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type stop_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_db_node_input() :: %{}
+      
+  """
+  @type stop_db_node_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_db_node_output() :: %{
+        "dbNodeId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type stop_db_node_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3384,463 +3141,768 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      create_autonomous_database_wallet_output() :: %{
-        "autonomousDatabaseWalletFile" => binary()
+      subscription_error() :: %{
+        "errorMessage" => [String.t() | atom()]
       }
       
   """
-  @type create_autonomous_database_wallet_output() :: %{(String.t() | atom()) => any()}
+  @type subscription_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      encryption_summary() :: %{
-        "encryptionKeyConfiguration" => list(),
-        "encryptionKeyProvider" => list(any())
+      switchover_autonomous_database_input() :: %{
+        optional("peerDbArn") => String.t() | atom(),
+        required("autonomousDatabaseId") => String.t() | atom()
       }
       
   """
-  @type encryption_summary() :: %{(String.t() | atom()) => any()}
+  @type switchover_autonomous_database_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cloud_exadata_infrastructure_unallocated_resources() :: %{
-        "cloudAutonomousVmClusters" => list(cloud_autonomous_vm_cluster_resource_details()),
-        "cloudExadataInfrastructureDisplayName" => [String.t() | atom()],
-        "cloudExadataInfrastructureId" => String.t() | atom(),
-        "exadataStorageInTBs" => [float()],
-        "localStorageInGBs" => [integer()],
-        "memoryInGBs" => [integer()],
-        "ocpus" => [integer()]
+      switchover_autonomous_database_output() :: %{
+        "autonomousDatabaseId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
       }
       
   """
-  @type cloud_exadata_infrastructure_unallocated_resources() :: %{(String.t() | atom()) => any()}
+  @type switchover_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      system_version_summary() :: %{
+        "giVersion" => [String.t() | atom()],
+        "shape" => [String.t() | atom()],
+        "systemVersions" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type system_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => map()
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transportable_tablespace() :: %{
+        "ttsBundleUrl" => [String.t() | atom()]
+      }
+      
+  """
+  @type transportable_tablespace() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_autonomous_database_backup_input() :: %{
+        optional("retentionPeriodInDays") => [integer()]
+      }
+      
+  """
+  @type update_autonomous_database_backup_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_autonomous_database_backup_output() :: %{
+        "autonomousDatabaseBackupId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_autonomous_database_backup_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_autonomous_database_input() :: %{
+        optional("adminPassword") => String.t() | atom(),
+        optional("adminPasswordSource") => list(any()),
+        optional("adminPasswordSourceConfiguration") => list(),
+        optional("allowlistedIps") => list([String.t() | atom()]()),
+        optional("autoRefreshFrequencyInSeconds") => [integer()],
+        optional("autoRefreshPointLagInSeconds") => [integer()],
+        optional("autonomousMaintenanceScheduleType") => list(any()),
+        optional("backupRetentionPeriodInDays") => [integer()],
+        optional("byolComputeCountLimit") => [float()],
+        optional("computeCount") => [float()],
+        optional("cpuCoreCount") => [integer()],
+        optional("customerContactsToSendToOCI") => list(customer_contact()),
+        optional("dataStorageSizeInGBs") => [integer()],
+        optional("dataStorageSizeInTBs") => [integer()],
+        optional("databaseEdition") => list(any()),
+        optional("dbName") => [String.t() | atom()],
+        optional("dbToolsDetails") => list(database_tool()),
+        optional("dbVersion") => [String.t() | atom()],
+        optional("dbWorkload") => list(any()),
+        optional("displayName") => String.t() | atom(),
+        optional("encryptionKeyConfiguration") => list(),
+        optional("encryptionKeyProvider") => list(any()),
+        optional("isAutoScalingEnabled") => [boolean()],
+        optional("isAutoScalingForStorageEnabled") => [boolean()],
+        optional("isBackupRetentionLocked") => [boolean()],
+        optional("isDisconnectPeer") => [boolean()],
+        optional("isLocalDataGuardEnabled") => [boolean()],
+        optional("isMtlsConnectionRequired") => [boolean()],
+        optional("isRefreshableClone") => [boolean()],
+        optional("licenseModel") => list(any()),
+        optional("localAdgAutoFailoverMaxDataLossLimit") => [integer()],
+        optional("longTermBackupSchedule") => long_term_backup_schedule(),
+        optional("openMode") => list(any()),
+        optional("peerDbId") => String.t() | atom(),
+        optional("permissionLevel") => list(any()),
+        optional("privateEndpointIp") => [String.t() | atom()],
+        optional("privateEndpointLabel") => [String.t() | atom()],
+        optional("refreshableMode") => list(any()),
+        optional("resourcePoolLeaderId") => String.t() | atom(),
+        optional("resourcePoolSummary") => resource_pool_summary(),
+        optional("scheduledOperations") => list(scheduled_operation_details()),
+        optional("standbyAllowlistedIps") => list([String.t() | atom()]()),
+        optional("standbyAllowlistedIpsSource") => list(any()),
+        optional("timeOfAutoRefreshStart") => [non_neg_integer()],
+        required("autonomousDatabaseId") => String.t() | atom()
+      }
+      
+  """
+  @type update_autonomous_database_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_autonomous_database_output() :: %{
+        "autonomousDatabaseId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cloud_exadata_infrastructure_input() :: %{
+        optional("maintenanceWindow") => maintenance_window()
+      }
+      
+  """
+  @type update_cloud_exadata_infrastructure_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cloud_exadata_infrastructure_output() :: %{
+        "cloudExadataInfrastructureId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_cloud_exadata_infrastructure_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_odb_network_input() :: %{
+        optional("crossRegionS3RestoreSourcesToDisable") => list([String.t() | atom()]()),
+        optional("crossRegionS3RestoreSourcesToEnable") => list([String.t() | atom()]()),
+        optional("displayName") => String.t() | atom(),
+        optional("kmsAccess") => list(any()),
+        optional("kmsPolicyDocument") => String.t() | atom(),
+        optional("peeredCidrsToBeAdded") => list([String.t() | atom()]()),
+        optional("peeredCidrsToBeRemoved") => list([String.t() | atom()]()),
+        optional("s3Access") => list(any()),
+        optional("s3PolicyDocument") => String.t() | atom(),
+        optional("stsAccess") => list(any()),
+        optional("stsPolicyDocument") => String.t() | atom(),
+        optional("zeroEtlAccess") => list(any())
+      }
+      
+  """
+  @type update_odb_network_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_odb_network_output() :: %{
+        "displayName" => [String.t() | atom()],
+        "odbNetworkId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_odb_network_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_odb_peering_connection_input() :: %{
+        optional("displayName") => String.t() | atom(),
+        optional("peerNetworkCidrsToBeAdded") => list(String.t() | atom()),
+        optional("peerNetworkCidrsToBeRemoved") => list(String.t() | atom())
+      }
+      
+  """
+  @type update_odb_peering_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_odb_peering_connection_output() :: %{
+        "displayName" => [String.t() | atom()],
+        "odbPeeringConnectionId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_odb_peering_connection_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+      
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      wallet_password_source_summary() :: %{
+        "passwordSource" => list(any()),
+        "passwordSourceConfiguration" => list()
+      }
+      
+  """
+  @type wallet_password_source_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      zero_etl_access() :: %{
+        "cidr" => [String.t() | atom()],
+        "status" => list(any())
+      }
+      
+  """
+  @type zero_etl_access() :: %{(String.t() | atom()) => any()}
 
   @type accept_marketplace_registration_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type associate_iam_role_to_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_autonomous_database_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_autonomous_database_backup_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_autonomous_database_wallet_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_cloud_autonomous_vm_cluster_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_cloud_exadata_infrastructure_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_cloud_vm_cluster_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_odb_network_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_odb_peering_connection_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_autonomous_database_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_autonomous_database_backup_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_cloud_autonomous_vm_cluster_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_cloud_exadata_infrastructure_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_cloud_vm_cluster_errors() ::
-          conflict_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_odb_network_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_odb_peering_connection_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type disassociate_iam_role_from_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type failover_autonomous_database_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_autonomous_database_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_autonomous_database_backup_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_autonomous_database_wallet_details_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_cloud_autonomous_vm_cluster_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_cloud_exadata_infrastructure_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_cloud_exadata_infrastructure_unallocated_resources_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_cloud_vm_cluster_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_db_node_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_db_server_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_oci_onboarding_status_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_odb_network_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_odb_peering_connection_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type initialize_service_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_autonomous_database_backups_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_autonomous_database_character_sets_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_autonomous_database_clones_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_autonomous_database_peers_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_autonomous_database_versions_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_autonomous_databases_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_autonomous_virtual_machines_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_cloud_autonomous_vm_clusters_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_cloud_exadata_infrastructures_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_cloud_vm_clusters_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_db_nodes_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_db_servers_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_db_system_shapes_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_gi_versions_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_odb_networks_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_odb_peering_connections_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_system_versions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
   @type reboot_autonomous_database_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type reboot_db_node_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type restore_autonomous_database_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type shrink_autonomous_database_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_autonomous_database_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_db_node_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type stop_autonomous_database_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type stop_db_node_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type switchover_autonomous_database_errors() ::
-          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type switchover_autonomous_database_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
           service_quota_exceeded_exception() | resource_not_found_exception()
@@ -3848,44 +3910,44 @@ defmodule AWS.Odb do
   @type untag_resource_errors() :: resource_not_found_exception()
 
   @type update_autonomous_database_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_autonomous_database_backup_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_cloud_exadata_infrastructure_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_odb_network_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_odb_peering_connection_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{

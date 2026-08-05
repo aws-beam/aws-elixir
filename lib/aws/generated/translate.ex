@@ -14,6 +14,148 @@ defmodule AWS.Translate do
 
   ## Example:
       
+      applied_terminology() :: %{
+        "Name" => String.t() | atom(),
+        "Terms" => list(term())
+      }
+      
+  """
+  @type applied_terminology() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_modification_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_parallel_data_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EncryptionKey") => encryption_key(),
+        optional("Tags") => list(tag()),
+        required("ClientToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("ParallelDataConfig") => parallel_data_config()
+      }
+      
+  """
+  @type create_parallel_data_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_parallel_data_response() :: %{
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type create_parallel_data_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_parallel_data_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_parallel_data_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_parallel_data_response() :: %{
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type delete_parallel_data_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_terminology_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_terminology_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_text_translation_job_request() :: %{
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_text_translation_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_text_translation_job_response() :: %{
+        "TextTranslationJobProperties" => text_translation_job_properties()
+      }
+      
+  """
+  @type describe_text_translation_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detected_language_low_confidence_exception() :: %{
+        "DetectedLanguageCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type detected_language_low_confidence_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document() :: %{
+        "Content" => binary(),
+        "ContentType" => String.t() | atom()
+      }
+      
+  """
+  @type document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       encryption_key() :: %{
         "Id" => String.t() | atom(),
         "Type" => list(any())
@@ -26,25 +168,328 @@ defmodule AWS.Translate do
 
   ## Example:
       
-      terminology_properties() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Directionality" => list(any()),
-        "EncryptionKey" => encryption_key(),
-        "Format" => list(any()),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "SizeBytes" => integer(),
-        "SkippedTermCount" => integer(),
-        "SourceLanguageCode" => String.t() | atom(),
-        "TargetLanguageCodes" => list(String.t() | atom()),
-        "TermCount" => integer()
+      get_parallel_data_request() :: %{
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type terminology_properties() :: %{(String.t() | atom()) => any()}
+  @type get_parallel_data_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_parallel_data_response() :: %{
+        "AuxiliaryDataLocation" => parallel_data_data_location(),
+        "DataLocation" => parallel_data_data_location(),
+        "LatestUpdateAttemptAuxiliaryDataLocation" => parallel_data_data_location(),
+        "ParallelDataProperties" => parallel_data_properties()
+      }
+      
+  """
+  @type get_parallel_data_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_terminology_request() :: %{
+        optional("TerminologyDataFormat") => list(any()),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type get_terminology_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_terminology_response() :: %{
+        "AuxiliaryDataLocation" => terminology_data_location(),
+        "TerminologyDataLocation" => terminology_data_location(),
+        "TerminologyProperties" => terminology_properties()
+      }
+      
+  """
+  @type get_terminology_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_terminology_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EncryptionKey") => encryption_key(),
+        optional("Tags") => list(tag()),
+        required("MergeStrategy") => list(any()),
+        required("Name") => String.t() | atom(),
+        required("TerminologyData") => terminology_data()
+      }
+      
+  """
+  @type import_terminology_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_terminology_response() :: %{
+        "AuxiliaryDataLocation" => terminology_data_location(),
+        "TerminologyProperties" => terminology_properties()
+      }
+      
+  """
+  @type import_terminology_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_data_config() :: %{
+        "ContentType" => String.t() | atom(),
+        "S3Uri" => String.t() | atom()
+      }
+      
+  """
+  @type input_data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_filter_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_filter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_value_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_details() :: %{
+        "DocumentsWithErrorsCount" => integer(),
+        "InputDocumentsCount" => integer(),
+        "TranslatedDocumentsCount" => integer()
+      }
+      
+  """
+  @type job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      language() :: %{
+        "LanguageCode" => String.t() | atom(),
+        "LanguageName" => String.t() | atom()
+      }
+      
+  """
+  @type language() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_languages_request() :: %{
+        optional("DisplayLanguageCode") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_languages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_languages_response() :: %{
+        "DisplayLanguageCode" => list(any()),
+        "Languages" => list(language()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_languages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_parallel_data_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_parallel_data_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_parallel_data_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ParallelDataPropertiesList" => list(parallel_data_properties())
+      }
+      
+  """
+  @type list_parallel_data_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_terminologies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_terminologies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_terminologies_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TerminologyPropertiesList" => list(terminology_properties())
+      }
+      
+  """
+  @type list_terminologies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_text_translation_jobs_request() :: %{
+        optional("Filter") => text_translation_job_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_text_translation_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_text_translation_jobs_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TextTranslationJobPropertiesList" => list(text_translation_job_properties())
+      }
+      
+  """
+  @type list_text_translation_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_data_config() :: %{
+        "EncryptionKey" => encryption_key(),
+        "S3Uri" => String.t() | atom()
+      }
+      
+  """
+  @type output_data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parallel_data_config() :: %{
+        "Format" => list(any()),
+        "S3Uri" => String.t() | atom()
+      }
+      
+  """
+  @type parallel_data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parallel_data_data_location() :: %{
+        "Location" => String.t() | atom(),
+        "RepositoryType" => String.t() | atom()
+      }
+      
+  """
+  @type parallel_data_data_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,13 +522,12 @@ defmodule AWS.Translate do
 
   ## Example:
       
-      list_text_translation_jobs_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "TextTranslationJobPropertiesList" => list(text_translation_job_properties())
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type list_text_translation_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -100,91 +544,56 @@ defmodule AWS.Translate do
 
   ## Example:
       
-      translate_document_response() :: %{
-        "AppliedSettings" => translation_settings(),
-        "AppliedTerminologies" => list(applied_terminology()),
-        "SourceLanguageCode" => String.t() | atom(),
-        "TargetLanguageCode" => String.t() | atom(),
-        "TranslatedDocument" => translated_document()
-      }
-      
-  """
-  @type translate_document_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      translate_document_request() :: %{
+      start_text_translation_job_request() :: %{
+        optional("JobName") => String.t() | atom(),
+        optional("ParallelDataNames") => list(String.t() | atom()),
         optional("Settings") => translation_settings(),
         optional("TerminologyNames") => list(String.t() | atom()),
-        required("Document") => document(),
+        required("ClientToken") => String.t() | atom(),
+        required("DataAccessRoleArn") => String.t() | atom(),
+        required("InputDataConfig") => input_data_config(),
+        required("OutputDataConfig") => output_data_config(),
         required("SourceLanguageCode") => String.t() | atom(),
-        required("TargetLanguageCode") => String.t() | atom()
+        required("TargetLanguageCodes") => list(String.t() | atom())
       }
       
   """
-  @type translate_document_request() :: %{(String.t() | atom()) => any()}
+  @type start_text_translation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      concurrent_modification_exception() :: %{
-        "Message" => String.t() | atom()
+      start_text_translation_job_response() :: %{
+        "JobId" => String.t() | atom(),
+        "JobStatus" => list(any())
       }
       
   """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+  @type start_text_translation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unsupported_language_pair_exception() :: %{
-        "Message" => String.t() | atom(),
-        "SourceLanguageCode" => String.t() | atom(),
-        "TargetLanguageCode" => String.t() | atom()
+      stop_text_translation_job_request() :: %{
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type unsupported_language_pair_exception() :: %{(String.t() | atom()) => any()}
+  @type stop_text_translation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_terminology_request() :: %{
-        optional("TerminologyDataFormat") => list(any()),
-        required("Name") => String.t() | atom()
+      stop_text_translation_job_response() :: %{
+        "JobId" => String.t() | atom(),
+        "JobStatus" => list(any())
       }
       
   """
-  @type get_terminology_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_requests_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_text_translation_jobs_request() :: %{
-        optional("Filter") => text_translation_job_filter(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_text_translation_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type stop_text_translation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -202,12 +611,22 @@ defmodule AWS.Translate do
 
   ## Example:
       
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
       }
       
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -226,13 +645,37 @@ defmodule AWS.Translate do
 
   ## Example:
       
-      input_data_config() :: %{
-        "ContentType" => String.t() | atom(),
-        "S3Uri" => String.t() | atom()
+      terminology_data_location() :: %{
+        "Location" => String.t() | atom(),
+        "RepositoryType" => String.t() | atom()
       }
       
   """
-  @type input_data_config() :: %{(String.t() | atom()) => any()}
+  @type terminology_data_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminology_properties() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Directionality" => list(any()),
+        "EncryptionKey" => encryption_key(),
+        "Format" => list(any()),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SizeBytes" => integer(),
+        "SkippedTermCount" => integer(),
+        "SourceLanguageCode" => String.t() | atom(),
+        "TargetLanguageCodes" => list(String.t() | atom()),
+        "TermCount" => integer()
+      }
+      
+  """
+  @type terminology_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -249,108 +692,6 @@ defmodule AWS.Translate do
 
   ## Example:
       
-      language() :: %{
-        "LanguageCode" => String.t() | atom(),
-        "LanguageName" => String.t() | atom()
-      }
-      
-  """
-  @type language() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_value_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_parallel_data_response() :: %{
-        "LatestUpdateAttemptAt" => non_neg_integer(),
-        "LatestUpdateAttemptStatus" => list(any()),
-        "Name" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type update_parallel_data_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      translate_text_response() :: %{
-        "AppliedSettings" => translation_settings(),
-        "AppliedTerminologies" => list(applied_terminology()),
-        "SourceLanguageCode" => String.t() | atom(),
-        "TargetLanguageCode" => String.t() | atom(),
-        "TranslatedText" => String.t() | atom()
-      }
-      
-  """
-  @type translate_text_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_parallel_data_response() :: %{
-        "Name" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type delete_parallel_data_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_parallel_data_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EncryptionKey") => encryption_key(),
-        optional("Tags") => list(tag()),
-        required("ClientToken") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("ParallelDataConfig") => parallel_data_config()
-      }
-      
-  """
-  @type create_parallel_data_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       text_translation_job_filter() :: %{
         "JobName" => String.t() | atom(),
         "JobStatus" => list(any()),
@@ -360,147 +701,6 @@ defmodule AWS.Translate do
       
   """
   @type text_translation_job_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_text_translation_job_request() :: %{
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type stop_text_translation_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_languages_request() :: %{
-        optional("DisplayLanguageCode") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_languages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_filter_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_filter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_terminologies_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "TerminologyPropertiesList" => list(terminology_properties())
-      }
-      
-  """
-  @type list_terminologies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_languages_response() :: %{
-        "DisplayLanguageCode" => list(any()),
-        "Languages" => list(language()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_languages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      terminology_data_location() :: %{
-        "Location" => String.t() | atom(),
-        "RepositoryType" => String.t() | atom()
-      }
-      
-  """
-  @type terminology_data_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_display_language_code_exception() :: %{
-        "DisplayLanguageCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_display_language_code_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_terminology_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EncryptionKey") => encryption_key(),
-        optional("Tags") => list(tag()),
-        required("MergeStrategy") => list(any()),
-        required("Name") => String.t() | atom(),
-        required("TerminologyData") => terminology_data()
-      }
-      
-  """
-  @type import_terminology_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -531,147 +731,12 @@ defmodule AWS.Translate do
 
   ## Example:
       
-      describe_text_translation_job_request() :: %{
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_text_translation_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_parallel_data_response() :: %{
-        "AuxiliaryDataLocation" => parallel_data_data_location(),
-        "DataLocation" => parallel_data_data_location(),
-        "LatestUpdateAttemptAuxiliaryDataLocation" => parallel_data_data_location(),
-        "ParallelDataProperties" => parallel_data_properties()
-      }
-      
-  """
-  @type get_parallel_data_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      job_details() :: %{
-        "DocumentsWithErrorsCount" => integer(),
-        "InputDocumentsCount" => integer(),
-        "TranslatedDocumentsCount" => integer()
-      }
-      
-  """
-  @type job_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_parallel_data_request() :: %{
-        optional("Description") => String.t() | atom(),
-        required("ClientToken") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("ParallelDataConfig") => parallel_data_config()
-      }
-      
-  """
-  @type update_parallel_data_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_parallel_data_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type get_parallel_data_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_text_translation_job_response() :: %{
-        "JobId" => String.t() | atom(),
-        "JobStatus" => list(any())
-      }
-      
-  """
-  @type stop_text_translation_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_text_translation_job_response() :: %{
-        "TextTranslationJobProperties" => text_translation_job_properties()
-      }
-      
-  """
-  @type describe_text_translation_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      translation_settings() :: %{
-        "Brevity" => list(any()),
-        "Formality" => list(any()),
-        "Profanity" => list(any())
-      }
-      
-  """
-  @type translation_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parallel_data_data_location() :: %{
-        "Location" => String.t() | atom(),
-        "RepositoryType" => String.t() | atom()
-      }
-      
-  """
-  @type parallel_data_data_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detected_language_low_confidence_exception() :: %{
-        "DetectedLanguageCode" => String.t() | atom(),
+      too_many_requests_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type detected_language_low_confidence_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -689,144 +754,31 @@ defmodule AWS.Translate do
 
   ## Example:
       
-      create_parallel_data_response() :: %{
-        "Name" => String.t() | atom(),
-        "Status" => list(any())
+      translate_document_request() :: %{
+        optional("Settings") => translation_settings(),
+        optional("TerminologyNames") => list(String.t() | atom()),
+        required("Document") => document(),
+        required("SourceLanguageCode") => String.t() | atom(),
+        required("TargetLanguageCode") => String.t() | atom()
       }
       
   """
-  @type create_parallel_data_response() :: %{(String.t() | atom()) => any()}
+  @type translate_document_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      document() :: %{
-        "Content" => binary(),
-        "ContentType" => String.t() | atom()
+      translate_document_response() :: %{
+        "AppliedSettings" => translation_settings(),
+        "AppliedTerminologies" => list(applied_terminology()),
+        "SourceLanguageCode" => String.t() | atom(),
+        "TargetLanguageCode" => String.t() | atom(),
+        "TranslatedDocument" => translated_document()
       }
       
   """
-  @type document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      applied_terminology() :: %{
-        "Name" => String.t() | atom(),
-        "Terms" => list(term())
-      }
-      
-  """
-  @type applied_terminology() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parallel_data_config() :: %{
-        "Format" => list(any()),
-        "S3Uri" => String.t() | atom()
-      }
-      
-  """
-  @type parallel_data_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_text_translation_job_response() :: %{
-        "JobId" => String.t() | atom(),
-        "JobStatus" => list(any())
-      }
-      
-  """
-  @type start_text_translation_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_terminology_response() :: %{
-        "AuxiliaryDataLocation" => terminology_data_location(),
-        "TerminologyDataLocation" => terminology_data_location(),
-        "TerminologyProperties" => terminology_properties()
-      }
-      
-  """
-  @type get_terminology_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_terminology_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_terminology_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_parallel_data_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ParallelDataPropertiesList" => list(parallel_data_properties())
-      }
-      
-  """
-  @type list_parallel_data_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_terminology_response() :: %{
-        "AuxiliaryDataLocation" => terminology_data_location(),
-        "TerminologyProperties" => terminology_properties()
-      }
-      
-  """
-  @type import_terminology_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output_data_config() :: %{
-        "EncryptionKey" => encryption_key(),
-        "S3Uri" => String.t() | atom()
-      }
-      
-  """
-  @type output_data_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_terminologies_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_terminologies_request() :: %{(String.t() | atom()) => any()}
+  @type translate_document_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -839,40 +791,6 @@ defmodule AWS.Translate do
       
   """
   @type translate_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_parallel_data_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_parallel_data_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_parallel_data_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_parallel_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -893,6 +811,21 @@ defmodule AWS.Translate do
 
   ## Example:
       
+      translate_text_response() :: %{
+        "AppliedSettings" => translation_settings(),
+        "AppliedTerminologies" => list(applied_terminology()),
+        "SourceLanguageCode" => String.t() | atom(),
+        "TargetLanguageCode" => String.t() | atom(),
+        "TranslatedText" => String.t() | atom()
+      }
+      
+  """
+  @type translate_text_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       translated_document() :: %{
         "Content" => binary()
       }
@@ -904,149 +837,216 @@ defmodule AWS.Translate do
 
   ## Example:
       
-      start_text_translation_job_request() :: %{
-        optional("JobName") => String.t() | atom(),
-        optional("ParallelDataNames") => list(String.t() | atom()),
-        optional("Settings") => translation_settings(),
-        optional("TerminologyNames") => list(String.t() | atom()),
-        required("ClientToken") => String.t() | atom(),
-        required("DataAccessRoleArn") => String.t() | atom(),
-        required("InputDataConfig") => input_data_config(),
-        required("OutputDataConfig") => output_data_config(),
-        required("SourceLanguageCode") => String.t() | atom(),
-        required("TargetLanguageCodes") => list(String.t() | atom())
+      translation_settings() :: %{
+        "Brevity" => list(any()),
+        "Formality" => list(any()),
+        "Profanity" => list(any())
       }
       
   """
-  @type start_text_translation_job_request() :: %{(String.t() | atom()) => any()}
+  @type translation_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_display_language_code_exception() :: %{
+        "DisplayLanguageCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_display_language_code_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_language_pair_exception() :: %{
+        "Message" => String.t() | atom(),
+        "SourceLanguageCode" => String.t() | atom(),
+        "TargetLanguageCode" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_language_pair_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_parallel_data_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("ParallelDataConfig") => parallel_data_config()
+      }
+      
+  """
+  @type update_parallel_data_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_parallel_data_response() :: %{
+        "LatestUpdateAttemptAt" => non_neg_integer(),
+        "LatestUpdateAttemptStatus" => list(any()),
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type update_parallel_data_response() :: %{(String.t() | atom()) => any()}
 
   @type create_parallel_data_errors() ::
-          invalid_request_exception()
-          | too_many_tags_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | invalid_parameter_value_exception()
-          | limit_exceeded_exception()
+          too_many_tags_exception()
           | too_many_requests_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | concurrent_modification_exception()
 
   @type delete_parallel_data_errors() ::
-          resource_not_found_exception()
+          too_many_requests_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
           | concurrent_modification_exception()
 
   @type delete_terminology_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
+          too_many_requests_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
-          | too_many_requests_exception()
+          | internal_server_exception()
 
   @type describe_text_translation_job_errors() ::
-          resource_not_found_exception()
+          too_many_requests_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type get_parallel_data_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
+          too_many_requests_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
-          | too_many_requests_exception()
+          | internal_server_exception()
 
   @type get_terminology_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
+          too_many_requests_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
-          | too_many_requests_exception()
+          | internal_server_exception()
 
   @type import_terminology_errors() ::
           too_many_tags_exception()
-          | internal_server_exception()
-          | invalid_parameter_value_exception()
-          | limit_exceeded_exception()
           | too_many_requests_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
           | concurrent_modification_exception()
 
   @type list_languages_errors() ::
           unsupported_display_language_code_exception()
-          | internal_server_exception()
-          | invalid_parameter_value_exception()
           | too_many_requests_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
 
   @type list_parallel_data_errors() ::
-          internal_server_exception()
+          too_many_requests_exception()
           | invalid_parameter_value_exception()
-          | too_many_requests_exception()
+          | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
           resource_not_found_exception()
-          | internal_server_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
 
   @type list_terminologies_errors() ::
-          internal_server_exception()
+          too_many_requests_exception()
           | invalid_parameter_value_exception()
-          | too_many_requests_exception()
+          | internal_server_exception()
 
   @type list_text_translation_jobs_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
+          | invalid_request_exception()
           | invalid_filter_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type start_text_translation_job_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | invalid_parameter_value_exception()
+          unsupported_language_pair_exception()
           | too_many_requests_exception()
-          | unsupported_language_pair_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
 
   @type stop_text_translation_job_errors() ::
-          resource_not_found_exception()
+          too_many_requests_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type tag_resource_errors() ::
           too_many_tags_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
           | concurrent_modification_exception()
 
   @type translate_document_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | limit_exceeded_exception()
+          unsupported_language_pair_exception()
           | too_many_requests_exception()
-          | unsupported_language_pair_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | internal_server_exception()
 
   @type translate_text_errors() ::
-          invalid_request_exception()
-          | detected_language_low_confidence_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | text_size_limit_exceeded_exception()
+          unsupported_language_pair_exception()
           | too_many_requests_exception()
-          | unsupported_language_pair_exception()
+          | text_size_limit_exceeded_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_server_exception()
+          | detected_language_low_confidence_exception()
 
   @type untag_resource_errors() ::
           resource_not_found_exception()
-          | internal_server_exception()
           | invalid_parameter_value_exception()
+          | internal_server_exception()
           | concurrent_modification_exception()
 
   @type update_parallel_data_errors() ::
-          invalid_request_exception()
-          | conflict_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
-          | invalid_parameter_value_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | invalid_request_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | concurrent_modification_exception()
 
   def metadata do

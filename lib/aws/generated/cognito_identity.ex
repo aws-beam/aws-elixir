@@ -38,24 +38,14 @@ defmodule AWS.CognitoIdentity do
 
   ## Example:
       
-      external_service_exception() :: %{
-        "message" => String.t() | atom()
+      cognito_identity_provider() :: %{
+        "ClientId" => String.t() | atom(),
+        "ProviderName" => String.t() | atom(),
+        "ServerSideTokenCheck" => boolean()
       }
       
   """
-  @type external_service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_open_id_token_input() :: %{
-        optional("Logins") => map(),
-        required("IdentityId") => String.t() | atom()
-      }
-      
-  """
-  @type get_open_id_token_input() :: %{(String.t() | atom()) => any()}
+  @type cognito_identity_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -67,317 +57,6 @@ defmodule AWS.CognitoIdentity do
       
   """
   @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      credentials() :: %{
-        "AccessKeyId" => String.t() | atom(),
-        "Expiration" => non_neg_integer(),
-        "SecretKey" => String.t() | atom(),
-        "SessionToken" => String.t() | atom()
-      }
-      
-  """
-  @type credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_requests_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unprocessed_identity_id() :: %{
-        "ErrorCode" => list(any()),
-        "IdentityId" => String.t() | atom()
-      }
-      
-  """
-  @type unprocessed_identity_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_identities_response() :: %{
-        "Identities" => list(identity_description()),
-        "IdentityPoolId" => String.t() | atom(),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_identities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      merge_developer_identities_response() :: %{
-        "IdentityId" => String.t() | atom()
-      }
-      
-  """
-  @type merge_developer_identities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_pool_roles_response() :: %{
-        "IdentityPoolId" => String.t() | atom(),
-        "RoleMappings" => map(),
-        "Roles" => map()
-      }
-      
-  """
-  @type get_identity_pool_roles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_identities_response() :: %{
-        "UnprocessedIdentityIds" => list(unprocessed_identity_id())
-      }
-      
-  """
-  @type delete_identities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_credentials_for_identity_input() :: %{
-        optional("CustomRoleArn") => String.t() | atom(),
-        optional("Logins") => map(),
-        required("IdentityId") => String.t() | atom()
-      }
-      
-  """
-  @type get_credentials_for_identity_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_identities_input() :: %{
-        optional("HideDisabled") => boolean(),
-        optional("NextToken") => String.t() | atom(),
-        required("IdentityPoolId") => String.t() | atom(),
-        required("MaxResults") => integer()
-      }
-      
-  """
-  @type list_identities_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_id_response() :: %{
-        "IdentityId" => String.t() | atom()
-      }
-      
-  """
-  @type get_id_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_input() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => map()
-      }
-      
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      role_mapping() :: %{
-        "AmbiguousRoleResolution" => list(any()),
-        "RulesConfiguration" => rules_configuration_type(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type role_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_principal_tag_attribute_map_input() :: %{
-        required("IdentityPoolId") => String.t() | atom(),
-        required("IdentityProviderName") => String.t() | atom()
-      }
-      
-  """
-  @type get_principal_tag_attribute_map_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_open_id_token_for_developer_identity_response() :: %{
-        "IdentityId" => String.t() | atom(),
-        "Token" => String.t() | atom()
-      }
-      
-  """
-  @type get_open_id_token_for_developer_identity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      identity_pool_short_description() :: %{
-        "IdentityPoolId" => String.t() | atom(),
-        "IdentityPoolName" => String.t() | atom()
-      }
-      
-  """
-  @type identity_pool_short_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_credentials_for_identity_response() :: %{
-        "Credentials" => credentials(),
-        "IdentityId" => String.t() | atom()
-      }
-      
-  """
-  @type get_credentials_for_identity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_input() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_identity_input() :: %{
-        required("IdentityId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_identity_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unlink_identity_input() :: %{
-        required("IdentityId") => String.t() | atom(),
-        required("Logins") => map(),
-        required("LoginsToRemove") => list(String.t() | atom())
-      }
-      
-  """
-  @type unlink_identity_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_identity_pools_response() :: %{
-        "IdentityPools" => list(identity_pool_short_description()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_identity_pools_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unlink_developer_identity_input() :: %{
-        required("DeveloperProviderName") => String.t() | atom(),
-        required("DeveloperUserIdentifier") => String.t() | atom(),
-        required("IdentityId") => String.t() | atom(),
-        required("IdentityPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type unlink_developer_identity_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_identity_pool_roles_input() :: %{
-        optional("RoleMappings") => map(),
-        required("IdentityPoolId") => String.t() | atom(),
-        required("Roles") => map()
-      }
-      
-  """
-  @type set_identity_pool_roles_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -402,100 +81,59 @@ defmodule AWS.CognitoIdentity do
 
   ## Example:
       
-      get_id_input() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("Logins") => map(),
+      credentials() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "Expiration" => non_neg_integer(),
+        "SecretKey" => String.t() | atom(),
+        "SessionToken" => String.t() | atom()
+      }
+      
+  """
+  @type credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_identities_input() :: %{
+        required("IdentityIdsToDelete") => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_identities_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_identities_response() :: %{
+        "UnprocessedIdentityIds" => list(unprocessed_identity_id())
+      }
+      
+  """
+  @type delete_identities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_identity_pool_input() :: %{
         required("IdentityPoolId") => String.t() | atom()
       }
       
   """
-  @type get_id_input() :: %{(String.t() | atom()) => any()}
+  @type delete_identity_pool_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_conflict_exception() :: %{
-        "message" => String.t() | atom()
+      describe_identity_input() :: %{
+        required("IdentityId") => String.t() | atom()
       }
       
   """
-  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_principal_tag_attribute_map_response() :: %{
-        "IdentityPoolId" => String.t() | atom(),
-        "IdentityProviderName" => String.t() | atom(),
-        "PrincipalTags" => map(),
-        "UseDefaults" => boolean()
-      }
-      
-  """
-  @type get_principal_tag_attribute_map_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_open_id_token_response() :: %{
-        "IdentityId" => String.t() | atom(),
-        "Token" => String.t() | atom()
-      }
-      
-  """
-  @type get_open_id_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cognito_identity_provider() :: %{
-        "ClientId" => String.t() | atom(),
-        "ProviderName" => String.t() | atom(),
-        "ServerSideTokenCheck" => boolean()
-      }
-      
-  """
-  @type cognito_identity_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      not_authorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      merge_developer_identities_input() :: %{
-        required("DestinationUserIdentifier") => String.t() | atom(),
-        required("DeveloperProviderName") => String.t() | atom(),
-        required("IdentityPoolId") => String.t() | atom(),
-        required("SourceUserIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type merge_developer_identities_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_input() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
+  @type describe_identity_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -523,6 +161,167 @@ defmodule AWS.CognitoIdentity do
 
   ## Example:
       
+      external_service_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type external_service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_credentials_for_identity_input() :: %{
+        optional("CustomRoleArn") => String.t() | atom(),
+        optional("Logins") => map(),
+        required("IdentityId") => String.t() | atom()
+      }
+      
+  """
+  @type get_credentials_for_identity_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_credentials_for_identity_response() :: %{
+        "Credentials" => credentials(),
+        "IdentityId" => String.t() | atom()
+      }
+      
+  """
+  @type get_credentials_for_identity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_id_input() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("Logins") => map(),
+        required("IdentityPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type get_id_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_id_response() :: %{
+        "IdentityId" => String.t() | atom()
+      }
+      
+  """
+  @type get_id_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_pool_roles_input() :: %{
+        required("IdentityPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type get_identity_pool_roles_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_pool_roles_response() :: %{
+        "IdentityPoolId" => String.t() | atom(),
+        "RoleMappings" => map(),
+        "Roles" => map()
+      }
+      
+  """
+  @type get_identity_pool_roles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_open_id_token_for_developer_identity_input() :: %{
+        optional("IdentityId") => String.t() | atom(),
+        optional("PrincipalTags") => map(),
+        optional("TokenDuration") => float(),
+        required("IdentityPoolId") => String.t() | atom(),
+        required("Logins") => map()
+      }
+      
+  """
+  @type get_open_id_token_for_developer_identity_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_open_id_token_for_developer_identity_response() :: %{
+        "IdentityId" => String.t() | atom(),
+        "Token" => String.t() | atom()
+      }
+      
+  """
+  @type get_open_id_token_for_developer_identity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_open_id_token_input() :: %{
+        optional("Logins") => map(),
+        required("IdentityId") => String.t() | atom()
+      }
+      
+  """
+  @type get_open_id_token_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_open_id_token_response() :: %{
+        "IdentityId" => String.t() | atom(),
+        "Token" => String.t() | atom()
+      }
+      
+  """
+  @type get_open_id_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_principal_tag_attribute_map_input() :: %{
+        required("IdentityPoolId") => String.t() | atom(),
+        required("IdentityProviderName") => String.t() | atom()
+      }
+      
+  """
+  @type get_principal_tag_attribute_map_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_principal_tag_attribute_map_response() :: %{
+        "IdentityPoolId" => String.t() | atom(),
+        "IdentityProviderName" => String.t() | atom(),
+        "PrincipalTags" => map(),
+        "UseDefaults" => boolean()
+      }
+      
+  """
+  @type get_principal_tag_attribute_map_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       identity_description() :: %{
         "CreationDate" => non_neg_integer(),
         "IdentityId" => String.t() | atom(),
@@ -532,20 +331,6 @@ defmodule AWS.CognitoIdentity do
       
   """
   @type identity_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_principal_tag_attribute_map_response() :: %{
-        "IdentityPoolId" => String.t() | atom(),
-        "IdentityProviderName" => String.t() | atom(),
-        "PrincipalTags" => map(),
-        "UseDefaults" => boolean()
-      }
-      
-  """
-  @type set_principal_tag_attribute_map_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -571,52 +356,24 @@ defmodule AWS.CognitoIdentity do
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
+      identity_pool_short_description() :: %{
+        "IdentityPoolId" => String.t() | atom(),
+        "IdentityPoolName" => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type identity_pool_short_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_identities_input() :: %{
-        required("IdentityIdsToDelete") => list(String.t() | atom())
+      internal_error_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type delete_identities_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_open_id_token_for_developer_identity_input() :: %{
-        optional("IdentityId") => String.t() | atom(),
-        optional("PrincipalTags") => map(),
-        optional("TokenDuration") => float(),
-        required("IdentityPoolId") => String.t() | atom(),
-        required("Logins") => map()
-      }
-      
-  """
-  @type get_open_id_token_for_developer_identity_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mapping_rule() :: %{
-        "Claim" => String.t() | atom(),
-        "MatchType" => list(any()),
-        "RoleARN" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type mapping_rule() :: %{(String.t() | atom()) => any()}
+  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -633,23 +390,96 @@ defmodule AWS.CognitoIdentity do
 
   ## Example:
       
-      delete_identity_pool_input() :: %{
-        required("IdentityPoolId") => String.t() | atom()
+      invalid_parameter_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type delete_identity_pool_input() :: %{(String.t() | atom()) => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      rules_configuration_type() :: %{
-        "Rules" => list(mapping_rule())
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type rules_configuration_type() :: %{(String.t() | atom()) => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_identities_input() :: %{
+        optional("HideDisabled") => boolean(),
+        optional("NextToken") => String.t() | atom(),
+        required("IdentityPoolId") => String.t() | atom(),
+        required("MaxResults") => integer()
+      }
+      
+  """
+  @type list_identities_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_identities_response() :: %{
+        "Identities" => list(identity_description()),
+        "IdentityPoolId" => String.t() | atom(),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_identities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_identity_pools_input() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("MaxResults") => integer()
+      }
+      
+  """
+  @type list_identity_pools_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_identity_pools_response() :: %{
+        "IdentityPools" => list(identity_pool_short_description()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_identity_pools_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_input() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -670,28 +500,6 @@ defmodule AWS.CognitoIdentity do
 
   ## Example:
       
-      internal_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       lookup_developer_identity_response() :: %{
         "DeveloperUserIdentifierList" => list(String.t() | atom()),
         "IdentityId" => String.t() | atom(),
@@ -700,6 +508,115 @@ defmodule AWS.CognitoIdentity do
       
   """
   @type lookup_developer_identity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mapping_rule() :: %{
+        "Claim" => String.t() | atom(),
+        "MatchType" => list(any()),
+        "RoleARN" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type mapping_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      merge_developer_identities_input() :: %{
+        required("DestinationUserIdentifier") => String.t() | atom(),
+        required("DeveloperProviderName") => String.t() | atom(),
+        required("IdentityPoolId") => String.t() | atom(),
+        required("SourceUserIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type merge_developer_identities_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      merge_developer_identities_response() :: %{
+        "IdentityId" => String.t() | atom()
+      }
+      
+  """
+  @type merge_developer_identities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_authorized_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      role_mapping() :: %{
+        "AmbiguousRoleResolution" => list(any()),
+        "RulesConfiguration" => rules_configuration_type(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type role_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rules_configuration_type() :: %{
+        "Rules" => list(mapping_rule())
+      }
+      
+  """
+  @type rules_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_identity_pool_roles_input() :: %{
+        optional("RoleMappings") => map(),
+        required("IdentityPoolId") => String.t() | atom(),
+        required("Roles") => map()
+      }
+      
+  """
+  @type set_identity_pool_roles_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -719,204 +636,287 @@ defmodule AWS.CognitoIdentity do
 
   ## Example:
       
-      list_identity_pools_input() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("MaxResults") => integer()
+      set_principal_tag_attribute_map_response() :: %{
+        "IdentityPoolId" => String.t() | atom(),
+        "IdentityProviderName" => String.t() | atom(),
+        "PrincipalTags" => map(),
+        "UseDefaults" => boolean()
       }
       
   """
-  @type list_identity_pools_input() :: %{(String.t() | atom()) => any()}
+  @type set_principal_tag_attribute_map_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_identity_pool_roles_input() :: %{
+      tag_resource_input() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => map()
+      }
+      
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_requests_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unlink_developer_identity_input() :: %{
+        required("DeveloperProviderName") => String.t() | atom(),
+        required("DeveloperUserIdentifier") => String.t() | atom(),
+        required("IdentityId") => String.t() | atom(),
         required("IdentityPoolId") => String.t() | atom()
       }
       
   """
-  @type get_identity_pool_roles_input() :: %{(String.t() | atom()) => any()}
+  @type unlink_developer_identity_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unlink_identity_input() :: %{
+        required("IdentityId") => String.t() | atom(),
+        required("Logins") => map(),
+        required("LoginsToRemove") => list(String.t() | atom())
+      }
+      
+  """
+  @type unlink_identity_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unprocessed_identity_id() :: %{
+        "ErrorCode" => list(any()),
+        "IdentityId" => String.t() | atom()
+      }
+      
+  """
+  @type unprocessed_identity_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_input() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
 
   @type create_identity_pool_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_conflict_exception()
+          | not_authorized_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type delete_identities_errors() ::
-          invalid_parameter_exception()
+          too_many_requests_exception()
+          | invalid_parameter_exception()
           | internal_error_exception()
-          | too_many_requests_exception()
 
   @type delete_identity_pool_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type describe_identity_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type describe_identity_pool_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type get_credentials_for_identity_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | invalid_identity_pool_configuration_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | invalid_identity_pool_configuration_exception()
+          | internal_error_exception()
           | external_service_exception()
 
   @type get_id_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | external_service_exception()
 
   @type get_identity_pool_roles_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type get_open_id_token_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | external_service_exception()
 
   @type get_open_id_token_for_developer_identity_errors() ::
-          invalid_parameter_exception()
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
           | internal_error_exception()
           | developer_user_already_registered_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
-          | resource_not_found_exception()
-          | too_many_requests_exception()
 
   @type get_principal_tag_attribute_map_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type list_identities_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type list_identity_pools_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type list_tags_for_resource_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type lookup_developer_identity_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type merge_developer_identities_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type set_identity_pool_roles_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | concurrent_modification_exception()
 
   @type set_principal_tag_attribute_map_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type tag_resource_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type unlink_developer_identity_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type unlink_identity_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | external_service_exception()
 
   @type untag_resource_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type update_identity_pool_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | concurrent_modification_exception()
 
   def metadata do

@@ -9,40 +9,41 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      auto_scaling_update() :: %{
+      apache_kafka_cluster() :: %{
+        "bootstrapServers" => String.t() | atom(),
+        "vpc" => vpc()
+      }
+
+  """
+  @type apache_kafka_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      apache_kafka_cluster_description() :: %{
+        "bootstrapServers" => String.t() | atom(),
+        "vpc" => vpc_description()
+      }
+
+  """
+  @type apache_kafka_cluster_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_scaling() :: %{
         "maxAutoscalingTaskCount" => integer(),
         "maxWorkerCount" => integer(),
         "mcuCount" => integer(),
         "minWorkerCount" => integer(),
-        "scaleInPolicy" => scale_in_policy_update(),
-        "scaleOutPolicy" => scale_out_policy_update()
+        "scaleInPolicy" => scale_in_policy(),
+        "scaleOutPolicy" => scale_out_policy()
       }
 
   """
-  @type auto_scaling_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      provisioned_capacity_update() :: %{
-        "mcuCount" => integer(),
-        "workerCount" => integer()
-      }
-
-  """
-  @type provisioned_capacity_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_delivery() :: %{
-        "workerLogDelivery" => worker_log_delivery()
-      }
-
-  """
-  @type log_delivery() :: %{(String.t() | atom()) => any()}
+  @type auto_scaling() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -64,10 +65,337 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      describe_connector_operation_request() :: %{}
+      auto_scaling_update() :: %{
+        "maxAutoscalingTaskCount" => integer(),
+        "maxWorkerCount" => integer(),
+        "mcuCount" => integer(),
+        "minWorkerCount" => integer(),
+        "scaleInPolicy" => scale_in_policy_update(),
+        "scaleOutPolicy" => scale_out_policy_update()
+      }
 
   """
-  @type describe_connector_operation_request() :: %{}
+  @type auto_scaling_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity() :: %{
+        "autoScaling" => auto_scaling(),
+        "provisionedCapacity" => provisioned_capacity()
+      }
+
+  """
+  @type capacity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_description() :: %{
+        "autoScaling" => auto_scaling_description(),
+        "provisionedCapacity" => provisioned_capacity_description()
+      }
+
+  """
+  @type capacity_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_update() :: %{
+        "autoScaling" => auto_scaling_update(),
+        "provisionedCapacity" => provisioned_capacity_update()
+      }
+
+  """
+  @type capacity_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logs_log_delivery() :: %{
+        "enabled" => boolean(),
+        "logGroup" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_logs_log_delivery() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logs_log_delivery_description() :: %{
+        "enabled" => boolean(),
+        "logGroup" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_logs_log_delivery_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_operation_step() :: %{
+        "stepState" => String.t() | atom(),
+        "stepType" => String.t() | atom()
+      }
+
+  """
+  @type connector_operation_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_operation_summary() :: %{
+        "connectorOperationArn" => String.t() | atom(),
+        "connectorOperationState" => String.t() | atom(),
+        "connectorOperationType" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "endTime" => non_neg_integer()
+      }
+
+  """
+  @type connector_operation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_summary() :: %{
+        "capacity" => capacity_description(),
+        "connectorArn" => String.t() | atom(),
+        "connectorDescription" => String.t() | atom(),
+        "connectorName" => String.t() | atom(),
+        "connectorState" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "currentVersion" => String.t() | atom(),
+        "kafkaCluster" => kafka_cluster_description(),
+        "kafkaClusterClientAuthentication" => kafka_cluster_client_authentication_description(),
+        "kafkaClusterEncryptionInTransit" => kafka_cluster_encryption_in_transit_description(),
+        "kafkaConnectVersion" => String.t() | atom(),
+        "logDelivery" => log_delivery_description(),
+        "networkType" => String.t() | atom(),
+        "plugins" => list(plugin_description()),
+        "serviceExecutionRoleArn" => String.t() | atom(),
+        "workerConfiguration" => worker_configuration_description()
+      }
+
+  """
+  @type connector_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_request() :: %{
+        optional("connectorDescription") => String.t() | atom(),
+        optional("logDelivery") => log_delivery(),
+        optional("networkType") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("workerConfiguration") => worker_configuration(),
+        required("capacity") => capacity(),
+        required("connectorConfiguration") => map(),
+        required("connectorName") => String.t() | atom(),
+        required("kafkaCluster") => kafka_cluster(),
+        required("kafkaClusterClientAuthentication") => kafka_cluster_client_authentication(),
+        required("kafkaClusterEncryptionInTransit") => kafka_cluster_encryption_in_transit(),
+        required("kafkaConnectVersion") => String.t() | atom(),
+        required("plugins") => list(plugin()),
+        required("serviceExecutionRoleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_response() :: %{
+        optional("connectorArn") => String.t() | atom(),
+        optional("connectorName") => String.t() | atom(),
+        optional("connectorState") => String.t() | atom()
+      }
+
+  """
+  @type create_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_plugin_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("contentType") => String.t() | atom(),
+        required("location") => custom_plugin_location(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_custom_plugin_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_plugin_response() :: %{
+        optional("customPluginArn") => String.t() | atom(),
+        optional("customPluginState") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("revision") => float()
+      }
+
+  """
+  @type create_custom_plugin_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_worker_configuration_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("propertiesFileContent") => String.t() | atom()
+      }
+
+  """
+  @type create_worker_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_worker_configuration_response() :: %{
+        optional("creationTime") => non_neg_integer(),
+        optional("latestRevision") => worker_configuration_revision_summary(),
+        optional("name") => String.t() | atom(),
+        optional("workerConfigurationArn") => String.t() | atom(),
+        optional("workerConfigurationState") => String.t() | atom()
+      }
+
+  """
+  @type create_worker_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_plugin() :: %{
+        "customPluginArn" => String.t() | atom(),
+        "revision" => float()
+      }
+
+  """
+  @type custom_plugin() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_plugin_description() :: %{
+        "customPluginArn" => String.t() | atom(),
+        "revision" => float()
+      }
+
+  """
+  @type custom_plugin_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_plugin_file_description() :: %{
+        "fileMd5" => String.t() | atom(),
+        "fileSize" => float()
+      }
+
+  """
+  @type custom_plugin_file_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_plugin_location() :: %{
+        "s3Location" => s3_location()
+      }
+
+  """
+  @type custom_plugin_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_plugin_location_description() :: %{
+        "s3Location" => s3_location_description()
+      }
+
+  """
+  @type custom_plugin_location_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_plugin_revision_summary() :: %{
+        "contentType" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "fileDescription" => custom_plugin_file_description(),
+        "location" => custom_plugin_location_description(),
+        "revision" => float()
+      }
+
+  """
+  @type custom_plugin_revision_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_plugin_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "customPluginArn" => String.t() | atom(),
+        "customPluginState" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "latestRevision" => custom_plugin_revision_summary(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type custom_plugin_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -84,36 +412,95 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      kafka_cluster() :: %{
-        "apacheKafkaCluster" => apache_kafka_cluster()
+      delete_connector_response() :: %{
+        optional("connectorArn") => String.t() | atom(),
+        optional("connectorState") => String.t() | atom()
       }
 
   """
-  @type kafka_cluster() :: %{(String.t() | atom()) => any()}
+  @type delete_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      log_delivery_description() :: %{
-        "workerLogDelivery" => worker_log_delivery_description()
-      }
+      delete_custom_plugin_request() :: %{}
 
   """
-  @type log_delivery_description() :: %{(String.t() | atom()) => any()}
+  @type delete_custom_plugin_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_connector_request() :: %{
-        optional("capacity") => capacity_update(),
-        optional("connectorConfiguration") => map(),
-        required("currentVersion") => String.t() | atom()
+      delete_custom_plugin_response() :: %{
+        optional("customPluginArn") => String.t() | atom(),
+        optional("customPluginState") => String.t() | atom()
       }
 
   """
-  @type update_connector_request() :: %{(String.t() | atom()) => any()}
+  @type delete_custom_plugin_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_worker_configuration_request() :: %{}
+
+  """
+  @type delete_worker_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_worker_configuration_response() :: %{
+        optional("workerConfigurationArn") => String.t() | atom(),
+        optional("workerConfigurationState") => String.t() | atom()
+      }
+
+  """
+  @type delete_worker_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connector_operation_request() :: %{}
+
+  """
+  @type describe_connector_operation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connector_operation_response() :: %{
+        "connectorArn" => String.t() | atom(),
+        "connectorOperationArn" => String.t() | atom(),
+        "connectorOperationState" => String.t() | atom(),
+        "connectorOperationType" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "endTime" => non_neg_integer(),
+        "errorInfo" => state_description(),
+        "operationSteps" => list(connector_operation_step()),
+        "originConnectorConfiguration" => map(),
+        "originWorkerSetting" => worker_setting(),
+        "targetConnectorConfiguration" => map(),
+        "targetWorkerSetting" => worker_setting()
+      }
+
+  """
+  @type describe_connector_operation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connector_request() :: %{}
+
+  """
+  @type describe_connector_request() :: %{}
 
   @typedoc """
 
@@ -147,231 +534,10 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      kafka_cluster_client_authentication_description() :: %{
-        "authenticationType" => String.t() | atom()
-      }
-
-  """
-  @type kafka_cluster_client_authentication_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       describe_custom_plugin_request() :: %{}
 
   """
   @type describe_custom_plugin_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auto_scaling() :: %{
-        "maxAutoscalingTaskCount" => integer(),
-        "maxWorkerCount" => integer(),
-        "mcuCount" => integer(),
-        "minWorkerCount" => integer(),
-        "scaleInPolicy" => scale_in_policy(),
-        "scaleOutPolicy" => scale_out_policy()
-      }
-
-  """
-  @type auto_scaling() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kafka_cluster_encryption_in_transit_description() :: %{
-        "encryptionType" => String.t() | atom()
-      }
-
-  """
-  @type kafka_cluster_encryption_in_transit_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_worker_configurations_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("workerConfigurations") => list(worker_configuration_summary())
-      }
-
-  """
-  @type list_worker_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_worker_configuration_response() :: %{
-        optional("creationTime") => non_neg_integer(),
-        optional("description") => String.t() | atom(),
-        optional("latestRevision") => worker_configuration_revision_description(),
-        optional("name") => String.t() | atom(),
-        optional("workerConfigurationArn") => String.t() | atom(),
-        optional("workerConfigurationState") => String.t() | atom()
-      }
-
-  """
-  @type describe_worker_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scale_out_policy_description() :: %{
-        "cpuUtilizationPercentage" => integer()
-      }
-
-  """
-  @type scale_out_policy_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_operation_summary() :: %{
-        "connectorOperationArn" => String.t() | atom(),
-        "connectorOperationState" => String.t() | atom(),
-        "connectorOperationType" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "endTime" => non_neg_integer()
-      }
-
-  """
-  @type connector_operation_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scale_out_policy_update() :: %{
-        "cpuUtilizationPercentage" => integer()
-      }
-
-  """
-  @type scale_out_policy_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_logs_log_delivery_description() :: %{
-        "enabled" => boolean(),
-        "logGroup" => String.t() | atom()
-      }
-
-  """
-  @type cloud_watch_logs_log_delivery_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_connector_operation_response() :: %{
-        "connectorArn" => String.t() | atom(),
-        "connectorOperationArn" => String.t() | atom(),
-        "connectorOperationState" => String.t() | atom(),
-        "connectorOperationType" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "endTime" => non_neg_integer(),
-        "errorInfo" => state_description(),
-        "operationSteps" => list(connector_operation_step()),
-        "originConnectorConfiguration" => map(),
-        "originWorkerSetting" => worker_setting(),
-        "targetConnectorConfiguration" => map(),
-        "targetWorkerSetting" => worker_setting()
-      }
-
-  """
-  @type describe_connector_operation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_custom_plugins_response() :: %{
-        optional("customPlugins") => list(custom_plugin_summary()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_custom_plugins_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_operation_step() :: %{
-        "stepState" => String.t() | atom(),
-        "stepType" => String.t() | atom()
-      }
-
-  """
-  @type connector_operation_step() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connectors_request() :: %{
-        optional("connectorNamePrefix") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      worker_configuration_revision_summary() :: %{
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "revision" => float()
-      }
-
-  """
-  @type worker_configuration_revision_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_plugin_response() :: %{
-        optional("customPluginArn") => String.t() | atom(),
-        optional("customPluginState") => String.t() | atom()
-      }
-
-  """
-  @type delete_custom_plugin_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -394,28 +560,6 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      kafka_cluster_encryption_in_transit() :: %{
-        "encryptionType" => String.t() | atom()
-      }
-
-  """
-  @type kafka_cluster_encryption_in_transit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       describe_worker_configuration_request() :: %{}
 
   """
@@ -425,52 +569,17 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      custom_plugin_file_description() :: %{
-        "fileMd5" => String.t() | atom(),
-        "fileSize" => float()
-      }
-
-  """
-  @type custom_plugin_file_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_worker_configuration_response() :: %{
+      describe_worker_configuration_response() :: %{
         optional("creationTime") => non_neg_integer(),
-        optional("latestRevision") => worker_configuration_revision_summary(),
+        optional("description") => String.t() | atom(),
+        optional("latestRevision") => worker_configuration_revision_description(),
         optional("name") => String.t() | atom(),
         optional("workerConfigurationArn") => String.t() | atom(),
         optional("workerConfigurationState") => String.t() | atom()
       }
 
   """
-  @type create_worker_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      worker_configuration_description() :: %{
-        "revision" => float(),
-        "workerConfigurationArn" => String.t() | atom()
-      }
-
-  """
-  @type worker_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connector_operations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_connector_operations_request() :: %{(String.t() | atom()) => any()}
+  @type describe_worker_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -488,14 +597,113 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      s3_location() :: %{
-        "bucketArn" => String.t() | atom(),
-        "fileKey" => String.t() | atom(),
-        "objectVersion" => String.t() | atom()
+      firehose_log_delivery_description() :: %{
+        "deliveryStream" => String.t() | atom(),
+        "enabled" => boolean()
       }
 
   """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
+  @type firehose_log_delivery_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_cluster() :: %{
+        "apacheKafkaCluster" => apache_kafka_cluster()
+      }
+
+  """
+  @type kafka_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_cluster_client_authentication() :: %{
+        "authenticationType" => String.t() | atom()
+      }
+
+  """
+  @type kafka_cluster_client_authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_cluster_client_authentication_description() :: %{
+        "authenticationType" => String.t() | atom()
+      }
+
+  """
+  @type kafka_cluster_client_authentication_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_cluster_description() :: %{
+        "apacheKafkaCluster" => apache_kafka_cluster_description()
+      }
+
+  """
+  @type kafka_cluster_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_cluster_encryption_in_transit() :: %{
+        "encryptionType" => String.t() | atom()
+      }
+
+  """
+  @type kafka_cluster_encryption_in_transit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_cluster_encryption_in_transit_description() :: %{
+        "encryptionType" => String.t() | atom()
+      }
+
+  """
+  @type kafka_cluster_encryption_in_transit_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connector_operations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_connector_operations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -513,339 +721,26 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      delete_custom_plugin_request() :: %{}
-
-  """
-  @type delete_custom_plugin_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      scale_in_policy() :: %{
-        "cpuUtilizationPercentage" => integer()
+      list_connectors_request() :: %{
+        optional("connectorNamePrefix") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type scale_in_policy() :: %{(String.t() | atom()) => any()}
+  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("tags") => map()
+      list_connectors_response() :: %{
+        optional("connectors") => list(connector_summary()),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc() :: %{
-        "securityGroups" => list(String.t() | atom()),
-        "subnets" => list(String.t() | atom())
-      }
-
-  """
-  @type vpc() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_worker_configuration_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("propertiesFileContent") => String.t() | atom()
-      }
-
-  """
-  @type create_worker_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      worker_configuration() :: %{
-        "revision" => float(),
-        "workerConfigurationArn" => String.t() | atom()
-      }
-
-  """
-  @type worker_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      state_description() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type state_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_plugin() :: %{
-        "customPluginArn" => String.t() | atom(),
-        "revision" => float()
-      }
-
-  """
-  @type custom_plugin() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scale_out_policy() :: %{
-        "cpuUtilizationPercentage" => integer()
-      }
-
-  """
-  @type scale_out_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      plugin_description() :: %{
-        "customPlugin" => custom_plugin_description()
-      }
-
-  """
-  @type plugin_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_location_description() :: %{
-        "bucketArn" => String.t() | atom(),
-        "fileKey" => String.t() | atom(),
-        "objectVersion" => String.t() | atom()
-      }
-
-  """
-  @type s3_location_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      provisioned_capacity_description() :: %{
-        "mcuCount" => integer(),
-        "workerCount" => integer()
-      }
-
-  """
-  @type provisioned_capacity_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kafka_cluster_description() :: %{
-        "apacheKafkaCluster" => apache_kafka_cluster_description()
-      }
-
-  """
-  @type kafka_cluster_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_custom_plugin_response() :: %{
-        optional("customPluginArn") => String.t() | atom(),
-        optional("customPluginState") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("revision") => float()
-      }
-
-  """
-  @type create_custom_plugin_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_plugin_location_description() :: %{
-        "s3Location" => s3_location_description()
-      }
-
-  """
-  @type custom_plugin_location_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      provisioned_capacity() :: %{
-        "mcuCount" => integer(),
-        "workerCount" => integer()
-      }
-
-  """
-  @type provisioned_capacity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_plugin_summary() :: %{
-        "creationTime" => non_neg_integer(),
-        "customPluginArn" => String.t() | atom(),
-        "customPluginState" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "latestRevision" => custom_plugin_revision_summary(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type custom_plugin_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capacity() :: %{
-        "autoScaling" => auto_scaling(),
-        "provisionedCapacity" => provisioned_capacity()
-      }
-
-  """
-  @type capacity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_summary() :: %{
-        "capacity" => capacity_description(),
-        "connectorArn" => String.t() | atom(),
-        "connectorDescription" => String.t() | atom(),
-        "connectorName" => String.t() | atom(),
-        "connectorState" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "currentVersion" => String.t() | atom(),
-        "kafkaCluster" => kafka_cluster_description(),
-        "kafkaClusterClientAuthentication" => kafka_cluster_client_authentication_description(),
-        "kafkaClusterEncryptionInTransit" => kafka_cluster_encryption_in_transit_description(),
-        "kafkaConnectVersion" => String.t() | atom(),
-        "logDelivery" => log_delivery_description(),
-        "networkType" => String.t() | atom(),
-        "plugins" => list(plugin_description()),
-        "serviceExecutionRoleArn" => String.t() | atom(),
-        "workerConfiguration" => worker_configuration_description()
-      }
-
-  """
-  @type connector_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_connector_request() :: %{}
-
-  """
-  @type describe_connector_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_plugin_revision_summary() :: %{
-        "contentType" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "fileDescription" => custom_plugin_file_description(),
-        "location" => custom_plugin_location_description(),
-        "revision" => float()
-      }
-
-  """
-  @type custom_plugin_revision_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_worker_configuration_request() :: %{}
-
-  """
-  @type delete_worker_configuration_request() :: %{}
+  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -864,61 +759,22 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      scale_in_policy_update() :: %{
-        "cpuUtilizationPercentage" => integer()
+      list_custom_plugins_response() :: %{
+        optional("customPlugins") => list(custom_plugin_summary()),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type scale_in_policy_update() :: %{(String.t() | atom()) => any()}
+  @type list_custom_plugins_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      custom_plugin_description() :: %{
-        "customPluginArn" => String.t() | atom(),
-        "revision" => float()
-      }
+      list_tags_for_resource_request() :: %{}
 
   """
-  @type custom_plugin_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      apache_kafka_cluster_description() :: %{
-        "bootstrapServers" => String.t() | atom(),
-        "vpc" => vpc_description()
-      }
-
-  """
-  @type apache_kafka_cluster_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capacity_description() :: %{
-        "autoScaling" => auto_scaling_description(),
-        "provisionedCapacity" => provisioned_capacity_description()
-      }
-
-  """
-  @type capacity_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_log_delivery_description() :: %{
-        "bucket" => String.t() | atom(),
-        "enabled" => boolean(),
-        "prefix" => String.t() | atom()
-      }
-
-  """
-  @type s3_log_delivery_description() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
@@ -930,29 +786,6 @@ defmodule AWS.KafkaConnect do
 
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_logs_log_delivery() :: %{
-        "enabled" => boolean(),
-        "logGroup" => String.t() | atom()
-      }
-
-  """
-  @type cloud_watch_logs_log_delivery() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      worker_setting() :: %{
-        "capacity" => capacity_description()
-      }
-
-  """
-  @type worker_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -971,38 +804,130 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      kafka_cluster_client_authentication() :: %{
-        "authenticationType" => String.t() | atom()
+      list_worker_configurations_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("workerConfigurations") => list(worker_configuration_summary())
       }
 
   """
-  @type kafka_cluster_client_authentication() :: %{(String.t() | atom()) => any()}
+  @type list_worker_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_custom_plugin_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("contentType") => String.t() | atom(),
-        required("location") => custom_plugin_location(),
-        required("name") => String.t() | atom()
+      log_delivery() :: %{
+        "workerLogDelivery" => worker_log_delivery()
       }
 
   """
-  @type create_custom_plugin_request() :: %{(String.t() | atom()) => any()}
+  @type log_delivery() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      scale_in_policy_description() :: %{
-        "cpuUtilizationPercentage" => integer()
+      log_delivery_description() :: %{
+        "workerLogDelivery" => worker_log_delivery_description()
       }
 
   """
-  @type scale_in_policy_description() :: %{(String.t() | atom()) => any()}
+  @type log_delivery_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      plugin() :: %{
+        "customPlugin" => custom_plugin()
+      }
+
+  """
+  @type plugin() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      plugin_description() :: %{
+        "customPlugin" => custom_plugin_description()
+      }
+
+  """
+  @type plugin_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provisioned_capacity() :: %{
+        "mcuCount" => integer(),
+        "workerCount" => integer()
+      }
+
+  """
+  @type provisioned_capacity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provisioned_capacity_description() :: %{
+        "mcuCount" => integer(),
+        "workerCount" => integer()
+      }
+
+  """
+  @type provisioned_capacity_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provisioned_capacity_update() :: %{
+        "mcuCount" => integer(),
+        "workerCount" => integer()
+      }
+
+  """
+  @type provisioned_capacity_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "bucketArn" => String.t() | atom(),
+        "fileKey" => String.t() | atom(),
+        "objectVersion" => String.t() | atom()
+      }
+
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location_description() :: %{
+        "bucketArn" => String.t() | atom(),
+        "fileKey" => String.t() | atom(),
+        "objectVersion" => String.t() | atom()
+      }
+
+  """
+  @type s3_location_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1021,96 +946,266 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      create_connector_request() :: %{
-        optional("connectorDescription") => String.t() | atom(),
-        optional("logDelivery") => log_delivery(),
-        optional("networkType") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("workerConfiguration") => worker_configuration(),
-        required("capacity") => capacity(),
-        required("connectorConfiguration") => map(),
-        required("connectorName") => String.t() | atom(),
-        required("kafkaCluster") => kafka_cluster(),
-        required("kafkaClusterClientAuthentication") => kafka_cluster_client_authentication(),
-        required("kafkaClusterEncryptionInTransit") => kafka_cluster_encryption_in_transit(),
-        required("kafkaConnectVersion") => String.t() | atom(),
-        required("plugins") => list(plugin()),
-        required("serviceExecutionRoleArn") => String.t() | atom()
+      s3_log_delivery_description() :: %{
+        "bucket" => String.t() | atom(),
+        "enabled" => boolean(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type create_connector_request() :: %{(String.t() | atom()) => any()}
+  @type s3_log_delivery_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_connector_response() :: %{
+      scale_in_policy() :: %{
+        "cpuUtilizationPercentage" => integer()
+      }
+
+  """
+  @type scale_in_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scale_in_policy_description() :: %{
+        "cpuUtilizationPercentage" => integer()
+      }
+
+  """
+  @type scale_in_policy_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scale_in_policy_update() :: %{
+        "cpuUtilizationPercentage" => integer()
+      }
+
+  """
+  @type scale_in_policy_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scale_out_policy() :: %{
+        "cpuUtilizationPercentage" => integer()
+      }
+
+  """
+  @type scale_out_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scale_out_policy_description() :: %{
+        "cpuUtilizationPercentage" => integer()
+      }
+
+  """
+  @type scale_out_policy_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scale_out_policy_update() :: %{
+        "cpuUtilizationPercentage" => integer()
+      }
+
+  """
+  @type scale_out_policy_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      state_description() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type state_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connector_request() :: %{
+        optional("capacity") => capacity_update(),
+        optional("connectorConfiguration") => map(),
+        required("currentVersion") => String.t() | atom()
+      }
+
+  """
+  @type update_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connector_response() :: %{
         optional("connectorArn") => String.t() | atom(),
+        optional("connectorOperationArn") => String.t() | atom(),
         optional("connectorState") => String.t() | atom()
       }
 
   """
-  @type delete_connector_response() :: %{(String.t() | atom()) => any()}
+  @type update_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      worker_log_delivery() :: %{
-        "cloudWatchLogs" => cloud_watch_logs_log_delivery(),
-        "firehose" => firehose_log_delivery(),
-        "s3" => s3_log_delivery()
+      vpc() :: %{
+        "securityGroups" => list(String.t() | atom()),
+        "subnets" => list(String.t() | atom())
       }
 
   """
-  @type worker_log_delivery() :: %{(String.t() | atom()) => any()}
+  @type vpc() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      capacity_update() :: %{
-        "autoScaling" => auto_scaling_update(),
-        "provisionedCapacity" => provisioned_capacity_update()
+      vpc_description() :: %{
+        "securityGroups" => list(String.t() | atom()),
+        "subnets" => list(String.t() | atom())
       }
 
   """
-  @type capacity_update() :: %{(String.t() | atom()) => any()}
+  @type vpc_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      forbidden_exception() :: %{
-        "message" => String.t() | atom()
+      worker_configuration() :: %{
+        "revision" => float(),
+        "workerConfigurationArn" => String.t() | atom()
       }
 
   """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+  @type worker_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      apache_kafka_cluster() :: %{
-        "bootstrapServers" => String.t() | atom(),
-        "vpc" => vpc()
+      worker_configuration_description() :: %{
+        "revision" => float(),
+        "workerConfigurationArn" => String.t() | atom()
       }
 
   """
-  @type apache_kafka_cluster() :: %{(String.t() | atom()) => any()}
+  @type worker_configuration_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      bad_request_exception() :: %{
-        "message" => String.t() | atom()
+      worker_configuration_revision_description() :: %{
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "propertiesFileContent" => String.t() | atom(),
+        "revision" => float()
       }
 
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type worker_configuration_revision_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      worker_configuration_revision_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "revision" => float()
+      }
+
+  """
+  @type worker_configuration_revision_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1132,48 +1227,14 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      custom_plugin_location() :: %{
-        "s3Location" => s3_location()
+      worker_log_delivery() :: %{
+        "cloudWatchLogs" => cloud_watch_logs_log_delivery(),
+        "firehose" => firehose_log_delivery(),
+        "s3" => s3_log_delivery()
       }
 
   """
-  @type custom_plugin_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connector_response() :: %{
-        optional("connectorArn") => String.t() | atom(),
-        optional("connectorName") => String.t() | atom(),
-        optional("connectorState") => String.t() | atom()
-      }
-
-  """
-  @type create_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      worker_configuration_revision_description() :: %{
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "propertiesFileContent" => String.t() | atom(),
-        "revision" => float()
-      }
-
-  """
-  @type worker_configuration_revision_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
+  @type worker_log_delivery() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1192,239 +1253,178 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
-      update_connector_response() :: %{
-        optional("connectorArn") => String.t() | atom(),
-        optional("connectorOperationArn") => String.t() | atom(),
-        optional("connectorState") => String.t() | atom()
+      worker_setting() :: %{
+        "capacity" => capacity_description()
       }
 
   """
-  @type update_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      plugin() :: %{
-        "customPlugin" => custom_plugin()
-      }
-
-  """
-  @type plugin() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_worker_configuration_response() :: %{
-        optional("workerConfigurationArn") => String.t() | atom(),
-        optional("workerConfigurationState") => String.t() | atom()
-      }
-
-  """
-  @type delete_worker_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_description() :: %{
-        "securityGroups" => list(String.t() | atom()),
-        "subnets" => list(String.t() | atom())
-      }
-
-  """
-  @type vpc_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      firehose_log_delivery_description() :: %{
-        "deliveryStream" => String.t() | atom(),
-        "enabled" => boolean()
-      }
-
-  """
-  @type firehose_log_delivery_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connectors_response() :: %{
-        optional("connectors") => list(connector_summary()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
+  @type worker_setting() :: %{(String.t() | atom()) => any()}
 
   @type create_connector_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type create_custom_plugin_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type create_worker_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type delete_connector_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_custom_plugin_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_worker_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type describe_connector_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type describe_connector_operation_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type describe_custom_plugin_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type describe_worker_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_connector_operations_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_connectors_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_custom_plugins_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_worker_configurations_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type tag_resource_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type untag_resource_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_connector_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   def metadata do
     %{
@@ -1729,15 +1729,15 @@ defmodule AWS.KafkaConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1776,8 +1776,8 @@ defmodule AWS.KafkaConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(connector_name_prefix) do
+        [{"connectorNamePrefix", connector_name_prefix} | query_params]
       else
         query_params
       end
@@ -1790,8 +1790,8 @@ defmodule AWS.KafkaConnect do
       end
 
     query_params =
-      if !is_nil(connector_name_prefix) do
-        [{"connectorNamePrefix", connector_name_prefix} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1827,8 +1827,8 @@ defmodule AWS.KafkaConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -1841,8 +1841,8 @@ defmodule AWS.KafkaConnect do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1896,8 +1896,8 @@ defmodule AWS.KafkaConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -1910,8 +1910,8 @@ defmodule AWS.KafkaConnect do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

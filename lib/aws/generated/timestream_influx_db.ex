@@ -21,112 +21,6 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      delete_db_instance_input() :: %{
-        required("identifier") => String.t() | atom()
-      }
-      
-  """
-  @type delete_db_instance_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_db_parameter_groups_output() :: %{
-        "items" => list(db_parameter_group_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_db_parameter_groups_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_db_parameter_group_input() :: %{
-        optional("description") => [String.t() | atom()],
-        optional("parameters") => list(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type create_db_parameter_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reboot_db_instance_input() :: %{
-        required("identifier") => String.t() | atom()
-      }
-      
-  """
-  @type reboot_db_instance_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_db_instance_input() :: %{
-        required("identifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_db_instance_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reboot_db_instance_output() :: %{
-        "allocatedStorage" => integer(),
-        "arn" => String.t() | atom(),
-        "availabilityZone" => [String.t() | atom()],
-        "dbClusterId" => String.t() | atom(),
-        "dbInstanceType" => list(any()),
-        "dbParameterGroupIdentifier" => String.t() | atom(),
-        "dbStorageType" => list(any()),
-        "deploymentType" => list(any()),
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "influxAuthParametersSecretArn" => [String.t() | atom()],
-        "instanceMode" => list(any()),
-        "instanceModes" => list(list(any())()),
-        "lastMaintenanceTime" => [non_neg_integer()],
-        "logDeliveryConfiguration" => log_delivery_configuration(),
-        "maintenanceSchedule" => maintenance_schedule(),
-        "name" => String.t() | atom(),
-        "networkType" => list(any()),
-        "nextMaintenanceTime" => [non_neg_integer()],
-        "port" => integer(),
-        "publiclyAccessible" => [boolean()],
-        "secondaryAvailabilityZone" => [String.t() | atom()],
-        "status" => list(any()),
-        "vpcSecurityGroupIds" => list(String.t() | atom()),
-        "vpcSubnetIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type reboot_db_instance_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       access_denied_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -138,60 +32,76 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      db_instance_for_cluster_summary() :: %{
+      cluster_configuration() :: %{
+        "dedicatedCompactor" => [boolean()],
+        "ingestQueryInstances" => [integer()],
+        "queryOnlyInstances" => [integer()]
+      }
+      
+  """
+  @type cluster_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_backup_input() :: %{
+        optional("retentionDays") => integer(),
+        optional("tags") => map(),
+        required("dbResourceId") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type create_db_backup_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_backup_output() :: %{
         "allocatedStorage" => integer(),
         "arn" => String.t() | atom(),
+        "clusterConfiguration" => cluster_configuration(),
+        "createdAt" => [non_neg_integer()],
         "dbInstanceType" => list(any()),
+        "dbParameterGroupId" => String.t() | atom(),
+        "dbResourceId" => String.t() | atom(),
         "dbStorageType" => list(any()),
         "deploymentType" => list(any()),
-        "endpoint" => [String.t() | atom()],
+        "engineType" => list(any()),
+        "expiresAfter" => String.t() | atom(),
+        "failoverMode" => list(any()),
         "id" => String.t() | atom(),
-        "instanceMode" => list(any()),
-        "instanceModes" => list(list(any())()),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
+        "kmsKeyId" => String.t() | atom(),
+        "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
-        "port" => integer(),
-        "status" => list(any())
+        "port" => [integer()],
+        "publiclyAccessible" => [boolean()],
+        "status" => list(any()),
+        "type" => list(any()),
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type db_instance_for_cluster_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_db_parameter_groups_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_db_parameter_groups_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      maintenance_schedule() :: %{
-        "preferredMaintenanceWindow" => String.t() | atom(),
-        "timezone" => String.t() | atom()
-      }
-      
-  """
-  @type maintenance_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type create_db_backup_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -200,10 +110,12 @@ defmodule AWS.TimestreamInfluxDB do
       create_db_cluster_input() :: %{
         optional("allocatedStorage") => integer(),
         optional("bucket") => String.t() | atom(),
+        optional("dbBackupConfigurations") => list(db_backup_configuration()),
         optional("dbParameterGroupIdentifier") => String.t() | atom(),
         optional("dbStorageType") => list(any()),
         optional("deploymentType") => list(any()),
         optional("failoverMode") => list(any()),
+        optional("kmsKeyId") => String.t() | atom(),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
         optional("maintenanceSchedule") => maintenance_schedule(),
         optional("networkType") => list(any()),
@@ -226,92 +138,6 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      list_db_clusters_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_db_clusters_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_db_cluster_input() :: %{
-        optional("dbInstanceType") => list(any()),
-        optional("dbParameterGroupIdentifier") => String.t() | atom(),
-        optional("failoverMode") => list(any()),
-        optional("logDeliveryConfiguration") => log_delivery_configuration(),
-        optional("maintenanceSchedule") => maintenance_schedule(),
-        optional("port") => integer(),
-        required("dbClusterId") => String.t() | atom()
-      }
-      
-  """
-  @type update_db_cluster_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_db_cluster_input() :: %{
-        required("dbClusterId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_db_cluster_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_instance_summary() :: %{
-        "allocatedStorage" => integer(),
-        "arn" => String.t() | atom(),
-        "dbInstanceType" => list(any()),
-        "dbStorageType" => list(any()),
-        "deploymentType" => list(any()),
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "networkType" => list(any()),
-        "port" => integer(),
-        "status" => list(any())
-      }
-      
-  """
-  @type db_instance_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_parameter_group_summary() :: %{
-        "arn" => String.t() | atom(),
-        "description" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type db_parameter_group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       create_db_cluster_output() :: %{
         "dbClusterId" => String.t() | atom(),
         "dbClusterStatus" => list(any())
@@ -319,6 +145,152 @@ defmodule AWS.TimestreamInfluxDB do
       
   """
   @type create_db_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_instance_input() :: %{
+        optional("bucket") => String.t() | atom(),
+        optional("dbBackupConfigurations") => list(db_backup_configuration()),
+        optional("dbParameterGroupIdentifier") => String.t() | atom(),
+        optional("dbStorageType") => list(any()),
+        optional("deploymentType") => list(any()),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("maintenanceSchedule") => maintenance_schedule(),
+        optional("networkType") => list(any()),
+        optional("organization") => String.t() | atom(),
+        optional("port") => integer(),
+        optional("publiclyAccessible") => [boolean()],
+        optional("tags") => map(),
+        optional("username") => String.t() | atom(),
+        required("allocatedStorage") => integer(),
+        required("dbInstanceType") => list(any()),
+        required("name") => String.t() | atom(),
+        required("password") => String.t() | atom(),
+        required("vpcSecurityGroupIds") => list(String.t() | atom()),
+        required("vpcSubnetIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_db_instance_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_instance_output() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t() | atom(),
+        "availabilityZone" => [String.t() | atom()],
+        "dbBackupConfigurations" => list(db_backup_configuration_output()),
+        "dbClusterId" => String.t() | atom(),
+        "dbInstanceType" => list(any()),
+        "dbParameterGroupIdentifier" => String.t() | atom(),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
+        "instanceMode" => list(any()),
+        "instanceModes" => list(list(any())()),
+        "kmsKeyId" => String.t() | atom(),
+        "lastMaintenanceTime" => [non_neg_integer()],
+        "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
+        "name" => String.t() | atom(),
+        "networkType" => list(any()),
+        "nextMaintenanceTime" => [non_neg_integer()],
+        "port" => integer(),
+        "publiclyAccessible" => [boolean()],
+        "secondaryAvailabilityZone" => [String.t() | atom()],
+        "status" => list(any()),
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type create_db_instance_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_parameter_group_input() :: %{
+        optional("description") => [String.t() | atom()],
+        optional("parameters") => list(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type create_db_parameter_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_parameter_group_output() :: %{
+        "arn" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "parameters" => list()
+      }
+      
+  """
+  @type create_db_parameter_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_backup_configuration() :: %{
+        "customSchedule" => String.t() | atom(),
+        "enabled" => [boolean()],
+        "retentionDays" => integer(),
+        "type" => list(any())
+      }
+      
+  """
+  @type db_backup_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_backup_configuration_output() :: %{
+        "customSchedule" => String.t() | atom(),
+        "enabled" => [boolean()],
+        "nextAutomatedBackupTime" => [non_neg_integer()],
+        "retentionDays" => integer(),
+        "type" => list(any())
+      }
+      
+  """
+  @type db_backup_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_backup_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "dbResourceId" => String.t() | atom(),
+        "deploymentType" => list(any()),
+        "engineType" => list(any()),
+        "expiresAfter" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+      
+  """
+  @type db_backup_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -347,146 +319,117 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      create_db_parameter_group_output() :: %{
+      db_instance_for_cluster_summary() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t() | atom(),
+        "dbInstanceType" => list(any()),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "instanceMode" => list(any()),
+        "instanceModes" => list(list(any())()),
+        "name" => String.t() | atom(),
+        "networkType" => list(any()),
+        "port" => integer(),
+        "status" => list(any())
+      }
+      
+  """
+  @type db_instance_for_cluster_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_instance_summary() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t() | atom(),
+        "dbInstanceType" => list(any()),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "networkType" => list(any()),
+        "port" => integer(),
+        "status" => list(any())
+      }
+      
+  """
+  @type db_instance_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_parameter_group_summary() :: %{
         "arn" => String.t() | atom(),
         "description" => [String.t() | atom()],
         "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "parameters" => list()
+        "name" => String.t() | atom()
       }
       
   """
-  @type create_db_parameter_group_output() :: %{(String.t() | atom()) => any()}
+  @type db_parameter_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      influx_dbv3_enterprise_parameters() :: %{
-        "logFilter" => [String.t() | atom()],
-        "gen1LookbackDuration" => duration(),
-        "dataFusionRuntimeDisableLifoSlot" => [boolean()],
-        "distinctCacheEvictionInterval" => duration(),
-        "lastValueCacheDisableFromHistory" => [boolean()],
-        "parquetMemCachePruneInterval" => duration(),
-        "compactionRowLimit" => [integer()],
-        "queryOnlyInstances" => [integer()],
-        "walReplayConcurrencyLimit" => [integer()],
-        "disableParquetMemCache" => [boolean()],
-        "dedicatedCompactor" => [boolean()],
-        "walMaxWriteBufferSize" => [integer()],
-        "forceSnapshotMemThreshold" => list(),
-        "dataFusionRuntimeMaxBlockingThreads" => [integer()],
-        "preemptiveCacheAge" => duration(),
-        "tableIndexCacheConcurrencyLimit" => [integer()],
-        "tableIndexCacheMaxEntries" => [integer()],
-        "replicationInterval" => duration(),
-        "gen1Duration" => duration(),
-        "execMemPoolBytes" => list(),
-        "queryFileLimit" => [integer()],
-        "compactionCleanupWait" => duration(),
-        "dataFusionRuntimeEventInterval" => [integer()],
-        "dataFusionUseCachedParquetLoader" => [boolean()],
-        "dataFusionRuntimeGlobalQueueInterval" => [integer()],
-        "dataFusionRuntimeThreadKeepAlive" => duration(),
-        "distinctValueCacheDisableFromHistory" => [boolean()],
-        "catalogSyncInterval" => duration(),
-        "maxHttpRequestSize" => [float()],
-        "walSnapshotSize" => [integer()],
-        "retentionCheckInterval" => duration(),
-        "dataFusionRuntimeType" => list(any()),
-        "compactionCheckInterval" => duration(),
-        "queryLogSize" => [integer()],
-        "ingestQueryInstances" => [integer()],
-        "compactionMultipliers" => [String.t() | atom()],
-        "dataFusionNumThreads" => [integer()],
-        "parquetMemCacheQueryPathDuration" => duration(),
-        "dataFusionMaxParquetFanout" => [integer()],
-        "hardDeleteDefaultDuration" => duration(),
-        "dataFusionRuntimeThreadPriority" => [integer()],
-        "snapshottedWalFilesToKeep" => [integer()],
-        "walReplayFailOnError" => [boolean()],
-        "logFormat" => list(any()),
-        "lastCacheEvictionInterval" => duration(),
-        "deleteGracePeriod" => duration(),
-        "compactionGen2Duration" => duration(),
-        "compactionMaxNumFilesPerPlan" => [integer()],
-        "dataFusionRuntimeMaxIoEventsPerTick" => [integer()],
-        "parquetMemCachePrunePercentage" => [float()],
-        "dataFusionConfig" => [String.t() | atom()],
-        "parquetMemCacheSize" => list()
-      }
-      
-  """
-  @type influx_dbv3_enterprise_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_db_clusters_output() :: %{
-        "items" => list(db_cluster_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_db_clusters_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => map()
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_db_instances_output() :: %{
-        "items" => list(db_instance_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_db_instances_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_db_instance_input() :: %{
-        optional("allocatedStorage") => integer(),
-        optional("dbInstanceType") => list(any()),
-        optional("dbParameterGroupIdentifier") => String.t() | atom(),
-        optional("dbStorageType") => list(any()),
-        optional("deploymentType") => list(any()),
-        optional("logDeliveryConfiguration") => log_delivery_configuration(),
-        optional("maintenanceSchedule") => maintenance_schedule(),
-        optional("port") => integer(),
+      delete_db_backup_input() :: %{
         required("identifier") => String.t() | atom()
       }
       
   """
-  @type update_db_instance_input() :: %{(String.t() | atom()) => any()}
+  @type delete_db_backup_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_db_backup_output() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t() | atom(),
+        "clusterConfiguration" => cluster_configuration(),
+        "createdAt" => [non_neg_integer()],
+        "dbInstanceType" => list(any()),
+        "dbParameterGroupId" => String.t() | atom(),
+        "dbResourceId" => String.t() | atom(),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "engineType" => list(any()),
+        "expiresAfter" => String.t() | atom(),
+        "failoverMode" => list(any()),
+        "id" => String.t() | atom(),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
+        "kmsKeyId" => String.t() | atom(),
+        "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
+        "name" => String.t() | atom(),
+        "networkType" => list(any()),
+        "port" => [integer()],
+        "publiclyAccessible" => [boolean()],
+        "status" => list(any()),
+        "type" => list(any()),
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_db_backup_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_db_cluster_input() :: %{
+        optional("retainAutomatedBackups") => [boolean()],
+        required("dbClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_db_cluster_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -503,122 +446,13 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      reboot_db_cluster_output() :: %{
-        "dbClusterStatus" => list(any())
+      delete_db_instance_input() :: %{
+        optional("retainAutomatedBackups") => [boolean()],
+        required("identifier") => String.t() | atom()
       }
       
   """
-  @type reboot_db_cluster_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reboot_db_cluster_input() :: %{
-        optional("instanceIds") => list(String.t() | atom()),
-        required("dbClusterId") => String.t() | atom()
-      }
-      
-  """
-  @type reboot_db_cluster_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_db_parameter_group_output() :: %{
-        "arn" => String.t() | atom(),
-        "description" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "parameters" => list()
-      }
-      
-  """
-  @type get_db_parameter_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_db_instance_output() :: %{
-        "allocatedStorage" => integer(),
-        "arn" => String.t() | atom(),
-        "availabilityZone" => [String.t() | atom()],
-        "dbClusterId" => String.t() | atom(),
-        "dbInstanceType" => list(any()),
-        "dbParameterGroupIdentifier" => String.t() | atom(),
-        "dbStorageType" => list(any()),
-        "deploymentType" => list(any()),
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "influxAuthParametersSecretArn" => [String.t() | atom()],
-        "instanceMode" => list(any()),
-        "instanceModes" => list(list(any())()),
-        "lastMaintenanceTime" => [non_neg_integer()],
-        "logDeliveryConfiguration" => log_delivery_configuration(),
-        "maintenanceSchedule" => maintenance_schedule(),
-        "name" => String.t() | atom(),
-        "networkType" => list(any()),
-        "nextMaintenanceTime" => [non_neg_integer()],
-        "port" => integer(),
-        "publiclyAccessible" => [boolean()],
-        "secondaryAvailabilityZone" => [String.t() | atom()],
-        "status" => list(any()),
-        "vpcSecurityGroupIds" => list(String.t() | atom()),
-        "vpcSubnetIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type create_db_instance_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_db_instances_for_cluster_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("dbClusterId") => String.t() | atom()
-      }
-      
-  """
-  @type list_db_instances_for_cluster_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_db_cluster_output() :: %{
-        "dbClusterStatus" => list(any())
-      }
-      
-  """
-  @type update_db_cluster_output() :: %{(String.t() | atom()) => any()}
+  @type delete_db_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,6 +462,7 @@ defmodule AWS.TimestreamInfluxDB do
         "allocatedStorage" => integer(),
         "arn" => String.t() | atom(),
         "availabilityZone" => [String.t() | atom()],
+        "dbBackupConfigurations" => list(db_backup_configuration_output()),
         "dbClusterId" => String.t() | atom(),
         "dbInstanceType" => list(any()),
         "dbParameterGroupIdentifier" => String.t() | atom(),
@@ -638,6 +473,7 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
         "instanceModes" => list(list(any())()),
+        "kmsKeyId" => String.t() | atom(),
         "lastMaintenanceTime" => [non_neg_integer()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "maintenanceSchedule" => maintenance_schedule(),
@@ -659,73 +495,6 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_db_instances_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_db_instances_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      influx_dbv2_parameters() :: %{
-        "storageCacheSnapshotWriteColdDuration" => duration(),
-        "metricsDisabled" => [boolean()],
-        "storageCompactThroughputBurst" => [float()],
-        "storageRetentionCheckInterval" => duration(),
-        "storageCompactFullWriteColdDuration" => duration(),
-        "sessionRenewDisabled" => [boolean()],
-        "logLevel" => list(any()),
-        "storageWalMaxWriteDelay" => duration(),
-        "storageSeriesIdSetCacheSize" => [float()],
-        "queryConcurrency" => [integer()],
-        "influxqlMaxSelectPoint" => [float()],
-        "noTasks" => [boolean()],
-        "storageSeriesFileMaxConcurrentSnapshotCompactions" => [integer()],
-        "uiDisabled" => [boolean()],
-        "queryInitialMemoryBytes" => [float()],
-        "storageWalMaxConcurrentWrites" => [integer()],
-        "storageCacheMaxMemorySize" => [float()],
-        "fluxLogEnabled" => [boolean()],
-        "queryQueueSize" => [integer()],
-        "sessionLength" => [integer()],
-        "storageMaxIndexLogFileSize" => [float()],
-        "storageMaxConcurrentCompactions" => [integer()],
-        "storageNoValidateFieldSize" => [boolean()],
-        "tracingType" => list(any()),
-        "pprofDisabled" => [boolean()],
-        "httpReadTimeout" => duration(),
-        "httpIdleTimeout" => duration(),
-        "storageCacheSnapshotMemorySize" => [float()],
-        "queryMaxMemoryBytes" => [float()],
-        "queryMemoryBytes" => [float()],
-        "httpReadHeaderTimeout" => duration(),
-        "influxqlMaxSelectBuckets" => [float()],
-        "httpWriteTimeout" => duration(),
-        "influxqlMaxSelectSeries" => [float()]
-      }
-      
-  """
-  @type influx_dbv2_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       duration() :: %{
         "durationType" => list(any()),
         "value" => [float()]
@@ -738,105 +507,58 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      log_delivery_configuration() :: %{
-        "s3Configuration" => s3_configuration()
-      }
-      
-  """
-  @type log_delivery_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_db_instance_output() :: %{
-        "allocatedStorage" => integer(),
-        "arn" => String.t() | atom(),
-        "availabilityZone" => [String.t() | atom()],
-        "dbClusterId" => String.t() | atom(),
-        "dbInstanceType" => list(any()),
-        "dbParameterGroupIdentifier" => String.t() | atom(),
-        "dbStorageType" => list(any()),
-        "deploymentType" => list(any()),
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "influxAuthParametersSecretArn" => [String.t() | atom()],
-        "instanceMode" => list(any()),
-        "instanceModes" => list(list(any())()),
-        "lastMaintenanceTime" => [non_neg_integer()],
-        "logDeliveryConfiguration" => log_delivery_configuration(),
-        "maintenanceSchedule" => maintenance_schedule(),
-        "name" => String.t() | atom(),
-        "networkType" => list(any()),
-        "nextMaintenanceTime" => [non_neg_integer()],
-        "port" => integer(),
-        "publiclyAccessible" => [boolean()],
-        "secondaryAvailabilityZone" => [String.t() | atom()],
-        "status" => list(any()),
-        "vpcSecurityGroupIds" => list(String.t() | atom()),
-        "vpcSubnetIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type get_db_instance_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_db_instance_output() :: %{
-        "allocatedStorage" => integer(),
-        "arn" => String.t() | atom(),
-        "availabilityZone" => [String.t() | atom()],
-        "dbClusterId" => String.t() | atom(),
-        "dbInstanceType" => list(any()),
-        "dbParameterGroupIdentifier" => String.t() | atom(),
-        "dbStorageType" => list(any()),
-        "deploymentType" => list(any()),
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "influxAuthParametersSecretArn" => [String.t() | atom()],
-        "instanceMode" => list(any()),
-        "instanceModes" => list(list(any())()),
-        "lastMaintenanceTime" => [non_neg_integer()],
-        "logDeliveryConfiguration" => log_delivery_configuration(),
-        "maintenanceSchedule" => maintenance_schedule(),
-        "name" => String.t() | atom(),
-        "networkType" => list(any()),
-        "nextMaintenanceTime" => [non_neg_integer()],
-        "port" => integer(),
-        "publiclyAccessible" => [boolean()],
-        "secondaryAvailabilityZone" => [String.t() | atom()],
-        "status" => list(any()),
-        "vpcSecurityGroupIds" => list(String.t() | atom()),
-        "vpcSubnetIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type update_db_instance_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_db_instances_for_cluster_output() :: %{
-        "items" => list(db_instance_for_cluster_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_db_instances_for_cluster_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_db_parameter_group_input() :: %{
+      get_db_backup_input() :: %{
         required("identifier") => String.t() | atom()
       }
       
   """
-  @type get_db_parameter_group_input() :: %{(String.t() | atom()) => any()}
+  @type get_db_backup_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_db_backup_output() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t() | atom(),
+        "clusterConfiguration" => cluster_configuration(),
+        "createdAt" => [non_neg_integer()],
+        "dbInstanceType" => list(any()),
+        "dbParameterGroupId" => String.t() | atom(),
+        "dbResourceId" => String.t() | atom(),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "engineType" => list(any()),
+        "expiresAfter" => String.t() | atom(),
+        "failoverMode" => list(any()),
+        "id" => String.t() | atom(),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
+        "kmsKeyId" => String.t() | atom(),
+        "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
+        "name" => String.t() | atom(),
+        "networkType" => list(any()),
+        "port" => [integer()],
+        "publiclyAccessible" => [boolean()],
+        "status" => list(any()),
+        "type" => list(any()),
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type get_db_backup_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_db_cluster_input() :: %{
+        required("dbClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type get_db_cluster_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -846,6 +568,7 @@ defmodule AWS.TimestreamInfluxDB do
         "allocatedStorage" => integer(),
         "arn" => String.t() | atom(),
         "clusterConfiguration" => cluster_configuration(),
+        "dbBackupConfigurations" => list(db_backup_configuration_output()),
         "dbInstanceType" => list(any()),
         "dbParameterGroupIdentifier" => String.t() | atom(),
         "dbStorageType" => list(any()),
@@ -855,6 +578,7 @@ defmodule AWS.TimestreamInfluxDB do
         "failoverMode" => list(any()),
         "id" => String.t() | atom(),
         "influxAuthParametersSecretArn" => [String.t() | atom()],
+        "kmsKeyId" => String.t() | atom(),
         "lastMaintenanceTime" => [non_neg_integer()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "maintenanceSchedule" => maintenance_schedule(),
@@ -876,42 +600,536 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      cluster_configuration() :: %{
-        "dedicatedCompactor" => [boolean()],
-        "ingestQueryInstances" => [integer()],
-        "queryOnlyInstances" => [integer()]
+      get_db_instance_input() :: %{
+        required("identifier") => String.t() | atom()
       }
       
   """
-  @type cluster_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_db_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_db_instance_input() :: %{
-        optional("bucket") => String.t() | atom(),
-        optional("dbParameterGroupIdentifier") => String.t() | atom(),
-        optional("dbStorageType") => list(any()),
-        optional("deploymentType") => list(any()),
-        optional("logDeliveryConfiguration") => log_delivery_configuration(),
-        optional("maintenanceSchedule") => maintenance_schedule(),
-        optional("networkType") => list(any()),
-        optional("organization") => String.t() | atom(),
-        optional("port") => integer(),
-        optional("publiclyAccessible") => [boolean()],
-        optional("tags") => map(),
-        optional("username") => String.t() | atom(),
-        required("allocatedStorage") => integer(),
-        required("dbInstanceType") => list(any()),
-        required("name") => String.t() | atom(),
-        required("password") => String.t() | atom(),
-        required("vpcSecurityGroupIds") => list(String.t() | atom()),
-        required("vpcSubnetIds") => list(String.t() | atom())
+      get_db_instance_output() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t() | atom(),
+        "availabilityZone" => [String.t() | atom()],
+        "dbBackupConfigurations" => list(db_backup_configuration_output()),
+        "dbClusterId" => String.t() | atom(),
+        "dbInstanceType" => list(any()),
+        "dbParameterGroupIdentifier" => String.t() | atom(),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
+        "instanceMode" => list(any()),
+        "instanceModes" => list(list(any())()),
+        "kmsKeyId" => String.t() | atom(),
+        "lastMaintenanceTime" => [non_neg_integer()],
+        "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
+        "name" => String.t() | atom(),
+        "networkType" => list(any()),
+        "nextMaintenanceTime" => [non_neg_integer()],
+        "port" => integer(),
+        "publiclyAccessible" => [boolean()],
+        "secondaryAvailabilityZone" => [String.t() | atom()],
+        "status" => list(any()),
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type create_db_instance_input() :: %{(String.t() | atom()) => any()}
+  @type get_db_instance_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_db_parameter_group_input() :: %{
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_db_parameter_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_db_parameter_group_output() :: %{
+        "arn" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "parameters" => list()
+      }
+      
+  """
+  @type get_db_parameter_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      influx_dbv2_parameters() :: %{
+        "fluxLogEnabled" => [boolean()],
+        "httpIdleTimeout" => duration(),
+        "httpReadHeaderTimeout" => duration(),
+        "httpReadTimeout" => duration(),
+        "httpWriteTimeout" => duration(),
+        "influxqlMaxSelectBuckets" => [float()],
+        "influxqlMaxSelectPoint" => [float()],
+        "influxqlMaxSelectSeries" => [float()],
+        "logLevel" => list(any()),
+        "metricsDisabled" => [boolean()],
+        "noTasks" => [boolean()],
+        "pprofDisabled" => [boolean()],
+        "queryConcurrency" => [integer()],
+        "queryInitialMemoryBytes" => [float()],
+        "queryMaxMemoryBytes" => [float()],
+        "queryMemoryBytes" => [float()],
+        "queryQueueSize" => [integer()],
+        "sessionLength" => [integer()],
+        "sessionRenewDisabled" => [boolean()],
+        "storageCacheMaxMemorySize" => [float()],
+        "storageCacheSnapshotMemorySize" => [float()],
+        "storageCacheSnapshotWriteColdDuration" => duration(),
+        "storageCompactFullWriteColdDuration" => duration(),
+        "storageCompactThroughputBurst" => [float()],
+        "storageMaxConcurrentCompactions" => [integer()],
+        "storageMaxIndexLogFileSize" => [float()],
+        "storageNoValidateFieldSize" => [boolean()],
+        "storageRetentionCheckInterval" => duration(),
+        "storageSeriesFileMaxConcurrentSnapshotCompactions" => [integer()],
+        "storageSeriesIdSetCacheSize" => [float()],
+        "storageWalMaxConcurrentWrites" => [integer()],
+        "storageWalMaxWriteDelay" => duration(),
+        "tracingType" => list(any()),
+        "uiDisabled" => [boolean()]
+      }
+      
+  """
+  @type influx_dbv2_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      influx_dbv3_core_parameters() :: %{
+        "dataFusionConfig" => [String.t() | atom()],
+        "dataFusionMaxParquetFanout" => [integer()],
+        "dataFusionNumThreads" => [integer()],
+        "dataFusionRuntimeDisableLifoSlot" => [boolean()],
+        "dataFusionRuntimeEventInterval" => [integer()],
+        "dataFusionRuntimeGlobalQueueInterval" => [integer()],
+        "dataFusionRuntimeMaxBlockingThreads" => [integer()],
+        "dataFusionRuntimeMaxIoEventsPerTick" => [integer()],
+        "dataFusionRuntimeThreadKeepAlive" => duration(),
+        "dataFusionRuntimeThreadPriority" => [integer()],
+        "dataFusionRuntimeType" => list(any()),
+        "dataFusionUseCachedParquetLoader" => [boolean()],
+        "deleteGracePeriod" => duration(),
+        "disableParquetMemCache" => [boolean()],
+        "distinctCacheEvictionInterval" => duration(),
+        "execMemPoolBytes" => list(),
+        "forceSnapshotMemThreshold" => list(),
+        "gen1Duration" => duration(),
+        "gen1LookbackDuration" => duration(),
+        "hardDeleteDefaultDuration" => duration(),
+        "lastCacheEvictionInterval" => duration(),
+        "logFilter" => [String.t() | atom()],
+        "logFormat" => list(any()),
+        "maxHttpRequestSize" => [float()],
+        "parquetMemCachePruneInterval" => duration(),
+        "parquetMemCachePrunePercentage" => [float()],
+        "parquetMemCacheQueryPathDuration" => duration(),
+        "parquetMemCacheSize" => list(),
+        "pluginRepositorySecretArn" => String.t() | atom(),
+        "pluginRepositoryUrl" => [String.t() | atom()],
+        "preemptiveCacheAge" => duration(),
+        "queryFileLimit" => [integer()],
+        "queryLogSize" => [integer()],
+        "retentionCheckInterval" => duration(),
+        "snapshottedWalFilesToKeep" => [integer()],
+        "tableIndexCacheConcurrencyLimit" => [integer()],
+        "tableIndexCacheMaxEntries" => [integer()],
+        "walMaxWriteBufferSize" => [integer()],
+        "walReplayConcurrencyLimit" => [integer()],
+        "walReplayFailOnError" => [boolean()],
+        "walSnapshotSize" => [integer()]
+      }
+      
+  """
+  @type influx_dbv3_core_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      influx_dbv3_enterprise_parameters() :: %{
+        "catalogSyncInterval" => duration(),
+        "compactionCheckInterval" => duration(),
+        "compactionCleanupWait" => duration(),
+        "compactionGen2Duration" => duration(),
+        "compactionMaxNumFilesPerPlan" => [integer()],
+        "compactionMultipliers" => [String.t() | atom()],
+        "compactionRowLimit" => [integer()],
+        "dataFusionConfig" => [String.t() | atom()],
+        "dataFusionMaxParquetFanout" => [integer()],
+        "dataFusionNumThreads" => [integer()],
+        "dataFusionRuntimeDisableLifoSlot" => [boolean()],
+        "dataFusionRuntimeEventInterval" => [integer()],
+        "dataFusionRuntimeGlobalQueueInterval" => [integer()],
+        "dataFusionRuntimeMaxBlockingThreads" => [integer()],
+        "dataFusionRuntimeMaxIoEventsPerTick" => [integer()],
+        "dataFusionRuntimeThreadKeepAlive" => duration(),
+        "dataFusionRuntimeThreadPriority" => [integer()],
+        "dataFusionRuntimeType" => list(any()),
+        "dataFusionUseCachedParquetLoader" => [boolean()],
+        "dedicatedCompactor" => [boolean()],
+        "deleteGracePeriod" => duration(),
+        "disableParquetMemCache" => [boolean()],
+        "distinctCacheEvictionInterval" => duration(),
+        "distinctValueCacheDisableFromHistory" => [boolean()],
+        "execMemPoolBytes" => list(),
+        "forceSnapshotMemThreshold" => list(),
+        "gen1Duration" => duration(),
+        "gen1LookbackDuration" => duration(),
+        "hardDeleteDefaultDuration" => duration(),
+        "ingestQueryInstances" => [integer()],
+        "lastCacheEvictionInterval" => duration(),
+        "lastValueCacheDisableFromHistory" => [boolean()],
+        "logFilter" => [String.t() | atom()],
+        "logFormat" => list(any()),
+        "maxHttpRequestSize" => [float()],
+        "parquetMemCachePruneInterval" => duration(),
+        "parquetMemCachePrunePercentage" => [float()],
+        "parquetMemCacheQueryPathDuration" => duration(),
+        "parquetMemCacheSize" => list(),
+        "pluginRepositorySecretArn" => String.t() | atom(),
+        "pluginRepositoryUrl" => [String.t() | atom()],
+        "preemptiveCacheAge" => duration(),
+        "queryFileLimit" => [integer()],
+        "queryLogSize" => [integer()],
+        "queryOnlyInstances" => [integer()],
+        "replicationInterval" => duration(),
+        "retentionCheckInterval" => duration(),
+        "snapshottedWalFilesToKeep" => [integer()],
+        "tableIndexCacheConcurrencyLimit" => [integer()],
+        "tableIndexCacheMaxEntries" => [integer()],
+        "walMaxWriteBufferSize" => [integer()],
+        "walReplayConcurrencyLimit" => [integer()],
+        "walReplayFailOnError" => [boolean()],
+        "walSnapshotSize" => [integer()]
+      }
+      
+  """
+  @type influx_dbv3_enterprise_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_backups_input() :: %{
+        optional("dbResourceId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_db_backups_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_backups_output() :: %{
+        "items" => list(db_backup_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_db_backups_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_clusters_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_db_clusters_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_clusters_output() :: %{
+        "items" => list(db_cluster_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_db_clusters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_instances_for_cluster_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("dbClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type list_db_instances_for_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_instances_for_cluster_output() :: %{
+        "items" => list(db_instance_for_cluster_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_db_instances_for_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_instances_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_db_instances_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_instances_output() :: %{
+        "items" => list(db_instance_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_db_instances_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_parameter_groups_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_db_parameter_groups_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_parameter_groups_output() :: %{
+        "items" => list(db_parameter_group_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_db_parameter_groups_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_delivery_configuration() :: %{
+        "s3Configuration" => s3_configuration()
+      }
+      
+  """
+  @type log_delivery_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      maintenance_schedule() :: %{
+        "preferredMaintenanceWindow" => String.t() | atom(),
+        "timezone" => String.t() | atom()
+      }
+      
+  """
+  @type maintenance_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_db_cluster_input() :: %{
+        optional("instanceIds") => list(String.t() | atom()),
+        required("dbClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type reboot_db_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_db_cluster_output() :: %{
+        "dbClusterStatus" => list(any())
+      }
+      
+  """
+  @type reboot_db_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_db_instance_input() :: %{
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type reboot_db_instance_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_db_instance_output() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t() | atom(),
+        "availabilityZone" => [String.t() | atom()],
+        "dbBackupConfigurations" => list(db_backup_configuration_output()),
+        "dbClusterId" => String.t() | atom(),
+        "dbInstanceType" => list(any()),
+        "dbParameterGroupIdentifier" => String.t() | atom(),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
+        "instanceMode" => list(any()),
+        "instanceModes" => list(list(any())()),
+        "kmsKeyId" => String.t() | atom(),
+        "lastMaintenanceTime" => [non_neg_integer()],
+        "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
+        "name" => String.t() | atom(),
+        "networkType" => list(any()),
+        "nextMaintenanceTime" => [non_neg_integer()],
+        "port" => integer(),
+        "publiclyAccessible" => [boolean()],
+        "secondaryAvailabilityZone" => [String.t() | atom()],
+        "status" => list(any()),
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type reboot_db_instance_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_from_db_backup_input() :: %{
+        optional("dbBackupConfigurations") => list(db_backup_configuration()),
+        optional("deploymentType") => list(any()),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("maintenanceSchedule") => maintenance_schedule(),
+        optional("networkType") => list(any()),
+        optional("port") => integer(),
+        optional("publiclyAccessible") => [boolean()],
+        optional("restoreMode") => list(any()),
+        optional("restoreToTime") => [non_neg_integer()],
+        optional("tags") => map(),
+        optional("vpcSecurityGroupIds") => list(String.t() | atom()),
+        optional("vpcSubnetIds") => list(String.t() | atom()),
+        required("dbBackupId") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type restore_from_db_backup_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_from_db_backup_output() :: %{
+        "deploymentType" => list(any()),
+        "engineType" => list(any()),
+        "resourceType" => list(any()),
+        "restoreStatus" => list(any()),
+        "restoredDbResourceId" => String.t() | atom()
+      }
+      
+  """
+  @type restore_from_db_backup_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -929,28 +1147,6 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      get_db_cluster_input() :: %{
-        required("dbClusterId") => String.t() | atom()
-      }
-      
-  """
-  @type get_db_cluster_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -962,160 +1158,284 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      influx_dbv3_core_parameters() :: %{
-        "logFilter" => [String.t() | atom()],
-        "gen1LookbackDuration" => duration(),
-        "dataFusionRuntimeDisableLifoSlot" => [boolean()],
-        "distinctCacheEvictionInterval" => duration(),
-        "parquetMemCachePruneInterval" => duration(),
-        "walReplayConcurrencyLimit" => [integer()],
-        "disableParquetMemCache" => [boolean()],
-        "walMaxWriteBufferSize" => [integer()],
-        "forceSnapshotMemThreshold" => list(),
-        "dataFusionRuntimeMaxBlockingThreads" => [integer()],
-        "preemptiveCacheAge" => duration(),
-        "tableIndexCacheConcurrencyLimit" => [integer()],
-        "tableIndexCacheMaxEntries" => [integer()],
-        "gen1Duration" => duration(),
-        "execMemPoolBytes" => list(),
-        "queryFileLimit" => [integer()],
-        "dataFusionRuntimeEventInterval" => [integer()],
-        "dataFusionUseCachedParquetLoader" => [boolean()],
-        "dataFusionRuntimeGlobalQueueInterval" => [integer()],
-        "dataFusionRuntimeThreadKeepAlive" => duration(),
-        "maxHttpRequestSize" => [float()],
-        "walSnapshotSize" => [integer()],
-        "retentionCheckInterval" => duration(),
-        "dataFusionRuntimeType" => list(any()),
-        "queryLogSize" => [integer()],
-        "dataFusionNumThreads" => [integer()],
-        "parquetMemCacheQueryPathDuration" => duration(),
-        "dataFusionMaxParquetFanout" => [integer()],
-        "hardDeleteDefaultDuration" => duration(),
-        "dataFusionRuntimeThreadPriority" => [integer()],
-        "snapshottedWalFilesToKeep" => [integer()],
-        "walReplayFailOnError" => [boolean()],
-        "logFormat" => list(any()),
-        "lastCacheEvictionInterval" => duration(),
-        "deleteGracePeriod" => duration(),
-        "dataFusionRuntimeMaxIoEventsPerTick" => [integer()],
-        "parquetMemCachePrunePercentage" => [float()],
-        "dataFusionConfig" => [String.t() | atom()],
-        "parquetMemCacheSize" => list()
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => map()
       }
       
   """
-  @type influx_dbv3_core_parameters() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_db_cluster_input() :: %{
+        optional("dbBackupConfigurations") => list(db_backup_configuration()),
+        optional("dbInstanceType") => list(any()),
+        optional("dbParameterGroupIdentifier") => String.t() | atom(),
+        optional("failoverMode") => list(any()),
+        optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("maintenanceSchedule") => maintenance_schedule(),
+        optional("port") => integer(),
+        required("dbClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type update_db_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_db_cluster_output() :: %{
+        "dbClusterStatus" => list(any())
+      }
+      
+  """
+  @type update_db_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_db_instance_input() :: %{
+        optional("allocatedStorage") => integer(),
+        optional("dbBackupConfigurations") => list(db_backup_configuration()),
+        optional("dbInstanceType") => list(any()),
+        optional("dbParameterGroupIdentifier") => String.t() | atom(),
+        optional("dbStorageType") => list(any()),
+        optional("deploymentType") => list(any()),
+        optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("maintenanceSchedule") => maintenance_schedule(),
+        optional("port") => integer(),
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type update_db_instance_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_db_instance_output() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t() | atom(),
+        "availabilityZone" => [String.t() | atom()],
+        "dbBackupConfigurations" => list(db_backup_configuration_output()),
+        "dbClusterId" => String.t() | atom(),
+        "dbInstanceType" => list(any()),
+        "dbParameterGroupIdentifier" => String.t() | atom(),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
+        "instanceMode" => list(any()),
+        "instanceModes" => list(list(any())()),
+        "kmsKeyId" => String.t() | atom(),
+        "lastMaintenanceTime" => [non_neg_integer()],
+        "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
+        "name" => String.t() | atom(),
+        "networkType" => list(any()),
+        "nextMaintenanceTime" => [non_neg_integer()],
+        "port" => integer(),
+        "publiclyAccessible" => [boolean()],
+        "secondaryAvailabilityZone" => [String.t() | atom()],
+        "status" => list(any()),
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type update_db_instance_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @type create_db_backup_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_db_cluster_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_db_instance_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_db_parameter_group_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
+
+  @type delete_db_backup_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_db_cluster_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_db_instance_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
+
+  @type get_db_backup_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_db_cluster_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_db_instance_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_db_parameter_group_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_db_backups_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_db_clusters_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_db_instances_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_db_instances_for_cluster_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_db_parameter_groups_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
   @type reboot_db_cluster_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type reboot_db_instance_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
+
+  @type restore_from_db_backup_errors() ::
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
           service_quota_exceeded_exception() | resource_not_found_exception()
@@ -1123,20 +1443,20 @@ defmodule AWS.TimestreamInfluxDB do
   @type untag_resource_errors() :: resource_not_found_exception()
 
   @type update_db_cluster_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_db_instance_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{
@@ -1152,6 +1472,21 @@ defmodule AWS.TimestreamInfluxDB do
       signing_name: "timestream-influxdb",
       target_prefix: "AmazonTimestreamInfluxDB"
     }
+  end
+
+  @doc """
+  Creates a new on-demand backup of a Timestream for InfluxDB resource.
+  """
+  @spec create_db_backup(map(), create_db_backup_input(), list()) ::
+          {:ok, create_db_backup_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_db_backup_errors()}
+  def create_db_backup(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateDbBackup", input, options)
   end
 
   @doc """
@@ -1201,6 +1536,21 @@ defmodule AWS.TimestreamInfluxDB do
   end
 
   @doc """
+  Deletes a Timestream for InfluxDB backup.
+  """
+  @spec delete_db_backup(map(), delete_db_backup_input(), list()) ::
+          {:ok, delete_db_backup_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_db_backup_errors()}
+  def delete_db_backup(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteDbBackup", input, options)
+  end
+
+  @doc """
   Deletes a Timestream for InfluxDB cluster.
   """
   @spec delete_db_cluster(map(), delete_db_cluster_input(), list()) ::
@@ -1228,6 +1578,21 @@ defmodule AWS.TimestreamInfluxDB do
       metadata()
 
     Request.request_post(client, meta, "DeleteDbInstance", input, options)
+  end
+
+  @doc """
+  Returns information about a specific Timestream for InfluxDB backup.
+  """
+  @spec get_db_backup(map(), get_db_backup_input(), list()) ::
+          {:ok, get_db_backup_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_db_backup_errors()}
+  def get_db_backup(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetDbBackup", input, options)
   end
 
   @doc """
@@ -1273,6 +1638,21 @@ defmodule AWS.TimestreamInfluxDB do
       metadata()
 
     Request.request_post(client, meta, "GetDbParameterGroup", input, options)
+  end
+
+  @doc """
+  Returns a list of Timestream for InfluxDB backups.
+  """
+  @spec list_db_backups(map(), list_db_backups_input(), list()) ::
+          {:ok, list_db_backups_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_db_backups_errors()}
+  def list_db_backups(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListDbBackups", input, options)
   end
 
   @doc """
@@ -1378,6 +1758,24 @@ defmodule AWS.TimestreamInfluxDB do
       metadata()
 
     Request.request_post(client, meta, "RebootDbInstance", input, options)
+  end
+
+  @doc """
+  Restores a Timestream for InfluxDB resource from a backup.
+
+  By default, a new resource is created. You can optionally restore to the same
+  resource using the REPLACE_EXISTING restore mode.
+  """
+  @spec restore_from_db_backup(map(), restore_from_db_backup_input(), list()) ::
+          {:ok, restore_from_db_backup_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, restore_from_db_backup_errors()}
+  def restore_from_db_backup(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "RestoreFromDbBackup", input, options)
   end
 
   @doc """

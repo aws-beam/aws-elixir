@@ -25,231 +25,91 @@ defmodule AWS.Snowball do
 
   ## Example:
       
-      target_on_device_service() :: %{
-        "ServiceName" => list(any()),
-        "TransferOption" => list(any())
+      address() :: %{
+        "AddressId" => String.t() | atom(),
+        "City" => String.t() | atom(),
+        "Company" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "IsRestricted" => boolean(),
+        "Landmark" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "PostalCode" => String.t() | atom(),
+        "PrefectureOrDistrict" => String.t() | atom(),
+        "StateOrProvince" => String.t() | atom(),
+        "Street1" => String.t() | atom(),
+        "Street2" => String.t() | atom(),
+        "Street3" => String.t() | atom(),
+        "Type" => list(any())
       }
       
   """
-  @type target_on_device_service() :: %{(String.t() | atom()) => any()}
+  @type address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_pickup_locations_result() :: %{
-        "Addresses" => list(address()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_pickup_locations_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_long_term_pricing_result() :: %{}
-      
-  """
-  @type update_long_term_pricing_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_jobs_result() :: %{
-        "JobListEntries" => list(job_list_entry()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_jobs_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_long_term_pricing_result() :: %{
-        "LongTermPricingId" => String.t() | atom()
-      }
-      
-  """
-  @type create_long_term_pricing_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_job_result() :: %{
-        "JobId" => String.t() | atom()
-      }
-      
-  """
-  @type create_job_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_snowball_usage_result() :: %{
-        "SnowballLimit" => integer(),
-        "SnowballsInUse" => integer()
-      }
-      
-  """
-  @type get_snowball_usage_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_snowball_usage_request() :: %{}
-      
-  """
-  @type get_snowball_usage_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_addresses_result() :: %{
-        "Addresses" => list(address()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_addresses_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_cluster_request() :: %{
-        optional("AddressId") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("ForwardingAddressId") => String.t() | atom(),
-        optional("Notification") => notification(),
-        optional("OnDeviceServiceConfiguration") => on_device_service_configuration(),
-        optional("Resources") => job_resource(),
-        optional("RoleARN") => String.t() | atom(),
-        optional("ShippingOption") => list(any()),
+      cancel_cluster_request() :: %{
         required("ClusterId") => String.t() | atom()
       }
       
   """
-  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
+  @type cancel_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      i_n_d_tax_documents() :: %{
-        "GSTIN" => String.t() | atom()
-      }
+      cancel_cluster_result() :: %{}
       
   """
-  @type i_n_d_tax_documents() :: %{(String.t() | atom()) => any()}
+  @type cancel_cluster_result() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      key_range() :: %{
-        "BeginMarker" => String.t() | atom(),
-        "EndMarker" => String.t() | atom()
+      cancel_job_request() :: %{
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type key_range() :: %{(String.t() | atom()) => any()}
+  @type cancel_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_address_result() :: %{
-        "AddressId" => String.t() | atom()
-      }
+      cancel_job_result() :: %{}
       
   """
-  @type create_address_result() :: %{(String.t() | atom()) => any()}
+  @type cancel_job_result() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      list_long_term_pricing_result() :: %{
-        "LongTermPricingEntries" => list(long_term_pricing_list_entry()),
-        "NextToken" => String.t() | atom()
+      cluster_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type list_long_term_pricing_result() :: %{(String.t() | atom()) => any()}
+  @type cluster_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_addresses_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      cluster_list_entry() :: %{
+        "ClusterId" => String.t() | atom(),
+        "ClusterState" => list(any()),
+        "CreationDate" => non_neg_integer(),
+        "Description" => String.t() | atom()
       }
       
   """
-  @type describe_addresses_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      long_term_pricing_list_entry() :: %{
-        "CurrentActiveJob" => String.t() | atom(),
-        "IsLongTermPricingAutoRenew" => boolean(),
-        "JobIds" => list(String.t() | atom()),
-        "LongTermPricingEndDate" => non_neg_integer(),
-        "LongTermPricingId" => String.t() | atom(),
-        "LongTermPricingStartDate" => non_neg_integer(),
-        "LongTermPricingStatus" => String.t() | atom(),
-        "LongTermPricingType" => list(any()),
-        "ReplacementJob" => String.t() | atom(),
-        "SnowballType" => list(any())
-      }
-      
-  """
-  @type long_term_pricing_list_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      device_configuration() :: %{
-        "SnowconeDeviceConfiguration" => snowcone_device_configuration()
-      }
-      
-  """
-  @type device_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_cluster_result() :: %{
-        "ClusterMetadata" => cluster_metadata()
-      }
-      
-  """
-  @type describe_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_address_request() :: %{
-        required("Address") => address()
-      }
-      
-  """
-  @type create_address_request() :: %{(String.t() | atom()) => any()}
+  @type cluster_list_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -280,68 +140,6 @@ defmodule AWS.Snowball do
 
   ## Example:
       
-      job_list_entry() :: %{
-        "CreationDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "IsMaster" => boolean(),
-        "JobId" => String.t() | atom(),
-        "JobState" => list(any()),
-        "JobType" => list(any()),
-        "SnowballType" => list(any())
-      }
-      
-  """
-  @type job_list_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      address() :: %{
-        "AddressId" => String.t() | atom(),
-        "City" => String.t() | atom(),
-        "Company" => String.t() | atom(),
-        "Country" => String.t() | atom(),
-        "IsRestricted" => boolean(),
-        "Landmark" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PhoneNumber" => String.t() | atom(),
-        "PostalCode" => String.t() | atom(),
-        "PrefectureOrDistrict" => String.t() | atom(),
-        "StateOrProvince" => String.t() | atom(),
-        "Street1" => String.t() | atom(),
-        "Street2" => String.t() | atom(),
-        "Street3" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_job_result() :: %{}
-      
-  """
-  @type cancel_job_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_job_manifest_request() :: %{
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_job_manifest_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       compatible_image() :: %{
         "AmiId" => String.t() | atom(),
         "Name" => String.t() | atom()
@@ -349,256 +147,6 @@ defmodule AWS.Snowball do
       
   """
   @type compatible_image() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_job_state_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_job_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      shipping_details() :: %{
-        "InboundShipment" => shipment(),
-        "OutboundShipment" => shipment(),
-        "ShippingOption" => list(any())
-      }
-      
-  """
-  @type shipping_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      nfs_on_device_service_configuration() :: %{
-        "StorageLimit" => integer(),
-        "StorageUnit" => list(any())
-      }
-      
-  """
-  @type nfs_on_device_service_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_compatible_images_result() :: %{
-        "CompatibleImages" => list(compatible_image()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_compatible_images_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_address_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_address_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_return_shipping_label_request() :: %{
-        optional("ShippingOption") => list(any()),
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type create_return_shipping_label_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_transfer() :: %{
-        "BytesTransferred" => float(),
-        "ObjectsTransferred" => float(),
-        "TotalBytes" => float(),
-        "TotalObjects" => float()
-      }
-      
-  """
-  @type data_transfer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_return_shipping_label_result() :: %{
-        "ExpirationDate" => non_neg_integer(),
-        "ReturnShippingLabelURI" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type describe_return_shipping_label_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notification() :: %{
-        "DevicePickupSnsTopicARN" => String.t() | atom(),
-        "JobStatesToNotify" => list(list(any())()),
-        "NotifyAll" => boolean(),
-        "SnsTopicARN" => String.t() | atom()
-      }
-      
-  """
-  @type notification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cluster_jobs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ClusterId") => String.t() | atom()
-      }
-      
-  """
-  @type list_cluster_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_version() :: %{
-        "Version" => String.t() | atom()
-      }
-      
-  """
-  @type service_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_clusters_result() :: %{
-        "ClusterListEntries" => list(cluster_list_entry()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_clusters_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_job_manifest_result() :: %{
-        "ManifestURI" => String.t() | atom()
-      }
-      
-  """
-  @type get_job_manifest_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tax_documents() :: %{
-        "IND" => i_n_d_tax_documents()
-      }
-      
-  """
-  @type tax_documents() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_cluster_result() :: %{}
-      
-  """
-  @type update_cluster_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cluster_jobs_result() :: %{
-        "JobListEntries" => list(job_list_entry()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_cluster_jobs_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_clusters_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_resource_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_resource_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      return_shipping_label_already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type return_shipping_label_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      job_resource() :: %{
-        "Ec2AmiResources" => list(ec2_ami_resource()),
-        "LambdaResources" => list(lambda_resource()),
-        "S3Resources" => list(s3_resource())
-      }
-      
-  """
-  @type job_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_cluster_request() :: %{
-        required("ClusterId") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -616,12 +164,23 @@ defmodule AWS.Snowball do
 
   ## Example:
       
-      get_job_unlock_code_result() :: %{
-        "UnlockCode" => String.t() | atom()
+      create_address_request() :: %{
+        required("Address") => address()
       }
       
   """
-  @type get_job_unlock_code_result() :: %{(String.t() | atom()) => any()}
+  @type create_address_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_address_result() :: %{
+        "AddressId" => String.t() | atom()
+      }
+      
+  """
+  @type create_address_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -654,183 +213,13 @@ defmodule AWS.Snowball do
 
   ## Example:
       
-      update_job_result() :: %{}
-      
-  """
-  @type update_job_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      e_k_s_on_device_service_configuration() :: %{
-        "EKSAnywhereVersion" => String.t() | atom(),
-        "KubernetesVersion" => String.t() | atom()
+      create_cluster_result() :: %{
+        "ClusterId" => String.t() | atom(),
+        "JobListEntries" => list(job_list_entry())
       }
       
   """
-  @type e_k_s_on_device_service_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_job_shipment_state_request() :: %{
-        required("JobId") => String.t() | atom(),
-        required("ShipmentState") => list(any())
-      }
-      
-  """
-  @type update_job_shipment_state_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_cluster_result() :: %{}
-      
-  """
-  @type cancel_cluster_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_job_unlock_code_request() :: %{
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_job_unlock_code_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_job_request() :: %{
-        optional("AddressId") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("ForwardingAddressId") => String.t() | atom(),
-        optional("Notification") => notification(),
-        optional("OnDeviceServiceConfiguration") => on_device_service_configuration(),
-        optional("PickupDetails") => pickup_details(),
-        optional("Resources") => job_resource(),
-        optional("RoleARN") => String.t() | atom(),
-        optional("ShippingOption") => list(any()),
-        optional("SnowballCapacityPreference") => list(any()),
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type update_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_cluster_request() :: %{
-        required("ClusterId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_compatible_images_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_compatible_images_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_software_updates_result() :: %{
-        "UpdatesURI" => String.t() | atom()
-      }
-      
-  """
-  @type get_software_updates_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_job_request() :: %{
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pickup_details() :: %{
-        "DevicePickupId" => String.t() | atom(),
-        "Email" => String.t() | atom(),
-        "IdentificationExpirationDate" => non_neg_integer(),
-        "IdentificationIssuingOrg" => String.t() | atom(),
-        "IdentificationNumber" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PhoneNumber" => String.t() | atom()
-      }
-      
-  """
-  @type pickup_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      wireless_connection() :: %{
-        "IsWifiEnabled" => boolean()
-      }
-      
-  """
-  @type wireless_connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_long_term_pricing_request() :: %{
-        optional("IsLongTermPricingAutoRenew") => boolean(),
-        required("LongTermPricingType") => list(any()),
-        required("SnowballType") => list(any())
-      }
-      
-  """
-  @type create_long_term_pricing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_return_shipping_label_result() :: %{
-        "Status" => list(any())
-      }
-      
-  """
-  @type create_return_shipping_label_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_next_token_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+  @type create_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -865,80 +254,73 @@ defmodule AWS.Snowball do
 
   ## Example:
       
-      t_g_w_on_device_service_configuration() :: %{
-        "StorageLimit" => integer(),
-        "StorageUnit" => list(any())
+      create_job_result() :: %{
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type t_g_w_on_device_service_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_software_updates_request() :: %{
+      create_long_term_pricing_request() :: %{
+        optional("IsLongTermPricingAutoRenew") => boolean(),
+        required("LongTermPricingType") => list(any()),
+        required("SnowballType") => list(any())
+      }
+      
+  """
+  @type create_long_term_pricing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_long_term_pricing_result() :: %{
+        "LongTermPricingId" => String.t() | atom()
+      }
+      
+  """
+  @type create_long_term_pricing_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_return_shipping_label_request() :: %{
+        optional("ShippingOption") => list(any()),
         required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_software_updates_request() :: %{(String.t() | atom()) => any()}
+  @type create_return_shipping_label_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      event_trigger_definition() :: %{
-        "EventResourceARN" => String.t() | atom()
+      create_return_shipping_label_result() :: %{
+        "Status" => list(any())
       }
       
   """
-  @type event_trigger_definition() :: %{(String.t() | atom()) => any()}
+  @type create_return_shipping_label_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_long_term_pricing_request() :: %{
-        optional("IsLongTermPricingAutoRenew") => boolean(),
-        optional("ReplacementJob") => String.t() | atom(),
-        required("LongTermPricingId") => String.t() | atom()
+      data_transfer() :: %{
+        "BytesTransferred" => float(),
+        "ObjectsTransferred" => float(),
+        "TotalBytes" => float(),
+        "TotalObjects" => float()
       }
       
   """
-  @type update_long_term_pricing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ec2_request_failed_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type ec2_request_failed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_job_shipment_state_result() :: %{}
-      
-  """
-  @type update_job_shipment_state_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_resource() :: %{
-        "EventTriggers" => list(event_trigger_definition()),
-        "LambdaArn" => String.t() | atom()
-      }
-      
-  """
-  @type lambda_resource() :: %{(String.t() | atom()) => any()}
+  @type data_transfer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -956,86 +338,12 @@ defmodule AWS.Snowball do
 
   ## Example:
       
-      create_cluster_result() :: %{
-        "ClusterId" => String.t() | atom(),
-        "JobListEntries" => list(job_list_entry())
+      describe_address_request() :: %{
+        required("AddressId") => String.t() | atom()
       }
       
   """
-  @type create_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_input_combination_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_input_combination_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_service_versions_result() :: %{
-        "DependentServices" => list(dependent_service()),
-        "NextToken" => String.t() | atom(),
-        "ServiceName" => list(any()),
-        "ServiceVersions" => list(service_version())
-      }
-      
-  """
-  @type list_service_versions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_long_term_pricing_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_long_term_pricing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_pickup_locations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_pickup_locations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_address_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_address_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_resource() :: %{
-        "BucketArn" => String.t() | atom(),
-        "KeyRange" => key_range(),
-        "TargetOnDeviceServices" => list(target_on_device_service())
-      }
-      
-  """
-  @type s3_resource() :: %{(String.t() | atom()) => any()}
+  @type describe_address_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1052,71 +360,58 @@ defmodule AWS.Snowball do
 
   ## Example:
       
+      describe_addresses_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_addresses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_addresses_result() :: %{
+        "Addresses" => list(address()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_addresses_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cluster_request() :: %{
+        required("ClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cluster_result() :: %{
+        "ClusterMetadata" => cluster_metadata()
+      }
+      
+  """
+  @type describe_cluster_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_job_request() :: %{
         required("JobId") => String.t() | atom()
       }
       
   """
   @type describe_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_address_request() :: %{
-        required("AddressId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_address_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_return_shipping_label_request() :: %{
-        required("JobId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_return_shipping_label_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ec2_ami_resource() :: %{
-        "AmiId" => String.t() | atom(),
-        "SnowballAmiId" => String.t() | atom()
-      }
-      
-  """
-  @type ec2_ami_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_on_device_service_configuration() :: %{
-        "FaultTolerance" => integer(),
-        "ServiceSize" => integer(),
-        "StorageLimit" => float(),
-        "StorageUnit" => list(any())
-      }
-      
-  """
-  @type s3_on_device_service_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snowcone_device_configuration() :: %{
-        "WirelessConnection" => wireless_connection()
-      }
-      
-  """
-  @type snowcone_device_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1134,75 +429,253 @@ defmodule AWS.Snowball do
 
   ## Example:
       
-      list_jobs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      describe_return_shipping_label_request() :: %{
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type describe_return_shipping_label_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      shipment() :: %{
-        "Status" => String.t() | atom(),
-        "TrackingNumber" => String.t() | atom()
+      describe_return_shipping_label_result() :: %{
+        "ExpirationDate" => non_neg_integer(),
+        "ReturnShippingLabelURI" => String.t() | atom(),
+        "Status" => list(any())
       }
       
   """
-  @type shipment() :: %{(String.t() | atom()) => any()}
+  @type describe_return_shipping_label_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cluster_list_entry() :: %{
-        "ClusterId" => String.t() | atom(),
-        "ClusterState" => list(any()),
+      device_configuration() :: %{
+        "SnowconeDeviceConfiguration" => snowcone_device_configuration()
+      }
+      
+  """
+  @type device_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_k_s_on_device_service_configuration() :: %{
+        "EKSAnywhereVersion" => String.t() | atom(),
+        "KubernetesVersion" => String.t() | atom()
+      }
+      
+  """
+  @type e_k_s_on_device_service_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_ami_resource() :: %{
+        "AmiId" => String.t() | atom(),
+        "SnowballAmiId" => String.t() | atom()
+      }
+      
+  """
+  @type ec2_ami_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_request_failed_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type ec2_request_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_trigger_definition() :: %{
+        "EventResourceARN" => String.t() | atom()
+      }
+      
+  """
+  @type event_trigger_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_manifest_request() :: %{
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_job_manifest_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_manifest_result() :: %{
+        "ManifestURI" => String.t() | atom()
+      }
+      
+  """
+  @type get_job_manifest_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_unlock_code_request() :: %{
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_job_unlock_code_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_unlock_code_result() :: %{
+        "UnlockCode" => String.t() | atom()
+      }
+      
+  """
+  @type get_job_unlock_code_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_snowball_usage_request() :: %{}
+      
+  """
+  @type get_snowball_usage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_snowball_usage_result() :: %{
+        "SnowballLimit" => integer(),
+        "SnowballsInUse" => integer()
+      }
+      
+  """
+  @type get_snowball_usage_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_software_updates_request() :: %{
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_software_updates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_software_updates_result() :: %{
+        "UpdatesURI" => String.t() | atom()
+      }
+      
+  """
+  @type get_software_updates_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      i_n_d_tax_documents() :: %{
+        "GSTIN" => String.t() | atom()
+      }
+      
+  """
+  @type i_n_d_tax_documents() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_address_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_address_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_input_combination_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_input_combination_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_job_state_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_job_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_next_token_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_resource_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_resource_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_list_entry() :: %{
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t() | atom()
+        "Description" => String.t() | atom(),
+        "IsMaster" => boolean(),
+        "JobId" => String.t() | atom(),
+        "JobState" => list(any()),
+        "JobType" => list(any()),
+        "SnowballType" => list(any())
       }
       
   """
-  @type cluster_list_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cluster_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type cluster_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_service_versions_request() :: %{
-        optional("DependentServices") => list(dependent_service()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ServiceName") => list(any())
-      }
-      
-  """
-  @type list_service_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_request_failed_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_request_failed_exception() :: %{(String.t() | atom()) => any()}
+  @type job_list_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1216,20 +689,6 @@ defmodule AWS.Snowball do
       
   """
   @type job_logs() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      on_device_service_configuration() :: %{
-        "EKSOnDeviceService" => e_k_s_on_device_service_configuration(),
-        "NFSOnDeviceService" => nfs_on_device_service_configuration(),
-        "S3OnDeviceService" => s3_on_device_service_configuration(),
-        "TGWOnDeviceService" => t_g_w_on_device_service_configuration()
-      }
-      
-  """
-  @type on_device_service_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1266,6 +725,547 @@ defmodule AWS.Snowball do
   """
   @type job_metadata() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      job_resource() :: %{
+        "Ec2AmiResources" => list(ec2_ami_resource()),
+        "LambdaResources" => list(lambda_resource()),
+        "S3Resources" => list(s3_resource())
+      }
+      
+  """
+  @type job_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_range() :: %{
+        "BeginMarker" => String.t() | atom(),
+        "EndMarker" => String.t() | atom()
+      }
+      
+  """
+  @type key_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_request_failed_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_request_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_resource() :: %{
+        "EventTriggers" => list(event_trigger_definition()),
+        "LambdaArn" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cluster_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type list_cluster_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cluster_jobs_result() :: %{
+        "JobListEntries" => list(job_list_entry()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_cluster_jobs_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_clusters_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_clusters_result() :: %{
+        "ClusterListEntries" => list(cluster_list_entry()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_clusters_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_compatible_images_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_compatible_images_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_compatible_images_result() :: %{
+        "CompatibleImages" => list(compatible_image()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_compatible_images_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_jobs_result() :: %{
+        "JobListEntries" => list(job_list_entry()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_jobs_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_long_term_pricing_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_long_term_pricing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_long_term_pricing_result() :: %{
+        "LongTermPricingEntries" => list(long_term_pricing_list_entry()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_long_term_pricing_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pickup_locations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_pickup_locations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pickup_locations_result() :: %{
+        "Addresses" => list(address()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_pickup_locations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_service_versions_request() :: %{
+        optional("DependentServices") => list(dependent_service()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ServiceName") => list(any())
+      }
+      
+  """
+  @type list_service_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_service_versions_result() :: %{
+        "DependentServices" => list(dependent_service()),
+        "NextToken" => String.t() | atom(),
+        "ServiceName" => list(any()),
+        "ServiceVersions" => list(service_version())
+      }
+      
+  """
+  @type list_service_versions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      long_term_pricing_list_entry() :: %{
+        "CurrentActiveJob" => String.t() | atom(),
+        "IsLongTermPricingAutoRenew" => boolean(),
+        "JobIds" => list(String.t() | atom()),
+        "LongTermPricingEndDate" => non_neg_integer(),
+        "LongTermPricingId" => String.t() | atom(),
+        "LongTermPricingStartDate" => non_neg_integer(),
+        "LongTermPricingStatus" => String.t() | atom(),
+        "LongTermPricingType" => list(any()),
+        "ReplacementJob" => String.t() | atom(),
+        "SnowballType" => list(any())
+      }
+      
+  """
+  @type long_term_pricing_list_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      nfs_on_device_service_configuration() :: %{
+        "StorageLimit" => integer(),
+        "StorageUnit" => list(any())
+      }
+      
+  """
+  @type nfs_on_device_service_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notification() :: %{
+        "DevicePickupSnsTopicARN" => String.t() | atom(),
+        "JobStatesToNotify" => list(list(any())()),
+        "NotifyAll" => boolean(),
+        "SnsTopicARN" => String.t() | atom()
+      }
+      
+  """
+  @type notification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      on_device_service_configuration() :: %{
+        "EKSOnDeviceService" => e_k_s_on_device_service_configuration(),
+        "NFSOnDeviceService" => nfs_on_device_service_configuration(),
+        "S3OnDeviceService" => s3_on_device_service_configuration(),
+        "TGWOnDeviceService" => t_g_w_on_device_service_configuration()
+      }
+      
+  """
+  @type on_device_service_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pickup_details() :: %{
+        "DevicePickupId" => String.t() | atom(),
+        "Email" => String.t() | atom(),
+        "IdentificationExpirationDate" => non_neg_integer(),
+        "IdentificationIssuingOrg" => String.t() | atom(),
+        "IdentificationNumber" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom()
+      }
+      
+  """
+  @type pickup_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      return_shipping_label_already_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type return_shipping_label_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_on_device_service_configuration() :: %{
+        "FaultTolerance" => integer(),
+        "ServiceSize" => integer(),
+        "StorageLimit" => float(),
+        "StorageUnit" => list(any())
+      }
+      
+  """
+  @type s3_on_device_service_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_resource() :: %{
+        "BucketArn" => String.t() | atom(),
+        "KeyRange" => key_range(),
+        "TargetOnDeviceServices" => list(target_on_device_service())
+      }
+      
+  """
+  @type s3_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_version() :: %{
+        "Version" => String.t() | atom()
+      }
+      
+  """
+  @type service_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      shipment() :: %{
+        "Status" => String.t() | atom(),
+        "TrackingNumber" => String.t() | atom()
+      }
+      
+  """
+  @type shipment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      shipping_details() :: %{
+        "InboundShipment" => shipment(),
+        "OutboundShipment" => shipment(),
+        "ShippingOption" => list(any())
+      }
+      
+  """
+  @type shipping_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snowcone_device_configuration() :: %{
+        "WirelessConnection" => wireless_connection()
+      }
+      
+  """
+  @type snowcone_device_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      t_g_w_on_device_service_configuration() :: %{
+        "StorageLimit" => integer(),
+        "StorageUnit" => list(any())
+      }
+      
+  """
+  @type t_g_w_on_device_service_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_on_device_service() :: %{
+        "ServiceName" => list(any()),
+        "TransferOption" => list(any())
+      }
+      
+  """
+  @type target_on_device_service() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tax_documents() :: %{
+        "IND" => i_n_d_tax_documents()
+      }
+      
+  """
+  @type tax_documents() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_address_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_address_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_request() :: %{
+        optional("AddressId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("ForwardingAddressId") => String.t() | atom(),
+        optional("Notification") => notification(),
+        optional("OnDeviceServiceConfiguration") => on_device_service_configuration(),
+        optional("Resources") => job_resource(),
+        optional("RoleARN") => String.t() | atom(),
+        optional("ShippingOption") => list(any()),
+        required("ClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_result() :: %{}
+      
+  """
+  @type update_cluster_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_job_request() :: %{
+        optional("AddressId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("ForwardingAddressId") => String.t() | atom(),
+        optional("Notification") => notification(),
+        optional("OnDeviceServiceConfiguration") => on_device_service_configuration(),
+        optional("PickupDetails") => pickup_details(),
+        optional("Resources") => job_resource(),
+        optional("RoleARN") => String.t() | atom(),
+        optional("ShippingOption") => list(any()),
+        optional("SnowballCapacityPreference") => list(any()),
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type update_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_job_result() :: %{}
+      
+  """
+  @type update_job_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_job_shipment_state_request() :: %{
+        required("JobId") => String.t() | atom(),
+        required("ShipmentState") => list(any())
+      }
+      
+  """
+  @type update_job_shipment_state_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_job_shipment_state_result() :: %{}
+      
+  """
+  @type update_job_shipment_state_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_long_term_pricing_request() :: %{
+        optional("IsLongTermPricingAutoRenew") => boolean(),
+        optional("ReplacementJob") => String.t() | atom(),
+        required("LongTermPricingId") => String.t() | atom()
+      }
+      
+  """
+  @type update_long_term_pricing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_long_term_pricing_result() :: %{}
+      
+  """
+  @type update_long_term_pricing_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      wireless_connection() :: %{
+        "IsWifiEnabled" => boolean()
+      }
+      
+  """
+  @type wireless_connection() :: %{(String.t() | atom()) => any()}
+
   @type cancel_cluster_errors() ::
           kms_request_failed_exception()
           | invalid_resource_exception()
@@ -1276,41 +1276,41 @@ defmodule AWS.Snowball do
           | invalid_resource_exception()
           | invalid_job_state_exception()
 
-  @type create_address_errors() :: invalid_address_exception() | unsupported_address_exception()
+  @type create_address_errors() :: unsupported_address_exception() | invalid_address_exception()
 
   @type create_cluster_errors() ::
           kms_request_failed_exception()
+          | invalid_resource_exception()
           | invalid_input_combination_exception()
           | ec2_request_failed_exception()
-          | invalid_resource_exception()
 
   @type create_job_errors() ::
           kms_request_failed_exception()
-          | cluster_limit_exceeded_exception()
+          | invalid_resource_exception()
           | invalid_input_combination_exception()
           | ec2_request_failed_exception()
-          | invalid_resource_exception()
+          | cluster_limit_exceeded_exception()
 
   @type create_long_term_pricing_errors() :: invalid_resource_exception()
 
   @type create_return_shipping_label_errors() ::
-          invalid_input_combination_exception()
-          | conflict_exception()
-          | return_shipping_label_already_exists_exception()
+          return_shipping_label_already_exists_exception()
           | invalid_resource_exception()
           | invalid_job_state_exception()
+          | invalid_input_combination_exception()
+          | conflict_exception()
 
   @type describe_address_errors() :: invalid_resource_exception()
 
   @type describe_addresses_errors() ::
-          invalid_next_token_exception() | invalid_resource_exception()
+          invalid_resource_exception() | invalid_next_token_exception()
 
   @type describe_cluster_errors() :: invalid_resource_exception()
 
   @type describe_job_errors() :: invalid_resource_exception()
 
   @type describe_return_shipping_label_errors() ::
-          conflict_exception() | invalid_resource_exception() | invalid_job_state_exception()
+          invalid_resource_exception() | invalid_job_state_exception() | conflict_exception()
 
   @type get_job_manifest_errors() :: invalid_resource_exception() | invalid_job_state_exception()
 
@@ -1321,37 +1321,37 @@ defmodule AWS.Snowball do
           invalid_resource_exception() | invalid_job_state_exception()
 
   @type list_cluster_jobs_errors() ::
-          invalid_next_token_exception() | invalid_resource_exception()
+          invalid_resource_exception() | invalid_next_token_exception()
 
   @type list_clusters_errors() :: invalid_next_token_exception()
 
   @type list_compatible_images_errors() ::
-          ec2_request_failed_exception() | invalid_next_token_exception()
+          invalid_next_token_exception() | ec2_request_failed_exception()
 
   @type list_jobs_errors() :: invalid_next_token_exception()
 
   @type list_long_term_pricing_errors() ::
-          invalid_next_token_exception() | invalid_resource_exception()
+          invalid_resource_exception() | invalid_next_token_exception()
 
   @type list_pickup_locations_errors() :: invalid_resource_exception()
 
   @type list_service_versions_errors() ::
-          invalid_next_token_exception() | invalid_resource_exception()
+          invalid_resource_exception() | invalid_next_token_exception()
 
   @type update_cluster_errors() ::
           kms_request_failed_exception()
-          | invalid_input_combination_exception()
-          | ec2_request_failed_exception()
           | invalid_resource_exception()
           | invalid_job_state_exception()
+          | invalid_input_combination_exception()
+          | ec2_request_failed_exception()
 
   @type update_job_errors() ::
           kms_request_failed_exception()
-          | cluster_limit_exceeded_exception()
-          | invalid_input_combination_exception()
-          | ec2_request_failed_exception()
           | invalid_resource_exception()
           | invalid_job_state_exception()
+          | invalid_input_combination_exception()
+          | ec2_request_failed_exception()
+          | cluster_limit_exceeded_exception()
 
   @type update_job_shipment_state_errors() ::
           invalid_resource_exception() | invalid_job_state_exception()

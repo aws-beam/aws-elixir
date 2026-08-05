@@ -38,6 +38,31 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attachment_item() :: %{
+        "AttachmentId" => String.t() | atom(),
+        "AttachmentName" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type attachment_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       attendee() :: %{
         "AttendeeId" => String.t() | atom(),
         "JoinToken" => String.t() | atom()
@@ -45,6 +70,17 @@ defmodule AWS.ConnectParticipant do
 
   """
   @type attendee() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_features() :: %{
+        "EchoReduction" => list(any())
+      }
+
+  """
+  @type audio_features() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -62,59 +98,81 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      message_processing_metadata() :: %{
-        "MessageProcessingStatus" => list(any())
-      }
+      cancel_participant_authentication_response() :: %{}
 
   """
-  @type message_processing_metadata() :: %{(String.t() | atom()) => any()}
+  @type cancel_participant_authentication_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      web_r_t_cmeeting() :: %{
-        "MediaPlacement" => web_r_t_cmedia_placement(),
-        "MeetingFeatures" => meeting_features_configuration(),
-        "MeetingId" => String.t() | atom()
+      complete_attachment_upload_request() :: %{
+        required("AttachmentIds") => list(String.t() | atom()),
+        required("ClientToken") => String.t() | atom(),
+        required("ConnectionToken") => String.t() | atom()
       }
 
   """
-  @type web_r_t_cmeeting() :: %{(String.t() | atom()) => any()}
+  @type complete_attachment_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_attachment_upload_response() :: %{
-        "AttachmentId" => String.t() | atom(),
-        "UploadMetadata" => upload_metadata()
-      }
+      complete_attachment_upload_response() :: %{}
 
   """
-  @type start_attachment_upload_response() :: %{(String.t() | atom()) => any()}
+  @type complete_attachment_upload_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
+      conflict_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      audio_features() :: %{
-        "EchoReduction" => list(any())
+      connection_credentials() :: %{
+        "ConnectionToken" => String.t() | atom(),
+        "Expiry" => String.t() | atom()
       }
 
   """
-  @type audio_features() :: %{(String.t() | atom()) => any()}
+  @type connection_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_participant_connection_request() :: %{
+        optional("ConnectParticipant") => boolean(),
+        optional("Type") => list(list(any())()),
+        required("ParticipantToken") => String.t() | atom()
+      }
+
+  """
+  @type create_participant_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_participant_connection_response() :: %{
+        "ConnectionCredentials" => connection_credentials(),
+        "WebRTCConnection" => web_r_t_c_connection(),
+        "Websocket" => websocket()
+      }
+
+  """
+  @type create_participant_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -131,21 +189,12 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
+      describe_view_response() :: %{
+        "View" => view()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disconnect_participant_response() :: %{}
-
-  """
-  @type disconnect_participant_response() :: %{}
+  @type describe_view_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,13 +212,10 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      connection_credentials() :: %{
-        "ConnectionToken" => String.t() | atom(),
-        "Expiry" => String.t() | atom()
-      }
+      disconnect_participant_response() :: %{}
 
   """
-  @type connection_credentials() :: %{(String.t() | atom()) => any()}
+  @type disconnect_participant_response() :: %{}
 
   @typedoc """
 
@@ -188,14 +234,38 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      create_participant_connection_request() :: %{
-        optional("ConnectParticipant") => boolean(),
-        optional("Type") => list(list(any())()),
-        required("ParticipantToken") => String.t() | atom()
+      get_attachment_response() :: %{
+        "AttachmentSizeInBytes" => float(),
+        "Url" => String.t() | atom(),
+        "UrlExpiry" => String.t() | atom()
       }
 
   """
-  @type create_participant_connection_request() :: %{(String.t() | atom()) => any()}
+  @type get_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authentication_url_request() :: %{
+        required("ConnectionToken") => String.t() | atom(),
+        required("RedirectUri") => String.t() | atom(),
+        required("SessionId") => String.t() | atom()
+      }
+
+  """
+  @type get_authentication_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authentication_url_response() :: %{
+        "AuthenticationUrl" => String.t() | atom()
+      }
+
+  """
+  @type get_authentication_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,38 +288,25 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      validation_exception() :: %{
+      get_transcript_response() :: %{
+        "InitialContactId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Transcript" => list(item())
+      }
+
+  """
+  @type get_transcript_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_participant_connection_response() :: %{
-        "ConnectionCredentials" => connection_credentials(),
-        "WebRTCConnection" => web_r_t_c_connection(),
-        "Websocket" => websocket()
-      }
-
-  """
-  @type create_participant_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_position() :: %{
-        "AbsoluteTime" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "MostRecent" => integer()
-      }
-
-  """
-  @type start_position() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -277,198 +334,12 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      view() :: %{
-        "Arn" => String.t() | atom(),
-        "Content" => view_content(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Version" => integer()
-      }
-
-  """
-  @type view() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_metadata() :: %{
-        "HeadersToInclude" => map(),
-        "Url" => String.t() | atom(),
-        "UrlExpiry" => String.t() | atom()
-      }
-
-  """
-  @type upload_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_authentication_url_response() :: %{
-        "AuthenticationUrl" => String.t() | atom()
-      }
-
-  """
-  @type get_authentication_url_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => list(any())
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_message_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("ConnectionToken") => String.t() | atom(),
-        required("Content") => String.t() | atom(),
-        required("ContentType") => String.t() | atom()
-      }
-
-  """
-  @type send_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      websocket() :: %{
-        "ConnectionExpiry" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type websocket() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_participant_authentication_response() :: %{}
-
-  """
-  @type cancel_participant_authentication_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_view_response() :: %{
-        "View" => view()
-      }
-
-  """
-  @type describe_view_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_transcript_response() :: %{
-        "InitialContactId" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "Transcript" => list(item())
-      }
-
-  """
-  @type get_transcript_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       meeting_features_configuration() :: %{
         "Audio" => audio_features()
       }
 
   """
   @type meeting_features_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      view_content() :: %{
-        "Actions" => list(String.t() | atom()),
-        "InputSchema" => String.t() | atom(),
-        "Template" => String.t() | atom()
-      }
-
-  """
-  @type view_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      web_r_t_cmedia_placement() :: %{
-        "AudioFallbackUrl" => String.t() | atom(),
-        "AudioHostUrl" => String.t() | atom(),
-        "EventIngestionUrl" => String.t() | atom(),
-        "SignalingUrl" => String.t() | atom()
-      }
-
-  """
-  @type web_r_t_cmedia_placement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_message_response() :: %{
-        "AbsoluteTime" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "MessageMetadata" => message_processing_metadata()
-      }
-
-  """
-  @type send_message_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      complete_attachment_upload_request() :: %{
-        required("AttachmentIds") => list(String.t() | atom()),
-        required("ClientToken") => String.t() | atom(),
-        required("ConnectionToken") => String.t() | atom()
-      }
-
-  """
-  @type complete_attachment_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -487,14 +358,38 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      get_authentication_url_request() :: %{
-        required("ConnectionToken") => String.t() | atom(),
-        required("RedirectUri") => String.t() | atom(),
-        required("SessionId") => String.t() | atom()
+      message_processing_metadata() :: %{
+        "MessageProcessingStatus" => list(any())
       }
 
   """
-  @type get_authentication_url_request() :: %{(String.t() | atom()) => any()}
+  @type message_processing_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      receipt() :: %{
+        "DeliveredTimestamp" => String.t() | atom(),
+        "ReadTimestamp" => String.t() | atom(),
+        "RecipientParticipantId" => String.t() | atom()
+      }
+
+  """
+  @type receipt() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => list(any())
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -514,62 +409,51 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      complete_attachment_upload_response() :: %{}
+      send_event_response() :: %{
+        "AbsoluteTime" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
 
   """
-  @type complete_attachment_upload_response() :: %{}
+  @type send_event_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      receipt() :: %{
-        "DeliveredTimestamp" => String.t() | atom(),
-        "ReadTimestamp" => String.t() | atom(),
-        "RecipientParticipantId" => String.t() | atom()
+      send_message_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("ConnectionToken") => String.t() | atom(),
+        required("Content") => String.t() | atom(),
+        required("ContentType") => String.t() | atom()
       }
 
   """
-  @type receipt() :: %{(String.t() | atom()) => any()}
+  @type send_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      attachment_item() :: %{
-        "AttachmentId" => String.t() | atom(),
-        "AttachmentName" => String.t() | atom(),
-        "ContentType" => String.t() | atom(),
-        "Status" => list(any())
+      send_message_response() :: %{
+        "AbsoluteTime" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MessageMetadata" => message_processing_metadata()
       }
 
   """
-  @type attachment_item() :: %{(String.t() | atom()) => any()}
+  @type send_message_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      web_r_t_c_connection() :: %{
-        "Attendee" => attendee(),
-        "Meeting" => web_r_t_cmeeting()
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type web_r_t_c_connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_attachment_response() :: %{
-        "AttachmentSizeInBytes" => float(),
-        "Url" => String.t() | atom(),
-        "UrlExpiry" => String.t() | atom()
-      }
-
-  """
-  @type get_attachment_response() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -590,95 +474,211 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      send_event_response() :: %{
-        "AbsoluteTime" => String.t() | atom(),
-        "Id" => String.t() | atom()
+      start_attachment_upload_response() :: %{
+        "AttachmentId" => String.t() | atom(),
+        "UploadMetadata" => upload_metadata()
       }
 
   """
-  @type send_event_response() :: %{(String.t() | atom()) => any()}
+  @type start_attachment_upload_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
+      start_position() :: %{
+        "AbsoluteTime" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MostRecent" => integer()
+      }
+
+  """
+  @type start_position() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_metadata() :: %{
+        "HeadersToInclude" => map(),
+        "Url" => String.t() | atom(),
+        "UrlExpiry" => String.t() | atom()
+      }
+
+  """
+  @type upload_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      view() :: %{
+        "Arn" => String.t() | atom(),
+        "Content" => view_content(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Version" => integer()
+      }
+
+  """
+  @type view() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      view_content() :: %{
+        "Actions" => list(String.t() | atom()),
+        "InputSchema" => String.t() | atom(),
+        "Template" => String.t() | atom()
+      }
+
+  """
+  @type view_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_r_t_c_connection() :: %{
+        "Attendee" => attendee(),
+        "Meeting" => web_r_t_cmeeting()
+      }
+
+  """
+  @type web_r_t_c_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_r_t_cmedia_placement() :: %{
+        "AudioFallbackUrl" => String.t() | atom(),
+        "AudioHostUrl" => String.t() | atom(),
+        "EventIngestionUrl" => String.t() | atom(),
+        "SignalingUrl" => String.t() | atom()
+      }
+
+  """
+  @type web_r_t_cmedia_placement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_r_t_cmeeting() :: %{
+        "MediaPlacement" => web_r_t_cmedia_placement(),
+        "MeetingFeatures" => meeting_features_configuration(),
+        "MeetingId" => String.t() | atom()
+      }
+
+  """
+  @type web_r_t_cmeeting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      websocket() :: %{
+        "ConnectionExpiry" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type websocket() :: %{(String.t() | atom()) => any()}
 
   @type cancel_participant_authentication_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type complete_attachment_upload_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_participant_connection_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type describe_view_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type disconnect_participant_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_attachment_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_authentication_url_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_transcript_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type send_event_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type send_message_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type start_attachment_upload_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

@@ -25,87 +25,14 @@ defmodule AWS.EFS do
 
   ## Example:
 
-      network_interface_limit_exceeded() :: %{
+      access_point_already_exists() :: %{
+        "AccessPointId" => String.t() | atom(),
         "ErrorCode" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
 
   """
-  @type network_interface_limit_exceeded() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_replication_configurations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Replications" => list(replication_configuration_description())
-      }
-
-  """
-  @type describe_replication_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unsupported_availability_zone() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type unsupported_availability_zone() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_file_system_request() :: %{
-        optional("ProvisionedThroughputInMibps") => float(),
-        optional("ThroughputMode") => list(any())
-      }
-
-  """
-  @type update_file_system_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_configuration_description() :: %{
-        "CreationTime" => non_neg_integer(),
-        "Destinations" => list(destination()),
-        "OriginalSourceFileSystemArn" => String.t() | atom(),
-        "SourceFileSystemArn" => String.t() | atom(),
-        "SourceFileSystemId" => String.t() | atom(),
-        "SourceFileSystemOwnerId" => String.t() | atom(),
-        "SourceFileSystemRegion" => String.t() | atom()
-      }
-
-  """
-  @type replication_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_point_request() :: %{}
-
-  """
-  @type delete_access_point_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type access_point_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -131,100 +58,6 @@ defmodule AWS.EFS do
 
   ## Example:
 
-      describe_tags_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
-      }
-
-  """
-  @type describe_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_preferences_response() :: %{
-        "ResourceIdPreference" => resource_id_preference()
-      }
-
-  """
-  @type put_account_preferences_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_file_systems_response() :: %{
-        "FileSystems" => list(file_system_description()),
-        "Marker" => String.t() | atom(),
-        "NextMarker" => String.t() | atom()
-      }
-
-  """
-  @type describe_file_systems_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backup_policy_description() :: %{
-        optional("BackupPolicy") => backup_policy()
-      }
-
-  """
-  @type backup_policy_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insufficient_throughput_capacity() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type insufficient_throughput_capacity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_backup_policy_request() :: %{
-        required("BackupPolicy") => backup_policy()
-      }
-
-  """
-  @type put_backup_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       access_point_limit_exceeded() :: %{
         "ErrorCode" => String.t() | atom(),
         "Message" => String.t() | atom()
@@ -237,73 +70,25 @@ defmodule AWS.EFS do
 
   ## Example:
 
-      describe_account_preferences_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_account_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      file_system_in_use() :: %{
+      access_point_not_found() :: %{
         "ErrorCode" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
 
   """
-  @type file_system_in_use() :: %{(String.t() | atom()) => any()}
+  @type access_point_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      internal_server_error() :: %{
+      availability_zones_mismatch() :: %{
         "ErrorCode" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subnet_not_found() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type subnet_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      file_system_limit_exceeded() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type file_system_limit_exceeded() :: %{(String.t() | atom()) => any()}
+  @type availability_zones_mismatch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,40 +105,191 @@ defmodule AWS.EFS do
 
   ## Example:
 
-      policy_not_found() :: %{
+      backup_policy_description() :: %{
+        optional("BackupPolicy") => backup_policy()
+      }
+
+  """
+  @type backup_policy_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request() :: %{
         "ErrorCode" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
 
   """
-  @type policy_not_found() :: %{(String.t() | atom()) => any()}
+  @type bad_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_access_points_response() :: %{
-        "AccessPoints" => list(access_point_description()),
-        "NextToken" => String.t() | atom()
+      conflict_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type describe_access_points_response() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      destination_to_create() :: %{
-        "AvailabilityZoneName" => String.t() | atom(),
-        "FileSystemId" => String.t() | atom(),
-        "KmsKeyId" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "RoleArn" => String.t() | atom()
+      create_access_point_request() :: %{
+        optional("PosixUser") => posix_user(),
+        optional("RootDirectory") => root_directory(),
+        optional("Tags") => list(tag()),
+        required("ClientToken") => String.t() | atom(),
+        required("FileSystemId") => String.t() | atom()
       }
 
   """
-  @type destination_to_create() :: %{(String.t() | atom()) => any()}
+  @type create_access_point_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_file_system_request() :: %{
+        optional("AvailabilityZoneName") => String.t() | atom(),
+        optional("Backup") => boolean(),
+        optional("Encrypted") => boolean(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("PerformanceMode") => list(any()),
+        optional("ProvisionedThroughputInMibps") => float(),
+        optional("Tags") => list(tag()),
+        optional("ThroughputMode") => list(any()),
+        required("CreationToken") => String.t() | atom()
+      }
+
+  """
+  @type create_file_system_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_mount_target_request() :: %{
+        optional("IpAddress") => String.t() | atom(),
+        optional("IpAddressType") => list(any()),
+        optional("Ipv6Address") => String.t() | atom(),
+        optional("SecurityGroups") => list(String.t() | atom()),
+        required("FileSystemId") => String.t() | atom(),
+        required("SubnetId") => String.t() | atom()
+      }
+
+  """
+  @type create_mount_target_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_replication_configuration_request() :: %{
+        required("Destinations") => list(destination_to_create())
+      }
+
+  """
+  @type create_replication_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tags_request() :: %{
+        required("Tags") => list(tag())
+      }
+
+  """
+  @type create_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      creation_info() :: %{
+        "OwnerGid" => float(),
+        "OwnerUid" => float(),
+        "Permissions" => String.t() | atom()
+      }
+
+  """
+  @type creation_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_point_request() :: %{}
+
+  """
+  @type delete_access_point_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_file_system_policy_request() :: %{}
+
+  """
+  @type delete_file_system_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_file_system_request() :: %{}
+
+  """
+  @type delete_file_system_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_mount_target_request() :: %{}
+
+  """
+  @type delete_mount_target_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_replication_configuration_request() :: %{
+        optional("DeletionMode") => list(any())
+      }
+
+  """
+  @type delete_replication_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tags_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_timeout() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type dependency_timeout() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -373,13 +309,111 @@ defmodule AWS.EFS do
 
   ## Example:
 
-      access_point_not_found() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      describe_access_points_response() :: %{
+        "AccessPoints" => list(access_point_description()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type access_point_not_found() :: %{(String.t() | atom()) => any()}
+  @type describe_access_points_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_preferences_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_account_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_preferences_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceIdPreference" => resource_id_preference()
+      }
+
+  """
+  @type describe_account_preferences_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_backup_policy_request() :: %{}
+
+  """
+  @type describe_backup_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_file_system_policy_request() :: %{}
+
+  """
+  @type describe_file_system_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_file_systems_request() :: %{
+        optional("CreationToken") => String.t() | atom(),
+        optional("FileSystemId") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type describe_file_systems_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_file_systems_response() :: %{
+        "FileSystems" => list(file_system_description()),
+        "Marker" => String.t() | atom(),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type describe_file_systems_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_lifecycle_configuration_request() :: %{}
+
+  """
+  @type describe_lifecycle_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_mount_target_security_groups_request() :: %{}
+
+  """
+  @type describe_mount_target_security_groups_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_mount_target_security_groups_response() :: %{
+        "SecurityGroups" => list(String.t() | atom())
+      }
+
+  """
+  @type describe_mount_target_security_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -400,13 +434,109 @@ defmodule AWS.EFS do
 
   ## Example:
 
-      file_system_policy_description() :: %{
-        optional("FileSystemId") => String.t() | atom(),
-        optional("Policy") => String.t() | atom()
+      describe_mount_targets_response() :: %{
+        "Marker" => String.t() | atom(),
+        "MountTargets" => list(mount_target_description()),
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type file_system_policy_description() :: %{(String.t() | atom()) => any()}
+  @type describe_mount_targets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_replication_configurations_request() :: %{
+        optional("FileSystemId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_replication_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_replication_configurations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Replications" => list(replication_configuration_description())
+      }
+
+  """
+  @type describe_replication_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_tags_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type describe_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_tags_response() :: %{
+        "Marker" => String.t() | atom(),
+        "NextMarker" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type describe_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination() :: %{
+        "FileSystemId" => String.t() | atom(),
+        "LastReplicatedTimestamp" => non_neg_integer(),
+        "OwnerId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_to_create() :: %{
+        "AvailabilityZoneName" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type destination_to_create() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_system_already_exists() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type file_system_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,228 +570,25 @@ defmodule AWS.EFS do
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("Tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_file_system_policy_request() :: %{}
-
-  """
-  @type describe_file_system_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      mount_target_not_found() :: %{
+      file_system_in_use() :: %{
         "ErrorCode" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
 
   """
-  @type mount_target_not_found() :: %{(String.t() | atom()) => any()}
+  @type file_system_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_file_system_request() :: %{
-        optional("AvailabilityZoneName") => String.t() | atom(),
-        optional("Backup") => boolean(),
-        optional("Encrypted") => boolean(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("PerformanceMode") => list(any()),
-        optional("ProvisionedThroughputInMibps") => float(),
-        optional("Tags") => list(tag()),
-        optional("ThroughputMode") => list(any()),
-        required("CreationToken") => String.t() | atom()
-      }
-
-  """
-  @type create_file_system_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_free_addresses_in_subnet() :: %{
+      file_system_limit_exceeded() :: %{
         "ErrorCode" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
 
   """
-  @type no_free_addresses_in_subnet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throughput_limit_exceeded() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throughput_limit_exceeded() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination() :: %{
-        "FileSystemId" => String.t() | atom(),
-        "LastReplicatedTimestamp" => non_neg_integer(),
-        "OwnerId" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_not_found() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type replication_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_point_already_exists() :: %{
-        "AccessPointId" => String.t() | atom(),
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_point_already_exists() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_group_limit_exceeded() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type security_group_limit_exceeded() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_mount_target_security_groups_response() :: %{
-        "SecurityGroups" => list(String.t() | atom())
-      }
-
-  """
-  @type describe_mount_target_security_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      availability_zones_mismatch() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type availability_zones_mismatch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_mount_targets_response() :: %{
-        "Marker" => String.t() | atom(),
-        "MountTargets" => list(mount_target_description()),
-        "NextMarker" => String.t() | atom()
-      }
-
-  """
-  @type describe_mount_targets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ip_address_in_use() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type ip_address_in_use() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_access_point_request() :: %{
-        optional("PosixUser") => posix_user(),
-        optional("RootDirectory") => root_directory(),
-        optional("Tags") => list(tag()),
-        required("ClientToken") => String.t() | atom(),
-        required("FileSystemId") => String.t() | atom()
-      }
-
-  """
-  @type create_access_point_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      incorrect_file_system_life_cycle_state() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type incorrect_file_system_life_cycle_state() :: %{(String.t() | atom()) => any()}
+  @type file_system_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -679,404 +606,13 @@ defmodule AWS.EFS do
 
   ## Example:
 
-      describe_backup_policy_request() :: %{}
-
-  """
-  @type describe_backup_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_account_preferences_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourceIdPreference" => resource_id_preference()
-      }
-
-  """
-  @type describe_account_preferences_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_configuration_description() :: %{
-        optional("LifecyclePolicies") => list(lifecycle_policy())
-      }
-
-  """
-  @type lifecycle_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_mount_target_request() :: %{}
-
-  """
-  @type delete_mount_target_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      incorrect_mount_target_state() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type incorrect_mount_target_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_file_system_policy_request() :: %{}
-
-  """
-  @type delete_file_system_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_file_system_protection_request() :: %{
-        optional("ReplicationOverwriteProtection") => list(any())
-      }
-
-  """
-  @type update_file_system_protection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_tags_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type delete_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_mount_target_security_groups_request() :: %{}
-
-  """
-  @type describe_mount_target_security_groups_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_file_system_request() :: %{}
-
-  """
-  @type delete_file_system_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      dependency_timeout() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type dependency_timeout() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mount_target_conflict() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type mount_target_conflict() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_preferences_request() :: %{
-        required("ResourceIdType") => list(any())
-      }
-
-  """
-  @type put_account_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_policy() :: %{
-        "TransitionToArchive" => list(any()),
-        "TransitionToIA" => list(any()),
-        "TransitionToPrimaryStorageClass" => list(any())
-      }
-
-  """
-  @type lifecycle_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      posix_user() :: %{
-        "Gid" => float(),
-        "SecondaryGids" => list(float()),
-        "Uid" => float()
-      }
-
-  """
-  @type posix_user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_tags_response() :: %{
-        "Marker" => String.t() | atom(),
-        "NextMarker" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-
-  """
-  @type describe_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      creation_info() :: %{
-        "OwnerGid" => float(),
-        "OwnerUid" => float(),
-        "Permissions" => String.t() | atom()
-      }
-
-  """
-  @type creation_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      root_directory() :: %{
-        "CreationInfo" => creation_info(),
-        "Path" => String.t() | atom()
-      }
-
-  """
-  @type root_directory() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_group_not_found() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type security_group_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_file_system_policy_request() :: %{
-        optional("BypassPolicyLockoutSafetyCheck") => boolean(),
-        required("Policy") => String.t() | atom()
-      }
-
-  """
-  @type put_file_system_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_replication_configuration_request() :: %{
-        optional("DeletionMode") => list(any())
-      }
-
-  """
-  @type delete_replication_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      modify_mount_target_security_groups_request() :: %{
-        optional("SecurityGroups") => list(String.t() | atom())
-      }
-
-  """
-  @type modify_mount_target_security_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_lifecycle_configuration_request() :: %{}
-
-  """
-  @type describe_lifecycle_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      file_system_already_exists() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "FileSystemId" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type file_system_already_exists() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_file_systems_request() :: %{
-        optional("CreationToken") => String.t() | atom(),
+      file_system_policy_description() :: %{
         optional("FileSystemId") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
+        optional("Policy") => String.t() | atom()
       }
 
   """
-  @type describe_file_systems_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_id_preference() :: %{
-        "ResourceIdType" => list(any()),
-        "Resources" => list(list(any())())
-      }
-
-  """
-  @type resource_id_preference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_mount_target_request() :: %{
-        optional("IpAddress") => String.t() | atom(),
-        optional("IpAddressType") => list(any()),
-        optional("Ipv6Address") => String.t() | atom(),
-        optional("SecurityGroups") => list(String.t() | atom()),
-        required("FileSystemId") => String.t() | atom(),
-        required("SubnetId") => String.t() | atom()
-      }
-
-  """
-  @type create_mount_target_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_policy_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_replication_configurations_request() :: %{
-        optional("FileSystemId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_replication_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_tags_request() :: %{
-        required("Tags") => list(tag())
-      }
-
-  """
-  @type create_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mount_target_description() :: %{
-        "AvailabilityZoneId" => String.t() | atom(),
-        "AvailabilityZoneName" => String.t() | atom(),
-        "FileSystemId" => String.t() | atom(),
-        "IpAddress" => String.t() | atom(),
-        "Ipv6Address" => String.t() | atom(),
-        "LifeCycleState" => list(any()),
-        "MountTargetId" => String.t() | atom(),
-        "NetworkInterfaceId" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "SubnetId" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type mount_target_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_lifecycle_configuration_request() :: %{
-        required("LifecyclePolicies") => list(lifecycle_policy())
-      }
-
-  """
-  @type put_lifecycle_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type file_system_policy_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1108,6 +644,102 @@ defmodule AWS.EFS do
 
   ## Example:
 
+      incorrect_file_system_life_cycle_state() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type incorrect_file_system_life_cycle_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      incorrect_mount_target_state() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type incorrect_mount_target_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insufficient_throughput_capacity() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type insufficient_throughput_capacity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_policy_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_address_in_use() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type ip_address_in_use() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_configuration_description() :: %{
+        optional("LifecyclePolicies") => list(lifecycle_policy())
+      }
+
+  """
+  @type lifecycle_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_policy() :: %{
+        "TransitionToArchive" => list(any()),
+        "TransitionToIA" => list(any()),
+        "TransitionToPrimaryStorageClass" => list(any())
+      }
+
+  """
+  @type lifecycle_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -1115,6 +747,179 @@ defmodule AWS.EFS do
 
   """
   @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      modify_mount_target_security_groups_request() :: %{
+        optional("SecurityGroups") => list(String.t() | atom())
+      }
+
+  """
+  @type modify_mount_target_security_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mount_target_conflict() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type mount_target_conflict() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mount_target_description() :: %{
+        "AvailabilityZoneId" => String.t() | atom(),
+        "AvailabilityZoneName" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "Ipv6Address" => String.t() | atom(),
+        "LifeCycleState" => list(any()),
+        "MountTargetId" => String.t() | atom(),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "SubnetId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type mount_target_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mount_target_not_found() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type mount_target_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_interface_limit_exceeded() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type network_interface_limit_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_free_addresses_in_subnet() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type no_free_addresses_in_subnet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_not_found() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type policy_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      posix_user() :: %{
+        "Gid" => float(),
+        "SecondaryGids" => list(float()),
+        "Uid" => float()
+      }
+
+  """
+  @type posix_user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_preferences_request() :: %{
+        required("ResourceIdType") => list(any())
+      }
+
+  """
+  @type put_account_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_preferences_response() :: %{
+        "ResourceIdPreference" => resource_id_preference()
+      }
+
+  """
+  @type put_account_preferences_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_backup_policy_request() :: %{
+        required("BackupPolicy") => backup_policy()
+      }
+
+  """
+  @type put_backup_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_file_system_policy_request() :: %{
+        optional("BypassPolicyLockoutSafetyCheck") => boolean(),
+        required("Policy") => String.t() | atom()
+      }
+
+  """
+  @type put_file_system_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_lifecycle_configuration_request() :: %{
+        required("LifecyclePolicies") => list(lifecycle_policy())
+      }
+
+  """
+  @type put_lifecycle_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1132,200 +937,395 @@ defmodule AWS.EFS do
 
   ## Example:
 
-      create_replication_configuration_request() :: %{
-        required("Destinations") => list(destination_to_create())
+      replication_configuration_description() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Destinations" => list(destination()),
+        "OriginalSourceFileSystemArn" => String.t() | atom(),
+        "SourceFileSystemArn" => String.t() | atom(),
+        "SourceFileSystemId" => String.t() | atom(),
+        "SourceFileSystemOwnerId" => String.t() | atom(),
+        "SourceFileSystemRegion" => String.t() | atom()
       }
 
   """
-  @type create_replication_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type replication_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_not_found() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type replication_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_id_preference() :: %{
+        "ResourceIdType" => list(any()),
+        "Resources" => list(list(any())())
+      }
+
+  """
+  @type resource_id_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      root_directory() :: %{
+        "CreationInfo" => creation_info(),
+        "Path" => String.t() | atom()
+      }
+
+  """
+  @type root_directory() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_group_limit_exceeded() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type security_group_limit_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_group_not_found() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type security_group_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subnet_not_found() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type subnet_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throughput_limit_exceeded() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throughput_limit_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_availability_zone() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unsupported_availability_zone() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_file_system_protection_request() :: %{
+        optional("ReplicationOverwriteProtection") => list(any())
+      }
+
+  """
+  @type update_file_system_protection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_file_system_request() :: %{
+        optional("ProvisionedThroughputInMibps") => float(),
+        optional("ThroughputMode") => list(any())
+      }
+
+  """
+  @type update_file_system_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_access_point_errors() ::
-          bad_request()
-          | file_system_not_found()
-          | incorrect_file_system_life_cycle_state()
-          | access_point_already_exists()
+          throttling_exception()
           | internal_server_error()
+          | incorrect_file_system_life_cycle_state()
+          | file_system_not_found()
+          | bad_request()
           | access_point_limit_exceeded()
-          | throttling_exception()
+          | access_point_already_exists()
 
   @type create_file_system_errors() ::
-          file_system_already_exists()
-          | bad_request()
+          unsupported_availability_zone()
           | throughput_limit_exceeded()
-          | file_system_limit_exceeded()
           | internal_server_error()
           | insufficient_throughput_capacity()
-          | unsupported_availability_zone()
+          | file_system_limit_exceeded()
+          | file_system_already_exists()
+          | bad_request()
 
   @type create_mount_target_errors() ::
-          security_group_not_found()
-          | mount_target_conflict()
-          | bad_request()
-          | file_system_not_found()
-          | incorrect_file_system_life_cycle_state()
-          | ip_address_in_use()
-          | availability_zones_mismatch()
+          unsupported_availability_zone()
+          | subnet_not_found()
+          | security_group_not_found()
           | security_group_limit_exceeded()
           | no_free_addresses_in_subnet()
-          | subnet_not_found()
-          | internal_server_error()
-          | unsupported_availability_zone()
           | network_interface_limit_exceeded()
+          | mount_target_conflict()
+          | ip_address_in_use()
+          | internal_server_error()
+          | incorrect_file_system_life_cycle_state()
+          | file_system_not_found()
+          | bad_request()
+          | availability_zones_mismatch()
 
   @type create_replication_configuration_errors() ::
-          bad_request()
-          | file_system_not_found()
-          | incorrect_file_system_life_cycle_state()
-          | conflict_exception()
-          | replication_not_found()
+          validation_exception()
+          | unsupported_availability_zone()
           | throughput_limit_exceeded()
-          | file_system_limit_exceeded()
-          | validation_exception()
+          | replication_not_found()
           | internal_server_error()
           | insufficient_throughput_capacity()
-          | unsupported_availability_zone()
+          | incorrect_file_system_life_cycle_state()
+          | file_system_not_found()
+          | file_system_limit_exceeded()
+          | conflict_exception()
+          | bad_request()
 
-  @type create_tags_errors() :: bad_request() | file_system_not_found() | internal_server_error()
+  @type create_tags_errors() :: internal_server_error() | file_system_not_found() | bad_request()
 
   @type delete_access_point_errors() ::
-          bad_request() | access_point_not_found() | internal_server_error()
+          internal_server_error() | bad_request() | access_point_not_found()
 
   @type delete_file_system_errors() ::
-          bad_request() | file_system_not_found() | internal_server_error() | file_system_in_use()
+          internal_server_error() | file_system_not_found() | file_system_in_use() | bad_request()
 
   @type delete_file_system_policy_errors() ::
-          bad_request()
-          | file_system_not_found()
+          internal_server_error()
           | incorrect_file_system_life_cycle_state()
-          | internal_server_error()
+          | file_system_not_found()
+          | bad_request()
 
   @type delete_mount_target_errors() ::
-          dependency_timeout()
-          | bad_request()
-          | mount_target_not_found()
+          mount_target_not_found()
           | internal_server_error()
+          | dependency_timeout()
+          | bad_request()
 
   @type delete_replication_configuration_errors() ::
-          bad_request()
-          | file_system_not_found()
-          | replication_not_found()
+          replication_not_found()
           | internal_server_error()
+          | file_system_not_found()
+          | bad_request()
 
-  @type delete_tags_errors() :: bad_request() | file_system_not_found() | internal_server_error()
+  @type delete_tags_errors() :: internal_server_error() | file_system_not_found() | bad_request()
 
   @type describe_access_points_errors() ::
-          bad_request()
+          internal_server_error()
           | file_system_not_found()
+          | bad_request()
           | access_point_not_found()
-          | internal_server_error()
 
   @type describe_account_preferences_errors() :: internal_server_error()
 
   @type describe_backup_policy_errors() ::
-          bad_request()
-          | file_system_not_found()
+          validation_exception()
           | policy_not_found()
-          | validation_exception()
           | internal_server_error()
+          | file_system_not_found()
+          | bad_request()
 
   @type describe_file_system_policy_errors() ::
-          bad_request() | file_system_not_found() | policy_not_found() | internal_server_error()
+          policy_not_found() | internal_server_error() | file_system_not_found() | bad_request()
 
   @type describe_file_systems_errors() ::
-          bad_request() | file_system_not_found() | internal_server_error()
+          internal_server_error() | file_system_not_found() | bad_request()
 
   @type describe_lifecycle_configuration_errors() ::
-          bad_request() | file_system_not_found() | internal_server_error()
+          internal_server_error() | file_system_not_found() | bad_request()
 
   @type describe_mount_target_security_groups_errors() ::
-          bad_request()
-          | incorrect_mount_target_state()
-          | mount_target_not_found()
+          mount_target_not_found()
           | internal_server_error()
+          | incorrect_mount_target_state()
+          | bad_request()
 
   @type describe_mount_targets_errors() ::
-          bad_request()
-          | file_system_not_found()
-          | mount_target_not_found()
-          | access_point_not_found()
+          mount_target_not_found()
           | internal_server_error()
+          | file_system_not_found()
+          | bad_request()
+          | access_point_not_found()
 
   @type describe_replication_configurations_errors() ::
-          bad_request()
-          | file_system_not_found()
+          validation_exception()
           | replication_not_found()
-          | validation_exception()
           | internal_server_error()
+          | file_system_not_found()
+          | bad_request()
 
   @type describe_tags_errors() ::
-          bad_request() | file_system_not_found() | internal_server_error()
+          internal_server_error() | file_system_not_found() | bad_request()
 
   @type list_tags_for_resource_errors() ::
-          bad_request()
+          internal_server_error()
           | file_system_not_found()
+          | bad_request()
           | access_point_not_found()
-          | internal_server_error()
 
   @type modify_mount_target_security_groups_errors() ::
           security_group_not_found()
-          | bad_request()
-          | incorrect_mount_target_state()
           | security_group_limit_exceeded()
           | mount_target_not_found()
           | internal_server_error()
+          | incorrect_mount_target_state()
+          | bad_request()
 
-  @type put_account_preferences_errors() :: bad_request() | internal_server_error()
+  @type put_account_preferences_errors() :: internal_server_error() | bad_request()
 
   @type put_backup_policy_errors() ::
-          bad_request()
-          | file_system_not_found()
-          | incorrect_file_system_life_cycle_state()
-          | validation_exception()
+          validation_exception()
           | internal_server_error()
+          | incorrect_file_system_life_cycle_state()
+          | file_system_not_found()
+          | bad_request()
 
   @type put_file_system_policy_errors() ::
           invalid_policy_exception()
-          | bad_request()
-          | file_system_not_found()
-          | incorrect_file_system_life_cycle_state()
           | internal_server_error()
+          | incorrect_file_system_life_cycle_state()
+          | file_system_not_found()
+          | bad_request()
 
   @type put_lifecycle_configuration_errors() ::
-          bad_request()
-          | file_system_not_found()
+          internal_server_error()
           | incorrect_file_system_life_cycle_state()
-          | internal_server_error()
+          | file_system_not_found()
+          | bad_request()
 
   @type tag_resource_errors() ::
-          bad_request()
+          internal_server_error()
           | file_system_not_found()
+          | bad_request()
           | access_point_not_found()
-          | internal_server_error()
 
   @type untag_resource_errors() ::
-          bad_request()
+          internal_server_error()
           | file_system_not_found()
+          | bad_request()
           | access_point_not_found()
-          | internal_server_error()
 
   @type update_file_system_errors() ::
-          bad_request()
-          | file_system_not_found()
-          | incorrect_file_system_life_cycle_state()
+          too_many_requests()
           | throughput_limit_exceeded()
           | internal_server_error()
           | insufficient_throughput_capacity()
-          | too_many_requests()
+          | incorrect_file_system_life_cycle_state()
+          | file_system_not_found()
+          | bad_request()
 
   @type update_file_system_protection_errors() ::
-          replication_already_exists()
-          | bad_request()
-          | file_system_not_found()
-          | incorrect_file_system_life_cycle_state()
+          too_many_requests()
           | throughput_limit_exceeded()
+          | replication_already_exists()
           | internal_server_error()
           | insufficient_throughput_capacity()
-          | too_many_requests()
+          | incorrect_file_system_life_cycle_state()
+          | file_system_not_found()
+          | bad_request()
 
   def metadata do
     %{
@@ -2172,15 +2172,8 @@ defmodule AWS.EFS do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(access_point_id) do
+        [{"AccessPointId", access_point_id} | query_params]
       else
         query_params
       end
@@ -2193,8 +2186,15 @@ defmodule AWS.EFS do
       end
 
     query_params =
-      if !is_nil(access_point_id) do
-        [{"AccessPointId", access_point_id} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2324,15 +2324,8 @@ defmodule AWS.EFS do
     query_params = []
 
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if !is_nil(creation_token) do
+        [{"CreationToken", creation_token} | query_params]
       else
         query_params
       end
@@ -2345,8 +2338,15 @@ defmodule AWS.EFS do
       end
 
     query_params =
-      if !is_nil(creation_token) do
-        [{"CreationToken", creation_token} | query_params]
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
       else
         query_params
       end
@@ -2462,22 +2462,8 @@ defmodule AWS.EFS do
     query_params = []
 
     query_params =
-      if !is_nil(mount_target_id) do
-        [{"MountTargetId", mount_target_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if !is_nil(access_point_id) do
+        [{"AccessPointId", access_point_id} | query_params]
       else
         query_params
       end
@@ -2490,8 +2476,22 @@ defmodule AWS.EFS do
       end
 
     query_params =
-      if !is_nil(access_point_id) do
-        [{"AccessPointId", access_point_id} | query_params]
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(mount_target_id) do
+        [{"MountTargetId", mount_target_id} | query_params]
       else
         query_params
       end
@@ -2532,8 +2532,8 @@ defmodule AWS.EFS do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(file_system_id) do
+        [{"FileSystemId", file_system_id} | query_params]
       else
         query_params
       end
@@ -2546,8 +2546,8 @@ defmodule AWS.EFS do
       end
 
     query_params =
-      if !is_nil(file_system_id) do
-        [{"FileSystemId", file_system_id} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2596,15 +2596,15 @@ defmodule AWS.EFS do
     query_params = []
 
     query_params =
-      if !is_nil(max_items) do
-        [{"MaxItems", max_items} | query_params]
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"Marker", marker} | query_params]
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
       else
         query_params
       end
@@ -2646,15 +2646,15 @@ defmodule AWS.EFS do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end

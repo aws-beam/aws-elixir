@@ -25,244 +25,107 @@ defmodule AWS.Transfer do
 
   ## Example:
       
-      start_server_request() :: %{
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type start_server_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_connection_request() :: %{
-        required("ConnectorId") => String.t() | atom()
-      }
-      
-  """
-  @type test_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_executions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("WorkflowId") => String.t() | atom()
-      }
-      
-  """
-  @type list_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_response() :: %{
-        "ServerId" => String.t() | atom(),
-        "User" => described_user()
-      }
-      
-  """
-  @type describe_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_host_keys_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type list_host_keys_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_connector_request() :: %{
-        required("ConnectorId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_certificate_request() :: %{
-        optional("ActiveDate") => non_neg_integer(),
-        optional("Description") => String.t() | atom(),
-        optional("InactiveDate") => non_neg_integer(),
-        required("CertificateId") => String.t() | atom()
-      }
-      
-  """
-  @type update_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_certificate_request() :: %{
-        required("CertificateId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_host_keys_response() :: %{
-        "HostKeys" => list(listed_host_key()),
-        "NextToken" => String.t() | atom(),
-        "ServerId" => String.t() | atom()
-      }
-      
-  """
-  @type list_host_keys_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_execution_request() :: %{
-        required("ExecutionId") => String.t() | atom(),
-        required("WorkflowId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_connector_request() :: %{
-        optional("AccessRole") => String.t() | atom(),
-        optional("As2Config") => as2_connector_config(),
-        optional("EgressConfig") => list(),
-        optional("IpAddressType") => list(any()),
-        optional("LoggingRole") => String.t() | atom(),
-        optional("SecurityPolicyName") => String.t() | atom(),
-        optional("SftpConfig") => sftp_connector_config(),
-        optional("Url") => String.t() | atom(),
-        required("ConnectorId") => String.t() | atom()
-      }
-      
-  """
-  @type update_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_access_request() :: %{
-        required("ExternalId") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_agreement_request() :: %{
-        required("AgreementId") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_agreement_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_input_file_location() :: %{
-        "Bucket" => String.t() | atom(),
-        "Key" => String.t() | atom()
-      }
-      
-  """
-  @type s3_input_file_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_connector_response() :: %{
-        "Connector" => described_connector()
-      }
-      
-  """
-  @type describe_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      identity_center_config() :: %{
-        "InstanceArn" => String.t() | atom(),
-        "Role" => String.t() | atom()
-      }
-      
-  """
-  @type identity_center_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_security_policy_response() :: %{
-        "SecurityPolicy" => described_security_policy()
-      }
-      
-  """
-  @type describe_security_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_server_response() :: %{
-        "ServerId" => String.t() | atom()
-      }
-      
-  """
-  @type create_server_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_unavailable_exception() :: %{
+      access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_web_app_request() :: %{
-        required("WebAppId") => String.t() | atom()
+      as2_async_mdn_connector_config() :: %{
+        "ServerIds" => list(String.t() | atom()),
+        "Url" => String.t() | atom()
       }
       
   """
-  @type describe_web_app_request() :: %{(String.t() | atom()) => any()}
+  @type as2_async_mdn_connector_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      as2_connector_config() :: %{
+        "AsyncMdnConfig" => as2_async_mdn_connector_config(),
+        "BasicAuthSecretId" => String.t() | atom(),
+        "Compression" => list(any()),
+        "EncryptionAlgorithm" => list(any()),
+        "LocalProfileId" => String.t() | atom(),
+        "MdnResponse" => list(any()),
+        "MdnSigningAlgorithm" => list(any()),
+        "MessageSubject" => String.t() | atom(),
+        "PartnerProfileId" => String.t() | atom(),
+        "PreserveContentType" => list(any()),
+        "SigningAlgorithm" => list(any())
+      }
+      
+  """
+  @type as2_connector_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cfn_user_properties() :: %{
+        "SshPublicKeys" => list(String.t() | atom())
+      }
+      
+  """
+  @type cfn_user_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector_file_transfer_result() :: %{
+        "FailureCode" => String.t() | atom(),
+        "FailureMessage" => String.t() | atom(),
+        "FilePath" => String.t() | atom(),
+        "StatusCode" => list(any())
+      }
+      
+  """
+  @type connector_file_transfer_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector_vpc_lattice_egress_config() :: %{
+        "PortNumber" => integer(),
+        "ResourceConfigurationArn" => String.t() | atom()
+      }
+      
+  """
+  @type connector_vpc_lattice_egress_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_step_details() :: %{
+        "DestinationFileLocation" => input_file_location(),
+        "Name" => String.t() | atom(),
+        "OverwriteExisting" => list(any()),
+        "SourceFileLocation" => String.t() | atom()
+      }
+      
+  """
+  @type copy_step_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -286,25 +149,1036 @@ defmodule AWS.Transfer do
 
   ## Example:
       
-      throttling_exception() :: %{
-        "RetryAfterSeconds" => String.t() | atom()
+      create_access_response() :: %{
+        "ExternalId" => String.t() | atom(),
+        "ServerId" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type create_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      home_directory_map_entry() :: %{
-        "Entry" => String.t() | atom(),
+      create_agreement_request() :: %{
+        optional("BaseDirectory") => String.t() | atom(),
+        optional("CustomDirectories") => custom_directories_type(),
+        optional("Description") => String.t() | atom(),
+        optional("EnforceMessageSigning") => list(any()),
+        optional("PreserveFilename") => list(any()),
+        optional("Status") => list(any()),
+        optional("Tags") => list(tag()),
+        required("AccessRole") => String.t() | atom(),
+        required("LocalProfileId") => String.t() | atom(),
+        required("PartnerProfileId") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type create_agreement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_agreement_response() :: %{
+        "AgreementId" => String.t() | atom()
+      }
+      
+  """
+  @type create_agreement_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connector_request() :: %{
+        optional("As2Config") => as2_connector_config(),
+        optional("EgressConfig") => list(),
+        optional("IpAddressType") => list(any()),
+        optional("LoggingRole") => String.t() | atom(),
+        optional("SecurityPolicyName") => String.t() | atom(),
+        optional("SftpConfig") => sftp_connector_config(),
+        optional("Tags") => list(tag()),
+        optional("Url") => String.t() | atom(),
+        required("AccessRole") => String.t() | atom()
+      }
+      
+  """
+  @type create_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connector_response() :: %{
+        "ConnectorId" => String.t() | atom()
+      }
+      
+  """
+  @type create_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_profile_request() :: %{
+        optional("CertificateIds") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        required("As2Id") => String.t() | atom(),
+        required("ProfileType") => list(any())
+      }
+      
+  """
+  @type create_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_profile_response() :: %{
+        "ProfileId" => String.t() | atom()
+      }
+      
+  """
+  @type create_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_server_request() :: %{
+        optional("Certificate") => String.t() | atom(),
+        optional("Domain") => list(any()),
+        optional("EndpointDetails") => endpoint_details(),
+        optional("EndpointType") => list(any()),
+        optional("HostKey") => String.t() | atom(),
+        optional("IdentityProviderDetails") => identity_provider_details(),
+        optional("IdentityProviderType") => list(any()),
+        optional("IpAddressType") => list(any()),
+        optional("LoggingRole") => String.t() | atom(),
+        optional("PostAuthenticationLoginBanner") => String.t() | atom(),
+        optional("PreAuthenticationLoginBanner") => String.t() | atom(),
+        optional("ProtocolDetails") => protocol_details(),
+        optional("Protocols") => list(list(any())()),
+        optional("S3StorageOptions") => s3_storage_options(),
+        optional("SecurityPolicyName") => String.t() | atom(),
+        optional("StructuredLogDestinations") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        optional("WorkflowDetails") => workflow_details()
+      }
+      
+  """
+  @type create_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_server_response() :: %{
+        "ServerId" => String.t() | atom()
+      }
+      
+  """
+  @type create_server_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_request() :: %{
+        optional("HomeDirectory") => String.t() | atom(),
+        optional("HomeDirectoryMappings") => list(home_directory_map_entry()),
+        optional("HomeDirectoryType") => list(any()),
+        optional("Policy") => String.t() | atom(),
+        optional("PosixProfile") => posix_profile(),
+        optional("SshPublicKeyBody") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Role") => String.t() | atom(),
+        required("ServerId") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type create_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_response() :: %{
+        "ServerId" => String.t() | atom(),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type create_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_web_app_request() :: %{
+        optional("AccessEndpoint") => String.t() | atom(),
+        optional("EndpointDetails") => list(),
+        optional("Tags") => list(tag()),
+        optional("WebAppEndpointPolicy") => list(any()),
+        optional("WebAppUnits") => list(),
+        required("IdentityProviderDetails") => list()
+      }
+      
+  """
+  @type create_web_app_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_web_app_response() :: %{
+        "WebAppId" => String.t() | atom()
+      }
+      
+  """
+  @type create_web_app_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_workflow_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("OnExceptionSteps") => list(workflow_step()),
+        optional("Tags") => list(tag()),
+        required("Steps") => list(workflow_step())
+      }
+      
+  """
+  @type create_workflow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_workflow_response() :: %{
+        "WorkflowId" => String.t() | atom()
+      }
+      
+  """
+  @type create_workflow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_directories_type() :: %{
+        "FailedFilesDirectory" => String.t() | atom(),
+        "MdnFilesDirectory" => String.t() | atom(),
+        "PayloadFilesDirectory" => String.t() | atom(),
+        "StatusFilesDirectory" => String.t() | atom(),
+        "TemporaryFilesDirectory" => String.t() | atom()
+      }
+      
+  """
+  @type custom_directories_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_http_header() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type custom_http_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_step_details() :: %{
+        "Name" => String.t() | atom(),
+        "SourceFileLocation" => String.t() | atom(),
         "Target" => String.t() | atom(),
+        "TimeoutSeconds" => integer()
+      }
+      
+  """
+  @type custom_step_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      decrypt_step_details() :: %{
+        "DestinationFileLocation" => input_file_location(),
+        "Name" => String.t() | atom(),
+        "OverwriteExisting" => list(any()),
+        "SourceFileLocation" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type home_directory_map_entry() :: %{(String.t() | atom()) => any()}
+  @type decrypt_step_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_access_request() :: %{
+        required("ExternalId") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_agreement_request() :: %{
+        required("AgreementId") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_agreement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_certificate_request() :: %{
+        required("CertificateId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_connector_request() :: %{
+        required("ConnectorId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_host_key_request() :: %{
+        required("HostKeyId") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_host_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_profile_request() :: %{
+        required("ProfileId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_server_request() :: %{
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_ssh_public_key_request() :: %{
+        required("ServerId") => String.t() | atom(),
+        required("SshPublicKeyId") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_step_details() :: %{
+        "Name" => String.t() | atom(),
+        "SourceFileLocation" => String.t() | atom()
+      }
+      
+  """
+  @type delete_step_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_request() :: %{
+        required("ServerId") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_web_app_customization_request() :: %{
+        required("WebAppId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_web_app_customization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_web_app_request() :: %{
+        required("WebAppId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_web_app_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_workflow_request() :: %{
+        required("WorkflowId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_workflow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_access_request() :: %{
+        required("ExternalId") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_access_response() :: %{
+        "Access" => described_access(),
+        "ServerId" => String.t() | atom()
+      }
+      
+  """
+  @type describe_access_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_agreement_request() :: %{
+        required("AgreementId") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_agreement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_agreement_response() :: %{
+        "Agreement" => described_agreement()
+      }
+      
+  """
+  @type describe_agreement_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_certificate_request() :: %{
+        required("CertificateId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_certificate_response() :: %{
+        "Certificate" => described_certificate()
+      }
+      
+  """
+  @type describe_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_connector_request() :: %{
+        required("ConnectorId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_connector_response() :: %{
+        "Connector" => described_connector()
+      }
+      
+  """
+  @type describe_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_execution_request() :: %{
+        required("ExecutionId") => String.t() | atom(),
+        required("WorkflowId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_execution_response() :: %{
+        "Execution" => described_execution(),
+        "WorkflowId" => String.t() | atom()
+      }
+      
+  """
+  @type describe_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_host_key_request() :: %{
+        required("HostKeyId") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_host_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_host_key_response() :: %{
+        "HostKey" => described_host_key()
+      }
+      
+  """
+  @type describe_host_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_profile_request() :: %{
+        required("ProfileId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_profile_response() :: %{
+        "Profile" => described_profile()
+      }
+      
+  """
+  @type describe_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_security_policy_request() :: %{
+        required("SecurityPolicyName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_security_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_security_policy_response() :: %{
+        "SecurityPolicy" => described_security_policy()
+      }
+      
+  """
+  @type describe_security_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_server_request() :: %{
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_server_response() :: %{
+        "Server" => described_server()
+      }
+      
+  """
+  @type describe_server_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_request() :: %{
+        required("ServerId") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_response() :: %{
+        "ServerId" => String.t() | atom(),
+        "User" => described_user()
+      }
+      
+  """
+  @type describe_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_web_app_customization_request() :: %{
+        required("WebAppId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_web_app_customization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_web_app_customization_response() :: %{
+        "WebAppCustomization" => described_web_app_customization()
+      }
+      
+  """
+  @type describe_web_app_customization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_web_app_request() :: %{
+        required("WebAppId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_web_app_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_web_app_response() :: %{
+        "WebApp" => described_web_app()
+      }
+      
+  """
+  @type describe_web_app_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_workflow_request() :: %{
+        required("WorkflowId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_workflow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_workflow_response() :: %{
+        "Workflow" => described_workflow()
+      }
+      
+  """
+  @type describe_workflow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_access() :: %{
+        "ExternalId" => String.t() | atom(),
+        "HomeDirectory" => String.t() | atom(),
+        "HomeDirectoryMappings" => list(home_directory_map_entry()),
+        "HomeDirectoryType" => list(any()),
+        "Policy" => String.t() | atom(),
+        "PosixProfile" => posix_profile(),
+        "Role" => String.t() | atom()
+      }
+      
+  """
+  @type described_access() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_agreement() :: %{
+        "AccessRole" => String.t() | atom(),
+        "AgreementId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "BaseDirectory" => String.t() | atom(),
+        "CustomDirectories" => custom_directories_type(),
+        "Description" => String.t() | atom(),
+        "EnforceMessageSigning" => list(any()),
+        "LocalProfileId" => String.t() | atom(),
+        "PartnerProfileId" => String.t() | atom(),
+        "PreserveFilename" => list(any()),
+        "ServerId" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type described_agreement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_certificate() :: %{
+        "ActiveDate" => non_neg_integer(),
+        "Arn" => String.t() | atom(),
+        "Certificate" => String.t() | atom(),
+        "CertificateChain" => String.t() | atom(),
+        "CertificateId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "InactiveDate" => non_neg_integer(),
+        "NotAfterDate" => non_neg_integer(),
+        "NotBeforeDate" => non_neg_integer(),
+        "Serial" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => list(tag()),
+        "Type" => list(any()),
+        "Usage" => list(any())
+      }
+      
+  """
+  @type described_certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_connector() :: %{
+        "AccessRole" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "As2Config" => as2_connector_config(),
+        "ConnectorId" => String.t() | atom(),
+        "EgressConfig" => list(),
+        "EgressType" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "IpAddressType" => list(any()),
+        "LoggingRole" => String.t() | atom(),
+        "SecurityPolicyName" => String.t() | atom(),
+        "ServiceManagedEgressIpAddresses" => list(String.t() | atom()),
+        "SftpConfig" => sftp_connector_config(),
+        "Status" => list(any()),
+        "Tags" => list(tag()),
+        "Url" => String.t() | atom()
+      }
+      
+  """
+  @type described_connector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_connector_vpc_lattice_egress_config() :: %{
+        "PortNumber" => integer(),
+        "ResourceConfigurationArn" => String.t() | atom()
+      }
+      
+  """
+  @type described_connector_vpc_lattice_egress_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_execution() :: %{
+        "ExecutionId" => String.t() | atom(),
+        "ExecutionRole" => String.t() | atom(),
+        "InitialFileLocation" => file_location(),
+        "LoggingConfiguration" => logging_configuration(),
+        "PosixProfile" => posix_profile(),
+        "Results" => execution_results(),
+        "ServiceMetadata" => service_metadata(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type described_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_host_key() :: %{
+        "Arn" => String.t() | atom(),
+        "DateImported" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "HostKeyFingerprint" => String.t() | atom(),
+        "HostKeyId" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type described_host_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_identity_center_config() :: %{
+        "ApplicationArn" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Role" => String.t() | atom()
+      }
+      
+  """
+  @type described_identity_center_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_profile() :: %{
+        "Arn" => String.t() | atom(),
+        "As2Id" => String.t() | atom(),
+        "CertificateIds" => list(String.t() | atom()),
+        "ProfileId" => String.t() | atom(),
+        "ProfileType" => list(any()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type described_profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_security_policy() :: %{
+        "Fips" => boolean(),
+        "Protocols" => list(list(any())()),
+        "SecurityPolicyName" => String.t() | atom(),
+        "SshCiphers" => list(String.t() | atom()),
+        "SshHostKeyAlgorithms" => list(String.t() | atom()),
+        "SshKexs" => list(String.t() | atom()),
+        "SshMacs" => list(String.t() | atom()),
+        "TlsCiphers" => list(String.t() | atom()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type described_security_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_server() :: %{
+        "Arn" => String.t() | atom(),
+        "As2ServiceManagedEgressIpAddresses" => list(String.t() | atom()),
+        "Certificate" => String.t() | atom(),
+        "Domain" => list(any()),
+        "EndpointDetails" => endpoint_details(),
+        "EndpointType" => list(any()),
+        "HostKeyFingerprint" => String.t() | atom(),
+        "IdentityProviderDetails" => identity_provider_details(),
+        "IdentityProviderType" => list(any()),
+        "IpAddressType" => list(any()),
+        "LoggingRole" => String.t() | atom(),
+        "PostAuthenticationLoginBanner" => String.t() | atom(),
+        "PreAuthenticationLoginBanner" => String.t() | atom(),
+        "ProtocolDetails" => protocol_details(),
+        "Protocols" => list(list(any())()),
+        "S3StorageOptions" => s3_storage_options(),
+        "SecurityPolicyName" => String.t() | atom(),
+        "ServerId" => String.t() | atom(),
+        "State" => list(any()),
+        "StructuredLogDestinations" => list(String.t() | atom()),
+        "Tags" => list(tag()),
+        "UserCount" => integer(),
+        "WorkflowDetails" => workflow_details()
+      }
+      
+  """
+  @type described_server() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_user() :: %{
+        "Arn" => String.t() | atom(),
+        "HomeDirectory" => String.t() | atom(),
+        "HomeDirectoryMappings" => list(home_directory_map_entry()),
+        "HomeDirectoryType" => list(any()),
+        "Policy" => String.t() | atom(),
+        "PosixProfile" => posix_profile(),
+        "Role" => String.t() | atom(),
+        "SshPublicKeys" => list(ssh_public_key()),
+        "Tags" => list(tag()),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type described_user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_web_app() :: %{
+        "AccessEndpoint" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "DescribedEndpointDetails" => list(),
+        "DescribedIdentityProviderDetails" => list(),
+        "EndpointType" => list(any()),
+        "Tags" => list(tag()),
+        "WebAppEndpoint" => String.t() | atom(),
+        "WebAppEndpointPolicy" => list(any()),
+        "WebAppId" => String.t() | atom(),
+        "WebAppUnits" => list()
+      }
+      
+  """
+  @type described_web_app() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_web_app_customization() :: %{
+        "Arn" => String.t() | atom(),
+        "FaviconFile" => binary(),
+        "LogoFile" => binary(),
+        "Title" => String.t() | atom(),
+        "WebAppId" => String.t() | atom()
+      }
+      
+  """
+  @type described_web_app_customization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_web_app_vpc_config() :: %{
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcEndpointId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type described_web_app_vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_workflow() :: %{
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "OnExceptionSteps" => list(workflow_step()),
+        "Steps" => list(workflow_step()),
+        "Tags" => list(tag()),
+        "WorkflowId" => String.t() | atom()
+      }
+      
+  """
+  @type described_workflow() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      efs_file_location() :: %{
+        "FileSystemId" => String.t() | atom(),
+        "Path" => String.t() | atom()
+      }
+      
+  """
+  @type efs_file_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -325,99 +1199,75 @@ defmodule AWS.Transfer do
 
   ## Example:
       
-      import_host_key_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("HostKeyBody") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
+      execution_error() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => list(any())
       }
       
   """
-  @type import_host_key_request() :: %{(String.t() | atom()) => any()}
+  @type execution_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_web_app_customization_response() :: %{
-        "WebAppCustomization" => described_web_app_customization()
+      execution_results() :: %{
+        "OnExceptionSteps" => list(execution_step_result()),
+        "Steps" => list(execution_step_result())
       }
       
   """
-  @type describe_web_app_customization_response() :: %{(String.t() | atom()) => any()}
+  @type execution_results() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_host_key_request() :: %{
-        required("HostKeyId") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
+      execution_step_result() :: %{
+        "Error" => execution_error(),
+        "Outputs" => String.t() | atom(),
+        "StepType" => list(any())
       }
       
   """
-  @type describe_host_key_request() :: %{(String.t() | atom()) => any()}
+  @type execution_step_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_file_transfer_response() :: %{
-        "TransferId" => String.t() | atom()
+      file_location() :: %{
+        "EfsFileLocation" => efs_file_location(),
+        "S3FileLocation" => s3_file_location()
       }
       
   """
-  @type start_file_transfer_response() :: %{(String.t() | atom()) => any()}
+  @type file_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      test_connection_response() :: %{
-        "ConnectorId" => String.t() | atom(),
-        "SftpConnectionDetails" => sftp_connector_connection_details(),
-        "Status" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom()
+      home_directory_map_entry() :: %{
+        "Entry" => String.t() | atom(),
+        "Target" => String.t() | atom(),
+        "Type" => list(any())
       }
       
   """
-  @type test_connection_response() :: %{(String.t() | atom()) => any()}
+  @type home_directory_map_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_web_app_response() :: %{
-        "WebApp" => described_web_app()
+      identity_center_config() :: %{
+        "InstanceArn" => String.t() | atom(),
+        "Role" => String.t() | atom()
       }
       
   """
-  @type describe_web_app_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listed_profile() :: %{
-        "Arn" => String.t() | atom(),
-        "As2Id" => String.t() | atom(),
-        "ProfileId" => String.t() | atom(),
-        "ProfileType" => list(any())
-      }
-      
-  """
-  @type listed_profile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type identity_center_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -438,6 +1288,482 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      import_certificate_request() :: %{
+        optional("ActiveDate") => non_neg_integer(),
+        optional("CertificateChain") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("InactiveDate") => non_neg_integer(),
+        optional("PrivateKey") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Certificate") => String.t() | atom(),
+        required("Usage") => list(any())
+      }
+      
+  """
+  @type import_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_certificate_response() :: %{
+        "CertificateId" => String.t() | atom()
+      }
+      
+  """
+  @type import_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_host_key_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("HostKeyBody") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type import_host_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_host_key_response() :: %{
+        "HostKeyId" => String.t() | atom(),
+        "ServerId" => String.t() | atom()
+      }
+      
+  """
+  @type import_host_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_ssh_public_key_request() :: %{
+        required("ServerId") => String.t() | atom(),
+        required("SshPublicKeyBody") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type import_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_ssh_public_key_response() :: %{
+        "ServerId" => String.t() | atom(),
+        "SshPublicKeyId" => String.t() | atom(),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type import_ssh_public_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_file_location() :: %{
+        "EfsFileLocation" => efs_file_location(),
+        "S3FileLocation" => s3_input_file_location()
+      }
+      
+  """
+  @type input_file_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_service_error() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_service_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_next_token_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accesses_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type list_accesses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accesses_response() :: %{
+        "Accesses" => list(listed_access()),
+        "NextToken" => String.t() | atom(),
+        "ServerId" => String.t() | atom()
+      }
+      
+  """
+  @type list_accesses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreements_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type list_agreements_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreements_response() :: %{
+        "Agreements" => list(listed_agreement()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_agreements_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_certificates_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_certificates_response() :: %{
+        "Certificates" => list(listed_certificate()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_certificates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connectors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connectors_response() :: %{
+        "Connectors" => list(listed_connector()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_executions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("WorkflowId") => String.t() | atom()
+      }
+      
+  """
+  @type list_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_executions_response() :: %{
+        "Executions" => list(listed_execution()),
+        "NextToken" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom()
+      }
+      
+  """
+  @type list_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_file_transfer_results_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ConnectorId") => String.t() | atom(),
+        required("TransferId") => String.t() | atom()
+      }
+      
+  """
+  @type list_file_transfer_results_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_file_transfer_results_response() :: %{
+        "FileTransferResults" => list(connector_file_transfer_result()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_file_transfer_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_host_keys_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type list_host_keys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_host_keys_response() :: %{
+        "HostKeys" => list(listed_host_key()),
+        "NextToken" => String.t() | atom(),
+        "ServerId" => String.t() | atom()
+      }
+      
+  """
+  @type list_host_keys_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_profiles_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProfileType") => list(any())
+      }
+      
+  """
+  @type list_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_profiles_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Profiles" => list(listed_profile())
+      }
+      
+  """
+  @type list_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_security_policies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_security_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_security_policies_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SecurityPolicyNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_security_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_servers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_servers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_servers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Servers" => list(listed_server())
+      }
+      
+  """
+  @type list_servers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Arn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Arn" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_users_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type list_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_users_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ServerId" => String.t() | atom(),
+        "Users" => list(listed_user())
+      }
+      
+  """
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_web_apps_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_web_apps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_web_apps_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "WebApps" => list(listed_web_app())
+      }
+      
+  """
+  @type list_web_apps_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workflows_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workflows_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Workflows" => list(listed_workflow())
+      }
+      
+  """
+  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       listed_access() :: %{
         "ExternalId" => String.t() | atom(),
         "HomeDirectory" => String.t() | atom(),
@@ -452,12 +1778,617 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      listed_agreement() :: %{
+        "AgreementId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LocalProfileId" => String.t() | atom(),
+        "PartnerProfileId" => String.t() | atom(),
+        "ServerId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type listed_agreement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listed_certificate() :: %{
+        "ActiveDate" => non_neg_integer(),
+        "Arn" => String.t() | atom(),
+        "CertificateId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "InactiveDate" => non_neg_integer(),
+        "Status" => list(any()),
+        "Type" => list(any()),
+        "Usage" => list(any())
+      }
+      
+  """
+  @type listed_certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listed_connector() :: %{
+        "Arn" => String.t() | atom(),
+        "ConnectorId" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+      
+  """
+  @type listed_connector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listed_execution() :: %{
+        "ExecutionId" => String.t() | atom(),
+        "InitialFileLocation" => file_location(),
+        "ServiceMetadata" => service_metadata(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type listed_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listed_host_key() :: %{
+        "Arn" => String.t() | atom(),
+        "DateImported" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Fingerprint" => String.t() | atom(),
+        "HostKeyId" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type listed_host_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listed_profile() :: %{
+        "Arn" => String.t() | atom(),
+        "As2Id" => String.t() | atom(),
+        "ProfileId" => String.t() | atom(),
+        "ProfileType" => list(any())
+      }
+      
+  """
+  @type listed_profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listed_server() :: %{
+        "Arn" => String.t() | atom(),
+        "Domain" => list(any()),
+        "EndpointType" => list(any()),
+        "IdentityProviderType" => list(any()),
+        "LoggingRole" => String.t() | atom(),
+        "ServerId" => String.t() | atom(),
+        "State" => list(any()),
+        "UserCount" => integer()
+      }
+      
+  """
+  @type listed_server() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listed_user() :: %{
+        "Arn" => String.t() | atom(),
+        "HomeDirectory" => String.t() | atom(),
+        "HomeDirectoryType" => list(any()),
+        "Role" => String.t() | atom(),
+        "SshPublicKeyCount" => integer(),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type listed_user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listed_web_app() :: %{
+        "AccessEndpoint" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "EndpointType" => list(any()),
+        "WebAppEndpoint" => String.t() | atom(),
+        "WebAppId" => String.t() | atom()
+      }
+      
+  """
+  @type listed_web_app() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listed_workflow() :: %{
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom()
+      }
+      
+  """
+  @type listed_workflow() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      logging_configuration() :: %{
+        "LogGroupName" => String.t() | atom(),
+        "LoggingRole" => String.t() | atom()
+      }
+      
+  """
+  @type logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      posix_profile() :: %{
+        "Gid" => float(),
+        "SecondaryGids" => list(float()),
+        "Uid" => float()
+      }
+      
+  """
+  @type posix_profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      protocol_details() :: %{
+        "As2Transports" => list(list(any())()),
+        "PassiveIp" => String.t() | atom(),
+        "SetStatOption" => list(any()),
+        "TlsSessionResumptionMode" => list(any())
+      }
+      
+  """
+  @type protocol_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_exists_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Resource" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Resource" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_file_location() :: %{
+        "Bucket" => String.t() | atom(),
+        "Etag" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+      
+  """
+  @type s3_file_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_input_file_location() :: %{
+        "Bucket" => String.t() | atom(),
+        "Key" => String.t() | atom()
+      }
+      
+  """
+  @type s3_input_file_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_storage_options() :: %{
+        "DirectoryListingOptimization" => list(any())
+      }
+      
+  """
+  @type s3_storage_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type s3_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_workflow_step_state_request() :: %{
+        required("ExecutionId") => String.t() | atom(),
+        required("Status") => list(any()),
+        required("Token") => String.t() | atom(),
+        required("WorkflowId") => String.t() | atom()
+      }
+      
+  """
+  @type send_workflow_step_state_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_workflow_step_state_response() :: %{}
+      
+  """
+  @type send_workflow_step_state_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_metadata() :: %{
+        "UserDetails" => user_details()
+      }
+      
+  """
+  @type service_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_unavailable_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sftp_connector_config() :: %{
+        "MaxConcurrentConnections" => integer(),
+        "TrustedHostKeys" => list(String.t() | atom()),
+        "UserSecretId" => String.t() | atom()
+      }
+      
+  """
+  @type sftp_connector_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sftp_connector_connection_details() :: %{
+        "HostKey" => String.t() | atom()
+      }
+      
+  """
+  @type sftp_connector_connection_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ssh_public_key() :: %{
+        "DateImported" => non_neg_integer(),
+        "SshPublicKeyBody" => String.t() | atom(),
+        "SshPublicKeyId" => String.t() | atom()
+      }
+      
+  """
+  @type ssh_public_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_directory_listing_request() :: %{
+        optional("MaxItems") => integer(),
+        required("ConnectorId") => String.t() | atom(),
+        required("OutputDirectoryPath") => String.t() | atom(),
+        required("RemoteDirectoryPath") => String.t() | atom()
+      }
+      
+  """
+  @type start_directory_listing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_directory_listing_response() :: %{
+        "ListingId" => String.t() | atom(),
+        "OutputFileName" => String.t() | atom()
+      }
+      
+  """
+  @type start_directory_listing_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_file_transfer_request() :: %{
+        optional("CustomHttpHeaders") => list(custom_http_header()),
+        optional("LocalDirectoryPath") => String.t() | atom(),
+        optional("RemoteDirectoryPath") => String.t() | atom(),
+        optional("RetrieveFilePaths") => list(String.t() | atom()),
+        optional("SendFilePaths") => list(String.t() | atom()),
+        required("ConnectorId") => String.t() | atom()
+      }
+      
+  """
+  @type start_file_transfer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_file_transfer_response() :: %{
+        "TransferId" => String.t() | atom()
+      }
+      
+  """
+  @type start_file_transfer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_remote_delete_request() :: %{
+        required("ConnectorId") => String.t() | atom(),
+        required("DeletePath") => String.t() | atom()
+      }
+      
+  """
+  @type start_remote_delete_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_remote_delete_response() :: %{
+        "DeleteId" => String.t() | atom()
+      }
+      
+  """
+  @type start_remote_delete_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_remote_move_request() :: %{
+        required("ConnectorId") => String.t() | atom(),
+        required("SourcePath") => String.t() | atom(),
+        required("TargetPath") => String.t() | atom()
+      }
+      
+  """
+  @type start_remote_move_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_remote_move_response() :: %{
         "MoveId" => String.t() | atom()
       }
       
   """
   @type start_remote_move_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_server_request() :: %{
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type start_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_server_request() :: %{
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type stop_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("Arn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_step_details() :: %{
+        "Name" => String.t() | atom(),
+        "SourceFileLocation" => String.t() | atom(),
+        "Tags" => list(s3_tag())
+      }
+      
+  """
+  @type tag_step_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_connection_request() :: %{
+        required("ConnectorId") => String.t() | atom()
+      }
+      
+  """
+  @type test_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_connection_response() :: %{
+        "ConnectorId" => String.t() | atom(),
+        "SftpConnectionDetails" => sftp_connector_connection_details(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
+      }
+      
+  """
+  @type test_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_identity_provider_request() :: %{
+        optional("ServerProtocol") => list(any()),
+        optional("SourceIp") => String.t() | atom(),
+        optional("UserPassword") => String.t() | atom(),
+        required("ServerId") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type test_identity_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_identity_provider_response() :: %{
+        "Message" => String.t() | atom(),
+        "Response" => String.t() | atom(),
+        "StatusCode" => integer(),
+        "Url" => String.t() | atom()
+      }
+      
+  """
+  @type test_identity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "RetryAfterSeconds" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("Arn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_access_request() :: %{
+        optional("HomeDirectory") => String.t() | atom(),
+        optional("HomeDirectoryMappings") => list(home_directory_map_entry()),
+        optional("HomeDirectoryType") => list(any()),
+        optional("Policy") => String.t() | atom(),
+        optional("PosixProfile") => posix_profile(),
+        optional("Role") => String.t() | atom(),
+        required("ExternalId") => String.t() | atom(),
+        required("ServerId") => String.t() | atom()
+      }
+      
+  """
+  @type update_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_access_response() :: %{
+        "ExternalId" => String.t() | atom(),
+        "ServerId" => String.t() | atom()
+      }
+      
+  """
+  @type update_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -484,299 +2415,92 @@ defmodule AWS.Transfer do
 
   ## Example:
       
-      delete_ssh_public_key_request() :: %{
-        required("ServerId") => String.t() | atom(),
-        required("SshPublicKeyId") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
+      update_agreement_response() :: %{
+        "AgreementId" => String.t() | atom()
       }
       
   """
-  @type delete_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
+  @type update_agreement_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      update_certificate_request() :: %{
+        optional("ActiveDate") => non_neg_integer(),
+        optional("Description") => String.t() | atom(),
+        optional("InactiveDate") => non_neg_integer(),
+        required("CertificateId") => String.t() | atom()
       }
       
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type update_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_file_transfer_request() :: %{
-        optional("CustomHttpHeaders") => list(custom_http_header()),
-        optional("LocalDirectoryPath") => String.t() | atom(),
-        optional("RemoteDirectoryPath") => String.t() | atom(),
-        optional("RetrieveFilePaths") => list(String.t() | atom()),
-        optional("SendFilePaths") => list(String.t() | atom()),
+      update_certificate_response() :: %{
+        "CertificateId" => String.t() | atom()
+      }
+      
+  """
+  @type update_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connector_request() :: %{
+        optional("AccessRole") => String.t() | atom(),
+        optional("As2Config") => as2_connector_config(),
+        optional("EgressConfig") => list(),
+        optional("IpAddressType") => list(any()),
+        optional("LoggingRole") => String.t() | atom(),
+        optional("SecurityPolicyName") => String.t() | atom(),
+        optional("SftpConfig") => sftp_connector_config(),
+        optional("Url") => String.t() | atom(),
         required("ConnectorId") => String.t() | atom()
       }
       
   """
-  @type start_file_transfer_request() :: %{(String.t() | atom()) => any()}
+  @type update_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_web_app_request() :: %{
-        optional("AccessEndpoint") => String.t() | atom(),
-        optional("EndpointDetails") => list(),
-        optional("IdentityProviderDetails") => list(),
-        optional("WebAppUnits") => list(),
-        required("WebAppId") => String.t() | atom()
+      update_connector_response() :: %{
+        "ConnectorId" => String.t() | atom()
       }
       
   """
-  @type update_web_app_request() :: %{(String.t() | atom()) => any()}
+  @type update_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_step_details() :: %{
-        "Name" => String.t() | atom(),
-        "SourceFileLocation" => String.t() | atom()
+      update_connector_vpc_lattice_egress_config() :: %{
+        "PortNumber" => integer(),
+        "ResourceConfigurationArn" => String.t() | atom()
       }
       
   """
-  @type delete_step_details() :: %{(String.t() | atom()) => any()}
+  @type update_connector_vpc_lattice_egress_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_host_key_request() :: %{
+      update_host_key_request() :: %{
+        required("Description") => String.t() | atom(),
         required("HostKeyId") => String.t() | atom(),
         required("ServerId") => String.t() | atom()
       }
       
   """
-  @type delete_host_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_identity_center_config() :: %{
-        "ApplicationArn" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom(),
-        "Role" => String.t() | atom()
-      }
-      
-  """
-  @type described_identity_center_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_results() :: %{
-        "OnExceptionSteps" => list(execution_step_result()),
-        "Steps" => list(execution_step_result())
-      }
-      
-  """
-  @type execution_results() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_server_request() :: %{
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_server_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_request() :: %{
-        optional("HomeDirectory") => String.t() | atom(),
-        optional("HomeDirectoryMappings") => list(home_directory_map_entry()),
-        optional("HomeDirectoryType") => list(any()),
-        optional("Policy") => String.t() | atom(),
-        optional("PosixProfile") => posix_profile(),
-        optional("Role") => String.t() | atom(),
-        required("ServerId") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type update_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_directories_type() :: %{
-        "FailedFilesDirectory" => String.t() | atom(),
-        "MdnFilesDirectory" => String.t() | atom(),
-        "PayloadFilesDirectory" => String.t() | atom(),
-        "StatusFilesDirectory" => String.t() | atom(),
-        "TemporaryFilesDirectory" => String.t() | atom()
-      }
-      
-  """
-  @type custom_directories_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_executions_response() :: %{
-        "Executions" => list(listed_execution()),
-        "NextToken" => String.t() | atom(),
-        "WorkflowId" => String.t() | atom()
-      }
-      
-  """
-  @type list_executions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listed_execution() :: %{
-        "ExecutionId" => String.t() | atom(),
-        "InitialFileLocation" => file_location(),
-        "ServiceMetadata" => service_metadata(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type listed_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_web_app_customization_request() :: %{
-        required("WebAppId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_web_app_customization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_http_header() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type custom_http_header() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listed_web_app() :: %{
-        "AccessEndpoint" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "EndpointType" => list(any()),
-        "WebAppEndpoint" => String.t() | atom(),
-        "WebAppId" => String.t() | atom()
-      }
-      
-  """
-  @type listed_web_app() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_connectors_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listed_agreement() :: %{
-        "AgreementId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "LocalProfileId" => String.t() | atom(),
-        "PartnerProfileId" => String.t() | atom(),
-        "ServerId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type listed_agreement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_host_key_response() :: %{
-        "HostKeyId" => String.t() | atom(),
-        "ServerId" => String.t() | atom()
-      }
-      
-  """
-  @type import_host_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_workflow_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("OnExceptionSteps") => list(workflow_step()),
-        optional("Tags") => list(tag()),
-        required("Steps") => list(workflow_step())
-      }
-      
-  """
-  @type create_workflow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_profile_request() :: %{
-        required("ProfileId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_certificate_request() :: %{
-        optional("ActiveDate") => non_neg_integer(),
-        optional("CertificateChain") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("InactiveDate") => non_neg_integer(),
-        optional("PrivateKey") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Certificate") => String.t() | atom(),
-        required("Usage") => list(any())
-      }
-      
-  """
-  @type import_certificate_request() :: %{(String.t() | atom()) => any()}
+  @type update_host_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -794,198 +2518,13 @@ defmodule AWS.Transfer do
 
   ## Example:
       
-      update_web_app_identity_center_config() :: %{
-        "Role" => String.t() | atom()
-      }
-      
-  """
-  @type update_web_app_identity_center_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_remote_delete_response() :: %{
-        "DeleteId" => String.t() | atom()
-      }
-      
-  """
-  @type start_remote_delete_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_profile_request() :: %{
+      update_profile_request() :: %{
+        optional("CertificateIds") => list(String.t() | atom()),
         required("ProfileId") => String.t() | atom()
       }
       
   """
-  @type delete_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_user() :: %{
-        "Arn" => String.t() | atom(),
-        "HomeDirectory" => String.t() | atom(),
-        "HomeDirectoryMappings" => list(home_directory_map_entry()),
-        "HomeDirectoryType" => list(any()),
-        "Policy" => String.t() | atom(),
-        "PosixProfile" => posix_profile(),
-        "Role" => String.t() | atom(),
-        "SshPublicKeys" => list(ssh_public_key()),
-        "Tags" => list(tag()),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type described_user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_certificates_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_certificates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listed_server() :: %{
-        "Arn" => String.t() | atom(),
-        "Domain" => list(any()),
-        "EndpointType" => list(any()),
-        "IdentityProviderType" => list(any()),
-        "LoggingRole" => String.t() | atom(),
-        "ServerId" => String.t() | atom(),
-        "State" => list(any()),
-        "UserCount" => integer()
-      }
-      
-  """
-  @type listed_server() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_access() :: %{
-        "ExternalId" => String.t() | atom(),
-        "HomeDirectory" => String.t() | atom(),
-        "HomeDirectoryMappings" => list(home_directory_map_entry()),
-        "HomeDirectoryType" => list(any()),
-        "Policy" => String.t() | atom(),
-        "PosixProfile" => posix_profile(),
-        "Role" => String.t() | atom()
-      }
-      
-  """
-  @type described_access() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_ssh_public_key_response() :: %{
-        "ServerId" => String.t() | atom(),
-        "SshPublicKeyId" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type import_ssh_public_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type s3_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      logging_configuration() :: %{
-        "LogGroupName" => String.t() | atom(),
-        "LoggingRole" => String.t() | atom()
-      }
-      
-  """
-  @type logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_step_result() :: %{
-        "Error" => execution_error(),
-        "Outputs" => String.t() | atom(),
-        "StepType" => list(any())
-      }
-      
-  """
-  @type execution_step_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_response() :: %{
-        "ServerId" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type update_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_host_key_response() :: %{
-        "HostKey" => described_host_key()
-      }
-      
-  """
-  @type describe_host_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listed_connector() :: %{
-        "Arn" => String.t() | atom(),
-        "ConnectorId" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-      
-  """
-  @type listed_connector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_agreement_response() :: %{
-        "AgreementId" => String.t() | atom()
-      }
-      
-  """
-  @type create_agreement_response() :: %{(String.t() | atom()) => any()}
+  @type update_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1029,511 +2568,42 @@ defmodule AWS.Transfer do
 
   ## Example:
       
-      efs_file_location() :: %{
-        "FileSystemId" => String.t() | atom(),
-        "Path" => String.t() | atom()
-      }
-      
-  """
-  @type efs_file_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_workflow_response() :: %{
-        "WorkflowId" => String.t() | atom()
-      }
-      
-  """
-  @type create_workflow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_agreements_response() :: %{
-        "Agreements" => list(listed_agreement()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_agreements_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connector_vpc_lattice_egress_config() :: %{
-        "PortNumber" => integer(),
-        "ResourceConfigurationArn" => String.t() | atom()
-      }
-      
-  """
-  @type connector_vpc_lattice_egress_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      as2_connector_config() :: %{
-        "AsyncMdnConfig" => as2_async_mdn_connector_config(),
-        "BasicAuthSecretId" => String.t() | atom(),
-        "Compression" => list(any()),
-        "EncryptionAlgorithm" => list(any()),
-        "LocalProfileId" => String.t() | atom(),
-        "MdnResponse" => list(any()),
-        "MdnSigningAlgorithm" => list(any()),
-        "MessageSubject" => String.t() | atom(),
-        "PartnerProfileId" => String.t() | atom(),
-        "PreserveContentType" => list(any()),
-        "SigningAlgorithm" => list(any())
-      }
-      
-  """
-  @type as2_connector_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_certificate_response() :: %{
-        "CertificateId" => String.t() | atom()
-      }
-      
-  """
-  @type update_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_workflow_request() :: %{
-        required("WorkflowId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_workflow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_web_app_customization_response() :: %{
-        "WebAppId" => String.t() | atom()
-      }
-      
-  """
-  @type update_web_app_customization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_remote_move_request() :: %{
-        required("ConnectorId") => String.t() | atom(),
-        required("SourcePath") => String.t() | atom(),
-        required("TargetPath") => String.t() | atom()
-      }
-      
-  """
-  @type start_remote_move_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_security_policy_request() :: %{
-        required("SecurityPolicyName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_security_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_file_transfer_results_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConnectorId") => String.t() | atom(),
-        required("TransferId") => String.t() | atom()
-      }
-      
-  """
-  @type list_file_transfer_results_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_web_app_response() :: %{
-        "WebAppId" => String.t() | atom()
-      }
-      
-  """
-  @type create_web_app_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protocol_details() :: %{
-        "As2Transports" => list(list(any())()),
-        "PassiveIp" => String.t() | atom(),
-        "SetStatOption" => list(any()),
-        "TlsSessionResumptionMode" => list(any())
-      }
-      
-  """
-  @type protocol_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_host_key_request() :: %{
-        required("Description") => String.t() | atom(),
-        required("HostKeyId") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type update_host_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_workflow() :: %{
-        "Arn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "OnExceptionSteps" => list(workflow_step()),
-        "Steps" => list(workflow_step()),
-        "Tags" => list(tag()),
-        "WorkflowId" => String.t() | atom()
-      }
-      
-  """
-  @type described_workflow() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_ssh_public_key_request() :: %{
-        required("ServerId") => String.t() | atom(),
-        required("SshPublicKeyBody") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type import_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Resource" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sftp_connector_connection_details() :: %{
-        "HostKey" => String.t() | atom()
-      }
-      
-  """
-  @type sftp_connector_connection_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_access_response() :: %{
-        "Access" => described_access(),
+      update_server_response() :: %{
         "ServerId" => String.t() | atom()
       }
       
   """
-  @type describe_access_response() :: %{(String.t() | atom()) => any()}
+  @type update_server_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_server_request() :: %{
-        required("ServerId") => String.t() | atom()
+      update_user_request() :: %{
+        optional("HomeDirectory") => String.t() | atom(),
+        optional("HomeDirectoryMappings") => list(home_directory_map_entry()),
+        optional("HomeDirectoryType") => list(any()),
+        optional("Policy") => String.t() | atom(),
+        optional("PosixProfile") => posix_profile(),
+        optional("Role") => String.t() | atom(),
+        required("ServerId") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type describe_server_request() :: %{(String.t() | atom()) => any()}
+  @type update_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      copy_step_details() :: %{
-        "DestinationFileLocation" => input_file_location(),
-        "Name" => String.t() | atom(),
-        "OverwriteExisting" => list(any()),
-        "SourceFileLocation" => String.t() | atom()
+      update_user_response() :: %{
+        "ServerId" => String.t() | atom(),
+        "UserName" => String.t() | atom()
       }
       
   """
-  @type copy_step_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("Arn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_agreement_request() :: %{
-        optional("BaseDirectory") => String.t() | atom(),
-        optional("CustomDirectories") => custom_directories_type(),
-        optional("Description") => String.t() | atom(),
-        optional("EnforceMessageSigning") => list(any()),
-        optional("PreserveFilename") => list(any()),
-        optional("Status") => list(any()),
-        optional("Tags") => list(tag()),
-        required("AccessRole") => String.t() | atom(),
-        required("LocalProfileId") => String.t() | atom(),
-        required("PartnerProfileId") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type create_agreement_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_profile() :: %{
-        "Arn" => String.t() | atom(),
-        "As2Id" => String.t() | atom(),
-        "CertificateIds" => list(String.t() | atom()),
-        "ProfileId" => String.t() | atom(),
-        "ProfileType" => list(any()),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type described_profile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_connector_vpc_lattice_egress_config() :: %{
-        "PortNumber" => integer(),
-        "ResourceConfigurationArn" => String.t() | atom()
-      }
-      
-  """
-  @type described_connector_vpc_lattice_egress_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_web_app_customization_request() :: %{
-        required("WebAppId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_web_app_customization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_web_apps_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "WebApps" => list(listed_web_app())
-      }
-      
-  """
-  @type list_web_apps_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_server_request() :: %{
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type stop_server_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_connector() :: %{
-        "AccessRole" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "As2Config" => as2_connector_config(),
-        "ConnectorId" => String.t() | atom(),
-        "EgressConfig" => list(),
-        "EgressType" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "IpAddressType" => list(any()),
-        "LoggingRole" => String.t() | atom(),
-        "SecurityPolicyName" => String.t() | atom(),
-        "ServiceManagedEgressIpAddresses" => list(String.t() | atom()),
-        "SftpConfig" => sftp_connector_config(),
-        "Status" => list(any()),
-        "Tags" => list(tag()),
-        "Url" => String.t() | atom()
-      }
-      
-  """
-  @type described_connector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_security_policies_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_security_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_server_request() :: %{
-        optional("Certificate") => String.t() | atom(),
-        optional("Domain") => list(any()),
-        optional("EndpointDetails") => endpoint_details(),
-        optional("EndpointType") => list(any()),
-        optional("HostKey") => String.t() | atom(),
-        optional("IdentityProviderDetails") => identity_provider_details(),
-        optional("IdentityProviderType") => list(any()),
-        optional("IpAddressType") => list(any()),
-        optional("LoggingRole") => String.t() | atom(),
-        optional("PostAuthenticationLoginBanner") => String.t() | atom(),
-        optional("PreAuthenticationLoginBanner") => String.t() | atom(),
-        optional("ProtocolDetails") => protocol_details(),
-        optional("Protocols") => list(list(any())()),
-        optional("S3StorageOptions") => s3_storage_options(),
-        optional("SecurityPolicyName") => String.t() | atom(),
-        optional("StructuredLogDestinations") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        optional("WorkflowDetails") => workflow_details()
-      }
-      
-  """
-  @type create_server_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_directory_listing_response() :: %{
-        "ListingId" => String.t() | atom(),
-        "OutputFileName" => String.t() | atom()
-      }
-      
-  """
-  @type start_directory_listing_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_access_request() :: %{
-        required("ExternalId") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_certificate_response() :: %{
-        "Certificate" => described_certificate()
-      }
-      
-  """
-  @type describe_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_connector_vpc_lattice_egress_config() :: %{
-        "PortNumber" => integer(),
-        "ResourceConfigurationArn" => String.t() | atom()
-      }
-      
-  """
-  @type update_connector_vpc_lattice_egress_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_execution_response() :: %{
-        "Execution" => described_execution(),
-        "WorkflowId" => String.t() | atom()
-      }
-      
-  """
-  @type describe_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_certificate() :: %{
-        "ActiveDate" => non_neg_integer(),
-        "Arn" => String.t() | atom(),
-        "Certificate" => String.t() | atom(),
-        "CertificateChain" => String.t() | atom(),
-        "CertificateId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "InactiveDate" => non_neg_integer(),
-        "NotAfterDate" => non_neg_integer(),
-        "NotBeforeDate" => non_neg_integer(),
-        "Serial" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => list(tag()),
-        "Type" => list(any()),
-        "Usage" => list(any())
-      }
-      
-  """
-  @type described_certificate() :: %{(String.t() | atom()) => any()}
+  @type update_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1553,56 +2623,38 @@ defmodule AWS.Transfer do
 
   ## Example:
       
-      as2_async_mdn_connector_config() :: %{
-        "ServerIds" => list(String.t() | atom()),
-        "Url" => String.t() | atom()
+      update_web_app_customization_response() :: %{
+        "WebAppId" => String.t() | atom()
       }
       
   """
-  @type as2_async_mdn_connector_config() :: %{(String.t() | atom()) => any()}
+  @type update_web_app_customization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      described_execution() :: %{
-        "ExecutionId" => String.t() | atom(),
-        "ExecutionRole" => String.t() | atom(),
-        "InitialFileLocation" => file_location(),
-        "LoggingConfiguration" => logging_configuration(),
-        "PosixProfile" => posix_profile(),
-        "Results" => execution_results(),
-        "ServiceMetadata" => service_metadata(),
-        "Status" => list(any())
+      update_web_app_identity_center_config() :: %{
+        "Role" => String.t() | atom()
       }
       
   """
-  @type described_execution() :: %{(String.t() | atom()) => any()}
+  @type update_web_app_identity_center_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_accesses_response() :: %{
-        "Accesses" => list(listed_access()),
-        "NextToken" => String.t() | atom(),
-        "ServerId" => String.t() | atom()
+      update_web_app_request() :: %{
+        optional("AccessEndpoint") => String.t() | atom(),
+        optional("EndpointDetails") => list(),
+        optional("IdentityProviderDetails") => list(),
+        optional("WebAppUnits") => list(),
+        required("WebAppId") => String.t() | atom()
       }
       
   """
-  @type list_accesses_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_response() :: %{
-        "ServerId" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type create_user_response() :: %{(String.t() | atom()) => any()}
+  @type update_web_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1614,45 +2666,6 @@ defmodule AWS.Transfer do
       
   """
   @type update_web_app_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_web_app_customization() :: %{
-        "Arn" => String.t() | atom(),
-        "FaviconFile" => binary(),
-        "LogoFile" => binary(),
-        "Title" => String.t() | atom(),
-        "WebAppId" => String.t() | atom()
-      }
-      
-  """
-  @type described_web_app_customization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_details() :: %{
-        "ServerId" => String.t() | atom(),
-        "SessionId" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type user_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1670,1019 +2683,14 @@ defmodule AWS.Transfer do
 
   ## Example:
       
-      list_workflows_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Workflows" => list(listed_workflow())
-      }
-      
-  """
-  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_certificate_request() :: %{
-        required("CertificateId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_connector_request() :: %{
-        required("ConnectorId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accesses_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type list_accesses_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_workflow_step_state_response() :: %{}
-      
-  """
-  @type send_workflow_step_state_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      listed_workflow() :: %{
-        "Arn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "WorkflowId" => String.t() | atom()
-      }
-      
-  """
-  @type listed_workflow() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("Arn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_file_transfer_results_response() :: %{
-        "FileTransferResults" => list(connector_file_transfer_result()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_file_transfer_results_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_users_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type list_users_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_profile_response() :: %{
-        "Profile" => described_profile()
-      }
-      
-  """
-  @type describe_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_request() :: %{
-        required("ServerId") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_directory_listing_request() :: %{
-        optional("MaxItems") => integer(),
-        required("ConnectorId") => String.t() | atom(),
-        required("OutputDirectoryPath") => String.t() | atom(),
-        required("RemoteDirectoryPath") => String.t() | atom()
-      }
-      
-  """
-  @type start_directory_listing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_identity_provider_request() :: %{
-        optional("ServerProtocol") => list(any()),
-        optional("SourceIp") => String.t() | atom(),
-        optional("UserPassword") => String.t() | atom(),
-        required("ServerId") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type test_identity_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_server_response() :: %{
-        "Server" => described_server()
-      }
-      
-  """
-  @type describe_server_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_next_token_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_storage_options() :: %{
-        "DirectoryListingOptimization" => list(any())
-      }
-      
-  """
-  @type s3_storage_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_location() :: %{
-        "EfsFileLocation" => efs_file_location(),
-        "S3FileLocation" => s3_file_location()
-      }
-      
-  """
-  @type file_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_profiles_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ProfileType") => list(any())
-      }
-      
-  """
-  @type list_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_workflow_request() :: %{
-        required("WorkflowId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_workflow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      posix_profile() :: %{
-        "Gid" => float(),
-        "SecondaryGids" => list(float()),
-        "Uid" => float()
-      }
-      
-  """
-  @type posix_profile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_workflow_step_state_request() :: %{
-        required("ExecutionId") => String.t() | atom(),
-        required("Status") => list(any()),
-        required("Token") => String.t() | atom(),
-        required("WorkflowId") => String.t() | atom()
-      }
-      
-  """
-  @type send_workflow_step_state_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_access_request() :: %{
-        optional("HomeDirectory") => String.t() | atom(),
-        optional("HomeDirectoryMappings") => list(home_directory_map_entry()),
-        optional("HomeDirectoryType") => list(any()),
-        optional("Policy") => String.t() | atom(),
-        optional("PosixProfile") => posix_profile(),
-        optional("Role") => String.t() | atom(),
-        required("ExternalId") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type update_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_step_details() :: %{
-        "Name" => String.t() | atom(),
-        "SourceFileLocation" => String.t() | atom(),
-        "Target" => String.t() | atom(),
-        "TimeoutSeconds" => integer()
-      }
-      
-  """
-  @type custom_step_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      decrypt_step_details() :: %{
-        "DestinationFileLocation" => input_file_location(),
-        "Name" => String.t() | atom(),
-        "OverwriteExisting" => list(any()),
-        "SourceFileLocation" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type decrypt_step_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listed_host_key() :: %{
-        "Arn" => String.t() | atom(),
-        "DateImported" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Fingerprint" => String.t() | atom(),
-        "HostKeyId" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-      
-  """
-  @type listed_host_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Arn" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_profiles_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Profiles" => list(listed_profile())
-      }
-      
-  """
-  @type list_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_workflows_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_web_apps_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_web_apps_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_security_policy() :: %{
-        "Fips" => boolean(),
-        "Protocols" => list(list(any())()),
-        "SecurityPolicyName" => String.t() | atom(),
-        "SshCiphers" => list(String.t() | atom()),
-        "SshHostKeyAlgorithms" => list(String.t() | atom()),
-        "SshKexs" => list(String.t() | atom()),
-        "SshMacs" => list(String.t() | atom()),
-        "TlsCiphers" => list(String.t() | atom()),
-        "Type" => list(any())
-      }
-      
-  """
-  @type described_security_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_metadata() :: %{
-        "UserDetails" => user_details()
-      }
-      
-  """
-  @type service_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      workflow_detail() :: %{
-        "ExecutionRole" => String.t() | atom(),
-        "WorkflowId" => String.t() | atom()
-      }
-      
-  """
-  @type workflow_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_users_response() :: %{
-        "NextToken" => String.t() | atom(),
+      user_details() :: %{
         "ServerId" => String.t() | atom(),
-        "Users" => list(listed_user())
-      }
-      
-  """
-  @type list_users_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_web_app() :: %{
-        "AccessEndpoint" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "DescribedEndpointDetails" => list(),
-        "DescribedIdentityProviderDetails" => list(),
-        "EndpointType" => list(any()),
-        "Tags" => list(tag()),
-        "WebAppEndpoint" => String.t() | atom(),
-        "WebAppEndpointPolicy" => list(any()),
-        "WebAppId" => String.t() | atom(),
-        "WebAppUnits" => list()
-      }
-      
-  """
-  @type described_web_app() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_agreement() :: %{
-        "AccessRole" => String.t() | atom(),
-        "AgreementId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "BaseDirectory" => String.t() | atom(),
-        "CustomDirectories" => custom_directories_type(),
-        "Description" => String.t() | atom(),
-        "EnforceMessageSigning" => list(any()),
-        "LocalProfileId" => String.t() | atom(),
-        "PartnerProfileId" => String.t() | atom(),
-        "PreserveFilename" => list(any()),
-        "ServerId" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type described_agreement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_request() :: %{
-        required("ServerId") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sftp_connector_config() :: %{
-        "MaxConcurrentConnections" => integer(),
-        "TrustedHostKeys" => list(String.t() | atom()),
-        "UserSecretId" => String.t() | atom()
-      }
-      
-  """
-  @type sftp_connector_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_connector_request() :: %{
-        optional("As2Config") => as2_connector_config(),
-        optional("EgressConfig") => list(),
-        optional("IpAddressType") => list(any()),
-        optional("LoggingRole") => String.t() | atom(),
-        optional("SecurityPolicyName") => String.t() | atom(),
-        optional("SftpConfig") => sftp_connector_config(),
-        optional("Tags") => list(tag()),
-        optional("Url") => String.t() | atom(),
-        required("AccessRole") => String.t() | atom()
-      }
-      
-  """
-  @type create_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      workflow_step() :: %{
-        "CopyStepDetails" => copy_step_details(),
-        "CustomStepDetails" => custom_step_details(),
-        "DecryptStepDetails" => decrypt_step_details(),
-        "DeleteStepDetails" => delete_step_details(),
-        "TagStepDetails" => tag_step_details(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type workflow_step() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_server() :: %{
-        "Arn" => String.t() | atom(),
-        "As2ServiceManagedEgressIpAddresses" => list(String.t() | atom()),
-        "Certificate" => String.t() | atom(),
-        "Domain" => list(any()),
-        "EndpointDetails" => endpoint_details(),
-        "EndpointType" => list(any()),
-        "HostKeyFingerprint" => String.t() | atom(),
-        "IdentityProviderDetails" => identity_provider_details(),
-        "IdentityProviderType" => list(any()),
-        "IpAddressType" => list(any()),
-        "LoggingRole" => String.t() | atom(),
-        "PostAuthenticationLoginBanner" => String.t() | atom(),
-        "PreAuthenticationLoginBanner" => String.t() | atom(),
-        "ProtocolDetails" => protocol_details(),
-        "Protocols" => list(list(any())()),
-        "S3StorageOptions" => s3_storage_options(),
-        "SecurityPolicyName" => String.t() | atom(),
-        "ServerId" => String.t() | atom(),
-        "State" => list(any()),
-        "StructuredLogDestinations" => list(String.t() | atom()),
-        "Tags" => list(tag()),
-        "UserCount" => integer(),
-        "WorkflowDetails" => workflow_details()
-      }
-      
-  """
-  @type described_server() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_certificate_response() :: %{
-        "CertificateId" => String.t() | atom()
-      }
-      
-  """
-  @type import_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_agreement_response() :: %{
-        "AgreementId" => String.t() | atom()
-      }
-      
-  """
-  @type update_agreement_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_agreement_request() :: %{
-        required("AgreementId") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_agreement_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_web_app_request() :: %{
-        required("WebAppId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_web_app_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_access_response() :: %{
-        "ExternalId" => String.t() | atom(),
-        "ServerId" => String.t() | atom()
-      }
-      
-  """
-  @type create_access_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_remote_delete_request() :: %{
-        required("ConnectorId") => String.t() | atom(),
-        required("DeletePath") => String.t() | atom()
-      }
-      
-  """
-  @type start_remote_delete_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_certificates_response() :: %{
-        "Certificates" => list(listed_certificate()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_certificates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_exists_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Resource" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type resource_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_host_key() :: %{
-        "Arn" => String.t() | atom(),
-        "DateImported" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "HostKeyFingerprint" => String.t() | atom(),
-        "HostKeyId" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "Type" => String.t() | atom()
-      }
-      
-  """
-  @type described_host_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_identity_provider_response() :: %{
-        "Message" => String.t() | atom(),
-        "Response" => String.t() | atom(),
-        "StatusCode" => integer(),
-        "Url" => String.t() | atom()
-      }
-      
-  """
-  @type test_identity_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_profile_request() :: %{
-        optional("CertificateIds") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        required("As2Id") => String.t() | atom(),
-        required("ProfileType") => list(any())
-      }
-      
-  """
-  @type create_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listed_user() :: %{
-        "Arn" => String.t() | atom(),
-        "HomeDirectory" => String.t() | atom(),
-        "HomeDirectoryType" => list(any()),
-        "Role" => String.t() | atom(),
-        "SshPublicKeyCount" => integer(),
+        "SessionId" => String.t() | atom(),
         "UserName" => String.t() | atom()
       }
       
   """
-  @type listed_user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listed_certificate() :: %{
-        "ActiveDate" => non_neg_integer(),
-        "Arn" => String.t() | atom(),
-        "CertificateId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "InactiveDate" => non_neg_integer(),
-        "Status" => list(any()),
-        "Type" => list(any()),
-        "Usage" => list(any())
-      }
-      
-  """
-  @type listed_certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_connector_response() :: %{
-        "ConnectorId" => String.t() | atom()
-      }
-      
-  """
-  @type create_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_agreements_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ServerId") => String.t() | atom()
-      }
-      
-  """
-  @type list_agreements_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_servers_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_servers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_file_location() :: %{
-        "Bucket" => String.t() | atom(),
-        "Etag" => String.t() | atom(),
-        "Key" => String.t() | atom(),
-        "VersionId" => String.t() | atom()
-      }
-      
-  """
-  @type s3_file_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_server_response() :: %{
-        "ServerId" => String.t() | atom()
-      }
-      
-  """
-  @type update_server_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_profile_request() :: %{
-        optional("CertificateIds") => list(String.t() | atom()),
-        required("ProfileId") => String.t() | atom()
-      }
-      
-  """
-  @type update_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      workflow_details() :: %{
-        "OnPartialUpload" => list(workflow_detail()),
-        "OnUpload" => list(workflow_detail())
-      }
-      
-  """
-  @type workflow_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_security_policies_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SecurityPolicyNames" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_security_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_agreement_response() :: %{
-        "Agreement" => described_agreement()
-      }
-      
-  """
-  @type describe_agreement_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cfn_user_properties() :: %{
-        "SshPublicKeys" => list(String.t() | atom())
-      }
-      
-  """
-  @type cfn_user_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_web_app_request() :: %{
-        optional("AccessEndpoint") => String.t() | atom(),
-        optional("EndpointDetails") => list(),
-        optional("Tags") => list(tag()),
-        optional("WebAppEndpointPolicy") => list(any()),
-        optional("WebAppUnits") => list(),
-        required("IdentityProviderDetails") => list()
-      }
-      
-  """
-  @type create_web_app_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_file_location() :: %{
-        "EfsFileLocation" => efs_file_location(),
-        "S3FileLocation" => s3_input_file_location()
-      }
-      
-  """
-  @type input_file_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_access_response() :: %{
-        "ExternalId" => String.t() | atom(),
-        "ServerId" => String.t() | atom()
-      }
-      
-  """
-  @type update_access_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_step_details() :: %{
-        "Name" => String.t() | atom(),
-        "SourceFileLocation" => String.t() | atom(),
-        "Tags" => list(s3_tag())
-      }
-      
-  """
-  @type tag_step_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_request() :: %{
-        optional("HomeDirectory") => String.t() | atom(),
-        optional("HomeDirectoryMappings") => list(home_directory_map_entry()),
-        optional("HomeDirectoryType") => list(any()),
-        optional("Policy") => String.t() | atom(),
-        optional("PosixProfile") => posix_profile(),
-        optional("SshPublicKeyBody") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Role") => String.t() | atom(),
-        required("ServerId") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type create_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_servers_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Servers" => list(listed_server())
-      }
-      
-  """
-  @type list_servers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Arn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_connector_response() :: %{
-        "ConnectorId" => String.t() | atom()
-      }
-      
-  """
-  @type update_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_error() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type execution_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_workflow_response() :: %{
-        "Workflow" => described_workflow()
-      }
-      
-  """
-  @type describe_workflow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ssh_public_key() :: %{
-        "DateImported" => non_neg_integer(),
-        "SshPublicKeyBody" => String.t() | atom(),
-        "SshPublicKeyId" => String.t() | atom()
-      }
-      
-  """
-  @type ssh_public_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      described_web_app_vpc_config() :: %{
-        "SubnetIds" => list(String.t() | atom()),
-        "VpcEndpointId" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type described_web_app_vpc_config() :: %{(String.t() | atom()) => any()}
+  @type user_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2702,535 +2710,527 @@ defmodule AWS.Transfer do
 
   ## Example:
       
-      internal_service_error() :: %{
-        "Message" => String.t() | atom()
+      workflow_detail() :: %{
+        "ExecutionRole" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom()
       }
       
   """
-  @type internal_service_error() :: %{(String.t() | atom()) => any()}
+  @type workflow_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      connector_file_transfer_result() :: %{
-        "FailureCode" => String.t() | atom(),
-        "FailureMessage" => String.t() | atom(),
-        "FilePath" => String.t() | atom(),
-        "StatusCode" => list(any())
+      workflow_details() :: %{
+        "OnPartialUpload" => list(workflow_detail()),
+        "OnUpload" => list(workflow_detail())
       }
       
   """
-  @type connector_file_transfer_result() :: %{(String.t() | atom()) => any()}
+  @type workflow_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_connectors_response() :: %{
-        "Connectors" => list(listed_connector()),
-        "NextToken" => String.t() | atom()
+      workflow_step() :: %{
+        "CopyStepDetails" => copy_step_details(),
+        "CustomStepDetails" => custom_step_details(),
+        "DecryptStepDetails" => decrypt_step_details(),
+        "DeleteStepDetails" => delete_step_details(),
+        "TagStepDetails" => tag_step_details(),
+        "Type" => list(any())
       }
       
   """
-  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_profile_response() :: %{
-        "ProfileId" => String.t() | atom()
-      }
-      
-  """
-  @type create_profile_response() :: %{(String.t() | atom()) => any()}
+  @type workflow_step() :: %{(String.t() | atom()) => any()}
 
   @type create_access_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_exists_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type create_agreement_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type create_connector_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type create_profile_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type create_server_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | resource_not_found_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | internal_service_error()
+          | access_denied_exception()
 
   @type create_user_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_exists_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type create_web_app_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_workflow_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | internal_service_error()
+          | access_denied_exception()
 
   @type delete_access_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type delete_agreement_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type delete_certificate_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type delete_connector_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type delete_host_key_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type delete_profile_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type delete_server_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | service_unavailable_exception()
 
   @type delete_ssh_public_key_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type delete_user_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type delete_web_app_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_web_app_customization_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_workflow_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | service_unavailable_exception()
 
   @type describe_access_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type describe_agreement_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type describe_certificate_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type describe_connector_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type describe_execution_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type describe_host_key_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type describe_profile_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type describe_security_policy_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type describe_server_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type describe_user_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type describe_web_app_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_web_app_customization_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
           | access_denied_exception()
-          | throttling_exception()
 
   @type describe_workflow_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type import_certificate_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type import_host_key_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type import_ssh_public_key_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type list_accesses_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
+          | resource_not_found_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | resource_not_found_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type list_agreements_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
+          | resource_not_found_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | resource_not_found_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type list_certificates_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
+          | resource_not_found_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | resource_not_found_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type list_connectors_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
+          | resource_not_found_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | resource_not_found_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type list_executions_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
+          | resource_not_found_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | resource_not_found_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type list_file_transfer_results_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type list_host_keys_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
+          | resource_not_found_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | resource_not_found_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type list_profiles_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
+          | resource_not_found_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | resource_not_found_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type list_security_policies_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type list_servers_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type list_tags_for_resource_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type list_users_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
+          | resource_not_found_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | resource_not_found_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type list_web_apps_errors() ::
-          internal_service_error()
+          throttling_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | throttling_exception()
+          | internal_service_error()
 
   @type list_workflows_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
           | invalid_request_exception()
           | invalid_next_token_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type send_workflow_step_state_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
+          | access_denied_exception()
 
   @type start_directory_listing_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type start_file_transfer_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type start_remote_delete_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type start_remote_move_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type start_server_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type stop_server_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type tag_resource_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type test_connection_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type test_identity_provider_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type untag_resource_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type update_access_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type update_agreement_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type update_certificate_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type update_connector_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type update_host_key_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type update_profile_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type update_server_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_exists_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | resource_exists_exception()
+          | invalid_request_exception()
+          | internal_service_error()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_user_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type update_web_app_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_web_app_customization_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | conflict_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_error()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{

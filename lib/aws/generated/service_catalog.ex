@@ -22,27 +22,14 @@ defmodule AWS.ServiceCatalog do
 
   ## Example:
       
-      update_provisioned_product_output() :: %{
-        "RecordDetail" => record_detail()
+      accept_portfolio_share_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PortfolioShareType") => list(any()),
+        required("PortfolioId") => String.t() | atom()
       }
       
   """
-  @type update_provisioned_product_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioning_artifact() :: %{
-        "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Guidance" => list(any()),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type provisioning_artifact() :: %{(String.t() | atom()) => any()}
+  @type accept_portfolio_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -57,773 +44,13 @@ defmodule AWS.ServiceCatalog do
 
   ## Example:
       
-      create_portfolio_output() :: %{
-        "PortfolioDetail" => portfolio_detail(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type create_portfolio_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_product_from_portfolio_output() :: %{}
-      
-  """
-  @type disassociate_product_from_portfolio_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      share_error() :: %{
-        "Accounts" => list(String.t() | atom()),
-        "Error" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type share_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_organization_portfolio_access_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "OrganizationNodes" => list(organization_node())
-      }
-      
-  """
-  @type list_organization_portfolio_access_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      launch_path() :: %{
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type launch_path() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stack_instance() :: %{
-        "Account" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "StackInstanceStatus" => list(any())
-      }
-      
-  """
-  @type stack_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_constraint_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type describe_constraint_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_provisioned_product_plan_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("NotificationArns") => list(String.t() | atom()),
-        optional("PathId") => String.t() | atom(),
-        optional("ProvisioningParameters") => list(update_provisioning_parameter()),
-        optional("Tags") => list(tag()),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("PlanName") => String.t() | atom(),
-        required("PlanType") => list(any()),
-        required("ProductId") => String.t() | atom(),
-        required("ProvisionedProductName") => String.t() | atom(),
-        required("ProvisioningArtifactId") => String.t() | atom()
-      }
-      
-  """
-  @type create_provisioned_product_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_budgets_for_resource_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        required("ResourceId") => String.t() | atom()
-      }
-      
-  """
-  @type list_budgets_for_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_constraint_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("Parameters") => String.t() | atom(),
-        required("PortfolioId") => String.t() | atom(),
-        required("ProductId") => String.t() | atom(),
-        required("Type") => String.t() | atom()
-      }
-      
-  """
-  @type create_constraint_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_principal_from_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PrincipalType") => list(any()),
-        required("PortfolioId") => String.t() | atom(),
-        required("PrincipalARN") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_principal_from_portfolio_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_parameter() :: %{
-        "DefaultValues" => list(String.t() | atom()),
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-      
-  """
-  @type execution_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_principal_from_portfolio_output() :: %{}
-      
-  """
-  @type disassociate_principal_from_portfolio_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_action_summary() :: %{
-        "DefinitionType" => list(any()),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type service_action_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_tag_option_from_resource_input() :: %{
-        required("ResourceId") => String.t() | atom(),
-        required("TagOptionId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_tag_option_from_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        required("Definition") => map(),
-        required("DefinitionType") => list(any()),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_service_action_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_portfolios_for_product_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "PortfolioDetails" => list(portfolio_detail())
-      }
-      
-  """
-  @type list_portfolios_for_product_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_product_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("CopyOptions") => list(list(any())()),
-        optional("SourceProvisioningArtifactIdentifiers") => list(map()),
-        optional("TargetProductId") => String.t() | atom(),
-        optional("TargetProductName") => String.t() | atom(),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("SourceProductArn") => String.t() | atom()
-      }
-      
-  """
-  @type copy_product_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_as_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("PhysicalId") => String.t() | atom(),
-        required("ProductId") => String.t() | atom(),
-        required("ProvisionedProductName") => String.t() | atom(),
-        required("ProvisioningArtifactId") => String.t() | atom()
-      }
-      
-  """
-  @type import_as_provisioned_product_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type describe_portfolio_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_aws_organizations_access_input() :: %{}
-      
-  """
-  @type disable_aws_organizations_access_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_option_not_migrated_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type tag_option_not_migrated_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      terminate_provisioned_product_output() :: %{
-        "RecordDetail" => record_detail()
-      }
-      
-  """
-  @type terminate_provisioned_product_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioned_product_plan_summary() :: %{
-        "PlanId" => String.t() | atom(),
-        "PlanName" => String.t() | atom(),
-        "PlanType" => list(any()),
-        "ProvisionProductId" => String.t() | atom(),
-        "ProvisionProductName" => String.t() | atom(),
-        "ProvisioningArtifactId" => String.t() | atom()
-      }
-      
-  """
-  @type provisioned_product_plan_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_service_actions_for_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        required("ProductId") => String.t() | atom(),
-        required("ProvisioningArtifactId") => String.t() | atom()
-      }
-      
-  """
-  @type list_service_actions_for_provisioning_artifact_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      list_launch_paths_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        required("ProductId") => String.t() | atom()
-      }
-      
-  """
-  @type list_launch_paths_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_action_association() :: %{
-        "ProductId" => String.t() | atom(),
-        "ProvisioningArtifactId" => String.t() | atom(),
-        "ServiceActionId" => String.t() | atom()
-      }
-      
-  """
-  @type service_action_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_portfolios_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_portfolios_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_products_as_admin_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("Filters") => map(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        optional("PortfolioId") => String.t() | atom(),
-        optional("ProductSource") => list(any()),
-        optional("SortBy") => list(any()),
-        optional("SortOrder") => list(any())
-      }
-      
-  """
-  @type search_products_as_admin_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_provisioned_product_plans_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("AccessLevelFilter") => access_level_filter(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        optional("ProvisionProductId") => String.t() | atom()
-      }
-      
-  """
-  @type list_provisioned_product_plans_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_connection() :: %{
-        "ConnectionParameters" => source_connection_parameters(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type source_connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      record_tag() :: %{
-        "Key" => String.t() | atom(),
+      access_level_filter() :: %{
+        "Key" => list(any()),
         "Value" => String.t() | atom()
       }
       
   """
-  @type record_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_associate_service_action_with_provisioning_artifact_output() :: %{
-        "FailedServiceActionAssociations" => list(failed_service_action_association())
-      }
-      
-  """
-  @type batch_associate_service_action_with_provisioning_artifact_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      update_service_action_output() :: %{
-        "ServiceActionDetail" => service_action_detail()
-      }
-      
-  """
-  @type update_service_action_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_aws_organizations_access_status_output() :: %{
-        "AccessStatus" => list(any())
-      }
-      
-  """
-  @type get_aws_organizations_access_status_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      record_detail() :: %{
-        "CreatedTime" => non_neg_integer(),
-        "LaunchRoleArn" => String.t() | atom(),
-        "PathId" => String.t() | atom(),
-        "ProductId" => String.t() | atom(),
-        "ProvisionedProductId" => String.t() | atom(),
-        "ProvisionedProductName" => String.t() | atom(),
-        "ProvisionedProductType" => String.t() | atom(),
-        "ProvisioningArtifactId" => String.t() | atom(),
-        "RecordErrors" => list(record_error()),
-        "RecordId" => String.t() | atom(),
-        "RecordTags" => list(record_tag()),
-        "RecordType" => String.t() | atom(),
-        "Status" => list(any()),
-        "UpdatedTime" => non_neg_integer()
-      }
-      
-  """
-  @type record_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_budget_from_resource_input() :: %{
-        required("BudgetName") => String.t() | atom(),
-        required("ResourceId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_budget_from_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tag_options_filters() :: %{
-        "Active" => boolean(),
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type list_tag_options_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("AccountId") => String.t() | atom(),
-        optional("OrganizationNode") => organization_node(),
-        optional("SharePrincipals") => boolean(),
-        optional("ShareTagOptions") => boolean(),
-        required("PortfolioId") => String.t() | atom()
-      }
-      
-  """
-  @type create_portfolio_share_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_provisioning_parameter() :: %{
-        "Key" => String.t() | atom(),
-        "UsePreviousValue" => boolean(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type update_provisioning_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_provisioned_product_plans_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "ProvisionedProductPlans" => list(provisioned_product_plan_summary())
-      }
-      
-  """
-  @type list_provisioned_product_plans_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_record_history_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "RecordDetails" => list(record_detail())
-      }
-      
-  """
-  @type list_record_history_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_provisioning_artifact_output() :: %{}
-      
-  """
-  @type delete_provisioning_artifact_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_copy_product_status_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("CopyProductToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_copy_product_status_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_as_provisioned_product_output() :: %{
-        "RecordDetail" => record_detail()
-      }
-      
-  """
-  @type import_as_provisioned_product_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("Active") => boolean(),
-        optional("Description") => String.t() | atom(),
-        optional("Guidance") => list(any()),
-        optional("Name") => String.t() | atom(),
-        required("ProductId") => String.t() | atom(),
-        required("ProvisioningArtifactId") => String.t() | atom()
-      }
-      
-  """
-  @type update_provisioning_artifact_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_portfolio_access_output() :: %{
-        "AccountIds" => list(String.t() | atom()),
-        "NextPageToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_portfolio_access_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_provisioning_artifacts_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("ProductId") => String.t() | atom()
-      }
-      
-  """
-  @type list_provisioning_artifacts_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_aws_organizations_access_output() :: %{}
-      
-  """
-  @type disable_aws_organizations_access_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      product_view_summary() :: %{
-        "Distributor" => String.t() | atom(),
-        "HasDefaultPath" => boolean(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Owner" => String.t() | atom(),
-        "ProductId" => String.t() | atom(),
-        "ShortDescription" => String.t() | atom(),
-        "SupportDescription" => String.t() | atom(),
-        "SupportEmail" => String.t() | atom(),
-        "SupportUrl" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type product_view_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_provisioning_artifact_output() :: %{
-        "Info" => map(),
-        "ProvisioningArtifactDetail" => provisioning_artifact_detail(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type update_provisioning_artifact_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      share_details() :: %{
-        "ShareErrors" => list(share_error()),
-        "SuccessfulShares" => list(String.t() | atom())
-      }
-      
-  """
-  @type share_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_constraints_for_portfolio_output() :: %{
-        "ConstraintDetails" => list(constraint_detail()),
-        "NextPageToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_constraints_for_portfolio_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_service_actions_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_service_actions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_change() :: %{
-        "Action" => list(any()),
-        "Details" => list(resource_change_detail()),
-        "LogicalResourceId" => String.t() | atom(),
-        "PhysicalResourceId" => String.t() | atom(),
-        "Replacement" => list(any()),
-        "ResourceType" => String.t() | atom(),
-        "Scope" => list(list(any())())
-      }
-      
-  """
-  @type resource_change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_service_action_output() :: %{
-        "ServiceActionDetail" => service_action_detail()
-      }
-      
-  """
-  @type describe_service_action_output() :: %{(String.t() | atom()) => any()}
+  @type access_level_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -841,75 +68,56 @@ defmodule AWS.ServiceCatalog do
 
   ## Example:
       
-      batch_associate_service_action_with_provisioning_artifact_input() :: %{
+      associate_budget_with_resource_output() :: %{}
+      
+  """
+  @type associate_budget_with_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_principal_with_portfolio_input() :: %{
         optional("AcceptLanguage") => String.t() | atom(),
-        required("ServiceActionAssociations") => list(service_action_association())
+        required("PortfolioId") => String.t() | atom(),
+        required("PrincipalARN") => String.t() | atom(),
+        required("PrincipalType") => list(any())
       }
       
   """
-  @type batch_associate_service_action_with_provisioning_artifact_input() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type associate_principal_with_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_portfolio_output() :: %{
-        "PortfolioDetail" => portfolio_detail(),
-        "Tags" => list(tag())
-      }
+      associate_principal_with_portfolio_output() :: %{}
       
   """
-  @type update_portfolio_output() :: %{(String.t() | atom()) => any()}
+  @type associate_principal_with_portfolio_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      describe_provisioning_artifact_input() :: %{
+      associate_product_with_portfolio_input() :: %{
         optional("AcceptLanguage") => String.t() | atom(),
-        optional("IncludeProvisioningArtifactParameters") => boolean(),
-        optional("ProductId") => String.t() | atom(),
-        optional("ProductName") => String.t() | atom(),
-        optional("ProvisioningArtifactId") => String.t() | atom(),
-        optional("ProvisioningArtifactName") => String.t() | atom(),
-        optional("Verbose") => boolean()
+        optional("SourcePortfolioId") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom(),
+        required("ProductId") => String.t() | atom()
       }
       
   """
-  @type describe_provisioning_artifact_input() :: %{(String.t() | atom()) => any()}
+  @type associate_product_with_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      execute_provisioned_product_service_action_output() :: %{
-        "RecordDetail" => record_detail()
-      }
+      associate_product_with_portfolio_output() :: %{}
       
   """
-  @type execute_provisioned_product_service_action_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_tag_option_from_resource_output() :: %{}
-      
-  """
-  @type disassociate_tag_option_from_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_dashboard() :: %{
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_dashboard() :: %{(String.t() | atom()) => any()}
+  @type associate_product_with_portfolio_output() :: %{}
 
   @typedoc """
 
@@ -932,26 +140,43 @@ defmodule AWS.ServiceCatalog do
 
   ## Example:
       
-      provision_product_output() :: %{
-        "RecordDetail" => record_detail()
-      }
+      associate_service_action_with_provisioning_artifact_output() :: %{}
       
   """
-  @type provision_product_output() :: %{(String.t() | atom()) => any()}
+  @type associate_service_action_with_provisioning_artifact_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      list_provisioning_artifacts_for_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        required("ServiceActionId") => String.t() | atom()
+      associate_tag_option_with_resource_input() :: %{
+        required("ResourceId") => String.t() | atom(),
+        required("TagOptionId") => String.t() | atom()
       }
       
   """
-  @type list_provisioning_artifacts_for_service_action_input() :: %{
+  @type associate_tag_option_with_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_tag_option_with_resource_output() :: %{}
+      
+  """
+  @type associate_tag_option_with_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_associate_service_action_with_provisioning_artifact_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("ServiceActionAssociations") => list(service_action_association())
+      }
+      
+  """
+  @type batch_associate_service_action_with_provisioning_artifact_input() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -959,74 +184,14 @@ defmodule AWS.ServiceCatalog do
 
   ## Example:
       
-      list_organization_portfolio_access_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        required("OrganizationNodeType") => list(any()),
-        required("PortfolioId") => String.t() | atom()
+      batch_associate_service_action_with_provisioning_artifact_output() :: %{
+        "FailedServiceActionAssociations" => list(failed_service_action_association())
       }
       
   """
-  @type list_organization_portfolio_access_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_target_definition() :: %{
-        "Attribute" => list(any()),
-        "Name" => String.t() | atom(),
-        "RequiresRecreation" => list(any())
-      }
-      
-  """
-  @type resource_target_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tag_options_output() :: %{
-        "PageToken" => String.t() | atom(),
-        "TagOptionDetails" => list(tag_option_detail())
-      }
-      
-  """
-  @type list_tag_options_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      record_error() :: %{
-        "Code" => String.t() | atom(),
-        "Description" => String.t() | atom()
-      }
-      
-  """
-  @type record_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_budget_with_resource_output() :: %{}
-      
-  """
-  @type associate_budget_with_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioning_artifact_output() :: %{
-        "Description" => String.t() | atom(),
-        "Key" => String.t() | atom()
-      }
-      
-  """
-  @type provisioning_artifact_output() :: %{(String.t() | atom()) => any()}
+  @type batch_associate_service_action_with_provisioning_artifact_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1046,80 +211,36 @@ defmodule AWS.ServiceCatalog do
 
   ## Example:
       
-      describe_provisioned_product_plan_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        required("PlanId") => String.t() | atom()
+      batch_disassociate_service_action_from_provisioning_artifact_output() :: %{
+        "FailedServiceActionAssociations" => list(failed_service_action_association())
       }
       
   """
-  @type describe_provisioned_product_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_constraint_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_constraint_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_record_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type describe_record_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_provision_product_engine_workflow_result_output() :: %{}
-      
-  """
-  @type notify_provision_product_engine_workflow_result_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      portfolio_detail() :: %{
-        "ARN" => String.t() | atom(),
-        "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ProviderName" => String.t() | atom()
-      }
-      
-  """
-  @type portfolio_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_provisioning_artifacts_for_service_action_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "ProvisioningArtifactViews" => list(provisioning_artifact_view())
-      }
-      
-  """
-  @type list_provisioning_artifacts_for_service_action_output() :: %{
+  @type batch_disassociate_service_action_from_provisioning_artifact_output() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      budget_detail() :: %{
+        "BudgetName" => String.t() | atom()
+      }
+      
+  """
+  @type budget_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_dashboard() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_watch_dashboard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1134,300 +255,6 @@ defmodule AWS.ServiceCatalog do
       
   """
   @type code_star_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_tag_option_input() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_tag_option_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accepted_portfolio_shares_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        optional("PortfolioShareType") => list(any())
-      }
-      
-  """
-  @type list_accepted_portfolio_shares_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      operation_not_supported_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type operation_not_supported_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tag_options_input() :: %{
-        optional("Filters") => list_tag_options_filters(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_tag_options_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_service_actions_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "ServiceActionSummaries" => list(service_action_summary())
-      }
-      
-  """
-  @type list_service_actions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_service_action_with_provisioning_artifact_output() :: %{}
-      
-  """
-  @type associate_service_action_with_provisioning_artifact_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioning_artifact_properties() :: %{
-        "Description" => String.t() | atom(),
-        "DisableTemplateValidation" => boolean(),
-        "Info" => map(),
-        "Name" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type provisioning_artifact_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioned_product_detail() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedTime" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "IdempotencyToken" => String.t() | atom(),
-        "LastProvisioningRecordId" => String.t() | atom(),
-        "LastRecordId" => String.t() | atom(),
-        "LastSuccessfulProvisioningRecordId" => String.t() | atom(),
-        "LaunchRoleArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ProductId" => String.t() | atom(),
-        "ProvisioningArtifactId" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-      
-  """
-  @type provisioned_product_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_principal_with_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("PortfolioId") => String.t() | atom(),
-        required("PrincipalARN") => String.t() | atom(),
-        required("PrincipalType") => list(any())
-      }
-      
-  """
-  @type associate_principal_with_portfolio_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      constraint_summary() :: %{
-        "Description" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-      
-  """
-  @type constraint_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_product_view_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type describe_product_view_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_tag_option_output() :: %{
-        "TagOptionDetail" => tag_option_detail()
-      }
-      
-  """
-  @type update_tag_option_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_record_history_search_filter() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type list_record_history_search_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_service_action_from_provisioning_artifact_output() :: %{}
-      
-  """
-  @type disassociate_service_action_from_provisioning_artifact_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      principal() :: %{
-        "PrincipalARN" => String.t() | atom(),
-        "PrincipalType" => list(any())
-      }
-      
-  """
-  @type principal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("AccountId") => String.t() | atom(),
-        optional("OrganizationNode") => organization_node(),
-        optional("SharePrincipals") => boolean(),
-        optional("ShareTagOptions") => boolean(),
-        required("PortfolioId") => String.t() | atom()
-      }
-      
-  """
-  @type update_portfolio_share_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_option_detail() :: %{
-        "Active" => boolean(),
-        "Id" => String.t() | atom(),
-        "Key" => String.t() | atom(),
-        "Owner" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag_option_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_change_detail() :: %{
-        "CausingEntity" => String.t() | atom(),
-        "Evaluation" => list(any()),
-        "Target" => resource_target_definition()
-      }
-      
-  """
-  @type resource_change_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_terminate_provisioned_product_engine_workflow_result_output() :: %{}
-      
-  """
-  @type notify_terminate_provisioned_product_engine_workflow_result_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_action_detail() :: %{
-        "Definition" => map(),
-        "ServiceActionSummary" => service_action_summary()
-      }
-      
-  """
-  @type service_action_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      product_view_detail() :: %{
-        "CreatedTime" => non_neg_integer(),
-        "ProductARN" => String.t() | atom(),
-        "ProductViewSummary" => product_view_summary(),
-        "SourceConnection" => source_connection_detail(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type product_view_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      engine_workflow_resource_identifier() :: %{
-        "UniqueTag" => unique_tag_resource_identifier()
-      }
-      
-  """
-  @type engine_workflow_resource_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_tag_option_input() :: %{
-        required("Key") => String.t() | atom(),
-        required("Value") => String.t() | atom()
-      }
-      
-  """
-  @type create_tag_option_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1449,485 +276,115 @@ defmodule AWS.ServiceCatalog do
 
   ## Example:
       
-      describe_portfolio_shares_input() :: %{
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
+      constraint_summary() :: %{
+        "Description" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type constraint_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_product_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("CopyOptions") => list(list(any())()),
+        optional("SourceProvisioningArtifactIdentifiers") => list(map()),
+        optional("TargetProductId") => String.t() | atom(),
+        optional("TargetProductName") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("SourceProductArn") => String.t() | atom()
+      }
+      
+  """
+  @type copy_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_product_output() :: %{
+        "CopyProductToken" => String.t() | atom()
+      }
+      
+  """
+  @type copy_product_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_constraint_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("Parameters") => String.t() | atom(),
         required("PortfolioId") => String.t() | atom(),
-        required("Type") => list(any())
-      }
-      
-  """
-  @type describe_portfolio_shares_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_aws_organizations_access_input() :: %{}
-      
-  """
-  @type enable_aws_organizations_access_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_provisioning_preferences() :: %{
-        "StackSetAccounts" => list(String.t() | atom()),
-        "StackSetFailureToleranceCount" => integer(),
-        "StackSetFailureTolerancePercentage" => integer(),
-        "StackSetMaxConcurrencyCount" => integer(),
-        "StackSetMaxConcurrencyPercentage" => integer(),
-        "StackSetOperationType" => list(any()),
-        "StackSetRegions" => list(String.t() | atom())
-      }
-      
-  """
-  @type update_provisioning_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      launch_path_summary() :: %{
-        "ConstraintSummaries" => list(constraint_summary()),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type launch_path_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provision_product_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("NotificationArns") => list(String.t() | atom()),
-        optional("PathId") => String.t() | atom(),
-        optional("PathName") => String.t() | atom(),
-        optional("ProductId") => String.t() | atom(),
-        optional("ProductName") => String.t() | atom(),
-        optional("ProvisioningArtifactId") => String.t() | atom(),
-        optional("ProvisioningArtifactName") => String.t() | atom(),
-        optional("ProvisioningParameters") => list(provisioning_parameter()),
-        optional("ProvisioningPreferences") => provisioning_preferences(),
-        optional("Tags") => list(tag()),
-        required("ProvisionToken") => String.t() | atom(),
-        required("ProvisionedProductName") => String.t() | atom()
-      }
-      
-  """
-  @type provision_product_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      record_output() :: %{
-        "Description" => String.t() | atom(),
-        "OutputKey" => String.t() | atom(),
-        "OutputValue" => String.t() | atom()
-      }
-      
-  """
-  @type record_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_provisioned_product_plan_output() :: %{}
-      
-  """
-  @type delete_provisioned_product_plan_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("IdempotencyToken") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_service_action_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_portfolio_share_status_output() :: %{
-        "OrganizationNodeValue" => String.t() | atom(),
-        "PortfolioId" => String.t() | atom(),
-        "PortfolioShareToken" => String.t() | atom(),
-        "ShareDetails" => share_details(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type describe_portfolio_share_status_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execute_provisioned_product_plan_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("PlanId") => String.t() | atom()
-      }
-      
-  """
-  @type execute_provisioned_product_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_provisioned_product_outputs_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "Outputs" => list(record_output())
-      }
-      
-  """
-  @type get_provisioned_product_outputs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_option_summary() :: %{
-        "Key" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type tag_option_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_provisioning_artifact_output() :: %{
-        "Info" => map(),
-        "ProvisioningArtifactDetail" => provisioning_artifact_detail(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type create_provisioning_artifact_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_provision_product_engine_workflow_result_input() :: %{
-        optional("FailureReason") => String.t() | atom(),
-        optional("Outputs") => list(record_output()),
-        optional("ResourceIdentifier") => engine_workflow_resource_identifier(),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("RecordId") => String.t() | atom(),
-        required("Status") => list(any()),
-        required("WorkflowToken") => String.t() | atom()
-      }
-      
-  """
-  @type notify_provision_product_engine_workflow_result_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioning_artifact_parameter() :: %{
-        "DefaultValue" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "IsNoEcho" => boolean(),
-        "ParameterConstraints" => parameter_constraints(),
-        "ParameterKey" => String.t() | atom(),
-        "ParameterType" => String.t() | atom()
-      }
-      
-  """
-  @type provisioning_artifact_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_record_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "RecordDetail" => record_detail(),
-        "RecordOutputs" => list(record_output())
-      }
-      
-  """
-  @type describe_record_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_disassociate_service_action_from_provisioning_artifact_output() :: %{
-        "FailedServiceActionAssociations" => list(failed_service_action_association())
-      }
-      
-  """
-  @type batch_disassociate_service_action_from_provisioning_artifact_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      create_provisioned_product_plan_output() :: %{
-        "PlanId" => String.t() | atom(),
-        "PlanName" => String.t() | atom(),
-        "ProvisionProductId" => String.t() | atom(),
-        "ProvisionedProductName" => String.t() | atom(),
-        "ProvisioningArtifactId" => String.t() | atom()
-      }
-      
-  """
-  @type create_provisioned_product_plan_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_product_with_portfolio_output() :: %{}
-      
-  """
-  @type associate_product_with_portfolio_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
         required("ProductId") => String.t() | atom(),
-        required("ProvisioningArtifactId") => String.t() | atom()
+        required("Type") => String.t() | atom()
       }
       
   """
-  @type delete_provisioning_artifact_input() :: %{(String.t() | atom()) => any()}
+  @type create_constraint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      source_connection_detail() :: %{
-        "ConnectionParameters" => source_connection_parameters(),
-        "LastSync" => last_sync(),
-        "Type" => list(any())
+      create_constraint_output() :: %{
+        "ConstraintDetail" => constraint_detail(),
+        "ConstraintParameters" => String.t() | atom(),
+        "Status" => list(any())
       }
       
   """
-  @type source_connection_detail() :: %{(String.t() | atom()) => any()}
+  @type create_constraint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      reject_portfolio_share_output() :: %{}
-      
-  """
-  @type reject_portfolio_share_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_portfolio_share_output() :: %{
-        "PortfolioShareToken" => String.t() | atom()
-      }
-      
-  """
-  @type delete_portfolio_share_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_aws_organizations_access_status_input() :: %{}
-      
-  """
-  @type get_aws_organizations_access_status_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_provisioned_products_input() :: %{
+      create_portfolio_input() :: %{
         optional("AcceptLanguage") => String.t() | atom(),
-        optional("AccessLevelFilter") => access_level_filter(),
-        optional("Filters") => map(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        optional("SortBy") => String.t() | atom(),
-        optional("SortOrder") => list(any())
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("DisplayName") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("ProviderName") => String.t() | atom()
       }
       
   """
-  @type search_provisioned_products_input() :: %{(String.t() | atom()) => any()}
+  @type create_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_portfolios_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "PortfolioDetails" => list(portfolio_detail())
-      }
-      
-  """
-  @type list_portfolios_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioning_parameter() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type provisioning_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_portfolios_for_product_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        required("ProductId") => String.t() | atom()
-      }
-      
-  """
-  @type list_portfolios_for_product_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_tag_option_input() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type describe_tag_option_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_tag_option_with_resource_output() :: %{}
-      
-  """
-  @type associate_tag_option_with_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_portfolio_output() :: %{
-        "Budgets" => list(budget_detail()),
+      create_portfolio_output() :: %{
         "PortfolioDetail" => portfolio_detail(),
-        "TagOptions" => list(tag_option_detail()),
         "Tags" => list(tag())
       }
       
   """
-  @type describe_portfolio_output() :: %{(String.t() | atom()) => any()}
+  @type create_portfolio_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_provisioning_parameters_output() :: %{
-        "ConstraintSummaries" => list(constraint_summary()),
-        "ProvisioningArtifactOutputKeys" => list(provisioning_artifact_output()),
-        "ProvisioningArtifactOutputs" => list(provisioning_artifact_output()),
-        "ProvisioningArtifactParameters" => list(provisioning_artifact_parameter()),
-        "ProvisioningArtifactPreferences" => provisioning_artifact_preferences(),
-        "TagOptions" => list(tag_option_summary()),
-        "UsageInstructions" => list(usage_instruction())
-      }
-      
-  """
-  @type describe_provisioning_parameters_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_in_use_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_portfolio_share_input() :: %{
+      create_portfolio_share_input() :: %{
         optional("AcceptLanguage") => String.t() | atom(),
-        optional("PortfolioShareType") => list(any()),
+        optional("AccountId") => String.t() | atom(),
+        optional("OrganizationNode") => organization_node(),
+        optional("SharePrincipals") => boolean(),
+        optional("ShareTagOptions") => boolean(),
         required("PortfolioId") => String.t() | atom()
       }
       
   """
-  @type accept_portfolio_share_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_stack_instances_for_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        required("ProvisionedProductId") => String.t() | atom()
-      }
-      
-  """
-  @type list_stack_instances_for_provisioned_product_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type describe_service_action_input() :: %{(String.t() | atom()) => any()}
+  @type create_portfolio_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1939,790 +396,6 @@ defmodule AWS.ServiceCatalog do
       
   """
   @type create_portfolio_share_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_product_from_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("PortfolioId") => String.t() | atom(),
-        required("ProductId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_product_from_portfolio_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_product_output() :: %{
-        "Budgets" => list(budget_detail()),
-        "LaunchPaths" => list(launch_path()),
-        "ProductViewSummary" => product_view_summary(),
-        "ProvisioningArtifacts" => list(provisioning_artifact())
-      }
-      
-  """
-  @type describe_product_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execute_provisioned_product_plan_output() :: %{
-        "RecordDetail" => record_detail()
-      }
-      
-  """
-  @type execute_provisioned_product_plan_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioning_artifact_detail() :: %{
-        "Active" => boolean(),
-        "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Guidance" => list(any()),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "SourceRevision" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type provisioning_artifact_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_product_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("AddTags") => list(tag()),
-        optional("Description") => String.t() | atom(),
-        optional("Distributor") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Owner") => String.t() | atom(),
-        optional("RemoveTags") => list(String.t() | atom()),
-        optional("SourceConnection") => source_connection(),
-        optional("SupportDescription") => String.t() | atom(),
-        optional("SupportEmail") => String.t() | atom(),
-        optional("SupportUrl") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type update_product_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scan_provisioned_products_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("AccessLevelFilter") => access_level_filter(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom()
-      }
-      
-  """
-  @type scan_provisioned_products_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_constraint_output() :: %{
-        "ConstraintDetail" => constraint_detail(),
-        "ConstraintParameters" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type describe_constraint_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_portfolio_output() :: %{}
-      
-  """
-  @type delete_portfolio_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      portfolio_share_detail() :: %{
-        "Accepted" => boolean(),
-        "PrincipalId" => String.t() | atom(),
-        "SharePrincipals" => boolean(),
-        "ShareTagOptions" => boolean(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type portfolio_share_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execute_provisioned_product_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("Parameters") => map(),
-        required("ExecuteToken") => String.t() | atom(),
-        required("ProvisionedProductId") => String.t() | atom(),
-        required("ServiceActionId") => String.t() | atom()
-      }
-      
-  """
-  @type execute_provisioned_product_service_action_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_detail() :: %{
-        "ARN" => String.t() | atom(),
-        "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type resource_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_provisioned_products_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "ProvisionedProducts" => list(provisioned_product_attribute()),
-        "TotalResultsCount" => integer()
-      }
-      
-  """
-  @type search_provisioned_products_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_provisioned_product_outputs_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("OutputKeys") => list(String.t() | atom()),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        optional("ProvisionedProductId") => String.t() | atom(),
-        optional("ProvisionedProductName") => String.t() | atom()
-      }
-      
-  """
-  @type get_provisioned_product_outputs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_product_as_admin_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("Id") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("SourcePortfolioId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_product_as_admin_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      duplicate_resource_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type duplicate_resource_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_provisioned_product_output() :: %{
-        "CloudWatchDashboards" => list(cloud_watch_dashboard()),
-        "ProvisionedProductDetail" => provisioned_product_detail()
-      }
-      
-  """
-  @type describe_provisioned_product_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_service_action_execution_parameters_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("ProvisionedProductId") => String.t() | atom(),
-        required("ServiceActionId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_service_action_execution_parameters_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_product_output() :: %{}
-      
-  """
-  @type delete_product_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioned_product_plan_details() :: %{
-        "CreatedTime" => non_neg_integer(),
-        "NotificationArns" => list(String.t() | atom()),
-        "PathId" => String.t() | atom(),
-        "PlanId" => String.t() | atom(),
-        "PlanName" => String.t() | atom(),
-        "PlanType" => list(any()),
-        "ProductId" => String.t() | atom(),
-        "ProvisionProductId" => String.t() | atom(),
-        "ProvisionProductName" => String.t() | atom(),
-        "ProvisioningArtifactId" => String.t() | atom(),
-        "ProvisioningParameters" => list(update_provisioning_parameter()),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "UpdatedTime" => non_neg_integer()
-      }
-      
-  """
-  @type provisioned_product_plan_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("Id") => String.t() | atom(),
-        optional("Name") => String.t() | atom()
-      }
-      
-  """
-  @type describe_provisioned_product_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_provisioning_artifacts_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "ProvisioningArtifactDetails" => list(provisioning_artifact_detail())
-      }
-      
-  """
-  @type list_provisioning_artifacts_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_portfolio_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_provisioned_product_properties_output() :: %{
-        "ProvisionedProductId" => String.t() | atom(),
-        "ProvisionedProductProperties" => map(),
-        "RecordId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type update_provisioned_product_properties_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_constraint_output() :: %{}
-      
-  """
-  @type delete_constraint_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("AccountId") => String.t() | atom(),
-        optional("OrganizationNode") => organization_node(),
-        required("PortfolioId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_portfolio_share_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_service_action_output() :: %{
-        "ServiceActionDetail" => service_action_detail()
-      }
-      
-  """
-  @type create_service_action_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_products_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("Filters") => map(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        optional("SortBy") => list(any()),
-        optional("SortOrder") => list(any())
-      }
-      
-  """
-  @type search_products_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_product_output() :: %{
-        "ProductViewDetail" => product_view_detail(),
-        "ProvisioningArtifactDetail" => provisioning_artifact_detail(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type create_product_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_launch_paths_output() :: %{
-        "LaunchPathSummaries" => list(launch_path_summary()),
-        "NextPageToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_launch_paths_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parameter_constraints() :: %{
-        "AllowedPattern" => String.t() | atom(),
-        "AllowedValues" => list(String.t() | atom()),
-        "ConstraintDescription" => String.t() | atom(),
-        "MaxLength" => String.t() | atom(),
-        "MaxValue" => String.t() | atom(),
-        "MinLength" => String.t() | atom(),
-        "MinValue" => String.t() | atom()
-      }
-      
-  """
-  @type parameter_constraints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_portfolio_shares_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "PortfolioShareDetails" => list(portfolio_share_detail())
-      }
-      
-  """
-  @type describe_portfolio_shares_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resources_for_tag_option_input() :: %{
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom(),
-        required("TagOptionId") => String.t() | atom()
-      }
-      
-  """
-  @type list_resources_for_tag_option_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_products_as_admin_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "ProductViewDetails" => list(product_view_detail())
-      }
-      
-  """
-  @type search_products_as_admin_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resources_for_tag_option_output() :: %{
-        "PageToken" => String.t() | atom(),
-        "ResourceDetails" => list(resource_detail())
-      }
-      
-  """
-  @type list_resources_for_tag_option_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_provisioning_artifact_output() :: %{
-        "Info" => map(),
-        "ProvisioningArtifactDetail" => provisioning_artifact_detail(),
-        "ProvisioningArtifactParameters" => list(provisioning_artifact_parameter()),
-        "Status" => list(any())
-      }
-      
-  """
-  @type describe_provisioning_artifact_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_products_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "ProductViewAggregations" => map(),
-        "ProductViewSummaries" => list(product_view_summary())
-      }
-      
-  """
-  @type search_products_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unique_tag_resource_identifier() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type unique_tag_resource_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioning_artifact_preferences() :: %{
-        "StackSetAccounts" => list(String.t() | atom()),
-        "StackSetRegions" => list(String.t() | atom())
-      }
-      
-  """
-  @type provisioning_artifact_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failed_service_action_association() :: %{
-        "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "ProductId" => String.t() | atom(),
-        "ProvisioningArtifactId" => String.t() | atom(),
-        "ServiceActionId" => String.t() | atom()
-      }
-      
-  """
-  @type failed_service_action_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_product_view_output() :: %{
-        "ProductViewSummary" => product_view_summary(),
-        "ProvisioningArtifacts" => list(provisioning_artifact())
-      }
-      
-  """
-  @type describe_product_view_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_provisioned_product_plan_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("IgnoreErrors") => boolean(),
-        required("PlanId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_provisioned_product_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      budget_detail() :: %{
-        "BudgetName" => String.t() | atom()
-      }
-      
-  """
-  @type budget_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_service_actions_for_provisioning_artifact_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "ServiceActionSummaries" => list(service_action_summary())
-      }
-      
-  """
-  @type list_service_actions_for_provisioning_artifact_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      update_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("AddTags") => list(tag()),
-        optional("Description") => String.t() | atom(),
-        optional("DisplayName") => String.t() | atom(),
-        optional("ProviderName") => String.t() | atom(),
-        optional("RemoveTags") => list(String.t() | atom()),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type update_portfolio_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_product_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_product_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("Parameters") => provisioning_artifact_properties(),
-        required("ProductId") => String.t() | atom()
-      }
-      
-  """
-  @type create_provisioning_artifact_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioning_artifact_summary() :: %{
-        "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ProvisioningArtifactMetadata" => map()
-      }
-      
-  """
-  @type provisioning_artifact_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_budget_from_resource_output() :: %{}
-      
-  """
-  @type disassociate_budget_from_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_tag_option_with_resource_input() :: %{
-        required("ResourceId") => String.t() | atom(),
-        required("TagOptionId") => String.t() | atom()
-      }
-      
-  """
-  @type associate_tag_option_with_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioning_artifact_view() :: %{
-        "ProductViewSummary" => product_view_summary(),
-        "ProvisioningArtifact" => provisioning_artifact()
-      }
-      
-  """
-  @type provisioning_artifact_view() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organization_node() :: %{
-        "Type" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type organization_node() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_constraint_output() :: %{
-        "ConstraintDetail" => constraint_detail(),
-        "ConstraintParameters" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type update_constraint_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_principals_for_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        required("PortfolioId") => String.t() | atom()
-      }
-      
-  """
-  @type list_principals_for_portfolio_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_product_output() :: %{
-        "ProductViewDetail" => product_view_detail(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type update_product_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provisioning_preferences() :: %{
-        "StackSetAccounts" => list(String.t() | atom()),
-        "StackSetFailureToleranceCount" => integer(),
-        "StackSetFailureTolerancePercentage" => integer(),
-        "StackSetMaxConcurrencyCount" => integer(),
-        "StackSetMaxConcurrencyPercentage" => integer(),
-        "StackSetRegions" => list(String.t() | atom())
-      }
-      
-  """
-  @type provisioning_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_provisioning_parameters_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("PathId") => String.t() | atom(),
-        optional("PathName") => String.t() | atom(),
-        optional("ProductId") => String.t() | atom(),
-        optional("ProductName") => String.t() | atom(),
-        optional("ProvisioningArtifactId") => String.t() | atom(),
-        optional("ProvisioningArtifactName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_provisioning_parameters_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      terminate_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("IgnoreErrors") => boolean(),
-        optional("ProvisionedProductId") => String.t() | atom(),
-        optional("ProvisionedProductName") => String.t() | atom(),
-        optional("RetainPhysicalResources") => boolean(),
-        required("TerminateToken") => String.t() | atom()
-      }
-      
-  """
-  @type terminate_provisioned_product_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_stack_instances_for_provisioned_product_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "StackInstances" => list(stack_instance())
-      }
-      
-  """
-  @type list_stack_instances_for_provisioned_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2751,38 +424,1868 @@ defmodule AWS.ServiceCatalog do
 
   ## Example:
       
-      associate_product_with_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("SourcePortfolioId") => String.t() | atom(),
-        required("PortfolioId") => String.t() | atom(),
-        required("ProductId") => String.t() | atom()
+      create_product_output() :: %{
+        "ProductViewDetail" => product_view_detail(),
+        "ProvisioningArtifactDetail" => provisioning_artifact_detail(),
+        "Tags" => list(tag())
       }
       
   """
-  @type associate_product_with_portfolio_input() :: %{(String.t() | atom()) => any()}
+  @type create_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_provisioned_product_input() :: %{
+      create_provisioned_product_plan_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("NotificationArns") => list(String.t() | atom()),
+        optional("PathId") => String.t() | atom(),
+        optional("ProvisioningParameters") => list(update_provisioning_parameter()),
+        optional("Tags") => list(tag()),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("PlanName") => String.t() | atom(),
+        required("PlanType") => list(any()),
+        required("ProductId") => String.t() | atom(),
+        required("ProvisionedProductName") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom()
+      }
+      
+  """
+  @type create_provisioned_product_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_provisioned_product_plan_output() :: %{
+        "PlanId" => String.t() | atom(),
+        "PlanName" => String.t() | atom(),
+        "ProvisionProductId" => String.t() | atom(),
+        "ProvisionedProductName" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom()
+      }
+      
+  """
+  @type create_provisioned_product_plan_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_provisioning_artifact_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("Parameters") => provisioning_artifact_properties(),
+        required("ProductId") => String.t() | atom()
+      }
+      
+  """
+  @type create_provisioning_artifact_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_provisioning_artifact_output() :: %{
+        "Info" => map(),
+        "ProvisioningArtifactDetail" => provisioning_artifact_detail(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type create_provisioning_artifact_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_service_action_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("Definition") => map(),
+        required("DefinitionType") => list(any()),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_service_action_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_service_action_output() :: %{
+        "ServiceActionDetail" => service_action_detail()
+      }
+      
+  """
+  @type create_service_action_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_tag_option_input() :: %{
+        required("Key") => String.t() | atom(),
+        required("Value") => String.t() | atom()
+      }
+      
+  """
+  @type create_tag_option_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_tag_option_output() :: %{
+        "TagOptionDetail" => tag_option_detail()
+      }
+      
+  """
+  @type create_tag_option_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_constraint_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_constraint_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_constraint_output() :: %{}
+      
+  """
+  @type delete_constraint_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_portfolio_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_portfolio_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_portfolio_output() :: %{}
+      
+  """
+  @type delete_portfolio_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_portfolio_share_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("AccountId") => String.t() | atom(),
+        optional("OrganizationNode") => organization_node(),
+        required("PortfolioId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_portfolio_share_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_portfolio_share_output() :: %{
+        "PortfolioShareToken" => String.t() | atom()
+      }
+      
+  """
+  @type delete_portfolio_share_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_product_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_product_output() :: %{}
+      
+  """
+  @type delete_product_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_provisioned_product_plan_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("IgnoreErrors") => boolean(),
+        required("PlanId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_provisioned_product_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_provisioned_product_plan_output() :: %{}
+      
+  """
+  @type delete_provisioned_product_plan_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_provisioning_artifact_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("ProductId") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_provisioning_artifact_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_provisioning_artifact_output() :: %{}
+      
+  """
+  @type delete_provisioning_artifact_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_action_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_service_action_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_action_output() :: %{}
+      
+  """
+  @type delete_service_action_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_tag_option_input() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_tag_option_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_tag_option_output() :: %{}
+      
+  """
+  @type delete_tag_option_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_constraint_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type describe_constraint_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_constraint_output() :: %{
+        "ConstraintDetail" => constraint_detail(),
+        "ConstraintParameters" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type describe_constraint_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_copy_product_status_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("CopyProductToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_copy_product_status_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_copy_product_status_output() :: %{
+        "CopyProductStatus" => list(any()),
+        "StatusDetail" => String.t() | atom(),
+        "TargetProductId" => String.t() | atom()
+      }
+      
+  """
+  @type describe_copy_product_status_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_portfolio_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type describe_portfolio_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_portfolio_output() :: %{
+        "Budgets" => list(budget_detail()),
+        "PortfolioDetail" => portfolio_detail(),
+        "TagOptions" => list(tag_option_detail()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type describe_portfolio_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_portfolio_share_status_input() :: %{
+        required("PortfolioShareToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_portfolio_share_status_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_portfolio_share_status_output() :: %{
+        "OrganizationNodeValue" => String.t() | atom(),
+        "PortfolioId" => String.t() | atom(),
+        "PortfolioShareToken" => String.t() | atom(),
+        "ShareDetails" => share_details(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type describe_portfolio_share_status_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_portfolio_shares_input() :: %{
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type describe_portfolio_shares_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_portfolio_shares_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "PortfolioShareDetails" => list(portfolio_share_detail())
+      }
+      
+  """
+  @type describe_portfolio_shares_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_product_as_admin_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("SourcePortfolioId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_product_as_admin_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_product_as_admin_output() :: %{
+        "Budgets" => list(budget_detail()),
+        "ProductViewDetail" => product_view_detail(),
+        "ProvisioningArtifactSummaries" => list(provisioning_artifact_summary()),
+        "TagOptions" => list(tag_option_detail()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type describe_product_as_admin_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_product_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+      
+  """
+  @type describe_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_product_output() :: %{
+        "Budgets" => list(budget_detail()),
+        "LaunchPaths" => list(launch_path()),
+        "ProductViewSummary" => product_view_summary(),
+        "ProvisioningArtifacts" => list(provisioning_artifact())
+      }
+      
+  """
+  @type describe_product_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_product_view_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type describe_product_view_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_product_view_output() :: %{
+        "ProductViewSummary" => product_view_summary(),
+        "ProvisioningArtifacts" => list(provisioning_artifact())
+      }
+      
+  """
+  @type describe_product_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_provisioned_product_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+      
+  """
+  @type describe_provisioned_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_provisioned_product_output() :: %{
+        "CloudWatchDashboards" => list(cloud_watch_dashboard()),
+        "ProvisionedProductDetail" => provisioned_product_detail()
+      }
+      
+  """
+  @type describe_provisioned_product_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_provisioned_product_plan_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        required("PlanId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_provisioned_product_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_provisioned_product_plan_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "ProvisionedProductPlanDetails" => provisioned_product_plan_details(),
+        "ResourceChanges" => list(resource_change())
+      }
+      
+  """
+  @type describe_provisioned_product_plan_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_provisioning_artifact_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("IncludeProvisioningArtifactParameters") => boolean(),
+        optional("ProductId") => String.t() | atom(),
+        optional("ProductName") => String.t() | atom(),
+        optional("ProvisioningArtifactId") => String.t() | atom(),
+        optional("ProvisioningArtifactName") => String.t() | atom(),
+        optional("Verbose") => boolean()
+      }
+      
+  """
+  @type describe_provisioning_artifact_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_provisioning_artifact_output() :: %{
+        "Info" => map(),
+        "ProvisioningArtifactDetail" => provisioning_artifact_detail(),
+        "ProvisioningArtifactParameters" => list(provisioning_artifact_parameter()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type describe_provisioning_artifact_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_provisioning_parameters_input() :: %{
         optional("AcceptLanguage") => String.t() | atom(),
         optional("PathId") => String.t() | atom(),
         optional("PathName") => String.t() | atom(),
         optional("ProductId") => String.t() | atom(),
         optional("ProductName") => String.t() | atom(),
-        optional("ProvisionedProductId") => String.t() | atom(),
-        optional("ProvisionedProductName") => String.t() | atom(),
         optional("ProvisioningArtifactId") => String.t() | atom(),
-        optional("ProvisioningArtifactName") => String.t() | atom(),
-        optional("ProvisioningParameters") => list(update_provisioning_parameter()),
-        optional("ProvisioningPreferences") => update_provisioning_preferences(),
-        optional("Tags") => list(tag()),
-        required("UpdateToken") => String.t() | atom()
+        optional("ProvisioningArtifactName") => String.t() | atom()
       }
       
   """
-  @type update_provisioned_product_input() :: %{(String.t() | atom()) => any()}
+  @type describe_provisioning_parameters_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_provisioning_parameters_output() :: %{
+        "ConstraintSummaries" => list(constraint_summary()),
+        "ProvisioningArtifactOutputKeys" => list(provisioning_artifact_output()),
+        "ProvisioningArtifactOutputs" => list(provisioning_artifact_output()),
+        "ProvisioningArtifactParameters" => list(provisioning_artifact_parameter()),
+        "ProvisioningArtifactPreferences" => provisioning_artifact_preferences(),
+        "TagOptions" => list(tag_option_summary()),
+        "UsageInstructions" => list(usage_instruction())
+      }
+      
+  """
+  @type describe_provisioning_parameters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_record_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type describe_record_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_record_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "RecordDetail" => record_detail(),
+        "RecordOutputs" => list(record_output())
+      }
+      
+  """
+  @type describe_record_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_action_execution_parameters_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("ProvisionedProductId") => String.t() | atom(),
+        required("ServiceActionId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_service_action_execution_parameters_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_action_execution_parameters_output() :: %{
+        "ServiceActionParameters" => list(execution_parameter())
+      }
+      
+  """
+  @type describe_service_action_execution_parameters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_action_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type describe_service_action_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_action_output() :: %{
+        "ServiceActionDetail" => service_action_detail()
+      }
+      
+  """
+  @type describe_service_action_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tag_option_input() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type describe_tag_option_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tag_option_output() :: %{
+        "TagOptionDetail" => tag_option_detail()
+      }
+      
+  """
+  @type describe_tag_option_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_aws_organizations_access_input() :: %{}
+      
+  """
+  @type disable_aws_organizations_access_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_aws_organizations_access_output() :: %{}
+      
+  """
+  @type disable_aws_organizations_access_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_budget_from_resource_input() :: %{
+        required("BudgetName") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_budget_from_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_budget_from_resource_output() :: %{}
+      
+  """
+  @type disassociate_budget_from_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_principal_from_portfolio_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PrincipalType") => list(any()),
+        required("PortfolioId") => String.t() | atom(),
+        required("PrincipalARN") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_principal_from_portfolio_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_principal_from_portfolio_output() :: %{}
+      
+  """
+  @type disassociate_principal_from_portfolio_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_product_from_portfolio_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom(),
+        required("ProductId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_product_from_portfolio_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_product_from_portfolio_output() :: %{}
+      
+  """
+  @type disassociate_product_from_portfolio_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_service_action_from_provisioning_artifact_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        required("ProductId") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom(),
+        required("ServiceActionId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_service_action_from_provisioning_artifact_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_service_action_from_provisioning_artifact_output() :: %{}
+      
+  """
+  @type disassociate_service_action_from_provisioning_artifact_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_tag_option_from_resource_input() :: %{
+        required("ResourceId") => String.t() | atom(),
+        required("TagOptionId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_tag_option_from_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_tag_option_from_resource_output() :: %{}
+      
+  """
+  @type disassociate_tag_option_from_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_resource_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_resource_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_aws_organizations_access_input() :: %{}
+      
+  """
+  @type enable_aws_organizations_access_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_aws_organizations_access_output() :: %{}
+      
+  """
+  @type enable_aws_organizations_access_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      engine_workflow_resource_identifier() :: %{
+        "UniqueTag" => unique_tag_resource_identifier()
+      }
+      
+  """
+  @type engine_workflow_resource_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execute_provisioned_product_plan_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("PlanId") => String.t() | atom()
+      }
+      
+  """
+  @type execute_provisioned_product_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execute_provisioned_product_plan_output() :: %{
+        "RecordDetail" => record_detail()
+      }
+      
+  """
+  @type execute_provisioned_product_plan_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execute_provisioned_product_service_action_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Parameters") => map(),
+        required("ExecuteToken") => String.t() | atom(),
+        required("ProvisionedProductId") => String.t() | atom(),
+        required("ServiceActionId") => String.t() | atom()
+      }
+      
+  """
+  @type execute_provisioned_product_service_action_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execute_provisioned_product_service_action_output() :: %{
+        "RecordDetail" => record_detail()
+      }
+      
+  """
+  @type execute_provisioned_product_service_action_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_parameter() :: %{
+        "DefaultValues" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type execution_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failed_service_action_association() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom(),
+        "ServiceActionId" => String.t() | atom()
+      }
+      
+  """
+  @type failed_service_action_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_aws_organizations_access_status_input() :: %{}
+      
+  """
+  @type get_aws_organizations_access_status_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_aws_organizations_access_status_output() :: %{
+        "AccessStatus" => list(any())
+      }
+      
+  """
+  @type get_aws_organizations_access_status_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_provisioned_product_outputs_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("OutputKeys") => list(String.t() | atom()),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        optional("ProvisionedProductId") => String.t() | atom(),
+        optional("ProvisionedProductName") => String.t() | atom()
+      }
+      
+  """
+  @type get_provisioned_product_outputs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_provisioned_product_outputs_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "Outputs" => list(record_output())
+      }
+      
+  """
+  @type get_provisioned_product_outputs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_as_provisioned_product_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("PhysicalId") => String.t() | atom(),
+        required("ProductId") => String.t() | atom(),
+        required("ProvisionedProductName") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom()
+      }
+      
+  """
+  @type import_as_provisioned_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_as_provisioned_product_output() :: %{
+        "RecordDetail" => record_detail()
+      }
+      
+  """
+  @type import_as_provisioned_product_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameters_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameters_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_state_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      last_sync() :: %{
+        "LastSuccessfulSyncProvisioningArtifactId" => String.t() | atom(),
+        "LastSuccessfulSyncTime" => non_neg_integer(),
+        "LastSyncStatus" => list(any()),
+        "LastSyncStatusMessage" => String.t() | atom(),
+        "LastSyncTime" => non_neg_integer()
+      }
+      
+  """
+  @type last_sync() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      launch_path() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type launch_path() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      launch_path_summary() :: %{
+        "ConstraintSummaries" => list(constraint_summary()),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type launch_path_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accepted_portfolio_shares_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        optional("PortfolioShareType") => list(any())
+      }
+      
+  """
+  @type list_accepted_portfolio_shares_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accepted_portfolio_shares_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "PortfolioDetails" => list(portfolio_detail())
+      }
+      
+  """
+  @type list_accepted_portfolio_shares_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_budgets_for_resource_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
+      }
+      
+  """
+  @type list_budgets_for_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_budgets_for_resource_output() :: %{
+        "Budgets" => list(budget_detail()),
+        "NextPageToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_budgets_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_constraints_for_portfolio_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        optional("ProductId") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom()
+      }
+      
+  """
+  @type list_constraints_for_portfolio_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_constraints_for_portfolio_output() :: %{
+        "ConstraintDetails" => list(constraint_detail()),
+        "NextPageToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_constraints_for_portfolio_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_launch_paths_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        required("ProductId") => String.t() | atom()
+      }
+      
+  """
+  @type list_launch_paths_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_launch_paths_output() :: %{
+        "LaunchPathSummaries" => list(launch_path_summary()),
+        "NextPageToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_launch_paths_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_organization_portfolio_access_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        required("OrganizationNodeType") => list(any()),
+        required("PortfolioId") => String.t() | atom()
+      }
+      
+  """
+  @type list_organization_portfolio_access_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_organization_portfolio_access_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "OrganizationNodes" => list(organization_node())
+      }
+      
+  """
+  @type list_organization_portfolio_access_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_portfolio_access_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("OrganizationParentId") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom()
+      }
+      
+  """
+  @type list_portfolio_access_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_portfolio_access_output() :: %{
+        "AccountIds" => list(String.t() | atom()),
+        "NextPageToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_portfolio_access_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_portfolios_for_product_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        required("ProductId") => String.t() | atom()
+      }
+      
+  """
+  @type list_portfolios_for_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_portfolios_for_product_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "PortfolioDetails" => list(portfolio_detail())
+      }
+      
+  """
+  @type list_portfolios_for_product_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_portfolios_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_portfolios_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_portfolios_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "PortfolioDetails" => list(portfolio_detail())
+      }
+      
+  """
+  @type list_portfolios_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_principals_for_portfolio_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom()
+      }
+      
+  """
+  @type list_principals_for_portfolio_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_principals_for_portfolio_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "Principals" => list(principal())
+      }
+      
+  """
+  @type list_principals_for_portfolio_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_provisioned_product_plans_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("AccessLevelFilter") => access_level_filter(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        optional("ProvisionProductId") => String.t() | atom()
+      }
+      
+  """
+  @type list_provisioned_product_plans_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_provisioned_product_plans_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "ProvisionedProductPlans" => list(provisioned_product_plan_summary())
+      }
+      
+  """
+  @type list_provisioned_product_plans_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_provisioning_artifacts_for_service_action_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        required("ServiceActionId") => String.t() | atom()
+      }
+      
+  """
+  @type list_provisioning_artifacts_for_service_action_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_provisioning_artifacts_for_service_action_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "ProvisioningArtifactViews" => list(provisioning_artifact_view())
+      }
+      
+  """
+  @type list_provisioning_artifacts_for_service_action_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_provisioning_artifacts_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("ProductId") => String.t() | atom()
+      }
+      
+  """
+  @type list_provisioning_artifacts_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_provisioning_artifacts_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "ProvisioningArtifactDetails" => list(provisioning_artifact_detail())
+      }
+      
+  """
+  @type list_provisioning_artifacts_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_record_history_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("AccessLevelFilter") => access_level_filter(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        optional("SearchFilter") => list_record_history_search_filter()
+      }
+      
+  """
+  @type list_record_history_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_record_history_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "RecordDetails" => list(record_detail())
+      }
+      
+  """
+  @type list_record_history_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_record_history_search_filter() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type list_record_history_search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resources_for_tag_option_input() :: %{
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom(),
+        required("TagOptionId") => String.t() | atom()
+      }
+      
+  """
+  @type list_resources_for_tag_option_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resources_for_tag_option_output() :: %{
+        "PageToken" => String.t() | atom(),
+        "ResourceDetails" => list(resource_detail())
+      }
+      
+  """
+  @type list_resources_for_tag_option_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_service_actions_for_provisioning_artifact_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        required("ProductId") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom()
+      }
+      
+  """
+  @type list_service_actions_for_provisioning_artifact_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_service_actions_for_provisioning_artifact_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "ServiceActionSummaries" => list(service_action_summary())
+      }
+      
+  """
+  @type list_service_actions_for_provisioning_artifact_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_service_actions_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_service_actions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_service_actions_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "ServiceActionSummaries" => list(service_action_summary())
+      }
+      
+  """
+  @type list_service_actions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_stack_instances_for_provisioned_product_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        required("ProvisionedProductId") => String.t() | atom()
+      }
+      
+  """
+  @type list_stack_instances_for_provisioned_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_stack_instances_for_provisioned_product_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "StackInstances" => list(stack_instance())
+      }
+      
+  """
+  @type list_stack_instances_for_provisioned_product_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tag_options_filters() :: %{
+        "Active" => boolean(),
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type list_tag_options_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tag_options_input() :: %{
+        optional("Filters") => list_tag_options_filters(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_tag_options_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tag_options_output() :: %{
+        "PageToken" => String.t() | atom(),
+        "TagOptionDetails" => list(tag_option_detail())
+      }
+      
+  """
+  @type list_tag_options_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_provision_product_engine_workflow_result_input() :: %{
+        optional("FailureReason") => String.t() | atom(),
+        optional("Outputs") => list(record_output()),
+        optional("ResourceIdentifier") => engine_workflow_resource_identifier(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("RecordId") => String.t() | atom(),
+        required("Status") => list(any()),
+        required("WorkflowToken") => String.t() | atom()
+      }
+      
+  """
+  @type notify_provision_product_engine_workflow_result_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_provision_product_engine_workflow_result_output() :: %{}
+      
+  """
+  @type notify_provision_product_engine_workflow_result_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_terminate_provisioned_product_engine_workflow_result_input() :: %{
+        optional("FailureReason") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("RecordId") => String.t() | atom(),
+        required("Status") => list(any()),
+        required("WorkflowToken") => String.t() | atom()
+      }
+      
+  """
+  @type notify_terminate_provisioned_product_engine_workflow_result_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_terminate_provisioned_product_engine_workflow_result_output() :: %{}
+      
+  """
+  @type notify_terminate_provisioned_product_engine_workflow_result_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_update_provisioned_product_engine_workflow_result_input() :: %{
+        optional("FailureReason") => String.t() | atom(),
+        optional("Outputs") => list(record_output()),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("RecordId") => String.t() | atom(),
+        required("Status") => list(any()),
+        required("WorkflowToken") => String.t() | atom()
+      }
+      
+  """
+  @type notify_update_provisioned_product_engine_workflow_result_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_update_provisioned_product_engine_workflow_result_output() :: %{}
+      
+  """
+  @type notify_update_provisioned_product_engine_workflow_result_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_not_supported_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type operation_not_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_node() :: %{
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type organization_node() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_constraints() :: %{
+        "AllowedPattern" => String.t() | atom(),
+        "AllowedValues" => list(String.t() | atom()),
+        "ConstraintDescription" => String.t() | atom(),
+        "MaxLength" => String.t() | atom(),
+        "MaxValue" => String.t() | atom(),
+        "MinLength" => String.t() | atom(),
+        "MinValue" => String.t() | atom()
+      }
+      
+  """
+  @type parameter_constraints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      portfolio_detail() :: %{
+        "ARN" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ProviderName" => String.t() | atom()
+      }
+      
+  """
+  @type portfolio_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      portfolio_share_detail() :: %{
+        "Accepted" => boolean(),
+        "PrincipalId" => String.t() | atom(),
+        "SharePrincipals" => boolean(),
+        "ShareTagOptions" => boolean(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type portfolio_share_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      principal() :: %{
+        "PrincipalARN" => String.t() | atom(),
+        "PrincipalType" => list(any())
+      }
+      
+  """
+  @type principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      product_view_aggregation_value() :: %{
+        "ApproximateCount" => integer(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type product_view_aggregation_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      product_view_detail() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "ProductARN" => String.t() | atom(),
+        "ProductViewSummary" => product_view_summary(),
+        "SourceConnection" => source_connection_detail(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type product_view_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      product_view_summary() :: %{
+        "Distributor" => String.t() | atom(),
+        "HasDefaultPath" => boolean(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "ShortDescription" => String.t() | atom(),
+        "SupportDescription" => String.t() | atom(),
+        "SupportEmail" => String.t() | atom(),
+        "SupportUrl" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type product_view_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provision_product_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("NotificationArns") => list(String.t() | atom()),
+        optional("PathId") => String.t() | atom(),
+        optional("PathName") => String.t() | atom(),
+        optional("ProductId") => String.t() | atom(),
+        optional("ProductName") => String.t() | atom(),
+        optional("ProvisioningArtifactId") => String.t() | atom(),
+        optional("ProvisioningArtifactName") => String.t() | atom(),
+        optional("ProvisioningParameters") => list(provisioning_parameter()),
+        optional("ProvisioningPreferences") => provisioning_preferences(),
+        optional("Tags") => list(tag()),
+        required("ProvisionToken") => String.t() | atom(),
+        required("ProvisionedProductName") => String.t() | atom()
+      }
+      
+  """
+  @type provision_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provision_product_output() :: %{
+        "RecordDetail" => record_detail()
+      }
+      
+  """
+  @type provision_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2817,75 +2320,689 @@ defmodule AWS.ServiceCatalog do
 
   ## Example:
       
-      list_accepted_portfolio_shares_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "PortfolioDetails" => list(portfolio_detail())
+      provisioned_product_detail() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "IdempotencyToken" => String.t() | atom(),
+        "LastProvisioningRecordId" => String.t() | atom(),
+        "LastRecordId" => String.t() | atom(),
+        "LastSuccessfulProvisioningRecordId" => String.t() | atom(),
+        "LaunchRoleArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type list_accepted_portfolio_shares_output() :: %{(String.t() | atom()) => any()}
+  @type provisioned_product_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_constraint_output() :: %{
-        "ConstraintDetail" => constraint_detail(),
-        "ConstraintParameters" => String.t() | atom(),
-        "Status" => list(any())
+      provisioned_product_plan_details() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "NotificationArns" => list(String.t() | atom()),
+        "PathId" => String.t() | atom(),
+        "PlanId" => String.t() | atom(),
+        "PlanName" => String.t() | atom(),
+        "PlanType" => list(any()),
+        "ProductId" => String.t() | atom(),
+        "ProvisionProductId" => String.t() | atom(),
+        "ProvisionProductName" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom(),
+        "ProvisioningParameters" => list(update_provisioning_parameter()),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "UpdatedTime" => non_neg_integer()
       }
       
   """
-  @type create_constraint_output() :: %{(String.t() | atom()) => any()}
+  @type provisioned_product_plan_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_product_as_admin_output() :: %{
-        "Budgets" => list(budget_detail()),
-        "ProductViewDetail" => product_view_detail(),
-        "ProvisioningArtifactSummaries" => list(provisioning_artifact_summary()),
-        "TagOptions" => list(tag_option_detail()),
-        "Tags" => list(tag())
+      provisioned_product_plan_summary() :: %{
+        "PlanId" => String.t() | atom(),
+        "PlanName" => String.t() | atom(),
+        "PlanType" => list(any()),
+        "ProvisionProductId" => String.t() | atom(),
+        "ProvisionProductName" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom()
       }
       
   """
-  @type describe_product_as_admin_output() :: %{(String.t() | atom()) => any()}
+  @type provisioned_product_plan_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      access_level_filter() :: %{
-        "Key" => list(any()),
+      provisioning_artifact() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Guidance" => list(any()),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type provisioning_artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provisioning_artifact_detail() :: %{
+        "Active" => boolean(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Guidance" => list(any()),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SourceRevision" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type provisioning_artifact_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provisioning_artifact_output() :: %{
+        "Description" => String.t() | atom(),
+        "Key" => String.t() | atom()
+      }
+      
+  """
+  @type provisioning_artifact_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provisioning_artifact_parameter() :: %{
+        "DefaultValue" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IsNoEcho" => boolean(),
+        "ParameterConstraints" => parameter_constraints(),
+        "ParameterKey" => String.t() | atom(),
+        "ParameterType" => String.t() | atom()
+      }
+      
+  """
+  @type provisioning_artifact_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provisioning_artifact_preferences() :: %{
+        "StackSetAccounts" => list(String.t() | atom()),
+        "StackSetRegions" => list(String.t() | atom())
+      }
+      
+  """
+  @type provisioning_artifact_preferences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provisioning_artifact_properties() :: %{
+        "Description" => String.t() | atom(),
+        "DisableTemplateValidation" => boolean(),
+        "Info" => map(),
+        "Name" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type provisioning_artifact_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provisioning_artifact_summary() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProvisioningArtifactMetadata" => map()
+      }
+      
+  """
+  @type provisioning_artifact_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provisioning_artifact_view() :: %{
+        "ProductViewSummary" => product_view_summary(),
+        "ProvisioningArtifact" => provisioning_artifact()
+      }
+      
+  """
+  @type provisioning_artifact_view() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provisioning_parameter() :: %{
+        "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
       }
       
   """
-  @type access_level_filter() :: %{(String.t() | atom()) => any()}
+  @type provisioning_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_service_action_execution_parameters_output() :: %{
-        "ServiceActionParameters" => list(execution_parameter())
+      provisioning_preferences() :: %{
+        "StackSetAccounts" => list(String.t() | atom()),
+        "StackSetFailureToleranceCount" => integer(),
+        "StackSetFailureTolerancePercentage" => integer(),
+        "StackSetMaxConcurrencyCount" => integer(),
+        "StackSetMaxConcurrencyPercentage" => integer(),
+        "StackSetRegions" => list(String.t() | atom())
       }
       
   """
-  @type describe_service_action_execution_parameters_output() :: %{(String.t() | atom()) => any()}
+  @type provisioning_preferences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_state_exception() :: %{
+      record_detail() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "LaunchRoleArn" => String.t() | atom(),
+        "PathId" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "ProvisionedProductId" => String.t() | atom(),
+        "ProvisionedProductName" => String.t() | atom(),
+        "ProvisionedProductType" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom(),
+        "RecordErrors" => list(record_error()),
+        "RecordId" => String.t() | atom(),
+        "RecordTags" => list(record_tag()),
+        "RecordType" => String.t() | atom(),
+        "Status" => list(any()),
+        "UpdatedTime" => non_neg_integer()
+      }
+      
+  """
+  @type record_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      record_error() :: %{
+        "Code" => String.t() | atom(),
+        "Description" => String.t() | atom()
+      }
+      
+  """
+  @type record_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      record_output() :: %{
+        "Description" => String.t() | atom(),
+        "OutputKey" => String.t() | atom(),
+        "OutputValue" => String.t() | atom()
+      }
+      
+  """
+  @type record_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      record_tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type record_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_portfolio_share_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PortfolioShareType") => list(any()),
+        required("PortfolioId") => String.t() | atom()
+      }
+      
+  """
+  @type reject_portfolio_share_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_portfolio_share_output() :: %{}
+      
+  """
+  @type reject_portfolio_share_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_change() :: %{
+        "Action" => list(any()),
+        "Details" => list(resource_change_detail()),
+        "LogicalResourceId" => String.t() | atom(),
+        "PhysicalResourceId" => String.t() | atom(),
+        "Replacement" => list(any()),
+        "ResourceType" => String.t() | atom(),
+        "Scope" => list(list(any())())
+      }
+      
+  """
+  @type resource_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_change_detail() :: %{
+        "CausingEntity" => String.t() | atom(),
+        "Evaluation" => list(any()),
+        "Target" => resource_target_definition()
+      }
+      
+  """
+  @type resource_change_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_detail() :: %{
+        "ARN" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type resource_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_in_use_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_target_definition() :: %{
+        "Attribute" => list(any()),
+        "Name" => String.t() | atom(),
+        "RequiresRecreation" => list(any())
+      }
+      
+  """
+  @type resource_target_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scan_provisioned_products_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("AccessLevelFilter") => access_level_filter(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom()
+      }
+      
+  """
+  @type scan_provisioned_products_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scan_provisioned_products_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "ProvisionedProducts" => list(provisioned_product_detail())
+      }
+      
+  """
+  @type scan_provisioned_products_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_products_as_admin_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Filters") => map(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        optional("PortfolioId") => String.t() | atom(),
+        optional("ProductSource") => list(any()),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
+  """
+  @type search_products_as_admin_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_products_as_admin_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "ProductViewDetails" => list(product_view_detail())
+      }
+      
+  """
+  @type search_products_as_admin_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_products_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Filters") => map(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
+  """
+  @type search_products_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_products_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "ProductViewAggregations" => map(),
+        "ProductViewSummaries" => list(product_view_summary())
+      }
+      
+  """
+  @type search_products_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_provisioned_products_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("AccessLevelFilter") => access_level_filter(),
+        optional("Filters") => map(),
+        optional("PageSize") => integer(),
+        optional("PageToken") => String.t() | atom(),
+        optional("SortBy") => String.t() | atom(),
+        optional("SortOrder") => list(any())
+      }
+      
+  """
+  @type search_provisioned_products_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_provisioned_products_output() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "ProvisionedProducts" => list(provisioned_product_attribute()),
+        "TotalResultsCount" => integer()
+      }
+      
+  """
+  @type search_provisioned_products_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_action_association() :: %{
+        "ProductId" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom(),
+        "ServiceActionId" => String.t() | atom()
+      }
+      
+  """
+  @type service_action_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_action_detail() :: %{
+        "Definition" => map(),
+        "ServiceActionSummary" => service_action_summary()
+      }
+      
+  """
+  @type service_action_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_action_summary() :: %{
+        "DefinitionType" => list(any()),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type service_action_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      share_details() :: %{
+        "ShareErrors" => list(share_error()),
+        "SuccessfulShares" => list(String.t() | atom())
+      }
+      
+  """
+  @type share_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      share_error() :: %{
+        "Accounts" => list(String.t() | atom()),
+        "Error" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type share_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_connection() :: %{
+        "ConnectionParameters" => source_connection_parameters(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type source_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_connection_detail() :: %{
+        "ConnectionParameters" => source_connection_parameters(),
+        "LastSync" => last_sync(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type source_connection_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_connection_parameters() :: %{
+        "CodeStar" => code_star_parameters()
+      }
+      
+  """
+  @type source_connection_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stack_instance() :: %{
+        "Account" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "StackInstanceStatus" => list(any())
+      }
+      
+  """
+  @type stack_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_option_detail() :: %{
+        "Active" => boolean(),
+        "Id" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag_option_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_option_not_migrated_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type tag_option_not_migrated_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_option_summary() :: %{
+        "Key" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type tag_option_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminate_provisioned_product_input() :: %{
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("IgnoreErrors") => boolean(),
+        optional("ProvisionedProductId") => String.t() | atom(),
+        optional("ProvisionedProductName") => String.t() | atom(),
+        optional("RetainPhysicalResources") => boolean(),
+        required("TerminateToken") => String.t() | atom()
+      }
+      
+  """
+  @type terminate_provisioned_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminate_provisioned_product_output() :: %{
+        "RecordDetail" => record_detail()
+      }
+      
+  """
+  @type terminate_provisioned_product_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unique_tag_resource_identifier() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type unique_tag_resource_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2905,151 +3022,139 @@ defmodule AWS.ServiceCatalog do
 
   ## Example:
       
-      notify_update_provisioned_product_engine_workflow_result_output() :: %{}
-      
-  """
-  @type notify_update_provisioned_product_engine_workflow_result_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_tag_option_output() :: %{
-        "TagOptionDetail" => tag_option_detail()
+      update_constraint_output() :: %{
+        "ConstraintDetail" => constraint_detail(),
+        "ConstraintParameters" => String.t() | atom(),
+        "Status" => list(any())
       }
       
   """
-  @type describe_tag_option_output() :: %{(String.t() | atom()) => any()}
+  @type update_constraint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_product_input() :: %{
+      update_portfolio_input() :: %{
         optional("AcceptLanguage") => String.t() | atom(),
-        optional("Id") => String.t() | atom(),
-        optional("Name") => String.t() | atom()
+        optional("AddTags") => list(tag()),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("ProviderName") => String.t() | atom(),
+        optional("RemoveTags") => list(String.t() | atom()),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type describe_product_input() :: %{(String.t() | atom()) => any()}
+  @type update_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_constraints_for_portfolio_input() :: %{
+      update_portfolio_output() :: %{
+        "PortfolioDetail" => portfolio_detail(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type update_portfolio_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_portfolio_share_input() :: %{
         optional("AcceptLanguage") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        optional("ProductId") => String.t() | atom(),
+        optional("AccountId") => String.t() | atom(),
+        optional("OrganizationNode") => organization_node(),
+        optional("SharePrincipals") => boolean(),
+        optional("ShareTagOptions") => boolean(),
         required("PortfolioId") => String.t() | atom()
       }
       
   """
-  @type list_constraints_for_portfolio_input() :: %{(String.t() | atom()) => any()}
+  @type update_portfolio_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_tag_option_output() :: %{}
-      
-  """
-  @type delete_tag_option_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_budgets_for_resource_output() :: %{
-        "Budgets" => list(budget_detail()),
-        "NextPageToken" => String.t() | atom()
+      update_portfolio_share_output() :: %{
+        "PortfolioShareToken" => String.t() | atom(),
+        "Status" => list(any())
       }
       
   """
-  @type list_budgets_for_resource_output() :: %{(String.t() | atom()) => any()}
+  @type update_portfolio_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_service_action_output() :: %{}
-      
-  """
-  @type delete_service_action_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_service_action_from_provisioning_artifact_input() :: %{
+      update_product_input() :: %{
         optional("AcceptLanguage") => String.t() | atom(),
-        optional("IdempotencyToken") => String.t() | atom(),
-        required("ProductId") => String.t() | atom(),
-        required("ProvisioningArtifactId") => String.t() | atom(),
-        required("ServiceActionId") => String.t() | atom()
+        optional("AddTags") => list(tag()),
+        optional("Description") => String.t() | atom(),
+        optional("Distributor") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
+        optional("RemoveTags") => list(String.t() | atom()),
+        optional("SourceConnection") => source_connection(),
+        optional("SupportDescription") => String.t() | atom(),
+        optional("SupportEmail") => String.t() | atom(),
+        optional("SupportUrl") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type disassociate_service_action_from_provisioning_artifact_input() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type update_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_record_history_input() :: %{
+      update_product_output() :: %{
+        "ProductViewDetail" => product_view_detail(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type update_product_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_provisioned_product_input() :: %{
         optional("AcceptLanguage") => String.t() | atom(),
-        optional("AccessLevelFilter") => access_level_filter(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        optional("SearchFilter") => list_record_history_search_filter()
+        optional("PathId") => String.t() | atom(),
+        optional("PathName") => String.t() | atom(),
+        optional("ProductId") => String.t() | atom(),
+        optional("ProductName") => String.t() | atom(),
+        optional("ProvisionedProductId") => String.t() | atom(),
+        optional("ProvisionedProductName") => String.t() | atom(),
+        optional("ProvisioningArtifactId") => String.t() | atom(),
+        optional("ProvisioningArtifactName") => String.t() | atom(),
+        optional("ProvisioningParameters") => list(update_provisioning_parameter()),
+        optional("ProvisioningPreferences") => update_provisioning_preferences(),
+        optional("Tags") => list(tag()),
+        required("UpdateToken") => String.t() | atom()
       }
       
   """
-  @type list_record_history_input() :: %{(String.t() | atom()) => any()}
+  @type update_provisioned_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_copy_product_status_output() :: %{
-        "CopyProductStatus" => list(any()),
-        "StatusDetail" => String.t() | atom(),
-        "TargetProductId" => String.t() | atom()
+      update_provisioned_product_output() :: %{
+        "RecordDetail" => record_detail()
       }
       
   """
-  @type describe_copy_product_status_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_update_provisioned_product_engine_workflow_result_input() :: %{
-        optional("FailureReason") => String.t() | atom(),
-        optional("Outputs") => list(record_output()),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("RecordId") => String.t() | atom(),
-        required("Status") => list(any()),
-        required("WorkflowToken") => String.t() | atom()
-      }
-      
-  """
-  @type notify_update_provisioned_product_engine_workflow_result_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_principal_with_portfolio_output() :: %{}
-      
-  """
-  @type associate_principal_with_portfolio_output() :: %{}
+  @type update_provisioned_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3069,211 +3174,75 @@ defmodule AWS.ServiceCatalog do
 
   ## Example:
       
-      describe_portfolio_share_status_input() :: %{
-        required("PortfolioShareToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_portfolio_share_status_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameters_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameters_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_portfolio_share_output() :: %{
-        "PortfolioShareToken" => String.t() | atom(),
+      update_provisioned_product_properties_output() :: %{
+        "ProvisionedProductId" => String.t() | atom(),
+        "ProvisionedProductProperties" => map(),
+        "RecordId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type update_portfolio_share_output() :: %{(String.t() | atom()) => any()}
+  @type update_provisioned_product_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      product_view_aggregation_value() :: %{
-        "ApproximateCount" => integer(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type product_view_aggregation_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reject_portfolio_share_input() :: %{
+      update_provisioning_artifact_input() :: %{
         optional("AcceptLanguage") => String.t() | atom(),
-        optional("PortfolioShareType") => list(any()),
-        required("PortfolioId") => String.t() | atom()
-      }
-      
-  """
-  @type reject_portfolio_share_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      usage_instruction() :: %{
-        "Type" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type usage_instruction() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_portfolio_access_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("OrganizationParentId") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PageToken") => String.t() | atom(),
-        required("PortfolioId") => String.t() | atom()
-      }
-      
-  """
-  @type list_portfolio_access_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_provisioned_product_plan_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "ProvisionedProductPlanDetails" => provisioned_product_plan_details(),
-        "ResourceChanges" => list(resource_change())
-      }
-      
-  """
-  @type describe_provisioned_product_plan_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_tag_option_input() :: %{
         optional("Active") => boolean(),
-        optional("Value") => String.t() | atom(),
-        required("Id") => String.t() | atom()
+        optional("Description") => String.t() | atom(),
+        optional("Guidance") => list(any()),
+        optional("Name") => String.t() | atom(),
+        required("ProductId") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom()
       }
       
   """
-  @type update_tag_option_input() :: %{(String.t() | atom()) => any()}
+  @type update_provisioning_artifact_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_tag_option_output() :: %{
-        "TagOptionDetail" => tag_option_detail()
+      update_provisioning_artifact_output() :: %{
+        "Info" => map(),
+        "ProvisioningArtifactDetail" => provisioning_artifact_detail(),
+        "Status" => list(any())
       }
       
   """
-  @type create_tag_option_output() :: %{(String.t() | atom()) => any()}
+  @type update_provisioning_artifact_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      enable_aws_organizations_access_output() :: %{}
+      update_provisioning_parameter() :: %{
+        "Key" => String.t() | atom(),
+        "UsePreviousValue" => boolean(),
+        "Value" => String.t() | atom()
+      }
       
   """
-  @type enable_aws_organizations_access_output() :: %{}
+  @type update_provisioning_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      copy_product_output() :: %{
-        "CopyProductToken" => String.t() | atom()
+      update_provisioning_preferences() :: %{
+        "StackSetAccounts" => list(String.t() | atom()),
+        "StackSetFailureToleranceCount" => integer(),
+        "StackSetFailureTolerancePercentage" => integer(),
+        "StackSetMaxConcurrencyCount" => integer(),
+        "StackSetMaxConcurrencyPercentage" => integer(),
+        "StackSetOperationType" => list(any()),
+        "StackSetRegions" => list(String.t() | atom())
       }
       
   """
-  @type copy_product_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_terminate_provisioned_product_engine_workflow_result_input() :: %{
-        optional("FailureReason") => String.t() | atom(),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("RecordId") => String.t() | atom(),
-        required("Status") => list(any()),
-        required("WorkflowToken") => String.t() | atom()
-      }
-      
-  """
-  @type notify_terminate_provisioned_product_engine_workflow_result_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      scan_provisioned_products_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "ProvisionedProducts" => list(provisioned_product_detail())
-      }
-      
-  """
-  @type scan_provisioned_products_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      last_sync() :: %{
-        "LastSuccessfulSyncProvisioningArtifactId" => String.t() | atom(),
-        "LastSuccessfulSyncTime" => non_neg_integer(),
-        "LastSyncStatus" => list(any()),
-        "LastSyncStatusMessage" => String.t() | atom(),
-        "LastSyncTime" => non_neg_integer()
-      }
-      
-  """
-  @type last_sync() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_connection_parameters() :: %{
-        "CodeStar" => code_star_parameters()
-      }
-      
-  """
-  @type source_connection_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_principals_for_portfolio_output() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "Principals" => list(principal())
-      }
-      
-  """
-  @type list_principals_for_portfolio_output() :: %{(String.t() | atom()) => any()}
+  @type update_provisioning_preferences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3294,52 +3263,83 @@ defmodule AWS.ServiceCatalog do
 
   ## Example:
       
-      create_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("DisplayName") => String.t() | atom(),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("ProviderName") => String.t() | atom()
+      update_service_action_output() :: %{
+        "ServiceActionDetail" => service_action_detail()
       }
       
   """
-  @type create_portfolio_input() :: %{(String.t() | atom()) => any()}
+  @type update_service_action_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_tag_option_input() :: %{
+        optional("Active") => boolean(),
+        optional("Value") => String.t() | atom(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type update_tag_option_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_tag_option_output() :: %{
+        "TagOptionDetail" => tag_option_detail()
+      }
+      
+  """
+  @type update_tag_option_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      usage_instruction() :: %{
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type usage_instruction() :: %{(String.t() | atom()) => any()}
 
   @type accept_portfolio_share_errors() ::
-          invalid_parameters_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
+          | invalid_parameters_exception()
 
   @type associate_budget_with_resource_errors() ::
-          invalid_parameters_exception()
-          | duplicate_resource_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
+          | invalid_parameters_exception()
+          | duplicate_resource_exception()
 
   @type associate_principal_with_portfolio_errors() ::
-          invalid_parameters_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
+          | invalid_parameters_exception()
 
   @type associate_product_with_portfolio_errors() ::
-          invalid_parameters_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
+          | invalid_parameters_exception()
 
   @type associate_service_action_with_provisioning_artifact_errors() ::
-          invalid_parameters_exception()
-          | duplicate_resource_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
+          | invalid_parameters_exception()
+          | duplicate_resource_exception()
 
   @type associate_tag_option_with_resource_errors() ::
-          invalid_parameters_exception()
-          | invalid_state_exception()
-          | duplicate_resource_exception()
+          tag_option_not_migrated_exception()
           | resource_not_found_exception()
           | limit_exceeded_exception()
-          | tag_option_not_migrated_exception()
+          | invalid_state_exception()
+          | invalid_parameters_exception()
+          | duplicate_resource_exception()
 
   @type batch_associate_service_action_with_provisioning_artifact_errors() ::
           invalid_parameters_exception()
@@ -3347,87 +3347,87 @@ defmodule AWS.ServiceCatalog do
   @type batch_disassociate_service_action_from_provisioning_artifact_errors() ::
           invalid_parameters_exception()
 
-  @type copy_product_errors() :: invalid_parameters_exception() | resource_not_found_exception()
+  @type copy_product_errors() :: resource_not_found_exception() | invalid_parameters_exception()
 
   @type create_constraint_errors() ::
-          invalid_parameters_exception()
-          | duplicate_resource_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
+          | invalid_parameters_exception()
+          | duplicate_resource_exception()
 
   @type create_portfolio_errors() ::
-          invalid_parameters_exception()
+          tag_option_not_migrated_exception()
           | limit_exceeded_exception()
-          | tag_option_not_migrated_exception()
+          | invalid_parameters_exception()
 
   @type create_portfolio_share_errors() ::
-          invalid_parameters_exception()
-          | invalid_state_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | operation_not_supported_exception()
           | limit_exceeded_exception()
+          | invalid_state_exception()
+          | invalid_parameters_exception()
 
   @type create_product_errors() ::
-          invalid_parameters_exception()
+          tag_option_not_migrated_exception()
           | limit_exceeded_exception()
-          | tag_option_not_migrated_exception()
+          | invalid_parameters_exception()
 
   @type create_provisioned_product_plan_errors() ::
-          invalid_parameters_exception()
+          resource_not_found_exception()
           | invalid_state_exception()
-          | resource_not_found_exception()
+          | invalid_parameters_exception()
 
   @type create_provisioning_artifact_errors() ::
-          invalid_parameters_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
+          | invalid_parameters_exception()
 
   @type create_service_action_errors() ::
-          invalid_parameters_exception() | limit_exceeded_exception()
+          limit_exceeded_exception() | invalid_parameters_exception()
 
   @type create_tag_option_errors() ::
-          duplicate_resource_exception()
+          tag_option_not_migrated_exception()
           | limit_exceeded_exception()
-          | tag_option_not_migrated_exception()
+          | duplicate_resource_exception()
 
   @type delete_constraint_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type delete_portfolio_errors() ::
-          invalid_parameters_exception()
-          | resource_in_use_exception()
+          tag_option_not_migrated_exception()
           | resource_not_found_exception()
-          | tag_option_not_migrated_exception()
+          | resource_in_use_exception()
+          | invalid_parameters_exception()
 
   @type delete_portfolio_share_errors() ::
-          invalid_parameters_exception()
-          | invalid_state_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | operation_not_supported_exception()
+          | invalid_state_exception()
+          | invalid_parameters_exception()
 
   @type delete_product_errors() ::
-          invalid_parameters_exception()
-          | resource_in_use_exception()
+          tag_option_not_migrated_exception()
           | resource_not_found_exception()
-          | tag_option_not_migrated_exception()
+          | resource_in_use_exception()
+          | invalid_parameters_exception()
 
   @type delete_provisioned_product_plan_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type delete_provisioning_artifact_errors() ::
-          invalid_parameters_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
-          | resource_not_found_exception()
+          | invalid_parameters_exception()
 
   @type delete_service_action_errors() ::
-          invalid_parameters_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
-          | resource_not_found_exception()
+          | invalid_parameters_exception()
 
   @type delete_tag_option_errors() ::
-          resource_in_use_exception()
+          tag_option_not_migrated_exception()
           | resource_not_found_exception()
-          | tag_option_not_migrated_exception()
+          | resource_in_use_exception()
 
   @type describe_constraint_errors() :: resource_not_found_exception()
 
@@ -3436,160 +3436,160 @@ defmodule AWS.ServiceCatalog do
   @type describe_portfolio_errors() :: resource_not_found_exception()
 
   @type describe_portfolio_share_status_errors() ::
-          invalid_parameters_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | operation_not_supported_exception()
+          | invalid_parameters_exception()
 
   @type describe_portfolio_shares_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type describe_product_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type describe_product_as_admin_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type describe_product_view_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type describe_provisioned_product_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type describe_provisioned_product_plan_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type describe_provisioning_artifact_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type describe_provisioning_parameters_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type describe_record_errors() :: resource_not_found_exception()
 
   @type describe_service_action_errors() :: resource_not_found_exception()
 
   @type describe_service_action_execution_parameters_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type describe_tag_option_errors() ::
-          resource_not_found_exception() | tag_option_not_migrated_exception()
+          tag_option_not_migrated_exception() | resource_not_found_exception()
 
   @type disable_aws_organizations_access_errors() ::
-          invalid_state_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | operation_not_supported_exception()
+          | invalid_state_exception()
 
   @type disassociate_budget_from_resource_errors() :: resource_not_found_exception()
 
   @type disassociate_principal_from_portfolio_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type disassociate_product_from_portfolio_errors() ::
-          invalid_parameters_exception()
+          resource_not_found_exception()
           | resource_in_use_exception()
-          | resource_not_found_exception()
+          | invalid_parameters_exception()
 
   @type disassociate_service_action_from_provisioning_artifact_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type disassociate_tag_option_from_resource_errors() ::
-          resource_not_found_exception() | tag_option_not_migrated_exception()
+          tag_option_not_migrated_exception() | resource_not_found_exception()
 
   @type enable_aws_organizations_access_errors() ::
-          invalid_state_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | operation_not_supported_exception()
+          | invalid_state_exception()
 
   @type execute_provisioned_product_plan_errors() ::
-          invalid_parameters_exception()
+          resource_not_found_exception()
           | invalid_state_exception()
-          | resource_not_found_exception()
+          | invalid_parameters_exception()
 
   @type execute_provisioned_product_service_action_errors() ::
-          invalid_parameters_exception()
+          resource_not_found_exception()
           | invalid_state_exception()
-          | resource_not_found_exception()
+          | invalid_parameters_exception()
 
   @type get_aws_organizations_access_status_errors() ::
           resource_not_found_exception() | operation_not_supported_exception()
 
   @type get_provisioned_product_outputs_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type import_as_provisioned_product_errors() ::
-          invalid_parameters_exception()
+          resource_not_found_exception()
           | invalid_state_exception()
+          | invalid_parameters_exception()
           | duplicate_resource_exception()
-          | resource_not_found_exception()
 
   @type list_accepted_portfolio_shares_errors() ::
-          invalid_parameters_exception() | operation_not_supported_exception()
+          operation_not_supported_exception() | invalid_parameters_exception()
 
   @type list_budgets_for_resource_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type list_constraints_for_portfolio_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type list_launch_paths_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type list_organization_portfolio_access_errors() ::
-          invalid_parameters_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | operation_not_supported_exception()
+          | invalid_parameters_exception()
 
   @type list_portfolio_access_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type list_portfolios_errors() :: invalid_parameters_exception()
 
   @type list_portfolios_for_product_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type list_principals_for_portfolio_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type list_provisioned_product_plans_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type list_provisioning_artifacts_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type list_provisioning_artifacts_for_service_action_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type list_record_history_errors() :: invalid_parameters_exception()
 
   @type list_resources_for_tag_option_errors() ::
-          invalid_parameters_exception()
+          tag_option_not_migrated_exception()
           | resource_not_found_exception()
-          | tag_option_not_migrated_exception()
+          | invalid_parameters_exception()
 
   @type list_service_actions_errors() :: invalid_parameters_exception()
 
   @type list_service_actions_for_provisioning_artifact_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type list_stack_instances_for_provisioned_product_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type list_tag_options_errors() ::
-          invalid_parameters_exception() | tag_option_not_migrated_exception()
+          tag_option_not_migrated_exception() | invalid_parameters_exception()
 
   @type notify_provision_product_engine_workflow_result_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type notify_terminate_provisioned_product_engine_workflow_result_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type notify_update_provisioned_product_engine_workflow_result_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type provision_product_errors() ::
-          invalid_parameters_exception()
+          resource_not_found_exception()
+          | invalid_parameters_exception()
           | duplicate_resource_exception()
-          | resource_not_found_exception()
 
   @type reject_portfolio_share_errors() :: resource_not_found_exception()
 
@@ -3598,51 +3598,51 @@ defmodule AWS.ServiceCatalog do
   @type search_products_errors() :: invalid_parameters_exception()
 
   @type search_products_as_admin_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type search_provisioned_products_errors() :: invalid_parameters_exception()
 
   @type terminate_provisioned_product_errors() :: resource_not_found_exception()
 
   @type update_constraint_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type update_portfolio_errors() ::
-          invalid_parameters_exception()
+          tag_option_not_migrated_exception()
           | resource_not_found_exception()
           | limit_exceeded_exception()
-          | tag_option_not_migrated_exception()
+          | invalid_parameters_exception()
 
   @type update_portfolio_share_errors() ::
-          invalid_parameters_exception()
-          | invalid_state_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | operation_not_supported_exception()
+          | invalid_state_exception()
+          | invalid_parameters_exception()
 
   @type update_product_errors() ::
-          invalid_parameters_exception()
+          tag_option_not_migrated_exception()
           | resource_not_found_exception()
-          | tag_option_not_migrated_exception()
+          | invalid_parameters_exception()
 
   @type update_provisioned_product_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type update_provisioned_product_properties_errors() ::
-          invalid_parameters_exception()
+          resource_not_found_exception()
           | invalid_state_exception()
-          | resource_not_found_exception()
+          | invalid_parameters_exception()
 
   @type update_provisioning_artifact_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type update_service_action_errors() ::
-          invalid_parameters_exception() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_parameters_exception()
 
   @type update_tag_option_errors() ::
-          invalid_parameters_exception()
-          | duplicate_resource_exception()
+          tag_option_not_migrated_exception()
           | resource_not_found_exception()
-          | tag_option_not_migrated_exception()
+          | invalid_parameters_exception()
+          | duplicate_resource_exception()
 
   def metadata do
     %{

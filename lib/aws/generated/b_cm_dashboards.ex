@@ -24,24 +24,249 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
-      get_scheduled_report_response() :: %{
-        "scheduledReport" => scheduled_report()
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type get_scheduled_report_response() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      schedule_period() :: %{
-        "endTime" => non_neg_integer(),
-        "startTime" => non_neg_integer()
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type schedule_period() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_and_usage_query() :: %{
+        "filter" => expression(),
+        "granularity" => list(any()),
+        "groupBy" => list(group_definition()),
+        "metrics" => list(list(any())()),
+        "timeRange" => date_time_range()
+      }
+      
+  """
+  @type cost_and_usage_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_category_values() :: %{
+        "key" => [String.t() | atom()],
+        "matchOptions" => list(list(any())()),
+        "values" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type cost_category_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_dashboard_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("resourceTags") => list(resource_tag()),
+        required("name") => String.t() | atom(),
+        required("widgets") => list(widget())
+      }
+      
+  """
+  @type create_dashboard_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_dashboard_response() :: %{
+        "arn" => String.t() | atom()
+      }
+      
+  """
+  @type create_dashboard_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_scheduled_report_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("resourceTags") => list(resource_tag()),
+        required("scheduledReport") => scheduled_report_input()
+      }
+      
+  """
+  @type create_scheduled_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_scheduled_report_response() :: %{
+        "arn" => String.t() | atom()
+      }
+      
+  """
+  @type create_scheduled_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dashboard_reference() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type dashboard_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      date_time_range() :: %{
+        "endTime" => date_time_value(),
+        "startTime" => date_time_value()
+      }
+      
+  """
+  @type date_time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      date_time_value() :: %{
+        "type" => list(any()),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type date_time_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_dashboard_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_dashboard_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_dashboard_response() :: %{
+        "arn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_dashboard_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_scheduled_report_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_scheduled_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_scheduled_report_response() :: %{
+        "arn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_scheduled_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dimension_values() :: %{
+        "key" => list(any()),
+        "matchOptions" => list(list(any())()),
+        "values" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type dimension_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execute_scheduled_report_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("dryRun") => [boolean()],
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type execute_scheduled_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execute_scheduled_report_response() :: %{
+        "executionTriggered" => [boolean()],
+        "healthStatus" => health_status()
+      }
+      
+  """
+  @type execute_scheduled_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expression() :: %{
+        "and" => list(expression()),
+        "costCategories" => cost_category_values(),
+        "dimensions" => dimension_values(),
+        "not" => expression(),
+        "or" => list(expression()),
+        "tags" => tag_values()
+      }
+      
+  """
+  @type expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dashboard_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type get_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -64,77 +289,69 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
-      delete_dashboard_request() :: %{
+      get_resource_policy_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_response() :: %{
+        "policyDocument" => String.t() | atom(),
+        "resourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_scheduled_report_request() :: %{
         required("arn") => String.t() | atom()
       }
       
   """
-  @type delete_dashboard_request() :: %{(String.t() | atom()) => any()}
+  @type get_scheduled_report_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cost_category_values() :: %{
+      get_scheduled_report_response() :: %{
+        "scheduledReport" => scheduled_report()
+      }
+      
+  """
+  @type get_scheduled_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      graph_display_config() :: %{
+        "visualType" => list(any())
+      }
+      
+  """
+  @type graph_display_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group_definition() :: %{
         "key" => [String.t() | atom()],
-        "matchOptions" => list(list(any())()),
-        "values" => list([String.t() | atom()]())
+        "type" => list(any())
       }
       
   """
-  @type cost_category_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scheduled_report_summary() :: %{
-        "arn" => String.t() | atom(),
-        "dashboardArn" => String.t() | atom(),
-        "healthStatus" => health_status(),
-        "name" => String.t() | atom(),
-        "scheduleExpression" => String.t() | atom(),
-        "scheduleExpressionTimeZone" => String.t() | atom(),
-        "state" => list(any()),
-        "widgetIds" => list([String.t() | atom()]())
-      }
-      
-  """
-  @type scheduled_report_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      date_time_value() :: %{
-        "type" => list(any()),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type date_time_value() :: %{(String.t() | atom()) => any()}
+  @type group_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -153,105 +370,6 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
-      dashboard_reference() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "type" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type dashboard_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expression() :: %{
-        "and" => list(expression()),
-        "costCategories" => cost_category_values(),
-        "dimensions" => dimension_values(),
-        "not" => expression(),
-        "or" => list(expression()),
-        "tags" => tag_values()
-      }
-      
-  """
-  @type expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_scheduled_report_response() :: %{
-        "arn" => String.t() | atom()
-      }
-      
-  """
-  @type update_scheduled_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_scheduled_report_response() :: %{
-        "arn" => String.t() | atom()
-      }
-      
-  """
-  @type delete_scheduled_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      widget_config() :: %{
-        "displayConfig" => list(),
-        "queryParameters" => list()
-      }
-      
-  """
-  @type widget_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_policy_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_dashboard_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-      
-  """
-  @type get_dashboard_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       internal_server_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -263,12 +381,177 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
+      list_dashboards_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_dashboards_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dashboards_response() :: %{
+        "dashboards" => list(dashboard_reference()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_dashboards_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_scheduled_reports_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_scheduled_reports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_scheduled_reports_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "scheduledReports" => list(scheduled_report_summary())
+      }
+      
+  """
+  @type list_scheduled_reports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "resourceTags" => list(resource_tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reservation_coverage_query() :: %{
+        "filter" => expression(),
+        "granularity" => list(any()),
+        "groupBy" => list(group_definition()),
+        "metrics" => list(list(any())()),
+        "timeRange" => date_time_range()
+      }
+      
+  """
+  @type reservation_coverage_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reservation_utilization_query() :: %{
+        "filter" => expression(),
+        "granularity" => list(any()),
+        "groupBy" => list(group_definition()),
+        "timeRange" => date_time_range()
+      }
+      
+  """
+  @type reservation_utilization_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans_coverage_query() :: %{
+        "filter" => expression(),
+        "granularity" => list(any()),
+        "groupBy" => list(group_definition()),
+        "metrics" => list(list(any())()),
+        "timeRange" => date_time_range()
+      }
+      
+  """
+  @type savings_plans_coverage_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans_utilization_query() :: %{
+        "filter" => expression(),
+        "granularity" => list(any()),
+        "timeRange" => date_time_range()
+      }
+      
+  """
+  @type savings_plans_utilization_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schedule_config() :: %{
+        "scheduleExpression" => String.t() | atom(),
+        "scheduleExpressionTimeZone" => String.t() | atom(),
+        "schedulePeriod" => schedule_period(),
+        "state" => list(any())
+      }
+      
+  """
+  @type schedule_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schedule_period() :: %{
+        "endTime" => non_neg_integer(),
+        "startTime" => non_neg_integer()
+      }
+      
+  """
+  @type schedule_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -296,61 +579,47 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("resourceTags") => list(resource_tag())
+      scheduled_report_input() :: %{
+        "dashboardArn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "scheduleConfig" => schedule_config(),
+        "scheduledReportExecutionRoleArn" => String.t() | atom(),
+        "widgetDateRangeOverride" => date_time_range(),
+        "widgetIds" => list([String.t() | atom()]())
       }
       
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type scheduled_report_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_scheduled_report_request() :: %{
-        required("arn") => String.t() | atom()
+      scheduled_report_summary() :: %{
+        "arn" => String.t() | atom(),
+        "dashboardArn" => String.t() | atom(),
+        "healthStatus" => health_status(),
+        "name" => String.t() | atom(),
+        "scheduleExpression" => String.t() | atom(),
+        "scheduleExpressionTimeZone" => String.t() | atom(),
+        "state" => list(any()),
+        "widgetIds" => list([String.t() | atom()]())
       }
       
   """
-  @type delete_scheduled_report_request() :: %{(String.t() | atom()) => any()}
+  @type scheduled_report_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      reservation_utilization_query() :: %{
-        "filter" => expression(),
-        "granularity" => list(any()),
-        "groupBy" => list(group_definition()),
-        "timeRange" => date_time_range()
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type reservation_utilization_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      group_definition() :: %{
-        "key" => [String.t() | atom()],
-        "type" => list(any())
-      }
-      
-  """
-  @type group_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_dashboard_response() :: %{
-        "arn" => String.t() | atom()
-      }
-      
-  """
-  @type delete_dashboard_response() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -365,13 +634,67 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
-      resource_tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("resourceTags") => list(resource_tag())
       }
       
   """
-  @type resource_tag() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_values() :: %{
+        "key" => [String.t() | atom()],
+        "matchOptions" => list(list(any())()),
+        "values" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type tag_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("resourceTagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -391,302 +714,12 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      reservation_coverage_query() :: %{
-        "filter" => expression(),
-        "granularity" => list(any()),
-        "groupBy" => list(group_definition()),
-        "metrics" => list(list(any())()),
-        "timeRange" => date_time_range()
-      }
-      
-  """
-  @type reservation_coverage_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execute_scheduled_report_response() :: %{
-        "executionTriggered" => [boolean()],
-        "healthStatus" => health_status()
-      }
-      
-  """
-  @type execute_scheduled_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_scheduled_reports_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_scheduled_reports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_scheduled_report_response() :: %{
+      update_dashboard_response() :: %{
         "arn" => String.t() | atom()
       }
       
   """
-  @type create_scheduled_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_policy_response() :: %{
-        "policyDocument" => String.t() | atom(),
-        "resourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      widget() :: %{
-        "configs" => list(widget_config()),
-        "description" => String.t() | atom(),
-        "height" => integer(),
-        "horizontalOffset" => [integer()],
-        "id" => String.t() | atom(),
-        "title" => String.t() | atom(),
-        "width" => integer()
-      }
-      
-  """
-  @type widget() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("resourceTagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      savings_plans_coverage_query() :: %{
-        "filter" => expression(),
-        "granularity" => list(any()),
-        "groupBy" => list(group_definition()),
-        "metrics" => list(list(any())()),
-        "timeRange" => date_time_range()
-      }
-      
-  """
-  @type savings_plans_coverage_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dashboard_response() :: %{
-        "arn" => String.t() | atom()
-      }
-      
-  """
-  @type create_dashboard_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      date_time_range() :: %{
-        "endTime" => date_time_value(),
-        "startTime" => date_time_value()
-      }
-      
-  """
-  @type date_time_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      schedule_config() :: %{
-        "scheduleExpression" => String.t() | atom(),
-        "scheduleExpressionTimeZone" => String.t() | atom(),
-        "schedulePeriod" => schedule_period(),
-        "state" => list(any())
-      }
-      
-  """
-  @type schedule_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_scheduled_reports_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "scheduledReports" => list(scheduled_report_summary())
-      }
-      
-  """
-  @type list_scheduled_reports_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_scheduled_report_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-      
-  """
-  @type get_scheduled_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "resourceTags" => list(resource_tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dashboard_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("resourceTags") => list(resource_tag()),
-        required("name") => String.t() | atom(),
-        required("widgets") => list(widget())
-      }
-      
-  """
-  @type create_dashboard_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cost_and_usage_query() :: %{
-        "filter" => expression(),
-        "granularity" => list(any()),
-        "groupBy" => list(group_definition()),
-        "metrics" => list(list(any())()),
-        "timeRange" => date_time_range()
-      }
-      
-  """
-  @type cost_and_usage_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scheduled_report_input() :: %{
-        "dashboardArn" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "scheduleConfig" => schedule_config(),
-        "scheduledReportExecutionRoleArn" => String.t() | atom(),
-        "widgetDateRangeOverride" => date_time_range(),
-        "widgetIds" => list([String.t() | atom()]())
-      }
-      
-  """
-  @type scheduled_report_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_values() :: %{
-        "key" => [String.t() | atom()],
-        "matchOptions" => list(list(any())()),
-        "values" => list([String.t() | atom()]())
-      }
-      
-  """
-  @type tag_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_dashboards_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_dashboards_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      savings_plans_utilization_query() :: %{
-        "filter" => expression(),
-        "granularity" => list(any()),
-        "timeRange" => date_time_range()
-      }
-      
-  """
-  @type savings_plans_utilization_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      graph_display_config() :: %{
-        "visualType" => list(any())
-      }
-      
-  """
-  @type graph_display_config() :: %{(String.t() | atom()) => any()}
+  @type update_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -712,187 +745,154 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
-      execute_scheduled_report_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("dryRun") => [boolean()],
-        required("arn") => String.t() | atom()
-      }
-      
-  """
-  @type execute_scheduled_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_dashboard_response() :: %{
+      update_scheduled_report_response() :: %{
         "arn" => String.t() | atom()
       }
       
   """
-  @type update_dashboard_response() :: %{(String.t() | atom()) => any()}
+  @type update_scheduled_report_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_scheduled_report_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("resourceTags") => list(resource_tag()),
-        required("scheduledReport") => scheduled_report_input()
-      }
-      
-  """
-  @type create_scheduled_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dimension_values() :: %{
-        "key" => list(any()),
-        "matchOptions" => list(list(any())()),
-        "values" => list([String.t() | atom()]())
-      }
-      
-  """
-  @type dimension_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_dashboards_response() :: %{
-        "dashboards" => list(dashboard_reference()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_dashboards_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
+      validation_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      widget() :: %{
+        "configs" => list(widget_config()),
+        "description" => String.t() | atom(),
+        "height" => integer(),
+        "horizontalOffset" => [integer()],
+        "id" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "width" => integer()
+      }
+      
+  """
+  @type widget() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      widget_config() :: %{
+        "displayConfig" => list(),
+        "queryParameters" => list()
+      }
+      
+  """
+  @type widget_config() :: %{(String.t() | atom()) => any()}
 
   @type create_dashboard_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_scheduled_report_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_dashboard_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_scheduled_report_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type execute_scheduled_report_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_dashboard_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type get_resource_policy_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_scheduled_report_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_dashboards_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_scheduled_reports_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | throttling_exception()
-
-  @type tag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | throttling_exception()
-
-  @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | throttling_exception()
-
-  @type update_dashboard_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type update_scheduled_report_errors() ::
-          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type get_resource_policy_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_scheduled_report_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_dashboards_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_scheduled_reports_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
+  @type update_dashboard_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_scheduled_report_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

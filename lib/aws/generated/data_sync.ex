@@ -5,6 +5,10 @@ defmodule AWS.DataSync do
   @moduledoc """
   DataSync
 
+  In addition to the Amazon Web Services Management Console and Amazon Web
+  Services Command Line Interface,
+  you can use the DataSync API to configure and manage DataSync with the
+  [Amazon Web Services SDKs](http://aws.amazon.com/developer/tools/). 
   DataSync is an online data movement service that simplifies data
   migration and helps you quickly, easily, and securely transfer your file or
   object data to,
@@ -12,105 +16,14 @@ defmodule AWS.DataSync do
 
   This API interface reference includes documentation for using DataSync
   programmatically. For complete information, see the *
-  [DataSync User Guide](https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html)
+  [DataSync User
+  Guide](https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html)
 
   *.
   """
 
   alias AWS.Client
   alias AWS.Request
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_hdfs_response() :: %{
-        "LocationArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_location_hdfs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_azure_blob_request() :: %{
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_location_azure_blob_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_agent_response() :: %{}
-      
-  """
-  @type update_agent_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_agent_response() :: %{
-        "AgentArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_agent_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_s3_request() :: %{
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_location_s3_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_task_response() :: %{}
-      
-  """
-  @type delete_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_locations_response() :: %{
-        "Locations" => list(location_list_entry()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_locations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_nfs_response() :: %{}
-      
-  """
-  @type update_location_nfs_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_agent_response() :: %{}
-      
-  """
-  @type delete_agent_response() :: %{}
 
   @typedoc """
 
@@ -130,73 +43,102 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      s3_config() :: %{
-        "BucketAccessRoleArn" => String.t() | atom()
+      azure_blob_sas_configuration() :: %{
+        "Token" => String.t() | atom()
       }
       
   """
-  @type s3_config() :: %{(String.t() | atom()) => any()}
+  @type azure_blob_sas_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      location_filter() :: %{
-        "Name" => list(any()),
-        "Operator" => list(any()),
-        "Values" => list(String.t() | atom())
+      cancel_task_execution_request() :: %{
+        required("TaskExecutionArn") => String.t() | atom()
       }
       
   """
-  @type location_filter() :: %{(String.t() | atom()) => any()}
+  @type cancel_task_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_task_request() :: %{
-        optional("CloudWatchLogGroupArn") => String.t() | atom(),
-        optional("Excludes") => list(filter_rule()),
-        optional("Includes") => list(filter_rule()),
-        optional("ManifestConfig") => manifest_config(),
-        optional("Name") => String.t() | atom(),
-        optional("Options") => options(),
-        optional("Schedule") => task_schedule(),
-        optional("Tags") => list(tag_list_entry()),
-        optional("TaskMode") => list(any()),
-        optional("TaskReportConfig") => task_report_config(),
-        required("DestinationLocationArn") => String.t() | atom(),
-        required("SourceLocationArn") => String.t() | atom()
-      }
+      cancel_task_execution_response() :: %{}
       
   """
-  @type create_task_request() :: %{(String.t() | atom()) => any()}
+  @type cancel_task_execution_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      update_location_s3_request() :: %{
-        optional("S3Config") => s3_config(),
-        optional("S3StorageClass") => list(any()),
-        optional("Subdirectory") => String.t() | atom(),
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_location_s3_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_secret_config() :: %{
-        "SecretAccessRoleArn" => String.t() | atom(),
+      cmk_secret_config() :: %{
+        "KmsKeyArn" => String.t() | atom(),
         "SecretArn" => String.t() | atom()
       }
       
   """
-  @type custom_secret_config() :: %{(String.t() | atom()) => any()}
+  @type cmk_secret_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_agent_request() :: %{
+        optional("AgentName") => String.t() | atom(),
+        optional("SecurityGroupArns") => list(String.t() | atom()),
+        optional("SubnetArns") => list(String.t() | atom()),
+        optional("Tags") => list(tag_list_entry()),
+        optional("VpcEndpointId") => String.t() | atom(),
+        required("ActivationKey") => String.t() | atom()
+      }
+      
+  """
+  @type create_agent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_agent_response() :: %{
+        "AgentArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_azure_blob_request() :: %{
+        optional("AccessTier") => list(any()),
+        optional("AgentArns") => list(String.t() | atom()),
+        optional("BlobType") => list(any()),
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
+        optional("SasConfiguration") => azure_blob_sas_configuration(),
+        optional("Subdirectory") => String.t() | atom(),
+        optional("Tags") => list(tag_list_entry()),
+        required("AuthenticationType") => list(any()),
+        required("ContainerUrl") => String.t() | atom()
+      }
+      
+  """
+  @type create_location_azure_blob_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_azure_blob_response() :: %{
+        "LocationArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_location_azure_blob_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,691 +161,12 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      describe_location_fsx_lustre_request() :: %{
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_location_fsx_lustre_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_fsx_lustre_response() :: %{}
-      
-  """
-  @type update_location_fsx_lustre_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_nfs_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "LocationArn" => String.t() | atom(),
-        "LocationUri" => String.t() | atom(),
-        "MountOptions" => nfs_mount_options(),
-        "OnPremConfig" => on_prem_config()
-      }
-      
-  """
-  @type describe_location_nfs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter_rule() :: %{
-        "FilterType" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type filter_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hdfs_name_node() :: %{
-        "Hostname" => String.t() | atom(),
-        "Port" => integer()
-      }
-      
-  """
-  @type hdfs_name_node() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_task_execution_response() :: %{}
-      
-  """
-  @type update_task_execution_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_nfs_request() :: %{
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_location_nfs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      options() :: %{
-        "Atime" => list(any()),
-        "BytesPerSecond" => float(),
-        "Gid" => list(any()),
-        "LogLevel" => list(any()),
-        "Mtime" => list(any()),
-        "ObjectTags" => list(any()),
-        "OverwriteMode" => list(any()),
-        "PosixPermissions" => list(any()),
-        "PreserveDeletedFiles" => list(any()),
-        "PreserveDevices" => list(any()),
-        "SecurityDescriptorCopyFlags" => list(any()),
-        "TaskQueueing" => list(any()),
-        "TransferMode" => list(any()),
-        "Uid" => list(any()),
-        "VerifyMode" => list(any())
-      }
-      
-  """
-  @type options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_task_execution_response() :: %{
-        "FoldersSkipped" => float(),
-        "FilesTransferred" => float(),
-        "EstimatedBytesToTransfer" => float(),
-        "Excludes" => list(filter_rule()),
-        "FoldersPrepared" => float(),
-        "TaskExecutionArn" => String.t() | atom(),
-        "ManifestConfig" => manifest_config(),
-        "ReportResult" => report_result(),
-        "LaunchTime" => non_neg_integer(),
-        "TaskReportConfig" => task_report_config(),
-        "FilesDeleted" => float(),
-        "FilesListed" => task_execution_files_listed_detail(),
-        "FoldersListed" => task_execution_folders_listed_detail(),
-        "EstimatedFilesToTransfer" => float(),
-        "BytesWritten" => float(),
-        "StartTime" => non_neg_integer(),
-        "TaskMode" => list(any()),
-        "FoldersVerified" => float(),
-        "Options" => options(),
-        "Status" => list(any()),
-        "FoldersFailed" => task_execution_folders_failed_detail(),
-        "Includes" => list(filter_rule()),
-        "FilesSkipped" => float(),
-        "FilesPrepared" => float(),
-        "FoldersDeleted" => float(),
-        "EstimatedFoldersToDelete" => float(),
-        "BytesCompressed" => float(),
-        "FilesVerified" => float(),
-        "EstimatedFoldersToTransfer" => float(),
-        "FoldersTransferred" => float(),
-        "Result" => task_execution_result_detail(),
-        "BytesTransferred" => float(),
-        "EndTime" => non_neg_integer(),
-        "EstimatedFilesToDelete" => float(),
-        "FilesFailed" => task_execution_files_failed_detail()
-      }
-      
-  """
-  @type describe_task_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_secret_config() :: %{
-        "SecretArn" => String.t() | atom()
-      }
-      
-  """
-  @type managed_secret_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      smb_mount_options() :: %{
-        "Version" => list(any())
-      }
-      
-  """
-  @type smb_mount_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_agent_request() :: %{
-        required("AgentArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_fsx_lustre_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "LocationArn" => String.t() | atom(),
-        "LocationUri" => String.t() | atom(),
-        "SecurityGroupArns" => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_location_fsx_lustre_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_efs_request() :: %{
-        optional("AccessPointArn") => String.t() | atom(),
-        optional("FileSystemAccessRoleArn") => String.t() | atom(),
-        optional("InTransitEncryption") => list(any()),
-        optional("Subdirectory") => String.t() | atom(),
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_location_efs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_s3_request() :: %{
-        optional("AgentArns") => list(String.t() | atom()),
-        optional("S3StorageClass") => list(any()),
-        optional("Subdirectory") => String.t() | atom(),
-        optional("Tags") => list(tag_list_entry()),
-        required("S3BucketArn") => String.t() | atom(),
-        required("S3Config") => s3_config()
-      }
-      
-  """
-  @type create_location_s3_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_agents_response() :: %{
-        "Agents" => list(agent_list_entry()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_agents_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_manifest_config() :: %{
-        "S3" => s3_manifest_config()
-      }
-      
-  """
-  @type source_manifest_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_fsx_lustre_request() :: %{
-        optional("Subdirectory") => String.t() | atom(),
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_location_fsx_lustre_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      qop_configuration() :: %{
-        "DataTransferProtection" => list(any()),
-        "RpcProtection" => list(any())
-      }
-      
-  """
-  @type qop_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_task_execution_request() :: %{
-        required("TaskExecutionArn") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_task_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_agent_response() :: %{
-        "AgentArn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "EndpointType" => list(any()),
-        "LastConnectionTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Platform" => platform(),
-        "PrivateLinkConfig" => private_link_config(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type describe_agent_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      private_link_config() :: %{
-        "PrivateLinkEndpoint" => String.t() | atom(),
-        "SecurityGroupArns" => list(String.t() | atom()),
-        "SubnetArns" => list(String.t() | atom()),
-        "VpcEndpointId" => String.t() | atom()
-      }
-      
-  """
-  @type private_link_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_fsx_ontap_request() :: %{
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_location_fsx_ontap_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_smb_response() :: %{}
-      
-  """
-  @type update_location_smb_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_fsx_ontap_response() :: %{
-        "LocationArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_location_fsx_ontap_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_fsx_open_zfs_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "LocationArn" => String.t() | atom(),
-        "LocationUri" => String.t() | atom(),
-        "Protocol" => fsx_protocol(),
-        "SecurityGroupArns" => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_location_fsx_open_zfs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_execution_folders_failed_detail() :: %{
-        "Delete" => float(),
-        "List" => float(),
-        "Prepare" => float(),
-        "Transfer" => float(),
-        "Verify" => float()
-      }
-      
-  """
-  @type task_execution_folders_failed_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_task_response() :: %{}
-      
-  """
-  @type update_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_smb_response() :: %{
-        "AgentArns" => list(String.t() | atom()),
-        "AuthenticationType" => list(any()),
-        "CmkSecretConfig" => cmk_secret_config(),
-        "CreationTime" => non_neg_integer(),
-        "CustomSecretConfig" => custom_secret_config(),
-        "DnsIpAddresses" => list(String.t() | atom()),
-        "Domain" => String.t() | atom(),
-        "KerberosPrincipal" => String.t() | atom(),
-        "LocationArn" => String.t() | atom(),
-        "LocationUri" => String.t() | atom(),
-        "ManagedSecretConfig" => managed_secret_config(),
-        "MountOptions" => smb_mount_options(),
-        "User" => String.t() | atom()
-      }
-      
-  """
-  @type describe_location_smb_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      report_destination_s3() :: %{
-        "BucketAccessRoleArn" => String.t() | atom(),
-        "S3BucketArn" => String.t() | atom(),
-        "Subdirectory" => String.t() | atom()
-      }
-      
-  """
-  @type report_destination_s3() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_smb_request() :: %{
-        optional("AgentArns") => list(String.t() | atom()),
-        optional("AuthenticationType") => list(any()),
-        optional("CmkSecretConfig") => cmk_secret_config(),
-        optional("CustomSecretConfig") => custom_secret_config(),
-        optional("DnsIpAddresses") => list(String.t() | atom()),
-        optional("Domain") => String.t() | atom(),
-        optional("KerberosKeytab") => binary(),
-        optional("KerberosKrb5Conf") => binary(),
-        optional("KerberosPrincipal") => String.t() | atom(),
-        optional("MountOptions") => smb_mount_options(),
-        optional("Password") => String.t() | atom(),
-        optional("ServerHostname") => String.t() | atom(),
-        optional("Subdirectory") => String.t() | atom(),
-        optional("User") => String.t() | atom(),
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_location_smb_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_fsx_open_zfs_request() :: %{
-        optional("Subdirectory") => String.t() | atom(),
-        optional("Tags") => list(tag_list_entry()),
-        required("FsxFilesystemArn") => String.t() | atom(),
-        required("Protocol") => fsx_protocol(),
-        required("SecurityGroupArns") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_location_fsx_open_zfs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       create_location_efs_response() :: %{
         "LocationArn" => String.t() | atom()
       }
       
   """
   @type create_location_efs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_agents_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_agents_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ec2_config() :: %{
-        "SecurityGroupArns" => list(String.t() | atom()),
-        "SubnetArn" => String.t() | atom()
-      }
-      
-  """
-  @type ec2_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_agent_request() :: %{
-        required("AgentArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_task_executions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("TaskArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_task_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_execution_list_entry() :: %{
-        "Status" => list(any()),
-        "TaskExecutionArn" => String.t() | atom(),
-        "TaskMode" => list(any())
-      }
-      
-  """
-  @type task_execution_list_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_hdfs_response() :: %{}
-      
-  """
-  @type update_location_hdfs_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_task_execution_request() :: %{
-        optional("Excludes") => list(filter_rule()),
-        optional("Includes") => list(filter_rule()),
-        optional("ManifestConfig") => manifest_config(),
-        optional("OverrideOptions") => options(),
-        optional("Tags") => list(tag_list_entry()),
-        optional("TaskReportConfig") => task_report_config(),
-        required("TaskArn") => String.t() | atom()
-      }
-      
-  """
-  @type start_task_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_object_storage_response() :: %{
-        "LocationArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_location_object_storage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_task_request() :: %{
-        required("TaskArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_azure_blob_response() :: %{}
-      
-  """
-  @type update_location_azure_blob_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      cmk_secret_config() :: %{
-        "KmsKeyArn" => String.t() | atom(),
-        "SecretArn" => String.t() | atom()
-      }
-      
-  """
-  @type cmk_secret_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_fsx_ontap_request() :: %{
-        optional("Subdirectory") => String.t() | atom(),
-        optional("Tags") => list(tag_list_entry()),
-        required("Protocol") => fsx_protocol(),
-        required("SecurityGroupArns") => list(String.t() | atom()),
-        required("StorageVirtualMachineArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_location_fsx_ontap_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag_list_entry())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_exception() :: %{
-        "errorCode" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_fsx_ontap_response() :: %{}
-      
-  """
-  @type update_location_fsx_ontap_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_locations_request() :: %{
-        optional("Filters") => list(location_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_locations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_fsx_open_zfs_request() :: %{
-        optional("Protocol") => fsx_protocol(),
-        optional("Subdirectory") => String.t() | atom(),
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_location_fsx_open_zfs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fsx_update_protocol() :: %{
-        "NFS" => fsx_protocol_nfs(),
-        "SMB" => fsx_update_protocol_smb()
-      }
-      
-  """
-  @type fsx_update_protocol() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -934,61 +197,205 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      update_task_request() :: %{
-        optional("CloudWatchLogGroupArn") => String.t() | atom(),
-        optional("Excludes") => list(filter_rule()),
-        optional("Includes") => list(filter_rule()),
-        optional("ManifestConfig") => manifest_config(),
-        optional("Name") => String.t() | atom(),
-        optional("Options") => options(),
-        optional("Schedule") => task_schedule(),
-        optional("TaskReportConfig") => task_report_config(),
-        required("TaskArn") => String.t() | atom()
+      create_location_fsx_ontap_request() :: %{
+        optional("Subdirectory") => String.t() | atom(),
+        optional("Tags") => list(tag_list_entry()),
+        required("Protocol") => fsx_protocol(),
+        required("SecurityGroupArns") => list(String.t() | atom()),
+        required("StorageVirtualMachineArn") => String.t() | atom()
       }
       
   """
-  @type update_task_request() :: %{(String.t() | atom()) => any()}
+  @type create_location_fsx_ontap_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      fsx_protocol_smb() :: %{
-        "CmkSecretConfig" => cmk_secret_config(),
-        "CustomSecretConfig" => custom_secret_config(),
-        "Domain" => String.t() | atom(),
-        "ManagedSecretConfig" => managed_secret_config(),
-        "MountOptions" => smb_mount_options(),
-        "Password" => String.t() | atom(),
-        "User" => String.t() | atom()
+      create_location_fsx_ontap_response() :: %{
+        "LocationArn" => String.t() | atom()
       }
       
   """
-  @type fsx_protocol_smb() :: %{(String.t() | atom()) => any()}
+  @type create_location_fsx_ontap_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tasks_request() :: %{
-        optional("Filters") => list(task_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      create_location_fsx_open_zfs_request() :: %{
+        optional("Subdirectory") => String.t() | atom(),
+        optional("Tags") => list(tag_list_entry()),
+        required("FsxFilesystemArn") => String.t() | atom(),
+        required("Protocol") => fsx_protocol(),
+        required("SecurityGroupArns") => list(String.t() | atom())
       }
       
   """
-  @type list_tasks_request() :: %{(String.t() | atom()) => any()}
+  @type create_location_fsx_open_zfs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_location_efs_request() :: %{
-        required("LocationArn") => String.t() | atom()
+      create_location_fsx_open_zfs_response() :: %{
+        "LocationArn" => String.t() | atom()
       }
       
   """
-  @type describe_location_efs_request() :: %{(String.t() | atom()) => any()}
+  @type create_location_fsx_open_zfs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_fsx_windows_request() :: %{
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
+        optional("Domain") => String.t() | atom(),
+        optional("Password") => String.t() | atom(),
+        optional("Subdirectory") => String.t() | atom(),
+        optional("Tags") => list(tag_list_entry()),
+        required("FsxFilesystemArn") => String.t() | atom(),
+        required("SecurityGroupArns") => list(String.t() | atom()),
+        required("User") => String.t() | atom()
+      }
+      
+  """
+  @type create_location_fsx_windows_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_fsx_windows_response() :: %{
+        "LocationArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_location_fsx_windows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_hdfs_request() :: %{
+        optional("BlockSize") => integer(),
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
+        optional("KerberosKeytab") => binary(),
+        optional("KerberosKrb5Conf") => binary(),
+        optional("KerberosPrincipal") => String.t() | atom(),
+        optional("KmsKeyProviderUri") => String.t() | atom(),
+        optional("QopConfiguration") => qop_configuration(),
+        optional("ReplicationFactor") => integer(),
+        optional("SimpleUser") => String.t() | atom(),
+        optional("Subdirectory") => String.t() | atom(),
+        optional("Tags") => list(tag_list_entry()),
+        required("AgentArns") => list(String.t() | atom()),
+        required("AuthenticationType") => list(any()),
+        required("NameNodes") => list(hdfs_name_node())
+      }
+      
+  """
+  @type create_location_hdfs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_hdfs_response() :: %{
+        "LocationArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_location_hdfs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_nfs_request() :: %{
+        optional("MountOptions") => nfs_mount_options(),
+        optional("Tags") => list(tag_list_entry()),
+        required("OnPremConfig") => on_prem_config(),
+        required("ServerHostname") => String.t() | atom(),
+        required("Subdirectory") => String.t() | atom()
+      }
+      
+  """
+  @type create_location_nfs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_nfs_response() :: %{
+        "LocationArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_location_nfs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_object_storage_request() :: %{
+        optional("AccessKey") => String.t() | atom(),
+        optional("AgentArns") => list(String.t() | atom()),
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
+        optional("SecretKey") => String.t() | atom(),
+        optional("ServerCertificate") => binary(),
+        optional("ServerPort") => integer(),
+        optional("ServerProtocol") => list(any()),
+        optional("Subdirectory") => String.t() | atom(),
+        optional("Tags") => list(tag_list_entry()),
+        required("BucketName") => String.t() | atom(),
+        required("ServerHostname") => String.t() | atom()
+      }
+      
+  """
+  @type create_location_object_storage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_object_storage_response() :: %{
+        "LocationArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_location_object_storage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_s3_request() :: %{
+        optional("AgentArns") => list(String.t() | atom()),
+        optional("S3StorageClass") => list(any()),
+        optional("Subdirectory") => String.t() | atom(),
+        optional("Tags") => list(tag_list_entry()),
+        required("S3BucketArn") => String.t() | atom(),
+        required("S3Config") => s3_config()
+      }
+      
+  """
+  @type create_location_s3_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_s3_response() :: %{
+        "LocationArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_location_s3_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1019,85 +426,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      on_prem_config() :: %{
-        "AgentArns" => list(String.t() | atom())
-      }
-      
-  """
-  @type on_prem_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tasks_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tasks" => list(task_list_entry())
-      }
-      
-  """
-  @type list_tasks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_s3_response() :: %{
-        "LocationArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_location_s3_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_fsx_open_zfs_response() :: %{
-        "LocationArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_location_fsx_open_zfs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_efs_response() :: %{}
-      
-  """
-  @type update_location_efs_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_s3_response() :: %{
-        "AgentArns" => list(String.t() | atom()),
-        "CreationTime" => non_neg_integer(),
-        "LocationArn" => String.t() | atom(),
-        "LocationUri" => String.t() | atom(),
-        "S3Config" => s3_config(),
-        "S3StorageClass" => list(any())
-      }
-      
-  """
-  @type describe_location_s3_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       create_location_smb_response() :: %{
         "LocationArn" => String.t() | atom()
       }
@@ -1109,12 +437,247 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      start_task_execution_response() :: %{
-        "TaskExecutionArn" => String.t() | atom()
+      create_task_request() :: %{
+        optional("CloudWatchLogGroupArn") => String.t() | atom(),
+        optional("Excludes") => list(filter_rule()),
+        optional("Includes") => list(filter_rule()),
+        optional("ManifestConfig") => manifest_config(),
+        optional("Name") => String.t() | atom(),
+        optional("Options") => options(),
+        optional("Schedule") => task_schedule(),
+        optional("Tags") => list(tag_list_entry()),
+        optional("TaskMode") => list(any()),
+        optional("TaskReportConfig") => task_report_config(),
+        required("DestinationLocationArn") => String.t() | atom(),
+        required("SourceLocationArn") => String.t() | atom()
       }
       
   """
-  @type start_task_execution_response() :: %{(String.t() | atom()) => any()}
+  @type create_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_task_response() :: %{
+        "TaskArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_secret_config() :: %{
+        "SecretAccessRoleArn" => String.t() | atom(),
+        "SecretArn" => String.t() | atom()
+      }
+      
+  """
+  @type custom_secret_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_agent_request() :: %{
+        required("AgentArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_agent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_agent_response() :: %{}
+      
+  """
+  @type delete_agent_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_location_request() :: %{
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_location_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_location_response() :: %{}
+      
+  """
+  @type delete_location_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_task_request() :: %{
+        required("TaskArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_task_response() :: %{}
+      
+  """
+  @type delete_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_agent_request() :: %{
+        required("AgentArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_agent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_agent_response() :: %{
+        "AgentArn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "EndpointType" => list(any()),
+        "LastConnectionTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Platform" => platform(),
+        "PrivateLinkConfig" => private_link_config(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type describe_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_azure_blob_request() :: %{
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_azure_blob_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_azure_blob_response() :: %{
+        "AccessTier" => list(any()),
+        "AgentArns" => list(String.t() | atom()),
+        "AuthenticationType" => list(any()),
+        "BlobType" => list(any()),
+        "CmkSecretConfig" => cmk_secret_config(),
+        "CreationTime" => non_neg_integer(),
+        "CustomSecretConfig" => custom_secret_config(),
+        "LocationArn" => String.t() | atom(),
+        "LocationUri" => String.t() | atom(),
+        "ManagedSecretConfig" => managed_secret_config()
+      }
+      
+  """
+  @type describe_location_azure_blob_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_efs_request() :: %{
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_efs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_efs_response() :: %{
+        "AccessPointArn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "Ec2Config" => ec2_config(),
+        "FileSystemAccessRoleArn" => String.t() | atom(),
+        "InTransitEncryption" => list(any()),
+        "LocationArn" => String.t() | atom(),
+        "LocationUri" => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_efs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_fsx_lustre_request() :: %{
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_fsx_lustre_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_fsx_lustre_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LocationArn" => String.t() | atom(),
+        "LocationUri" => String.t() | atom(),
+        "SecurityGroupArns" => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_location_fsx_lustre_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_fsx_ontap_request() :: %{
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_fsx_ontap_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_fsx_ontap_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FsxFilesystemArn" => String.t() | atom(),
+        "LocationArn" => String.t() | atom(),
+        "LocationUri" => String.t() | atom(),
+        "Protocol" => fsx_protocol(),
+        "SecurityGroupArns" => list(String.t() | atom()),
+        "StorageVirtualMachineArn" => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_fsx_ontap_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1126,6 +689,124 @@ defmodule AWS.DataSync do
       
   """
   @type describe_location_fsx_open_zfs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_fsx_open_zfs_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LocationArn" => String.t() | atom(),
+        "LocationUri" => String.t() | atom(),
+        "Protocol" => fsx_protocol(),
+        "SecurityGroupArns" => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_location_fsx_open_zfs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_fsx_windows_request() :: %{
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_fsx_windows_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_fsx_windows_response() :: %{
+        "CmkSecretConfig" => cmk_secret_config(),
+        "CreationTime" => non_neg_integer(),
+        "CustomSecretConfig" => custom_secret_config(),
+        "Domain" => String.t() | atom(),
+        "LocationArn" => String.t() | atom(),
+        "LocationUri" => String.t() | atom(),
+        "ManagedSecretConfig" => managed_secret_config(),
+        "SecurityGroupArns" => list(String.t() | atom()),
+        "User" => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_fsx_windows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_hdfs_request() :: %{
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_hdfs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_hdfs_response() :: %{
+        "AgentArns" => list(String.t() | atom()),
+        "AuthenticationType" => list(any()),
+        "BlockSize" => integer(),
+        "CmkSecretConfig" => cmk_secret_config(),
+        "CreationTime" => non_neg_integer(),
+        "CustomSecretConfig" => custom_secret_config(),
+        "KerberosPrincipal" => String.t() | atom(),
+        "KmsKeyProviderUri" => String.t() | atom(),
+        "LocationArn" => String.t() | atom(),
+        "LocationUri" => String.t() | atom(),
+        "ManagedSecretConfig" => managed_secret_config(),
+        "NameNodes" => list(hdfs_name_node()),
+        "QopConfiguration" => qop_configuration(),
+        "ReplicationFactor" => integer(),
+        "SimpleUser" => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_hdfs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_nfs_request() :: %{
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_nfs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_nfs_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LocationArn" => String.t() | atom(),
+        "LocationUri" => String.t() | atom(),
+        "MountOptions" => nfs_mount_options(),
+        "OnPremConfig" => on_prem_config()
+      }
+      
+  """
+  @type describe_location_nfs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_object_storage_request() :: %{
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_object_storage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1152,46 +833,129 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      describe_location_efs_response() :: %{
-        "AccessPointArn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "Ec2Config" => ec2_config(),
-        "FileSystemAccessRoleArn" => String.t() | atom(),
-        "InTransitEncryption" => list(any()),
-        "LocationArn" => String.t() | atom(),
-        "LocationUri" => String.t() | atom()
-      }
-      
-  """
-  @type describe_location_efs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      report_result() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorDetail" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type report_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_nfs_request() :: %{
-        optional("MountOptions") => nfs_mount_options(),
-        optional("OnPremConfig") => on_prem_config(),
-        optional("ServerHostname") => String.t() | atom(),
-        optional("Subdirectory") => String.t() | atom(),
+      describe_location_s3_request() :: %{
         required("LocationArn") => String.t() | atom()
       }
       
   """
-  @type update_location_nfs_request() :: %{(String.t() | atom()) => any()}
+  @type describe_location_s3_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_s3_response() :: %{
+        "AgentArns" => list(String.t() | atom()),
+        "CreationTime" => non_neg_integer(),
+        "LocationArn" => String.t() | atom(),
+        "LocationUri" => String.t() | atom(),
+        "S3Config" => s3_config(),
+        "S3StorageClass" => list(any())
+      }
+      
+  """
+  @type describe_location_s3_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_smb_request() :: %{
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_smb_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_location_smb_response() :: %{
+        "AgentArns" => list(String.t() | atom()),
+        "AuthenticationType" => list(any()),
+        "CmkSecretConfig" => cmk_secret_config(),
+        "CreationTime" => non_neg_integer(),
+        "CustomSecretConfig" => custom_secret_config(),
+        "DnsIpAddresses" => list(String.t() | atom()),
+        "Domain" => String.t() | atom(),
+        "KerberosPrincipal" => String.t() | atom(),
+        "LocationArn" => String.t() | atom(),
+        "LocationUri" => String.t() | atom(),
+        "ManagedSecretConfig" => managed_secret_config(),
+        "MountOptions" => smb_mount_options(),
+        "User" => String.t() | atom()
+      }
+      
+  """
+  @type describe_location_smb_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_task_execution_request() :: %{
+        required("TaskExecutionArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_task_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_task_execution_response() :: %{
+        "BytesCompressed" => float(),
+        "BytesTransferred" => float(),
+        "BytesWritten" => float(),
+        "EndTime" => non_neg_integer(),
+        "EstimatedBytesToTransfer" => float(),
+        "EstimatedFilesToDelete" => float(),
+        "EstimatedFilesToTransfer" => float(),
+        "EstimatedFoldersToDelete" => float(),
+        "EstimatedFoldersToTransfer" => float(),
+        "Excludes" => list(filter_rule()),
+        "FilesDeleted" => float(),
+        "FilesFailed" => task_execution_files_failed_detail(),
+        "FilesListed" => task_execution_files_listed_detail(),
+        "FilesPrepared" => float(),
+        "FilesSkipped" => float(),
+        "FilesTransferred" => float(),
+        "FilesVerified" => float(),
+        "FoldersDeleted" => float(),
+        "FoldersFailed" => task_execution_folders_failed_detail(),
+        "FoldersListed" => task_execution_folders_listed_detail(),
+        "FoldersPrepared" => float(),
+        "FoldersSkipped" => float(),
+        "FoldersTransferred" => float(),
+        "FoldersVerified" => float(),
+        "Includes" => list(filter_rule()),
+        "LaunchTime" => non_neg_integer(),
+        "ManifestConfig" => manifest_config(),
+        "Options" => options(),
+        "ReportResult" => report_result(),
+        "Result" => task_execution_result_detail(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskExecutionArn" => String.t() | atom(),
+        "TaskMode" => list(any()),
+        "TaskReportConfig" => task_report_config()
+      }
+      
+  """
+  @type describe_task_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_task_request() :: %{
+        required("TaskArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1227,31 +991,217 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      tag_list_entry() :: %{
-        "Key" => String.t() | atom(),
+      ec2_config() :: %{
+        "SecurityGroupArns" => list(String.t() | atom()),
+        "SubnetArn" => String.t() | atom()
+      }
+      
+  """
+  @type ec2_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter_rule() :: %{
+        "FilterType" => list(any()),
         "Value" => String.t() | atom()
       }
       
   """
-  @type tag_list_entry() :: %{(String.t() | atom()) => any()}
+  @type filter_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_response() :: %{}
+      fsx_protocol() :: %{
+        "NFS" => fsx_protocol_nfs(),
+        "SMB" => fsx_protocol_smb()
+      }
       
   """
-  @type untag_resource_response() :: %{}
+  @type fsx_protocol() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_location_s3_response() :: %{}
+      fsx_protocol_nfs() :: %{
+        "MountOptions" => nfs_mount_options()
+      }
       
   """
-  @type update_location_s3_response() :: %{}
+  @type fsx_protocol_nfs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fsx_protocol_smb() :: %{
+        "CmkSecretConfig" => cmk_secret_config(),
+        "CustomSecretConfig" => custom_secret_config(),
+        "Domain" => String.t() | atom(),
+        "ManagedSecretConfig" => managed_secret_config(),
+        "MountOptions" => smb_mount_options(),
+        "Password" => String.t() | atom(),
+        "User" => String.t() | atom()
+      }
+      
+  """
+  @type fsx_protocol_smb() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fsx_update_protocol() :: %{
+        "NFS" => fsx_protocol_nfs(),
+        "SMB" => fsx_update_protocol_smb()
+      }
+      
+  """
+  @type fsx_update_protocol() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fsx_update_protocol_smb() :: %{
+        "CmkSecretConfig" => cmk_secret_config(),
+        "CustomSecretConfig" => custom_secret_config(),
+        "Domain" => String.t() | atom(),
+        "MountOptions" => smb_mount_options(),
+        "Password" => String.t() | atom(),
+        "User" => String.t() | atom()
+      }
+      
+  """
+  @type fsx_update_protocol_smb() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hdfs_name_node() :: %{
+        "Hostname" => String.t() | atom(),
+        "Port" => integer()
+      }
+      
+  """
+  @type hdfs_name_node() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_exception() :: %{
+        "errorCode" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "datasyncErrorCode" => String.t() | atom(),
+        "errorCode" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agents_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_agents_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agents_response() :: %{
+        "Agents" => list(agent_list_entry()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_agents_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_locations_request() :: %{
+        optional("Filters") => list(location_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_locations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_locations_response() :: %{
+        "Locations" => list(location_list_entry()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_locations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag_list_entry())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_task_executions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TaskArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_task_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1269,12 +1219,329 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      create_location_azure_blob_response() :: %{
-        "LocationArn" => String.t() | atom()
+      list_tasks_request() :: %{
+        optional("Filters") => list(task_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type create_location_azure_blob_response() :: %{(String.t() | atom()) => any()}
+  @type list_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tasks_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tasks" => list(task_list_entry())
+      }
+      
+  """
+  @type list_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      location_filter() :: %{
+        "Name" => list(any()),
+        "Operator" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type location_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      location_list_entry() :: %{
+        "LocationArn" => String.t() | atom(),
+        "LocationUri" => String.t() | atom()
+      }
+      
+  """
+  @type location_list_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_secret_config() :: %{
+        "SecretArn" => String.t() | atom()
+      }
+      
+  """
+  @type managed_secret_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      manifest_config() :: %{
+        "Action" => list(any()),
+        "Format" => list(any()),
+        "Source" => source_manifest_config()
+      }
+      
+  """
+  @type manifest_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      nfs_mount_options() :: %{
+        "Version" => list(any())
+      }
+      
+  """
+  @type nfs_mount_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      on_prem_config() :: %{
+        "AgentArns" => list(String.t() | atom())
+      }
+      
+  """
+  @type on_prem_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      options() :: %{
+        "Atime" => list(any()),
+        "BytesPerSecond" => float(),
+        "Gid" => list(any()),
+        "LogLevel" => list(any()),
+        "Mtime" => list(any()),
+        "ObjectTags" => list(any()),
+        "OverwriteMode" => list(any()),
+        "PosixPermissions" => list(any()),
+        "PreserveDeletedFiles" => list(any()),
+        "PreserveDevices" => list(any()),
+        "SecurityDescriptorCopyFlags" => list(any()),
+        "TaskQueueing" => list(any()),
+        "TransferMode" => list(any()),
+        "Uid" => list(any()),
+        "VerifyMode" => list(any())
+      }
+      
+  """
+  @type options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      platform() :: %{
+        "Version" => String.t() | atom()
+      }
+      
+  """
+  @type platform() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      private_link_config() :: %{
+        "PrivateLinkEndpoint" => String.t() | atom(),
+        "SecurityGroupArns" => list(String.t() | atom()),
+        "SubnetArns" => list(String.t() | atom()),
+        "VpcEndpointId" => String.t() | atom()
+      }
+      
+  """
+  @type private_link_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      qop_configuration() :: %{
+        "DataTransferProtection" => list(any()),
+        "RpcProtection" => list(any())
+      }
+      
+  """
+  @type qop_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_destination() :: %{
+        "S3" => report_destination_s3()
+      }
+      
+  """
+  @type report_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_destination_s3() :: %{
+        "BucketAccessRoleArn" => String.t() | atom(),
+        "S3BucketArn" => String.t() | atom(),
+        "Subdirectory" => String.t() | atom()
+      }
+      
+  """
+  @type report_destination_s3() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_override() :: %{
+        "ReportLevel" => list(any())
+      }
+      
+  """
+  @type report_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_overrides() :: %{
+        "Deleted" => report_override(),
+        "Skipped" => report_override(),
+        "Transferred" => report_override(),
+        "Verified" => report_override()
+      }
+      
+  """
+  @type report_overrides() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_result() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorDetail" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type report_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_config() :: %{
+        "BucketAccessRoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type s3_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_manifest_config() :: %{
+        "BucketAccessRoleArn" => String.t() | atom(),
+        "ManifestObjectPath" => String.t() | atom(),
+        "ManifestObjectVersionId" => String.t() | atom(),
+        "S3BucketArn" => String.t() | atom()
+      }
+      
+  """
+  @type s3_manifest_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      smb_mount_options() :: %{
+        "Version" => list(any())
+      }
+      
+  """
+  @type smb_mount_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_manifest_config() :: %{
+        "S3" => s3_manifest_config()
+      }
+      
+  """
+  @type source_manifest_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_task_execution_request() :: %{
+        optional("Excludes") => list(filter_rule()),
+        optional("Includes") => list(filter_rule()),
+        optional("ManifestConfig") => manifest_config(),
+        optional("OverrideOptions") => options(),
+        optional("Tags") => list(tag_list_entry()),
+        optional("TaskReportConfig") => task_report_config(),
+        required("TaskArn") => String.t() | atom()
+      }
+      
+  """
+  @type start_task_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_task_execution_response() :: %{
+        "TaskExecutionArn" => String.t() | atom()
+      }
+      
+  """
+  @type start_task_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_list_entry() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag_list_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag_list_entry())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -1294,28 +1561,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      create_location_object_storage_request() :: %{
-        optional("AccessKey") => String.t() | atom(),
-        optional("AgentArns") => list(String.t() | atom()),
-        optional("CmkSecretConfig") => cmk_secret_config(),
-        optional("CustomSecretConfig") => custom_secret_config(),
-        optional("SecretKey") => String.t() | atom(),
-        optional("ServerCertificate") => binary(),
-        optional("ServerPort") => integer(),
-        optional("ServerProtocol") => list(any()),
-        optional("Subdirectory") => String.t() | atom(),
-        optional("Tags") => list(tag_list_entry()),
-        required("BucketName") => String.t() | atom(),
-        required("ServerHostname") => String.t() | atom()
-      }
-      
-  """
-  @type create_location_object_storage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       task_execution_files_listed_detail() :: %{
         "AtDestinationForDelete" => float(),
         "AtSource" => float()
@@ -1323,6 +1568,317 @@ defmodule AWS.DataSync do
       
   """
   @type task_execution_files_listed_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_execution_folders_failed_detail() :: %{
+        "Delete" => float(),
+        "List" => float(),
+        "Prepare" => float(),
+        "Transfer" => float(),
+        "Verify" => float()
+      }
+      
+  """
+  @type task_execution_folders_failed_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_execution_folders_listed_detail() :: %{
+        "AtDestinationForDelete" => float(),
+        "AtSource" => float()
+      }
+      
+  """
+  @type task_execution_folders_listed_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_execution_list_entry() :: %{
+        "Status" => list(any()),
+        "TaskExecutionArn" => String.t() | atom(),
+        "TaskMode" => list(any())
+      }
+      
+  """
+  @type task_execution_list_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_execution_result_detail() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorDetail" => String.t() | atom(),
+        "PrepareDuration" => float(),
+        "PrepareStatus" => list(any()),
+        "TotalDuration" => float(),
+        "TransferDuration" => float(),
+        "TransferStatus" => list(any()),
+        "VerifyDuration" => float(),
+        "VerifyStatus" => list(any())
+      }
+      
+  """
+  @type task_execution_result_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_filter() :: %{
+        "Name" => list(any()),
+        "Operator" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type task_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_list_entry() :: %{
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "TaskArn" => String.t() | atom(),
+        "TaskMode" => list(any())
+      }
+      
+  """
+  @type task_list_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_report_config() :: %{
+        "Destination" => report_destination(),
+        "ObjectVersionIds" => list(any()),
+        "OutputType" => list(any()),
+        "Overrides" => report_overrides(),
+        "ReportLevel" => list(any())
+      }
+      
+  """
+  @type task_report_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_schedule() :: %{
+        "ScheduleExpression" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type task_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_schedule_details() :: %{
+        "DisabledBy" => list(any()),
+        "DisabledReason" => String.t() | atom(),
+        "StatusUpdateTime" => non_neg_integer()
+      }
+      
+  """
+  @type task_schedule_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("Keys") => list(String.t() | atom()),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_agent_request() :: %{
+        optional("Name") => String.t() | atom(),
+        required("AgentArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_agent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_agent_response() :: %{}
+      
+  """
+  @type update_agent_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_azure_blob_request() :: %{
+        optional("AccessTier") => list(any()),
+        optional("AgentArns") => list(String.t() | atom()),
+        optional("AuthenticationType") => list(any()),
+        optional("BlobType") => list(any()),
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
+        optional("SasConfiguration") => azure_blob_sas_configuration(),
+        optional("Subdirectory") => String.t() | atom(),
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_location_azure_blob_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_azure_blob_response() :: %{}
+      
+  """
+  @type update_location_azure_blob_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_efs_request() :: %{
+        optional("AccessPointArn") => String.t() | atom(),
+        optional("FileSystemAccessRoleArn") => String.t() | atom(),
+        optional("InTransitEncryption") => list(any()),
+        optional("Subdirectory") => String.t() | atom(),
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_location_efs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_efs_response() :: %{}
+      
+  """
+  @type update_location_efs_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_fsx_lustre_request() :: %{
+        optional("Subdirectory") => String.t() | atom(),
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_location_fsx_lustre_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_fsx_lustre_response() :: %{}
+      
+  """
+  @type update_location_fsx_lustre_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_fsx_ontap_request() :: %{
+        optional("Protocol") => fsx_update_protocol(),
+        optional("Subdirectory") => String.t() | atom(),
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_location_fsx_ontap_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_fsx_ontap_response() :: %{}
+      
+  """
+  @type update_location_fsx_ontap_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_fsx_open_zfs_request() :: %{
+        optional("Protocol") => fsx_protocol(),
+        optional("Subdirectory") => String.t() | atom(),
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_location_fsx_open_zfs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_fsx_open_zfs_response() :: %{}
+      
+  """
+  @type update_location_fsx_open_zfs_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_fsx_windows_request() :: %{
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
+        optional("Domain") => String.t() | atom(),
+        optional("Password") => String.t() | atom(),
+        optional("Subdirectory") => String.t() | atom(),
+        optional("User") => String.t() | atom(),
+        required("LocationArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_location_fsx_windows_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_fsx_windows_response() :: %{}
+      
+  """
+  @type update_location_fsx_windows_response() :: %{}
 
   @typedoc """
 
@@ -1353,247 +1909,34 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      task_execution_folders_listed_detail() :: %{
-        "AtDestinationForDelete" => float(),
-        "AtSource" => float()
-      }
+      update_location_hdfs_response() :: %{}
       
   """
-  @type task_execution_folders_listed_detail() :: %{(String.t() | atom()) => any()}
+  @type update_location_hdfs_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      delete_location_response() :: %{}
-      
-  """
-  @type delete_location_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("Keys") => list(String.t() | atom()),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_fsx_ontap_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "FsxFilesystemArn" => String.t() | atom(),
-        "LocationArn" => String.t() | atom(),
-        "LocationUri" => String.t() | atom(),
-        "Protocol" => fsx_protocol(),
-        "SecurityGroupArns" => list(String.t() | atom()),
-        "StorageVirtualMachineArn" => String.t() | atom()
-      }
-      
-  """
-  @type describe_location_fsx_ontap_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_task_response() :: %{
-        "TaskArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_hdfs_response() :: %{
-        "AgentArns" => list(String.t() | atom()),
-        "AuthenticationType" => list(any()),
-        "BlockSize" => integer(),
-        "CmkSecretConfig" => cmk_secret_config(),
-        "CreationTime" => non_neg_integer(),
-        "CustomSecretConfig" => custom_secret_config(),
-        "KerberosPrincipal" => String.t() | atom(),
-        "KmsKeyProviderUri" => String.t() | atom(),
-        "LocationArn" => String.t() | atom(),
-        "LocationUri" => String.t() | atom(),
-        "ManagedSecretConfig" => managed_secret_config(),
-        "NameNodes" => list(hdfs_name_node()),
-        "QopConfiguration" => qop_configuration(),
-        "ReplicationFactor" => integer(),
-        "SimpleUser" => String.t() | atom()
-      }
-      
-  """
-  @type describe_location_hdfs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_agent_request() :: %{
-        optional("Name") => String.t() | atom(),
-        required("AgentArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      platform() :: %{
-        "Version" => String.t() | atom()
-      }
-      
-  """
-  @type platform() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      report_override() :: %{
-        "ReportLevel" => list(any())
-      }
-      
-  """
-  @type report_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fsx_protocol() :: %{
-        "NFS" => fsx_protocol_nfs(),
-        "SMB" => fsx_protocol_smb()
-      }
-      
-  """
-  @type fsx_protocol() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_agent_request() :: %{
-        optional("AgentName") => String.t() | atom(),
-        optional("SecurityGroupArns") => list(String.t() | atom()),
-        optional("SubnetArns") => list(String.t() | atom()),
-        optional("Tags") => list(tag_list_entry()),
-        optional("VpcEndpointId") => String.t() | atom(),
-        required("ActivationKey") => String.t() | atom()
-      }
-      
-  """
-  @type create_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_fsx_open_zfs_response() :: %{}
-      
-  """
-  @type update_location_fsx_open_zfs_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_hdfs_request() :: %{
+      update_location_nfs_request() :: %{
+        optional("MountOptions") => nfs_mount_options(),
+        optional("OnPremConfig") => on_prem_config(),
+        optional("ServerHostname") => String.t() | atom(),
+        optional("Subdirectory") => String.t() | atom(),
         required("LocationArn") => String.t() | atom()
       }
       
   """
-  @type describe_location_hdfs_request() :: %{(String.t() | atom()) => any()}
+  @type update_location_nfs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      task_list_entry() :: %{
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "TaskArn" => String.t() | atom(),
-        "TaskMode" => list(any())
-      }
+      update_location_nfs_response() :: %{}
       
   """
-  @type task_list_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_fsx_windows_response() :: %{
-        "LocationArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_location_fsx_windows_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_fsx_windows_response() :: %{}
-      
-  """
-  @type update_location_fsx_windows_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag_list_entry())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_schedule_details() :: %{
-        "DisabledBy" => list(any()),
-        "DisabledReason" => String.t() | atom(),
-        "StatusUpdateTime" => non_neg_integer()
-      }
-      
-  """
-  @type task_schedule_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_fsx_windows_response() :: %{
-        "CmkSecretConfig" => cmk_secret_config(),
-        "CreationTime" => non_neg_integer(),
-        "CustomSecretConfig" => custom_secret_config(),
-        "Domain" => String.t() | atom(),
-        "LocationArn" => String.t() | atom(),
-        "LocationUri" => String.t() | atom(),
-        "ManagedSecretConfig" => managed_secret_config(),
-        "SecurityGroupArns" => list(String.t() | atom()),
-        "User" => String.t() | atom()
-      }
-      
-  """
-  @type describe_location_fsx_windows_response() :: %{(String.t() | atom()) => any()}
+  @type update_location_nfs_response() :: %{}
 
   @typedoc """
 
@@ -1620,246 +1963,67 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      location_list_entry() :: %{
-        "LocationArn" => String.t() | atom(),
-        "LocationUri" => String.t() | atom()
-      }
+      update_location_object_storage_response() :: %{}
       
   """
-  @type location_list_entry() :: %{(String.t() | atom()) => any()}
+  @type update_location_object_storage_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      describe_location_smb_request() :: %{
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_location_smb_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_schedule() :: %{
-        "ScheduleExpression" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type task_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      nfs_mount_options() :: %{
-        "Version" => list(any())
-      }
-      
-  """
-  @type nfs_mount_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fsx_update_protocol_smb() :: %{
-        "CmkSecretConfig" => cmk_secret_config(),
-        "CustomSecretConfig" => custom_secret_config(),
-        "Domain" => String.t() | atom(),
-        "MountOptions" => smb_mount_options(),
-        "Password" => String.t() | atom(),
-        "User" => String.t() | atom()
-      }
-      
-  """
-  @type fsx_update_protocol_smb() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_azure_blob_response() :: %{
-        "AccessTier" => list(any()),
-        "AgentArns" => list(String.t() | atom()),
-        "AuthenticationType" => list(any()),
-        "BlobType" => list(any()),
-        "CmkSecretConfig" => cmk_secret_config(),
-        "CreationTime" => non_neg_integer(),
-        "CustomSecretConfig" => custom_secret_config(),
-        "LocationArn" => String.t() | atom(),
-        "LocationUri" => String.t() | atom(),
-        "ManagedSecretConfig" => managed_secret_config()
-      }
-      
-  """
-  @type describe_location_azure_blob_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_fsx_windows_request() :: %{
-        optional("CmkSecretConfig") => cmk_secret_config(),
-        optional("CustomSecretConfig") => custom_secret_config(),
-        optional("Domain") => String.t() | atom(),
-        optional("Password") => String.t() | atom(),
+      update_location_s3_request() :: %{
+        optional("S3Config") => s3_config(),
+        optional("S3StorageClass") => list(any()),
         optional("Subdirectory") => String.t() | atom(),
-        optional("Tags") => list(tag_list_entry()),
-        required("FsxFilesystemArn") => String.t() | atom(),
-        required("SecurityGroupArns") => list(String.t() | atom()),
-        required("User") => String.t() | atom()
-      }
-      
-  """
-  @type create_location_fsx_windows_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_fsx_windows_request() :: %{
         required("LocationArn") => String.t() | atom()
       }
       
   """
-  @type describe_location_fsx_windows_request() :: %{(String.t() | atom()) => any()}
+  @type update_location_s3_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      azure_blob_sas_configuration() :: %{
-        "Token" => String.t() | atom()
-      }
+      update_location_s3_response() :: %{}
       
   """
-  @type azure_blob_sas_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_location_s3_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      report_destination() :: %{
-        "S3" => report_destination_s3()
-      }
-      
-  """
-  @type report_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_azure_blob_request() :: %{
-        optional("AccessTier") => list(any()),
+      update_location_smb_request() :: %{
         optional("AgentArns") => list(String.t() | atom()),
         optional("AuthenticationType") => list(any()),
-        optional("BlobType") => list(any()),
         optional("CmkSecretConfig") => cmk_secret_config(),
         optional("CustomSecretConfig") => custom_secret_config(),
-        optional("SasConfiguration") => azure_blob_sas_configuration(),
+        optional("DnsIpAddresses") => list(String.t() | atom()),
+        optional("Domain") => String.t() | atom(),
+        optional("KerberosKeytab") => binary(),
+        optional("KerberosKrb5Conf") => binary(),
+        optional("KerberosPrincipal") => String.t() | atom(),
+        optional("MountOptions") => smb_mount_options(),
+        optional("Password") => String.t() | atom(),
+        optional("ServerHostname") => String.t() | atom(),
         optional("Subdirectory") => String.t() | atom(),
+        optional("User") => String.t() | atom(),
         required("LocationArn") => String.t() | atom()
       }
       
   """
-  @type update_location_azure_blob_request() :: %{(String.t() | atom()) => any()}
+  @type update_location_smb_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      manifest_config() :: %{
-        "Action" => list(any()),
-        "Format" => list(any()),
-        "Source" => source_manifest_config()
-      }
+      update_location_smb_response() :: %{}
       
   """
-  @type manifest_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "datasyncErrorCode" => String.t() | atom(),
-        "errorCode" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_task_execution_response() :: %{}
-      
-  """
-  @type cancel_task_execution_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_execution_result_detail() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorDetail" => String.t() | atom(),
-        "PrepareDuration" => float(),
-        "PrepareStatus" => list(any()),
-        "TotalDuration" => float(),
-        "TransferDuration" => float(),
-        "TransferStatus" => list(any()),
-        "VerifyDuration" => float(),
-        "VerifyStatus" => list(any())
-      }
-      
-  """
-  @type task_execution_result_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      report_overrides() :: %{
-        "Deleted" => report_override(),
-        "Skipped" => report_override(),
-        "Transferred" => report_override(),
-        "Verified" => report_override()
-      }
-      
-  """
-  @type report_overrides() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_nfs_response() :: %{
-        "LocationArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_location_nfs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_filter() :: %{
-        "Name" => list(any()),
-        "Operator" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type task_filter() :: %{(String.t() | atom()) => any()}
+  @type update_location_smb_response() :: %{}
 
   @typedoc """
 
@@ -1877,197 +2041,38 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      create_location_nfs_request() :: %{
-        optional("MountOptions") => nfs_mount_options(),
-        optional("Tags") => list(tag_list_entry()),
-        required("OnPremConfig") => on_prem_config(),
-        required("ServerHostname") => String.t() | atom(),
-        required("Subdirectory") => String.t() | atom()
-      }
+      update_task_execution_response() :: %{}
       
   """
-  @type create_location_nfs_request() :: %{(String.t() | atom()) => any()}
+  @type update_task_execution_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      s3_manifest_config() :: %{
-        "BucketAccessRoleArn" => String.t() | atom(),
-        "ManifestObjectPath" => String.t() | atom(),
-        "ManifestObjectVersionId" => String.t() | atom(),
-        "S3BucketArn" => String.t() | atom()
-      }
-      
-  """
-  @type s3_manifest_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_task_request() :: %{
+      update_task_request() :: %{
+        optional("CloudWatchLogGroupArn") => String.t() | atom(),
+        optional("Excludes") => list(filter_rule()),
+        optional("Includes") => list(filter_rule()),
+        optional("ManifestConfig") => manifest_config(),
+        optional("Name") => String.t() | atom(),
+        optional("Options") => options(),
+        optional("Schedule") => task_schedule(),
+        optional("TaskReportConfig") => task_report_config(),
         required("TaskArn") => String.t() | atom()
       }
       
   """
-  @type describe_task_request() :: %{(String.t() | atom()) => any()}
+  @type update_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      task_report_config() :: %{
-        "Destination" => report_destination(),
-        "ObjectVersionIds" => list(any()),
-        "OutputType" => list(any()),
-        "Overrides" => report_overrides(),
-        "ReportLevel" => list(any())
-      }
+      update_task_response() :: %{}
       
   """
-  @type task_report_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_task_execution_request() :: %{
-        required("TaskExecutionArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_task_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fsx_protocol_nfs() :: %{
-        "MountOptions" => nfs_mount_options()
-      }
-      
-  """
-  @type fsx_protocol_nfs() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_location_object_storage_request() :: %{
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_location_object_storage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_location_request() :: %{
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_location_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_object_storage_response() :: %{}
-      
-  """
-  @type update_location_object_storage_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_azure_blob_request() :: %{
-        optional("AccessTier") => list(any()),
-        optional("AgentArns") => list(String.t() | atom()),
-        optional("BlobType") => list(any()),
-        optional("CmkSecretConfig") => cmk_secret_config(),
-        optional("CustomSecretConfig") => custom_secret_config(),
-        optional("SasConfiguration") => azure_blob_sas_configuration(),
-        optional("Subdirectory") => String.t() | atom(),
-        optional("Tags") => list(tag_list_entry()),
-        required("AuthenticationType") => list(any()),
-        required("ContainerUrl") => String.t() | atom()
-      }
-      
-  """
-  @type create_location_azure_blob_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_fsx_ontap_request() :: %{
-        optional("Protocol") => fsx_update_protocol(),
-        optional("Subdirectory") => String.t() | atom(),
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_location_fsx_ontap_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_hdfs_request() :: %{
-        optional("BlockSize") => integer(),
-        optional("CmkSecretConfig") => cmk_secret_config(),
-        optional("CustomSecretConfig") => custom_secret_config(),
-        optional("KerberosKeytab") => binary(),
-        optional("KerberosKrb5Conf") => binary(),
-        optional("KerberosPrincipal") => String.t() | atom(),
-        optional("KmsKeyProviderUri") => String.t() | atom(),
-        optional("QopConfiguration") => qop_configuration(),
-        optional("ReplicationFactor") => integer(),
-        optional("SimpleUser") => String.t() | atom(),
-        optional("Subdirectory") => String.t() | atom(),
-        optional("Tags") => list(tag_list_entry()),
-        required("AgentArns") => list(String.t() | atom()),
-        required("AuthenticationType") => list(any()),
-        required("NameNodes") => list(hdfs_name_node())
-      }
-      
-  """
-  @type create_location_hdfs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_location_fsx_windows_request() :: %{
-        optional("CmkSecretConfig") => cmk_secret_config(),
-        optional("CustomSecretConfig") => custom_secret_config(),
-        optional("Domain") => String.t() | atom(),
-        optional("Password") => String.t() | atom(),
-        optional("Subdirectory") => String.t() | atom(),
-        optional("User") => String.t() | atom(),
-        required("LocationArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_location_fsx_windows_request() :: %{(String.t() | atom()) => any()}
+  @type update_task_response() :: %{}
 
   @type cancel_task_execution_errors() :: invalid_request_exception() | internal_exception()
 

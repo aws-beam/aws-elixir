@@ -31,255 +31,12 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
-      method_not_allowed_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscriptions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_subscriptions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      request_entity_too_large_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type request_entity_too_large_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_direct_message_response() :: %{
-        "message" => String.t() | atom(),
-        "traceId" => String.t() | atom()
-      }
-
-  """
-  @type send_direct_message_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscription_summary() :: %{
-        "qos" => integer(),
-        "topicFilter" => String.t() | atom()
-      }
-
-  """
-  @type subscription_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_retained_messages_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_retained_messages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_thing_shadow_response() :: %{
-        "payload" => binary()
-      }
-
-  """
-  @type delete_thing_shadow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_named_shadows_for_thing_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "results" => list(String.t() | atom()),
-        "timestamp" => float()
-      }
-
-  """
-  @type list_named_shadows_for_thing_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_failure_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_retained_message_response() :: %{
-        "lastModifiedTime" => float(),
-        "payload" => binary(),
-        "qos" => integer(),
-        "topic" => String.t() | atom(),
-        "userProperties" => binary()
-      }
-
-  """
-  @type get_retained_message_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retained_message_summary() :: %{
-        "lastModifiedTime" => float(),
-        "payloadSize" => float(),
-        "qos" => integer(),
-        "topic" => String.t() | atom()
-      }
-
-  """
-  @type retained_message_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_named_shadows_for_thing_request() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("pageSize") => integer()
-      }
-
-  """
-  @type list_named_shadows_for_thing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_timeout_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type gateway_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_retained_message_request() :: %{}
-
-  """
-  @type get_retained_message_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       conflict_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
   @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_thing_shadow_request() :: %{
-        optional("shadowName") => String.t() | atom()
-      }
-
-  """
-  @type delete_thing_shadow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_thing_shadow_request() :: %{
-        optional("shadowName") => String.t() | atom()
-      }
-
-  """
-  @type get_thing_shadow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unsupported_document_encoding_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unsupported_document_encoding_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,43 +54,23 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
-      update_thing_shadow_response() :: %{
+      delete_thing_shadow_request() :: %{
+        optional("shadowName") => String.t() | atom()
+      }
+
+  """
+  @type delete_thing_shadow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_thing_shadow_response() :: %{
         "payload" => binary()
       }
 
   """
-  @type update_thing_shadow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscriptions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "subscriptions" => list(subscription_summary())
-      }
-
-  """
-  @type list_subscriptions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_direct_message_request() :: %{
-        optional("confirmation") => boolean(),
-        optional("contentType") => String.t() | atom(),
-        optional("correlationData") => String.t() | atom(),
-        optional("payload") => binary(),
-        optional("payloadFormatIndicator") => list(any()),
-        optional("responseTopic") => String.t() | atom(),
-        optional("timeout") => integer(),
-        optional("userProperties") => String.t() | atom(),
-        required("topic") => String.t() | atom()
-      }
-
-  """
-  @type send_direct_message_request() :: %{(String.t() | atom()) => any()}
+  @type delete_thing_shadow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -350,12 +87,12 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
-      invalid_request_exception() :: %{
+      gateway_timeout_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+  @type gateway_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -367,18 +104,6 @@ defmodule AWS.IoTDataPlane do
 
   """
   @type get_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_thing_shadow_request() :: %{
-        optional("shadowName") => String.t() | atom(),
-        required("payload") => binary()
-      }
-
-  """
-  @type update_thing_shadow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -408,6 +133,111 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
+      get_retained_message_request() :: %{}
+
+  """
+  @type get_retained_message_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_retained_message_response() :: %{
+        "lastModifiedTime" => float(),
+        "payload" => binary(),
+        "qos" => integer(),
+        "topic" => String.t() | atom(),
+        "userProperties" => binary()
+      }
+
+  """
+  @type get_retained_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_thing_shadow_request() :: %{
+        optional("shadowName") => String.t() | atom()
+      }
+
+  """
+  @type get_thing_shadow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_thing_shadow_response() :: %{
+        "payload" => binary()
+      }
+
+  """
+  @type get_thing_shadow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_named_shadows_for_thing_request() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("pageSize") => integer()
+      }
+
+  """
+  @type list_named_shadows_for_thing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_named_shadows_for_thing_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "results" => list(String.t() | atom()),
+        "timestamp" => float()
+      }
+
+  """
+  @type list_named_shadows_for_thing_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retained_messages_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_retained_messages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_retained_messages_response() :: %{
         "nextToken" => String.t() | atom(),
         "retainedTopics" => list(retained_message_summary())
@@ -415,6 +245,41 @@ defmodule AWS.IoTDataPlane do
 
   """
   @type list_retained_messages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscriptions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_subscriptions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscriptions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "subscriptions" => list(subscription_summary())
+      }
+
+  """
+  @type list_subscriptions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      method_not_allowed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -439,107 +304,242 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
-      get_thing_shadow_response() :: %{
+      request_entity_too_large_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type request_entity_too_large_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retained_message_summary() :: %{
+        "lastModifiedTime" => float(),
+        "payloadSize" => float(),
+        "qos" => integer(),
+        "topic" => String.t() | atom()
+      }
+
+  """
+  @type retained_message_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_direct_message_request() :: %{
+        optional("confirmation") => boolean(),
+        optional("contentType") => String.t() | atom(),
+        optional("correlationData") => String.t() | atom(),
+        optional("payload") => binary(),
+        optional("payloadFormatIndicator") => list(any()),
+        optional("responseTopic") => String.t() | atom(),
+        optional("timeout") => integer(),
+        optional("userProperties") => String.t() | atom(),
+        required("topic") => String.t() | atom()
+      }
+
+  """
+  @type send_direct_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_direct_message_response() :: %{
+        "message" => String.t() | atom(),
+        "traceId" => String.t() | atom()
+      }
+
+  """
+  @type send_direct_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription_summary() :: %{
+        "qos" => integer(),
+        "topicFilter" => String.t() | atom()
+      }
+
+  """
+  @type subscription_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_document_encoding_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unsupported_document_encoding_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_shadow_request() :: %{
+        optional("shadowName") => String.t() | atom(),
+        required("payload") => binary()
+      }
+
+  """
+  @type update_thing_shadow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_shadow_response() :: %{
         "payload" => binary()
       }
 
   """
-  @type get_thing_shadow_response() :: %{(String.t() | atom()) => any()}
+  @type update_thing_shadow_response() :: %{(String.t() | atom()) => any()}
 
   @type delete_connection_errors() ::
-          invalid_request_exception()
-          | forbidden_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | forbidden_exception()
 
   @type delete_thing_shadow_errors() ::
-          invalid_request_exception()
-          | unsupported_document_encoding_exception()
-          | resource_not_found_exception()
+          unsupported_document_encoding_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
           | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type get_connection_errors() ::
-          invalid_request_exception()
-          | forbidden_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | forbidden_exception()
 
   @type get_retained_message_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
-          | internal_failure_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
           | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type get_thing_shadow_errors() ::
-          invalid_request_exception()
-          | unsupported_document_encoding_exception()
-          | resource_not_found_exception()
+          unsupported_document_encoding_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
           | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type list_named_shadows_for_thing_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
-          | internal_failure_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
           | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type list_retained_messages_errors() ::
-          invalid_request_exception()
-          | unauthorized_exception()
-          | internal_failure_exception()
+          unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
           | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type list_subscriptions_errors() ::
-          invalid_request_exception()
-          | forbidden_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
-          | throttling_exception()
+          | forbidden_exception()
 
   @type publish_errors() ::
-          invalid_request_exception()
-          | unauthorized_exception()
-          | internal_failure_exception()
+          unauthorized_exception()
           | throttling_exception()
           | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
 
   @type send_direct_message_errors() ::
-          invalid_request_exception()
-          | forbidden_exception()
-          | resource_not_found_exception()
-          | gateway_timeout_exception()
-          | unauthorized_exception()
-          | internal_failure_exception()
+          unauthorized_exception()
           | throttling_exception()
+          | resource_not_found_exception()
           | request_entity_too_large_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | gateway_timeout_exception()
+          | forbidden_exception()
 
   @type update_thing_shadow_errors() ::
-          invalid_request_exception()
-          | unsupported_document_encoding_exception()
-          | conflict_exception()
+          unsupported_document_encoding_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
           | throttling_exception()
           | service_unavailable_exception()
           | request_entity_too_large_exception()
           | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -765,15 +765,15 @@ defmodule AWS.IoTDataPlane do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end
@@ -821,15 +821,15 @@ defmodule AWS.IoTDataPlane do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -870,15 +870,15 @@ defmodule AWS.IoTDataPlane do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

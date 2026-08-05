@@ -22,135 +22,45 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
-      create_table_request() :: %{
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("metadata") => list(),
-        optional("storageClassConfiguration") => storage_class_configuration(),
-        optional("tags") => map(),
-        required("format") => list(any()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_table_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_record_expiration_configuration_request() :: %{
-        required("tableArn") => String.t() | atom()
-      }
-
-  """
-  @type get_table_record_expiration_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_encryption_response() :: %{
-        "encryptionConfiguration" => encryption_configuration()
-      }
-
-  """
-  @type get_table_encryption_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_table_replication_request() :: %{
-        required("tableArn") => String.t() | atom(),
-        required("versionToken") => [String.t() | atom()]
-      }
-
-  """
-  @type delete_table_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      method_not_allowed_exception() :: %{
+      access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_table_bucket_maintenance_configuration_request() :: %{}
-
-  """
-  @type get_table_bucket_maintenance_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      iceberg_schema_v2() :: %{
-        "fields" => list(schema_v2_field()),
-        "identifierFieldIds" => list([integer()]()),
-        "schemaId" => [integer()],
-        "type" => list(any())
+      bad_request_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type iceberg_schema_v2() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      table_maintenance_job_status_value() :: %{
-        "failureMessage" => [String.t() | atom()],
-        "lastRunTimestamp" => [non_neg_integer()],
-        "status" => list(any())
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type table_maintenance_job_status_value() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_table_metadata_location_response() :: %{
-        "metadataLocation" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "namespace" => list(String.t() | atom()),
-        "tableARN" => String.t() | atom(),
-        "versionToken" => String.t() | atom()
+      create_namespace_request() :: %{
+        required("namespace") => list(String.t() | atom())
       }
 
   """
-  @type update_table_metadata_location_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_namespace_request() :: %{}
-
-  """
-  @type get_namespace_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_namespaces_request() :: %{
-        optional("continuationToken") => String.t() | atom(),
-        optional("maxNamespaces") => integer(),
-        optional("prefix") => [String.t() | atom()]
-      }
-
-  """
-  @type list_namespaces_request() :: %{(String.t() | atom()) => any()}
+  @type create_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,113 +73,6 @@ defmodule AWS.S3Tables do
 
   """
   @type create_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_record_expiration_job_status_request() :: %{
-        required("tableArn") => String.t() | atom()
-      }
-
-  """
-  @type get_table_record_expiration_job_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      table_replication_configuration() :: %{
-        "role" => String.t() | atom(),
-        "rules" => list(table_replication_rule())
-      }
-
-  """
-  @type table_replication_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_bucket_storage_class_response() :: %{
-        "storageClassConfiguration" => storage_class_configuration()
-      }
-
-  """
-  @type get_table_bucket_storage_class_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_storage_class_request() :: %{}
-
-  """
-  @type get_table_storage_class_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_replication_request() :: %{
-        required("tableArn") => String.t() | atom()
-      }
-
-  """
-  @type get_table_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_replication_status_request() :: %{
-        required("tableArn") => String.t() | atom()
-      }
-
-  """
-  @type get_table_replication_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_table_bucket_encryption_request() :: %{
-        required("encryptionConfiguration") => encryption_configuration()
-      }
-
-  """
-  @type put_table_bucket_encryption_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_bucket_request() :: %{}
-
-  """
-  @type get_table_bucket_request() :: %{}
 
   @typedoc """
 
@@ -289,96 +92,6 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
-      get_table_bucket_policy_request() :: %{}
-
-  """
-  @type get_table_bucket_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_table_replication_response() :: %{
-        "status" => [String.t() | atom()],
-        "versionToken" => [String.t() | atom()]
-      }
-
-  """
-  @type put_table_replication_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iceberg_partition_field() :: %{
-        "fieldId" => [integer()],
-        "name" => [String.t() | atom()],
-        "sourceId" => [integer()],
-        "transform" => [String.t() | atom()]
-      }
-
-  """
-  @type iceberg_partition_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_table_bucket_request() :: %{}
-
-  """
-  @type delete_table_bucket_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      last_successful_replicated_update() :: %{
-        "metadataLocation" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()]
-      }
-
-  """
-  @type last_successful_replicated_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_policy_response() :: %{
-        "resourcePolicy" => String.t() | atom()
-      }
-
-  """
-  @type get_table_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_bucket_replication_response() :: %{
-        "configuration" => table_bucket_replication_configuration(),
-        "versionToken" => String.t() | atom()
-      }
-
-  """
-  @type get_table_bucket_replication_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_table_bucket_maintenance_configuration_request() :: %{
-        required("value") => table_bucket_maintenance_configuration_value()
-      }
-
-  """
-  @type put_table_bucket_maintenance_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_table_bucket_response() :: %{
         "arn" => String.t() | atom()
       }
@@ -390,205 +103,17 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
-      put_table_record_expiration_configuration_request() :: %{
-        required("tableArn") => String.t() | atom(),
-        required("value") => table_record_expiration_configuration_value()
+      create_table_request() :: %{
+        optional("encryptionConfiguration") => encryption_configuration(),
+        optional("metadata") => list(),
+        optional("storageClassConfiguration") => storage_class_configuration(),
+        optional("tags") => map(),
+        required("format") => list(any()),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type put_table_record_expiration_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_namespace_request() :: %{}
-
-  """
-  @type delete_namespace_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_table_maintenance_configuration_request() :: %{
-        required("value") => table_maintenance_configuration_value()
-      }
-
-  """
-  @type put_table_maintenance_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      table_record_expiration_settings() :: %{
-        "days" => integer()
-      }
-
-  """
-  @type table_record_expiration_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_bucket_encryption_request() :: %{}
-
-  """
-  @type get_table_bucket_encryption_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      table_bucket_maintenance_configuration_value() :: %{
-        "settings" => list(),
-        "status" => list(any())
-      }
-
-  """
-  @type table_bucket_maintenance_configuration_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      table_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "managedByService" => [String.t() | atom()],
-        "modifiedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "namespace" => list(String.t() | atom()),
-        "namespaceId" => String.t() | atom(),
-        "tableARN" => String.t() | atom(),
-        "tableBucketId" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type table_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      table_record_expiration_configuration_value() :: %{
-        "settings" => table_record_expiration_settings(),
-        "status" => list(any())
-      }
-
-  """
-  @type table_record_expiration_configuration_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iceberg_snapshot_management_settings() :: %{
-        "maxSnapshotAgeHours" => integer(),
-        "minSnapshotsToKeep" => integer()
-      }
-
-  """
-  @type iceberg_snapshot_management_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_destination() :: %{
-        "destinationTableBucketARN" => String.t() | atom()
-      }
-
-  """
-  @type replication_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_request() :: %{
-        optional("name") => String.t() | atom(),
-        optional("namespace") => String.t() | atom(),
-        optional("tableArn") => String.t() | atom(),
-        optional("tableBucketARN") => String.t() | atom()
-      }
-
-  """
-  @type get_table_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_table_bucket_policy_request() :: %{
-        required("resourcePolicy") => String.t() | atom()
-      }
-
-  """
-  @type put_table_bucket_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      table_bucket_replication_configuration() :: %{
-        "role" => String.t() | atom(),
-        "rules" => list(table_bucket_replication_rule())
-      }
-
-  """
-  @type table_bucket_replication_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_bucket_metrics_configuration_request() :: %{}
-
-  """
-  @type get_table_bucket_metrics_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      namespace_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t() | atom(),
-        "namespace" => list(String.t() | atom()),
-        "namespaceId" => String.t() | atom(),
-        "ownerAccountId" => String.t() | atom(),
-        "tableBucketId" => String.t() | atom()
-      }
-
-  """
-  @type namespace_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_table_policy_request() :: %{}
-
-  """
-  @type delete_table_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_destination_status_model() :: %{
-        "destinationTableArn" => String.t() | atom(),
-        "destinationTableBucketArn" => String.t() | atom(),
-        "failureMessage" => [String.t() | atom()],
-        "lastSuccessfulReplicatedUpdate" => last_successful_replicated_update(),
-        "replicationStatus" => list(any())
-      }
-
-  """
-  @type replication_destination_status_model() :: %{(String.t() | atom()) => any()}
+  @type create_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -606,17 +131,209 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
-      table_bucket_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "ownerAccountId" => String.t() | atom(),
-        "tableBucketId" => String.t() | atom(),
-        "type" => list(any())
+      delete_namespace_request() :: %{}
+
+  """
+  @type delete_namespace_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_table_bucket_encryption_request() :: %{}
+
+  """
+  @type delete_table_bucket_encryption_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_table_bucket_metrics_configuration_request() :: %{}
+
+  """
+  @type delete_table_bucket_metrics_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_table_bucket_policy_request() :: %{}
+
+  """
+  @type delete_table_bucket_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_table_bucket_replication_request() :: %{
+        optional("versionToken") => String.t() | atom(),
+        required("tableBucketARN") => String.t() | atom()
       }
 
   """
-  @type table_bucket_summary() :: %{(String.t() | atom()) => any()}
+  @type delete_table_bucket_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_table_bucket_request() :: %{}
+
+  """
+  @type delete_table_bucket_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_table_policy_request() :: %{}
+
+  """
+  @type delete_table_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_table_replication_request() :: %{
+        required("tableArn") => String.t() | atom(),
+        required("versionToken") => [String.t() | atom()]
+      }
+
+  """
+  @type delete_table_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_table_request() :: %{
+        optional("versionToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_configuration() :: %{
+        "kmsKeyArn" => [String.t() | atom()],
+        "sseAlgorithm" => list(any())
+      }
+
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_namespace_request() :: %{}
+
+  """
+  @type get_namespace_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_namespace_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "namespace" => list(String.t() | atom()),
+        "namespaceId" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "tableBucketId" => String.t() | atom()
+      }
+
+  """
+  @type get_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_encryption_request() :: %{}
+
+  """
+  @type get_table_bucket_encryption_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_encryption_response() :: %{
+        "encryptionConfiguration" => encryption_configuration()
+      }
+
+  """
+  @type get_table_bucket_encryption_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_maintenance_configuration_request() :: %{}
+
+  """
+  @type get_table_bucket_maintenance_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_maintenance_configuration_response() :: %{
+        "configuration" => map(),
+        "tableBucketARN" => String.t() | atom()
+      }
+
+  """
+  @type get_table_bucket_maintenance_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_metrics_configuration_request() :: %{}
+
+  """
+  @type get_table_bucket_metrics_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_metrics_configuration_response() :: %{
+        "id" => [String.t() | atom()],
+        "tableBucketARN" => String.t() | atom()
+      }
+
+  """
+  @type get_table_bucket_metrics_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_policy_request() :: %{}
+
+  """
+  @type get_table_bucket_policy_request() :: %{}
 
   @typedoc """
 
@@ -633,62 +350,206 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
-      list_table_buckets_request() :: %{
-        optional("continuationToken") => String.t() | atom(),
-        optional("maxBuckets") => integer(),
-        optional("prefix") => [String.t() | atom()],
-        optional("type") => list(any())
-      }
-
-  """
-  @type list_table_buckets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_table_bucket_metrics_configuration_request() :: %{}
-
-  """
-  @type put_table_bucket_metrics_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tables_request() :: %{
-        optional("continuationToken") => String.t() | atom(),
-        optional("maxTables") => integer(),
-        optional("namespace") => String.t() | atom(),
-        optional("prefix") => [String.t() | atom()]
-      }
-
-  """
-  @type list_tables_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_table_bucket_replication_request() :: %{
-        optional("versionToken") => String.t() | atom(),
-        required("configuration") => table_bucket_replication_configuration(),
+      get_table_bucket_replication_request() :: %{
         required("tableBucketARN") => String.t() | atom()
       }
 
   """
-  @type put_table_bucket_replication_request() :: %{(String.t() | atom()) => any()}
+  @type get_table_bucket_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("tags") => map()
+      get_table_bucket_replication_response() :: %{
+        "configuration" => table_bucket_replication_configuration(),
+        "versionToken" => String.t() | atom()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type get_table_bucket_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_request() :: %{}
+
+  """
+  @type get_table_bucket_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_response() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "tableBucketId" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type get_table_bucket_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_storage_class_request() :: %{}
+
+  """
+  @type get_table_bucket_storage_class_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_storage_class_response() :: %{
+        "storageClassConfiguration" => storage_class_configuration()
+      }
+
+  """
+  @type get_table_bucket_storage_class_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_encryption_request() :: %{}
+
+  """
+  @type get_table_encryption_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_encryption_response() :: %{
+        "encryptionConfiguration" => encryption_configuration()
+      }
+
+  """
+  @type get_table_encryption_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_maintenance_configuration_request() :: %{}
+
+  """
+  @type get_table_maintenance_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_maintenance_configuration_response() :: %{
+        "configuration" => map(),
+        "tableARN" => String.t() | atom()
+      }
+
+  """
+  @type get_table_maintenance_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_maintenance_job_status_request() :: %{}
+
+  """
+  @type get_table_maintenance_job_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_maintenance_job_status_response() :: %{
+        "status" => map(),
+        "tableARN" => String.t() | atom()
+      }
+
+  """
+  @type get_table_maintenance_job_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_metadata_location_request() :: %{}
+
+  """
+  @type get_table_metadata_location_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_metadata_location_response() :: %{
+        "metadataLocation" => String.t() | atom(),
+        "versionToken" => String.t() | atom(),
+        "warehouseLocation" => String.t() | atom()
+      }
+
+  """
+  @type get_table_metadata_location_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_policy_request() :: %{}
+
+  """
+  @type get_table_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_policy_response() :: %{
+        "resourcePolicy" => String.t() | atom()
+      }
+
+  """
+  @type get_table_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_record_expiration_configuration_request() :: %{
+        required("tableArn") => String.t() | atom()
+      }
+
+  """
+  @type get_table_record_expiration_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_record_expiration_configuration_response() :: %{
+        "configuration" => table_record_expiration_configuration_value()
+      }
+
+  """
+  @type get_table_record_expiration_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_record_expiration_job_status_request() :: %{
+        required("tableArn") => String.t() | atom()
+      }
+
+  """
+  @type get_table_record_expiration_job_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -708,12 +569,35 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
-      internal_server_error_exception() :: %{
-        "message" => String.t() | atom()
+      get_table_replication_request() :: %{
+        required("tableArn") => String.t() | atom()
       }
 
   """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+  @type get_table_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_replication_response() :: %{
+        "configuration" => table_replication_configuration(),
+        "versionToken" => [String.t() | atom()]
+      }
+
+  """
+  @type get_table_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_replication_status_request() :: %{
+        required("tableArn") => String.t() | atom()
+      }
+
+  """
+  @type get_table_replication_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -731,97 +615,15 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
-      delete_table_bucket_replication_request() :: %{
-        optional("versionToken") => String.t() | atom(),
-        required("tableBucketARN") => String.t() | atom()
+      get_table_request() :: %{
+        optional("name") => String.t() | atom(),
+        optional("namespace") => String.t() | atom(),
+        optional("tableArn") => String.t() | atom(),
+        optional("tableBucketARN") => String.t() | atom()
       }
 
   """
-  @type delete_table_bucket_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_bucket_storage_class_request() :: %{}
-
-  """
-  @type get_table_bucket_storage_class_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_encryption_request() :: %{}
-
-  """
-  @type get_table_encryption_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_table_bucket_policy_request() :: %{}
-
-  """
-  @type delete_table_bucket_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_table_information() :: %{
-        "replicationInformation" => replication_information()
-      }
-
-  """
-  @type managed_table_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rename_table_request() :: %{
-        optional("newName") => String.t() | atom(),
-        optional("newNamespaceName") => String.t() | atom(),
-        optional("versionToken") => String.t() | atom()
-      }
-
-  """
-  @type rename_table_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_table_bucket_replication_response() :: %{
-        "status" => [String.t() | atom()],
-        "versionToken" => String.t() | atom()
-      }
-
-  """
-  @type put_table_bucket_replication_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_table_metadata_location_request() :: %{
-        required("metadataLocation") => String.t() | atom(),
-        required("versionToken") => String.t() | atom()
-      }
-
-  """
-  @type update_table_metadata_location_request() :: %{(String.t() | atom()) => any()}
+  @type get_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -854,222 +656,21 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
-      get_table_policy_request() :: %{}
+      get_table_storage_class_request() :: %{}
 
   """
-  @type get_table_policy_request() :: %{}
+  @type get_table_storage_class_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
+      get_table_storage_class_response() :: %{
+        "storageClassConfiguration" => storage_class_configuration()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      table_record_expiration_job_metrics() :: %{
-        "deletedDataFiles" => [float()],
-        "deletedRecords" => [float()],
-        "removedFilesSize" => [float()]
-      }
-
-  """
-  @type table_record_expiration_job_metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_bucket_replication_request() :: %{
-        required("tableBucketARN") => String.t() | atom()
-      }
-
-  """
-  @type get_table_bucket_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iceberg_sort_order() :: %{
-        "fields" => list(iceberg_sort_field()),
-        "orderId" => [integer()]
-      }
-
-  """
-  @type iceberg_sort_order() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_table_buckets_response() :: %{
-        "continuationToken" => String.t() | atom(),
-        "tableBuckets" => list(table_bucket_summary())
-      }
-
-  """
-  @type list_table_buckets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_record_expiration_configuration_response() :: %{
-        "configuration" => table_record_expiration_configuration_value()
-      }
-
-  """
-  @type get_table_record_expiration_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_table_bucket_encryption_request() :: %{}
-
-  """
-  @type delete_table_bucket_encryption_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_maintenance_configuration_request() :: %{}
-
-  """
-  @type get_table_maintenance_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      table_maintenance_configuration_value() :: %{
-        "settings" => list(),
-        "status" => list(any())
-      }
-
-  """
-  @type table_maintenance_configuration_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schema_field() :: %{
-        "id" => [integer()],
-        "name" => [String.t() | atom()],
-        "required" => [boolean()],
-        "type" => [String.t() | atom()]
-      }
-
-  """
-  @type schema_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_information() :: %{
-        "sourceTableARN" => String.t() | atom()
-      }
-
-  """
-  @type replication_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_namespace_response() :: %{
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t() | atom(),
-        "namespace" => list(String.t() | atom()),
-        "namespaceId" => String.t() | atom(),
-        "ownerAccountId" => String.t() | atom(),
-        "tableBucketId" => String.t() | atom()
-      }
-
-  """
-  @type get_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_bucket_response() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "ownerAccountId" => String.t() | atom(),
-        "tableBucketId" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type get_table_bucket_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_table_bucket_metrics_configuration_request() :: %{}
-
-  """
-  @type delete_table_bucket_metrics_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      schema_v2_field() :: %{
-        "doc" => [String.t() | atom()],
-        "id" => [integer()],
-        "name" => [String.t() | atom()],
-        "required" => [boolean()],
-        "type" => [any()]
-      }
-
-  """
-  @type schema_v2_field() :: %{(String.t() | atom()) => any()}
+  @type get_table_storage_class_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1082,249 +683,6 @@ defmodule AWS.S3Tables do
 
   """
   @type iceberg_compaction_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_metadata_location_response() :: %{
-        "metadataLocation" => String.t() | atom(),
-        "versionToken" => String.t() | atom(),
-        "warehouseLocation" => String.t() | atom()
-      }
-
-  """
-  @type get_table_metadata_location_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      table_bucket_replication_rule() :: %{
-        "destinations" => list(replication_destination())
-      }
-
-  """
-  @type table_bucket_replication_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_replication_response() :: %{
-        "configuration" => table_replication_configuration(),
-        "versionToken" => [String.t() | atom()]
-      }
-
-  """
-  @type get_table_replication_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_table_bucket_storage_class_request() :: %{
-        required("storageClassConfiguration") => storage_class_configuration()
-      }
-
-  """
-  @type put_table_bucket_storage_class_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_maintenance_configuration_response() :: %{
-        "configuration" => map(),
-        "tableARN" => String.t() | atom()
-      }
-
-  """
-  @type get_table_maintenance_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iceberg_unreferenced_file_removal_settings() :: %{
-        "nonCurrentDays" => integer(),
-        "unreferencedDays" => integer()
-      }
-
-  """
-  @type iceberg_unreferenced_file_removal_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iceberg_sort_field() :: %{
-        "direction" => list(any()),
-        "nullOrder" => list(any()),
-        "sourceId" => [integer()],
-        "transform" => [String.t() | atom()]
-      }
-
-  """
-  @type iceberg_sort_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_table_replication_request() :: %{
-        optional("versionToken") => [String.t() | atom()],
-        required("configuration") => table_replication_configuration(),
-        required("tableArn") => String.t() | atom()
-      }
-
-  """
-  @type put_table_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_maintenance_job_status_request() :: %{}
-
-  """
-  @type get_table_maintenance_job_status_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_bucket_encryption_response() :: %{
-        "encryptionConfiguration" => encryption_configuration()
-      }
-
-  """
-  @type get_table_bucket_encryption_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_configuration() :: %{
-        "kmsKeyArn" => [String.t() | atom()],
-        "sseAlgorithm" => list(any())
-      }
-
-  """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      table_replication_rule() :: %{
-        "destinations" => list(replication_destination())
-      }
-
-  """
-  @type table_replication_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_namespaces_response() :: %{
-        "continuationToken" => String.t() | atom(),
-        "namespaces" => list(namespace_summary())
-      }
-
-  """
-  @type list_namespaces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iceberg_schema() :: %{
-        "fields" => list(schema_field())
-      }
-
-  """
-  @type iceberg_schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_bucket_maintenance_configuration_response() :: %{
-        "configuration" => map(),
-        "tableBucketARN" => String.t() | atom()
-      }
-
-  """
-  @type get_table_bucket_maintenance_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      storage_class_configuration() :: %{
-        "storageClass" => list(any())
-      }
-
-  """
-  @type storage_class_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tables_response() :: %{
-        "continuationToken" => String.t() | atom(),
-        "tables" => list(table_summary())
-      }
-
-  """
-  @type list_tables_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_table_request() :: %{
-        optional("versionToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1345,56 +703,202 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
-      get_table_maintenance_job_status_response() :: %{
-        "status" => map(),
-        "tableARN" => String.t() | atom()
+      iceberg_partition_field() :: %{
+        "fieldId" => [integer()],
+        "name" => [String.t() | atom()],
+        "sourceId" => [integer()],
+        "transform" => [String.t() | atom()]
       }
 
   """
-  @type get_table_maintenance_job_status_response() :: %{(String.t() | atom()) => any()}
+  @type iceberg_partition_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_namespace_request() :: %{
-        required("namespace") => list(String.t() | atom())
+      iceberg_partition_spec() :: %{
+        "fields" => list(iceberg_partition_field()),
+        "specId" => [integer()]
       }
 
   """
-  @type create_namespace_request() :: %{(String.t() | atom()) => any()}
+  @type iceberg_partition_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_table_storage_class_response() :: %{
-        "storageClassConfiguration" => storage_class_configuration()
+      iceberg_schema() :: %{
+        "fields" => list(schema_field())
       }
 
   """
-  @type get_table_storage_class_response() :: %{(String.t() | atom()) => any()}
+  @type iceberg_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_table_metadata_location_request() :: %{}
+      iceberg_schema_v2() :: %{
+        "fields" => list(schema_v2_field()),
+        "identifierFieldIds" => list([integer()]()),
+        "schemaId" => [integer()],
+        "type" => list(any())
+      }
 
   """
-  @type get_table_metadata_location_request() :: %{}
+  @type iceberg_schema_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_table_bucket_metrics_configuration_response() :: %{
-        "id" => [String.t() | atom()],
-        "tableBucketARN" => String.t() | atom()
+      iceberg_snapshot_management_settings() :: %{
+        "maxSnapshotAgeHours" => integer(),
+        "minSnapshotsToKeep" => integer()
       }
 
   """
-  @type get_table_bucket_metrics_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type iceberg_snapshot_management_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iceberg_sort_field() :: %{
+        "direction" => list(any()),
+        "nullOrder" => list(any()),
+        "sourceId" => [integer()],
+        "transform" => [String.t() | atom()]
+      }
+
+  """
+  @type iceberg_sort_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iceberg_sort_order() :: %{
+        "fields" => list(iceberg_sort_field()),
+        "orderId" => [integer()]
+      }
+
+  """
+  @type iceberg_sort_order() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iceberg_unreferenced_file_removal_settings() :: %{
+        "nonCurrentDays" => integer(),
+        "unreferencedDays" => integer()
+      }
+
+  """
+  @type iceberg_unreferenced_file_removal_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      last_successful_replicated_update() :: %{
+        "metadataLocation" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type last_successful_replicated_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_namespaces_request() :: %{
+        optional("continuationToken") => String.t() | atom(),
+        optional("maxNamespaces") => integer(),
+        optional("prefix") => [String.t() | atom()]
+      }
+
+  """
+  @type list_namespaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_namespaces_response() :: %{
+        "continuationToken" => String.t() | atom(),
+        "namespaces" => list(namespace_summary())
+      }
+
+  """
+  @type list_namespaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_table_buckets_request() :: %{
+        optional("continuationToken") => String.t() | atom(),
+        optional("maxBuckets") => integer(),
+        optional("prefix") => [String.t() | atom()],
+        optional("type") => list(any())
+      }
+
+  """
+  @type list_table_buckets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_table_buckets_response() :: %{
+        "continuationToken" => String.t() | atom(),
+        "tableBuckets" => list(table_bucket_summary())
+      }
+
+  """
+  @type list_table_buckets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tables_request() :: %{
+        optional("continuationToken") => String.t() | atom(),
+        optional("maxTables") => integer(),
+        optional("namespace") => String.t() | atom(),
+        optional("prefix") => [String.t() | atom()]
+      }
+
+  """
+  @type list_tables_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tables_response() :: %{
+        "continuationToken" => String.t() | atom(),
+        "tables" => list(table_summary())
+      }
+
+  """
+  @type list_tables_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1404,6 +908,155 @@ defmodule AWS.S3Tables do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_table_information() :: %{
+        "replicationInformation" => replication_information()
+      }
+
+  """
+  @type managed_table_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      method_not_allowed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      namespace_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "namespace" => list(String.t() | atom()),
+        "namespaceId" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "tableBucketId" => String.t() | atom()
+      }
+
+  """
+  @type namespace_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_bucket_encryption_request() :: %{
+        required("encryptionConfiguration") => encryption_configuration()
+      }
+
+  """
+  @type put_table_bucket_encryption_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_bucket_maintenance_configuration_request() :: %{
+        required("value") => table_bucket_maintenance_configuration_value()
+      }
+
+  """
+  @type put_table_bucket_maintenance_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_bucket_metrics_configuration_request() :: %{}
+
+  """
+  @type put_table_bucket_metrics_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_bucket_policy_request() :: %{
+        required("resourcePolicy") => String.t() | atom()
+      }
+
+  """
+  @type put_table_bucket_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_bucket_replication_request() :: %{
+        optional("versionToken") => String.t() | atom(),
+        required("configuration") => table_bucket_replication_configuration(),
+        required("tableBucketARN") => String.t() | atom()
+      }
+
+  """
+  @type put_table_bucket_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_bucket_replication_response() :: %{
+        "status" => [String.t() | atom()],
+        "versionToken" => String.t() | atom()
+      }
+
+  """
+  @type put_table_bucket_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_bucket_storage_class_request() :: %{
+        required("storageClassConfiguration") => storage_class_configuration()
+      }
+
+  """
+  @type put_table_bucket_storage_class_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_maintenance_configuration_request() :: %{
+        required("value") => table_maintenance_configuration_value()
+      }
+
+  """
+  @type put_table_maintenance_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1420,416 +1073,763 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
-      iceberg_partition_spec() :: %{
-        "fields" => list(iceberg_partition_field()),
-        "specId" => [integer()]
+      put_table_record_expiration_configuration_request() :: %{
+        required("tableArn") => String.t() | atom(),
+        required("value") => table_record_expiration_configuration_value()
       }
 
   """
-  @type iceberg_partition_spec() :: %{(String.t() | atom()) => any()}
+  @type put_table_record_expiration_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_replication_request() :: %{
+        optional("versionToken") => [String.t() | atom()],
+        required("configuration") => table_replication_configuration(),
+        required("tableArn") => String.t() | atom()
+      }
+
+  """
+  @type put_table_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_replication_response() :: %{
+        "status" => [String.t() | atom()],
+        "versionToken" => [String.t() | atom()]
+      }
+
+  """
+  @type put_table_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rename_table_request() :: %{
+        optional("newName") => String.t() | atom(),
+        optional("newNamespaceName") => String.t() | atom(),
+        optional("versionToken") => String.t() | atom()
+      }
+
+  """
+  @type rename_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_destination() :: %{
+        "destinationTableBucketARN" => String.t() | atom()
+      }
+
+  """
+  @type replication_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_destination_status_model() :: %{
+        "destinationTableArn" => String.t() | atom(),
+        "destinationTableBucketArn" => String.t() | atom(),
+        "failureMessage" => [String.t() | atom()],
+        "lastSuccessfulReplicatedUpdate" => last_successful_replicated_update(),
+        "replicationStatus" => list(any())
+      }
+
+  """
+  @type replication_destination_status_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_information() :: %{
+        "sourceTableARN" => String.t() | atom()
+      }
+
+  """
+  @type replication_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_field() :: %{
+        "id" => [integer()],
+        "name" => [String.t() | atom()],
+        "required" => [boolean()],
+        "type" => [String.t() | atom()]
+      }
+
+  """
+  @type schema_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_v2_field() :: %{
+        "doc" => [String.t() | atom()],
+        "id" => [integer()],
+        "name" => [String.t() | atom()],
+        "required" => [boolean()],
+        "type" => [any()]
+      }
+
+  """
+  @type schema_v2_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_class_configuration() :: %{
+        "storageClass" => list(any())
+      }
+
+  """
+  @type storage_class_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_bucket_maintenance_configuration_value() :: %{
+        "settings" => list(),
+        "status" => list(any())
+      }
+
+  """
+  @type table_bucket_maintenance_configuration_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_bucket_replication_configuration() :: %{
+        "role" => String.t() | atom(),
+        "rules" => list(table_bucket_replication_rule())
+      }
+
+  """
+  @type table_bucket_replication_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_bucket_replication_rule() :: %{
+        "destinations" => list(replication_destination())
+      }
+
+  """
+  @type table_bucket_replication_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_bucket_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "tableBucketId" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type table_bucket_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_maintenance_configuration_value() :: %{
+        "settings" => list(),
+        "status" => list(any())
+      }
+
+  """
+  @type table_maintenance_configuration_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_maintenance_job_status_value() :: %{
+        "failureMessage" => [String.t() | atom()],
+        "lastRunTimestamp" => [non_neg_integer()],
+        "status" => list(any())
+      }
+
+  """
+  @type table_maintenance_job_status_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_record_expiration_configuration_value() :: %{
+        "settings" => table_record_expiration_settings(),
+        "status" => list(any())
+      }
+
+  """
+  @type table_record_expiration_configuration_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_record_expiration_job_metrics() :: %{
+        "deletedDataFiles" => [float()],
+        "deletedRecords" => [float()],
+        "removedFilesSize" => [float()]
+      }
+
+  """
+  @type table_record_expiration_job_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_record_expiration_settings() :: %{
+        "days" => integer()
+      }
+
+  """
+  @type table_record_expiration_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_replication_configuration() :: %{
+        "role" => String.t() | atom(),
+        "rules" => list(table_replication_rule())
+      }
+
+  """
+  @type table_replication_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_replication_rule() :: %{
+        "destinations" => list(replication_destination())
+      }
+
+  """
+  @type table_replication_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "managedByService" => [String.t() | atom()],
+        "modifiedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "namespace" => list(String.t() | atom()),
+        "namespaceId" => String.t() | atom(),
+        "tableARN" => String.t() | atom(),
+        "tableBucketId" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type table_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_table_metadata_location_request() :: %{
+        required("metadataLocation") => String.t() | atom(),
+        required("versionToken") => String.t() | atom()
+      }
+
+  """
+  @type update_table_metadata_location_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_table_metadata_location_response() :: %{
+        "metadataLocation" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "namespace" => list(String.t() | atom()),
+        "tableARN" => String.t() | atom(),
+        "versionToken" => String.t() | atom()
+      }
+
+  """
+  @type update_table_metadata_location_response() :: %{(String.t() | atom()) => any()}
 
   @type create_namespace_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type create_table_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type create_table_bucket_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type delete_namespace_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type delete_table_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type delete_table_bucket_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type delete_table_bucket_encryption_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type delete_table_bucket_metrics_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type delete_table_bucket_policy_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type delete_table_bucket_replication_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type delete_table_policy_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type delete_table_replication_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type get_namespace_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type get_table_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type get_table_bucket_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type get_table_bucket_encryption_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type get_table_bucket_maintenance_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type get_table_bucket_metrics_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type get_table_bucket_policy_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type get_table_bucket_replication_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type get_table_bucket_storage_class_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type get_table_encryption_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type get_table_maintenance_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type get_table_maintenance_job_status_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type get_table_metadata_location_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type get_table_policy_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type get_table_record_expiration_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_table_record_expiration_job_status_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_table_replication_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type get_table_replication_status_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type get_table_storage_class_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type list_namespaces_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type list_table_buckets_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type list_tables_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type put_table_bucket_encryption_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type put_table_bucket_maintenance_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type put_table_bucket_metrics_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type put_table_bucket_policy_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type put_table_bucket_replication_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type put_table_bucket_storage_class_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type put_table_maintenance_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type put_table_policy_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type put_table_record_expiration_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type put_table_replication_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | too_many_requests_exception()
 
   @type rename_table_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type tag_resource_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type untag_resource_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type update_table_metadata_location_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | conflict_exception()
           | internal_server_error_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   def metadata do
     %{
@@ -2480,15 +2480,8 @@ defmodule AWS.S3Tables do
     query_params = []
 
     query_params =
-      if !is_nil(table_bucket_arn) do
-        [{"tableBucketARN", table_bucket_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(table_arn) do
-        [{"tableArn", table_arn} | query_params]
+      if !is_nil(name) do
+        [{"name", name} | query_params]
       else
         query_params
       end
@@ -2501,8 +2494,15 @@ defmodule AWS.S3Tables do
       end
 
     query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if !is_nil(table_arn) do
+        [{"tableArn", table_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(table_bucket_arn) do
+        [{"tableBucketARN", table_bucket_arn} | query_params]
       else
         query_params
       end
@@ -3124,8 +3124,8 @@ defmodule AWS.S3Tables do
     query_params = []
 
     query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
+      if !is_nil(continuation_token) do
+        [{"continuationToken", continuation_token} | query_params]
       else
         query_params
       end
@@ -3138,8 +3138,8 @@ defmodule AWS.S3Tables do
       end
 
     query_params =
-      if !is_nil(continuation_token) do
-        [{"continuationToken", continuation_token} | query_params]
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
       else
         query_params
       end
@@ -3186,15 +3186,8 @@ defmodule AWS.S3Tables do
     query_params = []
 
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
+      if !is_nil(continuation_token) do
+        [{"continuationToken", continuation_token} | query_params]
       else
         query_params
       end
@@ -3207,8 +3200,15 @@ defmodule AWS.S3Tables do
       end
 
     query_params =
-      if !is_nil(continuation_token) do
-        [{"continuationToken", continuation_token} | query_params]
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
       else
         query_params
       end
@@ -3257,15 +3257,8 @@ defmodule AWS.S3Tables do
     query_params = []
 
     query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(namespace) do
-        [{"namespace", namespace} | query_params]
+      if !is_nil(continuation_token) do
+        [{"continuationToken", continuation_token} | query_params]
       else
         query_params
       end
@@ -3278,8 +3271,15 @@ defmodule AWS.S3Tables do
       end
 
     query_params =
-      if !is_nil(continuation_token) do
-        [{"continuationToken", continuation_token} | query_params]
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
       else
         query_params
       end

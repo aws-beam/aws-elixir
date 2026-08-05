@@ -19,78 +19,25 @@ defmodule AWS.BCMDataExports do
 
   ## Example:
       
-      get_export_response() :: %{
-        "Export" => export(),
-        "ExportStatus" => export_status()
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type get_export_response() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_executions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ExportArn") => String.t() | atom()
+      column() :: %{
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type list_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_status() :: %{
-        "CompletedAt" => [non_neg_integer()],
-        "CreatedAt" => [non_neg_integer()],
-        "LastUpdatedAt" => [non_neg_integer()],
-        "StatusCode" => list(any()),
-        "StatusReason" => list(any())
-      }
-      
-  """
-  @type execution_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_execution_response() :: %{
-        "ExecutionId" => String.t() | atom(),
-        "ExecutionStatus" => execution_status(),
-        "Export" => export()
-      }
-      
-  """
-  @type get_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_export_response() :: %{
-        "ExportArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_export_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => String.t() | atom(),
-        "QuotaCode" => String.t() | atom(),
-        "ServiceCode" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -108,6 +55,40 @@ defmodule AWS.BCMDataExports do
 
   ## Example:
       
+      create_export_response() :: %{
+        "ExportArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_export_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_query() :: %{
+        "QueryStatement" => String.t() | atom(),
+        "TableConfigurations" => map()
+      }
+      
+  """
+  @type data_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_export_request() :: %{
+        required("ExportArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_export_response() :: %{
         "ExportArn" => String.t() | atom()
       }
@@ -119,85 +100,39 @@ defmodule AWS.BCMDataExports do
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
+      destination_configurations() :: %{
+        "S3Destination" => s3_destination()
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type destination_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_executions_response() :: %{
-        "Executions" => list(execution_reference()),
-        "NextToken" => String.t() | atom()
+      execution_reference() :: %{
+        "ExecutionId" => String.t() | atom(),
+        "ExecutionStatus" => execution_status()
       }
       
   """
-  @type list_executions_response() :: %{(String.t() | atom()) => any()}
+  @type execution_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      validation_exception() :: %{
-        "Fields" => list(validation_exception_field()),
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
+      execution_status() :: %{
+        "CompletedAt" => [non_neg_integer()],
+        "CreatedAt" => [non_neg_integer()],
+        "LastUpdatedAt" => [non_neg_integer()],
+        "StatusCode" => list(any()),
+        "StatusReason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_table_request() :: %{
-        optional("TableProperties") => map(),
-        required("TableName") => String.t() | atom()
-      }
-      
-  """
-  @type get_table_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_export_request() :: %{
-        required("Export") => export(),
-        required("ExportArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_export_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_reference() :: %{
-        "ExportArn" => String.t() | atom(),
-        "ExportName" => String.t() | atom(),
-        "ExportStatus" => export_status()
-      }
-      
-  """
-  @type export_reference() :: %{(String.t() | atom()) => any()}
+  @type execution_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,14 +154,163 @@ defmodule AWS.BCMDataExports do
 
   ## Example:
       
-      column() :: %{
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom()
+      export_reference() :: %{
+        "ExportArn" => String.t() | atom(),
+        "ExportName" => String.t() | atom(),
+        "ExportStatus" => export_status()
       }
       
   """
-  @type column() :: %{(String.t() | atom()) => any()}
+  @type export_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_status() :: %{
+        "CreatedAt" => [non_neg_integer()],
+        "LastRefreshedAt" => [non_neg_integer()],
+        "LastUpdatedAt" => [non_neg_integer()],
+        "StatusCode" => list(any()),
+        "StatusReason" => list(any())
+      }
+      
+  """
+  @type export_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_execution_request() :: %{
+        required("ExecutionId") => String.t() | atom(),
+        required("ExportArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_execution_response() :: %{
+        "ExecutionId" => String.t() | atom(),
+        "ExecutionStatus" => execution_status(),
+        "Export" => export()
+      }
+      
+  """
+  @type get_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_export_request() :: %{
+        required("ExportArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_export_response() :: %{
+        "Export" => export(),
+        "ExportStatus" => export_status()
+      }
+      
+  """
+  @type get_export_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_request() :: %{
+        optional("TableProperties") => map(),
+        required("TableName") => String.t() | atom()
+      }
+      
+  """
+  @type get_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_response() :: %{
+        "Description" => String.t() | atom(),
+        "Schema" => list(column()),
+        "TableName" => String.t() | atom(),
+        "TableProperties" => map()
+      }
+      
+  """
+  @type get_table_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_executions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ExportArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_executions_response() :: %{
+        "Executions" => list(execution_reference()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_exports_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_exports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_exports_response() :: %{
+        "Exports" => list(export_reference()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_exports_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -239,6 +323,54 @@ defmodule AWS.BCMDataExports do
       
   """
   @type list_tables_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tables_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tables" => list(table())
+      }
+      
+  """
+  @type list_tables_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceTags" => list(resource_tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      refresh_cadence() :: %{
+        "Frequency" => list(any())
+      }
+      
+  """
+  @type refresh_cadence() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -257,13 +389,70 @@ defmodule AWS.BCMDataExports do
 
   ## Example:
       
-      data_query() :: %{
-        "QueryStatement" => String.t() | atom(),
-        "TableConfigurations" => map()
+      resource_tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type data_query() :: %{(String.t() | atom()) => any()}
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_destination() :: %{
+        "S3Bucket" => String.t() | atom(),
+        "S3BucketOwner" => String.t() | atom(),
+        "S3OutputConfigurations" => s3_output_configurations(),
+        "S3Prefix" => String.t() | atom(),
+        "S3Region" => String.t() | atom()
+      }
+      
+  """
+  @type s3_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_output_configurations() :: %{
+        "Compression" => list(any()),
+        "Format" => list(any()),
+        "OutputType" => list(any()),
+        "Overwrite" => list(any())
+      }
+      
+  """
+  @type s3_output_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table() :: %{
+        "Description" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
+        "TableProperties" => list(table_property_description())
+      }
+      
+  """
+  @type table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -295,43 +484,6 @@ defmodule AWS.BCMDataExports do
 
   ## Example:
       
-      update_export_response() :: %{
-        "ExportArn" => String.t() | atom()
-      }
-      
-  """
-  @type update_export_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type resource_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_output_configurations() :: %{
-        "Compression" => list(any()),
-        "Format" => list(any()),
-        "OutputType" => list(any()),
-        "Overwrite" => list(any())
-      }
-      
-  """
-  @type s3_output_configurations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       tag_resource_response() :: %{}
       
   """
@@ -341,62 +493,14 @@ defmodule AWS.BCMDataExports do
 
   ## Example:
       
-      get_export_request() :: %{
-        required("ExportArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_export_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_status() :: %{
-        "CreatedAt" => [non_neg_integer()],
-        "LastRefreshedAt" => [non_neg_integer()],
-        "LastUpdatedAt" => [non_neg_integer()],
-        "StatusCode" => list(any()),
-        "StatusReason" => list(any())
-      }
-      
-  """
-  @type export_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_table_response() :: %{
-        "Description" => String.t() | atom(),
-        "Schema" => list(column()),
-        "TableName" => String.t() | atom(),
-        "TableProperties" => map()
-      }
-      
-  """
-  @type get_table_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
+      throttling_exception() :: %{
         "Message" => String.t() | atom(),
-        "Name" => String.t() | atom()
+        "QuotaCode" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
       
   """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -414,229 +518,125 @@ defmodule AWS.BCMDataExports do
 
   ## Example:
       
-      execution_reference() :: %{
-        "ExecutionId" => String.t() | atom(),
-        "ExecutionStatus" => execution_status()
-      }
+      untag_resource_response() :: %{}
       
   """
-  @type execution_reference() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      delete_export_request() :: %{
+      update_export_request() :: %{
+        required("Export") => export(),
         required("ExportArn") => String.t() | atom()
       }
       
   """
-  @type delete_export_request() :: %{(String.t() | atom()) => any()}
+  @type update_export_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      destination_configurations() :: %{
-        "S3Destination" => s3_destination()
+      update_export_response() :: %{
+        "ExportArn" => String.t() | atom()
       }
       
   """
-  @type destination_configurations() :: %{(String.t() | atom()) => any()}
+  @type update_export_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      refresh_cadence() :: %{
-        "Frequency" => list(any())
-      }
-      
-  """
-  @type refresh_cadence() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_exports_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_exports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_exports_response() :: %{
-        "Exports" => list(export_reference()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_exports_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourceTags" => list(resource_tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      table() :: %{
-        "Description" => String.t() | atom(),
-        "TableName" => String.t() | atom(),
-        "TableProperties" => list(table_property_description())
-      }
-      
-  """
-  @type table() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tables_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tables" => list(table())
-      }
-      
-  """
-  @type list_tables_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_execution_request() :: %{
-        required("ExecutionId") => String.t() | atom(),
-        required("ExportArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
+      validation_exception() :: %{
+        "Fields" => list(validation_exception_field()),
         "Message" => String.t() | atom(),
-        "QuotaCode" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "ServiceCode" => String.t() | atom()
+        "Reason" => list(any())
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_destination() :: %{
-        "S3Bucket" => String.t() | atom(),
-        "S3BucketOwner" => String.t() | atom(),
-        "S3OutputConfigurations" => s3_output_configurations(),
-        "S3Prefix" => String.t() | atom(),
-        "S3Region" => String.t() | atom()
+      validation_exception_field() :: %{
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type s3_destination() :: %{(String.t() | atom()) => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type create_export_errors() ::
-          service_quota_exceeded_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_export_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type get_execution_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type get_export_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type get_table_errors() ::
-          internal_server_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | internal_server_exception()
 
   @type list_executions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type list_exports_errors() ::
-          internal_server_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | internal_server_exception()
 
   @type list_tables_errors() ::
-          internal_server_exception() | validation_exception() | throttling_exception()
+          validation_exception() | throttling_exception() | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_export_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   def metadata do
     %{

@@ -28,10 +28,457 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      advanced_options() :: %{
+        "x12" => x12_advanced_options()
+      }
+      
+  """
+  @type advanced_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capability_options() :: %{
+        "inboundEdi" => inbound_edi_options(),
+        "outboundEdi" => list()
+      }
+      
+  """
+  @type capability_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capability_summary() :: %{
+        "capabilityId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "modifiedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type capability_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conversion_source() :: %{
+        "fileFormat" => list(any()),
+        "inputFile" => list()
+      }
+      
+  """
+  @type conversion_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conversion_target() :: %{
+        "advancedOptions" => advanced_options(),
+        "fileFormat" => list(any()),
+        "formatDetails" => list(),
+        "outputSampleFile" => list()
+      }
+      
+  """
+  @type conversion_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_capability_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("instructionsDocuments") => list(s3_location()),
+        optional("tags") => list(tag()),
+        required("configuration") => list(),
+        required("name") => String.t() | atom(),
+        required("type") => list(any())
+      }
+      
+  """
+  @type create_capability_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_capability_response() :: %{
+        "capabilityArn" => String.t() | atom(),
+        "capabilityId" => String.t() | atom(),
+        "configuration" => list(),
+        "createdAt" => non_neg_integer(),
+        "instructionsDocuments" => list(s3_location()),
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type create_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_partnership_request() :: %{
+        optional("capabilityOptions") => capability_options(),
+        optional("clientToken") => [String.t() | atom()],
+        optional("phone") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("capabilities") => list(String.t() | atom()),
+        required("email") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("profileId") => String.t() | atom()
+      }
+      
+  """
+  @type create_partnership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_partnership_response() :: %{
+        "capabilities" => list(String.t() | atom()),
+        "capabilityOptions" => capability_options(),
+        "createdAt" => non_neg_integer(),
+        "email" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "partnershipArn" => String.t() | atom(),
+        "partnershipId" => String.t() | atom(),
+        "phone" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "tradingPartnerId" => String.t() | atom()
+      }
+      
+  """
+  @type create_partnership_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_profile_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("email") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("businessName") => String.t() | atom(),
+        required("logging") => list(any()),
+        required("name") => String.t() | atom(),
+        required("phone") => String.t() | atom()
+      }
+      
+  """
+  @type create_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_profile_response() :: %{
+        "businessName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "email" => String.t() | atom(),
+        "logGroupName" => String.t() | atom(),
+        "logging" => list(any()),
+        "name" => String.t() | atom(),
+        "phone" => String.t() | atom(),
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom()
+      }
+      
+  """
+  @type create_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_starter_mapping_template_request() :: %{
+        optional("outputSampleLocation") => s3_location(),
+        required("mappingType") => list(any()),
+        required("templateDetails") => list()
+      }
+      
+  """
+  @type create_starter_mapping_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_starter_mapping_template_response() :: %{
+        "mappingTemplate" => [String.t() | atom()]
+      }
+      
+  """
+  @type create_starter_mapping_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_transformer_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("ediType") => list(),
+        optional("fileFormat") => list(any()),
+        optional("inputConversion") => input_conversion(),
+        optional("mapping") => mapping(),
+        optional("mappingTemplate") => String.t() | atom(),
+        optional("outputConversion") => output_conversion(),
+        optional("sampleDocument") => String.t() | atom(),
+        optional("sampleDocuments") => sample_documents(),
+        optional("tags") => list(tag()),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type create_transformer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_transformer_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "ediType" => list(),
+        "fileFormat" => list(any()),
+        "inputConversion" => input_conversion(),
+        "mapping" => mapping(),
+        "mappingTemplate" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "outputConversion" => output_conversion(),
+        "sampleDocument" => String.t() | atom(),
+        "sampleDocuments" => sample_documents(),
+        "status" => list(any()),
+        "transformerArn" => String.t() | atom(),
+        "transformerId" => String.t() | atom()
+      }
+      
+  """
+  @type create_transformer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_capability_request() :: %{}
+      
+  """
+  @type delete_capability_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_partnership_request() :: %{}
+      
+  """
+  @type delete_partnership_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_profile_request() :: %{}
+      
+  """
+  @type delete_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_transformer_request() :: %{}
       
   """
   @type delete_transformer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      edi_configuration() :: %{
+        "capabilityDirection" => list(any()),
+        "inputLocation" => s3_location(),
+        "outputLocation" => s3_location(),
+        "transformerId" => String.t() | atom(),
+        "type" => list()
+      }
+      
+  """
+  @type edi_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_mapping_request() :: %{
+        required("inputFileContent") => String.t() | atom(),
+        required("mappingType") => list(any()),
+        required("outputFileContent") => String.t() | atom()
+      }
+      
+  """
+  @type generate_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_mapping_response() :: %{
+        "mappingAccuracy" => [float()],
+        "mappingTemplate" => [String.t() | atom()]
+      }
+      
+  """
+  @type generate_mapping_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_capability_request() :: %{}
+      
+  """
+  @type get_capability_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_capability_response() :: %{
+        "capabilityArn" => String.t() | atom(),
+        "capabilityId" => String.t() | atom(),
+        "configuration" => list(),
+        "createdAt" => non_neg_integer(),
+        "instructionsDocuments" => list(s3_location()),
+        "modifiedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type get_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_partnership_request() :: %{}
+      
+  """
+  @type get_partnership_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_partnership_response() :: %{
+        "capabilities" => list(String.t() | atom()),
+        "capabilityOptions" => capability_options(),
+        "createdAt" => non_neg_integer(),
+        "email" => String.t() | atom(),
+        "modifiedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "partnershipArn" => String.t() | atom(),
+        "partnershipId" => String.t() | atom(),
+        "phone" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "tradingPartnerId" => String.t() | atom()
+      }
+      
+  """
+  @type get_partnership_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_profile_request() :: %{}
+      
+  """
+  @type get_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_profile_response() :: %{
+        "businessName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "email" => String.t() | atom(),
+        "logGroupName" => String.t() | atom(),
+        "logging" => list(any()),
+        "modifiedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "phone" => String.t() | atom(),
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom()
+      }
+      
+  """
+  @type get_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_transformer_job_request() :: %{
+        required("transformerId") => String.t() | atom()
+      }
+      
+  """
+  @type get_transformer_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_transformer_job_response() :: %{
+        "message" => [String.t() | atom()],
+        "outputFiles" => list(s3_location()),
+        "status" => list(any())
+      }
+      
+  """
+  @type get_transformer_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_transformer_request() :: %{}
+      
+  """
+  @type get_transformer_request() :: %{}
 
   @typedoc """
 
@@ -61,56 +508,179 @@ defmodule AWS.B2bi do
 
   ## Example:
       
-      x12_acknowledgment_options() :: %{
-        "functionalAcknowledgment" => list(any()),
-        "technicalAcknowledgment" => list(any())
+      inbound_edi_options() :: %{
+        "x12" => x12_inbound_edi_options()
       }
       
   """
-  @type x12_acknowledgment_options() :: %{(String.t() | atom()) => any()}
+  @type inbound_edi_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_partnership_request() :: %{
-        optional("capabilityOptions") => capability_options(),
-        optional("clientToken") => [String.t() | atom()],
-        optional("phone") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("capabilities") => list(String.t() | atom()),
-        required("email") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("profileId") => String.t() | atom()
+      input_conversion() :: %{
+        "advancedOptions" => advanced_options(),
+        "formatOptions" => list(),
+        "fromFormat" => list(any())
       }
       
   """
-  @type create_partnership_request() :: %{(String.t() | atom()) => any()}
+  @type input_conversion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      test_mapping_request() :: %{
-        required("fileFormat") => list(any()),
-        required("inputFileContent") => String.t() | atom(),
-        required("mappingTemplate") => String.t() | atom()
+      internal_server_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => [integer()]
       }
       
   """
-  @type test_mapping_request() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      x12_details() :: %{
-        "transactionSet" => list(any()),
-        "version" => list(any())
+      list_capabilities_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type x12_details() :: %{(String.t() | atom()) => any()}
+  @type list_capabilities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_capabilities_response() :: %{
+        "capabilities" => list(capability_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_capabilities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_partnerships_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("profileId") => String.t() | atom()
+      }
+      
+  """
+  @type list_partnerships_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_partnerships_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "partnerships" => list(partnership_summary())
+      }
+      
+  """
+  @type list_partnerships_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_profiles_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_profiles_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "profiles" => list(profile_summary())
+      }
+      
+  """
+  @type list_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{}
+      
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_transformers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_transformers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_transformers_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "transformers" => list(transformer_summary())
+      }
+      
+  """
+  @type list_transformers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mapping() :: %{
+        "template" => String.t() | atom(),
+        "templateLanguage" => list(any())
+      }
+      
+  """
+  @type mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_conversion() :: %{
+        "advancedOptions" => advanced_options(),
+        "formatOptions" => list(),
+        "toFormat" => list(any())
+      }
+      
+  """
+  @type output_conversion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -134,51 +704,94 @@ defmodule AWS.B2bi do
 
   ## Example:
       
-      x12_outbound_edi_headers() :: %{
-        "controlNumbers" => x12_control_numbers(),
-        "delimiters" => x12_delimiters(),
-        "functionalGroupHeaders" => x12_functional_group_headers(),
-        "gs05TimeFormat" => list(any()),
-        "interchangeControlHeaders" => x12_interchange_control_headers(),
-        "validateEdi" => boolean()
+      profile_summary() :: %{
+        "businessName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "logGroupName" => String.t() | atom(),
+        "logging" => list(any()),
+        "modifiedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "profileId" => String.t() | atom()
       }
       
   """
-  @type x12_outbound_edi_headers() :: %{(String.t() | atom()) => any()}
+  @type profile_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      throttling_exception() :: %{
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_location() :: %{
+        "bucketName" => String.t() | atom(),
+        "key" => String.t() | atom()
+      }
+      
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sample_document_keys() :: %{
+        "input" => String.t() | atom(),
+        "output" => String.t() | atom()
+      }
+      
+  """
+  @type sample_document_keys() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sample_documents() :: %{
+        "bucketName" => String.t() | atom(),
+        "keys" => list(sample_document_keys())
+      }
+      
+  """
+  @type sample_documents() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
         "message" => String.t() | atom(),
-        "retryAfterSeconds" => [integer()]
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      x12_functional_group_headers() :: %{
-        "applicationReceiverCode" => String.t() | atom(),
-        "applicationSenderCode" => String.t() | atom(),
-        "responsibleAgencyCode" => String.t() | atom()
+      start_transformer_job_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        required("inputFile") => s3_location(),
+        required("outputLocation") => s3_location(),
+        required("transformerId") => String.t() | atom()
       }
       
   """
-  @type x12_functional_group_headers() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_partnership_request() :: %{}
-      
-  """
-  @type get_partnership_request() :: %{}
+  @type start_transformer_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -190,81 +803,6 @@ defmodule AWS.B2bi do
       
   """
   @type start_transformer_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_capability_request() :: %{}
-      
-  """
-  @type delete_capability_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_partnership_response() :: %{
-        "capabilities" => list(String.t() | atom()),
-        "capabilityOptions" => capability_options(),
-        "createdAt" => non_neg_integer(),
-        "email" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "partnershipArn" => String.t() | atom(),
-        "partnershipId" => String.t() | atom(),
-        "phone" => String.t() | atom(),
-        "profileId" => String.t() | atom(),
-        "tradingPartnerId" => String.t() | atom()
-      }
-      
-  """
-  @type create_partnership_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_partnerships_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "partnerships" => list(partnership_summary())
-      }
-      
-  """
-  @type list_partnerships_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_transformer_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "ediType" => list(),
-        "fileFormat" => list(any()),
-        "inputConversion" => input_conversion(),
-        "mapping" => mapping(),
-        "mappingTemplate" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "outputConversion" => output_conversion(),
-        "sampleDocument" => String.t() | atom(),
-        "sampleDocuments" => sample_documents(),
-        "status" => list(any()),
-        "transformerArn" => String.t() | atom(),
-        "transformerId" => String.t() | atom()
-      }
-      
-  """
-  @type create_transformer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -282,84 +820,12 @@ defmodule AWS.B2bi do
 
   ## Example:
       
-      x12_control_numbers() :: %{
-        "startingFunctionalGroupControlNumber" => integer(),
-        "startingInterchangeControlNumber" => integer(),
-        "startingTransactionSetControlNumber" => integer()
+      tag_resource_request() :: %{
+        required("Tags") => list(tag())
       }
       
   """
-  @type x12_control_numbers() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conversion_source() :: %{
-        "fileFormat" => list(any()),
-        "inputFile" => list()
-      }
-      
-  """
-  @type conversion_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      wrap_options() :: %{
-        "lineLength" => integer(),
-        "lineTerminator" => list(any()),
-        "wrapBy" => list(any())
-      }
-      
-  """
-  @type wrap_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conversion_target() :: %{
-        "advancedOptions" => advanced_options(),
-        "fileFormat" => list(any()),
-        "formatDetails" => list(),
-        "outputSampleFile" => list()
-      }
-      
-  """
-  @type conversion_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_conversion() :: %{
-        "advancedOptions" => advanced_options(),
-        "formatOptions" => list(),
-        "fromFormat" => list(any())
-      }
-      
-  """
-  @type input_conversion() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_profile_request() :: %{}
-      
-  """
-  @type get_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_capability_request() :: %{}
-      
-  """
-  @type get_capability_request() :: %{}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -377,74 +843,37 @@ defmodule AWS.B2bi do
 
   ## Example:
       
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
+      test_conversion_response() :: %{
+        "convertedFileContent" => [String.t() | atom()],
+        "validationMessages" => list([String.t() | atom()]())
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type test_conversion_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_partnership_response() :: %{
-        "capabilities" => list(String.t() | atom()),
-        "capabilityOptions" => capability_options(),
-        "createdAt" => non_neg_integer(),
-        "email" => String.t() | atom(),
-        "modifiedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "partnershipArn" => String.t() | atom(),
-        "partnershipId" => String.t() | atom(),
-        "phone" => String.t() | atom(),
-        "profileId" => String.t() | atom(),
-        "tradingPartnerId" => String.t() | atom()
+      test_mapping_request() :: %{
+        required("fileFormat") => list(any()),
+        required("inputFileContent") => String.t() | atom(),
+        required("mappingTemplate") => String.t() | atom()
       }
       
   """
-  @type get_partnership_response() :: %{(String.t() | atom()) => any()}
+  @type test_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_transformers_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      test_mapping_response() :: %{
+        "mappedFileContent" => [String.t() | atom()]
       }
       
   """
-  @type list_transformers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_profile_request() :: %{}
-      
-  """
-  @type delete_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_partnership_request() :: %{}
-      
-  """
-  @type delete_partnership_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_transformer_job_request() :: %{
-        required("transformerId") => String.t() | atom()
-      }
-      
-  """
-  @type get_transformer_job_request() :: %{(String.t() | atom()) => any()}
+  @type test_mapping_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -464,62 +893,139 @@ defmodule AWS.B2bi do
 
   ## Example:
       
-      sample_document_keys() :: %{
-        "input" => String.t() | atom(),
-        "output" => String.t() | atom()
-      }
-      
-  """
-  @type sample_document_keys() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_capabilities_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_capabilities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_mapping_request() :: %{
-        required("inputFileContent") => String.t() | atom(),
-        required("mappingType") => list(any()),
-        required("outputFileContent") => String.t() | atom()
-      }
-      
-  """
-  @type generate_mapping_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_location() :: %{
-        "bucketName" => String.t() | atom(),
-        "key" => String.t() | atom()
-      }
-      
-  """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_conversion_response() :: %{
-        "convertedFileContent" => [String.t() | atom()],
+      test_parsing_response() :: %{
+        "parsedFileContent" => [String.t() | atom()],
+        "parsedSplitFileContents" => list([String.t() | atom()]()),
         "validationMessages" => list([String.t() | atom()]())
       }
       
   """
-  @type test_conversion_response() :: %{(String.t() | atom()) => any()}
+  @type test_parsing_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => [integer()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transformer_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "ediType" => list(),
+        "fileFormat" => list(any()),
+        "inputConversion" => input_conversion(),
+        "mapping" => mapping(),
+        "mappingTemplate" => String.t() | atom(),
+        "modifiedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "outputConversion" => output_conversion(),
+        "sampleDocument" => String.t() | atom(),
+        "sampleDocuments" => sample_documents(),
+        "status" => list(any()),
+        "transformerId" => String.t() | atom()
+      }
+      
+  """
+  @type transformer_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_capability_request() :: %{
+        optional("configuration") => list(),
+        optional("instructionsDocuments") => list(s3_location()),
+        optional("name") => String.t() | atom()
+      }
+      
+  """
+  @type update_capability_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_capability_response() :: %{
+        "capabilityArn" => String.t() | atom(),
+        "capabilityId" => String.t() | atom(),
+        "configuration" => list(),
+        "createdAt" => non_neg_integer(),
+        "instructionsDocuments" => list(s3_location()),
+        "modifiedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type update_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_partnership_request() :: %{
+        optional("capabilities") => list(String.t() | atom()),
+        optional("capabilityOptions") => capability_options(),
+        optional("name") => String.t() | atom()
+      }
+      
+  """
+  @type update_partnership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_partnership_response() :: %{
+        "capabilities" => list(String.t() | atom()),
+        "capabilityOptions" => capability_options(),
+        "createdAt" => non_neg_integer(),
+        "email" => String.t() | atom(),
+        "modifiedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "partnershipArn" => String.t() | atom(),
+        "partnershipId" => String.t() | atom(),
+        "phone" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "tradingPartnerId" => String.t() | atom()
+      }
+      
+  """
+  @type update_partnership_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_profile_request() :: %{
+        optional("businessName") => String.t() | atom(),
+        optional("email") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("phone") => String.t() | atom()
+      }
+      
+  """
+  @type update_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -545,224 +1051,6 @@ defmodule AWS.B2bi do
 
   ## Example:
       
-      list_capabilities_response() :: %{
-        "capabilities" => list(capability_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_capabilities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capability_options() :: %{
-        "inboundEdi" => inbound_edi_options(),
-        "outboundEdi" => list()
-      }
-      
-  """
-  @type capability_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => [integer()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_capability_response() :: %{
-        "capabilityArn" => String.t() | atom(),
-        "capabilityId" => String.t() | atom(),
-        "configuration" => list(),
-        "createdAt" => non_neg_integer(),
-        "instructionsDocuments" => list(s3_location()),
-        "modifiedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type get_capability_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_capability_response() :: %{
-        "capabilityArn" => String.t() | atom(),
-        "capabilityId" => String.t() | atom(),
-        "configuration" => list(),
-        "createdAt" => non_neg_integer(),
-        "instructionsDocuments" => list(s3_location()),
-        "name" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type create_capability_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_starter_mapping_template_response() :: %{
-        "mappingTemplate" => [String.t() | atom()]
-      }
-      
-  """
-  @type create_starter_mapping_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_mapping_response() :: %{
-        "mappedFileContent" => [String.t() | atom()]
-      }
-      
-  """
-  @type test_mapping_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      x12_interchange_control_headers() :: %{
-        "acknowledgmentRequestedCode" => String.t() | atom(),
-        "receiverId" => String.t() | atom(),
-        "receiverIdQualifier" => String.t() | atom(),
-        "repetitionSeparator" => String.t() | atom(),
-        "senderId" => String.t() | atom(),
-        "senderIdQualifier" => String.t() | atom(),
-        "usageIndicatorCode" => String.t() | atom()
-      }
-      
-  """
-  @type x12_interchange_control_headers() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      x12_delimiters() :: %{
-        "componentSeparator" => String.t() | atom(),
-        "dataElementSeparator" => String.t() | atom(),
-        "segmentTerminator" => String.t() | atom()
-      }
-      
-  """
-  @type x12_delimiters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_transformer_job_response() :: %{
-        "message" => [String.t() | atom()],
-        "outputFiles" => list(s3_location()),
-        "status" => list(any())
-      }
-      
-  """
-  @type get_transformer_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_profile_response() :: %{
-        "businessName" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "email" => String.t() | atom(),
-        "logGroupName" => String.t() | atom(),
-        "logging" => list(any()),
-        "modifiedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "phone" => String.t() | atom(),
-        "profileArn" => String.t() | atom(),
-        "profileId" => String.t() | atom()
-      }
-      
-  """
-  @type get_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_partnerships_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("profileId") => String.t() | atom()
-      }
-      
-  """
-  @type list_partnerships_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      x12_element_requirement_validation_rule() :: %{
-        "elementPosition" => String.t() | atom(),
-        "requirement" => list(any())
-      }
-      
-  """
-  @type x12_element_requirement_validation_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capability_summary() :: %{
-        "capabilityId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "modifiedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type capability_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       update_transformer_request() :: %{
         optional("ediType") => list(),
         optional("fileFormat") => list(any()),
@@ -778,18 +1066,6 @@ defmodule AWS.B2bi do
       
   """
   @type update_transformer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      x12_advanced_options() :: %{
-        "splitOptions" => x12_split_options(),
-        "validationOptions" => x12_validation_options()
-      }
-      
-  """
-  @type x12_advanced_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -819,280 +1095,49 @@ defmodule AWS.B2bi do
 
   ## Example:
       
-      update_partnership_response() :: %{
-        "capabilities" => list(String.t() | atom()),
-        "capabilityOptions" => capability_options(),
-        "createdAt" => non_neg_integer(),
-        "email" => String.t() | atom(),
-        "modifiedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "partnershipArn" => String.t() | atom(),
-        "partnershipId" => String.t() | atom(),
-        "phone" => String.t() | atom(),
-        "profileId" => String.t() | atom(),
-        "tradingPartnerId" => String.t() | atom()
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type update_partnership_response() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
+      wrap_options() :: %{
+        "lineLength" => integer(),
+        "lineTerminator" => list(any()),
+        "wrapBy" => list(any())
       }
       
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type wrap_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      edi_configuration() :: %{
-        "capabilityDirection" => list(any()),
-        "inputLocation" => s3_location(),
-        "outputLocation" => s3_location(),
-        "transformerId" => String.t() | atom(),
-        "type" => list()
+      x12_acknowledgment_options() :: %{
+        "functionalAcknowledgment" => list(any()),
+        "technicalAcknowledgment" => list(any())
       }
       
   """
-  @type edi_configuration() :: %{(String.t() | atom()) => any()}
+  @type x12_acknowledgment_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      mapping() :: %{
-        "template" => String.t() | atom(),
-        "templateLanguage" => list(any())
+      x12_advanced_options() :: %{
+        "splitOptions" => x12_split_options(),
+        "validationOptions" => x12_validation_options()
       }
       
   """
-  @type mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_transformer_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("ediType") => list(),
-        optional("fileFormat") => list(any()),
-        optional("inputConversion") => input_conversion(),
-        optional("mapping") => mapping(),
-        optional("mappingTemplate") => String.t() | atom(),
-        optional("outputConversion") => output_conversion(),
-        optional("sampleDocument") => String.t() | atom(),
-        optional("sampleDocuments") => sample_documents(),
-        optional("tags") => list(tag()),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type create_transformer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output_conversion() :: %{
-        "advancedOptions" => advanced_options(),
-        "formatOptions" => list(),
-        "toFormat" => list(any())
-      }
-      
-  """
-  @type output_conversion() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_capability_request() :: %{
-        optional("configuration") => list(),
-        optional("instructionsDocuments") => list(s3_location()),
-        optional("name") => String.t() | atom()
-      }
-      
-  """
-  @type update_capability_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_starter_mapping_template_request() :: %{
-        optional("outputSampleLocation") => s3_location(),
-        required("mappingType") => list(any()),
-        required("templateDetails") => list()
-      }
-      
-  """
-  @type create_starter_mapping_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_transformer_job_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        required("inputFile") => s3_location(),
-        required("outputLocation") => s3_location(),
-        required("transformerId") => String.t() | atom()
-      }
-      
-  """
-  @type start_transformer_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      x12_element_length_validation_rule() :: %{
-        "elementId" => String.t() | atom(),
-        "maxLength" => [integer()],
-        "minLength" => [integer()]
-      }
-      
-  """
-  @type x12_element_length_validation_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sample_documents() :: %{
-        "bucketName" => String.t() | atom(),
-        "keys" => list(sample_document_keys())
-      }
-      
-  """
-  @type sample_documents() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_partnership_request() :: %{
-        optional("capabilities") => list(String.t() | atom()),
-        optional("capabilityOptions") => capability_options(),
-        optional("name") => String.t() | atom()
-      }
-      
-  """
-  @type update_partnership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_profiles_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      x12_split_options() :: %{
-        "splitBy" => list(any())
-      }
-      
-  """
-  @type x12_split_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_profiles_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "profiles" => list(profile_summary())
-      }
-      
-  """
-  @type list_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      transformer_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "ediType" => list(),
-        "fileFormat" => list(any()),
-        "inputConversion" => input_conversion(),
-        "mapping" => mapping(),
-        "mappingTemplate" => String.t() | atom(),
-        "modifiedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "outputConversion" => output_conversion(),
-        "sampleDocument" => String.t() | atom(),
-        "sampleDocuments" => sample_documents(),
-        "status" => list(any()),
-        "transformerId" => String.t() | atom()
-      }
-      
-  """
-  @type transformer_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_capability_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("instructionsDocuments") => list(s3_location()),
-        optional("tags") => list(tag()),
-        required("configuration") => list(),
-        required("name") => String.t() | atom(),
-        required("type") => list(any())
-      }
-      
-  """
-  @type create_capability_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_mapping_response() :: %{
-        "mappingAccuracy" => [float()],
-        "mappingTemplate" => [String.t() | atom()]
-      }
-      
-  """
-  @type generate_mapping_response() :: %{(String.t() | atom()) => any()}
+  @type x12_advanced_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1111,110 +1156,64 @@ defmodule AWS.B2bi do
 
   ## Example:
       
-      x12_validation_options() :: %{
-        "validationRules" => list(list())
+      x12_control_numbers() :: %{
+        "startingFunctionalGroupControlNumber" => integer(),
+        "startingInterchangeControlNumber" => integer(),
+        "startingTransactionSetControlNumber" => integer()
       }
       
   """
-  @type x12_validation_options() :: %{(String.t() | atom()) => any()}
+  @type x12_control_numbers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_transformer_request() :: %{}
+      x12_delimiters() :: %{
+        "componentSeparator" => String.t() | atom(),
+        "dataElementSeparator" => String.t() | atom(),
+        "segmentTerminator" => String.t() | atom()
+      }
       
   """
-  @type get_transformer_request() :: %{}
+  @type x12_delimiters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      inbound_edi_options() :: %{
-        "x12" => x12_inbound_edi_options()
+      x12_details() :: %{
+        "transactionSet" => list(any()),
+        "version" => list(any())
       }
       
   """
-  @type inbound_edi_options() :: %{(String.t() | atom()) => any()}
+  @type x12_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      advanced_options() :: %{
-        "x12" => x12_advanced_options()
+      x12_element_length_validation_rule() :: %{
+        "elementId" => String.t() | atom(),
+        "maxLength" => [integer()],
+        "minLength" => [integer()]
       }
       
   """
-  @type advanced_options() :: %{(String.t() | atom()) => any()}
+  @type x12_element_length_validation_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      x12_inbound_edi_options() :: %{
-        "acknowledgmentOptions" => x12_acknowledgment_options()
+      x12_element_requirement_validation_rule() :: %{
+        "elementPosition" => String.t() | atom(),
+        "requirement" => list(any())
       }
       
   """
-  @type x12_inbound_edi_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_profile_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("email") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("businessName") => String.t() | atom(),
-        required("logging") => list(any()),
-        required("name") => String.t() | atom(),
-        required("phone") => String.t() | atom()
-      }
-      
-  """
-  @type create_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_parsing_response() :: %{
-        "parsedFileContent" => [String.t() | atom()],
-        "parsedSplitFileContents" => list([String.t() | atom()]()),
-        "validationMessages" => list([String.t() | atom()]())
-      }
-      
-  """
-  @type test_parsing_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_transformers_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "transformers" => list(transformer_summary())
-      }
-      
-  """
-  @type list_transformers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_profile_request() :: %{
-        optional("businessName") => String.t() | atom(),
-        optional("email") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("phone") => String.t() | atom()
-      }
-      
-  """
-  @type update_profile_request() :: %{(String.t() | atom()) => any()}
+  @type x12_element_requirement_validation_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,296 +1231,297 @@ defmodule AWS.B2bi do
 
   ## Example:
       
-      update_capability_response() :: %{
-        "capabilityArn" => String.t() | atom(),
-        "capabilityId" => String.t() | atom(),
-        "configuration" => list(),
-        "createdAt" => non_neg_integer(),
-        "instructionsDocuments" => list(s3_location()),
-        "modifiedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "type" => list(any())
+      x12_functional_group_headers() :: %{
+        "applicationReceiverCode" => String.t() | atom(),
+        "applicationSenderCode" => String.t() | atom(),
+        "responsibleAgencyCode" => String.t() | atom()
       }
       
   """
-  @type update_capability_response() :: %{(String.t() | atom()) => any()}
+  @type x12_functional_group_headers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{}
+      x12_inbound_edi_options() :: %{
+        "acknowledgmentOptions" => x12_acknowledgment_options()
+      }
       
   """
-  @type list_tags_for_resource_request() :: %{}
+  @type x12_inbound_edi_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
+      x12_interchange_control_headers() :: %{
+        "acknowledgmentRequestedCode" => String.t() | atom(),
+        "receiverId" => String.t() | atom(),
+        "receiverIdQualifier" => String.t() | atom(),
+        "repetitionSeparator" => String.t() | atom(),
+        "senderId" => String.t() | atom(),
+        "senderIdQualifier" => String.t() | atom(),
+        "usageIndicatorCode" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type x12_interchange_control_headers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      profile_summary() :: %{
-        "businessName" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "logGroupName" => String.t() | atom(),
-        "logging" => list(any()),
-        "modifiedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "profileId" => String.t() | atom()
+      x12_outbound_edi_headers() :: %{
+        "controlNumbers" => x12_control_numbers(),
+        "delimiters" => x12_delimiters(),
+        "functionalGroupHeaders" => x12_functional_group_headers(),
+        "gs05TimeFormat" => list(any()),
+        "interchangeControlHeaders" => x12_interchange_control_headers(),
+        "validateEdi" => boolean()
       }
       
   """
-  @type profile_summary() :: %{(String.t() | atom()) => any()}
+  @type x12_outbound_edi_headers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_profile_response() :: %{
-        "businessName" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "email" => String.t() | atom(),
-        "logGroupName" => String.t() | atom(),
-        "logging" => list(any()),
-        "name" => String.t() | atom(),
-        "phone" => String.t() | atom(),
-        "profileArn" => String.t() | atom(),
-        "profileId" => String.t() | atom()
+      x12_split_options() :: %{
+        "splitBy" => list(any())
       }
       
   """
-  @type create_profile_response() :: %{(String.t() | atom()) => any()}
+  @type x12_split_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      x12_validation_options() :: %{
+        "validationRules" => list(list())
+      }
+      
+  """
+  @type x12_validation_options() :: %{(String.t() | atom()) => any()}
 
   @type create_capability_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_partnership_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_profile_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_starter_mapping_template_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type create_transformer_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_capability_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_partnership_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_profile_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_transformer_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type generate_mapping_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_capability_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_partnership_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_profile_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_transformer_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_transformer_job_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_capabilities_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_partnerships_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_profiles_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_transformers_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type start_transformer_job_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type test_conversion_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type test_mapping_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type test_parsing_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_capability_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_partnership_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_profile_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_transformer_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{

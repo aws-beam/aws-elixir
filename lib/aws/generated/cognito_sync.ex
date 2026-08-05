@@ -40,264 +40,12 @@ defmodule AWS.CognitoSync do
 
   ## Example:
 
-      get_bulk_publish_details_request() :: %{}
-
-  """
-  @type get_bulk_publish_details_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_identity_usage_response() :: %{
-        "IdentityUsage" => identity_usage()
-      }
-
-  """
-  @type describe_identity_usage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_pool_usage() :: %{
-        "DataStorage" => float(),
-        "IdentityPoolId" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "SyncSessionsCount" => float()
-      }
-
-  """
-  @type identity_pool_usage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_identity_pool_usage_response() :: %{
-        "Count" => integer(),
-        "IdentityPoolUsages" => list(identity_pool_usage()),
-        "MaxResults" => integer(),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_identity_pool_usage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_device_request() :: %{
-        required("Platform") => list(any()),
-        required("Token") => String.t() | atom()
-      }
-
-  """
-  @type register_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_records_response() :: %{
-        "Records" => list(record())
-      }
-
-  """
-  @type update_records_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      concurrent_modification_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_configuration_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_configuration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unsubscribe_from_dataset_response() :: %{}
-
-  """
-  @type unsubscribe_from_dataset_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_dataset_request() :: %{}
-
-  """
-  @type describe_dataset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       already_streamed_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
   @type already_streamed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_datasets_response() :: %{
-        "Count" => integer(),
-        "Datasets" => list(dataset()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      record_patch() :: %{
-        "DeviceLastModifiedDate" => non_neg_integer(),
-        "Key" => String.t() | atom(),
-        "Op" => list(any()),
-        "SyncCount" => float(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type record_patch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      set_identity_pool_configuration_request() :: %{
-        optional("CognitoStreams") => cognito_streams(),
-        optional("PushSync") => push_sync()
-      }
-
-  """
-  @type set_identity_pool_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cognitosync_record() :: %{
-        "DeviceLastModifiedDate" => non_neg_integer(),
-        "Key" => String.t() | atom(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "SyncCount" => float(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type cognitosync_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dataset_response() :: %{
-        "Dataset" => dataset()
-      }
-
-  """
-  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_identity_pool_usage_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_identity_pool_usage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribe_to_dataset_request() :: %{}
-
-  """
-  @type subscribe_to_dataset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_dataset_response() :: %{
-        "Dataset" => dataset()
-      }
-
-  """
-  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unsubscribe_from_dataset_request() :: %{}
-
-  """
-  @type unsubscribe_from_dataset_request() :: %{}
 
   @typedoc """
 
@@ -323,12 +71,158 @@ defmodule AWS.CognitoSync do
 
   ## Example:
 
-      lambda_throttled_exception() :: %{
+      cognito_streams() :: %{
+        "RoleArn" => String.t() | atom(),
+        "StreamName" => String.t() | atom(),
+        "StreamingStatus" => list(any())
+      }
+
+  """
+  @type cognito_streams() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cognitosync_record() :: %{
+        "DeviceLastModifiedDate" => non_neg_integer(),
+        "Key" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "SyncCount" => float(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type cognitosync_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      concurrent_modification_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type lambda_throttled_exception() :: %{(String.t() | atom()) => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset() :: %{
+        "CreationDate" => non_neg_integer(),
+        "DataStorage" => float(),
+        "DatasetName" => String.t() | atom(),
+        "IdentityId" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "NumRecords" => float()
+      }
+
+  """
+  @type dataset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_request() :: %{}
+
+  """
+  @type delete_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_response() :: %{
+        "Dataset" => dataset()
+      }
+
+  """
+  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dataset_request() :: %{}
+
+  """
+  @type describe_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dataset_response() :: %{
+        "Dataset" => dataset()
+      }
+
+  """
+  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_identity_pool_usage_request() :: %{}
+
+  """
+  @type describe_identity_pool_usage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_identity_pool_usage_response() :: %{
+        "IdentityPoolUsage" => identity_pool_usage()
+      }
+
+  """
+  @type describe_identity_pool_usage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_identity_usage_request() :: %{}
+
+  """
+  @type describe_identity_usage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_identity_usage_response() :: %{
+        "IdentityUsage" => identity_usage()
+      }
+
+  """
+  @type describe_identity_usage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      duplicate_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type duplicate_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bulk_publish_details_request() :: %{}
+
+  """
+  @type get_bulk_publish_details_request() :: %{}
 
   @typedoc """
 
@@ -349,6 +243,15 @@ defmodule AWS.CognitoSync do
 
   ## Example:
 
+      get_cognito_events_request() :: %{}
+
+  """
+  @type get_cognito_events_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_cognito_events_response() :: %{
         "Events" => map()
       }
@@ -360,12 +263,169 @@ defmodule AWS.CognitoSync do
 
   ## Example:
 
-      set_cognito_events_request() :: %{
-        required("Events") => map()
+      get_identity_pool_configuration_request() :: %{}
+
+  """
+  @type get_identity_pool_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_identity_pool_configuration_response() :: %{
+        "CognitoStreams" => cognito_streams(),
+        "IdentityPoolId" => String.t() | atom(),
+        "PushSync" => push_sync()
       }
 
   """
-  @type set_cognito_events_request() :: %{(String.t() | atom()) => any()}
+  @type get_identity_pool_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_pool_usage() :: %{
+        "DataStorage" => float(),
+        "IdentityPoolId" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "SyncSessionsCount" => float()
+      }
+
+  """
+  @type identity_pool_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_usage() :: %{
+        "DataStorage" => float(),
+        "DatasetCount" => integer(),
+        "IdentityId" => String.t() | atom(),
+        "IdentityPoolId" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer()
+      }
+
+  """
+  @type identity_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_error_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_configuration_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_lambda_function_output_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_lambda_function_output_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_throttled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type lambda_throttled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_datasets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_datasets_response() :: %{
+        "Count" => integer(),
+        "Datasets" => list(dataset()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_identity_pool_usage_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_identity_pool_usage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_identity_pool_usage_response() :: %{
+        "Count" => integer(),
+        "IdentityPoolUsages" => list(identity_pool_usage()),
+        "MaxResults" => integer(),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_identity_pool_usage_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -385,23 +445,70 @@ defmodule AWS.CognitoSync do
 
   ## Example:
 
-      describe_identity_usage_request() :: %{}
+      list_records_response() :: %{
+        "Count" => integer(),
+        "DatasetDeletedAfterRequestedSyncCount" => boolean(),
+        "DatasetExists" => boolean(),
+        "DatasetSyncCount" => float(),
+        "LastModifiedBy" => String.t() | atom(),
+        "MergedDatasetNames" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom(),
+        "Records" => list(record()),
+        "SyncSessionToken" => String.t() | atom()
+      }
 
   """
-  @type describe_identity_usage_request() :: %{}
+  @type list_records_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      set_identity_pool_configuration_response() :: %{
-        "CognitoStreams" => cognito_streams(),
-        "IdentityPoolId" => String.t() | atom(),
-        "PushSync" => push_sync()
+      not_authorized_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type set_identity_pool_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_sync() :: %{
+        "ApplicationArns" => list(String.t() | atom()),
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type push_sync() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      record_patch() :: %{
+        "DeviceLastModifiedDate" => non_neg_integer(),
+        "Key" => String.t() | atom(),
+        "Op" => list(any()),
+        "SyncCount" => float(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type record_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_device_request() :: %{
+        required("Platform") => list(any()),
+        required("Token") => String.t() | atom()
+      }
+
+  """
+  @type register_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -429,6 +536,100 @@ defmodule AWS.CognitoSync do
 
   ## Example:
 
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_cognito_events_request() :: %{
+        required("Events") => map()
+      }
+
+  """
+  @type set_cognito_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_identity_pool_configuration_request() :: %{
+        optional("CognitoStreams") => cognito_streams(),
+        optional("PushSync") => push_sync()
+      }
+
+  """
+  @type set_identity_pool_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_identity_pool_configuration_response() :: %{
+        "CognitoStreams" => cognito_streams(),
+        "IdentityPoolId" => String.t() | atom(),
+        "PushSync" => push_sync()
+      }
+
+  """
+  @type set_identity_pool_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribe_to_dataset_request() :: %{}
+
+  """
+  @type subscribe_to_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribe_to_dataset_response() :: %{}
+
+  """
+  @type subscribe_to_dataset_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsubscribe_from_dataset_request() :: %{}
+
+  """
+  @type unsubscribe_from_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      unsubscribe_from_dataset_response() :: %{}
+
+  """
+  @type unsubscribe_from_dataset_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_records_request() :: %{
         optional("ClientContext") => String.t() | atom(),
         optional("DeviceId") => String.t() | atom(),
@@ -443,338 +644,137 @@ defmodule AWS.CognitoSync do
 
   ## Example:
 
-      not_authorized_exception() :: %{
-        "message" => String.t() | atom()
+      update_records_response() :: %{
+        "Records" => list(record())
       }
 
   """
-  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_identity_pool_usage_response() :: %{
-        "IdentityPoolUsage" => identity_pool_usage()
-      }
-
-  """
-  @type describe_identity_pool_usage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cognito_streams() :: %{
-        "RoleArn" => String.t() | atom(),
-        "StreamName" => String.t() | atom(),
-        "StreamingStatus" => list(any())
-      }
-
-  """
-  @type cognito_streams() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_datasets_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cognito_events_request() :: %{}
-
-  """
-  @type get_cognito_events_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      dataset() :: %{
-        "CreationDate" => non_neg_integer(),
-        "DataStorage" => float(),
-        "DatasetName" => String.t() | atom(),
-        "IdentityId" => String.t() | atom(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "NumRecords" => float()
-      }
-
-  """
-  @type dataset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      push_sync() :: %{
-        "ApplicationArns" => list(String.t() | atom()),
-        "RoleArn" => String.t() | atom()
-      }
-
-  """
-  @type push_sync() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_lambda_function_output_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_lambda_function_output_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_identity_pool_configuration_request() :: %{}
-
-  """
-  @type get_identity_pool_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_parameter_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_records_response() :: %{
-        "Count" => integer(),
-        "DatasetDeletedAfterRequestedSyncCount" => boolean(),
-        "DatasetExists" => boolean(),
-        "DatasetSyncCount" => float(),
-        "LastModifiedBy" => String.t() | atom(),
-        "MergedDatasetNames" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom(),
-        "Records" => list(record()),
-        "SyncSessionToken" => String.t() | atom()
-      }
-
-  """
-  @type list_records_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_usage() :: %{
-        "DataStorage" => float(),
-        "DatasetCount" => integer(),
-        "IdentityId" => String.t() | atom(),
-        "IdentityPoolId" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer()
-      }
-
-  """
-  @type identity_usage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      duplicate_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type duplicate_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_identity_pool_configuration_response() :: %{
-        "CognitoStreams" => cognito_streams(),
-        "IdentityPoolId" => String.t() | atom(),
-        "PushSync" => push_sync()
-      }
-
-  """
-  @type get_identity_pool_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dataset_request() :: %{}
-
-  """
-  @type delete_dataset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_identity_pool_usage_request() :: %{}
-
-  """
-  @type describe_identity_pool_usage_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribe_to_dataset_response() :: %{}
-
-  """
-  @type subscribe_to_dataset_response() :: %{}
+  @type update_records_response() :: %{(String.t() | atom()) => any()}
 
   @type bulk_publish_errors() ::
-          duplicate_request_exception()
+          resource_not_found_exception()
+          | not_authorized_exception()
           | invalid_parameter_exception()
           | internal_error_exception()
-          | not_authorized_exception()
-          | resource_not_found_exception()
+          | duplicate_request_exception()
           | already_streamed_exception()
 
   @type delete_dataset_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type describe_dataset_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type describe_identity_pool_usage_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type describe_identity_usage_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type get_bulk_publish_details_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
+          resource_not_found_exception()
           | not_authorized_exception()
-          | resource_not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type get_cognito_events_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type get_identity_pool_configuration_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type list_datasets_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
+          too_many_requests_exception()
           | not_authorized_exception()
-          | too_many_requests_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type list_identity_pool_usage_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
+          too_many_requests_exception()
           | not_authorized_exception()
-          | too_many_requests_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type list_records_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
+          too_many_requests_exception()
           | not_authorized_exception()
-          | too_many_requests_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type register_device_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
           | invalid_configuration_exception()
+          | internal_error_exception()
 
   @type set_cognito_events_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type set_identity_pool_configuration_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | concurrent_modification_exception()
 
   @type subscribe_to_dataset_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
           | invalid_configuration_exception()
+          | internal_error_exception()
 
   @type unsubscribe_from_dataset_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | not_authorized_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
           | invalid_configuration_exception()
+          | internal_error_exception()
 
   @type update_records_errors() ::
-          invalid_parameter_exception()
-          | internal_error_exception()
-          | invalid_lambda_function_output_exception()
-          | not_authorized_exception()
-          | resource_conflict_exception()
-          | lambda_throttled_exception()
+          too_many_requests_exception()
           | resource_not_found_exception()
+          | resource_conflict_exception()
+          | not_authorized_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
+          | lambda_throttled_exception()
+          | invalid_parameter_exception()
+          | invalid_lambda_function_output_exception()
+          | internal_error_exception()
 
   def metadata do
     %{
@@ -1304,15 +1304,15 @@ defmodule AWS.CognitoSync do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1411,15 +1411,15 @@ defmodule AWS.CognitoSync do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1530,15 +1530,8 @@ defmodule AWS.CognitoSync do
     query_params = []
 
     query_params =
-      if !is_nil(sync_session_token) do
-        [{"syncSessionToken", sync_session_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(last_sync_count) do
+        [{"lastSyncCount", last_sync_count} | query_params]
       else
         query_params
       end
@@ -1551,8 +1544,15 @@ defmodule AWS.CognitoSync do
       end
 
     query_params =
-      if !is_nil(last_sync_count) do
-        [{"lastSyncCount", last_sync_count} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sync_session_token) do
+        [{"syncSessionToken", sync_session_token} | query_params]
       else
         query_params
       end

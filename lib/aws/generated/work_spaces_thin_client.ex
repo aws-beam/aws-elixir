@@ -29,25 +29,57 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Example:
 
-      environment_summary() :: %{
-        "activationCode" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "desiredSoftwareSetId" => String.t() | atom(),
-        "desktopArn" => String.t() | atom(),
-        "desktopEndpoint" => String.t() | atom(),
-        "desktopType" => list(any()),
-        "id" => String.t() | atom(),
-        "maintenanceWindow" => maintenance_window(),
-        "name" => String.t() | atom(),
-        "pendingSoftwareSetId" => String.t() | atom(),
-        "softwareSetUpdateMode" => list(any()),
-        "softwareSetUpdateSchedule" => list(any()),
-        "updatedAt" => non_neg_integer()
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type environment_summary() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_environment_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("desiredSoftwareSetId") => String.t() | atom(),
+        optional("desktopEndpoint") => String.t() | atom(),
+        optional("deviceCreationTags") => map(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("maintenanceWindow") => maintenance_window(),
+        optional("name") => String.t() | atom(),
+        optional("softwareSetUpdateMode") => list(any()),
+        optional("softwareSetUpdateSchedule") => list(any()),
+        optional("tags") => map(),
+        required("desktopArn") => String.t() | atom()
+      }
+
+  """
+  @type create_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_environment_response() :: %{
+        "environment" => environment_summary()
+      }
+
+  """
+  @type create_environment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -64,98 +96,51 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Example:
 
-      get_device_request() :: %{}
+      delete_device_response() :: %{}
 
   """
-  @type get_device_request() :: %{}
+  @type delete_device_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_environment_response() :: %{
-        "environment" => environment()
+      delete_environment_request() :: %{
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type get_environment_response() :: %{(String.t() | atom()) => any()}
+  @type delete_environment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "retryAfterSeconds" => integer(),
-        "serviceCode" => String.t() | atom()
-      }
+      delete_environment_response() :: %{}
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_environment_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_devices_response() :: %{
-        "devices" => list(device_summary()),
-        "nextToken" => String.t() | atom()
+      deregister_device_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("targetDeviceStatus") => list(any())
       }
 
   """
-  @type list_devices_response() :: %{(String.t() | atom()) => any()}
+  @type deregister_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
+      deregister_device_response() :: %{}
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_device_response() :: %{
-        "device" => device()
-      }
-
-  """
-  @type get_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      software_set() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "releasedAt" => non_neg_integer(),
-        "software" => list(software()),
-        "supportedUntil" => non_neg_integer(),
-        "validationStatus" => list(any()),
-        "version" => [String.t() | atom()]
-      }
-
-  """
-  @type software_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_devices_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_devices_request() :: %{(String.t() | atom()) => any()}
+  @type deregister_device_response() :: %{}
 
   @typedoc """
 
@@ -192,160 +177,27 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Example:
 
-      create_environment_response() :: %{
-        "environment" => environment_summary()
-      }
-
-  """
-  @type create_environment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      software_set_summary() :: %{
+      device_summary() :: %{
         "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "currentSoftwareSetId" => String.t() | atom(),
+        "desiredSoftwareSetId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "releasedAt" => non_neg_integer(),
-        "supportedUntil" => non_neg_integer(),
-        "validationStatus" => list(any()),
-        "version" => [String.t() | atom()]
+        "lastConnectedAt" => non_neg_integer(),
+        "lastPostureAt" => non_neg_integer(),
+        "lastUserId" => String.t() | atom(),
+        "model" => [String.t() | atom()],
+        "name" => String.t() | atom(),
+        "pendingSoftwareSetId" => String.t() | atom(),
+        "serialNumber" => [String.t() | atom()],
+        "softwareSetUpdateSchedule" => list(any()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type software_set_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environments_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_environments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_software_sets_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "softwareSets" => list(software_set_summary())
-      }
-
-  """
-  @type list_software_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => integer()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      software() :: %{
-        "name" => [String.t() | atom()],
-        "version" => [String.t() | atom()]
-      }
-
-  """
-  @type software() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_software_set_response() :: %{}
-
-  """
-  @type update_software_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_environment_request() :: %{
-        optional("desiredSoftwareSetId") => String.t() | atom(),
-        optional("desktopArn") => String.t() | atom(),
-        optional("desktopEndpoint") => String.t() | atom(),
-        optional("deviceCreationTags") => map(),
-        optional("maintenanceWindow") => maintenance_window(),
-        optional("name") => String.t() | atom(),
-        optional("softwareSetUpdateMode") => list(any()),
-        optional("softwareSetUpdateSchedule") => list(any())
-      }
-
-  """
-  @type update_environment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_device_response() :: %{
-        "device" => device_summary()
-      }
-
-  """
-  @type update_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_request() :: %{}
-
-  """
-  @type get_environment_request() :: %{}
+  @type device_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -380,19 +232,65 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Example:
 
-      tag_resource_response() :: %{}
+      environment_summary() :: %{
+        "activationCode" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "desiredSoftwareSetId" => String.t() | atom(),
+        "desktopArn" => String.t() | atom(),
+        "desktopEndpoint" => String.t() | atom(),
+        "desktopType" => list(any()),
+        "id" => String.t() | atom(),
+        "maintenanceWindow" => maintenance_window(),
+        "name" => String.t() | atom(),
+        "pendingSoftwareSetId" => String.t() | atom(),
+        "softwareSetUpdateMode" => list(any()),
+        "softwareSetUpdateSchedule" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
 
   """
-  @type tag_resource_response() :: %{}
+  @type environment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_environment_response() :: %{}
+      get_device_request() :: %{}
 
   """
-  @type delete_environment_response() :: %{}
+  @type get_device_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_response() :: %{
+        "device" => device()
+      }
+
+  """
+  @type get_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_request() :: %{}
+
+  """
+  @type get_environment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_response() :: %{
+        "environment" => environment()
+      }
+
+  """
+  @type get_environment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,139 +305,60 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Example:
 
-      update_software_set_request() :: %{
-        required("validationStatus") => list(any())
+      get_software_set_response() :: %{
+        "softwareSet" => software_set()
       }
 
   """
-  @type update_software_set_request() :: %{(String.t() | atom()) => any()}
+  @type get_software_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      deregister_device_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("targetDeviceStatus") => list(any())
-      }
-
-  """
-  @type deregister_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
+      internal_server_exception() :: %{
         "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
+        "retryAfterSeconds" => integer()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
+      list_devices_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+  @type list_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("tagKeys") => list([String.t() | atom()]())
+      list_devices_response() :: %{
+        "devices" => list(device_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type list_devices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      device_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "currentSoftwareSetId" => String.t() | atom(),
-        "desiredSoftwareSetId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastConnectedAt" => non_neg_integer(),
-        "lastPostureAt" => non_neg_integer(),
-        "lastUserId" => String.t() | atom(),
-        "model" => [String.t() | atom()],
-        "name" => String.t() | atom(),
-        "pendingSoftwareSetId" => String.t() | atom(),
-        "serialNumber" => [String.t() | atom()],
-        "softwareSetUpdateSchedule" => list(any()),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
+      list_environments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type device_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_environment_response() :: %{
-        "environment" => environment_summary()
-      }
-
-  """
-  @type update_environment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_device_response() :: %{}
-
-  """
-  @type delete_device_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_device_request() :: %{
-        optional("desiredSoftwareSetId") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("softwareSetUpdateSchedule") => list(any())
-      }
-
-  """
-  @type update_device_request() :: %{(String.t() | atom()) => any()}
+  @type list_environments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -557,12 +376,45 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Example:
 
-      delete_environment_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      list_software_sets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type delete_environment_request() :: %{(String.t() | atom()) => any()}
+  @type list_software_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_software_sets_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "softwareSets" => list(software_set_summary())
+      }
+
+  """
+  @type list_software_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -585,33 +437,14 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Example:
 
-      get_software_set_response() :: %{
-        "softwareSet" => software_set()
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
 
   """
-  @type get_software_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_software_sets_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_software_sets_request() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -632,148 +465,315 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Example:
 
-      deregister_device_response() :: %{}
+      software() :: %{
+        "name" => [String.t() | atom()],
+        "version" => [String.t() | atom()]
+      }
 
   """
-  @type deregister_device_response() :: %{}
+  @type software() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_environment_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("desiredSoftwareSetId") => String.t() | atom(),
-        optional("desktopEndpoint") => String.t() | atom(),
-        optional("deviceCreationTags") => map(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("maintenanceWindow") => maintenance_window(),
-        optional("name") => String.t() | atom(),
-        optional("softwareSetUpdateMode") => list(any()),
-        optional("softwareSetUpdateSchedule") => list(any()),
-        optional("tags") => map(),
-        required("desktopArn") => String.t() | atom()
+      software_set() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "releasedAt" => non_neg_integer(),
+        "software" => list(software()),
+        "supportedUntil" => non_neg_integer(),
+        "validationStatus" => list(any()),
+        "version" => [String.t() | atom()]
       }
 
   """
-  @type create_environment_request() :: %{(String.t() | atom()) => any()}
+  @type software_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      software_set_summary() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "releasedAt" => non_neg_integer(),
+        "supportedUntil" => non_neg_integer(),
+        "validationStatus" => list(any()),
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type software_set_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "retryAfterSeconds" => integer(),
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list([String.t() | atom()]())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_device_request() :: %{
+        optional("desiredSoftwareSetId") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("softwareSetUpdateSchedule") => list(any())
+      }
+
+  """
+  @type update_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_device_response() :: %{
+        "device" => device_summary()
+      }
+
+  """
+  @type update_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_request() :: %{
+        optional("desiredSoftwareSetId") => String.t() | atom(),
+        optional("desktopArn") => String.t() | atom(),
+        optional("desktopEndpoint") => String.t() | atom(),
+        optional("deviceCreationTags") => map(),
+        optional("maintenanceWindow") => maintenance_window(),
+        optional("name") => String.t() | atom(),
+        optional("softwareSetUpdateMode") => list(any()),
+        optional("softwareSetUpdateSchedule") => list(any())
+      }
+
+  """
+  @type update_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_response() :: %{
+        "environment" => environment_summary()
+      }
+
+  """
+  @type update_environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_software_set_request() :: %{
+        required("validationStatus") => list(any())
+      }
+
+  """
+  @type update_software_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_software_set_response() :: %{}
+
+  """
+  @type update_software_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type create_environment_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_device_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_environment_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type deregister_device_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_device_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_environment_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_software_set_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_devices_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_environments_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_software_sets_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_device_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type update_environment_errors() ::
-          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type update_environment_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_software_set_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -985,15 +985,15 @@ defmodule AWS.WorkSpacesThinClient do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1017,15 +1017,15 @@ defmodule AWS.WorkSpacesThinClient do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1049,15 +1049,15 @@ defmodule AWS.WorkSpacesThinClient do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

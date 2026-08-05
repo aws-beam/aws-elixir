@@ -25,50 +25,12 @@ defmodule AWS.RUM do
 
   ## Example:
 
-      batch_create_rum_metric_definitions_error() :: %{
-        "ErrorCode" => [String.t() | atom()],
-        "ErrorMessage" => [String.t() | atom()],
-        "MetricDefinition" => metric_definition_request()
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type batch_create_rum_metric_definitions_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_request() :: %{
-        optional("PolicyRevisionId") => String.t() | atom(),
-        required("PolicyDocument") => [String.t() | atom()]
-      }
-
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_app_monitors_response() :: %{
-        optional("AppMonitorSummaries") => list(app_monitor_summary()),
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_app_monitors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_rum_metric_definitions_response() :: %{
-        optional("MetricDefinitionIds") => list(String.t() | atom()),
-        required("Errors") => list(batch_delete_rum_metric_definitions_error())
-      }
-
-  """
-  @type batch_delete_rum_metric_definitions_response() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -97,74 +59,20 @@ defmodule AWS.RUM do
 
   ## Example:
 
-      list_rum_metrics_destinations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
+      app_monitor_configuration() :: %{
+        "AllowCookies" => [boolean()],
+        "EnableXRay" => [boolean()],
+        "ExcludedPages" => list(String.t() | atom()),
+        "FavoritePages" => list([String.t() | atom()]()),
+        "GuestRoleArn" => String.t() | atom(),
+        "IdentityPoolId" => String.t() | atom(),
+        "IncludedPages" => list(String.t() | atom()),
+        "SessionSampleRate" => float(),
+        "Telemetries" => list(String.t() | atom())
       }
 
   """
-  @type list_rum_metrics_destinations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_rum_metric_definitions_request() :: %{
-        optional("DestinationArn") => String.t() | atom(),
-        required("Destination") => String.t() | atom(),
-        required("MetricDefinitionIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_delete_rum_metric_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_monitor_response() :: %{
-        optional("Id") => String.t() | atom()
-      }
-
-  """
-  @type create_app_monitor_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_app_monitors_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_app_monitors_request() :: %{(String.t() | atom()) => any()}
+  @type app_monitor_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,40 +86,6 @@ defmodule AWS.RUM do
 
   """
   @type app_monitor_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_rum_metric_definition_request() :: %{
-        optional("DestinationArn") => String.t() | atom(),
-        required("Destination") => String.t() | atom(),
-        required("MetricDefinition") => metric_definition_request(),
-        required("MetricDefinitionId") => String.t() | atom()
-      }
-
-  """
-  @type update_rum_metric_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_rum_metrics_destination_response() :: %{}
-
-  """
-  @type put_rum_metrics_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -233,6 +107,82 @@ defmodule AWS.RUM do
 
   ## Example:
 
+      batch_create_rum_metric_definitions_error() :: %{
+        "ErrorCode" => [String.t() | atom()],
+        "ErrorMessage" => [String.t() | atom()],
+        "MetricDefinition" => metric_definition_request()
+      }
+
+  """
+  @type batch_create_rum_metric_definitions_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_rum_metric_definitions_request() :: %{
+        optional("DestinationArn") => String.t() | atom(),
+        required("Destination") => String.t() | atom(),
+        required("MetricDefinitions") => list(metric_definition_request())
+      }
+
+  """
+  @type batch_create_rum_metric_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_rum_metric_definitions_response() :: %{
+        optional("MetricDefinitions") => list(metric_definition()),
+        required("Errors") => list(batch_create_rum_metric_definitions_error())
+      }
+
+  """
+  @type batch_create_rum_metric_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_rum_metric_definitions_error() :: %{
+        "ErrorCode" => [String.t() | atom()],
+        "ErrorMessage" => [String.t() | atom()],
+        "MetricDefinitionId" => String.t() | atom()
+      }
+
+  """
+  @type batch_delete_rum_metric_definitions_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_rum_metric_definitions_request() :: %{
+        optional("DestinationArn") => String.t() | atom(),
+        required("Destination") => String.t() | atom(),
+        required("MetricDefinitionIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_rum_metric_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_rum_metric_definitions_response() :: %{
+        optional("MetricDefinitionIds") => list(String.t() | atom()),
+        required("Errors") => list(batch_delete_rum_metric_definitions_error())
+      }
+
+  """
+  @type batch_delete_rum_metric_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_rum_metric_definitions_request() :: %{
         optional("DestinationArn") => String.t() | atom(),
         optional("MaxResults") => integer(),
@@ -242,17 +192,6 @@ defmodule AWS.RUM do
 
   """
   @type batch_get_rum_metric_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_storage() :: %{
-        "CwLog" => cw_log()
-      }
-
-  """
-  @type data_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -270,161 +209,14 @@ defmodule AWS.RUM do
 
   ## Example:
 
-      get_resource_policy_request() :: %{}
-
-  """
-  @type get_resource_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_app_monitor_data_response() :: %{
-        optional("Events") => list(String.t() | atom()),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_app_monitor_data_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rum_event() :: %{
-        "details" => String.t() | atom(),
-        "id" => [String.t() | atom()],
-        "metadata" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()],
-        "type" => [String.t() | atom()]
-      }
-
-  """
-  @type rum_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_definition() :: %{
-        "DimensionKeys" => map(),
-        "EventPattern" => String.t() | atom(),
-        "MetricDefinitionId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Namespace" => String.t() | atom(),
-        "UnitLabel" => String.t() | atom(),
-        "ValueKey" => String.t() | atom()
-      }
-
-  """
-  @type metric_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
+      conflict_exception() :: %{
         "message" => [String.t() | atom()],
         "resourceName" => [String.t() | atom()],
         "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_app_monitor_request() :: %{
-        optional("AppMonitorConfiguration") => app_monitor_configuration(),
-        optional("CustomEvents") => custom_events(),
-        optional("CwLogEnabled") => [boolean()],
-        optional("DeobfuscationConfiguration") => deobfuscation_configuration(),
-        optional("Domain") => String.t() | atom(),
-        optional("DomainList") => list(String.t() | atom())
-      }
-
-  """
-  @type update_app_monitor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_size_limit_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type policy_size_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_monitor_configuration() :: %{
-        "AllowCookies" => [boolean()],
-        "EnableXRay" => [boolean()],
-        "ExcludedPages" => list(String.t() | atom()),
-        "FavoritePages" => list([String.t() | atom()]()),
-        "GuestRoleArn" => String.t() | atom(),
-        "IdentityPoolId" => String.t() | atom(),
-        "IncludedPages" => list(String.t() | atom()),
-        "SessionSampleRate" => float(),
-        "Telemetries" => list(String.t() | atom())
-      }
-
-  """
-  @type app_monitor_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_rum_metrics_destination_request() :: %{
-        optional("DestinationArn") => String.t() | atom(),
-        optional("IamRoleArn") => String.t() | atom(),
-        required("Destination") => String.t() | atom()
-      }
-
-  """
-  @type put_rum_metrics_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type query_filter() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -449,120 +241,55 @@ defmodule AWS.RUM do
 
   ## Example:
 
-      batch_create_rum_metric_definitions_request() :: %{
-        optional("DestinationArn") => String.t() | atom(),
-        required("Destination") => String.t() | atom(),
-        required("MetricDefinitions") => list(metric_definition_request())
+      create_app_monitor_response() :: %{
+        optional("Id") => String.t() | atom()
       }
 
   """
-  @type batch_create_rum_metric_definitions_request() :: %{(String.t() | atom()) => any()}
+  @type create_app_monitor_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_app_monitor_request() :: %{}
-
-  """
-  @type get_app_monitor_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
+      custom_events() :: %{
+        "Status" => String.t() | atom()
       }
 
   """
-  @type policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type custom_events() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_rum_metric_definition_response() :: %{}
-
-  """
-  @type update_rum_metric_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      deobfuscation_configuration() :: %{
-        "JavaScriptSourceMaps" => java_script_source_maps()
+      cw_log() :: %{
+        "CwLogEnabled" => [boolean()],
+        "CwLogGroup" => [String.t() | atom()]
       }
 
   """
-  @type deobfuscation_configuration() :: %{(String.t() | atom()) => any()}
+  @type cw_log() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      malformed_policy_document_exception() :: %{
-        "message" => [String.t() | atom()]
+      data_storage() :: %{
+        "CwLog" => cw_log()
       }
 
   """
-  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
+  @type data_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      user_details() :: %{
-        "sessionId" => [String.t() | atom()],
-        "userId" => [String.t() | atom()]
-      }
+      delete_app_monitor_request() :: %{}
 
   """
-  @type user_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceName" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_response() :: %{
-        "PolicyDocument" => [String.t() | atom()],
-        "PolicyRevisionId" => String.t() | atom()
-      }
-
-  """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+  @type delete_app_monitor_request() :: %{}
 
   @typedoc """
 
@@ -577,27 +304,55 @@ defmodule AWS.RUM do
 
   ## Example:
 
-      put_rum_events_request() :: %{
-        optional("Alias") => String.t() | atom(),
-        required("AppMonitorDetails") => app_monitor_details(),
-        required("BatchId") => [String.t() | atom()],
-        required("RumEvents") => list(rum_event()),
-        required("UserDetails") => user_details()
+      delete_resource_policy_request() :: %{
+        optional("PolicyRevisionId") => String.t() | atom()
       }
 
   """
-  @type put_rum_events_request() :: %{(String.t() | atom()) => any()}
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
+      delete_resource_policy_response() :: %{
+        "PolicyRevisionId" => String.t() | atom()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type delete_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_rum_metrics_destination_request() :: %{
+        optional("DestinationArn") => String.t() | atom(),
+        required("Destination") => String.t() | atom()
+      }
+
+  """
+  @type delete_rum_metrics_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_rum_metrics_destination_response() :: %{}
+
+  """
+  @type delete_rum_metrics_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deobfuscation_configuration() :: %{
+        "JavaScriptSourceMaps" => java_script_source_maps()
+      }
+
+  """
+  @type deobfuscation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -617,36 +372,22 @@ defmodule AWS.RUM do
 
   ## Example:
 
-      delete_resource_policy_request() :: %{
-        optional("PolicyRevisionId") => String.t() | atom()
+      get_app_monitor_data_response() :: %{
+        optional("Events") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+  @type get_app_monitor_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_create_rum_metric_definitions_response() :: %{
-        optional("MetricDefinitions") => list(metric_definition()),
-        required("Errors") => list(batch_create_rum_metric_definitions_error())
-      }
+      get_app_monitor_request() :: %{}
 
   """
-  @type batch_create_rum_metric_definitions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_response() :: %{
-        "PolicyDocument" => [String.t() | atom()],
-        "PolicyRevisionId" => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+  @type get_app_monitor_request() :: %{}
 
   @typedoc """
 
@@ -658,6 +399,50 @@ defmodule AWS.RUM do
 
   """
   @type get_app_monitor_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_response() :: %{
+        "PolicyDocument" => [String.t() | atom()],
+        "PolicyRevisionId" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_policy_revision_id_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type invalid_policy_revision_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -675,24 +460,58 @@ defmodule AWS.RUM do
 
   ## Example:
 
-      delete_rum_metrics_destination_request() :: %{
-        optional("DestinationArn") => String.t() | atom(),
-        required("Destination") => String.t() | atom()
+      list_app_monitors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
       }
 
   """
-  @type delete_rum_metrics_destination_request() :: %{(String.t() | atom()) => any()}
+  @type list_app_monitors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_resource_policy_response() :: %{
-        "PolicyRevisionId" => String.t() | atom()
+      list_app_monitors_response() :: %{
+        optional("AppMonitorSummaries") => list(app_monitor_summary()),
+        optional("NextToken") => [String.t() | atom()]
       }
 
   """
-  @type delete_resource_policy_response() :: %{(String.t() | atom()) => any()}
+  @type list_app_monitors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rum_metrics_destinations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_rum_metrics_destinations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rum_metrics_destinations_response() :: %{
+        optional("Destinations") => list(metric_destination_summary()),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_rum_metrics_destinations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
@@ -710,78 +529,29 @@ defmodule AWS.RUM do
 
   ## Example:
 
-      update_app_monitor_response() :: %{}
-
-  """
-  @type update_app_monitor_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cw_log() :: %{
-        "CwLogEnabled" => [boolean()],
-        "CwLogGroup" => [String.t() | atom()]
-      }
-
-  """
-  @type cw_log() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_events() :: %{
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type custom_events() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_policy_revision_id_exception() :: %{
+      malformed_policy_document_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type invalid_policy_revision_id_exception() :: %{(String.t() | atom()) => any()}
+  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_rum_events_response() :: %{}
-
-  """
-  @type put_rum_events_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_destination_summary() :: %{
-        "Destination" => String.t() | atom(),
-        "DestinationArn" => String.t() | atom(),
-        "IamRoleArn" => String.t() | atom()
+      metric_definition() :: %{
+        "DimensionKeys" => map(),
+        "EventPattern" => String.t() | atom(),
+        "MetricDefinitionId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "UnitLabel" => String.t() | atom(),
+        "ValueKey" => String.t() | atom()
       }
 
   """
-  @type metric_destination_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      time_range() :: %{
-        "After" => float(),
-        "Before" => float()
-      }
-
-  """
-  @type time_range() :: %{(String.t() | atom()) => any()}
+  @type metric_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -803,19 +573,146 @@ defmodule AWS.RUM do
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
+      metric_destination_summary() :: %{
+        "Destination" => String.t() | atom(),
+        "DestinationArn" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom()
+      }
 
   """
-  @type list_tags_for_resource_request() :: %{}
+  @type metric_destination_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_rum_metrics_destination_response() :: %{}
+      policy_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
 
   """
-  @type delete_rum_metrics_destination_response() :: %{}
+  @type policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_size_limit_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type policy_size_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_request() :: %{
+        optional("PolicyRevisionId") => String.t() | atom(),
+        required("PolicyDocument") => [String.t() | atom()]
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_response() :: %{
+        "PolicyDocument" => [String.t() | atom()],
+        "PolicyRevisionId" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_rum_events_request() :: %{
+        optional("Alias") => String.t() | atom(),
+        required("AppMonitorDetails") => app_monitor_details(),
+        required("BatchId") => [String.t() | atom()],
+        required("RumEvents") => list(rum_event()),
+        required("UserDetails") => user_details()
+      }
+
+  """
+  @type put_rum_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_rum_events_response() :: %{}
+
+  """
+  @type put_rum_events_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_rum_metrics_destination_request() :: %{
+        optional("DestinationArn") => String.t() | atom(),
+        optional("IamRoleArn") => String.t() | atom(),
+        required("Destination") => String.t() | atom()
+      }
+
+  """
+  @type put_rum_metrics_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_rum_metrics_destination_response() :: %{}
+
+  """
+  @type put_rum_metrics_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      query_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type query_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceName" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rum_event() :: %{
+        "details" => String.t() | atom(),
+        "id" => [String.t() | atom()],
+        "metadata" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()],
+        "type" => [String.t() | atom()]
+      }
+
+  """
+  @type rum_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -832,180 +729,283 @@ defmodule AWS.RUM do
 
   ## Example:
 
-      batch_delete_rum_metric_definitions_error() :: %{
-        "ErrorCode" => [String.t() | atom()],
-        "ErrorMessage" => [String.t() | atom()],
-        "MetricDefinitionId" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("Tags") => map()
       }
 
   """
-  @type batch_delete_rum_metric_definitions_error() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_rum_metrics_destinations_response() :: %{
-        optional("Destinations") => list(metric_destination_summary()),
-        optional("NextToken") => [String.t() | atom()]
-      }
+      tag_resource_response() :: %{}
 
   """
-  @type list_rum_metrics_destinations_response() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_app_monitor_request() :: %{}
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t() | atom()]
+      }
 
   """
-  @type delete_app_monitor_request() :: %{}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_range() :: %{
+        "After" => float(),
+        "Before" => float()
+      }
+
+  """
+  @type time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_monitor_request() :: %{
+        optional("AppMonitorConfiguration") => app_monitor_configuration(),
+        optional("CustomEvents") => custom_events(),
+        optional("CwLogEnabled") => [boolean()],
+        optional("DeobfuscationConfiguration") => deobfuscation_configuration(),
+        optional("Domain") => String.t() | atom(),
+        optional("DomainList") => list(String.t() | atom())
+      }
+
+  """
+  @type update_app_monitor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_monitor_response() :: %{}
+
+  """
+  @type update_app_monitor_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_rum_metric_definition_request() :: %{
+        optional("DestinationArn") => String.t() | atom(),
+        required("Destination") => String.t() | atom(),
+        required("MetricDefinition") => metric_definition_request(),
+        required("MetricDefinitionId") => String.t() | atom()
+      }
+
+  """
+  @type update_rum_metric_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_rum_metric_definition_response() :: %{}
+
+  """
+  @type update_rum_metric_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      user_details() :: %{
+        "sessionId" => [String.t() | atom()],
+        "userId" => [String.t() | atom()]
+      }
+
+  """
+  @type user_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type batch_create_rum_metric_definitions_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type batch_delete_rum_metric_definitions_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type batch_get_rum_metric_definitions_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type create_app_monitor_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_app_monitor_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_resource_policy_errors() ::
-          invalid_policy_revision_id_exception()
-          | conflict_exception()
-          | policy_not_found_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | policy_not_found_exception()
+          | invalid_policy_revision_id_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_rum_metrics_destination_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_app_monitor_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type get_app_monitor_data_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type get_resource_policy_errors() ::
-          conflict_exception()
-          | policy_not_found_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type get_app_monitor_data_errors() ::
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_resource_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | policy_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type list_app_monitors_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_rum_metrics_destinations_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type put_resource_policy_errors() ::
-          invalid_policy_revision_id_exception()
-          | conflict_exception()
-          | malformed_policy_document_exception()
-          | policy_size_limit_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | policy_size_limit_exceeded_exception()
+          | malformed_policy_document_exception()
+          | invalid_policy_revision_id_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type put_rum_events_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_rum_metrics_destination_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_app_monitor_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_rum_metric_definition_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{
@@ -1192,15 +1192,8 @@ defmodule AWS.RUM do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(destination) do
+        [{"destination", destination} | query_params]
       else
         query_params
       end
@@ -1213,8 +1206,15 @@ defmodule AWS.RUM do
       end
 
     query_params =
-      if !is_nil(destination) do
-        [{"destination", destination} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1509,15 +1509,15 @@ defmodule AWS.RUM do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

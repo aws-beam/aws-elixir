@@ -29,75 +29,49 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      start_calculation_execution_response() :: %{
-        "CalculationExecutionId" => String.t() | atom(),
-        "State" => list(any())
+      acl_configuration() :: %{
+        "S3AclOption" => list(any())
       }
       
   """
-  @type start_calculation_execution_response() :: %{(String.t() | atom()) => any()}
+  @type acl_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      query_results_s3_access_grants_configuration() :: %{
-        "AuthenticationType" => list(any()),
-        "CreateUserLevelPrefix" => boolean(),
-        "EnableS3AccessGrants" => boolean()
+      application_d_p_u_sizes() :: %{
+        "ApplicationRuntimeId" => String.t() | atom(),
+        "SupportedDPUSizes" => list(integer())
       }
       
   """
-  @type query_results_s3_access_grants_configuration() :: %{(String.t() | atom()) => any()}
+  @type application_d_p_u_sizes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_data_catalog_output() :: %{
-        "DataCatalog" => data_catalog()
+      athena_error() :: %{
+        "ErrorCategory" => integer(),
+        "ErrorMessage" => String.t() | atom(),
+        "ErrorType" => integer(),
+        "Retryable" => boolean()
       }
       
   """
-  @type create_data_catalog_output() :: %{(String.t() | atom()) => any()}
+  @type athena_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_prepared_statement_input() :: %{
-        optional("Description") => String.t() | atom(),
-        required("QueryStatement") => String.t() | atom(),
-        required("StatementName") => String.t() | atom(),
-        required("WorkGroup") => String.t() | atom()
+      batch_get_named_query_input() :: %{
+        required("NamedQueryIds") => list(String.t() | atom())
       }
       
   """
-  @type update_prepared_statement_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_capacity_reservation_input() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_query_executions_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("WorkGroup") => String.t() | atom()
-      }
-      
-  """
-  @type list_query_executions_input() :: %{(String.t() | atom()) => any()}
+  @type batch_get_named_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,171 +89,225 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      get_calculation_execution_code_response() :: %{
-        "CodeBlock" => String.t() | atom()
-      }
-      
-  """
-  @type get_calculation_execution_code_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_notebook_output() :: %{
-        "NotebookMetadata" => notebook_metadata(),
-        "Payload" => String.t() | atom()
-      }
-      
-  """
-  @type export_notebook_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_prepared_statement_output() :: %{}
-      
-  """
-  @type delete_prepared_statement_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      session_summary() :: %{
-        "Description" => String.t() | atom(),
-        "EngineVersion" => engine_version(),
-        "NotebookVersion" => String.t() | atom(),
-        "SessionId" => String.t() | atom(),
-        "Status" => session_status()
-      }
-      
-  """
-  @type session_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_sessions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StateFilter") => list(any()),
+      batch_get_prepared_statement_input() :: %{
+        required("PreparedStatementNames") => list(String.t() | atom()),
         required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
+  @type batch_get_prepared_statement_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      identity_center_configuration() :: %{
-        "EnableIdentityCenter" => boolean(),
-        "IdentityCenterInstanceArn" => String.t() | atom()
+      batch_get_prepared_statement_output() :: %{
+        "PreparedStatements" => list(prepared_statement()),
+        "UnprocessedPreparedStatementNames" => list(unprocessed_prepared_statement_name())
       }
       
   """
-  @type identity_center_configuration() :: %{(String.t() | atom()) => any()}
+  @type batch_get_prepared_statement_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_data_catalog_output() :: %{}
+      batch_get_query_execution_input() :: %{
+        required("QueryExecutionIds") => list(String.t() | atom())
+      }
       
   """
-  @type update_data_catalog_output() :: %{}
+  @type batch_get_query_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      session_status() :: %{
-        "EndDateTime" => non_neg_integer(),
-        "IdleSinceDateTime" => non_neg_integer(),
-        "LastModifiedDateTime" => non_neg_integer(),
-        "StartDateTime" => non_neg_integer(),
+      batch_get_query_execution_output() :: %{
+        "QueryExecutions" => list(query_execution()),
+        "UnprocessedQueryExecutionIds" => list(unprocessed_query_execution_id())
+      }
+      
+  """
+  @type batch_get_query_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      calculation_configuration() :: %{
+        "CodeBlock" => String.t() | atom()
+      }
+      
+  """
+  @type calculation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      calculation_result() :: %{
+        "ResultS3Uri" => String.t() | atom(),
+        "ResultType" => String.t() | atom(),
+        "StdErrorS3Uri" => String.t() | atom(),
+        "StdOutS3Uri" => String.t() | atom()
+      }
+      
+  """
+  @type calculation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      calculation_statistics() :: %{
+        "DpuExecutionInMillis" => float(),
+        "Progress" => String.t() | atom()
+      }
+      
+  """
+  @type calculation_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      calculation_status() :: %{
+        "CompletionDateTime" => non_neg_integer(),
         "State" => list(any()),
-        "StateChangeReason" => String.t() | atom()
+        "StateChangeReason" => String.t() | atom(),
+        "SubmissionDateTime" => non_neg_integer()
       }
       
   """
-  @type session_status() :: %{(String.t() | atom()) => any()}
+  @type calculation_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      query_execution_context() :: %{
-        "Catalog" => String.t() | atom(),
-        "Database" => String.t() | atom()
+      calculation_summary() :: %{
+        "CalculationExecutionId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Status" => calculation_status()
       }
       
   """
-  @type query_execution_context() :: %{(String.t() | atom()) => any()}
+  @type calculation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_logging_configuration() :: %{
+      cancel_capacity_reservation_input() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_capacity_reservation_output() :: %{}
+      
+  """
+  @type cancel_capacity_reservation_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_allocation() :: %{
+        "RequestCompletionTime" => non_neg_integer(),
+        "RequestTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_allocation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_assignment() :: %{
+        "WorkGroupNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type capacity_assignment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_assignment_configuration() :: %{
+        "CapacityAssignments" => list(capacity_assignment()),
+        "CapacityReservationName" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_assignment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation() :: %{
+        "AllocatedDpus" => integer(),
+        "CreationTime" => non_neg_integer(),
+        "LastAllocation" => capacity_allocation(),
+        "LastSuccessfulAllocationTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "TargetDpus" => integer()
+      }
+      
+  """
+  @type capacity_reservation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      classification() :: %{
+        "Name" => String.t() | atom(),
+        "Properties" => map()
+      }
+      
+  """
+  @type classification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_logging_configuration() :: %{
         "Enabled" => boolean(),
-        "KmsKey" => String.t() | atom(),
-        "LogLocation" => String.t() | atom()
+        "LogGroup" => String.t() | atom(),
+        "LogStreamNamePrefix" => String.t() | atom(),
+        "LogTypes" => map()
       }
       
   """
-  @type s3_logging_configuration() :: %{(String.t() | atom()) => any()}
+  @type cloud_watch_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_get_named_query_input() :: %{
-        required("NamedQueryIds") => list(String.t() | atom())
+      column() :: %{
+        "Comment" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type batch_get_named_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      row() :: %{
-        "Data" => list(datum())
-      }
-      
-  """
-  @type row() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unprocessed_query_execution_id() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "QueryExecutionId" => String.t() | atom()
-      }
-      
-  """
-  @type unprocessed_query_execution_id() :: %{(String.t() | atom()) => any()}
+  @type column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -305,98 +333,23 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      unprocessed_prepared_statement_name() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "StatementName" => String.t() | atom()
+      create_capacity_reservation_input() :: %{
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom(),
+        required("TargetDpus") => integer()
       }
       
   """
-  @type unprocessed_prepared_statement_name() :: %{(String.t() | atom()) => any()}
+  @type create_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      query_runtime_statistics_rows() :: %{
-        "InputBytes" => float(),
-        "InputRows" => float(),
-        "OutputBytes" => float(),
-        "OutputRows" => float()
-      }
+      create_capacity_reservation_output() :: %{}
       
   """
-  @type query_runtime_statistics_rows() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_capacity_reservation_output() :: %{}
-      
-  """
-  @type update_capacity_reservation_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_prepared_statement_input() :: %{
-        required("PreparedStatementNames") => list(String.t() | atom()),
-        required("WorkGroup") => String.t() | atom()
-      }
-      
-  """
-  @type batch_get_prepared_statement_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_executors_response() :: %{
-        "ExecutorsSummary" => list(executors_summary()),
-        "NextToken" => String.t() | atom(),
-        "SessionId" => String.t() | atom()
-      }
-      
-  """
-  @type list_executors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_capacity_assignment_configuration_output() :: %{}
-      
-  """
-  @type put_capacity_assignment_configuration_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_requests_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-      
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_calculation_execution_request() :: %{
-        optional("CalculationConfiguration") => calculation_configuration(),
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("CodeBlock") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        required("SessionId") => String.t() | atom()
-      }
-      
-  """
-  @type start_calculation_execution_request() :: %{(String.t() | atom()) => any()}
+  @type create_capacity_reservation_output() :: %{}
 
   @typedoc """
 
@@ -417,28 +370,133 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      start_query_execution_input() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("EngineConfiguration") => engine_configuration(),
-        optional("ExecutionParameters") => list(String.t() | atom()),
-        optional("QueryExecutionContext") => query_execution_context(),
-        optional("ResultConfiguration") => result_configuration(),
-        optional("ResultReuseConfiguration") => result_reuse_configuration(),
-        optional("WorkGroup") => String.t() | atom(),
-        required("QueryString") => String.t() | atom()
+      create_data_catalog_output() :: %{
+        "DataCatalog" => data_catalog()
       }
       
   """
-  @type start_query_execution_input() :: %{(String.t() | atom()) => any()}
+  @type create_data_catalog_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_output() :: %{}
+      create_named_query_input() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("WorkGroup") => String.t() | atom(),
+        required("Database") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("QueryString") => String.t() | atom()
+      }
       
   """
-  @type tag_resource_output() :: %{}
+  @type create_named_query_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_named_query_output() :: %{
+        "NamedQueryId" => String.t() | atom()
+      }
+      
+  """
+  @type create_named_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_notebook_input() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
+      }
+      
+  """
+  @type create_notebook_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_notebook_output() :: %{
+        "NotebookId" => String.t() | atom()
+      }
+      
+  """
+  @type create_notebook_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_prepared_statement_input() :: %{
+        optional("Description") => String.t() | atom(),
+        required("QueryStatement") => String.t() | atom(),
+        required("StatementName") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
+      }
+      
+  """
+  @type create_prepared_statement_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_prepared_statement_output() :: %{}
+      
+  """
+  @type create_prepared_statement_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_presigned_notebook_url_request() :: %{
+        required("SessionId") => String.t() | atom()
+      }
+      
+  """
+  @type create_presigned_notebook_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_presigned_notebook_url_response() :: %{
+        "AuthToken" => String.t() | atom(),
+        "AuthTokenExpirationTime" => float(),
+        "NotebookUrl" => String.t() | atom()
+      }
+      
+  """
+  @type create_presigned_notebook_url_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_work_group_input() :: %{
+        optional("Configuration") => work_group_configuration(),
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_work_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_work_group_output() :: %{}
+      
+  """
+  @type create_work_group_output() :: %{}
 
   @typedoc """
 
@@ -450,328 +508,6 @@ defmodule AWS.Athena do
       
   """
   @type customer_content_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      table_metadata() :: %{
-        "Columns" => list(column()),
-        "CreateTime" => non_neg_integer(),
-        "LastAccessTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Parameters" => map(),
-        "PartitionKeys" => list(column()),
-        "TableType" => String.t() | atom()
-      }
-      
-  """
-  @type table_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_capacity_assignment_configuration_output() :: %{
-        "CapacityAssignmentConfiguration" => capacity_assignment_configuration()
-      }
-      
-  """
-  @type get_capacity_assignment_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      engine_version() :: %{
-        "EffectiveEngineVersion" => String.t() | atom(),
-        "SelectedEngineVersion" => String.t() | atom()
-      }
-      
-  """
-  @type engine_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_query_results_configuration() :: %{
-        "Enabled" => boolean(),
-        "EncryptionConfiguration" => managed_query_results_encryption_configuration()
-      }
-      
-  """
-  @type managed_query_results_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_capacity_reservations_output() :: %{
-        "CapacityReservations" => list(capacity_reservation()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_capacity_reservations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_work_groups_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "WorkGroups" => list(work_group_summary())
-      }
-      
-  """
-  @type list_work_groups_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_query_execution_input() :: %{
-        required("QueryExecutionId") => String.t() | atom()
-      }
-      
-  """
-  @type get_query_execution_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_named_queries_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("WorkGroup") => String.t() | atom()
-      }
-      
-  """
-  @type list_named_queries_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_session_status_response() :: %{
-        "SessionId" => String.t() | atom(),
-        "Status" => session_status()
-      }
-      
-  """
-  @type get_session_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_data_catalog_input() :: %{
-        optional("WorkGroup") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type get_data_catalog_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      application_d_p_u_sizes() :: %{
-        "ApplicationRuntimeId" => String.t() | atom(),
-        "SupportedDPUSizes" => list(integer())
-      }
-      
-  """
-  @type application_d_p_u_sizes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_query_runtime_statistics_input() :: %{
-        required("QueryExecutionId") => String.t() | atom()
-      }
-      
-  """
-  @type get_query_runtime_statistics_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_work_group_output() :: %{}
-      
-  """
-  @type delete_work_group_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_calculation_execution_code_request() :: %{
-        required("CalculationExecutionId") => String.t() | atom()
-      }
-      
-  """
-  @type get_calculation_execution_code_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      session_statistics() :: %{
-        "DpuExecutionInMillis" => float()
-      }
-      
-  """
-  @type session_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_data_catalog_input() :: %{
-        optional("DeleteCatalogOnly") => boolean(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_data_catalog_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      terminate_session_response() :: %{
-        "State" => list(any())
-      }
-      
-  """
-  @type terminate_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_session_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("CopyWorkGroupTags") => boolean(),
-        optional("Description") => String.t() | atom(),
-        optional("ExecutionRole") => String.t() | atom(),
-        optional("MonitoringConfiguration") => monitoring_configuration(),
-        optional("NotebookVersion") => String.t() | atom(),
-        optional("SessionIdleTimeoutInMinutes") => integer(),
-        optional("Tags") => list(tag()),
-        required("EngineConfiguration") => engine_configuration(),
-        required("WorkGroup") => String.t() | atom()
-      }
-      
-  """
-  @type start_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      work_group() :: %{
-        "Configuration" => work_group_configuration(),
-        "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "IdentityCenterApplicationArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "State" => list(any())
-      }
-      
-  """
-  @type work_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      calculation_summary() :: %{
-        "CalculationExecutionId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Status" => calculation_status()
-      }
-      
-  """
-  @type calculation_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      result_reuse_by_age_configuration() :: %{
-        "Enabled" => boolean(),
-        "MaxAgeInMinutes" => integer()
-      }
-      
-  """
-  @type result_reuse_by_age_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_named_query_input() :: %{
-        optional("Description") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("NamedQueryId") => String.t() | atom(),
-        required("QueryString") => String.t() | atom()
-      }
-      
-  """
-  @type update_named_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_engine_versions_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_engine_versions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_data_catalog_output() :: %{
-        "DataCatalog" => data_catalog()
-      }
-      
-  """
-  @type get_data_catalog_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_session_status_request() :: %{
-        required("SessionId") => String.t() | atom()
-      }
-      
-  """
-  @type get_session_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -794,269 +530,221 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      stop_query_execution_output() :: %{}
-      
-  """
-  @type stop_query_execution_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_calculation_execution_response() :: %{
-        "State" => list(any())
+      data_catalog_summary() :: %{
+        "CatalogName" => String.t() | atom(),
+        "ConnectionType" => list(any()),
+        "Error" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => list(any())
       }
       
   """
-  @type stop_calculation_execution_response() :: %{(String.t() | atom()) => any()}
+  @type data_catalog_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_session_response() :: %{
-        "SessionId" => String.t() | atom(),
-        "State" => list(any())
+      database() :: %{
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Parameters" => map()
       }
       
   """
-  @type start_session_response() :: %{(String.t() | atom()) => any()}
+  @type database() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      managed_logging_configuration() :: %{
-        "Enabled" => boolean(),
-        "KmsKey" => String.t() | atom()
+      datum() :: %{
+        "VarCharValue" => String.t() | atom()
       }
       
   """
-  @type managed_logging_configuration() :: %{(String.t() | atom()) => any()}
+  @type datum() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_capacity_reservation_input() :: %{
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("TargetDpus") => integer()
+      delete_capacity_reservation_input() :: %{
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
+  @type delete_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      calculation_status() :: %{
-        "CompletionDateTime" => non_neg_integer(),
-        "State" => list(any()),
-        "StateChangeReason" => String.t() | atom(),
-        "SubmissionDateTime" => non_neg_integer()
+      delete_capacity_reservation_output() :: %{}
+      
+  """
+  @type delete_capacity_reservation_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_data_catalog_input() :: %{
+        optional("DeleteCatalogOnly") => boolean(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type calculation_status() :: %{(String.t() | atom()) => any()}
+  @type delete_data_catalog_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_notebook_sessions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
+      delete_data_catalog_output() :: %{
+        "DataCatalog" => data_catalog()
+      }
+      
+  """
+  @type delete_data_catalog_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_named_query_input() :: %{
+        required("NamedQueryId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_named_query_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_named_query_output() :: %{}
+      
+  """
+  @type delete_named_query_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_notebook_input() :: %{
         required("NotebookId") => String.t() | atom()
       }
       
   """
-  @type list_notebook_sessions_request() :: %{(String.t() | atom()) => any()}
+  @type delete_notebook_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_notebook_input() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
+      delete_notebook_output() :: %{}
+      
+  """
+  @type delete_notebook_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_prepared_statement_input() :: %{
+        required("StatementName") => String.t() | atom(),
         required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type create_notebook_input() :: %{(String.t() | atom()) => any()}
+  @type delete_prepared_statement_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      result_set() :: %{
-        "ResultSetMetadata" => result_set_metadata(),
-        "Rows" => list(row())
-      }
+      delete_prepared_statement_output() :: %{}
       
   """
-  @type result_set() :: %{(String.t() | atom()) => any()}
+  @type delete_prepared_statement_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      put_capacity_assignment_configuration_input() :: %{
-        required("CapacityAssignments") => list(capacity_assignment()),
-        required("CapacityReservationName") => String.t() | atom()
+      delete_work_group_input() :: %{
+        optional("RecursiveDeleteOption") => boolean(),
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type put_capacity_assignment_configuration_input() :: %{(String.t() | atom()) => any()}
+  @type delete_work_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_table_metadata_input() :: %{
-        optional("WorkGroup") => String.t() | atom(),
-        required("CatalogName") => String.t() | atom(),
-        required("DatabaseName") => String.t() | atom(),
-        required("TableName") => String.t() | atom()
-      }
+      delete_work_group_output() :: %{}
       
   """
-  @type get_table_metadata_input() :: %{(String.t() | atom()) => any()}
+  @type delete_work_group_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      list_calculation_executions_response() :: %{
-        "Calculations" => list(calculation_summary()),
-        "NextToken" => String.t() | atom()
+      encryption_configuration() :: %{
+        "EncryptionOption" => list(any()),
+        "KmsKey" => String.t() | atom()
       }
       
   """
-  @type list_calculation_executions_response() :: %{(String.t() | atom()) => any()}
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      terminate_session_request() :: %{
-        required("SessionId") => String.t() | atom()
+      engine_configuration() :: %{
+        "AdditionalConfigs" => map(),
+        "Classifications" => list(classification()),
+        "CoordinatorDpuSize" => integer(),
+        "DefaultExecutorDpuSize" => integer(),
+        "MaxConcurrentDpus" => integer(),
+        "SparkProperties" => map()
       }
       
   """
-  @type terminate_session_request() :: %{(String.t() | atom()) => any()}
+  @type engine_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_input() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
+      engine_version() :: %{
+        "EffectiveEngineVersion" => String.t() | atom(),
+        "SelectedEngineVersion" => String.t() | atom()
       }
       
   """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+  @type engine_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_databases_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("WorkGroup") => String.t() | atom(),
-        required("CatalogName") => String.t() | atom()
+      executors_summary() :: %{
+        "ExecutorId" => String.t() | atom(),
+        "ExecutorSize" => float(),
+        "ExecutorState" => list(any()),
+        "ExecutorType" => list(any()),
+        "StartDateTime" => float(),
+        "TerminationDateTime" => float()
       }
       
   """
-  @type list_databases_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      work_group_configuration() :: %{
-        "AdditionalConfiguration" => String.t() | atom(),
-        "BytesScannedCutoffPerQuery" => float(),
-        "CustomerContentEncryptionConfiguration" => customer_content_encryption_configuration(),
-        "EnableMinimumEncryptionConfiguration" => boolean(),
-        "EnforceWorkGroupConfiguration" => boolean(),
-        "EngineConfiguration" => engine_configuration(),
-        "EngineVersion" => engine_version(),
-        "ExecutionRole" => String.t() | atom(),
-        "IdentityCenterConfiguration" => identity_center_configuration(),
-        "ManagedQueryResultsConfiguration" => managed_query_results_configuration(),
-        "MonitoringConfiguration" => monitoring_configuration(),
-        "PublishCloudWatchMetricsEnabled" => boolean(),
-        "QueryResultsS3AccessGrantsConfiguration" => query_results_s3_access_grants_configuration(),
-        "RequesterPaysEnabled" => boolean(),
-        "ResultConfiguration" => result_configuration()
-      }
-      
-  """
-  @type work_group_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_notebook_output() :: %{
-        "NotebookId" => String.t() | atom()
-      }
-      
-  """
-  @type create_notebook_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_capacity_reservation_output() :: %{
-        "CapacityReservation" => capacity_reservation()
-      }
-      
-  """
-  @type get_capacity_reservation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      column() :: %{
-        "Comment" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-      
-  """
-  @type column() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_presigned_notebook_url_response() :: %{
-        "AuthToken" => String.t() | atom(),
-        "AuthTokenExpirationTime" => float(),
-        "NotebookUrl" => String.t() | atom()
-      }
-      
-  """
-  @type create_presigned_notebook_url_response() :: %{(String.t() | atom()) => any()}
+  @type executors_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1073,36 +761,57 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      get_named_query_output() :: %{
-        "NamedQuery" => named_query()
+      export_notebook_output() :: %{
+        "NotebookMetadata" => notebook_metadata(),
+        "Payload" => String.t() | atom()
       }
       
   """
-  @type get_named_query_output() :: %{(String.t() | atom()) => any()}
+  @type export_notebook_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_table_metadata_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "TableMetadataList" => list(table_metadata())
+      filter_definition() :: %{
+        "Name" => String.t() | atom()
       }
       
   """
-  @type list_table_metadata_output() :: %{(String.t() | atom()) => any()}
+  @type filter_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
+      get_calculation_execution_code_request() :: %{
+        required("CalculationExecutionId") => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type get_calculation_execution_code_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_calculation_execution_code_response() :: %{
+        "CodeBlock" => String.t() | atom()
+      }
+      
+  """
+  @type get_calculation_execution_code_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_calculation_execution_request() :: %{
+        required("CalculationExecutionId") => String.t() | atom()
+      }
+      
+  """
+  @type get_calculation_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1125,137 +834,171 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      query_runtime_statistics() :: %{
-        "OutputStage" => query_stage(),
-        "Rows" => query_runtime_statistics_rows(),
-        "Timeline" => query_runtime_statistics_timeline()
+      get_calculation_execution_status_request() :: %{
+        required("CalculationExecutionId") => String.t() | atom()
       }
       
   """
-  @type query_runtime_statistics() :: %{(String.t() | atom()) => any()}
+  @type get_calculation_execution_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_input() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
+      get_calculation_execution_status_response() :: %{
+        "Statistics" => calculation_statistics(),
+        "Status" => calculation_status()
       }
       
   """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+  @type get_calculation_execution_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_prepared_statements_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("WorkGroup") => String.t() | atom()
+      get_capacity_assignment_configuration_input() :: %{
+        required("CapacityReservationName") => String.t() | atom()
       }
       
   """
-  @type list_prepared_statements_input() :: %{(String.t() | atom()) => any()}
+  @type get_capacity_assignment_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_prepared_statement_output() :: %{}
-      
-  """
-  @type update_prepared_statement_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      result_set_metadata() :: %{
-        "ColumnInfo" => list(column_info())
+      get_capacity_assignment_configuration_output() :: %{
+        "CapacityAssignmentConfiguration" => capacity_assignment_configuration()
       }
       
   """
-  @type result_set_metadata() :: %{(String.t() | atom()) => any()}
+  @type get_capacity_assignment_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      managed_query_results_configuration_updates() :: %{
-        "Enabled" => boolean(),
-        "EncryptionConfiguration" => managed_query_results_encryption_configuration(),
-        "RemoveEncryptionConfiguration" => boolean()
+      get_capacity_reservation_input() :: %{
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type managed_query_results_configuration_updates() :: %{(String.t() | atom()) => any()}
+  @type get_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_named_query_output() :: %{}
+      get_capacity_reservation_output() :: %{
+        "CapacityReservation" => capacity_reservation()
+      }
       
   """
-  @type update_named_query_output() :: %{}
+  @type get_capacity_reservation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_notebook_input() :: %{
+      get_data_catalog_input() :: %{
+        optional("WorkGroup") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type get_data_catalog_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_catalog_output() :: %{
+        "DataCatalog" => data_catalog()
+      }
+      
+  """
+  @type get_data_catalog_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_database_input() :: %{
+        optional("WorkGroup") => String.t() | atom(),
+        required("CatalogName") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom()
+      }
+      
+  """
+  @type get_database_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_database_output() :: %{
+        "Database" => database()
+      }
+      
+  """
+  @type get_database_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_named_query_input() :: %{
+        required("NamedQueryId") => String.t() | atom()
+      }
+      
+  """
+  @type get_named_query_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_named_query_output() :: %{
+        "NamedQuery" => named_query()
+      }
+      
+  """
+  @type get_named_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_notebook_metadata_input() :: %{
         required("NotebookId") => String.t() | atom()
       }
       
   """
-  @type delete_notebook_input() :: %{(String.t() | atom()) => any()}
+  @type get_notebook_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      result_reuse_configuration() :: %{
-        "ResultReuseByAgeConfiguration" => result_reuse_by_age_configuration()
+      get_notebook_metadata_output() :: %{
+        "NotebookMetadata" => notebook_metadata()
       }
       
   """
-  @type result_reuse_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_notebook_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_session_request() :: %{
-        required("SessionId") => String.t() | atom()
+      get_prepared_statement_input() :: %{
+        required("StatementName") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type get_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logging_configuration() :: %{
-        "Enabled" => boolean(),
-        "LogGroup" => String.t() | atom(),
-        "LogStreamNamePrefix" => String.t() | atom(),
-        "LogTypes" => map()
-      }
-      
-  """
-  @type cloud_watch_logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_named_query_output() :: %{}
-      
-  """
-  @type delete_named_query_output() :: %{}
+  @type get_prepared_statement_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1272,123 +1015,83 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      list_databases_output() :: %{
-        "DatabaseList" => list(database()),
-        "NextToken" => String.t() | atom()
+      get_query_execution_input() :: %{
+        required("QueryExecutionId") => String.t() | atom()
       }
       
   """
-  @type list_databases_output() :: %{(String.t() | atom()) => any()}
+  @type get_query_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unprocessed_named_query_id() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "NamedQueryId" => String.t() | atom()
+      get_query_execution_output() :: %{
+        "QueryExecution" => query_execution()
       }
       
   """
-  @type unprocessed_named_query_id() :: %{(String.t() | atom()) => any()}
+  @type get_query_execution_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_query_execution_output() :: %{
-        "QueryExecutionId" => String.t() | atom()
-      }
-      
-  """
-  @type start_query_execution_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      session_configuration() :: %{
-        "EncryptionConfiguration" => encryption_configuration(),
-        "ExecutionRole" => String.t() | atom(),
-        "IdleTimeoutSeconds" => float(),
-        "SessionIdleTimeoutInMinutes" => integer(),
-        "WorkingDirectory" => String.t() | atom()
-      }
-      
-  """
-  @type session_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_query_results_encryption_configuration() :: %{
-        "KmsKey" => String.t() | atom()
-      }
-      
-  """
-  @type managed_query_results_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_work_group_input() :: %{
-        optional("RecursiveDeleteOption") => boolean(),
-        required("WorkGroup") => String.t() | atom()
-      }
-      
-  """
-  @type delete_work_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_notebook_metadata_input() :: %{
-        optional("Filters") => filter_definition(),
+      get_query_results_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        required("WorkGroup") => String.t() | atom()
+        optional("QueryResultType") => list(any()),
+        required("QueryExecutionId") => String.t() | atom()
       }
       
   """
-  @type list_notebook_metadata_input() :: %{(String.t() | atom()) => any()}
+  @type get_query_results_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      capacity_assignment() :: %{
-        "WorkGroupNames" => list(String.t() | atom())
+      get_query_results_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResultSet" => result_set(),
+        "UpdateCount" => float()
       }
       
   """
-  @type capacity_assignment() :: %{(String.t() | atom()) => any()}
+  @type get_query_results_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_work_group_output() :: %{
-        "WorkGroup" => work_group()
+      get_query_runtime_statistics_input() :: %{
+        required("QueryExecutionId") => String.t() | atom()
       }
       
   """
-  @type get_work_group_output() :: %{(String.t() | atom()) => any()}
+  @type get_query_runtime_statistics_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_prepared_statement_input() :: %{
-        required("StatementName") => String.t() | atom(),
-        required("WorkGroup") => String.t() | atom()
+      get_query_runtime_statistics_output() :: %{
+        "QueryRuntimeStatistics" => query_runtime_statistics()
       }
       
   """
-  @type delete_prepared_statement_input() :: %{(String.t() | atom()) => any()}
+  @type get_query_runtime_statistics_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_dashboard_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1405,97 +1108,36 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      update_data_catalog_input() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Parameters") => map(),
-        required("Name") => String.t() | atom(),
-        required("Type") => list(any())
-      }
-      
-  """
-  @type update_data_catalog_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_capacity_reservation_input() :: %{
-        required("Name") => String.t() | atom(),
-        required("TargetDpus") => integer()
-      }
-      
-  """
-  @type update_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_notebook_input() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("NotebookS3LocationUri") => String.t() | atom(),
-        optional("Payload") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("Type") => list(any()),
-        required("WorkGroup") => String.t() | atom()
-      }
-      
-  """
-  @type import_notebook_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_d_p_u_sizes_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_application_d_p_u_sizes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_calculation_execution_status_request() :: %{
-        required("CalculationExecutionId") => String.t() | atom()
-      }
-      
-  """
-  @type get_calculation_execution_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_execution_statistics() :: %{
-        "DataManifestLocation" => String.t() | atom(),
-        "DataScannedInBytes" => float(),
-        "DpuCount" => float(),
-        "EngineExecutionTimeInMillis" => float(),
-        "QueryPlanningTimeInMillis" => float(),
-        "QueryQueueTimeInMillis" => float(),
-        "ResultReuseInformation" => result_reuse_information(),
-        "ServicePreProcessingTimeInMillis" => float(),
-        "ServiceProcessingTimeInMillis" => float(),
-        "TotalExecutionTimeInMillis" => float()
-      }
-      
-  """
-  @type query_execution_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_presigned_notebook_url_request() :: %{
+      get_session_endpoint_request() :: %{
         required("SessionId") => String.t() | atom()
       }
       
   """
-  @type create_presigned_notebook_url_request() :: %{(String.t() | atom()) => any()}
+  @type get_session_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_session_endpoint_response() :: %{
+        "AuthToken" => String.t() | atom(),
+        "AuthTokenExpirationTime" => non_neg_integer(),
+        "EndpointUrl" => String.t() | atom()
+      }
+      
+  """
+  @type get_session_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_session_request() :: %{
+        required("SessionId") => String.t() | atom()
+      }
+      
+  """
+  @type get_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1521,49 +1163,282 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      create_work_group_output() :: %{}
-      
-  """
-  @type create_work_group_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_capacity_assignment_configuration_input() :: %{
-        required("CapacityReservationName") => String.t() | atom()
+      get_session_status_request() :: %{
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type get_capacity_assignment_configuration_input() :: %{(String.t() | atom()) => any()}
+  @type get_session_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      capacity_allocation() :: %{
-        "RequestCompletionTime" => non_neg_integer(),
-        "RequestTime" => non_neg_integer(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
+      get_session_status_response() :: %{
+        "SessionId" => String.t() | atom(),
+        "Status" => session_status()
       }
       
   """
-  @type capacity_allocation() :: %{(String.t() | atom()) => any()}
+  @type get_session_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_work_group_input() :: %{
-        optional("ConfigurationUpdates") => work_group_configuration_updates(),
-        optional("Description") => String.t() | atom(),
-        optional("State") => list(any()),
+      get_table_metadata_input() :: %{
+        optional("WorkGroup") => String.t() | atom(),
+        required("CatalogName") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
+      }
+      
+  """
+  @type get_table_metadata_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_metadata_output() :: %{
+        "TableMetadata" => table_metadata()
+      }
+      
+  """
+  @type get_table_metadata_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_work_group_input() :: %{
         required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type update_work_group_input() :: %{(String.t() | atom()) => any()}
+  @type get_work_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_work_group_output() :: %{
+        "WorkGroup" => work_group()
+      }
+      
+  """
+  @type get_work_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      identity_center_configuration() :: %{
+        "EnableIdentityCenter" => boolean(),
+        "IdentityCenterInstanceArn" => String.t() | atom()
+      }
+      
+  """
+  @type identity_center_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_notebook_input() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("NotebookS3LocationUri") => String.t() | atom(),
+        optional("Payload") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Type") => list(any()),
+        required("WorkGroup") => String.t() | atom()
+      }
+      
+  """
+  @type import_notebook_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_notebook_output() :: %{
+        "NotebookId" => String.t() | atom()
+      }
+      
+  """
+  @type import_notebook_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "AthenaErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_d_p_u_sizes_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_application_d_p_u_sizes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_d_p_u_sizes_output() :: %{
+        "ApplicationDPUSizes" => list(application_d_p_u_sizes()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_application_d_p_u_sizes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_calculation_executions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StateFilter") => list(any()),
+        required("SessionId") => String.t() | atom()
+      }
+      
+  """
+  @type list_calculation_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_calculation_executions_response() :: %{
+        "Calculations" => list(calculation_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_calculation_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_capacity_reservations_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_capacity_reservations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_capacity_reservations_output() :: %{
+        "CapacityReservations" => list(capacity_reservation()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_capacity_reservations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_catalogs_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("WorkGroup") => String.t() | atom()
+      }
+      
+  """
+  @type list_data_catalogs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_catalogs_output() :: %{
+        "DataCatalogsSummary" => list(data_catalog_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_data_catalogs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_databases_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("WorkGroup") => String.t() | atom(),
+        required("CatalogName") => String.t() | atom()
+      }
+      
+  """
+  @type list_databases_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_databases_output() :: %{
+        "DatabaseList" => list(database()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_databases_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_engine_versions_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_engine_versions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_engine_versions_output() :: %{
+        "EngineVersions" => list(engine_version()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_engine_versions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1583,17 +1458,27 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      executors_summary() :: %{
-        "ExecutorId" => String.t() | atom(),
-        "ExecutorSize" => float(),
-        "ExecutorState" => list(any()),
-        "ExecutorType" => list(any()),
-        "StartDateTime" => float(),
-        "TerminationDateTime" => float()
+      list_executors_response() :: %{
+        "ExecutorsSummary" => list(executors_summary()),
+        "NextToken" => String.t() | atom(),
+        "SessionId" => String.t() | atom()
       }
       
   """
-  @type executors_summary() :: %{(String.t() | atom()) => any()}
+  @type list_executors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_named_queries_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("WorkGroup") => String.t() | atom()
+      }
+      
+  """
+  @type list_named_queries_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1611,76 +1496,128 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      query_stage_plan_node() :: %{
-        "Children" => list(query_stage_plan_node()),
-        "Identifier" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RemoteSources" => list(String.t() | atom())
+      list_notebook_metadata_input() :: %{
+        optional("Filters") => filter_definition(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type query_stage_plan_node() :: %{(String.t() | atom()) => any()}
+  @type list_notebook_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_named_query_input() :: %{
-        required("NamedQueryId") => String.t() | atom()
+      list_notebook_metadata_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "NotebookMetadataList" => list(notebook_metadata())
       }
       
   """
-  @type get_named_query_input() :: %{(String.t() | atom()) => any()}
+  @type list_notebook_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_get_prepared_statement_output() :: %{
-        "PreparedStatements" => list(prepared_statement()),
-        "UnprocessedPreparedStatementNames" => list(unprocessed_prepared_statement_name())
+      list_notebook_sessions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("NotebookId") => String.t() | atom()
       }
       
   """
-  @type batch_get_prepared_statement_output() :: %{(String.t() | atom()) => any()}
+  @type list_notebook_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_query_execution_output() :: %{
-        "QueryExecution" => query_execution()
+      list_notebook_sessions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "NotebookSessionsList" => list(notebook_session_summary())
       }
       
   """
-  @type get_query_execution_output() :: %{(String.t() | atom()) => any()}
+  @type list_notebook_sessions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      metadata_exception() :: %{
-        "Message" => String.t() | atom()
+      list_prepared_statements_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type metadata_exception() :: %{(String.t() | atom()) => any()}
+  @type list_prepared_statements_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      engine_configuration() :: %{
-        "AdditionalConfigs" => map(),
-        "Classifications" => list(classification()),
-        "CoordinatorDpuSize" => integer(),
-        "DefaultExecutorDpuSize" => integer(),
-        "MaxConcurrentDpus" => integer(),
-        "SparkProperties" => map()
+      list_prepared_statements_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "PreparedStatements" => list(prepared_statement_summary())
       }
       
   """
-  @type engine_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_prepared_statements_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_query_executions_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("WorkGroup") => String.t() | atom()
+      }
+      
+  """
+  @type list_query_executions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_query_executions_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "QueryExecutionIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_query_executions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sessions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StateFilter") => list(any()),
+        required("WorkGroup") => String.t() | atom()
+      }
+      
+  """
+  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sessions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Sessions" => list(session_summary())
+      }
+      
+  """
+  @type list_sessions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1702,129 +1639,13 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      list_notebook_metadata_output() :: %{
+      list_table_metadata_output() :: %{
         "NextToken" => String.t() | atom(),
-        "NotebookMetadataList" => list(notebook_metadata())
+        "TableMetadataList" => list(table_metadata())
       }
       
   """
-  @type list_notebook_metadata_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_named_query_input() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("WorkGroup") => String.t() | atom(),
-        required("Database") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("QueryString") => String.t() | atom()
-      }
-      
-  """
-  @type create_named_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      classification() :: %{
-        "Name" => String.t() | atom(),
-        "Properties" => map()
-      }
-      
-  """
-  @type classification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      result_reuse_information() :: %{
-        "ReusedPreviousResult" => boolean()
-      }
-      
-  """
-  @type result_reuse_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_work_group_output() :: %{}
-      
-  """
-  @type update_work_group_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_query_runtime_statistics_output() :: %{
-        "QueryRuntimeStatistics" => query_runtime_statistics()
-      }
-      
-  """
-  @type get_query_runtime_statistics_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_sessions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Sessions" => list(session_summary())
-      }
-      
-  """
-  @type list_sessions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_calculation_execution_request() :: %{
-        required("CalculationExecutionId") => String.t() | atom()
-      }
-      
-  """
-  @type get_calculation_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_dashboard_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_dashboard_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_notebook_metadata_input() :: %{
-        required("NotebookId") => String.t() | atom()
-      }
-      
-  """
-  @type get_notebook_metadata_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_d_p_u_sizes_output() :: %{
-        "ApplicationDPUSizes" => list(application_d_p_u_sizes()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_application_d_p_u_sizes_output() :: %{(String.t() | atom()) => any()}
+  @type list_table_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1843,135 +1664,13 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      prepared_statement_summary() :: %{
-        "LastModifiedTime" => non_neg_integer(),
-        "StatementName" => String.t() | atom()
-      }
-      
-  """
-  @type prepared_statement_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_notebook_metadata_input() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("NotebookId") => String.t() | atom()
-      }
-      
-  """
-  @type update_notebook_metadata_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      calculation_result() :: %{
-        "ResultS3Uri" => String.t() | atom(),
-        "ResultType" => String.t() | atom(),
-        "StdErrorS3Uri" => String.t() | atom(),
-        "StdOutS3Uri" => String.t() | atom()
-      }
-      
-  """
-  @type calculation_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      result_configuration_updates() :: %{
-        "AclConfiguration" => acl_configuration(),
-        "EncryptionConfiguration" => encryption_configuration(),
-        "ExpectedBucketOwner" => String.t() | atom(),
-        "OutputLocation" => String.t() | atom(),
-        "RemoveAclConfiguration" => boolean(),
-        "RemoveEncryptionConfiguration" => boolean(),
-        "RemoveExpectedBucketOwner" => boolean(),
-        "RemoveOutputLocation" => boolean()
-      }
-      
-  """
-  @type result_configuration_updates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_query_executions_output() :: %{
+      list_tags_for_resource_output() :: %{
         "NextToken" => String.t() | atom(),
-        "QueryExecutionIds" => list(String.t() | atom())
+        "Tags" => list(tag())
       }
       
   """
-  @type list_query_executions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_catalog_summary() :: %{
-        "CatalogName" => String.t() | atom(),
-        "ConnectionType" => list(any()),
-        "Error" => String.t() | atom(),
-        "Status" => list(any()),
-        "Type" => list(any())
-      }
-      
-  """
-  @type data_catalog_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_table_metadata_output() :: %{
-        "TableMetadata" => table_metadata()
-      }
-      
-  """
-  @type get_table_metadata_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_session_endpoint_request() :: %{
-        required("SessionId") => String.t() | atom()
-      }
-      
-  """
-  @type get_session_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_notebook_input() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("SessionId") => String.t() | atom(),
-        required("NotebookId") => String.t() | atom(),
-        required("Payload") => String.t() | atom(),
-        required("Type") => list(any())
-      }
-      
-  """
-  @type update_notebook_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      database() :: %{
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Parameters" => map()
-      }
-      
-  """
-  @type database() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1989,133 +1688,177 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      create_prepared_statement_input() :: %{
-        optional("Description") => String.t() | atom(),
-        required("QueryStatement") => String.t() | atom(),
-        required("StatementName") => String.t() | atom(),
-        required("WorkGroup") => String.t() | atom()
+      list_work_groups_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "WorkGroups" => list(work_group_summary())
       }
       
   """
-  @type create_prepared_statement_input() :: %{(String.t() | atom()) => any()}
+  @type list_work_groups_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      athena_error() :: %{
-        "ErrorCategory" => integer(),
-        "ErrorMessage" => String.t() | atom(),
-        "ErrorType" => integer(),
-        "Retryable" => boolean()
-      }
-      
-  """
-  @type athena_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_named_query_output() :: %{
-        "NamedQueryId" => String.t() | atom()
-      }
-      
-  """
-  @type create_named_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_data_catalogs_output() :: %{
-        "DataCatalogsSummary" => list(data_catalog_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_data_catalogs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_notebook_output() :: %{}
-      
-  """
-  @type update_notebook_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      session_already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type session_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capacity_assignment_configuration() :: %{
-        "CapacityAssignments" => list(capacity_assignment()),
-        "CapacityReservationName" => String.t() | atom()
-      }
-      
-  """
-  @type capacity_assignment_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_notebook_metadata_output() :: %{
-        "NotebookMetadata" => notebook_metadata()
-      }
-      
-  """
-  @type get_notebook_metadata_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_execution_status() :: %{
-        "AthenaError" => athena_error(),
-        "CompletionDateTime" => non_neg_integer(),
-        "State" => list(any()),
-        "StateChangeReason" => String.t() | atom(),
-        "SubmissionDateTime" => non_neg_integer()
-      }
-      
-  """
-  @type query_execution_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      encryption_configuration() :: %{
-        "EncryptionOption" => list(any()),
+      managed_logging_configuration() :: %{
+        "Enabled" => boolean(),
         "KmsKey" => String.t() | atom()
       }
       
   """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+  @type managed_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      filter_definition() :: %{
-        "Name" => String.t() | atom()
+      managed_query_results_configuration() :: %{
+        "Enabled" => boolean(),
+        "EncryptionConfiguration" => managed_query_results_encryption_configuration()
       }
       
   """
-  @type filter_definition() :: %{(String.t() | atom()) => any()}
+  @type managed_query_results_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_query_results_configuration_updates() :: %{
+        "Enabled" => boolean(),
+        "EncryptionConfiguration" => managed_query_results_encryption_configuration(),
+        "RemoveEncryptionConfiguration" => boolean()
+      }
+      
+  """
+  @type managed_query_results_configuration_updates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_query_results_encryption_configuration() :: %{
+        "KmsKey" => String.t() | atom()
+      }
+      
+  """
+  @type managed_query_results_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metadata_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type metadata_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monitoring_configuration() :: %{
+        "CloudWatchLoggingConfiguration" => cloud_watch_logging_configuration(),
+        "ManagedLoggingConfiguration" => managed_logging_configuration(),
+        "S3LoggingConfiguration" => s3_logging_configuration()
+      }
+      
+  """
+  @type monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      named_query() :: %{
+        "Database" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NamedQueryId" => String.t() | atom(),
+        "QueryString" => String.t() | atom(),
+        "WorkGroup" => String.t() | atom()
+      }
+      
+  """
+  @type named_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notebook_metadata() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "NotebookId" => String.t() | atom(),
+        "Type" => list(any()),
+        "WorkGroup" => String.t() | atom()
+      }
+      
+  """
+  @type notebook_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notebook_session_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "SessionId" => String.t() | atom()
+      }
+      
+  """
+  @type notebook_session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      prepared_statement() :: %{
+        "Description" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "QueryStatement" => String.t() | atom(),
+        "StatementName" => String.t() | atom(),
+        "WorkGroupName" => String.t() | atom()
+      }
+      
+  """
+  @type prepared_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      prepared_statement_summary() :: %{
+        "LastModifiedTime" => non_neg_integer(),
+        "StatementName" => String.t() | atom()
+      }
+      
+  """
+  @type prepared_statement_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_capacity_assignment_configuration_input() :: %{
+        required("CapacityAssignments") => list(capacity_assignment()),
+        required("CapacityReservationName") => String.t() | atom()
+      }
+      
+  """
+  @type put_capacity_assignment_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_capacity_assignment_configuration_output() :: %{}
+      
+  """
+  @type put_capacity_assignment_configuration_output() :: %{}
 
   @typedoc """
 
@@ -2145,245 +1888,104 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      batch_get_query_execution_output() :: %{
-        "QueryExecutions" => list(query_execution()),
-        "UnprocessedQueryExecutionIds" => list(unprocessed_query_execution_id())
+      query_execution_context() :: %{
+        "Catalog" => String.t() | atom(),
+        "Database" => String.t() | atom()
       }
       
   """
-  @type batch_get_query_execution_output() :: %{(String.t() | atom()) => any()}
+  @type query_execution_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      work_group_summary() :: %{
-        "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "EngineVersion" => engine_version(),
-        "IdentityCenterApplicationArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "State" => list(any())
+      query_execution_statistics() :: %{
+        "DataManifestLocation" => String.t() | atom(),
+        "DataScannedInBytes" => float(),
+        "DpuCount" => float(),
+        "EngineExecutionTimeInMillis" => float(),
+        "QueryPlanningTimeInMillis" => float(),
+        "QueryQueueTimeInMillis" => float(),
+        "ResultReuseInformation" => result_reuse_information(),
+        "ServicePreProcessingTimeInMillis" => float(),
+        "ServiceProcessingTimeInMillis" => float(),
+        "TotalExecutionTimeInMillis" => float()
       }
       
   """
-  @type work_group_summary() :: %{(String.t() | atom()) => any()}
+  @type query_execution_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_database_input() :: %{
-        optional("WorkGroup") => String.t() | atom(),
-        required("CatalogName") => String.t() | atom(),
-        required("DatabaseName") => String.t() | atom()
+      query_execution_status() :: %{
+        "AthenaError" => athena_error(),
+        "CompletionDateTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StateChangeReason" => String.t() | atom(),
+        "SubmissionDateTime" => non_neg_integer()
       }
       
   """
-  @type get_database_input() :: %{(String.t() | atom()) => any()}
+  @type query_execution_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_work_group_input() :: %{
-        optional("Configuration") => work_group_configuration(),
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom()
+      query_results_s3_access_grants_configuration() :: %{
+        "AuthenticationType" => list(any()),
+        "CreateUserLevelPrefix" => boolean(),
+        "EnableS3AccessGrants" => boolean()
       }
       
   """
-  @type create_work_group_input() :: %{(String.t() | atom()) => any()}
+  @type query_results_s3_access_grants_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_prepared_statements_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "PreparedStatements" => list(prepared_statement_summary())
+      query_runtime_statistics() :: %{
+        "OutputStage" => query_stage(),
+        "Rows" => query_runtime_statistics_rows(),
+        "Timeline" => query_runtime_statistics_timeline()
       }
       
   """
-  @type list_prepared_statements_output() :: %{(String.t() | atom()) => any()}
+  @type query_runtime_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_prepared_statement_input() :: %{
-        required("StatementName") => String.t() | atom(),
-        required("WorkGroup") => String.t() | atom()
+      query_runtime_statistics_rows() :: %{
+        "InputBytes" => float(),
+        "InputRows" => float(),
+        "OutputBytes" => float(),
+        "OutputRows" => float()
       }
       
   """
-  @type get_prepared_statement_input() :: %{(String.t() | atom()) => any()}
+  @type query_runtime_statistics_rows() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_calculation_executions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StateFilter") => list(any()),
-        required("SessionId") => String.t() | atom()
+      query_runtime_statistics_timeline() :: %{
+        "EngineExecutionTimeInMillis" => float(),
+        "QueryPlanningTimeInMillis" => float(),
+        "QueryQueueTimeInMillis" => float(),
+        "ServicePreProcessingTimeInMillis" => float(),
+        "ServiceProcessingTimeInMillis" => float(),
+        "TotalExecutionTimeInMillis" => float()
       }
       
   """
-  @type list_calculation_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      monitoring_configuration() :: %{
-        "CloudWatchLoggingConfiguration" => cloud_watch_logging_configuration(),
-        "ManagedLoggingConfiguration" => managed_logging_configuration(),
-        "S3LoggingConfiguration" => s3_logging_configuration()
-      }
-      
-  """
-  @type monitoring_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acl_configuration() :: %{
-        "S3AclOption" => list(any())
-      }
-      
-  """
-  @type acl_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "AthenaErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      named_query() :: %{
-        "Database" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NamedQueryId" => String.t() | atom(),
-        "QueryString" => String.t() | atom(),
-        "WorkGroup" => String.t() | atom()
-      }
-      
-  """
-  @type named_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      calculation_statistics() :: %{
-        "DpuExecutionInMillis" => float(),
-        "Progress" => String.t() | atom()
-      }
-      
-  """
-  @type calculation_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_notebook_output() :: %{
-        "NotebookId" => String.t() | atom()
-      }
-      
-  """
-  @type import_notebook_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_prepared_statement_output() :: %{}
-      
-  """
-  @type create_prepared_statement_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_notebook_metadata_output() :: %{}
-      
-  """
-  @type update_notebook_metadata_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      notebook_metadata() :: %{
-        "CreationTime" => non_neg_integer(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "NotebookId" => String.t() | atom(),
-        "Type" => list(any()),
-        "WorkGroup" => String.t() | atom()
-      }
-      
-  """
-  @type notebook_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      calculation_configuration() :: %{
-        "CodeBlock" => String.t() | atom()
-      }
-      
-  """
-  @type calculation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_database_output() :: %{
-        "Database" => database()
-      }
-      
-  """
-  @type get_database_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_capacity_reservation_output() :: %{}
-      
-  """
-  @type create_capacity_reservation_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_work_group_input() :: %{
-        required("WorkGroup") => String.t() | atom()
-      }
-      
-  """
-  @type get_work_group_input() :: %{(String.t() | atom()) => any()}
+  @type query_runtime_statistics_timeline() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2408,23 +2010,27 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      stop_query_execution_input() :: %{
-        required("QueryExecutionId") => String.t() | atom()
+      query_stage_plan_node() :: %{
+        "Children" => list(query_stage_plan_node()),
+        "Identifier" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RemoteSources" => list(String.t() | atom())
       }
       
   """
-  @type stop_query_execution_input() :: %{(String.t() | atom()) => any()}
+  @type query_stage_plan_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stop_calculation_execution_request() :: %{
-        required("CalculationExecutionId") => String.t() | atom()
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
       
   """
-  @type stop_calculation_execution_request() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2444,106 +2050,433 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      delete_notebook_output() :: %{}
+      result_configuration_updates() :: %{
+        "AclConfiguration" => acl_configuration(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "ExpectedBucketOwner" => String.t() | atom(),
+        "OutputLocation" => String.t() | atom(),
+        "RemoveAclConfiguration" => boolean(),
+        "RemoveEncryptionConfiguration" => boolean(),
+        "RemoveExpectedBucketOwner" => boolean(),
+        "RemoveOutputLocation" => boolean()
+      }
       
   """
-  @type delete_notebook_output() :: %{}
+  @type result_configuration_updates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_query_results_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("QueryResultType") => list(any()),
+      result_reuse_by_age_configuration() :: %{
+        "Enabled" => boolean(),
+        "MaxAgeInMinutes" => integer()
+      }
+      
+  """
+  @type result_reuse_by_age_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      result_reuse_configuration() :: %{
+        "ResultReuseByAgeConfiguration" => result_reuse_by_age_configuration()
+      }
+      
+  """
+  @type result_reuse_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      result_reuse_information() :: %{
+        "ReusedPreviousResult" => boolean()
+      }
+      
+  """
+  @type result_reuse_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      result_set() :: %{
+        "ResultSetMetadata" => result_set_metadata(),
+        "Rows" => list(row())
+      }
+      
+  """
+  @type result_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      result_set_metadata() :: %{
+        "ColumnInfo" => list(column_info())
+      }
+      
+  """
+  @type result_set_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      row() :: %{
+        "Data" => list(datum())
+      }
+      
+  """
+  @type row() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_logging_configuration() :: %{
+        "Enabled" => boolean(),
+        "KmsKey" => String.t() | atom(),
+        "LogLocation" => String.t() | atom()
+      }
+      
+  """
+  @type s3_logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_already_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type session_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_configuration() :: %{
+        "EncryptionConfiguration" => encryption_configuration(),
+        "ExecutionRole" => String.t() | atom(),
+        "IdleTimeoutSeconds" => float(),
+        "SessionIdleTimeoutInMinutes" => integer(),
+        "WorkingDirectory" => String.t() | atom()
+      }
+      
+  """
+  @type session_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_statistics() :: %{
+        "DpuExecutionInMillis" => float()
+      }
+      
+  """
+  @type session_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_status() :: %{
+        "EndDateTime" => non_neg_integer(),
+        "IdleSinceDateTime" => non_neg_integer(),
+        "LastModifiedDateTime" => non_neg_integer(),
+        "StartDateTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StateChangeReason" => String.t() | atom()
+      }
+      
+  """
+  @type session_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_summary() :: %{
+        "Description" => String.t() | atom(),
+        "EngineVersion" => engine_version(),
+        "NotebookVersion" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
+        "Status" => session_status()
+      }
+      
+  """
+  @type session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_calculation_execution_request() :: %{
+        optional("CalculationConfiguration") => calculation_configuration(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("CodeBlock") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("SessionId") => String.t() | atom()
+      }
+      
+  """
+  @type start_calculation_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_calculation_execution_response() :: %{
+        "CalculationExecutionId" => String.t() | atom(),
+        "State" => list(any())
+      }
+      
+  """
+  @type start_calculation_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_query_execution_input() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("EngineConfiguration") => engine_configuration(),
+        optional("ExecutionParameters") => list(String.t() | atom()),
+        optional("QueryExecutionContext") => query_execution_context(),
+        optional("ResultConfiguration") => result_configuration(),
+        optional("ResultReuseConfiguration") => result_reuse_configuration(),
+        optional("WorkGroup") => String.t() | atom(),
+        required("QueryString") => String.t() | atom()
+      }
+      
+  """
+  @type start_query_execution_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_query_execution_output() :: %{
+        "QueryExecutionId" => String.t() | atom()
+      }
+      
+  """
+  @type start_query_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_session_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("CopyWorkGroupTags") => boolean(),
+        optional("Description") => String.t() | atom(),
+        optional("ExecutionRole") => String.t() | atom(),
+        optional("MonitoringConfiguration") => monitoring_configuration(),
+        optional("NotebookVersion") => String.t() | atom(),
+        optional("SessionIdleTimeoutInMinutes") => integer(),
+        optional("Tags") => list(tag()),
+        required("EngineConfiguration") => engine_configuration(),
+        required("WorkGroup") => String.t() | atom()
+      }
+      
+  """
+  @type start_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_session_response() :: %{
+        "SessionId" => String.t() | atom(),
+        "State" => list(any())
+      }
+      
+  """
+  @type start_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_calculation_execution_request() :: %{
+        required("CalculationExecutionId") => String.t() | atom()
+      }
+      
+  """
+  @type stop_calculation_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_calculation_execution_response() :: %{
+        "State" => list(any())
+      }
+      
+  """
+  @type stop_calculation_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_query_execution_input() :: %{
         required("QueryExecutionId") => String.t() | atom()
       }
       
   """
-  @type get_query_results_input() :: %{(String.t() | atom()) => any()}
+  @type stop_query_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      prepared_statement() :: %{
-        "Description" => String.t() | atom(),
-        "LastModifiedTime" => non_neg_integer(),
-        "QueryStatement" => String.t() | atom(),
-        "StatementName" => String.t() | atom(),
-        "WorkGroupName" => String.t() | atom()
+      stop_query_execution_output() :: %{}
+      
+  """
+  @type stop_query_execution_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_metadata() :: %{
+        "Columns" => list(column()),
+        "CreateTime" => non_neg_integer(),
+        "LastAccessTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Parameters" => map(),
+        "PartitionKeys" => list(column()),
+        "TableType" => String.t() | atom()
       }
       
   """
-  @type prepared_statement() :: %{(String.t() | atom()) => any()}
+  @type table_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_engine_versions_output() :: %{
-        "EngineVersions" => list(engine_version()),
-        "NextToken" => String.t() | atom()
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type list_engine_versions_output() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_notebook_sessions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "NotebookSessionsList" => list(notebook_session_summary())
+      tag_resource_input() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
       }
       
   """
-  @type list_notebook_sessions_response() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_get_query_execution_input() :: %{
-        required("QueryExecutionIds") => list(String.t() | atom())
+      tag_resource_output() :: %{}
+      
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminate_session_request() :: %{
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type batch_get_query_execution_input() :: %{(String.t() | atom()) => any()}
+  @type terminate_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      datum() :: %{
-        "VarCharValue" => String.t() | atom()
+      terminate_session_response() :: %{
+        "State" => list(any())
       }
       
   """
-  @type datum() :: %{(String.t() | atom()) => any()}
+  @type terminate_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cancel_capacity_reservation_output() :: %{}
-      
-  """
-  @type cancel_capacity_reservation_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_capacity_reservations_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      too_many_requests_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
       
   """
-  @type list_capacity_reservations_input() :: %{(String.t() | atom()) => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unprocessed_named_query_id() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "NamedQueryId" => String.t() | atom()
+      }
+      
+  """
+  @type unprocessed_named_query_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unprocessed_prepared_statement_name() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "StatementName" => String.t() | atom()
+      }
+      
+  """
+  @type unprocessed_prepared_statement_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unprocessed_query_execution_id() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "QueryExecutionId" => String.t() | atom()
+      }
+      
+  """
+  @type unprocessed_query_execution_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_input() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2558,25 +2491,201 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      list_data_catalogs_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("WorkGroup") => String.t() | atom()
+      update_capacity_reservation_input() :: %{
+        required("Name") => String.t() | atom(),
+        required("TargetDpus") => integer()
       }
       
   """
-  @type list_data_catalogs_input() :: %{(String.t() | atom()) => any()}
+  @type update_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_data_catalog_output() :: %{
-        "DataCatalog" => data_catalog()
+      update_capacity_reservation_output() :: %{}
+      
+  """
+  @type update_capacity_reservation_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_data_catalog_input() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Parameters") => map(),
+        required("Name") => String.t() | atom(),
+        required("Type") => list(any())
       }
       
   """
-  @type delete_data_catalog_output() :: %{(String.t() | atom()) => any()}
+  @type update_data_catalog_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_data_catalog_output() :: %{}
+      
+  """
+  @type update_data_catalog_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_named_query_input() :: %{
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("NamedQueryId") => String.t() | atom(),
+        required("QueryString") => String.t() | atom()
+      }
+      
+  """
+  @type update_named_query_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_named_query_output() :: %{}
+      
+  """
+  @type update_named_query_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_notebook_input() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("SessionId") => String.t() | atom(),
+        required("NotebookId") => String.t() | atom(),
+        required("Payload") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type update_notebook_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_notebook_metadata_input() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("NotebookId") => String.t() | atom()
+      }
+      
+  """
+  @type update_notebook_metadata_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_notebook_metadata_output() :: %{}
+      
+  """
+  @type update_notebook_metadata_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_notebook_output() :: %{}
+      
+  """
+  @type update_notebook_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_prepared_statement_input() :: %{
+        optional("Description") => String.t() | atom(),
+        required("QueryStatement") => String.t() | atom(),
+        required("StatementName") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
+      }
+      
+  """
+  @type update_prepared_statement_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_prepared_statement_output() :: %{}
+      
+  """
+  @type update_prepared_statement_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_work_group_input() :: %{
+        optional("ConfigurationUpdates") => work_group_configuration_updates(),
+        optional("Description") => String.t() | atom(),
+        optional("State") => list(any()),
+        required("WorkGroup") => String.t() | atom()
+      }
+      
+  """
+  @type update_work_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_work_group_output() :: %{}
+      
+  """
+  @type update_work_group_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      work_group() :: %{
+        "Configuration" => work_group_configuration(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "IdentityCenterApplicationArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "State" => list(any())
+      }
+      
+  """
+  @type work_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      work_group_configuration() :: %{
+        "AdditionalConfiguration" => String.t() | atom(),
+        "BytesScannedCutoffPerQuery" => float(),
+        "CustomerContentEncryptionConfiguration" => customer_content_encryption_configuration(),
+        "EnableMinimumEncryptionConfiguration" => boolean(),
+        "EnforceWorkGroupConfiguration" => boolean(),
+        "EngineConfiguration" => engine_configuration(),
+        "EngineVersion" => engine_version(),
+        "ExecutionRole" => String.t() | atom(),
+        "IdentityCenterConfiguration" => identity_center_configuration(),
+        "ManagedQueryResultsConfiguration" => managed_query_results_configuration(),
+        "MonitoringConfiguration" => monitoring_configuration(),
+        "PublishCloudWatchMetricsEnabled" => boolean(),
+        "QueryResultsS3AccessGrantsConfiguration" => query_results_s3_access_grants_configuration(),
+        "RequesterPaysEnabled" => boolean(),
+        "ResultConfiguration" => result_configuration()
+      }
+      
+  """
+  @type work_group_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2608,126 +2717,17 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      capacity_reservation() :: %{
-        "AllocatedDpus" => integer(),
+      work_group_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "LastAllocation" => capacity_allocation(),
-        "LastSuccessfulAllocationTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EngineVersion" => engine_version(),
+        "IdentityCenterApplicationArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "TargetDpus" => integer()
+        "State" => list(any())
       }
       
   """
-  @type capacity_reservation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_calculation_execution_status_response() :: %{
-        "Statistics" => calculation_statistics(),
-        "Status" => calculation_status()
-      }
-      
-  """
-  @type get_calculation_execution_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_named_query_input() :: %{
-        required("NamedQueryId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_named_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notebook_session_summary() :: %{
-        "CreationTime" => non_neg_integer(),
-        "SessionId" => String.t() | atom()
-      }
-      
-  """
-  @type notebook_session_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_query_results_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResultSet" => result_set(),
-        "UpdateCount" => float()
-      }
-      
-  """
-  @type get_query_results_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_capacity_reservation_input() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type get_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_session_endpoint_response() :: %{
-        "AuthToken" => String.t() | atom(),
-        "AuthTokenExpirationTime" => non_neg_integer(),
-        "EndpointUrl" => String.t() | atom()
-      }
-      
-  """
-  @type get_session_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_capacity_reservation_output() :: %{}
-      
-  """
-  @type delete_capacity_reservation_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_capacity_reservation_input() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_runtime_statistics_timeline() :: %{
-        "EngineExecutionTimeInMillis" => float(),
-        "QueryPlanningTimeInMillis" => float(),
-        "QueryQueueTimeInMillis" => float(),
-        "ServicePreProcessingTimeInMillis" => float(),
-        "ServiceProcessingTimeInMillis" => float(),
-        "TotalExecutionTimeInMillis" => float()
-      }
-      
-  """
-  @type query_runtime_statistics_timeline() :: %{(String.t() | atom()) => any()}
+  @type work_group_summary() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_named_query_errors() ::
           invalid_request_exception() | internal_server_exception()
@@ -2749,16 +2749,16 @@ defmodule AWS.Athena do
   @type create_named_query_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type create_notebook_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
+          | invalid_request_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type create_prepared_statement_errors() ::
           invalid_request_exception() | internal_server_exception()
 
   @type create_presigned_notebook_url_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type create_work_group_errors() :: invalid_request_exception() | internal_server_exception()
@@ -2771,35 +2771,35 @@ defmodule AWS.Athena do
   @type delete_named_query_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type delete_notebook_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
+          | invalid_request_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type delete_prepared_statement_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type delete_work_group_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type export_notebook_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
+          | invalid_request_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type get_calculation_execution_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type get_calculation_execution_code_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type get_calculation_execution_status_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type get_capacity_assignment_configuration_errors() ::
@@ -2811,68 +2811,68 @@ defmodule AWS.Athena do
   @type get_data_catalog_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type get_database_errors() ::
-          invalid_request_exception() | metadata_exception() | internal_server_exception()
+          metadata_exception() | invalid_request_exception() | internal_server_exception()
 
   @type get_named_query_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type get_notebook_metadata_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
+          | invalid_request_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type get_prepared_statement_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type get_query_execution_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type get_query_results_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
+          | invalid_request_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type get_query_runtime_statistics_errors() ::
           invalid_request_exception() | internal_server_exception()
 
   @type get_resource_dashboard_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type get_session_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type get_session_endpoint_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type get_session_status_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type get_table_metadata_errors() ::
-          invalid_request_exception() | metadata_exception() | internal_server_exception()
+          metadata_exception() | invalid_request_exception() | internal_server_exception()
 
   @type get_work_group_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type import_notebook_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
+          | invalid_request_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type list_application_d_p_u_sizes_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
+          | invalid_request_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type list_calculation_executions_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type list_capacity_reservations_errors() ::
@@ -2881,25 +2881,25 @@ defmodule AWS.Athena do
   @type list_data_catalogs_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type list_databases_errors() ::
-          invalid_request_exception() | metadata_exception() | internal_server_exception()
+          metadata_exception() | invalid_request_exception() | internal_server_exception()
 
   @type list_engine_versions_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type list_executors_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type list_named_queries_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type list_notebook_metadata_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
+          | invalid_request_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type list_notebook_sessions_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type list_prepared_statements_errors() ::
@@ -2909,16 +2909,16 @@ defmodule AWS.Athena do
           invalid_request_exception() | internal_server_exception()
 
   @type list_sessions_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type list_table_metadata_errors() ::
-          invalid_request_exception() | metadata_exception() | internal_server_exception()
+          metadata_exception() | invalid_request_exception() | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type list_work_groups_errors() :: invalid_request_exception() | internal_server_exception()
@@ -2927,42 +2927,42 @@ defmodule AWS.Athena do
           invalid_request_exception() | internal_server_exception()
 
   @type start_calculation_execution_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type start_query_execution_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
+          | invalid_request_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type start_session_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
           | session_already_exists_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type stop_calculation_execution_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type stop_query_execution_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type tag_resource_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type terminate_session_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type untag_resource_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type update_capacity_reservation_errors() ::
@@ -2973,18 +2973,18 @@ defmodule AWS.Athena do
   @type update_named_query_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type update_notebook_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
+          | invalid_request_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type update_notebook_metadata_errors() ::
-          invalid_request_exception()
+          too_many_requests_exception()
+          | invalid_request_exception()
           | internal_server_exception()
-          | too_many_requests_exception()
 
   @type update_prepared_statement_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_request_exception()
           | internal_server_exception()
 
   @type update_work_group_errors() :: invalid_request_exception() | internal_server_exception()

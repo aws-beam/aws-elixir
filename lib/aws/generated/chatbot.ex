@@ -34,13 +34,45 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
-      list_microsoft_teams_configured_teams_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      account_preferences() :: %{
+        "TrainingDataCollectionEnabled" => boolean(),
+        "UserAuthorizationRequired" => boolean()
       }
 
   """
-  @type list_microsoft_teams_configured_teams_request() :: %{(String.t() | atom()) => any()}
+  @type account_preferences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_to_configuration_request() :: %{
+        required("ChatConfiguration") => String.t() | atom(),
+        required("Resource") => String.t() | atom()
+      }
+
+  """
+  @type associate_to_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_to_configuration_result() :: %{}
+
+  """
+  @type associate_to_configuration_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      association_listing() :: %{
+        "Resource" => String.t() | atom()
+      }
+
+  """
+  @type association_listing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -65,83 +97,38 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
-      get_account_preferences_result() :: %{
-        "AccountPreferences" => account_preferences()
-      }
-
-  """
-  @type get_account_preferences_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      teams_user_identity() :: %{
-        "AwsUserIdentity" => String.t() | atom(),
-        "ChatConfigurationArn" => String.t() | atom(),
-        "IamRoleArn" => String.t() | atom(),
+      configured_team() :: %{
+        "State" => String.t() | atom(),
+        "StateReason" => String.t() | atom(),
         "TeamId" => String.t() | atom(),
-        "TeamsChannelId" => String.t() | atom(),
-        "TeamsTenantId" => String.t() | atom(),
-        "UserId" => String.t() | atom()
+        "TeamName" => String.t() | atom(),
+        "TenantId" => String.t() | atom()
       }
 
   """
-  @type teams_user_identity() :: %{(String.t() | atom()) => any()}
+  @type configured_team() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_slack_user_identity_result() :: %{}
-
-  """
-  @type delete_slack_user_identity_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_microsoft_teams_user_identity_request() :: %{
-        required("ChatConfigurationArn") => String.t() | atom(),
-        required("UserId") => String.t() | atom()
-      }
-
-  """
-  @type delete_microsoft_teams_user_identity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_teams_channel_configuration_result() :: %{
-        "ChannelConfiguration" => teams_channel_configuration()
-      }
-
-  """
-  @type create_teams_channel_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
+      conflict_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_chime_webhook_configuration_exception() :: %{
+      create_chime_webhook_configuration_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type update_chime_webhook_configuration_exception() :: %{(String.t() | atom()) => any()}
+  @type create_chime_webhook_configuration_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -164,211 +151,39 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
-      update_chime_webhook_configuration_result() :: %{
+      create_chime_webhook_configuration_result() :: %{
         "WebhookConfiguration" => chime_webhook_configuration()
       }
 
   """
-  @type update_chime_webhook_configuration_result() :: %{(String.t() | atom()) => any()}
+  @type create_chime_webhook_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      account_preferences() :: %{
-        "TrainingDataCollectionEnabled" => boolean(),
-        "UserAuthorizationRequired" => boolean()
+      create_custom_action_request() :: %{
+        optional("AliasName") => String.t() | atom(),
+        optional("Attachments") => list(custom_action_attachment()),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ActionName") => String.t() | atom(),
+        required("Definition") => custom_action_definition()
       }
 
   """
-  @type account_preferences() :: %{(String.t() | atom()) => any()}
+  @type create_custom_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      slack_user_identity() :: %{
-        "AwsUserIdentity" => String.t() | atom(),
-        "ChatConfigurationArn" => String.t() | atom(),
-        "IamRoleArn" => String.t() | atom(),
-        "SlackTeamId" => String.t() | atom(),
-        "SlackUserId" => String.t() | atom()
+      create_custom_action_result() :: %{
+        "CustomActionArn" => String.t() | atom()
       }
 
   """
-  @type slack_user_identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_from_configuration_request() :: %{
-        required("ChatConfiguration") => String.t() | atom(),
-        required("Resource") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_from_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_chime_webhook_configuration_request() :: %{
-        required("ChatConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_chime_webhook_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_teams_channel_configuration_request() :: %{
-        required("ChatConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_teams_channel_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_action() :: %{
-        "ActionName" => String.t() | atom(),
-        "AliasName" => String.t() | atom(),
-        "Attachments" => list(custom_action_attachment()),
-        "CustomActionArn" => String.t() | atom(),
-        "Definition" => custom_action_definition()
-      }
-
-  """
-  @type custom_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "TagKey" => String.t() | atom(),
-        "TagValue" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_associations_result() :: %{
-        "Associations" => list(association_listing()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_associations_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_microsoft_teams_user_identity_result() :: %{}
-
-  """
-  @type delete_microsoft_teams_user_identity_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_preferences_request() :: %{
-        optional("TrainingDataCollectionEnabled") => boolean(),
-        optional("UserAuthorizationRequired") => boolean()
-      }
-
-  """
-  @type update_account_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_slack_channel_configurations_request() :: %{
-        optional("ChatConfigurationArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_slack_channel_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_action_result() :: %{}
-
-  """
-  @type delete_custom_action_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_microsoft_teams_user_identity_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type delete_microsoft_teams_user_identity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_slack_channel_configurations_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type describe_slack_channel_configurations_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_slack_user_identities_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "SlackUserIdentities" => list(slack_user_identity())
-      }
-
-  """
-  @type describe_slack_user_identities_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_teams_channel_configuration_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type update_teams_channel_configuration_exception() :: %{(String.t() | atom()) => any()}
+  @type create_custom_action_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -380,6 +195,48 @@ defmodule AWS.Chatbot do
 
   """
   @type create_slack_channel_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_slack_channel_configuration_request() :: %{
+        optional("GuardrailPolicyArns") => list(String.t() | atom()),
+        optional("LoggingLevel") => String.t() | atom(),
+        optional("SlackChannelName") => String.t() | atom(),
+        optional("SnsTopicArns") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        optional("UserAuthorizationRequired") => boolean(),
+        required("ConfigurationName") => String.t() | atom(),
+        required("IamRoleArn") => String.t() | atom(),
+        required("SlackChannelId") => String.t() | atom(),
+        required("SlackTeamId") => String.t() | atom()
+      }
+
+  """
+  @type create_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_slack_channel_configuration_result() :: %{
+        "ChannelConfiguration" => slack_channel_configuration()
+      }
+
+  """
+  @type create_slack_channel_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_teams_channel_configuration_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type create_teams_channel_configuration_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,35 +264,27 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
-      delete_chime_webhook_configuration_exception() :: %{
-        "Message" => String.t() | atom()
+      create_teams_channel_configuration_result() :: %{
+        "ChannelConfiguration" => teams_channel_configuration()
       }
 
   """
-  @type delete_chime_webhook_configuration_exception() :: %{(String.t() | atom()) => any()}
+  @type create_teams_channel_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associate_to_configuration_request() :: %{
-        required("ChatConfiguration") => String.t() | atom(),
-        required("Resource") => String.t() | atom()
+      custom_action() :: %{
+        "ActionName" => String.t() | atom(),
+        "AliasName" => String.t() | atom(),
+        "Attachments" => list(custom_action_attachment()),
+        "CustomActionArn" => String.t() | atom(),
+        "Definition" => custom_action_definition()
       }
 
   """
-  @type associate_to_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_teams_configured_team_request() :: %{
-        required("TeamId") => String.t() | atom()
-      }
-
-  """
-  @type delete_teams_configured_team_request() :: %{(String.t() | atom()) => any()}
+  @type custom_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -455,178 +304,108 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
-      list_microsoft_teams_user_identities_request() :: %{
-        optional("ChatConfigurationArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      custom_action_attachment_criteria() :: %{
+        "Operator" => list(any()),
+        "Value" => [String.t() | atom()],
+        "VariableName" => [String.t() | atom()]
       }
 
   """
-  @type list_microsoft_teams_user_identities_request() :: %{(String.t() | atom()) => any()}
+  @type custom_action_attachment_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      unauthorized_exception() :: %{
-        "message" => String.t() | atom()
+      custom_action_definition() :: %{
+        "CommandText" => [String.t() | atom()]
       }
 
   """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+  @type custom_action_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_slack_workspace_authorization_result() :: %{}
-
-  """
-  @type delete_slack_workspace_authorization_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_slack_workspace_authorization_request() :: %{
-        required("SlackTeamId") => String.t() | atom()
-      }
-
-  """
-  @type delete_slack_workspace_authorization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_slack_channel_configurations_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "SlackChannelConfigurations" => list(slack_channel_configuration())
-      }
-
-  """
-  @type describe_slack_channel_configurations_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_from_configuration_result() :: %{}
-
-  """
-  @type disassociate_from_configuration_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_teams_channel_configuration_result() :: %{
-        "ChannelConfiguration" => teams_channel_configuration()
-      }
-
-  """
-  @type update_teams_channel_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_slack_workspaces_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_slack_workspaces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_slack_channel_configuration_request() :: %{
-        optional("GuardrailPolicyArns") => list(String.t() | atom()),
-        optional("LoggingLevel") => String.t() | atom(),
-        optional("SlackChannelName") => String.t() | atom(),
-        optional("SnsTopicArns") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        optional("UserAuthorizationRequired") => boolean(),
-        required("ConfigurationName") => String.t() | atom(),
-        required("IamRoleArn") => String.t() | atom(),
-        required("SlackChannelId") => String.t() | atom(),
-        required("SlackTeamId") => String.t() | atom()
-      }
-
-  """
-  @type create_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_slack_workspaces_exception() :: %{
+      delete_chime_webhook_configuration_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type describe_slack_workspaces_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_chime_webhook_configuration_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_microsoft_teams_user_identities_exception() :: %{
+      delete_chime_webhook_configuration_request() :: %{
+        required("ChatConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_chime_webhook_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_chime_webhook_configuration_result() :: %{}
+
+  """
+  @type delete_chime_webhook_configuration_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_action_request() :: %{
+        required("CustomActionArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_custom_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_action_result() :: %{}
+
+  """
+  @type delete_custom_action_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_microsoft_teams_user_identity_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type list_microsoft_teams_user_identities_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_microsoft_teams_user_identity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_slack_user_identities_exception() :: %{
-        "Message" => String.t() | atom()
+      delete_microsoft_teams_user_identity_request() :: %{
+        required("ChatConfigurationArn") => String.t() | atom(),
+        required("UserId") => String.t() | atom()
       }
 
   """
-  @type describe_slack_user_identities_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_microsoft_teams_user_identity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_chime_webhook_configurations_request() :: %{
-        optional("ChatConfigurationArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
+      delete_microsoft_teams_user_identity_result() :: %{}
 
   """
-  @type describe_chime_webhook_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type delete_microsoft_teams_user_identity_result() :: %{}
 
   @typedoc """
 
@@ -638,6 +417,37 @@ defmodule AWS.Chatbot do
 
   """
   @type delete_slack_channel_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_slack_channel_configuration_request() :: %{
+        required("ChatConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_slack_channel_configuration_result() :: %{}
+
+  """
+  @type delete_slack_channel_configuration_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_slack_user_identity_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type delete_slack_user_identity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -656,37 +466,397 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
-      create_custom_action_request() :: %{
-        optional("AliasName") => String.t() | atom(),
-        optional("Attachments") => list(custom_action_attachment()),
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ActionName") => String.t() | atom(),
-        required("Definition") => custom_action_definition()
-      }
+      delete_slack_user_identity_result() :: %{}
 
   """
-  @type create_custom_action_request() :: %{(String.t() | atom()) => any()}
+  @type delete_slack_user_identity_result() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_teams_channel_configurations_exception() :: %{
+      delete_slack_workspace_authorization_fault() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type list_teams_channel_configurations_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_slack_workspace_authorization_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_slack_workspace_authorization_request() :: %{
+        required("SlackTeamId") => String.t() | atom()
+      }
+
+  """
+  @type delete_slack_workspace_authorization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_slack_workspace_authorization_result() :: %{}
+
+  """
+  @type delete_slack_workspace_authorization_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_teams_channel_configuration_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type delete_teams_channel_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_teams_channel_configuration_request() :: %{
+        required("ChatConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_teams_channel_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_teams_channel_configuration_result() :: %{}
+
+  """
+  @type delete_teams_channel_configuration_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_teams_configured_team_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type delete_teams_configured_team_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_teams_configured_team_request() :: %{
+        required("TeamId") => String.t() | atom()
+      }
+
+  """
+  @type delete_teams_configured_team_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_teams_configured_team_result() :: %{}
+
+  """
+  @type delete_teams_configured_team_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_chime_webhook_configurations_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type describe_chime_webhook_configurations_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_chime_webhook_configurations_request() :: %{
+        optional("ChatConfigurationArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_chime_webhook_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_chime_webhook_configurations_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "WebhookConfigurations" => list(chime_webhook_configuration())
+      }
+
+  """
+  @type describe_chime_webhook_configurations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_slack_channel_configurations_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type describe_slack_channel_configurations_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_slack_channel_configurations_request() :: %{
+        optional("ChatConfigurationArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_slack_channel_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_slack_channel_configurations_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "SlackChannelConfigurations" => list(slack_channel_configuration())
+      }
+
+  """
+  @type describe_slack_channel_configurations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_slack_user_identities_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type describe_slack_user_identities_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_slack_user_identities_request() :: %{
+        optional("ChatConfigurationArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_slack_user_identities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_slack_user_identities_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "SlackUserIdentities" => list(slack_user_identity())
+      }
+
+  """
+  @type describe_slack_user_identities_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_slack_workspaces_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type describe_slack_workspaces_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_slack_workspaces_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_slack_workspaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_slack_workspaces_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "SlackWorkspaces" => list(slack_workspace())
+      }
+
+  """
+  @type describe_slack_workspaces_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_from_configuration_request() :: %{
+        required("ChatConfiguration") => String.t() | atom(),
+        required("Resource") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_from_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_from_configuration_result() :: %{}
+
+  """
+  @type disassociate_from_configuration_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_preferences_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type get_account_preferences_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_preferences_request() :: %{}
+
+  """
+  @type get_account_preferences_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_preferences_result() :: %{
+        "AccountPreferences" => account_preferences()
+      }
+
+  """
+  @type get_account_preferences_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_action_request() :: %{
+        required("CustomActionArn") => String.t() | atom()
+      }
+
+  """
+  @type get_custom_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_action_result() :: %{
+        "CustomAction" => custom_action()
+      }
+
+  """
+  @type get_custom_action_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_teams_channel_configuration_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type get_teams_channel_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_teams_channel_configuration_request() :: %{
+        required("ChatConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type get_teams_channel_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_teams_channel_configuration_result() :: %{
+        "ChannelConfiguration" => teams_channel_configuration()
+      }
+
+  """
+  @type get_teams_channel_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_service_error() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_service_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -705,56 +875,37 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
-      get_account_preferences_exception() :: %{
-        "Message" => String.t() | atom()
+      list_associations_result() :: %{
+        "Associations" => list(association_listing()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_account_preferences_exception() :: %{(String.t() | atom()) => any()}
+  @type list_associations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_slack_workspace_authorization_fault() :: %{
-        "Message" => String.t() | atom()
+      list_custom_actions_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
       }
 
   """
-  @type delete_slack_workspace_authorization_fault() :: %{(String.t() | atom()) => any()}
+  @type list_custom_actions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_slack_channel_configuration_exception() :: %{
-        "Message" => String.t() | atom()
+      list_custom_actions_result() :: %{
+        "CustomActions" => list(String.t() | atom()),
+        "NextToken" => [String.t() | atom()]
       }
 
   """
-  @type update_slack_channel_configuration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_slack_channel_configuration_result() :: %{
-        "ChannelConfiguration" => slack_channel_configuration()
-      }
-
-  """
-  @type update_slack_channel_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type list_custom_actions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -771,80 +922,107 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
-      create_chime_webhook_configuration_exception() :: %{
+      list_microsoft_teams_configured_teams_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_microsoft_teams_configured_teams_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_microsoft_teams_configured_teams_result() :: %{
+        "ConfiguredTeams" => list(configured_team()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_microsoft_teams_configured_teams_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_microsoft_teams_user_identities_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type create_chime_webhook_configuration_exception() :: %{(String.t() | atom()) => any()}
+  @type list_microsoft_teams_user_identities_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_teams_channel_configuration_request() :: %{
-        required("ChatConfigurationArn") => String.t() | atom()
+      list_microsoft_teams_user_identities_request() :: %{
+        optional("ChatConfigurationArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_teams_channel_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type list_microsoft_teams_user_identities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
+      list_microsoft_teams_user_identities_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "TeamsUserIdentities" => list(teams_user_identity())
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type list_microsoft_teams_user_identities_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_custom_action_request() :: %{
-        optional("AliasName") => String.t() | atom(),
-        optional("Attachments") => list(custom_action_attachment()),
-        required("CustomActionArn") => String.t() | atom(),
-        required("Definition") => custom_action_definition()
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
       }
 
   """
-  @type update_custom_action_request() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_chime_webhook_configuration_result() :: %{
-        "WebhookConfiguration" => chime_webhook_configuration()
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
       }
 
   """
-  @type create_chime_webhook_configuration_result() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_teams_configured_team_exception() :: %{
+      list_teams_channel_configurations_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type delete_teams_configured_team_exception() :: %{(String.t() | atom()) => any()}
+  @type list_teams_channel_configurations_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_teams_channel_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TeamId") => String.t() | atom()
+      }
+
+  """
+  @type list_teams_channel_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -857,6 +1035,28 @@ defmodule AWS.Chatbot do
 
   """
   @type list_teams_channel_configurations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -886,24 +1086,16 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
-      delete_slack_user_identity_exception() :: %{
-        "Message" => String.t() | atom()
+      slack_user_identity() :: %{
+        "AwsUserIdentity" => String.t() | atom(),
+        "ChatConfigurationArn" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom(),
+        "SlackTeamId" => String.t() | atom(),
+        "SlackUserId" => String.t() | atom()
       }
 
   """
-  @type delete_slack_user_identity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_slack_workspaces_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "SlackWorkspaces" => list(slack_workspace())
-      }
-
-  """
-  @type describe_slack_workspaces_result() :: %{(String.t() | atom()) => any()}
+  @type slack_user_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -923,452 +1115,34 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
-      delete_teams_channel_configuration_exception() :: %{
-        "Message" => String.t() | atom()
+      tag() :: %{
+        "TagKey" => String.t() | atom(),
+        "TagValue" => String.t() | atom()
       }
 
   """
-  @type delete_teams_channel_configuration_exception() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_account_preferences_exception() :: %{
-        "Message" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
       }
 
   """
-  @type update_account_preferences_exception() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_teams_channel_configuration_result() :: %{
-        "ChannelConfiguration" => teams_channel_configuration()
-      }
+      tag_resource_response() :: %{}
 
   """
-  @type get_teams_channel_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_tags_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_microsoft_teams_user_identities_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "TeamsUserIdentities" => list(teams_user_identity())
-      }
-
-  """
-  @type list_microsoft_teams_user_identities_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_teams_channel_configuration_request() :: %{
-        optional("ChannelName") => String.t() | atom(),
-        optional("GuardrailPolicyArns") => list(String.t() | atom()),
-        optional("IamRoleArn") => String.t() | atom(),
-        optional("LoggingLevel") => String.t() | atom(),
-        optional("SnsTopicArns") => list(String.t() | atom()),
-        optional("UserAuthorizationRequired") => boolean(),
-        required("ChannelId") => String.t() | atom(),
-        required("ChatConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type update_teams_channel_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_chime_webhook_configurations_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type describe_chime_webhook_configurations_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_teams_channel_configuration_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type create_teams_channel_configuration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_action_request() :: %{
-        required("CustomActionArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_custom_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_custom_action_result() :: %{
-        "CustomActionArn" => String.t() | atom()
-      }
-
-  """
-  @type create_custom_action_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_slack_channel_configuration_request() :: %{
-        required("ChatConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_teams_channel_configuration_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type get_teams_channel_configuration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_to_configuration_result() :: %{}
-
-  """
-  @type associate_to_configuration_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_slack_channel_configuration_request() :: %{
-        optional("GuardrailPolicyArns") => list(String.t() | atom()),
-        optional("IamRoleArn") => String.t() | atom(),
-        optional("LoggingLevel") => String.t() | atom(),
-        optional("SlackChannelName") => String.t() | atom(),
-        optional("SnsTopicArns") => list(String.t() | atom()),
-        optional("UserAuthorizationRequired") => boolean(),
-        required("ChatConfigurationArn") => String.t() | atom(),
-        required("SlackChannelId") => String.t() | atom()
-      }
-
-  """
-  @type update_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_slack_channel_configuration_result() :: %{
-        "ChannelConfiguration" => slack_channel_configuration()
-      }
-
-  """
-  @type create_slack_channel_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_teams_configured_team_result() :: %{}
-
-  """
-  @type delete_teams_configured_team_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_slack_channel_configuration_result() :: %{}
-
-  """
-  @type delete_slack_channel_configuration_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_slack_user_identities_request() :: %{
-        optional("ChatConfigurationArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_slack_user_identities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_action_attachment_criteria() :: %{
-        "Operator" => list(any()),
-        "Value" => [String.t() | atom()],
-        "VariableName" => [String.t() | atom()]
-      }
-
-  """
-  @type custom_action_attachment_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_parameter_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_microsoft_teams_configured_teams_result() :: %{
-        "ConfiguredTeams" => list(configured_team()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_microsoft_teams_configured_teams_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_custom_action_result() :: %{
-        "CustomAction" => custom_action()
-      }
-
-  """
-  @type get_custom_action_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_chime_webhook_configuration_result() :: %{}
-
-  """
-  @type delete_chime_webhook_configuration_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      association_listing() :: %{
-        "Resource" => String.t() | atom()
-      }
-
-  """
-  @type association_listing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_teams_channel_configurations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("TeamId") => String.t() | atom()
-      }
-
-  """
-  @type list_teams_channel_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_preferences_result() :: %{
-        "AccountPreferences" => account_preferences()
-      }
-
-  """
-  @type update_account_preferences_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_chime_webhook_configurations_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "WebhookConfigurations" => list(chime_webhook_configuration())
-      }
-
-  """
-  @type describe_chime_webhook_configurations_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_custom_action_result() :: %{
-        "CustomActionArn" => String.t() | atom()
-      }
-
-  """
-  @type update_custom_action_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_preferences_request() :: %{}
-
-  """
-  @type get_account_preferences_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_custom_actions_result() :: %{
-        "CustomActions" => list(String.t() | atom()),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_custom_actions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_chime_webhook_configuration_request() :: %{
-        optional("IamRoleArn") => String.t() | atom(),
-        optional("LoggingLevel") => String.t() | atom(),
-        optional("SnsTopicArns") => list(String.t() | atom()),
-        optional("WebhookDescription") => String.t() | atom(),
-        optional("WebhookUrl") => String.t() | atom(),
-        required("ChatConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type update_chime_webhook_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_action_definition() :: %{
-        "CommandText" => [String.t() | atom()]
-      }
-
-  """
-  @type custom_action_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_teams_channel_configuration_result() :: %{}
-
-  """
-  @type delete_teams_channel_configuration_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_custom_action_request() :: %{
-        required("CustomActionArn") => String.t() | atom()
-      }
-
-  """
-  @type get_custom_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_custom_actions_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_custom_actions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_team() :: %{
-        "State" => String.t() | atom(),
-        "StateReason" => String.t() | atom(),
-        "TeamId" => String.t() | atom(),
-        "TeamName" => String.t() | atom(),
-        "TenantId" => String.t() | atom()
-      }
-
-  """
-  @type configured_team() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -1399,183 +1173,409 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
-      internal_service_error() :: %{
+      teams_user_identity() :: %{
+        "AwsUserIdentity" => String.t() | atom(),
+        "ChatConfigurationArn" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom(),
+        "TeamId" => String.t() | atom(),
+        "TeamsChannelId" => String.t() | atom(),
+        "TeamsTenantId" => String.t() | atom(),
+        "UserId" => String.t() | atom()
+      }
+
+  """
+  @type teams_user_identity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_preferences_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type internal_service_error() :: %{(String.t() | atom()) => any()}
+  @type update_account_preferences_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_preferences_request() :: %{
+        optional("TrainingDataCollectionEnabled") => boolean(),
+        optional("UserAuthorizationRequired") => boolean()
+      }
+
+  """
+  @type update_account_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_preferences_result() :: %{
+        "AccountPreferences" => account_preferences()
+      }
+
+  """
+  @type update_account_preferences_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_chime_webhook_configuration_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type update_chime_webhook_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_chime_webhook_configuration_request() :: %{
+        optional("IamRoleArn") => String.t() | atom(),
+        optional("LoggingLevel") => String.t() | atom(),
+        optional("SnsTopicArns") => list(String.t() | atom()),
+        optional("WebhookDescription") => String.t() | atom(),
+        optional("WebhookUrl") => String.t() | atom(),
+        required("ChatConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type update_chime_webhook_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_chime_webhook_configuration_result() :: %{
+        "WebhookConfiguration" => chime_webhook_configuration()
+      }
+
+  """
+  @type update_chime_webhook_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_action_request() :: %{
+        optional("AliasName") => String.t() | atom(),
+        optional("Attachments") => list(custom_action_attachment()),
+        required("CustomActionArn") => String.t() | atom(),
+        required("Definition") => custom_action_definition()
+      }
+
+  """
+  @type update_custom_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_action_result() :: %{
+        "CustomActionArn" => String.t() | atom()
+      }
+
+  """
+  @type update_custom_action_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_slack_channel_configuration_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type update_slack_channel_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_slack_channel_configuration_request() :: %{
+        optional("GuardrailPolicyArns") => list(String.t() | atom()),
+        optional("IamRoleArn") => String.t() | atom(),
+        optional("LoggingLevel") => String.t() | atom(),
+        optional("SlackChannelName") => String.t() | atom(),
+        optional("SnsTopicArns") => list(String.t() | atom()),
+        optional("UserAuthorizationRequired") => boolean(),
+        required("ChatConfigurationArn") => String.t() | atom(),
+        required("SlackChannelId") => String.t() | atom()
+      }
+
+  """
+  @type update_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_slack_channel_configuration_result() :: %{
+        "ChannelConfiguration" => slack_channel_configuration()
+      }
+
+  """
+  @type update_slack_channel_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_teams_channel_configuration_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type update_teams_channel_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_teams_channel_configuration_request() :: %{
+        optional("ChannelName") => String.t() | atom(),
+        optional("GuardrailPolicyArns") => list(String.t() | atom()),
+        optional("IamRoleArn") => String.t() | atom(),
+        optional("LoggingLevel") => String.t() | atom(),
+        optional("SnsTopicArns") => list(String.t() | atom()),
+        optional("UserAuthorizationRequired") => boolean(),
+        required("ChannelId") => String.t() | atom(),
+        required("ChatConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type update_teams_channel_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_teams_channel_configuration_result() :: %{
+        "ChannelConfiguration" => teams_channel_configuration()
+      }
+
+  """
+  @type update_teams_channel_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @type associate_to_configuration_errors() ::
-          internal_service_error() | invalid_request_exception() | unauthorized_exception()
+          unauthorized_exception() | invalid_request_exception() | internal_service_error()
 
   @type create_chime_webhook_configuration_errors() ::
-          invalid_parameter_exception()
+          limit_exceeded_exception()
           | invalid_request_exception()
+          | invalid_parameter_exception()
           | create_chime_webhook_configuration_exception()
           | conflict_exception()
-          | limit_exceeded_exception()
 
   @type create_custom_action_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
-          | conflict_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | limit_exceeded_exception()
+          | invalid_request_exception()
+          | internal_service_error()
+          | conflict_exception()
 
   @type create_microsoft_teams_channel_configuration_errors() ::
-          invalid_parameter_exception()
+          limit_exceeded_exception()
           | invalid_request_exception()
+          | invalid_parameter_exception()
           | create_teams_channel_configuration_exception()
           | conflict_exception()
-          | limit_exceeded_exception()
 
   @type create_slack_channel_configuration_errors() ::
-          invalid_parameter_exception()
+          limit_exceeded_exception()
           | invalid_request_exception()
-          | conflict_exception()
+          | invalid_parameter_exception()
           | create_slack_channel_configuration_exception()
-          | limit_exceeded_exception()
+          | conflict_exception()
 
   @type delete_chime_webhook_configuration_errors() ::
-          invalid_parameter_exception()
+          resource_not_found_exception()
           | invalid_request_exception()
-          | resource_not_found_exception()
+          | invalid_parameter_exception()
           | delete_chime_webhook_configuration_exception()
 
   @type delete_custom_action_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          unauthorized_exception()
           | resource_not_found_exception()
-          | unauthorized_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type delete_microsoft_teams_channel_configuration_errors() ::
-          invalid_parameter_exception()
+          resource_not_found_exception()
           | invalid_request_exception()
+          | invalid_parameter_exception()
           | delete_teams_channel_configuration_exception()
-          | resource_not_found_exception()
 
   @type delete_microsoft_teams_configured_team_errors() ::
           invalid_parameter_exception() | delete_teams_configured_team_exception()
 
   @type delete_microsoft_teams_user_identity_errors() ::
-          invalid_parameter_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | invalid_parameter_exception()
           | delete_microsoft_teams_user_identity_exception()
 
   @type delete_slack_channel_configuration_errors() ::
-          invalid_parameter_exception()
+          resource_not_found_exception()
           | invalid_request_exception()
+          | invalid_parameter_exception()
           | delete_slack_channel_configuration_exception()
-          | resource_not_found_exception()
 
   @type delete_slack_user_identity_errors() ::
-          invalid_parameter_exception()
+          resource_not_found_exception()
+          | invalid_parameter_exception()
           | delete_slack_user_identity_exception()
-          | resource_not_found_exception()
 
   @type delete_slack_workspace_authorization_errors() ::
           invalid_parameter_exception() | delete_slack_workspace_authorization_fault()
 
   @type describe_chime_webhook_configurations_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | invalid_parameter_exception()
           | describe_chime_webhook_configurations_exception()
 
   @type describe_slack_channel_configurations_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | invalid_parameter_exception()
           | describe_slack_channel_configurations_exception()
 
   @type describe_slack_user_identities_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | invalid_parameter_exception()
           | describe_slack_user_identities_exception()
 
   @type describe_slack_workspaces_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | invalid_parameter_exception()
           | describe_slack_workspaces_exception()
 
   @type disassociate_from_configuration_errors() ::
-          internal_service_error() | invalid_request_exception() | unauthorized_exception()
+          unauthorized_exception() | invalid_request_exception() | internal_service_error()
 
   @type get_account_preferences_errors() ::
           invalid_request_exception() | get_account_preferences_exception()
 
   @type get_custom_action_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          unauthorized_exception()
           | resource_not_found_exception()
-          | unauthorized_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type get_microsoft_teams_channel_configuration_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | invalid_parameter_exception()
           | get_teams_channel_configuration_exception()
 
   @type list_custom_actions_errors() ::
-          internal_service_error() | invalid_request_exception() | unauthorized_exception()
+          unauthorized_exception() | invalid_request_exception() | internal_service_error()
 
   @type list_microsoft_teams_channel_configurations_errors() ::
-          invalid_parameter_exception()
+          list_teams_channel_configurations_exception()
           | invalid_request_exception()
-          | list_teams_channel_configurations_exception()
+          | invalid_parameter_exception()
 
   @type list_microsoft_teams_configured_teams_errors() ::
-          invalid_parameter_exception()
+          list_microsoft_teams_configured_teams_exception()
           | invalid_request_exception()
-          | list_microsoft_teams_configured_teams_exception()
+          | invalid_parameter_exception()
 
   @type list_microsoft_teams_user_identities_errors() ::
-          invalid_parameter_exception()
+          list_microsoft_teams_user_identities_exception()
           | invalid_request_exception()
-          | list_microsoft_teams_user_identities_exception()
+          | invalid_parameter_exception()
 
   @type list_tags_for_resource_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type tag_resource_errors() ::
-          internal_service_error()
-          | too_many_tags_exception()
-          | resource_not_found_exception()
+          too_many_tags_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_service_error()
 
   @type untag_resource_errors() ::
-          internal_service_error()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | internal_service_error()
 
   @type update_account_preferences_errors() ::
-          invalid_parameter_exception()
+          update_account_preferences_exception()
           | invalid_request_exception()
-          | update_account_preferences_exception()
+          | invalid_parameter_exception()
 
   @type update_chime_webhook_configuration_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
+          update_chime_webhook_configuration_exception()
           | resource_not_found_exception()
-          | update_chime_webhook_configuration_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
 
   @type update_custom_action_errors() ::
-          internal_service_error()
-          | invalid_request_exception()
+          unauthorized_exception()
           | resource_not_found_exception()
-          | unauthorized_exception()
+          | invalid_request_exception()
+          | internal_service_error()
 
   @type update_microsoft_teams_channel_configuration_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
+          update_teams_channel_configuration_exception()
           | resource_not_found_exception()
-          | update_teams_channel_configuration_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
 
   @type update_slack_channel_configuration_errors() ::
-          invalid_parameter_exception()
-          | invalid_request_exception()
-          | update_slack_channel_configuration_exception()
+          update_slack_channel_configuration_exception()
           | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
 
   def metadata do
     %{

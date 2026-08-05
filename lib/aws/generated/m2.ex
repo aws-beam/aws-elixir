@@ -23,6 +23,480 @@ defmodule AWS.M2 do
 
   ## Example:
 
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alternate_key() :: %{
+        "allowDuplicates" => boolean(),
+        "length" => integer(),
+        "name" => [String.t() | atom()],
+        "offset" => integer()
+      }
+
+  """
+  @type alternate_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_summary() :: %{
+        "applicationArn" => String.t() | atom(),
+        "applicationId" => String.t() | atom(),
+        "applicationVersion" => integer(),
+        "creationTime" => non_neg_integer(),
+        "deploymentStatus" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "engineType" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "lastStartTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "versionStatus" => String.t() | atom()
+      }
+
+  """
+  @type application_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_version_summary() :: %{
+        "applicationVersion" => integer(),
+        "creationTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type application_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_job_execution_summary() :: %{
+        "applicationId" => String.t() | atom(),
+        "batchJobIdentifier" => list(),
+        "endTime" => non_neg_integer(),
+        "executionId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
+        "jobType" => String.t() | atom(),
+        "returnCode" => [String.t() | atom()],
+        "startTime" => non_neg_integer(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type batch_job_execution_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_batch_job_execution_request() :: %{
+        optional("authSecretsManagerArn") => String.t() | atom()
+      }
+
+  """
+  @type cancel_batch_job_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_batch_job_execution_response() :: %{}
+
+  """
+  @type cancel_batch_job_execution_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyId") => [String.t() | atom()],
+        optional("roleArn") => String.t() | atom(),
+        optional("tags") => map(),
+        required("definition") => list(),
+        required("engineType") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_response() :: %{
+        required("applicationArn") => String.t() | atom(),
+        required("applicationId") => String.t() | atom(),
+        required("applicationVersion") => integer()
+      }
+
+  """
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_set_export_task_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        required("exportConfig") => list()
+      }
+
+  """
+  @type create_data_set_export_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_set_export_task_response() :: %{
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type create_data_set_export_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_set_import_task_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("importConfig") => list()
+      }
+
+  """
+  @type create_data_set_import_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_set_import_task_response() :: %{
+        required("taskId") => String.t() | atom()
+      }
+
+  """
+  @type create_data_set_import_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_deployment_request() :: %{
+        "applicationVersion" => integer(),
+        "clientToken" => String.t() | atom(),
+        "environmentId" => String.t() | atom()
+      }
+
+  """
+  @type create_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_deployment_response() :: %{
+        required("deploymentId") => String.t() | atom()
+      }
+
+  """
+  @type create_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_environment_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("engineVersion") => String.t() | atom(),
+        optional("highAvailabilityConfig") => high_availability_config(),
+        optional("kmsKeyId") => [String.t() | atom()],
+        optional("networkType") => String.t() | atom(),
+        optional("preferredMaintenanceWindow") => String.t() | atom(),
+        optional("publiclyAccessible") => boolean(),
+        optional("securityGroupIds") => list(String.t() | atom()),
+        optional("storageConfigurations") => list(list()),
+        optional("subnetIds") => list(String.t() | atom()),
+        optional("tags") => map(),
+        required("engineType") => String.t() | atom(),
+        required("instanceType") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_environment_response() :: %{
+        required("environmentId") => String.t() | atom()
+      }
+
+  """
+  @type create_environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set() :: %{
+        "datasetName" => [String.t() | atom()],
+        "datasetOrg" => list(),
+        "recordLength" => record_length(),
+        "relativePath" => [String.t() | atom()],
+        "storageType" => [String.t() | atom()]
+      }
+
+  """
+  @type data_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_export_item() :: %{
+        "datasetName" => String.t() | atom(),
+        "externalLocation" => list()
+      }
+
+  """
+  @type data_set_export_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_export_summary() :: %{
+        "failed" => integer(),
+        "inProgress" => integer(),
+        "pending" => integer(),
+        "succeeded" => integer(),
+        "total" => integer()
+      }
+
+  """
+  @type data_set_export_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_export_task() :: %{
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()],
+        "summary" => data_set_export_summary(),
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type data_set_export_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_import_item() :: %{
+        "dataSet" => data_set(),
+        "externalLocation" => list()
+      }
+
+  """
+  @type data_set_import_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_import_summary() :: %{
+        "failed" => integer(),
+        "inProgress" => integer(),
+        "pending" => integer(),
+        "succeeded" => integer(),
+        "total" => integer()
+      }
+
+  """
+  @type data_set_import_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_import_task() :: %{
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()],
+        "summary" => data_set_import_summary(),
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type data_set_import_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "dataSetName" => String.t() | atom(),
+        "dataSetOrg" => String.t() | atom(),
+        "format" => String.t() | atom(),
+        "lastReferencedTime" => non_neg_integer(),
+        "lastUpdatedTime" => non_neg_integer()
+      }
+
+  """
+  @type data_set_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_from_environment_request() :: %{}
+
+  """
+  @type delete_application_from_environment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_from_environment_response() :: %{}
+
+  """
+  @type delete_application_from_environment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_request() :: %{}
+
+  """
+  @type delete_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_response() :: %{}
+
+  """
+  @type delete_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_environment_request() :: %{}
+
+  """
+  @type delete_environment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_environment_response() :: %{}
+
+  """
+  @type delete_environment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deployed_version_summary() :: %{
+        "applicationVersion" => integer(),
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type deployed_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_summary() :: %{
+        "applicationId" => String.t() | atom(),
+        "applicationVersion" => integer(),
+        "creationTime" => non_neg_integer(),
+        "deploymentId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type deployment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      efs_storage_configuration() :: %{
+        "fileSystemId" => String.t() | atom(),
+        "mountPoint" => String.t() | atom()
+      }
+
+  """
+  @type efs_storage_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      engine_versions_summary() :: %{
+        "engineType" => [String.t() | atom()],
+        "engineVersion" => [String.t() | atom()]
+      }
+
+  """
+  @type engine_versions_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       environment_summary() :: %{
         "creationTime" => non_neg_integer(),
         "engineType" => String.t() | atom(),
@@ -42,82 +516,278 @@ defmodule AWS.M2 do
 
   ## Example:
 
-      create_data_set_export_task_response() :: %{
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type create_data_set_export_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_batch_job_restart_points_response() :: %{
-        "batchJobSteps" => list(job_step())
-      }
-
-  """
-  @type list_batch_job_restart_points_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_set_export_history_response() :: %{
-        "dataSetExportTasks" => list(data_set_export_task()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_set_export_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_set_import_history_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_data_set_import_history_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restart_batch_job_identifier() :: %{
-        "executionId" => String.t() | atom(),
-        "jobStepRestartMarker" => job_step_restart_marker()
-      }
-
-  """
-  @type restart_batch_job_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_set_import_item() :: %{
-        "dataSet" => data_set(),
-        "externalLocation" => list()
-      }
-
-  """
-  @type data_set_import_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       execution_timeout_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
   @type execution_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_batch_job_definition() :: %{
+        "fileName" => [String.t() | atom()],
+        "folderPath" => [String.t() | atom()]
+      }
+
+  """
+  @type file_batch_job_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_batch_job_identifier() :: %{
+        "fileName" => [String.t() | atom()],
+        "folderPath" => [String.t() | atom()]
+      }
+
+  """
+  @type file_batch_job_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fsx_storage_configuration() :: %{
+        "fileSystemId" => String.t() | atom(),
+        "mountPoint" => String.t() | atom()
+      }
+
+  """
+  @type fsx_storage_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gdg_attributes() :: %{
+        "limit" => integer(),
+        "rollDisposition" => [String.t() | atom()]
+      }
+
+  """
+  @type gdg_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gdg_detail_attributes() :: %{
+        "limit" => integer(),
+        "rollDisposition" => String.t() | atom()
+      }
+
+  """
+  @type gdg_detail_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_request() :: %{}
+
+  """
+  @type get_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_response() :: %{
+        optional("deployedVersion") => deployed_version_summary(),
+        optional("description") => String.t() | atom(),
+        optional("environmentId") => String.t() | atom(),
+        optional("kmsKeyId") => [String.t() | atom()],
+        optional("lastStartTime") => non_neg_integer(),
+        optional("listenerArns") => list(String.t() | atom()),
+        optional("listenerPorts") => list(integer()),
+        optional("loadBalancerDnsName") => String.t() | atom(),
+        optional("logGroups") => list(log_group_summary()),
+        optional("roleArn") => String.t() | atom(),
+        optional("statusReason") => [String.t() | atom()],
+        optional("tags") => map(),
+        optional("targetGroupArns") => list(String.t() | atom()),
+        required("applicationArn") => String.t() | atom(),
+        required("applicationId") => String.t() | atom(),
+        required("creationTime") => non_neg_integer(),
+        required("engineType") => String.t() | atom(),
+        required("latestVersion") => application_version_summary(),
+        required("name") => String.t() | atom(),
+        required("status") => String.t() | atom()
+      }
+
+  """
+  @type get_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_version_request() :: %{}
+
+  """
+  @type get_application_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_version_response() :: %{
+        optional("description") => String.t() | atom(),
+        optional("statusReason") => [String.t() | atom()],
+        required("applicationVersion") => integer(),
+        required("creationTime") => non_neg_integer(),
+        required("definitionContent") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("status") => String.t() | atom()
+      }
+
+  """
+  @type get_application_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_batch_job_execution_request() :: %{}
+
+  """
+  @type get_batch_job_execution_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_batch_job_execution_response() :: %{
+        optional("batchJobIdentifier") => list(),
+        optional("endTime") => non_neg_integer(),
+        optional("jobId") => String.t() | atom(),
+        optional("jobName") => String.t() | atom(),
+        optional("jobStepRestartMarker") => job_step_restart_marker(),
+        optional("jobType") => String.t() | atom(),
+        optional("jobUser") => String.t() | atom(),
+        optional("returnCode") => [String.t() | atom()],
+        optional("statusReason") => [String.t() | atom()],
+        required("applicationId") => String.t() | atom(),
+        required("executionId") => String.t() | atom(),
+        required("startTime") => non_neg_integer(),
+        required("status") => String.t() | atom()
+      }
+
+  """
+  @type get_batch_job_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_set_details_request() :: %{}
+
+  """
+  @type get_data_set_details_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_set_details_response() :: %{
+        "blocksize" => integer(),
+        "creationTime" => non_neg_integer(),
+        "dataSetName" => String.t() | atom(),
+        "dataSetOrg" => list(),
+        "fileSize" => [float()],
+        "lastReferencedTime" => non_neg_integer(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "location" => String.t() | atom(),
+        "recordLength" => integer()
+      }
+
+  """
+  @type get_data_set_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_set_export_task_request() :: %{}
+
+  """
+  @type get_data_set_export_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_set_export_task_response() :: %{
+        "kmsKeyArn" => [String.t() | atom()],
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()],
+        "summary" => data_set_export_summary(),
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type get_data_set_export_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_set_import_task_request() :: %{}
+
+  """
+  @type get_data_set_import_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_set_import_task_response() :: %{
+        optional("summary") => data_set_import_summary(),
+        required("status") => String.t() | atom(),
+        required("taskId") => String.t() | atom()
+      }
+
+  """
+  @type get_data_set_import_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_request() :: %{}
+
+  """
+  @type get_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_response() :: %{
+        optional("statusReason") => [String.t() | atom()],
+        required("applicationId") => String.t() | atom(),
+        required("applicationVersion") => integer(),
+        required("creationTime") => non_neg_integer(),
+        required("deploymentId") => String.t() | atom(),
+        required("environmentId") => String.t() | atom(),
+        required("status") => String.t() | atom()
+      }
+
+  """
+  @type get_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_request() :: %{}
+
+  """
+  @type get_environment_request() :: %{}
 
   @typedoc """
 
@@ -156,500 +826,12 @@ defmodule AWS.M2 do
 
   ## Example:
 
-      service_unavailable_exception() :: %{
-        "message" => [String.t() | atom()]
+      get_signed_bluinsights_url_response() :: %{
+        "signedBiUrl" => [String.t() | atom()]
       }
 
   """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_deployment_request() :: %{
-        "applicationVersion" => integer(),
-        "clientToken" => String.t() | atom(),
-        "environmentId" => String.t() | atom()
-      }
-
-  """
-  @type create_deployment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_batch_job_identifier() :: %{
-        "bucket" => [String.t() | atom()],
-        "identifier" => list(),
-        "keyPrefix" => [String.t() | atom()]
-      }
-
-  """
-  @type s3_batch_job_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => integer(),
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_batch_job_definitions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("prefix") => [String.t() | atom()]
-      }
-
-  """
-  @type list_batch_job_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_application_request() :: %{}
-
-  """
-  @type start_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_version_request() :: %{}
-
-  """
-  @type get_application_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      gdg_detail_attributes() :: %{
-        "limit" => integer(),
-        "rollDisposition" => String.t() | atom()
-      }
-
-  """
-  @type gdg_detail_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_batch_job_execution_response() :: %{}
-
-  """
-  @type cancel_batch_job_execution_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      log_group_summary() :: %{
-        "logGroupName" => String.t() | atom(),
-        "logType" => String.t() | atom()
-      }
-
-  """
-  @type log_group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vsam_detail_attributes() :: %{
-        "alternateKeys" => list(alternate_key()),
-        "cacheAtStartup" => boolean(),
-        "compressed" => boolean(),
-        "encoding" => String.t() | atom(),
-        "primaryKey" => primary_key(),
-        "recordFormat" => String.t() | atom()
-      }
-
-  """
-  @type vsam_detail_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_environment_response() :: %{
-        required("environmentId") => String.t() | atom()
-      }
-
-  """
-  @type create_environment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_set_details_request() :: %{}
-
-  """
-  @type get_data_set_details_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_batch_job_execution_request() :: %{}
-
-  """
-  @type get_batch_job_execution_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_sets_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nameFilter") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("prefix") => String.t() | atom()
-      }
-
-  """
-  @type list_data_sets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pending_maintenance() :: %{
-        "engineVersion" => [String.t() | atom()],
-        "schedule" => maintenance_schedule()
-      }
-
-  """
-  @type pending_maintenance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_application_response() :: %{}
-
-  """
-  @type start_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_response() :: %{
-        optional("deployedVersion") => deployed_version_summary(),
-        optional("description") => String.t() | atom(),
-        optional("environmentId") => String.t() | atom(),
-        optional("kmsKeyId") => [String.t() | atom()],
-        optional("lastStartTime") => non_neg_integer(),
-        optional("listenerArns") => list(String.t() | atom()),
-        optional("listenerPorts") => list(integer()),
-        optional("loadBalancerDnsName") => String.t() | atom(),
-        optional("logGroups") => list(log_group_summary()),
-        optional("roleArn") => String.t() | atom(),
-        optional("statusReason") => [String.t() | atom()],
-        optional("tags") => map(),
-        optional("targetGroupArns") => list(String.t() | atom()),
-        required("applicationArn") => String.t() | atom(),
-        required("applicationId") => String.t() | atom(),
-        required("creationTime") => non_neg_integer(),
-        required("engineType") => String.t() | atom(),
-        required("latestVersion") => application_version_summary(),
-        required("name") => String.t() | atom(),
-        required("status") => String.t() | atom()
-      }
-
-  """
-  @type get_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_set_export_task_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("kmsKeyId") => String.t() | atom(),
-        required("exportConfig") => list()
-      }
-
-  """
-  @type create_data_set_export_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      maintenance_schedule() :: %{
-        "endTime" => non_neg_integer(),
-        "startTime" => non_neg_integer()
-      }
-
-  """
-  @type maintenance_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyId") => [String.t() | atom()],
-        optional("roleArn") => String.t() | atom(),
-        optional("tags") => map(),
-        required("definition") => list(),
-        required("engineType") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      po_attributes() :: %{
-        "encoding" => [String.t() | atom()],
-        "format" => [String.t() | atom()],
-        "memberFileExtensions" => list(String.t() | atom())
-      }
-
-  """
-  @type po_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_application_versions_response() :: %{
-        "applicationVersions" => list(application_version_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_application_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_set() :: %{
-        "datasetName" => [String.t() | atom()],
-        "datasetOrg" => list(),
-        "recordLength" => record_length(),
-        "relativePath" => [String.t() | atom()],
-        "storageType" => [String.t() | atom()]
-      }
-
-  """
-  @type data_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environments_request() :: %{
-        optional("engineType") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("names") => list(String.t() | atom()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_environments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_set_export_summary() :: %{
-        "failed" => integer(),
-        "inProgress" => integer(),
-        "pending" => integer(),
-        "succeeded" => integer(),
-        "total" => integer()
-      }
-
-  """
-  @type data_set_export_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_set_export_task_request() :: %{}
-
-  """
-  @type get_data_set_export_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_request() :: %{}
-
-  """
-  @type get_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_set_import_summary() :: %{
-        "failed" => integer(),
-        "inProgress" => integer(),
-        "pending" => integer(),
-        "succeeded" => integer(),
-        "total" => integer()
-      }
-
-  """
-  @type data_set_import_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      efs_storage_configuration() :: %{
-        "fileSystemId" => String.t() | atom(),
-        "mountPoint" => String.t() | atom()
-      }
-
-  """
-  @type efs_storage_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_set_summary() :: %{
-        "creationTime" => non_neg_integer(),
-        "dataSetName" => String.t() | atom(),
-        "dataSetOrg" => String.t() | atom(),
-        "format" => String.t() | atom(),
-        "lastReferencedTime" => non_neg_integer(),
-        "lastUpdatedTime" => non_neg_integer()
-      }
-
-  """
-  @type data_set_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_set_import_task_request() :: %{}
-
-  """
-  @type get_data_set_import_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => integer()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_set_export_item() :: %{
-        "datasetName" => String.t() | atom(),
-        "externalLocation" => list()
-      }
-
-  """
-  @type data_set_export_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_environment_request() :: %{
-        optional("applyDuringMaintenanceWindow") => boolean(),
-        optional("desiredCapacity") => integer(),
-        optional("engineVersion") => String.t() | atom(),
-        optional("forceUpdate") => boolean(),
-        optional("instanceType") => String.t() | atom(),
-        optional("preferredMaintenanceWindow") => [String.t() | atom()]
-      }
-
-  """
-  @type update_environment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_batch_job_executions_request() :: %{
-        optional("executionIds") => list(String.t() | atom()),
-        optional("jobName") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("startedAfter") => non_neg_integer(),
-        optional("startedBefore") => non_neg_integer(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type list_batch_job_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      script_batch_job_identifier() :: %{
-        "scriptName" => [String.t() | atom()]
-      }
-
-  """
-  @type script_batch_job_identifier() :: %{(String.t() | atom()) => any()}
+  @type get_signed_bluinsights_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -666,404 +848,13 @@ defmodule AWS.M2 do
 
   ## Example:
 
-      resource_not_found_exception() :: %{
+      internal_server_exception() :: %{
         "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+        "retryAfterSeconds" => integer()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_applications_response() :: %{
-        "applications" => list(application_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_applications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_request() :: %{}
-
-  """
-  @type get_environment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_batch_job_definitions_response() :: %{
-        "batchJobDefinitions" => list(list()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_batch_job_definitions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_application_from_environment_request() :: %{}
-
-  """
-  @type delete_application_from_environment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      gdg_attributes() :: %{
-        "limit" => integer(),
-        "rollDisposition" => [String.t() | atom()]
-      }
-
-  """
-  @type gdg_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      alternate_key() :: %{
-        "allowDuplicates" => boolean(),
-        "length" => integer(),
-        "name" => [String.t() | atom()],
-        "offset" => integer()
-      }
-
-  """
-  @type alternate_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_application_request() :: %{}
-
-  """
-  @type delete_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_response() :: %{
-        required("applicationVersion") => integer()
-      }
-
-  """
-  @type update_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_deployments_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_deployments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_engine_versions_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("engineVersions") => list(engine_versions_summary())
-      }
-
-  """
-  @type list_engine_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_environment_response() :: %{}
-
-  """
-  @type delete_environment_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_engine_versions_request() :: %{
-        optional("engineType") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_engine_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_version_response() :: %{
-        optional("description") => String.t() | atom(),
-        optional("statusReason") => [String.t() | atom()],
-        required("applicationVersion") => integer(),
-        required("creationTime") => non_neg_integer(),
-        required("definitionContent") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("status") => String.t() | atom()
-      }
-
-  """
-  @type get_application_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_application_response() :: %{}
-
-  """
-  @type delete_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      deployed_version_summary() :: %{
-        "applicationVersion" => integer(),
-        "status" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()]
-      }
-
-  """
-  @type deployed_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_applications_request() :: %{
-        optional("environmentId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("names") => list(String.t() | atom()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_applications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vsam_attributes() :: %{
-        "alternateKeys" => list(alternate_key()),
-        "compressed" => boolean(),
-        "encoding" => [String.t() | atom()],
-        "format" => [String.t() | atom()],
-        "primaryKey" => primary_key()
-      }
-
-  """
-  @type vsam_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_set_import_history_response() :: %{
-        "dataSetImportTasks" => list(data_set_import_task()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_set_import_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ps_attributes() :: %{
-        "encoding" => [String.t() | atom()],
-        "format" => [String.t() | atom()]
-      }
-
-  """
-  @type ps_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      file_batch_job_identifier() :: %{
-        "fileName" => [String.t() | atom()],
-        "folderPath" => [String.t() | atom()]
-      }
-
-  """
-  @type file_batch_job_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_set_export_task() :: %{
-        "status" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()],
-        "summary" => data_set_export_summary(),
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type data_set_export_task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_deployments_response() :: %{
-        "deployments" => list(deployment_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_deployments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_sets_response() :: %{
-        "dataSets" => list(data_set_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      record_length() :: %{
-        "max" => integer(),
-        "min" => integer()
-      }
-
-  """
-  @type record_length() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      file_batch_job_definition() :: %{
-        "fileName" => [String.t() | atom()],
-        "folderPath" => [String.t() | atom()]
-      }
-
-  """
-  @type file_batch_job_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_response() :: %{
-        required("applicationArn") => String.t() | atom(),
-        required("applicationId") => String.t() | atom(),
-        required("applicationVersion") => integer()
-      }
-
-  """
-  @type create_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fsx_storage_configuration() :: %{
-        "fileSystemId" => String.t() | atom(),
-        "mountPoint" => String.t() | atom()
-      }
-
-  """
-  @type fsx_storage_configuration() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1088,186 +879,109 @@ defmodule AWS.M2 do
 
   ## Example:
 
-      update_environment_response() :: %{
-        required("environmentId") => String.t() | atom()
+      job_step_restart_marker() :: %{
+        "fromProcStep" => [String.t() | atom()],
+        "fromStep" => [String.t() | atom()],
+        "skip" => boolean(),
+        "stepCheckpoint" => integer(),
+        "toProcStep" => [String.t() | atom()],
+        "toStep" => [String.t() | atom()]
       }
 
   """
-  @type update_environment_response() :: %{(String.t() | atom()) => any()}
+  @type job_step_restart_marker() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      application_version_summary() :: %{
-        "applicationVersion" => integer(),
-        "creationTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()]
+      list_application_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type application_version_summary() :: %{(String.t() | atom()) => any()}
+  @type list_application_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_batch_job_request() :: %{
-        optional("authSecretsManagerArn") => String.t() | atom(),
-        optional("jobParams") => map(),
-        required("batchJobIdentifier") => list()
-      }
-
-  """
-  @type start_batch_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_application_request() :: %{
-        optional("forceStop") => boolean()
-      }
-
-  """
-  @type stop_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_application_from_environment_response() :: %{}
-
-  """
-  @type delete_application_from_environment_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      application_summary() :: %{
-        "applicationArn" => String.t() | atom(),
-        "applicationId" => String.t() | atom(),
-        "applicationVersion" => integer(),
-        "creationTime" => non_neg_integer(),
-        "deploymentStatus" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "engineType" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "lastStartTime" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "versionStatus" => String.t() | atom()
-      }
-
-  """
-  @type application_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_batch_job_restart_points_request() :: %{
-        optional("authSecretsManagerArn") => String.t() | atom()
-      }
-
-  """
-  @type list_batch_job_restart_points_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_set_import_task_response() :: %{
-        optional("summary") => data_set_import_summary(),
-        required("status") => String.t() | atom(),
-        required("taskId") => String.t() | atom()
-      }
-
-  """
-  @type get_data_set_import_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_application_response() :: %{}
-
-  """
-  @type stop_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_batch_job_execution_response() :: %{
-        optional("batchJobIdentifier") => list(),
-        optional("endTime") => non_neg_integer(),
-        optional("jobId") => String.t() | atom(),
-        optional("jobName") => String.t() | atom(),
-        optional("jobStepRestartMarker") => job_step_restart_marker(),
-        optional("jobType") => String.t() | atom(),
-        optional("jobUser") => String.t() | atom(),
-        optional("returnCode") => [String.t() | atom()],
-        optional("statusReason") => [String.t() | atom()],
-        required("applicationId") => String.t() | atom(),
-        required("executionId") => String.t() | atom(),
-        required("startTime") => non_neg_integer(),
-        required("status") => String.t() | atom()
-      }
-
-  """
-  @type get_batch_job_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_deployment_response() :: %{
-        required("deploymentId") => String.t() | atom()
-      }
-
-  """
-  @type create_deployment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_set_import_task() :: %{
-        "status" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()],
-        "summary" => data_set_import_summary(),
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type data_set_import_task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environments_response() :: %{
-        "environments" => list(environment_summary()),
+      list_application_versions_response() :: %{
+        "applicationVersions" => list(application_version_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_environments_response() :: %{(String.t() | atom()) => any()}
+  @type list_application_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_request() :: %{
+        optional("environmentId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("names") => list(String.t() | atom()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_response() :: %{
+        "applications" => list(application_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_batch_job_definitions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("prefix") => [String.t() | atom()]
+      }
+
+  """
+  @type list_batch_job_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_batch_job_definitions_response() :: %{
+        "batchJobDefinitions" => list(list()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_batch_job_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_batch_job_executions_request() :: %{
+        optional("executionIds") => list(String.t() | atom()),
+        optional("jobName") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("startedAfter") => non_neg_integer(),
+        optional("startedBefore") => non_neg_integer(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type list_batch_job_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1285,148 +999,23 @@ defmodule AWS.M2 do
 
   ## Example:
 
-      cancel_batch_job_execution_request() :: %{
+      list_batch_job_restart_points_request() :: %{
         optional("authSecretsManagerArn") => String.t() | atom()
       }
 
   """
-  @type cancel_batch_job_execution_request() :: %{(String.t() | atom()) => any()}
+  @type list_batch_job_restart_points_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_signed_bluinsights_url_response() :: %{
-        "signedBiUrl" => [String.t() | atom()]
+      list_batch_job_restart_points_response() :: %{
+        "batchJobSteps" => list(job_step())
       }
 
   """
-  @type get_signed_bluinsights_url_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_environment_request() :: %{}
-
-  """
-  @type delete_environment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_set_import_task_response() :: %{
-        required("taskId") => String.t() | atom()
-      }
-
-  """
-  @type create_data_set_import_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_step_restart_marker() :: %{
-        "fromProcStep" => [String.t() | atom()],
-        "fromStep" => [String.t() | atom()],
-        "skip" => boolean(),
-        "stepCheckpoint" => integer(),
-        "toProcStep" => [String.t() | atom()],
-        "toStep" => [String.t() | atom()]
-      }
-
-  """
-  @type job_step_restart_marker() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_job_execution_summary() :: %{
-        "applicationId" => String.t() | atom(),
-        "batchJobIdentifier" => list(),
-        "endTime" => non_neg_integer(),
-        "executionId" => String.t() | atom(),
-        "jobId" => String.t() | atom(),
-        "jobName" => String.t() | atom(),
-        "jobType" => String.t() | atom(),
-        "returnCode" => [String.t() | atom()],
-        "startTime" => non_neg_integer(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type batch_job_execution_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ps_detail_attributes() :: %{
-        "encoding" => [String.t() | atom()],
-        "format" => [String.t() | atom()]
-      }
-
-  """
-  @type ps_detail_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployment_request() :: %{}
-
-  """
-  @type get_deployment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_batch_job_response() :: %{
-        required("executionId") => String.t() | atom()
-      }
-
-  """
-  @type start_batch_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_set_import_task_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("importConfig") => list()
-      }
-
-  """
-  @type create_data_set_import_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_request() :: %{
-        optional("definition") => list(),
-        optional("description") => String.t() | atom(),
-        required("currentApplicationVersion") => integer()
-      }
-
-  """
-  @type update_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      po_detail_attributes() :: %{
-        "encoding" => [String.t() | atom()],
-        "format" => [String.t() | atom()]
-      }
-
-  """
-  @type po_detail_attributes() :: %{(String.t() | atom()) => any()}
+  @type list_batch_job_restart_points_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1444,50 +1033,219 @@ defmodule AWS.M2 do
 
   ## Example:
 
-      deployment_summary() :: %{
-        "applicationId" => String.t() | atom(),
-        "applicationVersion" => integer(),
-        "creationTime" => non_neg_integer(),
-        "deploymentId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()]
+      list_data_set_export_history_response() :: %{
+        "dataSetExportTasks" => list(data_set_export_task()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type deployment_summary() :: %{(String.t() | atom()) => any()}
+  @type list_data_set_export_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_deployment_response() :: %{
-        optional("statusReason") => [String.t() | atom()],
-        required("applicationId") => String.t() | atom(),
-        required("applicationVersion") => integer(),
-        required("creationTime") => non_neg_integer(),
-        required("deploymentId") => String.t() | atom(),
-        required("environmentId") => String.t() | atom(),
-        required("status") => String.t() | atom()
+      list_data_set_import_history_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_deployment_response() :: %{(String.t() | atom()) => any()}
+  @type list_data_set_import_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_data_set_export_task_response() :: %{
-        "kmsKeyArn" => [String.t() | atom()],
-        "status" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()],
-        "summary" => data_set_export_summary(),
-        "taskId" => String.t() | atom()
+      list_data_set_import_history_response() :: %{
+        "dataSetImportTasks" => list(data_set_import_task()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_data_set_export_task_response() :: %{(String.t() | atom()) => any()}
+  @type list_data_set_import_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_sets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nameFilter") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("prefix") => String.t() | atom()
+      }
+
+  """
+  @type list_data_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_sets_response() :: %{
+        "dataSets" => list(data_set_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_deployments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployments_response() :: %{
+        "deployments" => list(deployment_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_deployments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_engine_versions_request() :: %{
+        optional("engineType") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_engine_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_engine_versions_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("engineVersions") => list(engine_versions_summary())
+      }
+
+  """
+  @type list_engine_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environments_request() :: %{
+        optional("engineType") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("names") => list(String.t() | atom()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_environments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environments_response() :: %{
+        "environments" => list(environment_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_environments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_group_summary() :: %{
+        "logGroupName" => String.t() | atom(),
+        "logType" => String.t() | atom()
+      }
+
+  """
+  @type log_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      maintenance_schedule() :: %{
+        "endTime" => non_neg_integer(),
+        "startTime" => non_neg_integer()
+      }
+
+  """
+  @type maintenance_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pending_maintenance() :: %{
+        "engineVersion" => [String.t() | atom()],
+        "schedule" => maintenance_schedule()
+      }
+
+  """
+  @type pending_maintenance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      po_attributes() :: %{
+        "encoding" => [String.t() | atom()],
+        "format" => [String.t() | atom()],
+        "memberFileExtensions" => list(String.t() | atom())
+      }
+
+  """
+  @type po_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      po_detail_attributes() :: %{
+        "encoding" => [String.t() | atom()],
+        "format" => [String.t() | atom()]
+      }
+
+  """
+  @type po_detail_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1506,32 +1264,75 @@ defmodule AWS.M2 do
 
   ## Example:
 
-      engine_versions_summary() :: %{
-        "engineType" => [String.t() | atom()],
-        "engineVersion" => [String.t() | atom()]
+      ps_attributes() :: %{
+        "encoding" => [String.t() | atom()],
+        "format" => [String.t() | atom()]
       }
 
   """
-  @type engine_versions_summary() :: %{(String.t() | atom()) => any()}
+  @type ps_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_data_set_details_response() :: %{
-        "blocksize" => integer(),
-        "creationTime" => non_neg_integer(),
-        "dataSetName" => String.t() | atom(),
-        "dataSetOrg" => list(),
-        "fileSize" => [float()],
-        "lastReferencedTime" => non_neg_integer(),
-        "lastUpdatedTime" => non_neg_integer(),
-        "location" => String.t() | atom(),
-        "recordLength" => integer()
+      ps_detail_attributes() :: %{
+        "encoding" => [String.t() | atom()],
+        "format" => [String.t() | atom()]
       }
 
   """
-  @type get_data_set_details_response() :: %{(String.t() | atom()) => any()}
+  @type ps_detail_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      record_length() :: %{
+        "max" => integer(),
+        "min" => integer()
+      }
+
+  """
+  @type record_length() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restart_batch_job_identifier() :: %{
+        "executionId" => String.t() | atom(),
+        "jobStepRestartMarker" => job_step_restart_marker()
+      }
+
+  """
+  @type restart_batch_job_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_batch_job_identifier() :: %{
+        "bucket" => [String.t() | atom()],
+        "identifier" => list(),
+        "keyPrefix" => [String.t() | atom()]
+      }
+
+  """
+  @type s3_batch_job_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1548,10 +1349,12 @@ defmodule AWS.M2 do
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
+      script_batch_job_identifier() :: %{
+        "scriptName" => [String.t() | atom()]
+      }
 
   """
-  @type list_tags_for_resource_request() :: %{}
+  @type script_batch_job_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1572,314 +1375,511 @@ defmodule AWS.M2 do
 
   ## Example:
 
-      list_application_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      service_unavailable_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type list_application_versions_request() :: %{(String.t() | atom()) => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_environment_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("engineVersion") => String.t() | atom(),
-        optional("highAvailabilityConfig") => high_availability_config(),
-        optional("kmsKeyId") => [String.t() | atom()],
-        optional("networkType") => String.t() | atom(),
-        optional("preferredMaintenanceWindow") => String.t() | atom(),
-        optional("publiclyAccessible") => boolean(),
-        optional("securityGroupIds") => list(String.t() | atom()),
-        optional("storageConfigurations") => list(list()),
-        optional("subnetIds") => list(String.t() | atom()),
-        optional("tags") => map(),
-        required("engineType") => String.t() | atom(),
-        required("instanceType") => String.t() | atom(),
-        required("name") => String.t() | atom()
+      start_application_request() :: %{}
+
+  """
+  @type start_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_application_response() :: %{}
+
+  """
+  @type start_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_batch_job_request() :: %{
+        optional("authSecretsManagerArn") => String.t() | atom(),
+        optional("jobParams") => map(),
+        required("batchJobIdentifier") => list()
       }
 
   """
-  @type create_environment_request() :: %{(String.t() | atom()) => any()}
+  @type start_batch_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_batch_job_response() :: %{
+        required("executionId") => String.t() | atom()
+      }
+
+  """
+  @type start_batch_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_application_request() :: %{
+        optional("forceStop") => boolean()
+      }
+
+  """
+  @type stop_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_application_response() :: %{}
+
+  """
+  @type stop_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => integer(),
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_request() :: %{
+        optional("definition") => list(),
+        optional("description") => String.t() | atom(),
+        required("currentApplicationVersion") => integer()
+      }
+
+  """
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_response() :: %{
+        required("applicationVersion") => integer()
+      }
+
+  """
+  @type update_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_request() :: %{
+        optional("applyDuringMaintenanceWindow") => boolean(),
+        optional("desiredCapacity") => integer(),
+        optional("engineVersion") => String.t() | atom(),
+        optional("forceUpdate") => boolean(),
+        optional("instanceType") => String.t() | atom(),
+        optional("preferredMaintenanceWindow") => [String.t() | atom()]
+      }
+
+  """
+  @type update_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_response() :: %{
+        required("environmentId") => String.t() | atom()
+      }
+
+  """
+  @type update_environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vsam_attributes() :: %{
+        "alternateKeys" => list(alternate_key()),
+        "compressed" => boolean(),
+        "encoding" => [String.t() | atom()],
+        "format" => [String.t() | atom()],
+        "primaryKey" => primary_key()
+      }
+
+  """
+  @type vsam_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vsam_detail_attributes() :: %{
+        "alternateKeys" => list(alternate_key()),
+        "cacheAtStartup" => boolean(),
+        "compressed" => boolean(),
+        "encoding" => String.t() | atom(),
+        "primaryKey" => primary_key(),
+        "recordFormat" => String.t() | atom()
+      }
+
+  """
+  @type vsam_detail_attributes() :: %{(String.t() | atom()) => any()}
 
   @type cancel_batch_job_execution_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_application_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_data_set_export_task_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_data_set_import_task_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_deployment_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_environment_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_application_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_application_from_environment_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_environment_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type get_application_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_application_version_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_batch_job_execution_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_data_set_details_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | execution_timeout_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type get_data_set_export_task_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_data_set_import_task_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_deployment_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_environment_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_signed_bluinsights_url_errors() ::
-          internal_server_exception() | access_denied_exception() | throttling_exception()
+          throttling_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_application_versions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_applications_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_batch_job_definitions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_batch_job_executions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_batch_job_restart_points_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_data_set_export_history_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_data_set_import_history_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_data_sets_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | execution_timeout_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type list_deployments_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_engine_versions_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_environments_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type start_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type start_batch_job_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type stop_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_environment_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{
@@ -2422,15 +2422,15 @@ defmodule AWS.M2 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2473,15 +2473,8 @@ defmodule AWS.M2 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(names) do
-        [{"names", names} | query_params]
+      if !is_nil(environment_id) do
+        [{"environmentId", environment_id} | query_params]
       else
         query_params
       end
@@ -2494,8 +2487,15 @@ defmodule AWS.M2 do
       end
 
     query_params =
-      if !is_nil(environment_id) do
-        [{"environmentId", environment_id} | query_params]
+      if !is_nil(names) do
+        [{"names", names} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2538,8 +2538,8 @@ defmodule AWS.M2 do
     query_params = []
 
     query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2552,8 +2552,8 @@ defmodule AWS.M2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
       else
         query_params
       end
@@ -2600,36 +2600,8 @@ defmodule AWS.M2 do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(started_before) do
-        [{"startedBefore", started_before} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(started_after) do
-        [{"startedAfter", started_after} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(execution_ids) do
+        [{"executionIds", execution_ids} | query_params]
       else
         query_params
       end
@@ -2642,8 +2614,36 @@ defmodule AWS.M2 do
       end
 
     query_params =
-      if !is_nil(execution_ids) do
-        [{"executionIds", execution_ids} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(started_after) do
+        [{"startedAfter", started_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(started_before) do
+        [{"startedBefore", started_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -2720,15 +2720,15 @@ defmodule AWS.M2 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2764,15 +2764,15 @@ defmodule AWS.M2 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2819,15 +2819,8 @@ defmodule AWS.M2 do
     query_params = []
 
     query_params =
-      if !is_nil(prefix) do
-        [{"prefix", prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2840,8 +2833,15 @@ defmodule AWS.M2 do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
       else
         query_params
       end
@@ -2882,15 +2882,15 @@ defmodule AWS.M2 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2926,8 +2926,8 @@ defmodule AWS.M2 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(engine_type) do
+        [{"engineType", engine_type} | query_params]
       else
         query_params
       end
@@ -2940,8 +2940,8 @@ defmodule AWS.M2 do
       end
 
     query_params =
-      if !is_nil(engine_type) do
-        [{"engineType", engine_type} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2979,15 +2979,8 @@ defmodule AWS.M2 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(names) do
-        [{"names", names} | query_params]
+      if !is_nil(engine_type) do
+        [{"engineType", engine_type} | query_params]
       else
         query_params
       end
@@ -3000,8 +2993,15 @@ defmodule AWS.M2 do
       end
 
     query_params =
-      if !is_nil(engine_type) do
-        [{"engineType", engine_type} | query_params]
+      if !is_nil(names) do
+        [{"names", names} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

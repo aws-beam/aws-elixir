@@ -61,310 +61,6 @@ defmodule AWS.AuditManager do
 
   ## Example:
 
-      get_assessment_framework_response() :: %{
-        "framework" => framework()
-      }
-
-  """
-  @type get_assessment_framework_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_delegations_response() :: %{
-        "delegations" => list(delegation_metadata()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_delegations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assessment_control_insights_by_control_domain_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("assessmentId") => String.t() | atom(),
-        required("controlDomainId") => String.t() | atom()
-      }
-
-  """
-  @type list_assessment_control_insights_by_control_domain_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_change_logs_response() :: %{
-        "changeLogs" => list(change_log()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_change_logs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assessment_framework_share_request() :: %{
-        "comment" => String.t() | atom(),
-        "complianceType" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "customControlsCount" => integer(),
-        "destinationAccount" => String.t() | atom(),
-        "destinationRegion" => String.t() | atom(),
-        "expirationTime" => non_neg_integer(),
-        "frameworkDescription" => String.t() | atom(),
-        "frameworkId" => String.t() | atom(),
-        "frameworkName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdated" => non_neg_integer(),
-        "sourceAccount" => String.t() | atom(),
-        "standardControlsCount" => integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type assessment_framework_share_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_framework_request() :: %{
-        optional("complianceType") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        required("controlSets") => list(update_assessment_framework_control_set()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type update_assessment_framework_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_assessment_framework_request() :: %{}
-
-  """
-  @type delete_assessment_framework_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_control_mapping_source() :: %{
-        "sourceDescription" => String.t() | atom(),
-        "sourceFrequency" => list(any()),
-        "sourceKeyword" => source_keyword(),
-        "sourceName" => String.t() | atom(),
-        "sourceSetUpOption" => list(any()),
-        "sourceType" => list(any()),
-        "troubleshootingText" => String.t() | atom()
-      }
-
-  """
-  @type create_control_mapping_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_framework_response() :: %{
-        "framework" => framework()
-      }
-
-  """
-  @type update_assessment_framework_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      control_domain_insights() :: %{
-        "controlsCountByNoncompliantEvidence" => integer(),
-        "evidenceInsights" => evidence_insights(),
-        "id" => String.t() | atom(),
-        "lastUpdated" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "totalControlsCount" => integer()
-      }
-
-  """
-  @type control_domain_insights() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_assessment_framework_share_response() :: %{
-        "assessmentFrameworkShareRequest" => assessment_framework_share_request()
-      }
-
-  """
-  @type start_assessment_framework_share_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_status_request() :: %{
-        required("status") => list(any())
-      }
-
-  """
-  @type update_assessment_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_disassociate_assessment_report_evidence_request() :: %{
-        required("evidenceFolderId") => String.t() | atom(),
-        required("evidenceIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_disassociate_assessment_report_evidence_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_control_insights_by_control_domain_response() :: %{
-        "controlInsightsMetadata" => list(control_insights_metadata_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_control_insights_by_control_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evidence_request() :: %{}
-
-  """
-  @type get_evidence_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assessment_framework_share_requests_response() :: %{
-        "assessmentFrameworkShareRequests" => list(assessment_framework_share_request()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_assessment_framework_share_requests_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assessment_framework_control() :: %{
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type create_assessment_framework_control() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notifications_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_notifications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assessments_response() :: %{
-        "assessmentMetadata" => list(assessment_metadata_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_assessments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assessment_framework_metadata() :: %{
-        "arn" => String.t() | atom(),
-        "complianceType" => String.t() | atom(),
-        "controlSetsCount" => integer(),
-        "controlsCount" => integer(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "logo" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type assessment_framework_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scope() :: %{
-        "awsAccounts" => list(aws_account()),
-        "awsServices" => list(aws_service())
-      }
-
-  """
-  @type scope() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_account() :: %{
-        "emailAddress" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type aws_account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -376,595 +72,35 @@ defmodule AWS.AuditManager do
 
   ## Example:
 
-      get_organization_admin_account_response() :: %{
-        "adminAccountId" => String.t() | atom(),
-        "organizationId" => String.t() | atom()
-      }
-
-  """
-  @type get_organization_admin_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_organization_admin_account_request() :: %{}
-
-  """
-  @type get_organization_admin_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      control_set() :: %{
-        "controls" => list(control()),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type control_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_controls_request() :: %{
-        optional("controlCatalogId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("controlType") => list(any())
-      }
-
-  """
-  @type list_controls_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_assessment_request() :: %{}
-
-  """
-  @type get_assessment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      control_insights_metadata_item() :: %{
-        "evidenceInsights" => evidence_insights(),
-        "id" => String.t() | atom(),
-        "lastUpdated" => non_neg_integer(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type control_insights_metadata_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      framework() :: %{
+      assessment() :: %{
         "arn" => String.t() | atom(),
-        "complianceType" => String.t() | atom(),
-        "controlSets" => list(control_set()),
-        "controlSources" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
+        "awsAccount" => aws_account(),
+        "framework" => assessment_framework(),
+        "metadata" => assessment_metadata(),
+        "tags" => map()
+      }
+
+  """
+  @type assessment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_control() :: %{
+        "assessmentReportEvidenceCount" => integer(),
+        "comments" => list(control_comment()),
         "description" => String.t() | atom(),
+        "evidenceCount" => integer(),
+        "evidenceSources" => list(String.t() | atom()),
         "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "lastUpdatedBy" => String.t() | atom(),
-        "logo" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "tags" => map(),
-        "type" => list(any())
-      }
-
-  """
-  @type framework() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evidence() :: %{
-        "assessmentReportSelection" => String.t() | atom(),
-        "attributes" => map(),
-        "awsAccountId" => String.t() | atom(),
-        "awsOrganization" => String.t() | atom(),
-        "complianceCheck" => String.t() | atom(),
-        "dataSource" => String.t() | atom(),
-        "eventName" => String.t() | atom(),
-        "eventSource" => String.t() | atom(),
-        "evidenceAwsAccountId" => String.t() | atom(),
-        "evidenceByType" => String.t() | atom(),
-        "evidenceFolderId" => String.t() | atom(),
-        "iamId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "resourcesIncluded" => list(resource()),
-        "time" => non_neg_integer()
-      }
-
-  """
-  @type evidence() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_assessment_request() :: %{}
-
-  """
-  @type delete_assessment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_delegation_request() :: %{
-        "comment" => String.t() | atom(),
-        "controlSetId" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "roleType" => list(any())
-      }
-
-  """
-  @type create_delegation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      default_export_destination() :: %{
-        "destination" => String.t() | atom(),
-        "destinationType" => list(any())
-      }
-
-  """
-  @type default_export_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assessment_reports_destination() :: %{
-        "destination" => String.t() | atom(),
-        "destinationType" => list(any())
-      }
-
-  """
-  @type assessment_reports_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evidence_response() :: %{
-        "evidence" => evidence()
-      }
-
-  """
-  @type get_evidence_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      framework_metadata() :: %{
-        "complianceType" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "logo" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type framework_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_keywords_for_data_source_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("source") => list(any())
-      }
-
-  """
-  @type list_keywords_for_data_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      manual_evidence() :: %{
-        "evidenceFileName" => String.t() | atom(),
-        "s3ResourcePath" => String.t() | atom(),
-        "textResponse" => String.t() | atom()
-      }
-
-  """
-  @type manual_evidence() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      change_log() :: %{
-        "action" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "objectName" => String.t() | atom(),
-        "objectType" => list(any())
-      }
-
-  """
-  @type change_log() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_services_in_scope_response() :: %{
-        "serviceMetadata" => list(service_metadata())
-      }
-
-  """
-  @type get_services_in_scope_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assessment_frameworks_response() :: %{
-        "frameworkMetadataList" => list(assessment_framework_metadata()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_assessment_frameworks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      settings() :: %{
-        "defaultAssessmentReportsDestination" => assessment_reports_destination(),
-        "defaultExportDestination" => default_export_destination(),
-        "defaultProcessOwners" => list(role()),
-        "deregistrationPolicy" => deregistration_policy(),
-        "evidenceFinderEnablement" => evidence_finder_enablement(),
-        "isAwsOrgEnabled" => boolean(),
-        "kmsKey" => String.t() | atom(),
-        "snsTopic" => String.t() | atom()
-      }
-
-  """
-  @type settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_settings_response() :: %{
-        "settings" => settings()
-      }
-
-  """
-  @type get_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_service() :: %{
-        "serviceName" => String.t() | atom()
-      }
-
-  """
-  @type aws_service() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delegation() :: %{
-        "assessmentId" => String.t() | atom(),
-        "assessmentName" => String.t() | atom(),
-        "comment" => String.t() | atom(),
-        "controlSetId" => String.t() | atom(),
-        "createdBy" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "lastUpdated" => non_neg_integer(),
-        "roleArn" => String.t() | atom(),
-        "roleType" => list(any()),
+        "response" => list(any()),
         "status" => list(any())
       }
 
   """
-  @type delegation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fields" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insights_by_assessment() :: %{
-        "assessmentControlsCountByNoncompliantEvidence" => integer(),
-        "compliantEvidenceCount" => integer(),
-        "inconclusiveEvidenceCount" => integer(),
-        "lastUpdated" => non_neg_integer(),
-        "noncompliantEvidenceCount" => integer(),
-        "totalAssessmentControlsCount" => integer()
-      }
-
-  """
-  @type insights_by_assessment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_control_request() :: %{
-        optional("actionPlanInstructions") => String.t() | atom(),
-        optional("actionPlanTitle") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("testingInformation") => String.t() | atom(),
-        required("controlMappingSources") => list(control_mapping_source()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type update_control_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assessment_report() :: %{
-        "assessmentId" => String.t() | atom(),
-        "assessmentName" => String.t() | atom(),
-        "author" => String.t() | atom(),
-        "awsAccountId" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type assessment_report() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_control_response() :: %{
-        "control" => control()
-      }
-
-  """
-  @type create_control_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notifications_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "notifications" => list(notification())
-      }
-
-  """
-  @type list_notifications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification() :: %{
-        "assessmentId" => String.t() | atom(),
-        "assessmentName" => String.t() | atom(),
-        "controlSetId" => String.t() | atom(),
-        "controlSetName" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "eventTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "source" => String.t() | atom()
-      }
-
-  """
-  @type notification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      url() :: %{
-        "hyperlinkName" => String.t() | atom(),
-        "link" => String.t() | atom()
-      }
-
-  """
-  @type url() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_insights_by_assessment_request() :: %{}
-
-  """
-  @type get_insights_by_assessment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assessment_framework_request() :: %{
-        optional("complianceType") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("controlSets") => list(create_assessment_framework_control_set()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_assessment_framework_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_control_response() :: %{
-        "control" => control()
-      }
-
-  """
-  @type update_control_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_assessment_report_evidence_folder_request() :: %{
-        required("evidenceFolderId") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_assessment_report_evidence_folder_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_insights_request() :: %{}
-
-  """
-  @type get_insights_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_import_evidence_to_assessment_control_error() :: %{
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "manualEvidence" => manual_evidence()
-      }
-
-  """
-  @type batch_import_evidence_to_assessment_control_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      control_comment() :: %{
-        "authorName" => String.t() | atom(),
-        "commentBody" => String.t() | atom(),
-        "postedDate" => non_neg_integer()
-      }
-
-  """
-  @type control_comment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assessment_report_metadata() :: %{
-        "assessmentId" => String.t() | atom(),
-        "assessmentName" => String.t() | atom(),
-        "author" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type assessment_report_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_control_response() :: %{
-        "control" => control()
-      }
-
-  """
-  @type get_control_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_delegation_by_assessment_error() :: %{
-        "delegationId" => String.t() | atom(),
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom()
-      }
-
-  """
-  @type batch_delete_delegation_by_assessment_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_delegation_by_assessment_response() :: %{
-        "errors" => list(batch_delete_delegation_by_assessment_error())
-      }
-
-  """
-  @type batch_delete_delegation_by_assessment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type assessment_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -983,1238 +119,6 @@ defmodule AWS.AuditManager do
 
   """
   @type assessment_control_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_keywords_for_data_source_response() :: %{
-        "keywords" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_keywords_for_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_control_request() :: %{}
-
-  """
-  @type get_control_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_import_evidence_to_assessment_control_response() :: %{
-        "errors" => list(batch_import_evidence_to_assessment_control_error())
-      }
-
-  """
-  @type batch_import_evidence_to_assessment_control_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_assessment_response() :: %{
-        "assessment" => assessment(),
-        "userRole" => role()
-      }
-
-  """
-  @type get_assessment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_assessment_report_url_response() :: %{
-        "preSignedUrl" => url()
-      }
-
-  """
-  @type get_assessment_report_url_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_assessment_framework_share_response() :: %{}
-
-  """
-  @type delete_assessment_framework_share_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assessment_report_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("queryStatement") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_assessment_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_assessment_report_response() :: %{}
-
-  """
-  @type delete_assessment_report_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_control_domain_insights_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_control_domain_insights_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_assessment_report_request() :: %{}
-
-  """
-  @type delete_assessment_report_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assessment_report_response() :: %{
-        "assessmentReport" => assessment_report()
-      }
-
-  """
-  @type create_assessment_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evidence_insights() :: %{
-        "compliantEvidenceCount" => integer(),
-        "inconclusiveEvidenceCount" => integer(),
-        "noncompliantEvidenceCount" => integer()
-      }
-
-  """
-  @type evidence_insights() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evidence_by_evidence_folder_response() :: %{
-        "evidence" => list(evidence()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_evidence_by_evidence_folder_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assessment_report_evidence_error() :: %{
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "evidenceId" => String.t() | atom()
-      }
-
-  """
-  @type assessment_report_evidence_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_account_request() :: %{}
-
-  """
-  @type deregister_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evidence_file_upload_url_response() :: %{
-        "evidenceFileName" => String.t() | atom(),
-        "uploadUrl" => String.t() | atom()
-      }
-
-  """
-  @type get_evidence_file_upload_url_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assessment_framework_control_set() :: %{
-        "controls" => list(create_assessment_framework_control()),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type create_assessment_framework_control_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_assessment_framework_response() :: %{}
-
-  """
-  @type delete_assessment_framework_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evidence_folders_by_assessment_control_response() :: %{
-        "evidenceFolders" => list(assessment_evidence_folder()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_evidence_folders_by_assessment_control_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      source_keyword() :: %{
-        "keywordInputType" => list(any()),
-        "keywordValue" => String.t() | atom()
-      }
-
-  """
-  @type source_keyword() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_import_evidence_to_assessment_control_request() :: %{
-        required("manualEvidence") => list(manual_evidence())
-      }
-
-  """
-  @type batch_import_evidence_to_assessment_control_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_controls_response() :: %{
-        "controlMetadataList" => list(control_metadata()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_controls_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_assessment_framework_share_request() :: %{
-        optional("comment") => String.t() | atom(),
-        required("destinationAccount") => String.t() | atom(),
-        required("destinationRegion") => String.t() | atom()
-      }
-
-  """
-  @type start_assessment_framework_share_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_request() :: %{
-        optional("assessmentDescription") => String.t() | atom(),
-        optional("assessmentName") => String.t() | atom(),
-        optional("assessmentReportsDestination") => assessment_reports_destination(),
-        optional("roles") => list(role()),
-        required("scope") => scope()
-      }
-
-  """
-  @type update_assessment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      control_mapping_source() :: %{
-        "sourceDescription" => String.t() | atom(),
-        "sourceFrequency" => list(any()),
-        "sourceId" => String.t() | atom(),
-        "sourceKeyword" => source_keyword(),
-        "sourceName" => String.t() | atom(),
-        "sourceSetUpOption" => list(any()),
-        "sourceType" => list(any()),
-        "troubleshootingText" => String.t() | atom()
-      }
-
-  """
-  @type control_mapping_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_services_in_scope_request() :: %{}
-
-  """
-  @type get_services_in_scope_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_associate_assessment_report_evidence_response() :: %{
-        "errors" => list(assessment_report_evidence_error()),
-        "evidenceIds" => list(String.t() | atom())
-      }
-
-  """
-  @type batch_associate_assessment_report_evidence_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assessment_reports_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_assessment_reports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      control_metadata() :: %{
-        "arn" => String.t() | atom(),
-        "controlSources" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type control_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_control_set_status_response() :: %{
-        "controlSet" => assessment_control_set()
-      }
-
-  """
-  @type update_assessment_control_set_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_assessment_report_evidence_folder_request() :: %{
-        required("evidenceFolderId") => String.t() | atom()
-      }
-
-  """
-  @type associate_assessment_report_evidence_folder_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_settings_response() :: %{
-        "settings" => settings()
-      }
-
-  """
-  @type update_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_framework_share_request() :: %{
-        required("action") => list(any()),
-        required("requestType") => list(any())
-      }
-
-  """
-  @type update_assessment_framework_share_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assessment_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("assessmentReportsDestination") => assessment_reports_destination(),
-        required("frameworkId") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("roles") => list(role()),
-        required("scope") => scope()
-      }
-
-  """
-  @type create_assessment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assessments_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_assessments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_assessment_report_integrity_response() :: %{
-        "signatureAlgorithm" => String.t() | atom(),
-        "signatureDateTime" => String.t() | atom(),
-        "signatureKeyId" => String.t() | atom(),
-        "signatureValid" => boolean(),
-        "validationErrors" => list(String.t() | atom())
-      }
-
-  """
-  @type validate_assessment_report_integrity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_organization_admin_account_request() :: %{
-        optional("adminAccountId") => String.t() | atom()
-      }
-
-  """
-  @type deregister_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_assessment_response() :: %{}
-
-  """
-  @type delete_assessment_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delegation_metadata() :: %{
-        "assessmentId" => String.t() | atom(),
-        "assessmentName" => String.t() | atom(),
-        "controlSetName" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delegation_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evidence_folders_by_assessment_control_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_evidence_folders_by_assessment_control_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_disassociate_assessment_report_evidence_response() :: %{
-        "errors" => list(assessment_report_evidence_error()),
-        "evidenceIds" => list(String.t() | atom())
-      }
-
-  """
-  @type batch_disassociate_assessment_report_evidence_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      evidence_finder_enablement() :: %{
-        "backfillStatus" => list(any()),
-        "enablementStatus" => list(any()),
-        "error" => String.t() | atom(),
-        "eventDataStoreArn" => String.t() | atom()
-      }
-
-  """
-  @type evidence_finder_enablement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insights() :: %{
-        "activeAssessmentsCount" => integer(),
-        "assessmentControlsCountByNoncompliantEvidence" => integer(),
-        "compliantEvidenceCount" => integer(),
-        "inconclusiveEvidenceCount" => integer(),
-        "lastUpdated" => non_neg_integer(),
-        "noncompliantEvidenceCount" => integer(),
-        "totalAssessmentControlsCount" => integer()
-      }
-
-  """
-  @type insights() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      role() :: %{
-        "roleArn" => String.t() | atom(),
-        "roleType" => list(any())
-      }
-
-  """
-  @type role() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evidence_folder_request() :: %{}
-
-  """
-  @type get_evidence_folder_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_account_response() :: %{
-        "status" => list(any())
-      }
-
-  """
-  @type deregister_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evidence_by_evidence_folder_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_evidence_by_evidence_folder_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_account_response() :: %{
-        "status" => list(any())
-      }
-
-  """
-  @type register_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_change_logs_request() :: %{
-        optional("controlId") => String.t() | atom(),
-        optional("controlSetId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_change_logs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_assessment_framework_share_request() :: %{
-        required("requestType") => list(any())
-      }
-
-  """
-  @type delete_assessment_framework_share_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assessment_response() :: %{
-        "assessment" => assessment()
-      }
-
-  """
-  @type create_assessment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_assessment_report_evidence_folder_response() :: %{}
-
-  """
-  @type associate_assessment_report_evidence_folder_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_control_domain_insights_by_assessment_response() :: %{
-        "controlDomainInsights" => list(control_domain_insights()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_control_domain_insights_by_assessment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_status_response() :: %{
-        "assessment" => assessment()
-      }
-
-  """
-  @type update_assessment_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assessment_metadata_item() :: %{
-        "complianceType" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "delegations" => list(delegation()),
-        "id" => String.t() | atom(),
-        "lastUpdated" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "roles" => list(role()),
-        "status" => list(any())
-      }
-
-  """
-  @type assessment_metadata_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_framework_control_set() :: %{
-        "controls" => list(create_assessment_framework_control()),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type update_assessment_framework_control_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evidence_folders_by_assessment_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_evidence_folders_by_assessment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_framework_share_response() :: %{
-        "assessmentFrameworkShareRequest" => assessment_framework_share_request()
-      }
-
-  """
-  @type update_assessment_framework_share_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evidence_folders_by_assessment_response() :: %{
-        "evidenceFolders" => list(assessment_evidence_folder()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_evidence_folders_by_assessment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_delegation_by_assessment_error() :: %{
-        "createDelegationRequest" => create_delegation_request(),
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom()
-      }
-
-  """
-  @type batch_create_delegation_by_assessment_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_organization_admin_account_response() :: %{}
-
-  """
-  @type deregister_organization_admin_account_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assessment_framework_share_requests_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("requestType") => list(any())
-      }
-
-  """
-  @type list_assessment_framework_share_requests_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_control_request() :: %{
-        optional("actionPlanInstructions") => String.t() | atom(),
-        optional("actionPlanTitle") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("testingInformation") => String.t() | atom(),
-        required("controlMappingSources") => list(create_control_mapping_source()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_control_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_assessment_report_evidence_folder_response() :: %{}
-
-  """
-  @type disassociate_assessment_report_evidence_folder_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_metadata() :: %{
-        "category" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type service_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assessment_control_insights_by_control_domain_response() :: %{
-        "controlInsightsByAssessment" => list(control_insights_metadata_by_assessment_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_assessment_control_insights_by_control_domain_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      register_organization_admin_account_response() :: %{
-        "adminAccountId" => String.t() | atom(),
-        "organizationId" => String.t() | atom()
-      }
-
-  """
-  @type register_organization_admin_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_insights_by_assessment_response() :: %{
-        "insights" => insights_by_assessment()
-      }
-
-  """
-  @type get_insights_by_assessment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_control_request() :: %{
-        optional("commentBody") => String.t() | atom(),
-        optional("controlStatus") => list(any())
-      }
-
-  """
-  @type update_assessment_control_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_delegations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_delegations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evidence_file_upload_url_request() :: %{
-        required("fileName") => String.t() | atom()
-      }
-
-  """
-  @type get_evidence_file_upload_url_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_assessment_report_integrity_request() :: %{
-        required("s3RelativePath") => String.t() | atom()
-      }
-
-  """
-  @type validate_assessment_report_integrity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_control_set_status_request() :: %{
-        required("comment") => String.t() | atom(),
-        required("status") => list(any())
-      }
-
-  """
-  @type update_assessment_control_set_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_delegation_by_assessment_request() :: %{
-        required("createDelegationRequests") => list(create_delegation_request())
-      }
-
-  """
-  @type batch_create_delegation_by_assessment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assessment_framework() :: %{
-        "arn" => String.t() | atom(),
-        "controlSets" => list(assessment_control_set()),
-        "id" => String.t() | atom(),
-        "metadata" => framework_metadata()
-      }
-
-  """
-  @type assessment_framework() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_delegation_by_assessment_response() :: %{
-        "delegations" => list(delegation()),
-        "errors" => list(batch_create_delegation_by_assessment_error())
-      }
-
-  """
-  @type batch_create_delegation_by_assessment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_status_response() :: %{
-        "status" => list(any())
-      }
-
-  """
-  @type get_account_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assessment_reports_response() :: %{
-        "assessmentReports" => list(assessment_report_metadata()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_assessment_reports_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_response() :: %{
-        "assessment" => assessment()
-      }
-
-  """
-  @type update_assessment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      control_insights_metadata_by_assessment_item() :: %{
-        "controlSetName" => String.t() | atom(),
-        "evidenceInsights" => evidence_insights(),
-        "id" => String.t() | atom(),
-        "lastUpdated" => non_neg_integer(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type control_insights_metadata_by_assessment_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_settings_request() :: %{}
-
-  """
-  @type get_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_assessment_framework_request() :: %{}
-
-  """
-  @type get_assessment_framework_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      control() :: %{
-        "actionPlanInstructions" => String.t() | atom(),
-        "actionPlanTitle" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "controlMappingSources" => list(control_mapping_source()),
-        "controlSources" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "lastUpdatedBy" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "state" => list(any()),
-        "tags" => map(),
-        "testingInformation" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type control() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_status_request() :: %{}
-
-  """
-  @type get_account_status_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assessment_control_response() :: %{
-        "control" => assessment_control()
-      }
-
-  """
-  @type update_assessment_control_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregistration_policy() :: %{
-        "deleteResources" => list(any())
-      }
-
-  """
-  @type deregistration_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_organization_admin_account_request() :: %{
-        required("adminAccountId") => String.t() | atom()
-      }
-
-  """
-  @type register_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_control_domain_insights_response() :: %{
-        "controlDomainInsights" => list(control_domain_insights()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_control_domain_insights_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assessment_framework_response() :: %{
-        "framework" => framework()
-      }
-
-  """
-  @type create_assessment_framework_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource() :: %{
-        "arn" => String.t() | atom(),
-        "complianceCheck" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_delegation_by_assessment_request() :: %{
-        required("delegationIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_delete_delegation_by_assessment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evidence_folder_response() :: %{
-        "evidenceFolder" => assessment_evidence_folder()
-      }
-
-  """
-  @type get_evidence_folder_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assessment_frameworks_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("frameworkType") => list(any())
-      }
-
-  """
-  @type list_assessment_frameworks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_insights_response() :: %{
-        "insights" => insights()
-      }
-
-  """
-  @type get_insights_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_assessment_report_url_request() :: %{}
-
-  """
-  @type get_assessment_report_url_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_control_response() :: %{}
-
-  """
-  @type delete_control_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_associate_assessment_report_evidence_request() :: %{
-        required("evidenceFolderId") => String.t() | atom(),
-        required("evidenceIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_associate_assessment_report_evidence_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2248,119 +152,61 @@ defmodule AWS.AuditManager do
 
   ## Example:
 
-      list_control_insights_by_control_domain_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("controlDomainId") => String.t() | atom()
+      assessment_framework() :: %{
+        "arn" => String.t() | atom(),
+        "controlSets" => list(assessment_control_set()),
+        "id" => String.t() | atom(),
+        "metadata" => framework_metadata()
       }
 
   """
-  @type list_control_insights_by_control_domain_request() :: %{(String.t() | atom()) => any()}
+  @type assessment_framework() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_control_request() :: %{}
+      assessment_framework_metadata() :: %{
+        "arn" => String.t() | atom(),
+        "complianceType" => String.t() | atom(),
+        "controlSetsCount" => integer(),
+        "controlsCount" => integer(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "logo" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
 
   """
-  @type delete_control_request() :: %{}
+  @type assessment_framework_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      assessment_control() :: %{
-        "assessmentReportEvidenceCount" => integer(),
-        "comments" => list(control_comment()),
-        "description" => String.t() | atom(),
-        "evidenceCount" => integer(),
-        "evidenceSources" => list(String.t() | atom()),
+      assessment_framework_share_request() :: %{
+        "comment" => String.t() | atom(),
+        "complianceType" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "customControlsCount" => integer(),
+        "destinationAccount" => String.t() | atom(),
+        "destinationRegion" => String.t() | atom(),
+        "expirationTime" => non_neg_integer(),
+        "frameworkDescription" => String.t() | atom(),
+        "frameworkId" => String.t() | atom(),
+        "frameworkName" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "response" => list(any()),
+        "lastUpdated" => non_neg_integer(),
+        "sourceAccount" => String.t() | atom(),
+        "standardControlsCount" => integer(),
         "status" => list(any())
       }
 
   """
-  @type assessment_control() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_account_request() :: %{
-        optional("delegatedAdminAccount") => String.t() | atom(),
-        optional("kmsKey") => String.t() | atom()
-      }
-
-  """
-  @type register_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_control_domain_insights_by_assessment_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("assessmentId") => String.t() | atom()
-      }
-
-  """
-  @type list_control_domain_insights_by_assessment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_settings_request() :: %{
-        optional("defaultAssessmentReportsDestination") => assessment_reports_destination(),
-        optional("defaultExportDestination") => default_export_destination(),
-        optional("defaultProcessOwners") => list(role()),
-        optional("deregistrationPolicy") => deregistration_policy(),
-        optional("evidenceFinderEnabled") => boolean(),
-        optional("kmsKey") => String.t() | atom(),
-        optional("snsTopic") => String.t() | atom()
-      }
-
-  """
-  @type update_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assessment() :: %{
-        "arn" => String.t() | atom(),
-        "awsAccount" => aws_account(),
-        "framework" => assessment_framework(),
-        "metadata" => assessment_metadata(),
-        "tags" => map()
-      }
-
-  """
-  @type assessment() :: %{(String.t() | atom()) => any()}
+  @type assessment_framework_share_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2383,337 +229,2491 @@ defmodule AWS.AuditManager do
   """
   @type assessment_metadata() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      assessment_metadata_item() :: %{
+        "complianceType" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "delegations" => list(delegation()),
+        "id" => String.t() | atom(),
+        "lastUpdated" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "roles" => list(role()),
+        "status" => list(any())
+      }
+
+  """
+  @type assessment_metadata_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_report() :: %{
+        "assessmentId" => String.t() | atom(),
+        "assessmentName" => String.t() | atom(),
+        "author" => String.t() | atom(),
+        "awsAccountId" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type assessment_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_report_evidence_error() :: %{
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "evidenceId" => String.t() | atom()
+      }
+
+  """
+  @type assessment_report_evidence_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_report_metadata() :: %{
+        "assessmentId" => String.t() | atom(),
+        "assessmentName" => String.t() | atom(),
+        "author" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type assessment_report_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_reports_destination() :: %{
+        "destination" => String.t() | atom(),
+        "destinationType" => list(any())
+      }
+
+  """
+  @type assessment_reports_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_assessment_report_evidence_folder_request() :: %{
+        required("evidenceFolderId") => String.t() | atom()
+      }
+
+  """
+  @type associate_assessment_report_evidence_folder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_assessment_report_evidence_folder_response() :: %{}
+
+  """
+  @type associate_assessment_report_evidence_folder_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_account() :: %{
+        "emailAddress" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type aws_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_service() :: %{
+        "serviceName" => String.t() | atom()
+      }
+
+  """
+  @type aws_service() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_associate_assessment_report_evidence_request() :: %{
+        required("evidenceFolderId") => String.t() | atom(),
+        required("evidenceIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_associate_assessment_report_evidence_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_associate_assessment_report_evidence_response() :: %{
+        "errors" => list(assessment_report_evidence_error()),
+        "evidenceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type batch_associate_assessment_report_evidence_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_delegation_by_assessment_error() :: %{
+        "createDelegationRequest" => create_delegation_request(),
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom()
+      }
+
+  """
+  @type batch_create_delegation_by_assessment_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_delegation_by_assessment_request() :: %{
+        required("createDelegationRequests") => list(create_delegation_request())
+      }
+
+  """
+  @type batch_create_delegation_by_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_delegation_by_assessment_response() :: %{
+        "delegations" => list(delegation()),
+        "errors" => list(batch_create_delegation_by_assessment_error())
+      }
+
+  """
+  @type batch_create_delegation_by_assessment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_delegation_by_assessment_error() :: %{
+        "delegationId" => String.t() | atom(),
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom()
+      }
+
+  """
+  @type batch_delete_delegation_by_assessment_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_delegation_by_assessment_request() :: %{
+        required("delegationIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_delegation_by_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_delegation_by_assessment_response() :: %{
+        "errors" => list(batch_delete_delegation_by_assessment_error())
+      }
+
+  """
+  @type batch_delete_delegation_by_assessment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_assessment_report_evidence_request() :: %{
+        required("evidenceFolderId") => String.t() | atom(),
+        required("evidenceIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_disassociate_assessment_report_evidence_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_assessment_report_evidence_response() :: %{
+        "errors" => list(assessment_report_evidence_error()),
+        "evidenceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type batch_disassociate_assessment_report_evidence_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      batch_import_evidence_to_assessment_control_error() :: %{
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "manualEvidence" => manual_evidence()
+      }
+
+  """
+  @type batch_import_evidence_to_assessment_control_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_import_evidence_to_assessment_control_request() :: %{
+        required("manualEvidence") => list(manual_evidence())
+      }
+
+  """
+  @type batch_import_evidence_to_assessment_control_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_import_evidence_to_assessment_control_response() :: %{
+        "errors" => list(batch_import_evidence_to_assessment_control_error())
+      }
+
+  """
+  @type batch_import_evidence_to_assessment_control_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      change_log() :: %{
+        "action" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "objectName" => String.t() | atom(),
+        "objectType" => list(any())
+      }
+
+  """
+  @type change_log() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control() :: %{
+        "actionPlanInstructions" => String.t() | atom(),
+        "actionPlanTitle" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "controlMappingSources" => list(control_mapping_source()),
+        "controlSources" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "lastUpdatedBy" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "state" => list(any()),
+        "tags" => map(),
+        "testingInformation" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_comment() :: %{
+        "authorName" => String.t() | atom(),
+        "commentBody" => String.t() | atom(),
+        "postedDate" => non_neg_integer()
+      }
+
+  """
+  @type control_comment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_domain_insights() :: %{
+        "controlsCountByNoncompliantEvidence" => integer(),
+        "evidenceInsights" => evidence_insights(),
+        "id" => String.t() | atom(),
+        "lastUpdated" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "totalControlsCount" => integer()
+      }
+
+  """
+  @type control_domain_insights() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_insights_metadata_by_assessment_item() :: %{
+        "controlSetName" => String.t() | atom(),
+        "evidenceInsights" => evidence_insights(),
+        "id" => String.t() | atom(),
+        "lastUpdated" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type control_insights_metadata_by_assessment_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_insights_metadata_item() :: %{
+        "evidenceInsights" => evidence_insights(),
+        "id" => String.t() | atom(),
+        "lastUpdated" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type control_insights_metadata_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_mapping_source() :: %{
+        "sourceDescription" => String.t() | atom(),
+        "sourceFrequency" => list(any()),
+        "sourceId" => String.t() | atom(),
+        "sourceKeyword" => source_keyword(),
+        "sourceName" => String.t() | atom(),
+        "sourceSetUpOption" => list(any()),
+        "sourceType" => list(any()),
+        "troubleshootingText" => String.t() | atom()
+      }
+
+  """
+  @type control_mapping_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_metadata() :: %{
+        "arn" => String.t() | atom(),
+        "controlSources" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type control_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_set() :: %{
+        "controls" => list(control()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type control_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assessment_framework_control() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type create_assessment_framework_control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assessment_framework_control_set() :: %{
+        "controls" => list(create_assessment_framework_control()),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type create_assessment_framework_control_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assessment_framework_request() :: %{
+        optional("complianceType") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("controlSets") => list(create_assessment_framework_control_set()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_assessment_framework_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assessment_framework_response() :: %{
+        "framework" => framework()
+      }
+
+  """
+  @type create_assessment_framework_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assessment_report_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("queryStatement") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_assessment_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assessment_report_response() :: %{
+        "assessmentReport" => assessment_report()
+      }
+
+  """
+  @type create_assessment_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assessment_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("assessmentReportsDestination") => assessment_reports_destination(),
+        required("frameworkId") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("roles") => list(role()),
+        required("scope") => scope()
+      }
+
+  """
+  @type create_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assessment_response() :: %{
+        "assessment" => assessment()
+      }
+
+  """
+  @type create_assessment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_control_mapping_source() :: %{
+        "sourceDescription" => String.t() | atom(),
+        "sourceFrequency" => list(any()),
+        "sourceKeyword" => source_keyword(),
+        "sourceName" => String.t() | atom(),
+        "sourceSetUpOption" => list(any()),
+        "sourceType" => list(any()),
+        "troubleshootingText" => String.t() | atom()
+      }
+
+  """
+  @type create_control_mapping_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_control_request() :: %{
+        optional("actionPlanInstructions") => String.t() | atom(),
+        optional("actionPlanTitle") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("testingInformation") => String.t() | atom(),
+        required("controlMappingSources") => list(create_control_mapping_source()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_control_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_control_response() :: %{
+        "control" => control()
+      }
+
+  """
+  @type create_control_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_delegation_request() :: %{
+        "comment" => String.t() | atom(),
+        "controlSetId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "roleType" => list(any())
+      }
+
+  """
+  @type create_delegation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      default_export_destination() :: %{
+        "destination" => String.t() | atom(),
+        "destinationType" => list(any())
+      }
+
+  """
+  @type default_export_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delegation() :: %{
+        "assessmentId" => String.t() | atom(),
+        "assessmentName" => String.t() | atom(),
+        "comment" => String.t() | atom(),
+        "controlSetId" => String.t() | atom(),
+        "createdBy" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "lastUpdated" => non_neg_integer(),
+        "roleArn" => String.t() | atom(),
+        "roleType" => list(any()),
+        "status" => list(any())
+      }
+
+  """
+  @type delegation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delegation_metadata() :: %{
+        "assessmentId" => String.t() | atom(),
+        "assessmentName" => String.t() | atom(),
+        "controlSetName" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delegation_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assessment_framework_request() :: %{}
+
+  """
+  @type delete_assessment_framework_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assessment_framework_response() :: %{}
+
+  """
+  @type delete_assessment_framework_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assessment_framework_share_request() :: %{
+        required("requestType") => list(any())
+      }
+
+  """
+  @type delete_assessment_framework_share_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assessment_framework_share_response() :: %{}
+
+  """
+  @type delete_assessment_framework_share_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assessment_report_request() :: %{}
+
+  """
+  @type delete_assessment_report_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assessment_report_response() :: %{}
+
+  """
+  @type delete_assessment_report_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assessment_request() :: %{}
+
+  """
+  @type delete_assessment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assessment_response() :: %{}
+
+  """
+  @type delete_assessment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_control_request() :: %{}
+
+  """
+  @type delete_control_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_control_response() :: %{}
+
+  """
+  @type delete_control_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_account_request() :: %{}
+
+  """
+  @type deregister_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_account_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type deregister_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_organization_admin_account_request() :: %{
+        optional("adminAccountId") => String.t() | atom()
+      }
+
+  """
+  @type deregister_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_organization_admin_account_response() :: %{}
+
+  """
+  @type deregister_organization_admin_account_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deregistration_policy() :: %{
+        "deleteResources" => list(any())
+      }
+
+  """
+  @type deregistration_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_assessment_report_evidence_folder_request() :: %{
+        required("evidenceFolderId") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_assessment_report_evidence_folder_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_assessment_report_evidence_folder_response() :: %{}
+
+  """
+  @type disassociate_assessment_report_evidence_folder_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      evidence() :: %{
+        "assessmentReportSelection" => String.t() | atom(),
+        "attributes" => map(),
+        "awsAccountId" => String.t() | atom(),
+        "awsOrganization" => String.t() | atom(),
+        "complianceCheck" => String.t() | atom(),
+        "dataSource" => String.t() | atom(),
+        "eventName" => String.t() | atom(),
+        "eventSource" => String.t() | atom(),
+        "evidenceAwsAccountId" => String.t() | atom(),
+        "evidenceByType" => String.t() | atom(),
+        "evidenceFolderId" => String.t() | atom(),
+        "iamId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "resourcesIncluded" => list(resource()),
+        "time" => non_neg_integer()
+      }
+
+  """
+  @type evidence() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evidence_finder_enablement() :: %{
+        "backfillStatus" => list(any()),
+        "enablementStatus" => list(any()),
+        "error" => String.t() | atom(),
+        "eventDataStoreArn" => String.t() | atom()
+      }
+
+  """
+  @type evidence_finder_enablement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evidence_insights() :: %{
+        "compliantEvidenceCount" => integer(),
+        "inconclusiveEvidenceCount" => integer(),
+        "noncompliantEvidenceCount" => integer()
+      }
+
+  """
+  @type evidence_insights() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      framework() :: %{
+        "arn" => String.t() | atom(),
+        "complianceType" => String.t() | atom(),
+        "controlSets" => list(control_set()),
+        "controlSources" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "lastUpdatedBy" => String.t() | atom(),
+        "logo" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "tags" => map(),
+        "type" => list(any())
+      }
+
+  """
+  @type framework() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      framework_metadata() :: %{
+        "complianceType" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "logo" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type framework_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_status_request() :: %{}
+
+  """
+  @type get_account_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_status_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type get_account_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_assessment_framework_request() :: %{}
+
+  """
+  @type get_assessment_framework_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_assessment_framework_response() :: %{
+        "framework" => framework()
+      }
+
+  """
+  @type get_assessment_framework_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_assessment_report_url_request() :: %{}
+
+  """
+  @type get_assessment_report_url_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_assessment_report_url_response() :: %{
+        "preSignedUrl" => url()
+      }
+
+  """
+  @type get_assessment_report_url_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_assessment_request() :: %{}
+
+  """
+  @type get_assessment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_assessment_response() :: %{
+        "assessment" => assessment(),
+        "userRole" => role()
+      }
+
+  """
+  @type get_assessment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_change_logs_request() :: %{
+        optional("controlId") => String.t() | atom(),
+        optional("controlSetId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_change_logs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_change_logs_response() :: %{
+        "changeLogs" => list(change_log()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_change_logs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_control_request() :: %{}
+
+  """
+  @type get_control_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_control_response() :: %{
+        "control" => control()
+      }
+
+  """
+  @type get_control_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_delegations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_delegations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_delegations_response() :: %{
+        "delegations" => list(delegation_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_delegations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evidence_by_evidence_folder_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_evidence_by_evidence_folder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evidence_by_evidence_folder_response() :: %{
+        "evidence" => list(evidence()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_evidence_by_evidence_folder_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evidence_file_upload_url_request() :: %{
+        required("fileName") => String.t() | atom()
+      }
+
+  """
+  @type get_evidence_file_upload_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evidence_file_upload_url_response() :: %{
+        "evidenceFileName" => String.t() | atom(),
+        "uploadUrl" => String.t() | atom()
+      }
+
+  """
+  @type get_evidence_file_upload_url_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evidence_folder_request() :: %{}
+
+  """
+  @type get_evidence_folder_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evidence_folder_response() :: %{
+        "evidenceFolder" => assessment_evidence_folder()
+      }
+
+  """
+  @type get_evidence_folder_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evidence_folders_by_assessment_control_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_evidence_folders_by_assessment_control_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evidence_folders_by_assessment_control_response() :: %{
+        "evidenceFolders" => list(assessment_evidence_folder()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_evidence_folders_by_assessment_control_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evidence_folders_by_assessment_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_evidence_folders_by_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evidence_folders_by_assessment_response() :: %{
+        "evidenceFolders" => list(assessment_evidence_folder()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_evidence_folders_by_assessment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evidence_request() :: %{}
+
+  """
+  @type get_evidence_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evidence_response() :: %{
+        "evidence" => evidence()
+      }
+
+  """
+  @type get_evidence_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insights_by_assessment_request() :: %{}
+
+  """
+  @type get_insights_by_assessment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insights_by_assessment_response() :: %{
+        "insights" => insights_by_assessment()
+      }
+
+  """
+  @type get_insights_by_assessment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insights_request() :: %{}
+
+  """
+  @type get_insights_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insights_response() :: %{
+        "insights" => insights()
+      }
+
+  """
+  @type get_insights_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_organization_admin_account_request() :: %{}
+
+  """
+  @type get_organization_admin_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_organization_admin_account_response() :: %{
+        "adminAccountId" => String.t() | atom(),
+        "organizationId" => String.t() | atom()
+      }
+
+  """
+  @type get_organization_admin_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_services_in_scope_request() :: %{}
+
+  """
+  @type get_services_in_scope_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_services_in_scope_response() :: %{
+        "serviceMetadata" => list(service_metadata())
+      }
+
+  """
+  @type get_services_in_scope_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_settings_request() :: %{}
+
+  """
+  @type get_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_settings_response() :: %{
+        "settings" => settings()
+      }
+
+  """
+  @type get_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insights() :: %{
+        "activeAssessmentsCount" => integer(),
+        "assessmentControlsCountByNoncompliantEvidence" => integer(),
+        "compliantEvidenceCount" => integer(),
+        "inconclusiveEvidenceCount" => integer(),
+        "lastUpdated" => non_neg_integer(),
+        "noncompliantEvidenceCount" => integer(),
+        "totalAssessmentControlsCount" => integer()
+      }
+
+  """
+  @type insights() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insights_by_assessment() :: %{
+        "assessmentControlsCountByNoncompliantEvidence" => integer(),
+        "compliantEvidenceCount" => integer(),
+        "inconclusiveEvidenceCount" => integer(),
+        "lastUpdated" => non_neg_integer(),
+        "noncompliantEvidenceCount" => integer(),
+        "totalAssessmentControlsCount" => integer()
+      }
+
+  """
+  @type insights_by_assessment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessment_control_insights_by_control_domain_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("assessmentId") => String.t() | atom(),
+        required("controlDomainId") => String.t() | atom()
+      }
+
+  """
+  @type list_assessment_control_insights_by_control_domain_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessment_control_insights_by_control_domain_response() :: %{
+        "controlInsightsByAssessment" => list(control_insights_metadata_by_assessment_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_assessment_control_insights_by_control_domain_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessment_framework_share_requests_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("requestType") => list(any())
+      }
+
+  """
+  @type list_assessment_framework_share_requests_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessment_framework_share_requests_response() :: %{
+        "assessmentFrameworkShareRequests" => list(assessment_framework_share_request()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_assessment_framework_share_requests_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessment_frameworks_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("frameworkType") => list(any())
+      }
+
+  """
+  @type list_assessment_frameworks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessment_frameworks_response() :: %{
+        "frameworkMetadataList" => list(assessment_framework_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_assessment_frameworks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessment_reports_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_assessment_reports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessment_reports_response() :: %{
+        "assessmentReports" => list(assessment_report_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_assessment_reports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_assessments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessments_response() :: %{
+        "assessmentMetadata" => list(assessment_metadata_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_assessments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_control_domain_insights_by_assessment_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("assessmentId") => String.t() | atom()
+      }
+
+  """
+  @type list_control_domain_insights_by_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_control_domain_insights_by_assessment_response() :: %{
+        "controlDomainInsights" => list(control_domain_insights()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_control_domain_insights_by_assessment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_control_domain_insights_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_control_domain_insights_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_control_domain_insights_response() :: %{
+        "controlDomainInsights" => list(control_domain_insights()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_control_domain_insights_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_control_insights_by_control_domain_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("controlDomainId") => String.t() | atom()
+      }
+
+  """
+  @type list_control_insights_by_control_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_control_insights_by_control_domain_response() :: %{
+        "controlInsightsMetadata" => list(control_insights_metadata_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_control_insights_by_control_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_controls_request() :: %{
+        optional("controlCatalogId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("controlType") => list(any())
+      }
+
+  """
+  @type list_controls_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_controls_response() :: %{
+        "controlMetadataList" => list(control_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_controls_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_keywords_for_data_source_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("source") => list(any())
+      }
+
+  """
+  @type list_keywords_for_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_keywords_for_data_source_response() :: %{
+        "keywords" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_keywords_for_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notifications_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_notifications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notifications_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "notifications" => list(notification())
+      }
+
+  """
+  @type list_notifications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      manual_evidence() :: %{
+        "evidenceFileName" => String.t() | atom(),
+        "s3ResourcePath" => String.t() | atom(),
+        "textResponse" => String.t() | atom()
+      }
+
+  """
+  @type manual_evidence() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification() :: %{
+        "assessmentId" => String.t() | atom(),
+        "assessmentName" => String.t() | atom(),
+        "controlSetId" => String.t() | atom(),
+        "controlSetName" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "eventTime" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "source" => String.t() | atom()
+      }
+
+  """
+  @type notification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_account_request() :: %{
+        optional("delegatedAdminAccount") => String.t() | atom(),
+        optional("kmsKey") => String.t() | atom()
+      }
+
+  """
+  @type register_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_account_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type register_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_organization_admin_account_request() :: %{
+        required("adminAccountId") => String.t() | atom()
+      }
+
+  """
+  @type register_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_organization_admin_account_response() :: %{
+        "adminAccountId" => String.t() | atom(),
+        "organizationId" => String.t() | atom()
+      }
+
+  """
+  @type register_organization_admin_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
+        "arn" => String.t() | atom(),
+        "complianceCheck" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      role() :: %{
+        "roleArn" => String.t() | atom(),
+        "roleType" => list(any())
+      }
+
+  """
+  @type role() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scope() :: %{
+        "awsAccounts" => list(aws_account()),
+        "awsServices" => list(aws_service())
+      }
+
+  """
+  @type scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_metadata() :: %{
+        "category" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type service_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      settings() :: %{
+        "defaultAssessmentReportsDestination" => assessment_reports_destination(),
+        "defaultExportDestination" => default_export_destination(),
+        "defaultProcessOwners" => list(role()),
+        "deregistrationPolicy" => deregistration_policy(),
+        "evidenceFinderEnablement" => evidence_finder_enablement(),
+        "isAwsOrgEnabled" => boolean(),
+        "kmsKey" => String.t() | atom(),
+        "snsTopic" => String.t() | atom()
+      }
+
+  """
+  @type settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_keyword() :: %{
+        "keywordInputType" => list(any()),
+        "keywordValue" => String.t() | atom()
+      }
+
+  """
+  @type source_keyword() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_assessment_framework_share_request() :: %{
+        optional("comment") => String.t() | atom(),
+        required("destinationAccount") => String.t() | atom(),
+        required("destinationRegion") => String.t() | atom()
+      }
+
+  """
+  @type start_assessment_framework_share_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_assessment_framework_share_response() :: %{
+        "assessmentFrameworkShareRequest" => assessment_framework_share_request()
+      }
+
+  """
+  @type start_assessment_framework_share_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_control_request() :: %{
+        optional("commentBody") => String.t() | atom(),
+        optional("controlStatus") => list(any())
+      }
+
+  """
+  @type update_assessment_control_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_control_response() :: %{
+        "control" => assessment_control()
+      }
+
+  """
+  @type update_assessment_control_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_control_set_status_request() :: %{
+        required("comment") => String.t() | atom(),
+        required("status") => list(any())
+      }
+
+  """
+  @type update_assessment_control_set_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_control_set_status_response() :: %{
+        "controlSet" => assessment_control_set()
+      }
+
+  """
+  @type update_assessment_control_set_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_framework_control_set() :: %{
+        "controls" => list(create_assessment_framework_control()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type update_assessment_framework_control_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_framework_request() :: %{
+        optional("complianceType") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("controlSets") => list(update_assessment_framework_control_set()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type update_assessment_framework_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_framework_response() :: %{
+        "framework" => framework()
+      }
+
+  """
+  @type update_assessment_framework_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_framework_share_request() :: %{
+        required("action") => list(any()),
+        required("requestType") => list(any())
+      }
+
+  """
+  @type update_assessment_framework_share_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_framework_share_response() :: %{
+        "assessmentFrameworkShareRequest" => assessment_framework_share_request()
+      }
+
+  """
+  @type update_assessment_framework_share_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_request() :: %{
+        optional("assessmentDescription") => String.t() | atom(),
+        optional("assessmentName") => String.t() | atom(),
+        optional("assessmentReportsDestination") => assessment_reports_destination(),
+        optional("roles") => list(role()),
+        required("scope") => scope()
+      }
+
+  """
+  @type update_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_response() :: %{
+        "assessment" => assessment()
+      }
+
+  """
+  @type update_assessment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_status_request() :: %{
+        required("status") => list(any())
+      }
+
+  """
+  @type update_assessment_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assessment_status_response() :: %{
+        "assessment" => assessment()
+      }
+
+  """
+  @type update_assessment_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_control_request() :: %{
+        optional("actionPlanInstructions") => String.t() | atom(),
+        optional("actionPlanTitle") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("testingInformation") => String.t() | atom(),
+        required("controlMappingSources") => list(control_mapping_source()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type update_control_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_control_response() :: %{
+        "control" => control()
+      }
+
+  """
+  @type update_control_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_settings_request() :: %{
+        optional("defaultAssessmentReportsDestination") => assessment_reports_destination(),
+        optional("defaultExportDestination") => default_export_destination(),
+        optional("defaultProcessOwners") => list(role()),
+        optional("deregistrationPolicy") => deregistration_policy(),
+        optional("evidenceFinderEnabled") => boolean(),
+        optional("kmsKey") => String.t() | atom(),
+        optional("snsTopic") => String.t() | atom()
+      }
+
+  """
+  @type update_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_settings_response() :: %{
+        "settings" => settings()
+      }
+
+  """
+  @type update_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      url() :: %{
+        "hyperlinkName" => String.t() | atom(),
+        "link" => String.t() | atom()
+      }
+
+  """
+  @type url() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_assessment_report_integrity_request() :: %{
+        required("s3RelativePath") => String.t() | atom()
+      }
+
+  """
+  @type validate_assessment_report_integrity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_assessment_report_integrity_response() :: %{
+        "signatureAlgorithm" => String.t() | atom(),
+        "signatureDateTime" => String.t() | atom(),
+        "signatureKeyId" => String.t() | atom(),
+        "signatureValid" => boolean(),
+        "validationErrors" => list(String.t() | atom())
+      }
+
+  """
+  @type validate_assessment_report_integrity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fields" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
   @type associate_assessment_report_evidence_folder_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type batch_associate_assessment_report_evidence_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type batch_create_delegation_by_assessment_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type batch_delete_delegation_by_assessment_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type batch_disassociate_assessment_report_evidence_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type batch_import_evidence_to_assessment_control_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_assessment_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_assessment_framework_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type create_assessment_report_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type create_control_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type delete_assessment_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type delete_assessment_framework_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type delete_assessment_framework_share_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type delete_assessment_report_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type delete_control_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type deregister_account_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type deregister_organization_admin_account_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type disassociate_assessment_report_evidence_folder_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_account_status_errors() :: internal_server_exception()
 
   @type get_assessment_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_assessment_framework_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_assessment_report_url_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_change_logs_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_control_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_delegations_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type get_evidence_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_evidence_by_evidence_folder_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_evidence_file_upload_url_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_evidence_folder_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_evidence_folders_by_assessment_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_evidence_folders_by_assessment_control_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_insights_errors() :: internal_server_exception() | access_denied_exception()
 
   @type get_insights_by_assessment_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_organization_admin_account_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type get_services_in_scope_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type get_settings_errors() :: internal_server_exception() | access_denied_exception()
 
   @type list_assessment_control_insights_by_control_domain_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_assessment_framework_share_requests_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_assessment_frameworks_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_assessment_reports_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_assessments_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_control_domain_insights_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_control_domain_insights_by_assessment_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_control_insights_by_control_domain_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type list_controls_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_keywords_for_data_source_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_notifications_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type register_account_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type register_organization_admin_account_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type start_assessment_framework_share_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_assessment_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_assessment_control_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type update_assessment_control_set_status_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type update_assessment_framework_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type update_assessment_framework_share_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type update_assessment_status_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type update_control_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   @type update_settings_errors() ::
-          internal_server_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type validate_assessment_report_integrity_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
 
   def metadata do
@@ -3652,15 +3652,8 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(control_id) do
+        [{"controlId", control_id} | query_params]
       else
         query_params
       end
@@ -3673,8 +3666,15 @@ defmodule AWS.AuditManager do
       end
 
     query_params =
-      if !is_nil(control_id) do
-        [{"controlId", control_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -3716,15 +3716,15 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -3800,15 +3800,15 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -3922,15 +3922,15 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -3974,15 +3974,15 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4137,15 +4137,8 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(assessment_id) do
+        [{"assessmentId", assessment_id} | query_params]
       else
         query_params
       end
@@ -4158,8 +4151,15 @@ defmodule AWS.AuditManager do
       end
 
     query_params =
-      if !is_nil(assessment_id) do
-        [{"assessmentId", assessment_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4196,8 +4196,8 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(request_type) do
-        [{"requestType", request_type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -4210,8 +4210,8 @@ defmodule AWS.AuditManager do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(request_type) do
+        [{"requestType", request_type} | query_params]
       else
         query_params
       end
@@ -4249,8 +4249,8 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(framework_type) do
+        [{"frameworkType", framework_type} | query_params]
       else
         query_params
       end
@@ -4263,8 +4263,8 @@ defmodule AWS.AuditManager do
       end
 
     query_params =
-      if !is_nil(framework_type) do
-        [{"frameworkType", framework_type} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4298,15 +4298,15 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4342,8 +4342,8 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -4356,8 +4356,8 @@ defmodule AWS.AuditManager do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -4408,15 +4408,15 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4468,8 +4468,8 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(assessment_id) do
+        [{"assessmentId", assessment_id} | query_params]
       else
         query_params
       end
@@ -4482,8 +4482,8 @@ defmodule AWS.AuditManager do
       end
 
     query_params =
-      if !is_nil(assessment_id) do
-        [{"assessmentId", assessment_id} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4527,8 +4527,8 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(control_domain_id) do
+        [{"controlDomainId", control_domain_id} | query_params]
       else
         query_params
       end
@@ -4541,8 +4541,8 @@ defmodule AWS.AuditManager do
       end
 
     query_params =
-      if !is_nil(control_domain_id) do
-        [{"controlDomainId", control_domain_id} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4580,15 +4580,8 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(control_catalog_id) do
+        [{"controlCatalogId", control_catalog_id} | query_params]
       else
         query_params
       end
@@ -4601,8 +4594,15 @@ defmodule AWS.AuditManager do
       end
 
     query_params =
-      if !is_nil(control_catalog_id) do
-        [{"controlCatalogId", control_catalog_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4639,8 +4639,8 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(source) do
-        [{"source", source} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -4653,8 +4653,8 @@ defmodule AWS.AuditManager do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(source) do
+        [{"source", source} | query_params]
       else
         query_params
       end
@@ -4678,15 +4678,15 @@ defmodule AWS.AuditManager do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

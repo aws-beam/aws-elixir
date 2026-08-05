@@ -13,383 +13,12 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      video_bounding_box() :: %{
-        "state" => list(any())
-      }
-
-  """
-  @type video_bounding_box() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_blueprint_optimization_status_request() :: %{}
-
-  """
-  @type get_blueprint_optimization_status_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_override_configuration() :: %{
-        "languageConfiguration" => audio_language_configuration(),
-        "modalityProcessing" => modality_processing_configuration(),
-        "sensitiveDataConfiguration" => sensitive_data_configuration()
-      }
-
-  """
-  @type audio_override_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_blueprint_response() :: %{
-        "blueprint" => blueprint()
-      }
-
-  """
-  @type update_blueprint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      standard_output_configuration() :: %{
-        "audio" => audio_standard_output_configuration(),
-        "document" => document_standard_output_configuration(),
-        "image" => image_standard_output_configuration(),
-        "video" => video_standard_output_configuration()
-      }
-
-  """
-  @type standard_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_automation_project() :: %{
-        "creationTime" => non_neg_integer(),
-        "customOutputConfiguration" => custom_output_configuration(),
-        "dataAutomationLibraryConfiguration" => data_automation_library_configuration(),
-        "kmsEncryptionContext" => map(),
-        "kmsKeyId" => String.t() | atom(),
-        "lastModifiedTime" => non_neg_integer(),
-        "overrideConfiguration" => override_configuration(),
-        "projectArn" => String.t() | atom(),
-        "projectDescription" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "projectStage" => list(any()),
-        "projectType" => list(any()),
-        "standardOutputConfiguration" => standard_output_configuration(),
-        "status" => list(any())
-      }
-
-  """
-  @type data_automation_project() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      blueprint_item() :: %{
-        "blueprintArn" => String.t() | atom(),
-        "blueprintStage" => list(any()),
-        "blueprintVersion" => String.t() | atom()
-      }
-
-  """
-  @type blueprint_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_automation_projects_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "projects" => list(data_automation_project_summary())
-      }
-
-  """
-  @type list_data_automation_projects_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_extraction_category() :: %{
-        "state" => list(any()),
-        "types" => list(list(any())())
-      }
-
-  """
-  @type image_extraction_category() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      modality_processing_configuration() :: %{
-        "state" => list(any())
-      }
-
-  """
-  @type modality_processing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_automation_library_entities_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_data_automation_library_entities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_automation_library_request() :: %{}
-
-  """
-  @type delete_data_automation_library_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_standard_output_configuration() :: %{
-        "extraction" => audio_standard_extraction(),
-        "generativeField" => audio_standard_generative_field()
-      }
-
-  """
-  @type audio_standard_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_object() :: %{
-        "s3Uri" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type s3_object() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_automation_library_request() :: %{}
-
-  """
-  @type get_data_automation_library_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_automation_libraries_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("projectFilter") => data_automation_project_filter()
-      }
-
-  """
-  @type list_data_automation_libraries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_extraction_granularity() :: %{
-        "types" => list(list(any())())
-      }
-
-  """
-  @type document_extraction_granularity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      blueprint_optimization_object() :: %{
-        "blueprintArn" => String.t() | atom(),
-        "stage" => list(any())
-      }
-
-  """
-  @type blueprint_optimization_object() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_automation_library_summary() :: %{
-        "creationTime" => non_neg_integer(),
-        "libraryArn" => String.t() | atom(),
-        "libraryName" => String.t() | atom()
-      }
-
-  """
-  @type data_automation_library_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_automation_project_request() :: %{
-        optional("customOutputConfiguration") => custom_output_configuration(),
-        optional("dataAutomationLibraryConfiguration") => data_automation_library_configuration(),
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("overrideConfiguration") => override_configuration(),
-        optional("projectDescription") => String.t() | atom(),
-        optional("projectStage") => list(any()),
-        required("standardOutputConfiguration") => standard_output_configuration()
-      }
-
-  """
-  @type update_data_automation_project_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_standard_generative_field() :: %{
-        "state" => list(any())
-      }
-
-  """
-  @type document_standard_generative_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_blueprint_optimization_status_response() :: %{
-        "errorMessage" => [String.t() | atom()],
-        "errorType" => [String.t() | atom()],
-        "outputConfiguration" => blueprint_optimization_output_configuration(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_blueprint_optimization_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      blueprint_filter() :: %{
-        "blueprintArn" => String.t() | atom(),
-        "blueprintStage" => list(any()),
-        "blueprintVersion" => String.t() | atom()
-      }
-
-  """
-  @type blueprint_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_standard_generative_field() :: %{
-        "state" => list(any()),
-        "types" => list(list(any())())
-      }
-
-  """
-  @type image_standard_generative_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_bounding_box() :: %{
-        "state" => list(any())
-      }
-
-  """
-  @type image_bounding_box() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification_configuration() :: %{
-        "eventBridgeConfiguration" => event_bridge_configuration()
-      }
-
-  """
-  @type notification_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_output_text_format() :: %{
-        "types" => list(list(any())())
-      }
-
-  """
-  @type document_output_text_format() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      override_configuration() :: %{
-        "audio" => audio_override_configuration(),
-        "document" => document_override_configuration(),
-        "image" => image_override_configuration(),
-        "modalityRouting" => modality_routing_configuration(),
-        "video" => video_override_configuration()
-      }
-
-  """
-  @type override_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -408,102 +37,6 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      create_data_automation_project_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("customOutputConfiguration") => custom_output_configuration(),
-        optional("dataAutomationLibraryConfiguration") => data_automation_library_configuration(),
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("overrideConfiguration") => override_configuration(),
-        optional("projectDescription") => String.t() | atom(),
-        optional("projectStage") => list(any()),
-        optional("projectType") => list(any()),
-        optional("tags") => list(tag()),
-        required("projectName") => String.t() | atom(),
-        required("standardOutputConfiguration") => standard_output_configuration()
-      }
-
-  """
-  @type create_data_automation_project_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_standard_extraction() :: %{
-        "boundingBox" => document_bounding_box(),
-        "granularity" => document_extraction_granularity()
-      }
-
-  """
-  @type document_standard_extraction() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_automation_library_entity_request() :: %{}
-
-  """
-  @type get_data_automation_library_entity_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_automation_library_item() :: %{
-        "libraryArn" => String.t() | atom()
-      }
-
-  """
-  @type data_automation_library_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_custom_output_configuration() :: %{
-        "fallbackBlueprints" => list(blueprint_item())
-      }
-
-  """
-  @type document_custom_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_blueprint_response() :: %{}
-
-  """
-  @type delete_blueprint_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_configuration() :: %{
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       audio_extraction_category_type_configuration() :: %{
         "transcript" => transcript_configuration()
       }
@@ -515,24 +48,205 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      create_blueprint_version_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      audio_language_configuration() :: %{
+        "generativeOutputLanguage" => list(any()),
+        "identifyMultipleLanguages" => [boolean()],
+        "inputLanguages" => list(list(any())())
       }
 
   """
-  @type create_blueprint_version_request() :: %{(String.t() | atom()) => any()}
+  @type audio_language_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      p_i_i_entities_configuration() :: %{
-        "piiEntityTypes" => list(list(any())()),
-        "redactionMaskMode" => list(any())
+      audio_override_configuration() :: %{
+        "languageConfiguration" => audio_language_configuration(),
+        "modalityProcessing" => modality_processing_configuration(),
+        "sensitiveDataConfiguration" => sensitive_data_configuration()
       }
 
   """
-  @type p_i_i_entities_configuration() :: %{(String.t() | atom()) => any()}
+  @type audio_override_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_standard_extraction() :: %{
+        "category" => audio_extraction_category()
+      }
+
+  """
+  @type audio_standard_extraction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_standard_generative_field() :: %{
+        "state" => list(any()),
+        "types" => list(list(any())())
+      }
+
+  """
+  @type audio_standard_generative_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_standard_output_configuration() :: %{
+        "extraction" => audio_standard_extraction(),
+        "generativeField" => audio_standard_generative_field()
+      }
+
+  """
+  @type audio_standard_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blueprint() :: %{
+        "blueprintArn" => String.t() | atom(),
+        "blueprintName" => String.t() | atom(),
+        "blueprintStage" => list(any()),
+        "blueprintVersion" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "kmsEncryptionContext" => map(),
+        "kmsKeyId" => String.t() | atom(),
+        "lastModifiedTime" => non_neg_integer(),
+        "optimizationSamples" => list(blueprint_optimization_sample()),
+        "optimizationTime" => non_neg_integer(),
+        "schema" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type blueprint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blueprint_filter() :: %{
+        "blueprintArn" => String.t() | atom(),
+        "blueprintStage" => list(any()),
+        "blueprintVersion" => String.t() | atom()
+      }
+
+  """
+  @type blueprint_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blueprint_item() :: %{
+        "blueprintArn" => String.t() | atom(),
+        "blueprintStage" => list(any()),
+        "blueprintVersion" => String.t() | atom()
+      }
+
+  """
+  @type blueprint_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blueprint_optimization_object() :: %{
+        "blueprintArn" => String.t() | atom(),
+        "stage" => list(any())
+      }
+
+  """
+  @type blueprint_optimization_object() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blueprint_optimization_output_configuration() :: %{
+        "s3Object" => s3_object()
+      }
+
+  """
+  @type blueprint_optimization_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blueprint_optimization_sample() :: %{
+        "assetS3Object" => s3_object(),
+        "groundTruthS3Object" => s3_object()
+      }
+
+  """
+  @type blueprint_optimization_sample() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blueprint_summary() :: %{
+        "blueprintArn" => String.t() | atom(),
+        "blueprintName" => String.t() | atom(),
+        "blueprintStage" => list(any()),
+        "blueprintVersion" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "lastModifiedTime" => non_neg_integer()
+      }
+
+  """
+  @type blueprint_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_labeling_configuration() :: %{
+        "state" => list(any())
+      }
+
+  """
+  @type channel_labeling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      copy_blueprint_stage_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("sourceStage") => list(any()),
+        required("targetStage") => list(any())
+      }
+
+  """
+  @type copy_blueprint_stage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      copy_blueprint_stage_response() :: %{}
+
+  """
+  @type copy_blueprint_stage_response() :: %{}
 
   @typedoc """
 
@@ -566,135 +280,12 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      data_automation_library_ingestion_job() :: %{
-        "completionTime" => non_neg_integer(),
-        "creationTime" => non_neg_integer(),
-        "entityType" => list(any()),
-        "errorMessage" => [String.t() | atom()],
-        "errorType" => [String.t() | atom()],
-        "jobArn" => String.t() | atom(),
-        "jobStatus" => list(any()),
-        "operationType" => list(any()),
-        "outputConfiguration" => output_configuration()
+      create_blueprint_version_request() :: %{
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type data_automation_library_ingestion_job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_output_additional_file_format() :: %{
-        "state" => list(any())
-      }
-
-  """
-  @type document_output_additional_file_format() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_blueprint_request() :: %{
-        optional("blueprintStage") => list(any()),
-        optional("blueprintVersion") => String.t() | atom()
-      }
-
-  """
-  @type get_blueprint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sensitive_data_configuration() :: %{
-        "detectionMode" => list(any()),
-        "detectionScope" => list(list(any())()),
-        "piiEntitiesConfiguration" => p_i_i_entities_configuration()
-      }
-
-  """
-  @type sensitive_data_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_standard_output_configuration() :: %{
-        "extraction" => document_standard_extraction(),
-        "generativeField" => document_standard_generative_field(),
-        "outputFormat" => document_output_format()
-      }
-
-  """
-  @type document_standard_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_extraction_category() :: %{
-        "state" => list(any()),
-        "types" => list(list(any())())
-      }
-
-  """
-  @type video_extraction_category() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_automation_project_request() :: %{}
-
-  """
-  @type delete_data_automation_project_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_automation_library_filter() :: %{
-        "libraryArn" => String.t() | atom()
-      }
-
-  """
-  @type data_automation_library_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("resourceARN") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type create_blueprint_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -711,24 +302,74 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      speaker_labeling_configuration() :: %{
-        "state" => list(any())
+      create_data_automation_library_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("encryptionConfiguration") => encryption_configuration(),
+        optional("libraryDescription") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("libraryName") => String.t() | atom()
       }
 
   """
-  @type speaker_labeling_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_data_automation_library_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_data_automation_library_ingestion_jobs_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      create_data_automation_library_response() :: %{
+        "libraryArn" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type list_data_automation_library_ingestion_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type create_data_automation_library_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_automation_project_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("customOutputConfiguration") => custom_output_configuration(),
+        optional("dataAutomationLibraryConfiguration") => data_automation_library_configuration(),
+        optional("encryptionConfiguration") => encryption_configuration(),
+        optional("overrideConfiguration") => override_configuration(),
+        optional("projectDescription") => String.t() | atom(),
+        optional("projectStage") => list(any()),
+        optional("projectType") => list(any()),
+        optional("tags") => list(tag()),
+        required("projectName") => String.t() | atom(),
+        required("standardOutputConfiguration") => standard_output_configuration()
+      }
+
+  """
+  @type create_data_automation_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_automation_project_response() :: %{
+        "projectArn" => String.t() | atom(),
+        "projectStage" => list(any()),
+        "status" => list(any())
+      }
+
+  """
+  @type create_data_automation_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_output_configuration() :: %{
+        "blueprints" => list(blueprint_item()),
+        "document" => document_custom_output_configuration()
+      }
+
+  """
+  @type custom_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -752,133 +393,118 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      channel_labeling_configuration() :: %{
-        "state" => list(any())
+      data_automation_library_configuration() :: %{
+        "libraries" => list(data_automation_library_item())
       }
 
   """
-  @type channel_labeling_configuration() :: %{(String.t() | atom()) => any()}
+  @type data_automation_library_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invoke_blueprint_optimization_async_request() :: %{
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("tags") => list(tag()),
-        required("blueprint") => blueprint_optimization_object(),
-        required("dataAutomationProfileArn") => String.t() | atom(),
-        required("outputConfiguration") => blueprint_optimization_output_configuration(),
-        required("samples") => list(blueprint_optimization_sample())
+      data_automation_library_filter() :: %{
+        "libraryArn" => String.t() | atom()
       }
 
   """
-  @type invoke_blueprint_optimization_async_request() :: %{(String.t() | atom()) => any()}
+  @type data_automation_library_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      blueprint_optimization_sample() :: %{
-        "assetS3Object" => s3_object(),
-        "groundTruthS3Object" => s3_object()
+      data_automation_library_ingestion_job() :: %{
+        "completionTime" => non_neg_integer(),
+        "creationTime" => non_neg_integer(),
+        "entityType" => list(any()),
+        "errorMessage" => [String.t() | atom()],
+        "errorType" => [String.t() | atom()],
+        "jobArn" => String.t() | atom(),
+        "jobStatus" => list(any()),
+        "operationType" => list(any()),
+        "outputConfiguration" => output_configuration()
       }
 
   """
-  @type blueprint_optimization_sample() :: %{(String.t() | atom()) => any()}
+  @type data_automation_library_ingestion_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vocabulary_entity_summary() :: %{
-        "description" => String.t() | atom(),
-        "entityId" => String.t() | atom(),
-        "language" => list(any()),
+      data_automation_library_ingestion_job_summary() :: %{
+        "completionTime" => non_neg_integer(),
+        "creationTime" => non_neg_integer(),
+        "entityType" => list(any()),
+        "jobArn" => String.t() | atom(),
+        "jobStatus" => list(any()),
+        "operationType" => list(any())
+      }
+
+  """
+  @type data_automation_library_ingestion_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_automation_library_item() :: %{
+        "libraryArn" => String.t() | atom()
+      }
+
+  """
+  @type data_automation_library_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_automation_library_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "libraryArn" => String.t() | atom(),
+        "libraryName" => String.t() | atom()
+      }
+
+  """
+  @type data_automation_library_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_automation_project() :: %{
+        "creationTime" => non_neg_integer(),
+        "customOutputConfiguration" => custom_output_configuration(),
+        "dataAutomationLibraryConfiguration" => data_automation_library_configuration(),
+        "kmsEncryptionContext" => map(),
+        "kmsKeyId" => String.t() | atom(),
         "lastModifiedTime" => non_neg_integer(),
-        "numOfPhrases" => [integer()]
+        "overrideConfiguration" => override_configuration(),
+        "projectArn" => String.t() | atom(),
+        "projectDescription" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "projectStage" => list(any()),
+        "projectType" => list(any()),
+        "standardOutputConfiguration" => standard_output_configuration(),
+        "status" => list(any())
       }
 
   """
-  @type vocabulary_entity_summary() :: %{(String.t() | atom()) => any()}
+  @type data_automation_project() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invoke_data_automation_library_ingestion_job_response() :: %{
-        "jobArn" => String.t() | atom()
+      data_automation_project_filter() :: %{
+        "projectArn" => String.t() | atom(),
+        "projectStage" => list(any())
       }
 
   """
-  @type invoke_data_automation_library_ingestion_job_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      copy_blueprint_stage_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("sourceStage") => list(any()),
-        required("targetStage") => list(any())
-      }
-
-  """
-  @type copy_blueprint_stage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_automation_project_request() :: %{
-        optional("projectStage") => list(any())
-      }
-
-  """
-  @type get_data_automation_project_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_output_configuration() :: %{
-        "blueprints" => list(blueprint_item()),
-        "document" => document_custom_output_configuration()
-      }
-
-  """
-  @type custom_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
+  @type data_automation_project_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -899,180 +525,51 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      list_blueprints_request() :: %{
-        optional("blueprintArn") => String.t() | atom(),
-        optional("blueprintStageFilter") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("projectFilter") => data_automation_project_filter(),
-        optional("resourceOwner") => list(any())
+      delete_blueprint_request() :: %{
+        optional("blueprintVersion") => String.t() | atom()
       }
 
   """
-  @type list_blueprints_request() :: %{(String.t() | atom()) => any()}
+  @type delete_blueprint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_data_automation_library_response() :: %{
-        "library" => data_automation_library()
-      }
+      delete_blueprint_response() :: %{}
 
   """
-  @type get_data_automation_library_response() :: %{(String.t() | atom()) => any()}
+  @type delete_blueprint_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_data_automation_library_response() :: %{
+      delete_data_automation_library_request() :: %{}
+
+  """
+  @type delete_data_automation_library_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_automation_library_response() :: %{
         "libraryArn" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type create_data_automation_library_response() :: %{(String.t() | atom()) => any()}
+  @type delete_data_automation_library_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      modality_routing_configuration() :: %{
-        "jpeg" => list(any()),
-        "mov" => list(any()),
-        "mp4" => list(any()),
-        "png" => list(any())
-      }
+      delete_data_automation_project_request() :: %{}
 
   """
-  @type modality_routing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_blueprint_request() :: %{
-        optional("blueprintStage") => list(any()),
-        optional("encryptionConfiguration") => encryption_configuration(),
-        required("schema") => String.t() | atom()
-      }
-
-  """
-  @type update_blueprint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_blueprint_response() :: %{
-        "blueprint" => blueprint()
-      }
-
-  """
-  @type get_blueprint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_standard_generative_field() :: %{
-        "state" => list(any()),
-        "types" => list(list(any())())
-      }
-
-  """
-  @type video_standard_generative_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("resourceARN") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_override_configuration() :: %{
-        "modalityProcessing" => modality_processing_configuration(),
-        "sensitiveDataConfiguration" => sensitive_data_configuration()
-      }
-
-  """
-  @type video_override_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      blueprint() :: %{
-        "blueprintArn" => String.t() | atom(),
-        "blueprintName" => String.t() | atom(),
-        "blueprintStage" => list(any()),
-        "blueprintVersion" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "kmsEncryptionContext" => map(),
-        "kmsKeyId" => String.t() | atom(),
-        "lastModifiedTime" => non_neg_integer(),
-        "optimizationSamples" => list(blueprint_optimization_sample()),
-        "optimizationTime" => non_neg_integer(),
-        "schema" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type blueprint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_automation_library_ingestion_job_response() :: %{
-        "job" => data_automation_library_ingestion_job()
-      }
-
-  """
-  @type get_data_automation_library_ingestion_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      copy_blueprint_stage_response() :: %{}
-
-  """
-  @type copy_blueprint_stage_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_automation_library_response() :: %{
-        "libraryArn" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type update_data_automation_library_response() :: %{(String.t() | atom()) => any()}
+  @type delete_data_automation_project_request() :: %{}
 
   @typedoc """
 
@@ -1101,137 +598,45 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      update_data_automation_project_response() :: %{
-        "projectArn" => String.t() | atom(),
-        "projectStage" => list(any()),
-        "status" => list(any())
+      document_bounding_box() :: %{
+        "state" => list(any())
       }
 
   """
-  @type update_data_automation_project_response() :: %{(String.t() | atom()) => any()}
+  @type document_bounding_box() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      event_bridge_configuration() :: %{
-        "eventBridgeEnabled" => [boolean()]
+      document_custom_output_configuration() :: %{
+        "fallbackBlueprints" => list(blueprint_item())
       }
 
   """
-  @type event_bridge_configuration() :: %{(String.t() | atom()) => any()}
+  @type document_custom_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_data_automation_library_entities_response() :: %{
-        "entities" => list(list()),
-        "nextToken" => String.t() | atom()
+      document_extraction_granularity() :: %{
+        "types" => list(list(any())())
       }
 
   """
-  @type list_data_automation_library_entities_response() :: %{(String.t() | atom()) => any()}
+  @type document_extraction_granularity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      audio_standard_extraction() :: %{
-        "category" => audio_extraction_category()
+      document_output_additional_file_format() :: %{
+        "state" => list(any())
       }
 
   """
-  @type audio_standard_extraction() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_automation_library_entity_response() :: %{
-        "entity" => list()
-      }
-
-  """
-  @type get_data_automation_library_entity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_automation_library_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("libraryDescription") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("libraryName") => String.t() | atom()
-      }
-
-  """
-  @type create_data_automation_library_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      phrase() :: %{
-        "displayAsText" => String.t() | atom(),
-        "text" => String.t() | atom()
-      }
-
-  """
-  @type phrase() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      blueprint_summary() :: %{
-        "blueprintArn" => String.t() | atom(),
-        "blueprintName" => String.t() | atom(),
-        "blueprintStage" => list(any()),
-        "blueprintVersion" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "lastModifiedTime" => non_neg_integer()
-      }
-
-  """
-  @type blueprint_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      entity_type_info() :: %{
-        "entityMetadata" => String.t() | atom(),
-        "entityType" => list(any())
-      }
-
-  """
-  @type entity_type_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_standard_extraction() :: %{
-        "boundingBox" => image_bounding_box(),
-        "category" => image_extraction_category()
-      }
-
-  """
-  @type image_standard_extraction() :: %{(String.t() | atom()) => any()}
+  @type document_output_additional_file_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1244,6 +649,17 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type document_output_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_output_text_format() :: %{
+        "types" => list(list(any())())
+      }
+
+  """
+  @type document_output_text_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1262,16 +678,271 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      vocabulary_entity() :: %{
-        "description" => String.t() | atom(),
-        "entityId" => String.t() | atom(),
-        "language" => list(any()),
-        "lastModifiedTime" => non_neg_integer(),
-        "phrases" => list(phrase())
+      document_standard_extraction() :: %{
+        "boundingBox" => document_bounding_box(),
+        "granularity" => document_extraction_granularity()
       }
 
   """
-  @type vocabulary_entity() :: %{(String.t() | atom()) => any()}
+  @type document_standard_extraction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_standard_generative_field() :: %{
+        "state" => list(any())
+      }
+
+  """
+  @type document_standard_generative_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_standard_output_configuration() :: %{
+        "extraction" => document_standard_extraction(),
+        "generativeField" => document_standard_generative_field(),
+        "outputFormat" => document_output_format()
+      }
+
+  """
+  @type document_standard_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_configuration() :: %{
+        "kmsEncryptionContext" => map(),
+        "kmsKeyId" => String.t() | atom()
+      }
+
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      entity_type_info() :: %{
+        "entityMetadata" => String.t() | atom(),
+        "entityType" => list(any())
+      }
+
+  """
+  @type entity_type_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_configuration() :: %{
+        "eventBridgeEnabled" => [boolean()]
+      }
+
+  """
+  @type event_bridge_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_blueprint_optimization_status_request() :: %{}
+
+  """
+  @type get_blueprint_optimization_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_blueprint_optimization_status_response() :: %{
+        "errorMessage" => [String.t() | atom()],
+        "errorType" => [String.t() | atom()],
+        "outputConfiguration" => blueprint_optimization_output_configuration(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_blueprint_optimization_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_blueprint_request() :: %{
+        optional("blueprintStage") => list(any()),
+        optional("blueprintVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_blueprint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_blueprint_response() :: %{
+        "blueprint" => blueprint()
+      }
+
+  """
+  @type get_blueprint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_automation_library_entity_request() :: %{}
+
+  """
+  @type get_data_automation_library_entity_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_automation_library_entity_response() :: %{
+        "entity" => list()
+      }
+
+  """
+  @type get_data_automation_library_entity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_automation_library_ingestion_job_request() :: %{}
+
+  """
+  @type get_data_automation_library_ingestion_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_automation_library_ingestion_job_response() :: %{
+        "job" => data_automation_library_ingestion_job()
+      }
+
+  """
+  @type get_data_automation_library_ingestion_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_automation_library_request() :: %{}
+
+  """
+  @type get_data_automation_library_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_automation_library_response() :: %{
+        "library" => data_automation_library()
+      }
+
+  """
+  @type get_data_automation_library_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_automation_project_request() :: %{
+        optional("projectStage") => list(any())
+      }
+
+  """
+  @type get_data_automation_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_automation_project_response() :: %{
+        "project" => data_automation_project()
+      }
+
+  """
+  @type get_data_automation_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_bounding_box() :: %{
+        "state" => list(any())
+      }
+
+  """
+  @type image_bounding_box() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_extraction_category() :: %{
+        "state" => list(any()),
+        "types" => list(list(any())())
+      }
+
+  """
+  @type image_extraction_category() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_override_configuration() :: %{
+        "modalityProcessing" => modality_processing_configuration(),
+        "sensitiveDataConfiguration" => sensitive_data_configuration()
+      }
+
+  """
+  @type image_override_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_standard_extraction() :: %{
+        "boundingBox" => image_bounding_box(),
+        "category" => image_extraction_category()
+      }
+
+  """
+  @type image_standard_extraction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_standard_generative_field() :: %{
+        "state" => list(any()),
+        "types" => list(list(any())())
+      }
+
+  """
+  @type image_standard_generative_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_standard_output_configuration() :: %{
+        "extraction" => image_standard_extraction(),
+        "generativeField" => image_standard_generative_field()
+      }
+
+  """
+  @type image_standard_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1289,50 +960,39 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      create_data_automation_project_response() :: %{
-        "projectArn" => String.t() | atom(),
-        "projectStage" => list(any()),
-        "status" => list(any())
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type create_data_automation_project_response() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      splitter_configuration() :: %{
-        "state" => list(any())
+      invoke_blueprint_optimization_async_request() :: %{
+        optional("encryptionConfiguration") => encryption_configuration(),
+        optional("tags") => list(tag()),
+        required("blueprint") => blueprint_optimization_object(),
+        required("dataAutomationProfileArn") => String.t() | atom(),
+        required("outputConfiguration") => blueprint_optimization_output_configuration(),
+        required("samples") => list(blueprint_optimization_sample())
       }
 
   """
-  @type splitter_configuration() :: %{(String.t() | atom()) => any()}
+  @type invoke_blueprint_optimization_async_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      audio_language_configuration() :: %{
-        "generativeOutputLanguage" => list(any()),
-        "identifyMultipleLanguages" => [boolean()],
-        "inputLanguages" => list(list(any())())
+      invoke_blueprint_optimization_async_response() :: %{
+        "invocationArn" => String.t() | atom()
       }
 
   """
-  @type audio_language_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_configuration() :: %{
-        "kmsEncryptionContext" => map(),
-        "kmsKeyId" => String.t() | atom()
-      }
-
-  """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+  @type invoke_blueprint_optimization_async_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1357,13 +1017,55 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      image_override_configuration() :: %{
-        "modalityProcessing" => modality_processing_configuration(),
-        "sensitiveDataConfiguration" => sensitive_data_configuration()
+      invoke_data_automation_library_ingestion_job_response() :: %{
+        "jobArn" => String.t() | atom()
       }
 
   """
-  @type image_override_configuration() :: %{(String.t() | atom()) => any()}
+  @type invoke_data_automation_library_ingestion_job_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_blueprints_request() :: %{
+        optional("blueprintArn") => String.t() | atom(),
+        optional("blueprintStageFilter") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("projectFilter") => data_automation_project_filter(),
+        optional("resourceOwner") => list(any())
+      }
+
+  """
+  @type list_blueprints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_blueprints_response() :: %{
+        "blueprints" => list(blueprint_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_blueprints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_automation_libraries_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("projectFilter") => data_automation_project_filter()
+      }
+
+  """
+  @type list_data_automation_libraries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1381,55 +1083,51 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      data_automation_library_ingestion_job_summary() :: %{
-        "completionTime" => non_neg_integer(),
-        "creationTime" => non_neg_integer(),
-        "entityType" => list(any()),
-        "jobArn" => String.t() | atom(),
-        "jobStatus" => list(any()),
-        "operationType" => list(any())
+      list_data_automation_library_entities_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type data_automation_library_ingestion_job_summary() :: %{(String.t() | atom()) => any()}
+  @type list_data_automation_library_entities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      transcript_configuration() :: %{
-        "channelLabeling" => channel_labeling_configuration(),
-        "speakerLabeling" => speaker_labeling_configuration()
+      list_data_automation_library_entities_response() :: %{
+        "entities" => list(list()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type transcript_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_data_automation_library_entities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_data_automation_library_response() :: %{
-        "libraryArn" => String.t() | atom(),
-        "status" => list(any())
+      list_data_automation_library_ingestion_jobs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type delete_data_automation_library_response() :: %{(String.t() | atom()) => any()}
+  @type list_data_automation_library_ingestion_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vocabulary_entity_info() :: %{
-        "description" => String.t() | atom(),
-        "entityId" => String.t() | atom(),
-        "language" => list(any()),
-        "phrases" => list(phrase())
+      list_data_automation_library_ingestion_jobs_response() :: %{
+        "jobs" => list(data_automation_library_ingestion_job_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type vocabulary_entity_info() :: %{(String.t() | atom()) => any()}
+  @type list_data_automation_library_ingestion_jobs_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1451,72 +1149,305 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      blueprint_optimization_output_configuration() :: %{
-        "s3Object" => s3_object()
+      list_data_automation_projects_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "projects" => list(data_automation_project_summary())
       }
 
   """
-  @type blueprint_optimization_output_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_data_automation_projects_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      video_standard_output_configuration() :: %{
-        "extraction" => video_standard_extraction(),
-        "generativeField" => video_standard_generative_field()
+      list_tags_for_resource_request() :: %{
+        required("resourceARN") => String.t() | atom()
       }
 
   """
-  @type video_standard_output_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_data_automation_library_ingestion_jobs_response() :: %{
-        "jobs" => list(data_automation_library_ingestion_job_summary()),
-        "nextToken" => String.t() | atom()
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag())
       }
 
   """
-  @type list_data_automation_library_ingestion_jobs_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_blueprint_request() :: %{
-        optional("blueprintVersion") => String.t() | atom()
-      }
-
-  """
-  @type delete_blueprint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_bounding_box() :: %{
+      modality_processing_configuration() :: %{
         "state" => list(any())
       }
 
   """
-  @type document_bounding_box() :: %{(String.t() | atom()) => any()}
+  @type modality_processing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      audio_standard_generative_field() :: %{
-        "state" => list(any()),
-        "types" => list(list(any())())
+      modality_routing_configuration() :: %{
+        "jpeg" => list(any()),
+        "mov" => list(any()),
+        "mp4" => list(any()),
+        "png" => list(any())
       }
 
   """
-  @type audio_standard_generative_field() :: %{(String.t() | atom()) => any()}
+  @type modality_routing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_configuration() :: %{
+        "eventBridgeConfiguration" => event_bridge_configuration()
+      }
+
+  """
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_configuration() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      override_configuration() :: %{
+        "audio" => audio_override_configuration(),
+        "document" => document_override_configuration(),
+        "image" => image_override_configuration(),
+        "modalityRouting" => modality_routing_configuration(),
+        "video" => video_override_configuration()
+      }
+
+  """
+  @type override_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      p_i_i_entities_configuration() :: %{
+        "piiEntityTypes" => list(list(any())()),
+        "redactionMaskMode" => list(any())
+      }
+
+  """
+  @type p_i_i_entities_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      phrase() :: %{
+        "displayAsText" => String.t() | atom(),
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type phrase() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_object() :: %{
+        "s3Uri" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type s3_object() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sensitive_data_configuration() :: %{
+        "detectionMode" => list(any()),
+        "detectionScope" => list(list(any())()),
+        "piiEntitiesConfiguration" => p_i_i_entities_configuration()
+      }
+
+  """
+  @type sensitive_data_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      speaker_labeling_configuration() :: %{
+        "state" => list(any())
+      }
+
+  """
+  @type speaker_labeling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      splitter_configuration() :: %{
+        "state" => list(any())
+      }
+
+  """
+  @type splitter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standard_output_configuration() :: %{
+        "audio" => audio_standard_output_configuration(),
+        "document" => document_standard_output_configuration(),
+        "image" => image_standard_output_configuration(),
+        "video" => video_standard_output_configuration()
+      }
+
+  """
+  @type standard_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("resourceARN") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transcript_configuration() :: %{
+        "channelLabeling" => channel_labeling_configuration(),
+        "speakerLabeling" => speaker_labeling_configuration()
+      }
+
+  """
+  @type transcript_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("resourceARN") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_blueprint_request() :: %{
+        optional("blueprintStage") => list(any()),
+        optional("encryptionConfiguration") => encryption_configuration(),
+        required("schema") => String.t() | atom()
+      }
+
+  """
+  @type update_blueprint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_blueprint_response() :: %{
+        "blueprint" => blueprint()
+      }
+
+  """
+  @type update_blueprint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1534,45 +1465,102 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      image_standard_output_configuration() :: %{
-        "extraction" => image_standard_extraction(),
-        "generativeField" => image_standard_generative_field()
+      update_data_automation_library_response() :: %{
+        "libraryArn" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type image_standard_output_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_data_automation_library_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_data_automation_library_ingestion_job_request() :: %{}
-
-  """
-  @type get_data_automation_library_ingestion_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_blueprint_optimization_async_response() :: %{
-        "invocationArn" => String.t() | atom()
+      update_data_automation_project_request() :: %{
+        optional("customOutputConfiguration") => custom_output_configuration(),
+        optional("dataAutomationLibraryConfiguration") => data_automation_library_configuration(),
+        optional("encryptionConfiguration") => encryption_configuration(),
+        optional("overrideConfiguration") => override_configuration(),
+        optional("projectDescription") => String.t() | atom(),
+        optional("projectStage") => list(any()),
+        required("standardOutputConfiguration") => standard_output_configuration()
       }
 
   """
-  @type invoke_blueprint_optimization_async_response() :: %{(String.t() | atom()) => any()}
+  @type update_data_automation_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_automation_project_filter() :: %{
+      update_data_automation_project_response() :: %{
         "projectArn" => String.t() | atom(),
-        "projectStage" => list(any())
+        "projectStage" => list(any()),
+        "status" => list(any())
       }
 
   """
-  @type data_automation_project_filter() :: %{(String.t() | atom()) => any()}
+  @type update_data_automation_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_bounding_box() :: %{
+        "state" => list(any())
+      }
+
+  """
+  @type video_bounding_box() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_extraction_category() :: %{
+        "state" => list(any()),
+        "types" => list(list(any())())
+      }
+
+  """
+  @type video_extraction_category() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_override_configuration() :: %{
+        "modalityProcessing" => modality_processing_configuration(),
+        "sensitiveDataConfiguration" => sensitive_data_configuration()
+      }
+
+  """
+  @type video_override_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1590,258 +1578,270 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{
-        required("resourceARN") => String.t() | atom()
+      video_standard_generative_field() :: %{
+        "state" => list(any()),
+        "types" => list(list(any())())
       }
 
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type video_standard_generative_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_automation_library_configuration() :: %{
-        "libraries" => list(data_automation_library_item())
+      video_standard_output_configuration() :: %{
+        "extraction" => video_standard_extraction(),
+        "generativeField" => video_standard_generative_field()
       }
 
   """
-  @type data_automation_library_configuration() :: %{(String.t() | atom()) => any()}
+  @type video_standard_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
+      vocabulary_entity() :: %{
+        "description" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "language" => list(any()),
+        "lastModifiedTime" => non_neg_integer(),
+        "phrases" => list(phrase())
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type vocabulary_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_data_automation_project_response() :: %{
-        "project" => data_automation_project()
+      vocabulary_entity_info() :: %{
+        "description" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "language" => list(any()),
+        "phrases" => list(phrase())
       }
 
   """
-  @type get_data_automation_project_response() :: %{(String.t() | atom()) => any()}
+  @type vocabulary_entity_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_blueprints_response() :: %{
-        "blueprints" => list(blueprint_summary()),
-        "nextToken" => String.t() | atom()
+      vocabulary_entity_summary() :: %{
+        "description" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "language" => list(any()),
+        "lastModifiedTime" => non_neg_integer(),
+        "numOfPhrases" => [integer()]
       }
 
   """
-  @type list_blueprints_response() :: %{(String.t() | atom()) => any()}
+  @type vocabulary_entity_summary() :: %{(String.t() | atom()) => any()}
 
   @type copy_blueprint_stage_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_blueprint_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_blueprint_version_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_data_automation_library_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_data_automation_project_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_blueprint_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_data_automation_library_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_data_automation_project_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_blueprint_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_blueprint_optimization_status_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_data_automation_library_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_data_automation_library_entity_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_data_automation_library_ingestion_job_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_data_automation_project_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type invoke_blueprint_optimization_async_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type invoke_data_automation_library_ingestion_job_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type list_blueprints_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_data_automation_libraries_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_data_automation_library_entities_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_data_automation_library_ingestion_jobs_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_data_automation_projects_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_blueprint_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_data_automation_library_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_data_automation_project_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{

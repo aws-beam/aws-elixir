@@ -19,1319 +19,6 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
-      get_custom_endpoint_request() :: %{}
-
-  """
-  @type get_custom_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_log_configuration_response() :: %{
-        "EventLogLevel" => list(any()),
-        "Id" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type get_event_log_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ota_task_configuration_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "TaskConfigurationId" => String.t() | atom()
-      }
-
-  """
-  @type ota_task_configuration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capability_schema_item() :: %{
-        "CapabilityId" => String.t() | atom(),
-        "ExtrinsicId" => String.t() | atom(),
-        "ExtrinsicVersion" => integer(),
-        "Format" => list(any()),
-        "Schema" => any()
-      }
-
-  """
-  @type capability_schema_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ota_task_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("TaskConfigurationId") => String.t() | atom()
-      }
-
-  """
-  @type update_ota_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capability_action() :: %{
-        "actionTraceId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "parameters" => any(),
-        "ref" => String.t() | atom()
-      }
-
-  """
-  @type capability_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_notification_configuration_request() :: %{}
-
-  """
-  @type get_notification_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      send_connector_event_request() :: %{
-        optional("ConnectorDeviceId") => String.t() | atom(),
-        optional("DeviceDiscoveryId") => String.t() | atom(),
-        optional("Devices") => list(device()),
-        optional("MatterEndpoint") => matter_endpoint(),
-        optional("Message") => String.t() | atom(),
-        optional("OperationVersion") => String.t() | atom(),
-        optional("StatusCode") => integer(),
-        optional("TraceId") => String.t() | atom(),
-        optional("UserId") => String.t() | atom(),
-        required("Operation") => list(any())
-      }
-
-  """
-  @type send_connector_event_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ota_task_executions_response() :: %{
-        "ExecutionSummaries" => list(ota_task_execution_summaries()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_ota_task_executions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_log_configuration_request() :: %{}
-
-  """
-  @type get_event_log_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ota_task_execution_retry_config() :: %{
-        "RetryConfigCriteria" => list(retry_config_criteria())
-      }
-
-  """
-  @type ota_task_execution_retry_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_ota_task_configuration_response() :: %{
-        "TaskConfigurationId" => String.t() | atom()
-      }
-
-  """
-  @type create_ota_task_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_hub_configuration_request() :: %{
-        required("HubTokenTimerExpirySettingInSeconds") => float()
-      }
-
-  """
-  @type put_hub_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      matter_capability_report_attribute() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "value" => any()
-      }
-
-  """
-  @type matter_capability_report_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_thing_summary() :: %{
-        "ActivatedAt" => non_neg_integer(),
-        "AdvertisedProductId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "Brand" => String.t() | atom(),
-        "Classification" => String.t() | atom(),
-        "ConnectorDestinationId" => String.t() | atom(),
-        "ConnectorDeviceId" => String.t() | atom(),
-        "ConnectorPolicyId" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "CredentialLockerId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Model" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Owner" => String.t() | atom(),
-        "ParentControllerId" => String.t() | atom(),
-        "ProvisioningStatus" => list(any()),
-        "Role" => list(any()),
-        "SerialNumber" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type managed_thing_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ota_task_request() :: %{}
-
-  """
-  @type get_ota_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notification_configurations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "NotificationConfigurationList" => list(notification_configuration_summary())
-      }
-
-  """
-  @type list_notification_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_account_association_request() :: %{
-        required("AccountAssociationId") => String.t() | atom(),
-        required("ManagedThingId") => String.t() | atom()
-      }
-
-  """
-  @type deregister_account_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connector_destination_request() :: %{
-        optional("AuthType") => list(any()),
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("SecretsManager") => secrets_manager(),
-        required("AuthConfig") => auth_config(),
-        required("CloudConnectorId") => String.t() | atom()
-      }
-
-  """
-  @type create_connector_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_notification_configuration_response() :: %{
-        "EventType" => list(any())
-      }
-
-  """
-  @type create_notification_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_thing_schema_list_item() :: %{
-        "CapabilityId" => String.t() | atom(),
-        "EndpointId" => String.t() | atom(),
-        "Schema" => any()
-      }
-
-  """
-  @type managed_thing_schema_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schema_version_list_item() :: %{
-        "Description" => String.t() | atom(),
-        "Namespace" => String.t() | atom(),
-        "SchemaId" => String.t() | atom(),
-        "SemanticVersion" => String.t() | atom(),
-        "Type" => list(any()),
-        "Visibility" => list(any())
-      }
-
-  """
-  @type schema_version_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_thing_request() :: %{}
-
-  """
-  @type get_managed_thing_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      matter_cluster() :: %{
-        "attributes" => any(),
-        "commands" => map(),
-        "events" => map(),
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type matter_cluster() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_things_response() :: %{
-        "Items" => list(managed_thing_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_managed_things_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_custom_endpoint_response() :: %{
-        "EndpointAddress" => String.t() | atom()
-      }
-
-  """
-  @type register_custom_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capability_report_endpoint() :: %{
-        "capabilities" => list(capability_report_capability()),
-        "deviceTypes" => list(String.t() | atom()),
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type capability_report_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      exponential_rollout_rate() :: %{
-        "BaseRatePerMinute" => integer(),
-        "IncrementFactor" => float(),
-        "RateIncreaseCriteria" => rollout_rate_increase_criteria()
-      }
-
-  """
-  @type exponential_rollout_rate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_association_response() :: %{
-        "AccountAssociationId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "AssociationState" => list(any()),
-        "ConnectorDestinationId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "GeneralAuthorization" => general_authorization_name(),
-        "Name" => String.t() | atom(),
-        "OAuthAuthorizationUrl" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type get_account_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_managed_thing_request() :: %{
-        optional("Force") => [boolean()]
-      }
-
-  """
-  @type delete_managed_thing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      o_auth_config() :: %{
-        "authUrl" => String.t() | atom(),
-        "oAuthCompleteRedirectUrl" => [String.t() | atom()],
-        "proactiveRefreshTokenRenewal" => proactive_refresh_token_renewal(),
-        "scope" => [String.t() | atom()],
-        "tokenEndpointAuthenticationScheme" => list(any()),
-        "tokenUrl" => String.t() | atom()
-      }
-
-  """
-  @type o_auth_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_account_association_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("GeneralAuthorization") => general_authorization_name(),
-        optional("Name") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("ConnectorDestinationId") => String.t() | atom()
-      }
-
-  """
-  @type create_account_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_runtime_log_configuration_request() :: %{
-        required("RuntimeLogConfigurations") => runtime_log_configurations()
-      }
-
-  """
-  @type put_runtime_log_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_status() :: %{
-        "error" => configuration_error(),
-        "state" => list(any())
-      }
-
-  """
-  @type configuration_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wi_fi_simple_setup_configuration() :: %{
-        "EnableAsProvisionee" => boolean(),
-        "EnableAsProvisioner" => boolean(),
-        "TimeoutInMinutes" => integer()
-      }
-
-  """
-  @type wi_fi_simple_setup_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_provisioning_profile_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ClaimCertificate" => String.t() | atom(),
-        "ClaimCertificatePrivateKey" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ProvisioningType" => list(any()),
-        "Status" => list(any())
-      }
-
-  """
-  @type create_provisioning_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      provisioning_profile_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ProvisioningType" => list(any()),
-        "Status" => list(any())
-      }
-
-  """
-  @type provisioning_profile_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      matter_capability_report() :: %{
-        "endpoints" => list(matter_capability_report_endpoint()),
-        "nodeId" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type matter_capability_report() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_failure_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      runtime_log_configurations() :: %{
-        "DeleteLocalStoreAfterUpload" => boolean(),
-        "LocalStoreFileRotationMaxBytes" => integer(),
-        "LocalStoreFileRotationMaxFiles" => integer(),
-        "LocalStoreLocation" => String.t() | atom(),
-        "LogFlushLevel" => list(any()),
-        "LogLevel" => list(any()),
-        "UploadLog" => boolean(),
-        "UploadPeriodMinutes" => integer()
-      }
-
-  """
-  @type runtime_log_configurations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_error() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type configuration_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_destination_summary() :: %{
-        "CloudConnectorId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type connector_destination_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device() :: %{
-        "CapabilityReport" => matter_capability_report(),
-        "CapabilitySchemas" => list(capability_schema_item()),
-        "ConnectorDeviceId" => String.t() | atom(),
-        "ConnectorDeviceName" => String.t() | atom(),
-        "DeviceMetadata" => any()
-      }
-
-  """
-  @type device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_hub_configuration_response() :: %{
-        "HubTokenTimerExpirySettingInSeconds" => float()
-      }
-
-  """
-  @type put_hub_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_thing_state_response() :: %{
-        "Endpoints" => list(state_endpoint())
-      }
-
-  """
-  @type get_managed_thing_state_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cloud_connector_response() :: %{
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type create_cloud_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ota_task_execution_summaries() :: %{
-        "ManagedThingId" => String.t() | atom(),
-        "TaskExecutionSummary" => ota_task_execution_summary()
-      }
-
-  """
-  @type ota_task_execution_summaries() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_things_request() :: %{
-        optional("ConnectorDestinationIdFilter") => String.t() | atom(),
-        optional("ConnectorDeviceIdFilter") => String.t() | atom(),
-        optional("ConnectorPolicyIdFilter") => String.t() | atom(),
-        optional("CredentialLockerFilter") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OwnerFilter") => String.t() | atom(),
-        optional("ParentControllerIdentifierFilter") => String.t() | atom(),
-        optional("ProvisioningStatusFilter") => list(any()),
-        optional("RoleFilter") => list(any()),
-        optional("SerialNumberFilter") => String.t() | atom()
-      }
-
-  """
-  @type list_managed_things_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      credential_locker_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type credential_locker_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_log_configuration_summary() :: %{
-        "EventLogLevel" => list(any()),
-        "Id" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type event_log_configuration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_ota_task_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("OtaMechanism") => list(any()),
-        optional("OtaSchedulingConfig") => ota_task_scheduling_config(),
-        optional("OtaTargetQueryString") => String.t() | atom(),
-        optional("OtaTaskExecutionRetryConfig") => ota_task_execution_retry_config(),
-        optional("Protocol") => list(any()),
-        optional("Tags") => map(),
-        optional("Target") => list([String.t() | atom()]()),
-        optional("TaskConfigurationId") => String.t() | atom(),
-        required("OtaType") => list(any()),
-        required("S3Url") => String.t() | atom()
-      }
-
-  """
-  @type create_ota_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ota_tasks_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tasks" => list(ota_task_summary())
-      }
-
-  """
-  @type list_ota_tasks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ota_task_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "TaskArn" => String.t() | atom(),
-        "TaskConfigurationId" => String.t() | atom(),
-        "TaskId" => String.t() | atom()
-      }
-
-  """
-  @type ota_task_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_thing_schemas_request() :: %{
-        optional("CapabilityIdFilter") => String.t() | atom(),
-        optional("EndpointIdFilter") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_managed_thing_schemas_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_default_encryption_configuration_request() :: %{}
-
-  """
-  @type get_default_encryption_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_schema_version_response() :: %{
-        "Description" => String.t() | atom(),
-        "Namespace" => String.t() | atom(),
-        "Schema" => any(),
-        "SchemaId" => String.t() | atom(),
-        "SemanticVersion" => String.t() | atom(),
-        "Type" => list(any()),
-        "Visibility" => list(any())
-      }
-
-  """
-  @type get_schema_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_provisioning_profile_request() :: %{}
-
-  """
-  @type get_provisioning_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      o_auth_update() :: %{
-        "oAuthCompleteRedirectUrl" => [String.t() | atom()],
-        "proactiveRefreshTokenRenewal" => proactive_refresh_token_renewal()
-      }
-
-  """
-  @type o_auth_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connector_destinations_request() :: %{
-        optional("CloudConnectorId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_connector_destinations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_runtime_log_configuration_request() :: %{}
-
-  """
-  @type get_runtime_log_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      proactive_refresh_token_renewal() :: %{
-        "DaysBeforeRenewal" => [integer()],
-        "enabled" => [boolean()]
-      }
-
-  """
-  @type proactive_refresh_token_renewal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connector_destination_request() :: %{
-        optional("AuthConfig") => auth_config_update(),
-        optional("AuthType") => list(any()),
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("SecretsManager") => secrets_manager()
-      }
-
-  """
-  @type update_connector_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ota_task_executions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_ota_task_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ota_task_abort_config() :: %{
-        "AbortConfigCriteriaList" => list(abort_config_criteria())
-      }
-
-  """
-  @type ota_task_abort_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_thing_connectivity_data_response() :: %{
-        "Connected" => boolean(),
-        "DisconnectReason" => list(any()),
-        "ManagedThingId" => String.t() | atom(),
-        "Timestamp" => non_neg_integer()
-      }
-
-  """
-  @type get_managed_thing_connectivity_data_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_event_log_configuration_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("ResourceId") => String.t() | atom(),
-        required("EventLogLevel") => list(any()),
-        required("ResourceType") => String.t() | atom()
-      }
-
-  """
-  @type create_event_log_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_ota_task_configuration_request() :: %{}
-
-  """
-  @type delete_ota_task_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cloud_connector_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_cloud_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_provisioning_profiles_response() :: %{
-        "Items" => list(provisioning_profile_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_provisioning_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_destinations_response() :: %{
-        "DestinationList" => list(destination_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_destinations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_notification_configuration_request() :: %{
-        required("DestinationName") => String.t() | atom()
-      }
-
-  """
-  @type update_notification_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_account_associations_response() :: %{
-        "Items" => list(account_association_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_account_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_default_encryption_configuration_response() :: %{
-        "configurationStatus" => configuration_status(),
-        "encryptionType" => list(any()),
-        "kmsKeyArn" => String.t() | atom()
-      }
-
-  """
-  @type get_default_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_credential_lockers_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_credential_lockers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      matter_capability_report_endpoint() :: %{
-        "clientClusters" => list(String.t() | atom()),
-        "clusters" => list(matter_capability_report_cluster()),
-        "deviceTypes" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "parts" => list(String.t() | atom()),
-        "semanticTags" => list(String.t() | atom())
-      }
-
-  """
-  @type matter_capability_report_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_thing_meta_data_request() :: %{}
-
-  """
-  @type get_managed_thing_meta_data_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ota_tasks_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_ota_tasks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_account_association_request() :: %{}
-
-  """
-  @type delete_account_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_thing_state_request() :: %{}
-
-  """
-  @type get_managed_thing_state_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_destinations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_destinations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      state_capability() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "properties" => any(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type state_capability() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ota_task_execution_rollout_config() :: %{
-        "ExponentialRolloutRate" => exponential_rollout_rate(),
-        "MaximumPerMinute" => integer()
-      }
-
-  """
-  @type ota_task_execution_rollout_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cloud_connector_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("EndpointType") => list(any()),
-        required("EndpointConfig") => endpoint_config(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_cloud_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_managed_thing_command_request() :: %{
-        optional("AccountAssociationId") => String.t() | atom(),
-        optional("ConnectorAssociationId") => String.t() | atom(),
-        required("Endpoints") => list(command_endpoint())
-      }
-
-  """
-  @type send_managed_thing_command_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_config() :: %{
-        "arn" => String.t() | atom()
-      }
-
-  """
-  @type lambda_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      discovered_device_summary() :: %{
-        "AuthenticationMaterial" => String.t() | atom(),
-        "Brand" => String.t() | atom(),
-        "ConnectorDeviceId" => String.t() | atom(),
-        "ConnectorDeviceName" => String.t() | atom(),
-        "DeviceTypes" => list(String.t() | atom()),
-        "DiscoveredAt" => non_neg_integer(),
-        "ManagedThingId" => String.t() | atom(),
-        "Model" => String.t() | atom(),
-        "Modification" => list(any())
-      }
-
-  """
-  @type discovered_device_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification_configuration_summary() :: %{
-        "DestinationName" => String.t() | atom(),
-        "EventType" => list(any())
-      }
-
-  """
-  @type notification_configuration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_provisioning_profile_request() :: %{
-        optional("CaCertificate") => String.t() | atom(),
-        optional("ClaimCertificate") => String.t() | atom(),
-        optional("ClientToken") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("ProvisioningType") => list(any())
-      }
-
-  """
-  @type create_provisioning_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auth_config() :: %{
-        "GeneralAuthorization" => list(auth_material()),
-        "oAuth" => o_auth_config()
-      }
-
-  """
-  @type auth_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_runtime_log_configuration_response() :: %{
-        "ManagedThingId" => String.t() | atom(),
-        "RuntimeLogConfigurations" => runtime_log_configurations()
-      }
-
-  """
-  @type get_runtime_log_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_device_discovery_response() :: %{
-        "Id" => String.t() | atom(),
-        "StartedAt" => non_neg_integer()
-      }
-
-  """
-  @type start_device_discovery_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_event_log_configuration_request() :: %{}
-
-  """
-  @type delete_event_log_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_hub_configuration_response() :: %{
-        "HubTokenTimerExpirySettingInSeconds" => float(),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_hub_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       abort_config_criteria() :: %{
         "Action" => list(any()),
         "FailureType" => list(any()),
@@ -1346,35 +33,12 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
-      get_device_discovery_request() :: %{}
-
-  """
-  @type get_device_discovery_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      send_connector_event_response() :: %{
-        "ConnectorId" => String.t() | atom()
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type send_connector_event_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_notification_configuration_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("DestinationName") => String.t() | atom(),
-        required("EventType") => list(any())
-      }
-
-  """
-  @type create_notification_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1397,23 +61,362 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
-      push_config() :: %{
-        "AbortConfig" => ota_task_abort_config(),
-        "RolloutConfig" => ota_task_execution_rollout_config(),
-        "TimeoutConfig" => ota_task_timeout_config()
+      auth_config() :: %{
+        "GeneralAuthorization" => list(auth_material()),
+        "oAuth" => o_auth_config()
       }
 
   """
-  @type push_config() :: %{(String.t() | atom()) => any()}
+  @type auth_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_cloud_connector_request() :: %{}
+      auth_config_update() :: %{
+        "GeneralAuthorizationUpdate" => general_authorization_update(),
+        "oAuthUpdate" => o_auth_update()
+      }
 
   """
-  @type delete_cloud_connector_request() :: %{}
+  @type auth_config_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auth_material() :: %{
+        "AuthMaterialName" => String.t() | atom(),
+        "SecretsManager" => secrets_manager()
+      }
+
+  """
+  @type auth_material() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability_action() :: %{
+        "actionTraceId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "parameters" => any(),
+        "ref" => String.t() | atom()
+      }
+
+  """
+  @type capability_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability_report() :: %{
+        "endpoints" => list(capability_report_endpoint()),
+        "nodeId" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type capability_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability_report_capability() :: %{
+        "actions" => list(String.t() | atom()),
+        "events" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "properties" => list(String.t() | atom()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type capability_report_capability() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability_report_endpoint() :: %{
+        "capabilities" => list(capability_report_capability()),
+        "deviceTypes" => list(String.t() | atom()),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type capability_report_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability_schema_item() :: %{
+        "CapabilityId" => String.t() | atom(),
+        "ExtrinsicId" => String.t() | atom(),
+        "ExtrinsicVersion" => integer(),
+        "Format" => list(any()),
+        "Schema" => any()
+      }
+
+  """
+  @type capability_schema_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_capability() :: %{
+        "actions" => list(capability_action()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type command_capability() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_endpoint() :: %{
+        "capabilities" => list(command_capability()),
+        "endpointId" => String.t() | atom()
+      }
+
+  """
+  @type command_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_error() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type configuration_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_status() :: %{
+        "error" => configuration_error(),
+        "state" => list(any())
+      }
+
+  """
+  @type configuration_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_destination_summary() :: %{
+        "CloudConnectorId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type connector_destination_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_item() :: %{
+        "Description" => String.t() | atom(),
+        "EndpointConfig" => endpoint_config(),
+        "EndpointType" => list(any()),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type connector_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_account_association_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("GeneralAuthorization") => general_authorization_name(),
+        optional("Name") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("ConnectorDestinationId") => String.t() | atom()
+      }
+
+  """
+  @type create_account_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_account_association_response() :: %{
+        "AccountAssociationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "AssociationState" => list(any()),
+        "OAuthAuthorizationUrl" => String.t() | atom()
+      }
+
+  """
+  @type create_account_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cloud_connector_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("EndpointType") => list(any()),
+        required("EndpointConfig") => endpoint_config(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_cloud_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cloud_connector_response() :: %{
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type create_cloud_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_destination_request() :: %{
+        optional("AuthType") => list(any()),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("SecretsManager") => secrets_manager(),
+        required("AuthConfig") => auth_config(),
+        required("CloudConnectorId") => String.t() | atom()
+      }
+
+  """
+  @type create_connector_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_destination_response() :: %{
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type create_connector_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_credential_locker_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_credential_locker_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_credential_locker_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type create_credential_locker_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_destination_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("DeliveryDestinationArn") => String.t() | atom(),
+        required("DeliveryDestinationType") => list(any()),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_destination_response() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_log_configuration_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ResourceId") => String.t() | atom(),
+        required("EventLogLevel") => list(any()),
+        required("ResourceType") => String.t() | atom()
+      }
+
+  """
+  @type create_event_log_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_log_configuration_response() :: %{
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type create_event_log_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1446,22 +449,321 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
-      tag_resource_response() :: %{}
+      create_managed_thing_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Id" => String.t() | atom()
+      }
 
   """
-  @type tag_resource_response() :: %{}
+  @type create_managed_thing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_discovered_devices_response() :: %{
-        "Items" => list(discovered_device_summary()),
-        "NextToken" => String.t() | atom()
+      create_notification_configuration_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("DestinationName") => String.t() | atom(),
+        required("EventType") => list(any())
       }
 
   """
-  @type list_discovered_devices_response() :: %{(String.t() | atom()) => any()}
+  @type create_notification_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_notification_configuration_response() :: %{
+        "EventType" => list(any())
+      }
+
+  """
+  @type create_notification_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ota_task_configuration_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("PushConfig") => push_config()
+      }
+
+  """
+  @type create_ota_task_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ota_task_configuration_response() :: %{
+        "TaskConfigurationId" => String.t() | atom()
+      }
+
+  """
+  @type create_ota_task_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ota_task_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("OtaMechanism") => list(any()),
+        optional("OtaSchedulingConfig") => ota_task_scheduling_config(),
+        optional("OtaTargetQueryString") => String.t() | atom(),
+        optional("OtaTaskExecutionRetryConfig") => ota_task_execution_retry_config(),
+        optional("Protocol") => list(any()),
+        optional("Tags") => map(),
+        optional("Target") => list([String.t() | atom()]()),
+        optional("TaskConfigurationId") => String.t() | atom(),
+        required("OtaType") => list(any()),
+        required("S3Url") => String.t() | atom()
+      }
+
+  """
+  @type create_ota_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ota_task_response() :: %{
+        "Description" => String.t() | atom(),
+        "TaskArn" => String.t() | atom(),
+        "TaskId" => String.t() | atom()
+      }
+
+  """
+  @type create_ota_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_provisioning_profile_request() :: %{
+        optional("CaCertificate") => String.t() | atom(),
+        optional("ClaimCertificate") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("ProvisioningType") => list(any())
+      }
+
+  """
+  @type create_provisioning_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_provisioning_profile_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ClaimCertificate" => String.t() | atom(),
+        "ClaimCertificatePrivateKey" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProvisioningType" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type create_provisioning_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      credential_locker_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type credential_locker_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_account_association_request() :: %{}
+
+  """
+  @type delete_account_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cloud_connector_request() :: %{}
+
+  """
+  @type delete_cloud_connector_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connector_destination_request() :: %{}
+
+  """
+  @type delete_connector_destination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_credential_locker_request() :: %{}
+
+  """
+  @type delete_credential_locker_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_destination_request() :: %{}
+
+  """
+  @type delete_destination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_log_configuration_request() :: %{}
+
+  """
+  @type delete_event_log_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_managed_thing_request() :: %{
+        optional("Force") => [boolean()]
+      }
+
+  """
+  @type delete_managed_thing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_notification_configuration_request() :: %{}
+
+  """
+  @type delete_notification_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ota_task_configuration_request() :: %{}
+
+  """
+  @type delete_ota_task_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ota_task_request() :: %{}
+
+  """
+  @type delete_ota_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_provisioning_profile_request() :: %{}
+
+  """
+  @type delete_provisioning_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_account_association_request() :: %{
+        required("AccountAssociationId") => String.t() | atom(),
+        required("ManagedThingId") => String.t() | atom()
+      }
+
+  """
+  @type deregister_account_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_summary() :: %{
+        "DeliveryDestinationArn" => String.t() | atom(),
+        "DeliveryDestinationType" => list(any()),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type destination_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device() :: %{
+        "CapabilityReport" => matter_capability_report(),
+        "CapabilitySchemas" => list(capability_schema_item()),
+        "ConnectorDeviceId" => String.t() | atom(),
+        "ConnectorDeviceName" => String.t() | atom(),
+        "DeviceMetadata" => any()
+      }
+
+  """
+  @type device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device_discovery_summary() :: %{
+        "DiscoveryType" => list(any()),
+        "Id" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type device_discovery_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      discovered_device_summary() :: %{
+        "AuthenticationMaterial" => String.t() | atom(),
+        "Brand" => String.t() | atom(),
+        "ConnectorDeviceId" => String.t() | atom(),
+        "ConnectorDeviceName" => String.t() | atom(),
+        "DeviceTypes" => list(String.t() | atom()),
+        "DiscoveredAt" => non_neg_integer(),
+        "ManagedThingId" => String.t() | atom(),
+        "Model" => String.t() | atom(),
+        "Modification" => list(any())
+      }
+
+  """
+  @type discovered_device_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1478,55 +780,307 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
-      put_default_encryption_configuration_response() :: %{
+      event_log_configuration_summary() :: %{
+        "EventLogLevel" => list(any()),
+        "Id" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type event_log_configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      exponential_rollout_rate() :: %{
+        "BaseRatePerMinute" => integer(),
+        "IncrementFactor" => float(),
+        "RateIncreaseCriteria" => rollout_rate_increase_criteria()
+      }
+
+  """
+  @type exponential_rollout_rate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      general_authorization_name() :: %{
+        "AuthMaterialName" => String.t() | atom()
+      }
+
+  """
+  @type general_authorization_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      general_authorization_update() :: %{
+        "AuthMaterialsToAdd" => list(auth_material()),
+        "AuthMaterialsToUpdate" => list(auth_material())
+      }
+
+  """
+  @type general_authorization_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_association_request() :: %{}
+
+  """
+  @type get_account_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_association_response() :: %{
+        "AccountAssociationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "AssociationState" => list(any()),
+        "ConnectorDestinationId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "GeneralAuthorization" => general_authorization_name(),
+        "Name" => String.t() | atom(),
+        "OAuthAuthorizationUrl" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_account_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cloud_connector_request() :: %{}
+
+  """
+  @type get_cloud_connector_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cloud_connector_response() :: %{
+        "Description" => String.t() | atom(),
+        "EndpointConfig" => endpoint_config(),
+        "EndpointType" => list(any()),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type get_cloud_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_destination_request() :: %{}
+
+  """
+  @type get_connector_destination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_destination_response() :: %{
+        "AuthConfig" => auth_config(),
+        "AuthType" => list(any()),
+        "CloudConnectorId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OAuthCompleteRedirectUrl" => String.t() | atom(),
+        "SecretsManager" => secrets_manager()
+      }
+
+  """
+  @type get_connector_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_credential_locker_request() :: %{}
+
+  """
+  @type get_credential_locker_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_credential_locker_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_credential_locker_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_endpoint_request() :: %{}
+
+  """
+  @type get_custom_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_endpoint_response() :: %{
+        "EndpointAddress" => String.t() | atom()
+      }
+
+  """
+  @type get_custom_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_default_encryption_configuration_request() :: %{}
+
+  """
+  @type get_default_encryption_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_default_encryption_configuration_response() :: %{
         "configurationStatus" => configuration_status(),
         "encryptionType" => list(any()),
         "kmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type put_default_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type get_default_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_account_association_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom()
-      }
+      get_destination_request() :: %{}
 
   """
-  @type update_account_association_request() :: %{(String.t() | atom()) => any()}
+  @type get_destination_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_account_association_response() :: %{
-        "AccountAssociationId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "AssociationState" => list(any()),
-        "OAuthAuthorizationUrl" => String.t() | atom()
-      }
-
-  """
-  @type create_account_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ota_task_configuration_response() :: %{
+      get_destination_response() :: %{
         "CreatedAt" => non_neg_integer(),
+        "DeliveryDestinationArn" => String.t() | atom(),
+        "DeliveryDestinationType" => list(any()),
         "Description" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "PushConfig" => push_config(),
-        "TaskConfigurationId" => String.t() | atom()
+        "RoleArn" => String.t() | atom(),
+        "Tags" => map(),
+        "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type get_ota_task_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type get_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_discovery_request() :: %{}
+
+  """
+  @type get_device_discovery_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_discovery_response() :: %{
+        "AccountAssociationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "ConnectorAssociationId" => String.t() | atom(),
+        "ControllerId" => String.t() | atom(),
+        "DiscoveryType" => list(any()),
+        "FinishedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type get_device_discovery_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_log_configuration_request() :: %{}
+
+  """
+  @type get_event_log_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_log_configuration_response() :: %{
+        "EventLogLevel" => list(any()),
+        "Id" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type get_event_log_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_hub_configuration_request() :: %{}
+
+  """
+  @type get_hub_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_hub_configuration_response() :: %{
+        "HubTokenTimerExpirySettingInSeconds" => float(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_hub_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_thing_capabilities_request() :: %{}
+
+  """
+  @type get_managed_thing_capabilities_request() :: %{}
 
   @typedoc """
 
@@ -1545,170 +1099,22 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
-      delete_notification_configuration_request() :: %{}
+      get_managed_thing_certificate_request() :: %{}
 
   """
-  @type delete_notification_configuration_request() :: %{}
+  @type get_managed_thing_certificate_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_event_log_configurations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      get_managed_thing_certificate_response() :: %{
+        "CertificatePem" => String.t() | atom(),
+        "ManagedThingId" => String.t() | atom()
       }
 
   """
-  @type list_event_log_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_schema_version_request() :: %{
-        optional("Format") => list(any())
-      }
-
-  """
-  @type get_schema_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_destination_response() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_destination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      matter_endpoint() :: %{
-        "clusters" => list(matter_cluster()),
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type matter_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connector_destination_response() :: %{
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type create_connector_destination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_device_discoveries_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StatusFilter") => list(any()),
-        optional("TypeFilter") => list(any())
-      }
-
-  """
-  @type list_device_discoveries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ota_task_scheduling_config() :: %{
-        "EndBehavior" => list(any()),
-        "EndTime" => String.t() | atom(),
-        "MaintenanceWindows" => list(schedule_maintenance_window()),
-        "StartTime" => String.t() | atom()
-      }
-
-  """
-  @type ota_task_scheduling_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ota_task_execution_summary() :: %{
-        "ExecutionNumber" => float(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "QueuedAt" => non_neg_integer(),
-        "RetryAttempt" => integer(),
-        "StartedAt" => non_neg_integer(),
-        "Status" => list(any())
-      }
-
-  """
-  @type ota_task_execution_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      general_authorization_update() :: %{
-        "AuthMaterialsToAdd" => list(auth_material()),
-        "AuthMaterialsToUpdate" => list(auth_material())
-      }
-
-  """
-  @type general_authorization_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ota_task_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "OtaMechanism" => list(any()),
-        "OtaSchedulingConfig" => ota_task_scheduling_config(),
-        "OtaTargetQueryString" => String.t() | atom(),
-        "OtaTaskExecutionRetryConfig" => ota_task_execution_retry_config(),
-        "OtaType" => list(any()),
-        "Protocol" => list(any()),
-        "S3Url" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => map(),
-        "Target" => list([String.t() | atom()]()),
-        "TaskArn" => String.t() | atom(),
-        "TaskConfigurationId" => String.t() | atom(),
-        "TaskId" => String.t() | atom(),
-        "TaskProcessingDetails" => task_processing_details()
-      }
-
-  """
-  @type get_ota_task_response() :: %{(String.t() | atom()) => any()}
+  @type get_managed_thing_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1723,79 +1129,45 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
-      put_default_encryption_configuration_request() :: %{
-        optional("kmsKeyArn") => String.t() | atom(),
-        required("encryptionType") => list(any())
+      get_managed_thing_connectivity_data_response() :: %{
+        "Connected" => boolean(),
+        "DisconnectReason" => list(any()),
+        "ManagedThingId" => String.t() | atom(),
+        "Timestamp" => non_neg_integer()
       }
 
   """
-  @type put_default_encryption_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type get_managed_thing_connectivity_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_hub_configuration_request() :: %{}
+      get_managed_thing_meta_data_request() :: %{}
 
   """
-  @type get_hub_configuration_request() :: %{}
+  @type get_managed_thing_meta_data_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_managed_thing_certificate_request() :: %{}
-
-  """
-  @type get_managed_thing_certificate_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      command_capability() :: %{
-        "actions" => list(capability_action()),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "version" => String.t() | atom()
+      get_managed_thing_meta_data_response() :: %{
+        "ManagedThingId" => String.t() | atom(),
+        "MetaData" => map()
       }
 
   """
-  @type command_capability() :: %{(String.t() | atom()) => any()}
+  @type get_managed_thing_meta_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_event_log_configuration_response() :: %{
-        "Id" => String.t() | atom()
-      }
+      get_managed_thing_request() :: %{}
 
   """
-  @type create_event_log_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_credential_lockers_response() :: %{
-        "Items" => list(credential_locker_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_credential_lockers_response() :: %{(String.t() | atom()) => any()}
+  @type get_managed_thing_request() :: %{}
 
   @typedoc """
 
@@ -1838,92 +1210,30 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
-      connector_item() :: %{
-        "Description" => String.t() | atom(),
-        "EndpointConfig" => endpoint_config(),
-        "EndpointType" => list(any()),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Type" => list(any())
-      }
+      get_managed_thing_state_request() :: %{}
 
   """
-  @type connector_item() :: %{(String.t() | atom()) => any()}
+  @type get_managed_thing_state_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      destination_summary() :: %{
-        "DeliveryDestinationArn" => String.t() | atom(),
-        "DeliveryDestinationType" => list(any()),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom()
+      get_managed_thing_state_response() :: %{
+        "Endpoints" => list(state_endpoint())
       }
 
   """
-  @type destination_summary() :: %{(String.t() | atom()) => any()}
+  @type get_managed_thing_state_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      auth_config_update() :: %{
-        "GeneralAuthorizationUpdate" => general_authorization_update(),
-        "oAuthUpdate" => o_auth_update()
-      }
+      get_notification_configuration_request() :: %{}
 
   """
-  @type auth_config_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_destination_request() :: %{}
-
-  """
-  @type delete_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_managed_thing_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type create_managed_thing_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_thing_account_associations_request() :: %{
-        optional("AccountAssociationId") => String.t() | atom(),
-        optional("ManagedThingId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_managed_thing_account_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      command_endpoint() :: %{
-        "capabilities" => list(command_capability()),
-        "endpointId" => String.t() | atom()
-      }
-
-  """
-  @type command_endpoint() :: %{(String.t() | atom()) => any()}
+  @type get_notification_configuration_request() :: %{}
 
   @typedoc """
 
@@ -1944,34 +1254,329 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
-      delete_connector_destination_request() :: %{}
+      get_ota_task_configuration_request() :: %{}
 
   """
-  @type delete_connector_destination_request() :: %{}
+  @type get_ota_task_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_managed_thing_meta_data_response() :: %{
+      get_ota_task_configuration_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PushConfig" => push_config(),
+        "TaskConfigurationId" => String.t() | atom()
+      }
+
+  """
+  @type get_ota_task_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ota_task_request() :: %{}
+
+  """
+  @type get_ota_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ota_task_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "OtaMechanism" => list(any()),
+        "OtaSchedulingConfig" => ota_task_scheduling_config(),
+        "OtaTargetQueryString" => String.t() | atom(),
+        "OtaTaskExecutionRetryConfig" => ota_task_execution_retry_config(),
+        "OtaType" => list(any()),
+        "Protocol" => list(any()),
+        "S3Url" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "Target" => list([String.t() | atom()]()),
+        "TaskArn" => String.t() | atom(),
+        "TaskConfigurationId" => String.t() | atom(),
+        "TaskId" => String.t() | atom(),
+        "TaskProcessingDetails" => task_processing_details()
+      }
+
+  """
+  @type get_ota_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_provisioning_profile_request() :: %{}
+
+  """
+  @type get_provisioning_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_provisioning_profile_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ClaimCertificate" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProvisioningType" => list(any()),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type get_provisioning_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_runtime_log_configuration_request() :: %{}
+
+  """
+  @type get_runtime_log_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_runtime_log_configuration_response() :: %{
         "ManagedThingId" => String.t() | atom(),
-        "MetaData" => map()
+        "RuntimeLogConfigurations" => runtime_log_configurations()
       }
 
   """
-  @type get_managed_thing_meta_data_response() :: %{(String.t() | atom()) => any()}
+  @type get_runtime_log_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      auth_material() :: %{
-        "AuthMaterialName" => String.t() | atom(),
-        "SecretsManager" => secrets_manager()
+      get_schema_version_request() :: %{
+        optional("Format") => list(any())
       }
 
   """
-  @type auth_material() :: %{(String.t() | atom()) => any()}
+  @type get_schema_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_schema_version_response() :: %{
+        "Description" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "Schema" => any(),
+        "SchemaId" => String.t() | atom(),
+        "SemanticVersion" => String.t() | atom(),
+        "Type" => list(any()),
+        "Visibility" => list(any())
+      }
+
+  """
+  @type get_schema_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_config() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_account_associations_request() :: %{
+        optional("ConnectorDestinationId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_account_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_account_associations_response() :: %{
+        "Items" => list(account_association_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_account_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cloud_connectors_request() :: %{
+        optional("LambdaArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
+
+  """
+  @type list_cloud_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cloud_connectors_response() :: %{
+        "Items" => list(connector_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_cloud_connectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connector_destinations_request() :: %{
+        optional("CloudConnectorId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_connector_destinations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connector_destinations_response() :: %{
+        "ConnectorDestinationList" => list(connector_destination_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_connector_destinations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_credential_lockers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_credential_lockers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_credential_lockers_response() :: %{
+        "Items" => list(credential_locker_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_credential_lockers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_destinations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_destinations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_destinations_response() :: %{
+        "DestinationList" => list(destination_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_destinations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_device_discoveries_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StatusFilter") => list(any()),
+        optional("TypeFilter") => list(any())
+      }
+
+  """
+  @type list_device_discoveries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1989,10 +1594,927 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
-      delete_ota_task_request() :: %{}
+      list_discovered_devices_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
 
   """
-  @type delete_ota_task_request() :: %{}
+  @type list_discovered_devices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_discovered_devices_response() :: %{
+        "Items" => list(discovered_device_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_discovered_devices_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_log_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_event_log_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_log_configurations_response() :: %{
+        "EventLogConfigurationList" => list(event_log_configuration_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_event_log_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_thing_account_associations_request() :: %{
+        optional("AccountAssociationId") => String.t() | atom(),
+        optional("ManagedThingId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_managed_thing_account_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_thing_account_associations_response() :: %{
+        "Items" => list(managed_thing_association()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_managed_thing_account_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_thing_schemas_request() :: %{
+        optional("CapabilityIdFilter") => String.t() | atom(),
+        optional("EndpointIdFilter") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_managed_thing_schemas_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_thing_schemas_response() :: %{
+        "Items" => list(managed_thing_schema_list_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_managed_thing_schemas_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_things_request() :: %{
+        optional("ConnectorDestinationIdFilter") => String.t() | atom(),
+        optional("ConnectorDeviceIdFilter") => String.t() | atom(),
+        optional("ConnectorPolicyIdFilter") => String.t() | atom(),
+        optional("CredentialLockerFilter") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OwnerFilter") => String.t() | atom(),
+        optional("ParentControllerIdentifierFilter") => String.t() | atom(),
+        optional("ProvisioningStatusFilter") => list(any()),
+        optional("RoleFilter") => list(any()),
+        optional("SerialNumberFilter") => String.t() | atom()
+      }
+
+  """
+  @type list_managed_things_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_things_response() :: %{
+        "Items" => list(managed_thing_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_managed_things_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notification_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_notification_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notification_configurations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "NotificationConfigurationList" => list(notification_configuration_summary())
+      }
+
+  """
+  @type list_notification_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ota_task_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_ota_task_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ota_task_configurations_response() :: %{
+        "Items" => list(ota_task_configuration_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_ota_task_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ota_task_executions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_ota_task_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ota_task_executions_response() :: %{
+        "ExecutionSummaries" => list(ota_task_execution_summaries()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_ota_task_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ota_tasks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_ota_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ota_tasks_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tasks" => list(ota_task_summary())
+      }
+
+  """
+  @type list_ota_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_provisioning_profiles_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_provisioning_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_provisioning_profiles_response() :: %{
+        "Items" => list(provisioning_profile_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_provisioning_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schema_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("Namespace") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SchemaId") => String.t() | atom(),
+        optional("SemanticVersion") => String.t() | atom(),
+        optional("Visibility") => list(any())
+      }
+
+  """
+  @type list_schema_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schema_versions_response() :: %{
+        "Items" => list(schema_version_list_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_schema_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_thing_association() :: %{
+        "AccountAssociationId" => String.t() | atom(),
+        "ManagedThingAssociationStatus" => list(any()),
+        "ManagedThingId" => String.t() | atom()
+      }
+
+  """
+  @type managed_thing_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_thing_schema_list_item() :: %{
+        "CapabilityId" => String.t() | atom(),
+        "EndpointId" => String.t() | atom(),
+        "Schema" => any()
+      }
+
+  """
+  @type managed_thing_schema_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_thing_summary() :: %{
+        "ActivatedAt" => non_neg_integer(),
+        "AdvertisedProductId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "Brand" => String.t() | atom(),
+        "Classification" => String.t() | atom(),
+        "ConnectorDestinationId" => String.t() | atom(),
+        "ConnectorDeviceId" => String.t() | atom(),
+        "ConnectorPolicyId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "CredentialLockerId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Model" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "ParentControllerId" => String.t() | atom(),
+        "ProvisioningStatus" => list(any()),
+        "Role" => list(any()),
+        "SerialNumber" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type managed_thing_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      matter_capability_report() :: %{
+        "endpoints" => list(matter_capability_report_endpoint()),
+        "nodeId" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type matter_capability_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      matter_capability_report_attribute() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "value" => any()
+      }
+
+  """
+  @type matter_capability_report_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      matter_capability_report_cluster() :: %{
+        "attributes" => list(matter_capability_report_attribute()),
+        "commands" => list(String.t() | atom()),
+        "events" => list(String.t() | atom()),
+        "fabricIndex" => integer(),
+        "featureMap" => float(),
+        "generatedCommands" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "publicId" => String.t() | atom(),
+        "revision" => integer(),
+        "specVersion" => String.t() | atom()
+      }
+
+  """
+  @type matter_capability_report_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      matter_capability_report_endpoint() :: %{
+        "clientClusters" => list(String.t() | atom()),
+        "clusters" => list(matter_capability_report_cluster()),
+        "deviceTypes" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "parts" => list(String.t() | atom()),
+        "semanticTags" => list(String.t() | atom())
+      }
+
+  """
+  @type matter_capability_report_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      matter_cluster() :: %{
+        "attributes" => any(),
+        "commands" => map(),
+        "events" => map(),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type matter_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      matter_endpoint() :: %{
+        "clusters" => list(matter_cluster()),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type matter_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_configuration_summary() :: %{
+        "DestinationName" => String.t() | atom(),
+        "EventType" => list(any())
+      }
+
+  """
+  @type notification_configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth_config() :: %{
+        "authUrl" => String.t() | atom(),
+        "oAuthCompleteRedirectUrl" => [String.t() | atom()],
+        "proactiveRefreshTokenRenewal" => proactive_refresh_token_renewal(),
+        "scope" => [String.t() | atom()],
+        "tokenEndpointAuthenticationScheme" => list(any()),
+        "tokenUrl" => String.t() | atom()
+      }
+
+  """
+  @type o_auth_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth_update() :: %{
+        "oAuthCompleteRedirectUrl" => [String.t() | atom()],
+        "proactiveRefreshTokenRenewal" => proactive_refresh_token_renewal()
+      }
+
+  """
+  @type o_auth_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ota_task_abort_config() :: %{
+        "AbortConfigCriteriaList" => list(abort_config_criteria())
+      }
+
+  """
+  @type ota_task_abort_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ota_task_configuration_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "TaskConfigurationId" => String.t() | atom()
+      }
+
+  """
+  @type ota_task_configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ota_task_execution_retry_config() :: %{
+        "RetryConfigCriteria" => list(retry_config_criteria())
+      }
+
+  """
+  @type ota_task_execution_retry_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ota_task_execution_rollout_config() :: %{
+        "ExponentialRolloutRate" => exponential_rollout_rate(),
+        "MaximumPerMinute" => integer()
+      }
+
+  """
+  @type ota_task_execution_rollout_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ota_task_execution_summaries() :: %{
+        "ManagedThingId" => String.t() | atom(),
+        "TaskExecutionSummary" => ota_task_execution_summary()
+      }
+
+  """
+  @type ota_task_execution_summaries() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ota_task_execution_summary() :: %{
+        "ExecutionNumber" => float(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "QueuedAt" => non_neg_integer(),
+        "RetryAttempt" => integer(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type ota_task_execution_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ota_task_scheduling_config() :: %{
+        "EndBehavior" => list(any()),
+        "EndTime" => String.t() | atom(),
+        "MaintenanceWindows" => list(schedule_maintenance_window()),
+        "StartTime" => String.t() | atom()
+      }
+
+  """
+  @type ota_task_scheduling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ota_task_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskArn" => String.t() | atom(),
+        "TaskConfigurationId" => String.t() | atom(),
+        "TaskId" => String.t() | atom()
+      }
+
+  """
+  @type ota_task_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ota_task_timeout_config() :: %{
+        "InProgressTimeoutInMinutes" => float()
+      }
+
+  """
+  @type ota_task_timeout_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      proactive_refresh_token_renewal() :: %{
+        "DaysBeforeRenewal" => [integer()],
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type proactive_refresh_token_renewal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provisioning_profile_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProvisioningType" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type provisioning_profile_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_config() :: %{
+        "AbortConfig" => ota_task_abort_config(),
+        "RolloutConfig" => ota_task_execution_rollout_config(),
+        "TimeoutConfig" => ota_task_timeout_config()
+      }
+
+  """
+  @type push_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_default_encryption_configuration_request() :: %{
+        optional("kmsKeyArn") => String.t() | atom(),
+        required("encryptionType") => list(any())
+      }
+
+  """
+  @type put_default_encryption_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_default_encryption_configuration_response() :: %{
+        "configurationStatus" => configuration_status(),
+        "encryptionType" => list(any()),
+        "kmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type put_default_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_hub_configuration_request() :: %{
+        required("HubTokenTimerExpirySettingInSeconds") => float()
+      }
+
+  """
+  @type put_hub_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_hub_configuration_response() :: %{
+        "HubTokenTimerExpirySettingInSeconds" => float()
+      }
+
+  """
+  @type put_hub_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_runtime_log_configuration_request() :: %{
+        required("RuntimeLogConfigurations") => runtime_log_configurations()
+      }
+
+  """
+  @type put_runtime_log_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_account_association_request() :: %{
+        required("AccountAssociationId") => String.t() | atom(),
+        required("DeviceDiscoveryId") => String.t() | atom(),
+        required("ManagedThingId") => String.t() | atom()
+      }
+
+  """
+  @type register_account_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_account_association_response() :: %{
+        "AccountAssociationId" => String.t() | atom(),
+        "DeviceDiscoveryId" => String.t() | atom(),
+        "ManagedThingId" => String.t() | atom()
+      }
+
+  """
+  @type register_account_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_custom_endpoint_request() :: %{}
+
+  """
+  @type register_custom_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      register_custom_endpoint_response() :: %{
+        "EndpointAddress" => String.t() | atom()
+      }
+
+  """
+  @type register_custom_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_runtime_log_configuration_request() :: %{}
+
+  """
+  @type reset_runtime_log_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_config_criteria() :: %{
+        "FailureType" => list(any()),
+        "MinNumberOfRetries" => integer()
+      }
+
+  """
+  @type retry_config_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rollout_rate_increase_criteria() :: %{
+        "numberOfNotifiedThings" => integer(),
+        "numberOfSucceededThings" => integer()
+      }
+
+  """
+  @type rollout_rate_increase_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_log_configurations() :: %{
+        "DeleteLocalStoreAfterUpload" => boolean(),
+        "LocalStoreFileRotationMaxBytes" => integer(),
+        "LocalStoreFileRotationMaxFiles" => integer(),
+        "LocalStoreLocation" => String.t() | atom(),
+        "LogFlushLevel" => list(any()),
+        "LogLevel" => list(any()),
+        "UploadLog" => boolean(),
+        "UploadPeriodMinutes" => integer()
+      }
+
+  """
+  @type runtime_log_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schedule_maintenance_window() :: %{
+        "DurationInMinutes" => integer(),
+        "StartTime" => String.t() | atom()
+      }
+
+  """
+  @type schedule_maintenance_window() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_version_list_item() :: %{
+        "Description" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "SchemaId" => String.t() | atom(),
+        "SemanticVersion" => String.t() | atom(),
+        "Type" => list(any()),
+        "Visibility" => list(any())
+      }
+
+  """
+  @type schema_version_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secrets_manager() :: %{
+        "arn" => String.t() | atom(),
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type secrets_manager() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_connector_event_request() :: %{
+        optional("ConnectorDeviceId") => String.t() | atom(),
+        optional("DeviceDiscoveryId") => String.t() | atom(),
+        optional("Devices") => list(device()),
+        optional("MatterEndpoint") => matter_endpoint(),
+        optional("Message") => String.t() | atom(),
+        optional("OperationVersion") => String.t() | atom(),
+        optional("StatusCode") => integer(),
+        optional("TraceId") => String.t() | atom(),
+        optional("UserId") => String.t() | atom(),
+        required("Operation") => list(any())
+      }
+
+  """
+  @type send_connector_event_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_connector_event_response() :: %{
+        "ConnectorId" => String.t() | atom()
+      }
+
+  """
+  @type send_connector_event_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_managed_thing_command_request() :: %{
+        optional("AccountAssociationId") => String.t() | atom(),
+        optional("ConnectorAssociationId") => String.t() | atom(),
+        required("Endpoints") => list(command_endpoint())
+      }
+
+  """
+  @type send_managed_thing_command_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_managed_thing_command_response() :: %{
+        "TraceId" => String.t() | atom()
+      }
+
+  """
+  @type send_managed_thing_command_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2007,19 +2529,217 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
-      get_connector_destination_response() :: %{
-        "AuthConfig" => auth_config(),
-        "AuthType" => list(any()),
-        "CloudConnectorId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "OAuthCompleteRedirectUrl" => String.t() | atom(),
-        "SecretsManager" => secrets_manager()
+      start_account_association_refresh_response() :: %{
+        "OAuthAuthorizationUrl" => String.t() | atom()
       }
 
   """
-  @type get_connector_destination_response() :: %{(String.t() | atom()) => any()}
+  @type start_account_association_refresh_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_device_discovery_request() :: %{
+        optional("AccountAssociationId") => String.t() | atom(),
+        optional("AuthenticationMaterial") => String.t() | atom(),
+        optional("AuthenticationMaterialType") => list(any()),
+        optional("ClientToken") => String.t() | atom(),
+        optional("ConnectorAssociationIdentifier") => String.t() | atom(),
+        optional("ConnectorDeviceIdList") => list(String.t() | atom()),
+        optional("ControllerIdentifier") => String.t() | atom(),
+        optional("CustomProtocolDetail") => map(),
+        optional("EndDeviceIdentifier") => String.t() | atom(),
+        optional("Protocol") => list(any()),
+        optional("Tags") => map(),
+        required("DiscoveryType") => list(any())
+      }
+
+  """
+  @type start_device_discovery_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_device_discovery_response() :: %{
+        "Id" => String.t() | atom(),
+        "StartedAt" => non_neg_integer()
+      }
+
+  """
+  @type start_device_discovery_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      state_capability() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "properties" => any(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type state_capability() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      state_endpoint() :: %{
+        "capabilities" => list(state_capability()),
+        "endpointId" => String.t() | atom()
+      }
+
+  """
+  @type state_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      task_processing_details() :: %{
+        "NumberOfCanceledThings" => [integer()],
+        "NumberOfFailedThings" => [integer()],
+        "NumberOfInProgressThings" => [integer()],
+        "numberOfQueuedThings" => [integer()],
+        "numberOfRejectedThings" => [integer()],
+        "numberOfRemovedThings" => [integer()],
+        "numberOfSucceededThings" => [integer()],
+        "numberOfTimedOutThings" => [integer()],
+        "processingTargets" => list([String.t() | atom()]())
+      }
+
+  """
+  @type task_processing_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_association_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_account_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cloud_connector_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_cloud_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connector_destination_request() :: %{
+        optional("AuthConfig") => auth_config_update(),
+        optional("AuthType") => list(any()),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("SecretsManager") => secrets_manager()
+      }
+
+  """
+  @type update_connector_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_destination_request() :: %{
+        optional("DeliveryDestinationArn") => String.t() | atom(),
+        optional("DeliveryDestinationType") => list(any()),
+        optional("Description") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_log_configuration_request() :: %{
+        required("EventLogLevel") => list(any())
+      }
+
+  """
+  @type update_event_log_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2048,1421 +2768,701 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
-      list_managed_thing_account_associations_response() :: %{
-        "Items" => list(managed_thing_association()),
-        "NextToken" => [String.t() | atom()]
+      update_notification_configuration_request() :: %{
+        required("DestinationName") => String.t() | atom()
       }
 
   """
-  @type list_managed_thing_account_associations_response() :: %{(String.t() | atom()) => any()}
+  @type update_notification_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      send_managed_thing_command_response() :: %{
-        "TraceId" => String.t() | atom()
-      }
-
-  """
-  @type send_managed_thing_command_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_thing_certificate_response() :: %{
-        "CertificatePem" => String.t() | atom(),
-        "ManagedThingId" => String.t() | atom()
-      }
-
-  """
-  @type get_managed_thing_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_thing_capabilities_request() :: %{}
-
-  """
-  @type get_managed_thing_capabilities_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_thing_schemas_response() :: %{
-        "Items" => list(managed_thing_schema_list_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_managed_thing_schemas_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ota_task_configurations_response() :: %{
-        "Items" => list(ota_task_configuration_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_ota_task_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connector_destinations_response() :: %{
-        "ConnectorDestinationList" => list(connector_destination_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_connector_destinations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_account_associations_request() :: %{
-        optional("ConnectorDestinationId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_account_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_destination_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DeliveryDestinationArn" => String.t() | atom(),
-        "DeliveryDestinationType" => list(any()),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "Tags" => map(),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_destination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rollout_rate_increase_criteria() :: %{
-        "numberOfNotifiedThings" => integer(),
-        "numberOfSucceededThings" => integer()
-      }
-
-  """
-  @type rollout_rate_increase_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retry_config_criteria() :: %{
-        "FailureType" => list(any()),
-        "MinNumberOfRetries" => integer()
-      }
-
-  """
-  @type retry_config_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      general_authorization_name() :: %{
-        "AuthMaterialName" => String.t() | atom()
-      }
-
-  """
-  @type general_authorization_name() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ota_task_configuration_request() :: %{}
-
-  """
-  @type get_ota_task_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      secrets_manager() :: %{
-        "arn" => String.t() | atom(),
-        "versionId" => String.t() | atom()
-      }
-
-  """
-  @type secrets_manager() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cloud_connector_response() :: %{
-        "Description" => String.t() | atom(),
-        "EndpointConfig" => endpoint_config(),
-        "EndpointType" => list(any()),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Type" => list(any())
-      }
-
-  """
-  @type get_cloud_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_custom_endpoint_request() :: %{}
-
-  """
-  @type register_custom_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_association_request() :: %{}
-
-  """
-  @type get_account_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_credential_locker_request() :: %{}
-
-  """
-  @type delete_credential_locker_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_ota_task_configuration_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
+      update_ota_task_request() :: %{
         optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("PushConfig") => push_config()
+        optional("TaskConfigurationId") => String.t() | atom()
       }
 
   """
-  @type create_ota_task_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type update_ota_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_ota_task_response() :: %{
-        "Description" => String.t() | atom(),
-        "TaskArn" => String.t() | atom(),
-        "TaskId" => String.t() | atom()
-      }
-
-  """
-  @type create_ota_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_log_configuration_request() :: %{
-        required("EventLogLevel") => list(any())
-      }
-
-  """
-  @type update_event_log_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device_discovery_summary() :: %{
-        "DiscoveryType" => list(any()),
-        "Id" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type device_discovery_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      task_processing_details() :: %{
-        "NumberOfCanceledThings" => [integer()],
-        "NumberOfFailedThings" => [integer()],
-        "NumberOfInProgressThings" => [integer()],
-        "numberOfQueuedThings" => [integer()],
-        "numberOfRejectedThings" => [integer()],
-        "numberOfRemovedThings" => [integer()],
-        "numberOfSucceededThings" => [integer()],
-        "numberOfTimedOutThings" => [integer()],
-        "processingTargets" => list([String.t() | atom()]())
-      }
-
-  """
-  @type task_processing_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_device_discovery_response() :: %{
-        "AccountAssociationId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "ConnectorAssociationId" => String.t() | atom(),
-        "ControllerId" => String.t() | atom(),
-        "DiscoveryType" => list(any()),
-        "FinishedAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "StartedAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type get_device_discovery_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notification_configurations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_notification_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_credential_locker_request() :: %{}
-
-  """
-  @type get_credential_locker_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      register_account_association_request() :: %{
-        required("AccountAssociationId") => String.t() | atom(),
-        required("DeviceDiscoveryId") => String.t() | atom(),
-        required("ManagedThingId") => String.t() | atom()
-      }
-
-  """
-  @type register_account_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_credential_locker_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type get_credential_locker_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_credential_locker_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Tags") => map()
-      }
-
-  """
-  @type create_credential_locker_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cloud_connectors_response() :: %{
-        "Items" => list(connector_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_cloud_connectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_request_exception() :: %{
+      validation_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      schedule_maintenance_window() :: %{
-        "DurationInMinutes" => integer(),
-        "StartTime" => String.t() | atom()
+      wi_fi_simple_setup_configuration() :: %{
+        "EnableAsProvisionee" => boolean(),
+        "EnableAsProvisioner" => boolean(),
+        "TimeoutInMinutes" => integer()
       }
 
   """
-  @type schedule_maintenance_window() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_provisioning_profile_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ClaimCertificate" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ProvisioningType" => list(any()),
-        "Status" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type get_provisioning_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_log_configurations_response() :: %{
-        "EventLogConfigurationList" => list(event_log_configuration_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_event_log_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_schema_versions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("Namespace") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SchemaId") => String.t() | atom(),
-        optional("SemanticVersion") => String.t() | atom(),
-        optional("Visibility") => list(any())
-      }
-
-  """
-  @type list_schema_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ota_task_configurations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_ota_task_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_destination_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("DeliveryDestinationArn") => String.t() | atom(),
-        required("DeliveryDestinationType") => list(any()),
-        required("Name") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_provisioning_profiles_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_provisioning_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_custom_endpoint_response() :: %{
-        "EndpointAddress" => String.t() | atom()
-      }
-
-  """
-  @type get_custom_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_device_discovery_request() :: %{
-        optional("AccountAssociationId") => String.t() | atom(),
-        optional("AuthenticationMaterial") => String.t() | atom(),
-        optional("AuthenticationMaterialType") => list(any()),
-        optional("ClientToken") => String.t() | atom(),
-        optional("ConnectorAssociationIdentifier") => String.t() | atom(),
-        optional("ConnectorDeviceIdList") => list(String.t() | atom()),
-        optional("ControllerIdentifier") => String.t() | atom(),
-        optional("CustomProtocolDetail") => map(),
-        optional("EndDeviceIdentifier") => String.t() | atom(),
-        optional("Protocol") => list(any()),
-        optional("Tags") => map(),
-        required("DiscoveryType") => list(any())
-      }
-
-  """
-  @type start_device_discovery_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_provisioning_profile_request() :: %{}
-
-  """
-  @type delete_provisioning_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_destination_request() :: %{}
-
-  """
-  @type get_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cloud_connector_request() :: %{}
-
-  """
-  @type get_cloud_connector_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_discovered_devices_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_discovered_devices_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cloud_connectors_request() :: %{
-        optional("LambdaArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Type") => list(any())
-      }
-
-  """
-  @type list_cloud_connectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capability_report() :: %{
-        "endpoints" => list(capability_report_endpoint()),
-        "nodeId" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type capability_report() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_destination_request() :: %{
-        optional("DeliveryDestinationArn") => String.t() | atom(),
-        optional("DeliveryDestinationType") => list(any()),
-        optional("Description") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connector_destination_request() :: %{}
-
-  """
-  @type get_connector_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_account_association_refresh_response() :: %{
-        "OAuthAuthorizationUrl" => String.t() | atom()
-      }
-
-  """
-  @type start_account_association_refresh_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      matter_capability_report_cluster() :: %{
-        "attributes" => list(matter_capability_report_attribute()),
-        "commands" => list(String.t() | atom()),
-        "events" => list(String.t() | atom()),
-        "fabricIndex" => integer(),
-        "featureMap" => float(),
-        "generatedCommands" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "publicId" => String.t() | atom(),
-        "revision" => integer(),
-        "specVersion" => String.t() | atom()
-      }
-
-  """
-  @type matter_capability_report_cluster() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_thing_association() :: %{
-        "AccountAssociationId" => String.t() | atom(),
-        "ManagedThingAssociationStatus" => list(any()),
-        "ManagedThingId" => String.t() | atom()
-      }
-
-  """
-  @type managed_thing_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_runtime_log_configuration_request() :: %{}
-
-  """
-  @type reset_runtime_log_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ota_task_timeout_config() :: %{
-        "InProgressTimeoutInMinutes" => float()
-      }
-
-  """
-  @type ota_task_timeout_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_schema_versions_response() :: %{
-        "Items" => list(schema_version_list_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_schema_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      state_endpoint() :: %{
-        "capabilities" => list(state_capability()),
-        "endpointId" => String.t() | atom()
-      }
-
-  """
-  @type state_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_account_association_response() :: %{
-        "AccountAssociationId" => String.t() | atom(),
-        "DeviceDiscoveryId" => String.t() | atom(),
-        "ManagedThingId" => String.t() | atom()
-      }
-
-  """
-  @type register_account_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_credential_locker_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type create_credential_locker_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capability_report_capability() :: %{
-        "actions" => list(String.t() | atom()),
-        "events" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "properties" => list(String.t() | atom()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type capability_report_capability() :: %{(String.t() | atom()) => any()}
+  @type wi_fi_simple_setup_configuration() :: %{(String.t() | atom()) => any()}
 
   @type create_account_association_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_cloud_connector_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_connector_destination_errors() ::
-          conflict_exception()
+          validation_exception()
+          | unauthorized_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
-          | unauthorized_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_credential_locker_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_destination_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_event_log_configuration_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_managed_thing_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_notification_configuration_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_ota_task_errors() ::
-          conflict_exception()
+          validation_exception()
+          | unauthorized_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
-          | unauthorized_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_ota_task_configuration_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_provisioning_profile_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_account_association_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_cloud_connector_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_connector_destination_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_credential_locker_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_destination_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_event_log_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_managed_thing_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_notification_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_ota_task_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_ota_task_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_provisioning_profile_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type deregister_account_association_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type get_account_association_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_cloud_connector_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_connector_destination_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_credential_locker_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_custom_endpoint_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_default_encryption_configuration_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
 
   @type get_destination_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_device_discovery_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_event_log_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_hub_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_managed_thing_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_managed_thing_capabilities_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_managed_thing_certificate_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_managed_thing_connectivity_data_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_managed_thing_meta_data_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_managed_thing_state_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
 
   @type get_notification_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_ota_task_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_ota_task_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_provisioning_profile_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_runtime_log_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_schema_version_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type list_account_associations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_cloud_connectors_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_connector_destinations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_credential_lockers_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_destinations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_device_discoveries_errors() ::
-          internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_discovered_devices_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_event_log_configurations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_managed_thing_account_associations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_managed_thing_schemas_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_managed_things_errors() ::
-          internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_notification_configurations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_ota_task_configurations_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_ota_task_executions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_ota_tasks_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_provisioning_profiles_errors() ::
-          internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_schema_versions_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
 
   @type put_default_encryption_configuration_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type put_hub_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type put_runtime_log_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type register_account_association_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type register_custom_endpoint_errors() ::
-          conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type reset_runtime_log_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type send_connector_event_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type send_managed_thing_command_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type start_account_association_refresh_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type start_device_discovery_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          invalid_request_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | conflict_exception()
 
   @type untag_resource_errors() ::
-          invalid_request_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | conflict_exception()
 
   @type update_account_association_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_cloud_connector_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
+          validation_exception()
           | unauthorized_exception()
-          | access_denied_exception()
           | throttling_exception()
-
-  @type update_connector_destination_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type update_destination_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type update_event_log_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type update_managed_thing_errors() ::
-          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
-          | unauthorized_exception()
           | access_denied_exception()
+
+  @type update_connector_destination_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_destination_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_event_log_configuration_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_managed_thing_errors() ::
+          validation_exception()
+          | unauthorized_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_notification_configuration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_ota_task_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -4699,8 +4699,8 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(connector_destination_id) do
+        [{"ConnectorDestinationId", connector_destination_id} | query_params]
       else
         query_params
       end
@@ -4713,8 +4713,8 @@ defmodule AWS.IoTManagedIntegrations do
       end
 
     query_params =
-      if !is_nil(connector_destination_id) do
-        [{"ConnectorDestinationId", connector_destination_id} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4753,15 +4753,8 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(type) do
-        [{"Type", type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(lambda_arn) do
+        [{"LambdaArn", lambda_arn} | query_params]
       else
         query_params
       end
@@ -4774,8 +4767,15 @@ defmodule AWS.IoTManagedIntegrations do
       end
 
     query_params =
-      if !is_nil(lambda_arn) do
-        [{"LambdaArn", lambda_arn} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"Type", type} | query_params]
       else
         query_params
       end
@@ -4811,8 +4811,8 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(cloud_connector_id) do
+        [{"CloudConnectorId", cloud_connector_id} | query_params]
       else
         query_params
       end
@@ -4825,8 +4825,8 @@ defmodule AWS.IoTManagedIntegrations do
       end
 
     query_params =
-      if !is_nil(cloud_connector_id) do
-        [{"CloudConnectorId", cloud_connector_id} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4860,15 +4860,15 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4892,15 +4892,15 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4938,15 +4938,8 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(type_filter) do
-        [{"TypeFilter", type_filter} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(status_filter) do
-        [{"StatusFilter", status_filter} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
@@ -4959,8 +4952,15 @@ defmodule AWS.IoTManagedIntegrations do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(status_filter) do
+        [{"StatusFilter", status_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type_filter) do
+        [{"TypeFilter", type_filter} | query_params]
       else
         query_params
       end
@@ -4996,15 +4996,15 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5038,15 +5038,15 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5084,15 +5084,8 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(account_association_id) do
+        [{"AccountAssociationId", account_association_id} | query_params]
       else
         query_params
       end
@@ -5105,8 +5098,15 @@ defmodule AWS.IoTManagedIntegrations do
       end
 
     query_params =
-      if !is_nil(account_association_id) do
-        [{"AccountAssociationId", account_association_id} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5146,15 +5146,8 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(capability_id_filter) do
+        [{"CapabilityIdFilter", capability_id_filter} | query_params]
       else
         query_params
       end
@@ -5167,8 +5160,15 @@ defmodule AWS.IoTManagedIntegrations do
       end
 
     query_params =
-      if !is_nil(capability_id_filter) do
-        [{"CapabilityIdFilter", capability_id_filter} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5220,64 +5220,8 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(serial_number_filter) do
-        [{"SerialNumberFilter", serial_number_filter} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(role_filter) do
-        [{"RoleFilter", role_filter} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(provisioning_status_filter) do
-        [{"ProvisioningStatusFilter", provisioning_status_filter} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(parent_controller_identifier_filter) do
-        [{"ParentControllerIdentifierFilter", parent_controller_identifier_filter} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(owner_filter) do
-        [{"OwnerFilter", owner_filter} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(credential_locker_filter) do
-        [{"CredentialLockerFilter", credential_locker_filter} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(connector_policy_id_filter) do
-        [{"ConnectorPolicyIdFilter", connector_policy_id_filter} | query_params]
+      if !is_nil(connector_destination_id_filter) do
+        [{"ConnectorDestinationIdFilter", connector_destination_id_filter} | query_params]
       else
         query_params
       end
@@ -5290,8 +5234,64 @@ defmodule AWS.IoTManagedIntegrations do
       end
 
     query_params =
-      if !is_nil(connector_destination_id_filter) do
-        [{"ConnectorDestinationIdFilter", connector_destination_id_filter} | query_params]
+      if !is_nil(connector_policy_id_filter) do
+        [{"ConnectorPolicyIdFilter", connector_policy_id_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(credential_locker_filter) do
+        [{"CredentialLockerFilter", credential_locker_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(owner_filter) do
+        [{"OwnerFilter", owner_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(parent_controller_identifier_filter) do
+        [{"ParentControllerIdentifierFilter", parent_controller_identifier_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(provisioning_status_filter) do
+        [{"ProvisioningStatusFilter", provisioning_status_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(role_filter) do
+        [{"RoleFilter", role_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(serial_number_filter) do
+        [{"SerialNumberFilter", serial_number_filter} | query_params]
       else
         query_params
       end
@@ -5325,15 +5325,15 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5367,15 +5367,15 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5411,15 +5411,15 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5443,15 +5443,15 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5485,15 +5485,15 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5537,29 +5537,8 @@ defmodule AWS.IoTManagedIntegrations do
     query_params = []
 
     query_params =
-      if !is_nil(visibility) do
-        [{"VisibilityFilter", visibility} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(semantic_version) do
-        [{"SemanticVersionFilter", semantic_version} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(schema_id) do
-        [{"SchemaIdFilter", schema_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
@@ -5572,8 +5551,29 @@ defmodule AWS.IoTManagedIntegrations do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(schema_id) do
+        [{"SchemaIdFilter", schema_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(semantic_version) do
+        [{"SemanticVersionFilter", semantic_version} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(visibility) do
+        [{"VisibilityFilter", visibility} | query_params]
       else
         query_params
       end

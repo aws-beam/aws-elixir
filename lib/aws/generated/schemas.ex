@@ -13,39 +13,25 @@ defmodule AWS.Schemas do
 
   ## Example:
 
-      get_discovered_schema_request() :: %{
-        required("Events") => list(String.t() | atom()),
-        required("Type") => list(any())
+      bad_request_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type get_discovered_schema_request() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_discoverer_response() :: %{
-        "DiscovererId" => String.t() | atom(),
-        "State" => list(any())
+      conflict_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type start_discoverer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_schema_request() :: %{
-        optional("ClientTokenId") => String.t() | atom(),
-        optional("Content") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Type") => list(any())
-      }
-
-  """
-  @type update_schema_request() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,244 +46,6 @@ defmodule AWS.Schemas do
 
   """
   @type create_discoverer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_request() :: %{
-        optional("RegistryName") => String.t() | atom(),
-        optional("RevisionId") => String.t() | atom(),
-        required("Policy") => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_schemas_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SchemaNamePrefix") => String.t() | atom()
-      }
-
-  """
-  @type list_schemas_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_discoverers_request() :: %{
-        optional("DiscovererIdPrefix") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SourceArnPrefix") => String.t() | atom()
-      }
-
-  """
-  @type list_discoverers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_schema_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Content") => String.t() | atom(),
-        required("Type") => list(any())
-      }
-
-  """
-  @type create_schema_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_schema_version_request() :: %{}
-
-  """
-  @type delete_schema_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_schema_summary() :: %{
-        optional("RegistryName") => String.t() | atom(),
-        optional("SchemaArn") => String.t() | atom(),
-        optional("SchemaName") => String.t() | atom(),
-        optional("SchemaVersions") => list(search_schema_version_summary())
-      }
-
-  """
-  @type search_schema_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_code_binding_response() :: %{
-        "CreationDate" => non_neg_integer(),
-        "LastModified" => non_neg_integer(),
-        "SchemaVersion" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type describe_code_binding_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_registry_request() :: %{}
-
-  """
-  @type describe_registry_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_discoverers_response() :: %{
-        "Discoverers" => list(discoverer_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_discoverers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_schemas_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Keywords") => String.t() | atom()
-      }
-
-  """
-  @type search_schemas_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_registry_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map()
-      }
-
-  """
-  @type create_registry_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_schema_response() :: %{
-        "Description" => String.t() | atom(),
-        "LastModified" => non_neg_integer(),
-        "SchemaArn" => String.t() | atom(),
-        "SchemaName" => String.t() | atom(),
-        "SchemaVersion" => String.t() | atom(),
-        "Tags" => map(),
-        "Type" => String.t() | atom(),
-        "VersionCreatedDate" => non_neg_integer()
-      }
-
-  """
-  @type update_schema_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_discovered_schema_response() :: %{
-        "Content" => String.t() | atom()
-      }
-
-  """
-  @type get_discovered_schema_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schema_version_summary() :: %{
-        optional("SchemaArn") => String.t() | atom(),
-        optional("SchemaName") => String.t() | atom(),
-        optional("SchemaVersion") => String.t() | atom(),
-        optional("Type") => list(any())
-      }
-
-  """
-  @type schema_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_code_binding_request() :: %{
-        optional("SchemaVersion") => String.t() | atom()
-      }
-
-  """
-  @type describe_code_binding_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_request() :: %{
-        optional("RegistryName") => String.t() | atom()
-      }
-
-  """
-  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,20 +68,19 @@ defmodule AWS.Schemas do
 
   ## Example:
 
-      search_schema_version_summary() :: %{
-        optional("CreatedDate") => non_neg_integer(),
-        optional("SchemaVersion") => String.t() | atom(),
-        optional("Type") => list(any())
+      create_registry_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map()
       }
 
   """
-  @type search_schema_version_summary() :: %{(String.t() | atom()) => any()}
+  @type create_registry_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_registry_response() :: %{
+      create_registry_response() :: %{
         "Description" => String.t() | atom(),
         "RegistryArn" => String.t() | atom(),
         "RegistryName" => String.t() | atom(),
@@ -341,7 +88,171 @@ defmodule AWS.Schemas do
       }
 
   """
-  @type update_registry_response() :: %{(String.t() | atom()) => any()}
+  @type create_registry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_schema_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Content") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+
+  """
+  @type create_schema_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_schema_response() :: %{
+        "Description" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "SchemaArn" => String.t() | atom(),
+        "SchemaName" => String.t() | atom(),
+        "SchemaVersion" => String.t() | atom(),
+        "Tags" => map(),
+        "Type" => String.t() | atom(),
+        "VersionCreatedDate" => non_neg_integer()
+      }
+
+  """
+  @type create_schema_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_discoverer_request() :: %{}
+
+  """
+  @type delete_discoverer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_registry_request() :: %{}
+
+  """
+  @type delete_registry_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_request() :: %{
+        optional("RegistryName") => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_schema_request() :: %{}
+
+  """
+  @type delete_schema_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_schema_version_request() :: %{}
+
+  """
+  @type delete_schema_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_code_binding_request() :: %{
+        optional("SchemaVersion") => String.t() | atom()
+      }
+
+  """
+  @type describe_code_binding_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_code_binding_response() :: %{
+        "CreationDate" => non_neg_integer(),
+        "LastModified" => non_neg_integer(),
+        "SchemaVersion" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type describe_code_binding_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_discoverer_request() :: %{}
+
+  """
+  @type describe_discoverer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_discoverer_response() :: %{
+        "CrossAccount" => boolean(),
+        "Description" => String.t() | atom(),
+        "DiscovererArn" => String.t() | atom(),
+        "DiscovererId" => String.t() | atom(),
+        "SourceArn" => String.t() | atom(),
+        "State" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type describe_discoverer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_registry_request() :: %{}
+
+  """
+  @type describe_registry_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_registry_response() :: %{
+        "Description" => String.t() | atom(),
+        "RegistryArn" => String.t() | atom(),
+        "RegistryName" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type describe_registry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_schema_request() :: %{
+        optional("SchemaVersion") => String.t() | atom()
+      }
+
+  """
+  @type describe_schema_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -366,10 +277,549 @@ defmodule AWS.Schemas do
 
   ## Example:
 
-      delete_schema_request() :: %{}
+      discoverer_summary() :: %{
+        optional("CrossAccount") => boolean(),
+        optional("DiscovererArn") => String.t() | atom(),
+        optional("DiscovererId") => String.t() | atom(),
+        optional("SourceArn") => String.t() | atom(),
+        optional("State") => list(any()),
+        optional("Tags") => map()
+      }
 
   """
-  @type delete_schema_request() :: %{}
+  @type discoverer_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_schema_request() :: %{
+        optional("SchemaVersion") => String.t() | atom(),
+        required("Type") => String.t() | atom()
+      }
+
+  """
+  @type export_schema_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_schema_response() :: %{
+        "Content" => String.t() | atom(),
+        "SchemaArn" => String.t() | atom(),
+        "SchemaName" => String.t() | atom(),
+        "SchemaVersion" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type export_schema_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_binding_source_request() :: %{
+        optional("SchemaVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_code_binding_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_binding_source_response() :: %{
+        "Body" => binary()
+      }
+
+  """
+  @type get_code_binding_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_discovered_schema_request() :: %{
+        required("Events") => list(String.t() | atom()),
+        required("Type") => list(any())
+      }
+
+  """
+  @type get_discovered_schema_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_discovered_schema_response() :: %{
+        "Content" => String.t() | atom()
+      }
+
+  """
+  @type get_discovered_schema_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_request() :: %{
+        optional("RegistryName") => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_response() :: %{
+        "Policy" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gone_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type gone_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_discoverers_request() :: %{
+        optional("DiscovererIdPrefix") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SourceArnPrefix") => String.t() | atom()
+      }
+
+  """
+  @type list_discoverers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_discoverers_response() :: %{
+        "Discoverers" => list(discoverer_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_discoverers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_registries_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RegistryNamePrefix") => String.t() | atom(),
+        optional("Scope") => String.t() | atom()
+      }
+
+  """
+  @type list_registries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_registries_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Registries" => list(registry_summary())
+      }
+
+  """
+  @type list_registries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schema_versions_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_schema_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schema_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SchemaVersions" => list(schema_version_summary())
+      }
+
+  """
+  @type list_schema_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schemas_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SchemaNamePrefix") => String.t() | atom()
+      }
+
+  """
+  @type list_schemas_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schemas_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Schemas" => list(schema_summary())
+      }
+
+  """
+  @type list_schemas_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      precondition_failed_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_code_binding_request() :: %{
+        optional("SchemaVersion") => String.t() | atom()
+      }
+
+  """
+  @type put_code_binding_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_code_binding_response() :: %{
+        "CreationDate" => non_neg_integer(),
+        "LastModified" => non_neg_integer(),
+        "SchemaVersion" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type put_code_binding_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_request() :: %{
+        optional("RegistryName") => String.t() | atom(),
+        optional("RevisionId") => String.t() | atom(),
+        required("Policy") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_response() :: %{
+        "Policy" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      registry_summary() :: %{
+        optional("RegistryArn") => String.t() | atom(),
+        optional("RegistryName") => String.t() | atom(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type registry_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_summary() :: %{
+        "LastModified" => non_neg_integer(),
+        "SchemaArn" => String.t() | atom(),
+        "SchemaName" => String.t() | atom(),
+        "Tags" => map(),
+        "VersionCount" => float()
+      }
+
+  """
+  @type schema_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_version_summary() :: %{
+        optional("SchemaArn") => String.t() | atom(),
+        optional("SchemaName") => String.t() | atom(),
+        optional("SchemaVersion") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
+
+  """
+  @type schema_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_schema_summary() :: %{
+        optional("RegistryName") => String.t() | atom(),
+        optional("SchemaArn") => String.t() | atom(),
+        optional("SchemaName") => String.t() | atom(),
+        optional("SchemaVersions") => list(search_schema_version_summary())
+      }
+
+  """
+  @type search_schema_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_schema_version_summary() :: %{
+        optional("CreatedDate") => non_neg_integer(),
+        optional("SchemaVersion") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
+
+  """
+  @type search_schema_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_schemas_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Keywords") => String.t() | atom()
+      }
+
+  """
+  @type search_schemas_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_schemas_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Schemas" => list(search_schema_summary())
+      }
+
+  """
+  @type search_schemas_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_discoverer_request() :: %{}
+
+  """
+  @type start_discoverer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_discoverer_response() :: %{
+        "DiscovererId" => String.t() | atom(),
+        "State" => list(any())
+      }
+
+  """
+  @type start_discoverer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_discoverer_request() :: %{}
+
+  """
+  @type stop_discoverer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_discoverer_response() :: %{
+        "DiscovererId" => String.t() | atom(),
+        "State" => list(any())
+      }
+
+  """
+  @type stop_discoverer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_discoverer_request() :: %{
+        optional("CrossAccount") => boolean(),
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type update_discoverer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -392,44 +842,6 @@ defmodule AWS.Schemas do
 
   ## Example:
 
-      schema_summary() :: %{
-        "LastModified" => non_neg_integer(),
-        "SchemaArn" => String.t() | atom(),
-        "SchemaName" => String.t() | atom(),
-        "Tags" => map(),
-        "VersionCount" => float()
-      }
-
-  """
-  @type schema_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       update_registry_request() :: %{
         optional("Description") => String.t() | atom()
       }
@@ -441,7 +853,35 @@ defmodule AWS.Schemas do
 
   ## Example:
 
-      create_schema_response() :: %{
+      update_registry_response() :: %{
+        "Description" => String.t() | atom(),
+        "RegistryArn" => String.t() | atom(),
+        "RegistryName" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_registry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_schema_request() :: %{
+        optional("ClientTokenId") => String.t() | atom(),
+        optional("Content") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
+
+  """
+  @type update_schema_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_schema_response() :: %{
         "Description" => String.t() | atom(),
         "LastModified" => non_neg_integer(),
         "SchemaArn" => String.t() | atom(),
@@ -453,684 +893,244 @@ defmodule AWS.Schemas do
       }
 
   """
-  @type create_schema_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_registry_request() :: %{}
-
-  """
-  @type delete_registry_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      precondition_failed_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_discoverer_request() :: %{}
-
-  """
-  @type stop_discoverer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_code_binding_response() :: %{
-        "CreationDate" => non_neg_integer(),
-        "LastModified" => non_neg_integer(),
-        "SchemaVersion" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type put_code_binding_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_discoverer_request() :: %{}
-
-  """
-  @type start_discoverer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_schema_request() :: %{
-        optional("SchemaVersion") => String.t() | atom()
-      }
-
-  """
-  @type describe_schema_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_schemas_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Schemas" => list(schema_summary())
-      }
-
-  """
-  @type list_schemas_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_response() :: %{
-        "Policy" => String.t() | atom(),
-        "RevisionId" => String.t() | atom()
-      }
-
-  """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_discoverer_request() :: %{}
-
-  """
-  @type describe_discoverer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_registry_response() :: %{
-        "Description" => String.t() | atom(),
-        "RegistryArn" => String.t() | atom(),
-        "RegistryName" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type describe_registry_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_policy_request() :: %{
-        optional("RegistryName") => String.t() | atom()
-      }
-
-  """
-  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_discoverer_request() :: %{}
-
-  """
-  @type delete_discoverer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_discoverer_response() :: %{
-        "DiscovererId" => String.t() | atom(),
-        "State" => list(any())
-      }
-
-  """
-  @type stop_discoverer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      discoverer_summary() :: %{
-        optional("CrossAccount") => boolean(),
-        optional("DiscovererArn") => String.t() | atom(),
-        optional("DiscovererId") => String.t() | atom(),
-        optional("SourceArn") => String.t() | atom(),
-        optional("State") => list(any()),
-        optional("Tags") => map()
-      }
-
-  """
-  @type discoverer_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_response() :: %{
-        "Policy" => String.t() | atom(),
-        "RevisionId" => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_schema_response() :: %{
-        "Content" => String.t() | atom(),
-        "SchemaArn" => String.t() | atom(),
-        "SchemaName" => String.t() | atom(),
-        "SchemaVersion" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type export_schema_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_code_binding_source_request() :: %{
-        optional("SchemaVersion") => String.t() | atom()
-      }
-
-  """
-  @type get_code_binding_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_schema_request() :: %{
-        optional("SchemaVersion") => String.t() | atom(),
-        required("Type") => String.t() | atom()
-      }
-
-  """
-  @type export_schema_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_registry_response() :: %{
-        "Description" => String.t() | atom(),
-        "RegistryArn" => String.t() | atom(),
-        "RegistryName" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type create_registry_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_registries_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Registries" => list(registry_summary())
-      }
-
-  """
-  @type list_registries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_code_binding_request() :: %{
-        optional("SchemaVersion") => String.t() | atom()
-      }
-
-  """
-  @type put_code_binding_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_schema_versions_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_schema_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_registries_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RegistryNamePrefix") => String.t() | atom(),
-        optional("Scope") => String.t() | atom()
-      }
-
-  """
-  @type list_registries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      registry_summary() :: %{
-        optional("RegistryArn") => String.t() | atom(),
-        optional("RegistryName") => String.t() | atom(),
-        optional("Tags") => map()
-      }
-
-  """
-  @type registry_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_discoverer_request() :: %{
-        optional("CrossAccount") => boolean(),
-        optional("Description") => String.t() | atom()
-      }
-
-  """
-  @type update_discoverer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_schemas_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Schemas" => list(search_schema_summary())
-      }
-
-  """
-  @type search_schemas_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_code_binding_source_response() :: %{
-        "Body" => binary()
-      }
-
-  """
-  @type get_code_binding_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_schema_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SchemaVersions" => list(schema_version_summary())
-      }
-
-  """
-  @type list_schema_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gone_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type gone_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_discoverer_response() :: %{
-        "CrossAccount" => boolean(),
-        "Description" => String.t() | atom(),
-        "DiscovererArn" => String.t() | atom(),
-        "DiscovererId" => String.t() | atom(),
-        "SourceArn" => String.t() | atom(),
-        "State" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type describe_discoverer_response() :: %{(String.t() | atom()) => any()}
+  @type update_schema_response() :: %{(String.t() | atom()) => any()}
 
   @type create_discoverer_errors() ::
-          bad_request_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
           | conflict_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | bad_request_exception()
 
   @type create_registry_errors() ::
-          bad_request_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
           | conflict_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | bad_request_exception()
 
   @type create_schema_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          service_unavailable_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_discoverer_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_registry_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_resource_policy_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_schema_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_schema_version_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type describe_code_binding_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | too_many_requests_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type describe_discoverer_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type describe_registry_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type describe_schema_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type export_schema_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_code_binding_source_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | too_many_requests_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_discovered_schema_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | service_unavailable_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_resource_policy_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_discoverers_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | service_unavailable_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_registries_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | service_unavailable_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_schema_versions_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_schemas_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | service_unavailable_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
+          not_found_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type put_code_binding_errors() ::
-          gone_exception()
-          | bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | too_many_requests_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | too_many_requests_exception()
+          | gone_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type put_resource_policy_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | precondition_failed_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | service_unavailable_exception()
+          | precondition_failed_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type search_schemas_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | service_unavailable_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type start_discoverer_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type stop_discoverer_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type tag_resource_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
+          not_found_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type untag_resource_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
+          not_found_exception()
           | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_discoverer_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_registry_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_exception()
+          | service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | unauthorized_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_schema_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          service_unavailable_exception()
           | not_found_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   def metadata do
     %{
@@ -1562,15 +1562,15 @@ defmodule AWS.Schemas do
     query_params = []
 
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if !is_nil(schema_version) do
+        [{"schemaVersion", schema_version} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(schema_version) do
-        [{"schemaVersion", schema_version} | query_params]
+      if !is_nil(type) do
+        [{"type", type} | query_params]
       else
         query_params
       end
@@ -1703,15 +1703,8 @@ defmodule AWS.Schemas do
     query_params = []
 
     query_params =
-      if !is_nil(source_arn_prefix) do
-        [{"sourceArnPrefix", source_arn_prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(discoverer_id_prefix) do
+        [{"discovererIdPrefix", discoverer_id_prefix} | query_params]
       else
         query_params
       end
@@ -1724,8 +1717,15 @@ defmodule AWS.Schemas do
       end
 
     query_params =
-      if !is_nil(discoverer_id_prefix) do
-        [{"discovererIdPrefix", discoverer_id_prefix} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(source_arn_prefix) do
+        [{"sourceArnPrefix", source_arn_prefix} | query_params]
       else
         query_params
       end
@@ -1763,15 +1763,8 @@ defmodule AWS.Schemas do
     query_params = []
 
     query_params =
-      if !is_nil(scope) do
-        [{"scope", scope} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(registry_name_prefix) do
-        [{"registryNamePrefix", registry_name_prefix} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
@@ -1784,8 +1777,15 @@ defmodule AWS.Schemas do
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(registry_name_prefix) do
+        [{"registryNamePrefix", registry_name_prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(scope) do
+        [{"scope", scope} | query_params]
       else
         query_params
       end
@@ -1825,15 +1825,15 @@ defmodule AWS.Schemas do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1871,8 +1871,8 @@ defmodule AWS.Schemas do
     query_params = []
 
     query_params =
-      if !is_nil(schema_name_prefix) do
-        [{"schemaNamePrefix", schema_name_prefix} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
@@ -1885,8 +1885,8 @@ defmodule AWS.Schemas do
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(schema_name_prefix) do
+        [{"schemaNamePrefix", schema_name_prefix} | query_params]
       else
         query_params
       end
@@ -2026,8 +2026,8 @@ defmodule AWS.Schemas do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(keywords) do
+        [{"keywords", keywords} | query_params]
       else
         query_params
       end
@@ -2040,8 +2040,8 @@ defmodule AWS.Schemas do
       end
 
     query_params =
-      if !is_nil(keywords) do
-        [{"keywords", keywords} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

@@ -31,322 +31,58 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      change_batch() :: %{
-        "Changes" => list(change()),
-        "Comment" => String.t() | atom()
+      account_limit() :: %{
+        "Type" => list(any()),
+        "Value" => float()
       }
 
   """
-  @type change_batch() :: %{(String.t() | atom()) => any()}
+  @type account_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_geo_location_request() :: %{
-        optional("ContinentCode") => String.t() | atom(),
-        optional("CountryCode") => String.t() | atom(),
-        optional("SubdivisionCode") => String.t() | atom()
-      }
+      activate_key_signing_key_request() :: %{}
 
   """
-  @type get_geo_location_request() :: %{(String.t() | atom()) => any()}
+  @type activate_key_signing_key_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      cidr_collection_in_use_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type cidr_collection_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_signing_key() :: %{
-        "CreatedDate" => non_neg_integer(),
-        "DNSKEYRecord" => String.t() | atom(),
-        "DSRecord" => String.t() | atom(),
-        "DigestAlgorithmMnemonic" => String.t() | atom(),
-        "DigestAlgorithmType" => integer(),
-        "DigestValue" => String.t() | atom(),
-        "Flag" => integer(),
-        "KeyTag" => integer(),
-        "KmsArn" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "PublicKey" => String.t() | atom(),
-        "SigningAlgorithmMnemonic" => String.t() | atom(),
-        "SigningAlgorithmType" => integer(),
-        "Status" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type key_signing_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      incompatible_version() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type incompatible_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      test_dns_answer_response() :: %{
-        "Nameserver" => String.t() | atom(),
-        "Protocol" => String.t() | atom(),
-        "RecordData" => list(String.t() | atom()),
-        "RecordName" => String.t() | atom(),
-        "RecordType" => list(any()),
-        "ResponseCode" => String.t() | atom()
-      }
-
-  """
-  @type test_dns_answer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dns_sec_status() :: %{
-        "ServeSignature" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type dns_sec_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_such_cloud_watch_logs_log_group() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type no_such_cloud_watch_logs_log_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_traffic_policy_instances_request() :: %{
-        optional("HostedZoneIdMarker") => String.t() | atom(),
-        optional("MaxItems") => [integer()],
-        optional("TrafficPolicyInstanceNameMarker") => String.t() | atom(),
-        optional("TrafficPolicyInstanceTypeMarker") => list(any())
-      }
-
-  """
-  @type list_traffic_policy_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      health_check_version_mismatch() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type health_check_version_mismatch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deactivate_key_signing_key_request() :: %{}
-
-  """
-  @type deactivate_key_signing_key_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cidr_collection_response() :: %{}
-
-  """
-  @type delete_cidr_collection_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      change_tags_for_resource_request() :: %{
-        optional("AddTags") => list(tag()),
-        optional("RemoveTagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type change_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_geo_locations_response() :: %{
-        "GeoLocationDetailsList" => list(geo_location_details()),
-        "IsTruncated" => boolean(),
-        "MaxItems" => [integer()],
-        "NextContinentCode" => String.t() | atom(),
-        "NextCountryCode" => String.t() | atom(),
-        "NextSubdivisionCode" => String.t() | atom()
-      }
-
-  """
-  @type list_geo_locations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_traffic_policy_response() :: %{
-        "Location" => String.t() | atom(),
-        "TrafficPolicy" => traffic_policy()
-      }
-
-  """
-  @type create_traffic_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_health_check_request() :: %{
-        optional("AlarmIdentifier") => alarm_identifier(),
-        optional("ChildHealthChecks") => list(String.t() | atom()),
-        optional("Disabled") => boolean(),
-        optional("EnableSNI") => boolean(),
-        optional("FailureThreshold") => integer(),
-        optional("FullyQualifiedDomainName") => String.t() | atom(),
-        optional("HealthCheckVersion") => float(),
-        optional("HealthThreshold") => integer(),
-        optional("IPAddress") => String.t() | atom(),
-        optional("InsufficientDataHealthStatus") => list(any()),
-        optional("Inverted") => boolean(),
-        optional("Port") => integer(),
-        optional("Regions") => list(list(any())()),
-        optional("ResetElements") => list(list(any())()),
-        optional("ResourcePath") => String.t() | atom(),
-        optional("SearchString") => String.t() | atom()
-      }
-
-  """
-  @type update_health_check_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_such_cidr_collection_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type no_such_cidr_collection_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_traffic_policy_instances_by_hosted_zone_request() :: %{
-        optional("MaxItems") => [integer()],
-        optional("TrafficPolicyInstanceNameMarker") => String.t() | atom(),
-        optional("TrafficPolicyInstanceTypeMarker") => list(any()),
-        required("HostedZoneId") => String.t() | atom()
-      }
-
-  """
-  @type list_traffic_policy_instances_by_hosted_zone_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_traffic_policy_instances_response() :: %{
-        "HostedZoneIdMarker" => String.t() | atom(),
-        "IsTruncated" => boolean(),
-        "MaxItems" => [integer()],
-        "TrafficPolicyInstanceNameMarker" => String.t() | atom(),
-        "TrafficPolicyInstanceTypeMarker" => list(any()),
-        "TrafficPolicyInstances" => list(traffic_policy_instance())
-      }
-
-  """
-  @type list_traffic_policy_instances_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_traffic_policy_request() :: %{
-        optional("Comment") => String.t() | atom(),
-        required("Document") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_traffic_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_hosted_zone_comment_request() :: %{
-        optional("Comment") => String.t() | atom()
-      }
-
-  """
-  @type update_hosted_zone_comment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_such_geo_location() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type no_such_geo_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hosted_zone_not_found() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type hosted_zone_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      change_resource_record_sets_response() :: %{
+      activate_key_signing_key_response() :: %{
         "ChangeInfo" => change_info()
       }
 
   """
-  @type change_resource_record_sets_response() :: %{(String.t() | atom()) => any()}
+  @type activate_key_signing_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alarm_identifier() :: %{
+        "Name" => String.t() | atom(),
+        "Region" => list(any())
+      }
+
+  """
+  @type alarm_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alias_target() :: %{
+        "DNSName" => String.t() | atom(),
+        "EvaluateTargetHealth" => boolean(),
+        "HostedZoneId" => String.t() | atom()
+      }
+
+  """
+  @type alias_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -364,244 +100,116 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      invalid_change_batch() :: %{
-        "message" => String.t() | atom(),
-        "messages" => list(String.t() | atom())
-      }
-
-  """
-  @type invalid_change_batch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delegation_set_already_created() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type delegation_set_already_created() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      test_dns_answer_request() :: %{
-        optional("EDNS0ClientSubnetIP") => String.t() | atom(),
-        optional("EDNS0ClientSubnetMask") => String.t() | atom(),
-        optional("ResolverIP") => String.t() | atom(),
-        required("HostedZoneId") => String.t() | atom(),
-        required("RecordName") => String.t() | atom(),
-        required("RecordType") => list(any())
-      }
-
-  """
-  @type test_dns_answer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      geo_proximity_location() :: %{
-        "AWSRegion" => String.t() | atom(),
-        "Bias" => integer(),
-        "Coordinates" => coordinates(),
-        "LocalZoneGroup" => String.t() | atom()
-      }
-
-  """
-  @type geo_proximity_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_limit_response() :: %{
-        "Count" => float(),
-        "Limit" => account_limit()
-      }
-
-  """
-  @type get_account_limit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resources_response() :: %{
-        "ResourceTagSets" => list(resource_tag_set())
-      }
-
-  """
-  @type list_tags_for_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_traffic_policy_comment_request() :: %{
-        required("Comment") => String.t() | atom()
-      }
-
-  """
-  @type update_traffic_policy_comment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_such_change() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type no_such_change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_argument() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_argument() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_vpc_id() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_vpc_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resources_request() :: %{
-        required("ResourceIds") => list(String.t() | atom())
-      }
-
-  """
-  @type list_tags_for_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_hosted_zone_dns_sec_response() :: %{
+      associate_vpc_with_hosted_zone_response() :: %{
         "ChangeInfo" => change_info()
       }
 
   """
-  @type enable_hosted_zone_dns_sec_response() :: %{(String.t() | atom()) => any()}
+  @type associate_vpc_with_hosted_zone_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      hosted_zone_already_exists() :: %{
-        "message" => String.t() | atom()
+      change() :: %{
+        "Action" => list(any()),
+        "ResourceRecordSet" => resource_record_set()
       }
 
   """
-  @type hosted_zone_already_exists() :: %{(String.t() | atom()) => any()}
+  @type change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      traffic_policy_in_use() :: %{
-        "message" => String.t() | atom()
+      change_batch() :: %{
+        "Changes" => list(change()),
+        "Comment" => String.t() | atom()
       }
 
   """
-  @type traffic_policy_in_use() :: %{(String.t() | atom()) => any()}
+  @type change_batch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      geo_location() :: %{
-        "ContinentCode" => String.t() | atom(),
-        "CountryCode" => String.t() | atom(),
-        "SubdivisionCode" => String.t() | atom()
+      change_cidr_collection_request() :: %{
+        optional("CollectionVersion") => float(),
+        required("Changes") => list(cidr_collection_change())
       }
 
   """
-  @type geo_location() :: %{(String.t() | atom()) => any()}
+  @type change_cidr_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_resource_record_sets_request() :: %{
-        optional("MaxItems") => [integer()],
-        optional("StartRecordIdentifier") => String.t() | atom(),
-        optional("StartRecordName") => String.t() | atom(),
-        optional("StartRecordType") => list(any())
+      change_cidr_collection_response() :: %{
+        "Id" => String.t() | atom()
       }
 
   """
-  @type list_resource_record_sets_request() :: %{(String.t() | atom()) => any()}
+  @type change_cidr_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      deactivate_key_signing_key_response() :: %{
+      change_info() :: %{
+        "Comment" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Status" => list(any()),
+        "SubmittedAt" => non_neg_integer()
+      }
+
+  """
+  @type change_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      change_resource_record_sets_request() :: %{
+        required("ChangeBatch") => change_batch()
+      }
+
+  """
+  @type change_resource_record_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      change_resource_record_sets_response() :: %{
         "ChangeInfo" => change_info()
       }
 
   """
-  @type deactivate_key_signing_key_response() :: %{(String.t() | atom()) => any()}
+  @type change_resource_record_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_traffic_policy_instance_request() :: %{}
-
-  """
-  @type get_traffic_policy_instance_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
+      change_tags_for_resource_request() :: %{
+        optional("AddTags") => list(tag()),
+        optional("RemoveTagKeys") => list(String.t() | atom())
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type change_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_key_signing_key_request() :: %{}
+      change_tags_for_resource_response() :: %{}
 
   """
-  @type delete_key_signing_key_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cidr_block_summary() :: %{
-        "CidrBlock" => String.t() | atom(),
-        "LocationName" => String.t() | atom()
-      }
-
-  """
-  @type cidr_block_summary() :: %{(String.t() | atom()) => any()}
+  @type change_tags_for_resource_response() :: %{}
 
   @typedoc """
 
@@ -618,68 +226,13 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      no_such_traffic_policy_instance() :: %{
-        "message" => String.t() | atom()
+      cidr_block_summary() :: %{
+        "CidrBlock" => String.t() | atom(),
+        "LocationName" => String.t() | atom()
       }
 
   """
-  @type no_such_traffic_policy_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_hosted_zone_request() :: %{}
-
-  """
-  @type get_hosted_zone_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delegation_set() :: %{
-        "CallerReference" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "NameServers" => list(String.t() | atom())
-      }
-
-  """
-  @type delegation_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_traffic_policy_version_request() :: %{
-        optional("Comment") => String.t() | atom(),
-        required("Document") => String.t() | atom()
-      }
-
-  """
-  @type create_traffic_policy_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limits_exceeded() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type limits_exceeded() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      public_zone_vpc_association() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type public_zone_vpc_association() :: %{(String.t() | atom()) => any()}
+  @type cidr_block_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -699,48 +252,756 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      get_traffic_policy_instance_response() :: %{
-        "TrafficPolicyInstance" => traffic_policy_instance()
+      cidr_collection_already_exists_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type get_traffic_policy_instance_response() :: %{(String.t() | atom()) => any()}
+  @type cidr_collection_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      cidr_collection_change() :: %{
+        "Action" => list(any()),
+        "CidrList" => list(String.t() | atom()),
+        "LocationName" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type cidr_collection_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      too_many_hosted_zones() :: %{
+      cidr_collection_in_use_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type cidr_collection_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cidr_collection_version_mismatch_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type cidr_collection_version_mismatch_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cidr_routing_config() :: %{
+        "CollectionId" => String.t() | atom(),
+        "LocationName" => String.t() | atom()
+      }
+
+  """
+  @type cidr_routing_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_alarm_configuration() :: %{
+        "ComparisonOperator" => list(any()),
+        "Dimensions" => list(dimension()),
+        "EvaluationPeriods" => integer(),
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "Period" => integer(),
+        "Statistic" => list(any()),
+        "Threshold" => float()
+      }
+
+  """
+  @type cloud_watch_alarm_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collection_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Version" => float()
+      }
+
+  """
+  @type collection_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      concurrent_modification() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type too_many_hosted_zones() :: %{(String.t() | atom()) => any()}
+  @type concurrent_modification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_hosted_zone_response() :: %{
-        "DelegationSet" => delegation_set(),
-        "HostedZone" => hosted_zone(),
-        "VPCs" => list(vpc())
+      conflicting_domain_exists() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type get_hosted_zone_response() :: %{(String.t() | atom()) => any()}
+  @type conflicting_domain_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflicting_types() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflicting_types() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      coordinates() :: %{
+        "Latitude" => String.t() | atom(),
+        "Longitude" => String.t() | atom()
+      }
+
+  """
+  @type coordinates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cidr_collection_request() :: %{
+        required("CallerReference") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_cidr_collection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cidr_collection_response() :: %{
+        "Collection" => cidr_collection(),
+        "Location" => String.t() | atom()
+      }
+
+  """
+  @type create_cidr_collection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_health_check_request() :: %{
+        required("CallerReference") => String.t() | atom(),
+        required("HealthCheckConfig") => health_check_config()
+      }
+
+  """
+  @type create_health_check_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_health_check_response() :: %{
+        "HealthCheck" => health_check(),
+        "Location" => String.t() | atom()
+      }
+
+  """
+  @type create_health_check_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_hosted_zone_request() :: %{
+        optional("DelegationSetId") => String.t() | atom(),
+        optional("HostedZoneConfig") => hosted_zone_config(),
+        optional("VPC") => vpc(),
+        required("CallerReference") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_hosted_zone_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_hosted_zone_response() :: %{
+        "ChangeInfo" => change_info(),
+        "DelegationSet" => delegation_set(),
+        "HostedZone" => hosted_zone(),
+        "Location" => String.t() | atom(),
+        "VPC" => vpc()
+      }
+
+  """
+  @type create_hosted_zone_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_key_signing_key_request() :: %{
+        required("CallerReference") => String.t() | atom(),
+        required("HostedZoneId") => String.t() | atom(),
+        required("KeyManagementServiceArn") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Status") => String.t() | atom()
+      }
+
+  """
+  @type create_key_signing_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_key_signing_key_response() :: %{
+        "ChangeInfo" => change_info(),
+        "KeySigningKey" => key_signing_key(),
+        "Location" => String.t() | atom()
+      }
+
+  """
+  @type create_key_signing_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_query_logging_config_request() :: %{
+        required("CloudWatchLogsLogGroupArn") => String.t() | atom(),
+        required("HostedZoneId") => String.t() | atom()
+      }
+
+  """
+  @type create_query_logging_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_query_logging_config_response() :: %{
+        "Location" => String.t() | atom(),
+        "QueryLoggingConfig" => query_logging_config()
+      }
+
+  """
+  @type create_query_logging_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_reusable_delegation_set_request() :: %{
+        optional("HostedZoneId") => String.t() | atom(),
+        required("CallerReference") => String.t() | atom()
+      }
+
+  """
+  @type create_reusable_delegation_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_reusable_delegation_set_response() :: %{
+        "DelegationSet" => delegation_set(),
+        "Location" => String.t() | atom()
+      }
+
+  """
+  @type create_reusable_delegation_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_traffic_policy_instance_request() :: %{
+        required("HostedZoneId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("TTL") => float(),
+        required("TrafficPolicyId") => String.t() | atom(),
+        required("TrafficPolicyVersion") => integer()
+      }
+
+  """
+  @type create_traffic_policy_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_traffic_policy_instance_response() :: %{
+        "Location" => String.t() | atom(),
+        "TrafficPolicyInstance" => traffic_policy_instance()
+      }
+
+  """
+  @type create_traffic_policy_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_traffic_policy_request() :: %{
+        optional("Comment") => String.t() | atom(),
+        required("Document") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_traffic_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_traffic_policy_response() :: %{
+        "Location" => String.t() | atom(),
+        "TrafficPolicy" => traffic_policy()
+      }
+
+  """
+  @type create_traffic_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_traffic_policy_version_request() :: %{
+        optional("Comment") => String.t() | atom(),
+        required("Document") => String.t() | atom()
+      }
+
+  """
+  @type create_traffic_policy_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_traffic_policy_version_response() :: %{
+        "Location" => String.t() | atom(),
+        "TrafficPolicy" => traffic_policy()
+      }
+
+  """
+  @type create_traffic_policy_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vpc_association_authorization_request() :: %{
+        required("VPC") => vpc()
+      }
+
+  """
+  @type create_vpc_association_authorization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vpc_association_authorization_response() :: %{
+        "HostedZoneId" => String.t() | atom(),
+        "VPC" => vpc()
+      }
+
+  """
+  @type create_vpc_association_authorization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deactivate_key_signing_key_request() :: %{}
+
+  """
+  @type deactivate_key_signing_key_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deactivate_key_signing_key_response() :: %{
+        "ChangeInfo" => change_info()
+      }
+
+  """
+  @type deactivate_key_signing_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delegation_set() :: %{
+        "CallerReference" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "NameServers" => list(String.t() | atom())
+      }
+
+  """
+  @type delegation_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delegation_set_already_created() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type delegation_set_already_created() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delegation_set_already_reusable() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type delegation_set_already_reusable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delegation_set_in_use() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type delegation_set_in_use() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delegation_set_not_available() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type delegation_set_not_available() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delegation_set_not_reusable() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type delegation_set_not_reusable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cidr_collection_request() :: %{}
+
+  """
+  @type delete_cidr_collection_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cidr_collection_response() :: %{}
+
+  """
+  @type delete_cidr_collection_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_health_check_request() :: %{}
+
+  """
+  @type delete_health_check_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_health_check_response() :: %{}
+
+  """
+  @type delete_health_check_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_hosted_zone_request() :: %{}
+
+  """
+  @type delete_hosted_zone_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_hosted_zone_response() :: %{
+        "ChangeInfo" => change_info()
+      }
+
+  """
+  @type delete_hosted_zone_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_key_signing_key_request() :: %{}
+
+  """
+  @type delete_key_signing_key_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_key_signing_key_response() :: %{
+        "ChangeInfo" => change_info()
+      }
+
+  """
+  @type delete_key_signing_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_query_logging_config_request() :: %{}
+
+  """
+  @type delete_query_logging_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_query_logging_config_response() :: %{}
+
+  """
+  @type delete_query_logging_config_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_reusable_delegation_set_request() :: %{}
+
+  """
+  @type delete_reusable_delegation_set_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_reusable_delegation_set_response() :: %{}
+
+  """
+  @type delete_reusable_delegation_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_traffic_policy_instance_request() :: %{}
+
+  """
+  @type delete_traffic_policy_instance_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_traffic_policy_instance_response() :: %{}
+
+  """
+  @type delete_traffic_policy_instance_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_traffic_policy_request() :: %{}
+
+  """
+  @type delete_traffic_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_traffic_policy_response() :: %{}
+
+  """
+  @type delete_traffic_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vpc_association_authorization_request() :: %{
+        required("VPC") => vpc()
+      }
+
+  """
+  @type delete_vpc_association_authorization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vpc_association_authorization_response() :: %{}
+
+  """
+  @type delete_vpc_association_authorization_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      dimension() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_hosted_zone_dns_sec_request() :: %{}
+
+  """
+  @type disable_hosted_zone_dns_sec_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_hosted_zone_dns_sec_response() :: %{
+        "ChangeInfo" => change_info()
+      }
+
+  """
+  @type disable_hosted_zone_dns_sec_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_vpc_from_hosted_zone_request() :: %{
+        optional("Comment") => String.t() | atom(),
+        required("VPC") => vpc()
+      }
+
+  """
+  @type disassociate_vpc_from_hosted_zone_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_vpc_from_hosted_zone_response() :: %{
+        "ChangeInfo" => change_info()
+      }
+
+  """
+  @type disassociate_vpc_from_hosted_zone_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dns_sec_not_found() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type dns_sec_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dns_sec_status() :: %{
+        "ServeSignature" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type dns_sec_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_hosted_zone_dns_sec_request() :: %{}
+
+  """
+  @type enable_hosted_zone_dns_sec_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_hosted_zone_dns_sec_response() :: %{
+        "ChangeInfo" => change_info()
+      }
+
+  """
+  @type enable_hosted_zone_dns_sec_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      geo_location() :: %{
+        "ContinentCode" => String.t() | atom(),
+        "CountryCode" => String.t() | atom(),
+        "SubdivisionCode" => String.t() | atom()
+      }
+
+  """
+  @type geo_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -762,112 +1023,201 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      hosted_zone_config() :: %{
-        "Comment" => String.t() | atom(),
-        "PrivateZone" => boolean()
+      geo_proximity_location() :: %{
+        "AWSRegion" => String.t() | atom(),
+        "Bias" => integer(),
+        "Coordinates" => coordinates(),
+        "LocalZoneGroup" => String.t() | atom()
       }
 
   """
-  @type hosted_zone_config() :: %{(String.t() | atom()) => any()}
+  @type geo_proximity_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_vpc_association_authorization_response() :: %{
-        "HostedZoneId" => String.t() | atom(),
-        "VPC" => vpc()
-      }
+      get_account_limit_request() :: %{}
 
   """
-  @type create_vpc_association_authorization_response() :: %{(String.t() | atom()) => any()}
+  @type get_account_limit_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      vpc_association_not_found() :: %{
-        "message" => String.t() | atom()
+      get_account_limit_response() :: %{
+        "Count" => float(),
+        "Limit" => account_limit()
       }
 
   """
-  @type vpc_association_not_found() :: %{(String.t() | atom()) => any()}
+  @type get_account_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      too_many_traffic_policy_versions_for_current_policy() :: %{
-        "message" => String.t() | atom()
-      }
+      get_change_request() :: %{}
 
   """
-  @type too_many_traffic_policy_versions_for_current_policy() :: %{(String.t() | atom()) => any()}
+  @type get_change_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_traffic_policy_instance_request() :: %{
-        required("TTL") => float(),
-        required("TrafficPolicyId") => String.t() | atom(),
-        required("TrafficPolicyVersion") => integer()
+      get_change_response() :: %{
+        "ChangeInfo" => change_info()
       }
 
   """
-  @type update_traffic_policy_instance_request() :: %{(String.t() | atom()) => any()}
+  @type get_change_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_hosted_zone_response() :: %{
-        "ChangeInfo" => change_info(),
-        "DelegationSet" => delegation_set(),
-        "HostedZone" => hosted_zone(),
-        "Location" => String.t() | atom(),
-        "VPC" => vpc()
-      }
+      get_checker_ip_ranges_request() :: %{}
 
   """
-  @type create_hosted_zone_response() :: %{(String.t() | atom()) => any()}
+  @type get_checker_ip_ranges_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      change_resource_record_sets_request() :: %{
-        required("ChangeBatch") => change_batch()
+      get_checker_ip_ranges_response() :: %{
+        "CheckerIpRanges" => list(String.t() | atom())
       }
 
   """
-  @type change_resource_record_sets_request() :: %{(String.t() | atom()) => any()}
+  @type get_checker_ip_ranges_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cidr_collection_change() :: %{
-        "Action" => list(any()),
-        "CidrList" => list(String.t() | atom()),
-        "LocationName" => String.t() | atom()
-      }
+      get_dns_sec_request() :: %{}
 
   """
-  @type cidr_collection_change() :: %{(String.t() | atom()) => any()}
+  @type get_dns_sec_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_vpc_association_authorizations_response() :: %{
-        "HostedZoneId" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "VPCs" => list(vpc())
+      get_dns_sec_response() :: %{
+        "KeySigningKeys" => list(key_signing_key()),
+        "Status" => dns_sec_status()
       }
 
   """
-  @type list_vpc_association_authorizations_response() :: %{(String.t() | atom()) => any()}
+  @type get_dns_sec_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_geo_location_request() :: %{
+        optional("ContinentCode") => String.t() | atom(),
+        optional("CountryCode") => String.t() | atom(),
+        optional("SubdivisionCode") => String.t() | atom()
+      }
+
+  """
+  @type get_geo_location_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_geo_location_response() :: %{
+        "GeoLocationDetails" => geo_location_details()
+      }
+
+  """
+  @type get_geo_location_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_health_check_count_request() :: %{}
+
+  """
+  @type get_health_check_count_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_health_check_count_response() :: %{
+        "HealthCheckCount" => float()
+      }
+
+  """
+  @type get_health_check_count_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_health_check_last_failure_reason_request() :: %{}
+
+  """
+  @type get_health_check_last_failure_reason_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_health_check_last_failure_reason_response() :: %{
+        "HealthCheckObservations" => list(health_check_observation())
+      }
+
+  """
+  @type get_health_check_last_failure_reason_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_health_check_request() :: %{}
+
+  """
+  @type get_health_check_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_health_check_response() :: %{
+        "HealthCheck" => health_check()
+      }
+
+  """
+  @type get_health_check_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_health_check_status_request() :: %{}
+
+  """
+  @type get_health_check_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_health_check_status_response() :: %{
+        "HealthCheckObservations" => list(health_check_observation())
+      }
+
+  """
+  @type get_health_check_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -882,28 +1232,203 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      create_key_signing_key_request() :: %{
-        required("CallerReference") => String.t() | atom(),
-        required("HostedZoneId") => String.t() | atom(),
-        required("KeyManagementServiceArn") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("Status") => String.t() | atom()
+      get_hosted_zone_count_response() :: %{
+        "HostedZoneCount" => float()
       }
 
   """
-  @type create_key_signing_key_request() :: %{(String.t() | atom()) => any()}
+  @type get_hosted_zone_count_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      hosted_zone_features() :: %{
-        "AcceleratedRecoveryStatus" => list(any()),
-        "FailureReasons" => hosted_zone_failure_reasons()
+      get_hosted_zone_limit_request() :: %{}
+
+  """
+  @type get_hosted_zone_limit_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_hosted_zone_limit_response() :: %{
+        "Count" => float(),
+        "Limit" => hosted_zone_limit()
       }
 
   """
-  @type hosted_zone_features() :: %{(String.t() | atom()) => any()}
+  @type get_hosted_zone_limit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_hosted_zone_request() :: %{}
+
+  """
+  @type get_hosted_zone_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_hosted_zone_response() :: %{
+        "DelegationSet" => delegation_set(),
+        "HostedZone" => hosted_zone(),
+        "VPCs" => list(vpc())
+      }
+
+  """
+  @type get_hosted_zone_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_logging_config_request() :: %{}
+
+  """
+  @type get_query_logging_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_logging_config_response() :: %{
+        "QueryLoggingConfig" => query_logging_config()
+      }
+
+  """
+  @type get_query_logging_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reusable_delegation_set_limit_request() :: %{}
+
+  """
+  @type get_reusable_delegation_set_limit_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reusable_delegation_set_limit_response() :: %{
+        "Count" => float(),
+        "Limit" => reusable_delegation_set_limit()
+      }
+
+  """
+  @type get_reusable_delegation_set_limit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reusable_delegation_set_request() :: %{}
+
+  """
+  @type get_reusable_delegation_set_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reusable_delegation_set_response() :: %{
+        "DelegationSet" => delegation_set()
+      }
+
+  """
+  @type get_reusable_delegation_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_traffic_policy_instance_count_request() :: %{}
+
+  """
+  @type get_traffic_policy_instance_count_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_traffic_policy_instance_count_response() :: %{
+        "TrafficPolicyInstanceCount" => integer()
+      }
+
+  """
+  @type get_traffic_policy_instance_count_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_traffic_policy_instance_request() :: %{}
+
+  """
+  @type get_traffic_policy_instance_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_traffic_policy_instance_response() :: %{
+        "TrafficPolicyInstance" => traffic_policy_instance()
+      }
+
+  """
+  @type get_traffic_policy_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_traffic_policy_request() :: %{}
+
+  """
+  @type get_traffic_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_traffic_policy_response() :: %{
+        "TrafficPolicy" => traffic_policy()
+      }
+
+  """
+  @type get_traffic_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      health_check() :: %{
+        "CallerReference" => String.t() | atom(),
+        "CloudWatchAlarmConfiguration" => cloud_watch_alarm_configuration(),
+        "HealthCheckConfig" => health_check_config(),
+        "HealthCheckVersion" => float(),
+        "Id" => String.t() | atom(),
+        "LinkedService" => linked_service()
+      }
+
+  """
+  @type health_check() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      health_check_already_exists() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type health_check_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -937,256 +1462,6 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      activate_key_signing_key_response() :: %{
-        "ChangeInfo" => change_info()
-      }
-
-  """
-  @type activate_key_signing_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      health_check_already_exists() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type health_check_already_exists() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_traffic_policy_document() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_traffic_policy_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_such_key_signing_key() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type no_such_key_signing_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hosted_zone_owner() :: %{
-        "OwningAccount" => String.t() | atom(),
-        "OwningService" => String.t() | atom()
-      }
-
-  """
-  @type hosted_zone_owner() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_domain_name() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_domain_name() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      coordinates() :: %{
-        "Latitude" => String.t() | atom(),
-        "Longitude" => String.t() | atom()
-      }
-
-  """
-  @type coordinates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reusable_delegation_set_request() :: %{}
-
-  """
-  @type get_reusable_delegation_set_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_traffic_policy_version_response() :: %{
-        "Location" => String.t() | atom(),
-        "TrafficPolicy" => traffic_policy()
-      }
-
-  """
-  @type create_traffic_policy_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_health_check_last_failure_reason_request() :: %{}
-
-  """
-  @type get_health_check_last_failure_reason_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_health_checks_response() :: %{
-        "HealthChecks" => list(health_check()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "MaxItems" => [integer()],
-        "NextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_health_checks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      location_summary() :: %{
-        "LocationName" => String.t() | atom()
-      }
-
-  """
-  @type location_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_limit_request() :: %{}
-
-  """
-  @type get_account_limit_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cidr_locations_response() :: %{
-        "CidrLocations" => list(location_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_cidr_locations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      change_cidr_collection_request() :: %{
-        optional("CollectionVersion") => float(),
-        required("Changes") => list(cidr_collection_change())
-      }
-
-  """
-  @type change_cidr_collection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_hosted_zone_limit_response() :: %{
-        "Count" => float(),
-        "Limit" => hosted_zone_limit()
-      }
-
-  """
-  @type get_hosted_zone_limit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_traffic_policy_response() :: %{}
-
-  """
-  @type delete_traffic_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_hosted_zone_response() :: %{
-        "ChangeInfo" => change_info()
-      }
-
-  """
-  @type delete_hosted_zone_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_hosted_zones_request() :: %{
-        optional("DelegationSetId") => String.t() | atom(),
-        optional("HostedZoneType") => list(any()),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => [integer()]
-      }
-
-  """
-  @type list_hosted_zones_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_key_signing_keys() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_key_signing_keys() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_query_logging_configs_request() :: %{
-        optional("HostedZoneId") => String.t() | atom(),
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_query_logging_configs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reusable_delegation_set_limit() :: %{
-        "Type" => list(any()),
-        "Value" => float()
-      }
-
-  """
-  @type reusable_delegation_set_limit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       health_check_in_use() :: %{
         "message" => String.t() | atom()
       }
@@ -1198,707 +1473,25 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      list_traffic_policy_versions_response() :: %{
-        "IsTruncated" => boolean(),
-        "MaxItems" => [integer()],
-        "TrafficPolicies" => list(traffic_policy()),
-        "TrafficPolicyVersionMarker" => String.t() | atom()
+      health_check_observation() :: %{
+        "IPAddress" => String.t() | atom(),
+        "Region" => list(any()),
+        "StatusReport" => status_report()
       }
 
   """
-  @type list_traffic_policy_versions_response() :: %{(String.t() | atom()) => any()}
+  @type health_check_observation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_geo_location_response() :: %{
-        "GeoLocationDetails" => geo_location_details()
-      }
-
-  """
-  @type get_geo_location_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_hosted_zone_features_response() :: %{}
-
-  """
-  @type update_hosted_zone_features_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_hosted_zone_comment_response() :: %{
-        "HostedZone" => hosted_zone()
-      }
-
-  """
-  @type update_hosted_zone_comment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_checker_ip_ranges_request() :: %{}
-
-  """
-  @type get_checker_ip_ranges_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_vpc_association_authorizations() :: %{
+      health_check_version_mismatch() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type too_many_vpc_association_authorizations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_health_check_last_failure_reason_response() :: %{
-        "HealthCheckObservations" => list(health_check_observation())
-      }
-
-  """
-  @type get_health_check_last_failure_reason_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_reusable_delegation_set_request() :: %{}
-
-  """
-  @type delete_reusable_delegation_set_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vpc_association_authorization_request() :: %{
-        required("VPC") => vpc()
-      }
-
-  """
-  @type delete_vpc_association_authorization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_hosted_zone_features_request() :: %{
-        optional("EnableAcceleratedRecovery") => boolean()
-      }
-
-  """
-  @type update_hosted_zone_features_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_limit() :: %{
-        "Type" => list(any()),
-        "Value" => float()
-      }
-
-  """
-  @type account_limit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_key_signing_key_status() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_key_signing_key_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_query_logging_config_request() :: %{}
-
-  """
-  @type delete_query_logging_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_hosted_zone_request() :: %{}
-
-  """
-  @type delete_hosted_zone_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_key_signing_key_response() :: %{
-        "ChangeInfo" => change_info(),
-        "KeySigningKey" => key_signing_key(),
-        "Location" => String.t() | atom()
-      }
-
-  """
-  @type create_key_signing_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cidr_collection_already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type cidr_collection_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cidr_collection_version_mismatch_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type cidr_collection_version_mismatch_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_traffic_policy_instances() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_traffic_policy_instances() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_vpc_association_authorization_request() :: %{
-        required("VPC") => vpc()
-      }
-
-  """
-  @type create_vpc_association_authorization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_signing_key_with_active_status_not_found() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type key_signing_key_with_active_status_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_vpc_association_authorizations_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_vpc_association_authorizations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_health_check_response() :: %{
-        "HealthCheck" => health_check(),
-        "Location" => String.t() | atom()
-      }
-
-  """
-  @type create_health_check_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      change_tags_for_resource_response() :: %{}
-
-  """
-  @type change_tags_for_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_traffic_policies() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_traffic_policies() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_geo_locations_request() :: %{
-        optional("MaxItems") => [integer()],
-        optional("StartContinentCode") => String.t() | atom(),
-        optional("StartCountryCode") => String.t() | atom(),
-        optional("StartSubdivisionCode") => String.t() | atom()
-      }
-
-  """
-  @type list_geo_locations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc() :: %{
-        "VPCId" => String.t() | atom(),
-        "VPCRegion" => list(any())
-      }
-
-  """
-  @type vpc() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_such_query_logging_config() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type no_such_query_logging_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_logging_config() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
-        "HostedZoneId" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type query_logging_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflicting_types() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflicting_types() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_hosted_zones_by_vpc_response() :: %{
-        "HostedZoneSummaries" => list(hosted_zone_summary()),
-        "MaxItems" => [integer()],
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_hosted_zones_by_vpc_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_pagination_token() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_pagination_token() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_health_check_status_request() :: %{}
-
-  """
-  @type get_health_check_status_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      key_signing_key_already_exists() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type key_signing_key_already_exists() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_health_check_request() :: %{
-        required("CallerReference") => String.t() | atom(),
-        required("HealthCheckConfig") => health_check_config()
-      }
-
-  """
-  @type create_health_check_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_health_check_response() :: %{
-        "HealthCheck" => health_check()
-      }
-
-  """
-  @type get_health_check_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vpc_association_authorization_response() :: %{}
-
-  """
-  @type delete_vpc_association_authorization_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dns_sec_response() :: %{
-        "KeySigningKeys" => list(key_signing_key()),
-        "Status" => dns_sec_status()
-      }
-
-  """
-  @type get_dns_sec_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_association_authorization_not_found() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type vpc_association_authorization_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_health_check_status_response() :: %{
-        "HealthCheckObservations" => list(health_check_observation())
-      }
-
-  """
-  @type get_health_check_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_logging_config_request() :: %{}
-
-  """
-  @type get_query_logging_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_traffic_policy_instance_response() :: %{}
-
-  """
-  @type delete_traffic_policy_instance_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      traffic_policy_summary() :: %{
-        "Id" => String.t() | atom(),
-        "LatestVersion" => integer(),
-        "Name" => String.t() | atom(),
-        "TrafficPolicyCount" => integer(),
-        "Type" => list(any())
-      }
-
-  """
-  @type traffic_policy_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reusable_delegation_set_limit_response() :: %{
-        "Count" => float(),
-        "Limit" => reusable_delegation_set_limit()
-      }
-
-  """
-  @type get_reusable_delegation_set_limit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_vpc_from_hosted_zone_response() :: %{
-        "ChangeInfo" => change_info()
-      }
-
-  """
-  @type disassociate_vpc_from_hosted_zone_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reusable_delegation_sets_response() :: %{
-        "DelegationSets" => list(delegation_set()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "MaxItems" => [integer()],
-        "NextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_reusable_delegation_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collection_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Version" => float()
-      }
-
-  """
-  @type collection_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hosted_zone_not_private() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type hosted_zone_not_private() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reusable_delegation_set_limit_request() :: %{}
-
-  """
-  @type get_reusable_delegation_set_limit_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      hosted_zone_summary() :: %{
-        "HostedZoneId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Owner" => hosted_zone_owner()
-      }
-
-  """
-  @type hosted_zone_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_health_check_request() :: %{}
-
-  """
-  @type delete_health_check_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_query_logging_config_response() :: %{}
-
-  """
-  @type delete_query_logging_config_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_hosted_zone_dns_sec_response() :: %{
-        "ChangeInfo" => change_info()
-      }
-
-  """
-  @type disable_hosted_zone_dns_sec_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_change_response() :: %{
-        "ChangeInfo" => change_info()
-      }
-
-  """
-  @type get_change_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflicting_domain_exists() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflicting_domain_exists() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reusable_delegation_sets_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => [integer()]
-      }
-
-  """
-  @type list_reusable_delegation_sets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cidr_collections_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_cidr_collections_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_hosted_zone_dns_sec_request() :: %{}
-
-  """
-  @type disable_hosted_zone_dns_sec_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_query_logging_config_response() :: %{
-        "Location" => String.t() | atom(),
-        "QueryLoggingConfig" => query_logging_config()
-      }
-
-  """
-  @type create_query_logging_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_traffic_policy_versions_request() :: %{
-        optional("MaxItems") => [integer()],
-        optional("TrafficPolicyVersionMarker") => String.t() | atom()
-      }
-
-  """
-  @type list_traffic_policy_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_traffic_policy_request() :: %{}
-
-  """
-  @type get_traffic_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delegation_set_already_reusable() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type delegation_set_already_reusable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_such_hosted_zone() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type no_such_hosted_zone() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_alarm_configuration() :: %{
-        "ComparisonOperator" => list(any()),
-        "Dimensions" => list(dimension()),
-        "EvaluationPeriods" => integer(),
-        "MetricName" => String.t() | atom(),
-        "Namespace" => String.t() | atom(),
-        "Period" => integer(),
-        "Statistic" => list(any()),
-        "Threshold" => float()
-      }
-
-  """
-  @type cloud_watch_alarm_configuration() :: %{(String.t() | atom()) => any()}
+  @type health_check_version_mismatch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1921,37 +1514,217 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      list_resource_record_sets_response() :: %{
-        "IsTruncated" => boolean(),
-        "MaxItems" => [integer()],
-        "NextRecordIdentifier" => String.t() | atom(),
-        "NextRecordName" => String.t() | atom(),
-        "NextRecordType" => list(any()),
-        "ResourceRecordSets" => list(resource_record_set())
-      }
-
-  """
-  @type list_resource_record_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      traffic_policy_already_exists() :: %{
+      hosted_zone_already_exists() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type traffic_policy_already_exists() :: %{(String.t() | atom()) => any()}
+  @type hosted_zone_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_health_check_request() :: %{}
+      hosted_zone_config() :: %{
+        "Comment" => String.t() | atom(),
+        "PrivateZone" => boolean()
+      }
 
   """
-  @type get_health_check_request() :: %{}
+  @type hosted_zone_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosted_zone_failure_reasons() :: %{
+        "AcceleratedRecovery" => String.t() | atom()
+      }
+
+  """
+  @type hosted_zone_failure_reasons() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosted_zone_features() :: %{
+        "AcceleratedRecoveryStatus" => list(any()),
+        "FailureReasons" => hosted_zone_failure_reasons()
+      }
+
+  """
+  @type hosted_zone_features() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosted_zone_limit() :: %{
+        "Type" => list(any()),
+        "Value" => float()
+      }
+
+  """
+  @type hosted_zone_limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosted_zone_not_empty() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type hosted_zone_not_empty() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosted_zone_not_found() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type hosted_zone_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosted_zone_not_private() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type hosted_zone_not_private() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosted_zone_owner() :: %{
+        "OwningAccount" => String.t() | atom(),
+        "OwningService" => String.t() | atom()
+      }
+
+  """
+  @type hosted_zone_owner() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosted_zone_partially_delegated() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type hosted_zone_partially_delegated() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosted_zone_summary() :: %{
+        "HostedZoneId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Owner" => hosted_zone_owner()
+      }
+
+  """
+  @type hosted_zone_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      incompatible_version() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type incompatible_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insufficient_cloud_watch_logs_resource_policy() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type insufficient_cloud_watch_logs_resource_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_argument() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_argument() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_change_batch() :: %{
+        "message" => String.t() | atom(),
+        "messages" => list(String.t() | atom())
+      }
+
+  """
+  @type invalid_change_batch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_domain_name() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_domain_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_input() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_key_signing_key_name() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_key_signing_key_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_key_signing_key_status() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_key_signing_key_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1968,125 +1741,149 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      delete_reusable_delegation_set_response() :: %{}
-
-  """
-  @type delete_reusable_delegation_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_health_checks() :: %{
+      invalid_pagination_token() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type too_many_health_checks() :: %{(String.t() | atom()) => any()}
+  @type invalid_pagination_token() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_cidr_collections_response() :: %{
-        "CidrCollections" => list(collection_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_cidr_collections_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_authorized_exception() :: %{
+      invalid_signing_status() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_signing_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_hosted_zones_by_vpc_request() :: %{
-        optional("MaxItems") => [integer()],
-        optional("NextToken") => String.t() | atom(),
-        required("VPCId") => String.t() | atom(),
-        required("VPCRegion") => list(any())
+      invalid_traffic_policy_document() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type list_hosted_zones_by_vpc_request() :: %{(String.t() | atom()) => any()}
+  @type invalid_traffic_policy_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      status_report() :: %{
-        "CheckedTime" => non_neg_integer(),
-        "Status" => String.t() | atom()
+      invalid_vpc_id() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type status_report() :: %{(String.t() | atom()) => any()}
+  @type invalid_vpc_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_hosted_zones_by_name_request() :: %{
-        optional("DNSName") => String.t() | atom(),
-        optional("HostedZoneId") => String.t() | atom(),
-        optional("MaxItems") => [integer()]
-      }
-
-  """
-  @type list_hosted_zones_by_name_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_traffic_policy_instances_by_hosted_zone_response() :: %{
-        "IsTruncated" => boolean(),
-        "MaxItems" => [integer()],
-        "TrafficPolicyInstanceNameMarker" => String.t() | atom(),
-        "TrafficPolicyInstanceTypeMarker" => list(any()),
-        "TrafficPolicyInstances" => list(traffic_policy_instance())
-      }
-
-  """
-  @type list_traffic_policy_instances_by_hosted_zone_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      resource_record_set() :: %{
-        "AliasTarget" => alias_target(),
-        "CidrRoutingConfig" => cidr_routing_config(),
-        "Failover" => list(any()),
-        "GeoLocation" => geo_location(),
-        "GeoProximityLocation" => geo_proximity_location(),
-        "HealthCheckId" => String.t() | atom(),
-        "MultiValueAnswer" => boolean(),
+      key_signing_key() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "DNSKEYRecord" => String.t() | atom(),
+        "DSRecord" => String.t() | atom(),
+        "DigestAlgorithmMnemonic" => String.t() | atom(),
+        "DigestAlgorithmType" => integer(),
+        "DigestValue" => String.t() | atom(),
+        "Flag" => integer(),
+        "KeyTag" => integer(),
+        "KmsArn" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
         "Name" => String.t() | atom(),
-        "Region" => list(any()),
-        "ResourceRecords" => list(resource_record()),
-        "SetIdentifier" => String.t() | atom(),
-        "TTL" => float(),
-        "TrafficPolicyInstanceId" => String.t() | atom(),
-        "Type" => list(any()),
-        "Weight" => float()
+        "PublicKey" => String.t() | atom(),
+        "SigningAlgorithmMnemonic" => String.t() | atom(),
+        "SigningAlgorithmType" => integer(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type resource_record_set() :: %{(String.t() | atom()) => any()}
+  @type key_signing_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_signing_key_already_exists() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type key_signing_key_already_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_signing_key_in_parent_d_s_record() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type key_signing_key_in_parent_d_s_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_signing_key_in_use() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type key_signing_key_in_use() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_signing_key_with_active_status_not_found() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type key_signing_key_with_active_status_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      last_vpc_association() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type last_vpc_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limits_exceeded() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type limits_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      linked_service() :: %{
+        "Description" => String.t() | atom(),
+        "ServicePrincipal" => String.t() | atom()
+      }
+
+  """
+  @type linked_service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2105,94 +1902,131 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      create_hosted_zone_request() :: %{
-        optional("DelegationSetId") => String.t() | atom(),
-        optional("HostedZoneConfig") => hosted_zone_config(),
-        optional("VPC") => vpc(),
-        required("CallerReference") => String.t() | atom(),
-        required("Name") => String.t() | atom()
+      list_cidr_blocks_response() :: %{
+        "CidrBlocks" => list(cidr_block_summary()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type create_hosted_zone_request() :: %{(String.t() | atom()) => any()}
+  @type list_cidr_blocks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_checker_ip_ranges_response() :: %{
-        "CheckerIpRanges" => list(String.t() | atom())
+      list_cidr_collections_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_checker_ip_ranges_response() :: %{(String.t() | atom()) => any()}
+  @type list_cidr_collections_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delegation_set_not_available() :: %{
-        "message" => String.t() | atom()
+      list_cidr_collections_response() :: %{
+        "CidrCollections" => list(collection_summary()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type delegation_set_not_available() :: %{(String.t() | atom()) => any()}
+  @type list_cidr_collections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      alias_target() :: %{
-        "DNSName" => String.t() | atom(),
-        "EvaluateTargetHealth" => boolean(),
-        "HostedZoneId" => String.t() | atom()
+      list_cidr_locations_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type alias_target() :: %{(String.t() | atom()) => any()}
+  @type list_cidr_locations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_query_logging_config_response() :: %{
-        "QueryLoggingConfig" => query_logging_config()
+      list_cidr_locations_response() :: %{
+        "CidrLocations" => list(location_summary()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_query_logging_config_response() :: %{(String.t() | atom()) => any()}
+  @type list_cidr_locations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_hosted_zone_count_response() :: %{
-        "HostedZoneCount" => float()
+      list_geo_locations_request() :: %{
+        optional("MaxItems") => [integer()],
+        optional("StartContinentCode") => String.t() | atom(),
+        optional("StartCountryCode") => String.t() | atom(),
+        optional("StartSubdivisionCode") => String.t() | atom()
       }
 
   """
-  @type get_hosted_zone_count_response() :: %{(String.t() | atom()) => any()}
+  @type list_geo_locations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      alarm_identifier() :: %{
-        "Name" => String.t() | atom(),
-        "Region" => list(any())
+      list_geo_locations_response() :: %{
+        "GeoLocationDetailsList" => list(geo_location_details()),
+        "IsTruncated" => boolean(),
+        "MaxItems" => [integer()],
+        "NextContinentCode" => String.t() | atom(),
+        "NextCountryCode" => String.t() | atom(),
+        "NextSubdivisionCode" => String.t() | atom()
       }
 
   """
-  @type alarm_identifier() :: %{(String.t() | atom()) => any()}
+  @type list_geo_locations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_traffic_policy_request() :: %{}
+      list_health_checks_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => [integer()]
+      }
 
   """
-  @type delete_traffic_policy_request() :: %{}
+  @type list_health_checks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_health_checks_response() :: %{
+        "HealthChecks" => list(health_check()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "MaxItems" => [integer()],
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_health_checks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_hosted_zones_by_name_request() :: %{
+        optional("DNSName") => String.t() | atom(),
+        optional("HostedZoneId") => String.t() | atom(),
+        optional("MaxItems") => [integer()]
+      }
+
+  """
+  @type list_hosted_zones_by_name_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2215,76 +2049,148 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      get_change_request() :: %{}
-
-  """
-  @type get_change_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      key_signing_key_in_use() :: %{
-        "message" => String.t() | atom()
+      list_hosted_zones_by_vpc_request() :: %{
+        optional("MaxItems") => [integer()],
+        optional("NextToken") => String.t() | atom(),
+        required("VPCId") => String.t() | atom(),
+        required("VPCRegion") => list(any())
       }
 
   """
-  @type key_signing_key_in_use() :: %{(String.t() | atom()) => any()}
+  @type list_hosted_zones_by_vpc_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      linked_service() :: %{
-        "Description" => String.t() | atom(),
-        "ServicePrincipal" => String.t() | atom()
+      list_hosted_zones_by_vpc_response() :: %{
+        "HostedZoneSummaries" => list(hosted_zone_summary()),
+        "MaxItems" => [integer()],
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type linked_service() :: %{(String.t() | atom()) => any()}
+  @type list_hosted_zones_by_vpc_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_traffic_policy_instance_response() :: %{
-        "TrafficPolicyInstance" => traffic_policy_instance()
-      }
-
-  """
-  @type update_traffic_policy_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_key_signing_key_name() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_key_signing_key_name() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_traffic_policy_instance_request() :: %{}
-
-  """
-  @type delete_traffic_policy_instance_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_health_checks_request() :: %{
+      list_hosted_zones_request() :: %{
+        optional("DelegationSetId") => String.t() | atom(),
+        optional("HostedZoneType") => list(any()),
         optional("Marker") => String.t() | atom(),
         optional("MaxItems") => [integer()]
       }
 
   """
-  @type list_health_checks_request() :: %{(String.t() | atom()) => any()}
+  @type list_hosted_zones_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_hosted_zones_response() :: %{
+        "HostedZones" => list(hosted_zone()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "MaxItems" => [integer()],
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_hosted_zones_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_query_logging_configs_request() :: %{
+        optional("HostedZoneId") => String.t() | atom(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_query_logging_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_query_logging_configs_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "QueryLoggingConfigs" => list(query_logging_config())
+      }
+
+  """
+  @type list_query_logging_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_record_sets_request() :: %{
+        optional("MaxItems") => [integer()],
+        optional("StartRecordIdentifier") => String.t() | atom(),
+        optional("StartRecordName") => String.t() | atom(),
+        optional("StartRecordType") => list(any())
+      }
+
+  """
+  @type list_resource_record_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_record_sets_response() :: %{
+        "IsTruncated" => boolean(),
+        "MaxItems" => [integer()],
+        "NextRecordIdentifier" => String.t() | atom(),
+        "NextRecordName" => String.t() | atom(),
+        "NextRecordType" => list(any()),
+        "ResourceRecordSets" => list(resource_record_set())
+      }
+
+  """
+  @type list_resource_record_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reusable_delegation_sets_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => [integer()]
+      }
+
+  """
+  @type list_reusable_delegation_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reusable_delegation_sets_response() :: %{
+        "DelegationSets" => list(delegation_set()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "MaxItems" => [integer()],
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_reusable_delegation_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
@@ -2301,155 +2207,82 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      get_traffic_policy_response() :: %{
-        "TrafficPolicy" => traffic_policy()
+      list_tags_for_resources_request() :: %{
+        required("ResourceIds") => list(String.t() | atom())
       }
 
   """
-  @type get_traffic_policy_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_cidr_blocks_response() :: %{
-        "CidrBlocks" => list(cidr_block_summary()),
-        "NextToken" => String.t() | atom()
+      list_tags_for_resources_response() :: %{
+        "ResourceTagSets" => list(resource_tag_set())
       }
 
   """
-  @type list_cidr_blocks_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_cidr_locations_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
+      list_traffic_policies_request() :: %{
+        optional("MaxItems") => [integer()],
+        optional("TrafficPolicyIdMarker") => String.t() | atom()
       }
 
   """
-  @type list_cidr_locations_request() :: %{(String.t() | atom()) => any()}
+  @type list_traffic_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      query_logging_config_already_exists() :: %{
-        "message" => String.t() | atom()
+      list_traffic_policies_response() :: %{
+        "IsTruncated" => boolean(),
+        "MaxItems" => [integer()],
+        "TrafficPolicyIdMarker" => String.t() | atom(),
+        "TrafficPolicySummaries" => list(traffic_policy_summary())
       }
 
   """
-  @type query_logging_config_already_exists() :: %{(String.t() | atom()) => any()}
+  @type list_traffic_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      no_such_delegation_set() :: %{
-        "message" => String.t() | atom()
+      list_traffic_policy_instances_by_hosted_zone_request() :: %{
+        optional("MaxItems") => [integer()],
+        optional("TrafficPolicyInstanceNameMarker") => String.t() | atom(),
+        optional("TrafficPolicyInstanceTypeMarker") => list(any()),
+        required("HostedZoneId") => String.t() | atom()
       }
 
   """
-  @type no_such_delegation_set() :: %{(String.t() | atom()) => any()}
+  @type list_traffic_policy_instances_by_hosted_zone_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      traffic_policy_instance() :: %{
-        "HostedZoneId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "State" => String.t() | atom(),
-        "TTL" => float(),
-        "TrafficPolicyId" => String.t() | atom(),
-        "TrafficPolicyType" => list(any()),
-        "TrafficPolicyVersion" => integer()
+      list_traffic_policy_instances_by_hosted_zone_response() :: %{
+        "IsTruncated" => boolean(),
+        "MaxItems" => [integer()],
+        "TrafficPolicyInstanceNameMarker" => String.t() | atom(),
+        "TrafficPolicyInstanceTypeMarker" => list(any()),
+        "TrafficPolicyInstances" => list(traffic_policy_instance())
       }
 
   """
-  @type traffic_policy_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hosted_zone_partially_delegated() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type hosted_zone_partially_delegated() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dimension() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      traffic_policy_instance_already_exists() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type traffic_policy_instance_already_exists() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hosted_zone_failure_reasons() :: %{
-        "AcceleratedRecovery" => String.t() | atom()
-      }
-
-  """
-  @type hosted_zone_failure_reasons() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_vpc_with_hosted_zone_response() :: %{
-        "ChangeInfo" => change_info()
-      }
-
-  """
-  @type associate_vpc_with_hosted_zone_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_record() :: %{
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type resource_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hosted_zone_not_empty() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type hosted_zone_not_empty() :: %{(String.t() | atom()) => any()}
+  @type list_traffic_policy_instances_by_hosted_zone_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2487,30 +2320,487 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      get_traffic_policy_instance_count_response() :: %{
-        "TrafficPolicyInstanceCount" => integer()
+      list_traffic_policy_instances_request() :: %{
+        optional("HostedZoneIdMarker") => String.t() | atom(),
+        optional("MaxItems") => [integer()],
+        optional("TrafficPolicyInstanceNameMarker") => String.t() | atom(),
+        optional("TrafficPolicyInstanceTypeMarker") => list(any())
       }
 
   """
-  @type get_traffic_policy_instance_count_response() :: %{(String.t() | atom()) => any()}
+  @type list_traffic_policy_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_dns_sec_request() :: %{}
+      list_traffic_policy_instances_response() :: %{
+        "HostedZoneIdMarker" => String.t() | atom(),
+        "IsTruncated" => boolean(),
+        "MaxItems" => [integer()],
+        "TrafficPolicyInstanceNameMarker" => String.t() | atom(),
+        "TrafficPolicyInstanceTypeMarker" => list(any()),
+        "TrafficPolicyInstances" => list(traffic_policy_instance())
+      }
 
   """
-  @type get_dns_sec_request() :: %{}
+  @type list_traffic_policy_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_hosted_zone_limit_request() :: %{}
+      list_traffic_policy_versions_request() :: %{
+        optional("MaxItems") => [integer()],
+        optional("TrafficPolicyVersionMarker") => String.t() | atom()
+      }
 
   """
-  @type get_hosted_zone_limit_request() :: %{}
+  @type list_traffic_policy_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_traffic_policy_versions_response() :: %{
+        "IsTruncated" => boolean(),
+        "MaxItems" => [integer()],
+        "TrafficPolicies" => list(traffic_policy()),
+        "TrafficPolicyVersionMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_traffic_policy_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vpc_association_authorizations_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_vpc_association_authorizations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vpc_association_authorizations_response() :: %{
+        "HostedZoneId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "VPCs" => list(vpc())
+      }
+
+  """
+  @type list_vpc_association_authorizations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      location_summary() :: %{
+        "LocationName" => String.t() | atom()
+      }
+
+  """
+  @type location_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_change() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_cidr_collection_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_cidr_collection_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_cidr_location_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_cidr_location_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_cloud_watch_logs_log_group() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_cloud_watch_logs_log_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_delegation_set() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_delegation_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_geo_location() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_geo_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_health_check() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_health_check() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_hosted_zone() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_hosted_zone() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_key_signing_key() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_key_signing_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_query_logging_config() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_query_logging_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_traffic_policy() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_traffic_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_such_traffic_policy_instance() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_traffic_policy_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_authorized_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prior_request_not_complete() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type prior_request_not_complete() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_zone_vpc_association() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type public_zone_vpc_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_logging_config() :: %{
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "HostedZoneId" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type query_logging_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_logging_config_already_exists() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type query_logging_config_already_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_record() :: %{
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type resource_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_record_set() :: %{
+        "AliasTarget" => alias_target(),
+        "CidrRoutingConfig" => cidr_routing_config(),
+        "Failover" => list(any()),
+        "GeoLocation" => geo_location(),
+        "GeoProximityLocation" => geo_proximity_location(),
+        "HealthCheckId" => String.t() | atom(),
+        "MultiValueAnswer" => boolean(),
+        "Name" => String.t() | atom(),
+        "Region" => list(any()),
+        "ResourceRecords" => list(resource_record()),
+        "SetIdentifier" => String.t() | atom(),
+        "TTL" => float(),
+        "TrafficPolicyInstanceId" => String.t() | atom(),
+        "Type" => list(any()),
+        "Weight" => float()
+      }
+
+  """
+  @type resource_record_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_tag_set() :: %{
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => list(any()),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type resource_tag_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reusable_delegation_set_limit() :: %{
+        "Type" => list(any()),
+        "Value" => float()
+      }
+
+  """
+  @type reusable_delegation_set_limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      status_report() :: %{
+        "CheckedTime" => non_neg_integer(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type status_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_dns_answer_request() :: %{
+        optional("EDNS0ClientSubnetIP") => String.t() | atom(),
+        optional("EDNS0ClientSubnetMask") => String.t() | atom(),
+        optional("ResolverIP") => String.t() | atom(),
+        required("HostedZoneId") => String.t() | atom(),
+        required("RecordName") => String.t() | atom(),
+        required("RecordType") => list(any())
+      }
+
+  """
+  @type test_dns_answer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_dns_answer_response() :: %{
+        "Nameserver" => String.t() | atom(),
+        "Protocol" => String.t() | atom(),
+        "RecordData" => list(String.t() | atom()),
+        "RecordName" => String.t() | atom(),
+        "RecordType" => list(any()),
+        "ResponseCode" => String.t() | atom()
+      }
+
+  """
+  @type test_dns_answer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_health_checks() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_health_checks() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_hosted_zones() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_hosted_zones() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_key_signing_keys() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_key_signing_keys() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_traffic_policies() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_traffic_policies() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_traffic_policy_instances() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_traffic_policy_instances() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_traffic_policy_versions_for_current_policy() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_traffic_policy_versions_for_current_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_vpc_association_authorizations() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_vpc_association_authorizations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2532,6 +2822,99 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      traffic_policy_already_exists() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type traffic_policy_already_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      traffic_policy_in_use() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type traffic_policy_in_use() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      traffic_policy_instance() :: %{
+        "HostedZoneId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "TTL" => float(),
+        "TrafficPolicyId" => String.t() | atom(),
+        "TrafficPolicyType" => list(any()),
+        "TrafficPolicyVersion" => integer()
+      }
+
+  """
+  @type traffic_policy_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      traffic_policy_instance_already_exists() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type traffic_policy_instance_already_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      traffic_policy_summary() :: %{
+        "Id" => String.t() | atom(),
+        "LatestVersion" => integer(),
+        "Name" => String.t() | atom(),
+        "TrafficPolicyCount" => integer(),
+        "Type" => list(any())
+      }
+
+  """
+  @type traffic_policy_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_health_check_request() :: %{
+        optional("AlarmIdentifier") => alarm_identifier(),
+        optional("ChildHealthChecks") => list(String.t() | atom()),
+        optional("Disabled") => boolean(),
+        optional("EnableSNI") => boolean(),
+        optional("FailureThreshold") => integer(),
+        optional("FullyQualifiedDomainName") => String.t() | atom(),
+        optional("HealthCheckVersion") => float(),
+        optional("HealthThreshold") => integer(),
+        optional("IPAddress") => String.t() | atom(),
+        optional("InsufficientDataHealthStatus") => list(any()),
+        optional("Inverted") => boolean(),
+        optional("Port") => integer(),
+        optional("Regions") => list(list(any())()),
+        optional("ResetElements") => list(list(any())()),
+        optional("ResourcePath") => String.t() | atom(),
+        optional("SearchString") => String.t() | atom()
+      }
+
+  """
+  @type update_health_check_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_health_check_response() :: %{
         "HealthCheck" => health_check()
       }
@@ -2543,147 +2926,54 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      insufficient_cloud_watch_logs_resource_policy() :: %{
-        "message" => String.t() | atom()
+      update_hosted_zone_comment_request() :: %{
+        optional("Comment") => String.t() | atom()
       }
 
   """
-  @type insufficient_cloud_watch_logs_resource_policy() :: %{(String.t() | atom()) => any()}
+  @type update_hosted_zone_comment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_cidr_collection_response() :: %{
-        "Collection" => cidr_collection(),
-        "Location" => String.t() | atom()
+      update_hosted_zone_comment_response() :: %{
+        "HostedZone" => hosted_zone()
       }
 
   """
-  @type create_cidr_collection_response() :: %{(String.t() | atom()) => any()}
+  @type update_hosted_zone_comment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_traffic_policy_instance_request() :: %{
-        required("HostedZoneId") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("TTL") => float(),
-        required("TrafficPolicyId") => String.t() | atom(),
-        required("TrafficPolicyVersion") => integer()
+      update_hosted_zone_features_request() :: %{
+        optional("EnableAcceleratedRecovery") => boolean()
       }
 
   """
-  @type create_traffic_policy_instance_request() :: %{(String.t() | atom()) => any()}
+  @type update_hosted_zone_features_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_input() :: %{
-        "message" => String.t() | atom()
+      update_hosted_zone_features_response() :: %{}
+
+  """
+  @type update_hosted_zone_features_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_traffic_policy_comment_request() :: %{
+        required("Comment") => String.t() | atom()
       }
 
   """
-  @type invalid_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_query_logging_config_request() :: %{
-        required("CloudWatchLogsLogGroupArn") => String.t() | atom(),
-        required("HostedZoneId") => String.t() | atom()
-      }
-
-  """
-  @type create_query_logging_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      last_vpc_association() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type last_vpc_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prior_request_not_complete() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type prior_request_not_complete() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_reusable_delegation_set_request() :: %{
-        optional("HostedZoneId") => String.t() | atom(),
-        required("CallerReference") => String.t() | atom()
-      }
-
-  """
-  @type create_reusable_delegation_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activate_key_signing_key_request() :: %{}
-
-  """
-  @type activate_key_signing_key_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delegation_set_in_use() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type delegation_set_in_use() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_hosted_zone_dns_sec_request() :: %{}
-
-  """
-  @type enable_hosted_zone_dns_sec_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delegation_set_not_reusable() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type delegation_set_not_reusable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_signing_key_in_parent_d_s_record() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type key_signing_key_in_parent_d_s_record() :: %{(String.t() | atom()) => any()}
+  @type update_traffic_policy_comment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2700,479 +2990,189 @@ defmodule AWS.Route53 do
 
   ## Example:
 
-      get_health_check_count_request() :: %{}
-
-  """
-  @type get_health_check_count_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_tag_set() :: %{
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => list(any()),
-        "Tags" => list(tag())
+      update_traffic_policy_instance_request() :: %{
+        required("TTL") => float(),
+        required("TrafficPolicyId") => String.t() | atom(),
+        required("TrafficPolicyVersion") => integer()
       }
 
   """
-  @type resource_tag_set() :: %{(String.t() | atom()) => any()}
+  @type update_traffic_policy_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      no_such_traffic_policy() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type no_such_traffic_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_health_check_count_response() :: %{
-        "HealthCheckCount" => float()
-      }
-
-  """
-  @type get_health_check_count_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_query_logging_configs_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "QueryLoggingConfigs" => list(query_logging_config())
-      }
-
-  """
-  @type list_query_logging_configs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_traffic_policies_request() :: %{
-        optional("MaxItems") => [integer()],
-        optional("TrafficPolicyIdMarker") => String.t() | atom()
-      }
-
-  """
-  @type list_traffic_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cidr_collection_request() :: %{}
-
-  """
-  @type delete_cidr_collection_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      health_check() :: %{
-        "CallerReference" => String.t() | atom(),
-        "CloudWatchAlarmConfiguration" => cloud_watch_alarm_configuration(),
-        "HealthCheckConfig" => health_check_config(),
-        "HealthCheckVersion" => float(),
-        "Id" => String.t() | atom(),
-        "LinkedService" => linked_service()
-      }
-
-  """
-  @type health_check() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dns_sec_not_found() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type dns_sec_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_such_cidr_location_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type no_such_cidr_location_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      change_info() :: %{
-        "Comment" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Status" => list(any()),
-        "SubmittedAt" => non_neg_integer()
-      }
-
-  """
-  @type change_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_vpc_from_hosted_zone_request() :: %{
-        optional("Comment") => String.t() | atom(),
-        required("VPC") => vpc()
-      }
-
-  """
-  @type disassociate_vpc_from_hosted_zone_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_signing_status() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_signing_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cidr_routing_config() :: %{
-        "CollectionId" => String.t() | atom(),
-        "LocationName" => String.t() | atom()
-      }
-
-  """
-  @type cidr_routing_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      change_cidr_collection_response() :: %{
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type change_cidr_collection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_traffic_policies_response() :: %{
-        "IsTruncated" => boolean(),
-        "MaxItems" => [integer()],
-        "TrafficPolicyIdMarker" => String.t() | atom(),
-        "TrafficPolicySummaries" => list(traffic_policy_summary())
-      }
-
-  """
-  @type list_traffic_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_reusable_delegation_set_response() :: %{
-        "DelegationSet" => delegation_set(),
-        "Location" => String.t() | atom()
-      }
-
-  """
-  @type create_reusable_delegation_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_traffic_policy_instance_count_request() :: %{}
-
-  """
-  @type get_traffic_policy_instance_count_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_traffic_policy_instance_response() :: %{
-        "Location" => String.t() | atom(),
+      update_traffic_policy_instance_response() :: %{
         "TrafficPolicyInstance" => traffic_policy_instance()
       }
 
   """
-  @type create_traffic_policy_instance_response() :: %{(String.t() | atom()) => any()}
+  @type update_traffic_policy_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_hosted_zones_response() :: %{
-        "HostedZones" => list(hosted_zone()),
-        "IsTruncated" => boolean(),
-        "Marker" => String.t() | atom(),
-        "MaxItems" => [integer()],
-        "NextMarker" => String.t() | atom()
+      vpc() :: %{
+        "VPCId" => String.t() | atom(),
+        "VPCRegion" => list(any())
       }
 
   """
-  @type list_hosted_zones_response() :: %{(String.t() | atom()) => any()}
+  @type vpc() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      health_check_observation() :: %{
-        "IPAddress" => String.t() | atom(),
-        "Region" => list(any()),
-        "StatusReport" => status_report()
-      }
-
-  """
-  @type health_check_observation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_such_health_check() :: %{
+      vpc_association_authorization_not_found() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type no_such_health_check() :: %{(String.t() | atom()) => any()}
+  @type vpc_association_authorization_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_key_signing_key_response() :: %{
-        "ChangeInfo" => change_info()
-      }
-
-  """
-  @type delete_key_signing_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hosted_zone_limit() :: %{
-        "Type" => list(any()),
-        "Value" => float()
-      }
-
-  """
-  @type hosted_zone_limit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reusable_delegation_set_response() :: %{
-        "DelegationSet" => delegation_set()
-      }
-
-  """
-  @type get_reusable_delegation_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      change() :: %{
-        "Action" => list(any()),
-        "ResourceRecordSet" => resource_record_set()
-      }
-
-  """
-  @type change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      concurrent_modification() :: %{
+      vpc_association_not_found() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type concurrent_modification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cidr_collection_request() :: %{
-        required("CallerReference") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_cidr_collection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_health_check_response() :: %{}
-
-  """
-  @type delete_health_check_response() :: %{}
+  @type vpc_association_not_found() :: %{(String.t() | atom()) => any()}
 
   @type activate_key_signing_key_errors() ::
-          concurrent_modification()
+          no_such_key_signing_key()
           | invalid_signing_status()
-          | invalid_input()
           | invalid_kms_arn()
           | invalid_key_signing_key_status()
-          | no_such_key_signing_key()
+          | invalid_input()
+          | concurrent_modification()
 
   @type associate_vpc_with_hosted_zone_errors() ::
-          prior_request_not_complete()
-          | invalid_input()
+          public_zone_vpc_association()
+          | prior_request_not_complete()
           | not_authorized_exception()
           | no_such_hosted_zone()
-          | conflicting_domain_exists()
-          | public_zone_vpc_association()
           | limits_exceeded()
           | invalid_vpc_id()
+          | invalid_input()
+          | conflicting_domain_exists()
 
   @type change_cidr_collection_errors() ::
-          concurrent_modification()
-          | invalid_input()
-          | cidr_collection_version_mismatch_exception()
+          no_such_cidr_collection_exception()
           | limits_exceeded()
+          | invalid_input()
+          | concurrent_modification()
+          | cidr_collection_version_mismatch_exception()
           | cidr_block_in_use_exception()
-          | no_such_cidr_collection_exception()
 
   @type change_resource_record_sets_errors() ::
-          no_such_health_check()
-          | prior_request_not_complete()
-          | invalid_input()
+          prior_request_not_complete()
           | no_such_hosted_zone()
+          | no_such_health_check()
+          | invalid_input()
           | invalid_change_batch()
 
   @type change_tags_for_resource_errors() ::
-          no_such_health_check()
+          throttling_exception()
           | prior_request_not_complete()
-          | invalid_input()
           | no_such_hosted_zone()
-          | throttling_exception()
+          | no_such_health_check()
+          | invalid_input()
 
   @type create_cidr_collection_errors() ::
-          concurrent_modification()
+          limits_exceeded()
           | invalid_input()
+          | concurrent_modification()
           | cidr_collection_already_exists_exception()
-          | limits_exceeded()
 
   @type create_health_check_errors() ::
-          invalid_input() | too_many_health_checks() | health_check_already_exists()
+          too_many_health_checks() | invalid_input() | health_check_already_exists()
 
   @type create_hosted_zone_errors() ::
-          delegation_set_not_reusable()
-          | invalid_input()
+          too_many_hosted_zones()
           | no_such_delegation_set()
+          | invalid_vpc_id()
+          | invalid_input()
+          | invalid_domain_name()
+          | hosted_zone_already_exists()
+          | delegation_set_not_reusable()
           | delegation_set_not_available()
           | conflicting_domain_exists()
-          | invalid_domain_name()
-          | too_many_hosted_zones()
-          | hosted_zone_already_exists()
-          | invalid_vpc_id()
 
   @type create_key_signing_key_errors() ::
-          concurrent_modification()
-          | invalid_signing_status()
-          | invalid_input()
-          | invalid_key_signing_key_name()
-          | invalid_kms_arn()
+          too_many_key_signing_keys()
           | no_such_hosted_zone()
           | key_signing_key_already_exists()
+          | invalid_signing_status()
+          | invalid_kms_arn()
           | invalid_key_signing_key_status()
-          | too_many_key_signing_keys()
+          | invalid_key_signing_key_name()
+          | invalid_input()
           | invalid_argument()
+          | concurrent_modification()
 
   @type create_query_logging_config_errors() ::
-          concurrent_modification()
-          | invalid_input()
-          | insufficient_cloud_watch_logs_resource_policy()
-          | query_logging_config_already_exists()
+          query_logging_config_already_exists()
           | no_such_hosted_zone()
           | no_such_cloud_watch_logs_log_group()
+          | invalid_input()
+          | insufficient_cloud_watch_logs_resource_policy()
+          | concurrent_modification()
 
   @type create_reusable_delegation_set_errors() ::
-          invalid_input()
+          limits_exceeded()
+          | invalid_input()
+          | invalid_argument()
+          | hosted_zone_not_found()
           | delegation_set_not_available()
           | delegation_set_already_reusable()
-          | limits_exceeded()
-          | invalid_argument()
           | delegation_set_already_created()
-          | hosted_zone_not_found()
 
   @type create_traffic_policy_errors() ::
-          invalid_input()
-          | traffic_policy_already_exists()
+          traffic_policy_already_exists()
           | too_many_traffic_policies()
           | invalid_traffic_policy_document()
+          | invalid_input()
 
   @type create_traffic_policy_instance_errors() ::
-          no_such_traffic_policy()
-          | invalid_input()
-          | traffic_policy_instance_already_exists()
-          | no_such_hosted_zone()
+          traffic_policy_instance_already_exists()
           | too_many_traffic_policy_instances()
+          | no_such_traffic_policy()
+          | no_such_hosted_zone()
+          | invalid_input()
 
   @type create_traffic_policy_version_errors() ::
-          concurrent_modification()
+          too_many_traffic_policy_versions_for_current_policy()
           | no_such_traffic_policy()
-          | invalid_input()
           | invalid_traffic_policy_document()
-          | too_many_traffic_policy_versions_for_current_policy()
+          | invalid_input()
+          | concurrent_modification()
 
   @type create_vpc_association_authorization_errors() ::
-          concurrent_modification()
-          | invalid_input()
+          too_many_vpc_association_authorizations()
           | no_such_hosted_zone()
-          | too_many_vpc_association_authorizations()
           | invalid_vpc_id()
+          | invalid_input()
+          | concurrent_modification()
 
   @type deactivate_key_signing_key_errors() ::
-          concurrent_modification()
-          | invalid_signing_status()
-          | key_signing_key_in_parent_d_s_record()
-          | invalid_input()
+          no_such_key_signing_key()
           | key_signing_key_in_use()
+          | key_signing_key_in_parent_d_s_record()
+          | invalid_signing_status()
           | invalid_key_signing_key_status()
-          | no_such_key_signing_key()
+          | invalid_input()
+          | concurrent_modification()
 
   @type delete_cidr_collection_errors() ::
-          concurrent_modification()
+          no_such_cidr_collection_exception()
           | invalid_input()
-          | no_such_cidr_collection_exception()
+          | concurrent_modification()
           | cidr_collection_in_use_exception()
 
   @type delete_health_check_errors() ::
@@ -3180,79 +3180,79 @@ defmodule AWS.Route53 do
 
   @type delete_hosted_zone_errors() ::
           prior_request_not_complete()
-          | invalid_input()
-          | hosted_zone_not_empty()
           | no_such_hosted_zone()
+          | invalid_input()
           | invalid_domain_name()
+          | hosted_zone_not_empty()
 
   @type delete_key_signing_key_errors() ::
-          concurrent_modification()
+          no_such_key_signing_key()
           | invalid_signing_status()
-          | invalid_input()
           | invalid_kms_arn()
           | invalid_key_signing_key_status()
-          | no_such_key_signing_key()
+          | invalid_input()
+          | concurrent_modification()
 
   @type delete_query_logging_config_errors() ::
-          concurrent_modification() | invalid_input() | no_such_query_logging_config()
+          no_such_query_logging_config() | invalid_input() | concurrent_modification()
 
   @type delete_reusable_delegation_set_errors() ::
-          delegation_set_not_reusable()
-          | delegation_set_in_use()
+          no_such_delegation_set()
           | invalid_input()
-          | no_such_delegation_set()
+          | delegation_set_not_reusable()
+          | delegation_set_in_use()
 
   @type delete_traffic_policy_errors() ::
-          concurrent_modification()
+          traffic_policy_in_use()
           | no_such_traffic_policy()
           | invalid_input()
-          | traffic_policy_in_use()
+          | concurrent_modification()
 
   @type delete_traffic_policy_instance_errors() ::
-          prior_request_not_complete() | invalid_input() | no_such_traffic_policy_instance()
+          prior_request_not_complete() | no_such_traffic_policy_instance() | invalid_input()
 
   @type delete_vpc_association_authorization_errors() ::
-          concurrent_modification()
-          | invalid_input()
+          vpc_association_authorization_not_found()
           | no_such_hosted_zone()
-          | vpc_association_authorization_not_found()
           | invalid_vpc_id()
+          | invalid_input()
+          | concurrent_modification()
 
   @type disable_hosted_zone_dns_sec_errors() ::
-          concurrent_modification()
-          | dns_sec_not_found()
+          no_such_hosted_zone()
           | key_signing_key_in_parent_d_s_record()
-          | invalid_input()
           | invalid_kms_arn()
-          | no_such_hosted_zone()
           | invalid_key_signing_key_status()
+          | invalid_input()
           | invalid_argument()
+          | dns_sec_not_found()
+          | concurrent_modification()
 
   @type disassociate_vpc_from_hosted_zone_errors() ::
-          last_vpc_association()
-          | invalid_input()
+          vpc_association_not_found()
           | no_such_hosted_zone()
-          | vpc_association_not_found()
+          | last_vpc_association()
           | invalid_vpc_id()
+          | invalid_input()
 
   @type enable_hosted_zone_dns_sec_errors() ::
-          concurrent_modification()
-          | dns_sec_not_found()
-          | invalid_input()
-          | hosted_zone_partially_delegated()
-          | invalid_kms_arn()
-          | no_such_hosted_zone()
+          no_such_hosted_zone()
           | key_signing_key_with_active_status_not_found()
+          | invalid_kms_arn()
           | invalid_key_signing_key_status()
+          | invalid_input()
           | invalid_argument()
+          | hosted_zone_partially_delegated()
+          | dns_sec_not_found()
+          | concurrent_modification()
 
   @type get_account_limit_errors() :: invalid_input()
 
-  @type get_change_errors() :: invalid_input() | no_such_change()
+  @type get_change_errors() :: no_such_change() | invalid_input()
 
-  @type get_dns_sec_errors() :: invalid_input() | no_such_hosted_zone() | invalid_argument()
+  @type get_dns_sec_errors() :: no_such_hosted_zone() | invalid_input() | invalid_argument()
 
-  @type get_geo_location_errors() :: invalid_input() | no_such_geo_location()
+  @type get_geo_location_errors() :: no_such_geo_location() | invalid_input()
 
   @type get_health_check_errors() ::
           no_such_health_check() | invalid_input() | incompatible_version()
@@ -3261,105 +3261,105 @@ defmodule AWS.Route53 do
 
   @type get_health_check_status_errors() :: no_such_health_check() | invalid_input()
 
-  @type get_hosted_zone_errors() :: invalid_input() | no_such_hosted_zone()
+  @type get_hosted_zone_errors() :: no_such_hosted_zone() | invalid_input()
 
   @type get_hosted_zone_count_errors() :: invalid_input()
 
   @type get_hosted_zone_limit_errors() ::
-          invalid_input() | no_such_hosted_zone() | hosted_zone_not_private()
+          no_such_hosted_zone() | invalid_input() | hosted_zone_not_private()
 
-  @type get_query_logging_config_errors() :: invalid_input() | no_such_query_logging_config()
+  @type get_query_logging_config_errors() :: no_such_query_logging_config() | invalid_input()
 
   @type get_reusable_delegation_set_errors() ::
-          delegation_set_not_reusable() | invalid_input() | no_such_delegation_set()
+          no_such_delegation_set() | invalid_input() | delegation_set_not_reusable()
 
-  @type get_reusable_delegation_set_limit_errors() :: invalid_input() | no_such_delegation_set()
+  @type get_reusable_delegation_set_limit_errors() :: no_such_delegation_set() | invalid_input()
 
   @type get_traffic_policy_errors() :: no_such_traffic_policy() | invalid_input()
 
   @type get_traffic_policy_instance_errors() ::
-          invalid_input() | no_such_traffic_policy_instance()
+          no_such_traffic_policy_instance() | invalid_input()
 
   @type list_cidr_blocks_errors() ::
           no_such_cidr_location_exception()
-          | invalid_input()
           | no_such_cidr_collection_exception()
+          | invalid_input()
 
   @type list_cidr_collections_errors() :: invalid_input()
 
-  @type list_cidr_locations_errors() :: invalid_input() | no_such_cidr_collection_exception()
+  @type list_cidr_locations_errors() :: no_such_cidr_collection_exception() | invalid_input()
 
   @type list_geo_locations_errors() :: invalid_input()
 
   @type list_health_checks_errors() :: invalid_input() | incompatible_version()
 
   @type list_hosted_zones_errors() ::
-          delegation_set_not_reusable() | invalid_input() | no_such_delegation_set()
+          no_such_delegation_set() | invalid_input() | delegation_set_not_reusable()
 
   @type list_hosted_zones_by_name_errors() :: invalid_input() | invalid_domain_name()
 
-  @type list_hosted_zones_by_vpc_errors() :: invalid_input() | invalid_pagination_token()
+  @type list_hosted_zones_by_vpc_errors() :: invalid_pagination_token() | invalid_input()
 
   @type list_query_logging_configs_errors() ::
-          invalid_input() | no_such_hosted_zone() | invalid_pagination_token()
+          no_such_hosted_zone() | invalid_pagination_token() | invalid_input()
 
-  @type list_resource_record_sets_errors() :: invalid_input() | no_such_hosted_zone()
+  @type list_resource_record_sets_errors() :: no_such_hosted_zone() | invalid_input()
 
   @type list_reusable_delegation_sets_errors() :: invalid_input()
 
   @type list_tags_for_resource_errors() ::
-          no_such_health_check()
+          throttling_exception()
           | prior_request_not_complete()
-          | invalid_input()
           | no_such_hosted_zone()
-          | throttling_exception()
+          | no_such_health_check()
+          | invalid_input()
 
   @type list_tags_for_resources_errors() ::
-          no_such_health_check()
+          throttling_exception()
           | prior_request_not_complete()
-          | invalid_input()
           | no_such_hosted_zone()
-          | throttling_exception()
+          | no_such_health_check()
+          | invalid_input()
 
   @type list_traffic_policies_errors() :: invalid_input()
 
   @type list_traffic_policy_instances_errors() ::
-          invalid_input() | no_such_traffic_policy_instance()
+          no_such_traffic_policy_instance() | invalid_input()
 
   @type list_traffic_policy_instances_by_hosted_zone_errors() ::
-          invalid_input() | no_such_hosted_zone() | no_such_traffic_policy_instance()
+          no_such_traffic_policy_instance() | no_such_hosted_zone() | invalid_input()
 
   @type list_traffic_policy_instances_by_policy_errors() ::
-          no_such_traffic_policy() | invalid_input() | no_such_traffic_policy_instance()
+          no_such_traffic_policy_instance() | no_such_traffic_policy() | invalid_input()
 
   @type list_traffic_policy_versions_errors() :: no_such_traffic_policy() | invalid_input()
 
   @type list_vpc_association_authorizations_errors() ::
-          invalid_input() | no_such_hosted_zone() | invalid_pagination_token()
+          no_such_hosted_zone() | invalid_pagination_token() | invalid_input()
 
-  @type test_dns_answer_errors() :: invalid_input() | no_such_hosted_zone()
+  @type test_dns_answer_errors() :: no_such_hosted_zone() | invalid_input()
 
   @type update_health_check_errors() ::
           no_such_health_check() | invalid_input() | health_check_version_mismatch()
 
   @type update_hosted_zone_comment_errors() ::
-          prior_request_not_complete() | invalid_input() | no_such_hosted_zone()
+          prior_request_not_complete() | no_such_hosted_zone() | invalid_input()
 
   @type update_hosted_zone_features_errors() ::
           prior_request_not_complete()
-          | invalid_input()
           | no_such_hosted_zone()
           | limits_exceeded()
+          | invalid_input()
 
   @type update_traffic_policy_comment_errors() ::
-          concurrent_modification() | no_such_traffic_policy() | invalid_input()
+          no_such_traffic_policy() | invalid_input() | concurrent_modification()
 
   @type update_traffic_policy_instance_errors() ::
-          no_such_traffic_policy()
-          | prior_request_not_complete()
+          prior_request_not_complete()
+          | no_such_traffic_policy_instance()
+          | no_such_traffic_policy()
           | invalid_input()
           | conflicting_types()
-          | no_such_traffic_policy_instance()
 
   def metadata do
     %{
@@ -5334,8 +5334,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(subdivision_code) do
-        [{"subdivisioncode", subdivision_code} | query_params]
+      if !is_nil(continent_code) do
+        [{"continentcode", continent_code} | query_params]
       else
         query_params
       end
@@ -5348,8 +5348,8 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(continent_code) do
-        [{"continentcode", continent_code} | query_params]
+      if !is_nil(subdivision_code) do
+        [{"subdivisioncode", subdivision_code} | query_params]
       else
         query_params
       end
@@ -5681,8 +5681,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nexttoken", next_token} | query_params]
+      if !is_nil(location_name) do
+        [{"location", location_name} | query_params]
       else
         query_params
       end
@@ -5695,8 +5695,8 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(location_name) do
-        [{"location", location_name} | query_params]
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
       else
         query_params
       end
@@ -5726,15 +5726,15 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nexttoken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxresults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxresults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
       else
         query_params
       end
@@ -5772,15 +5772,15 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nexttoken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxresults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxresults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
       else
         query_params
       end
@@ -5834,15 +5834,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(start_subdivision_code) do
-        [{"startsubdivisioncode", start_subdivision_code} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start_country_code) do
-        [{"startcountrycode", start_country_code} | query_params]
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
       else
         query_params
       end
@@ -5855,8 +5848,15 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxitems", max_items} | query_params]
+      if !is_nil(start_country_code) do
+        [{"startcountrycode", start_country_code} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_subdivision_code) do
+        [{"startsubdivisioncode", start_subdivision_code} | query_params]
       else
         query_params
       end
@@ -5881,15 +5881,15 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxitems", max_items} | query_params]
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
       else
         query_params
       end
@@ -5937,15 +5937,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxitems", max_items} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if !is_nil(delegation_set_id) do
+        [{"delegationsetid", delegation_set_id} | query_params]
       else
         query_params
       end
@@ -5958,8 +5951,15 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(delegation_set_id) do
-        [{"delegationsetid", delegation_set_id} | query_params]
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
       else
         query_params
       end
@@ -6058,8 +6058,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxitems", max_items} | query_params]
+      if !is_nil(dns_name) do
+        [{"dnsname", dns_name} | query_params]
       else
         query_params
       end
@@ -6072,8 +6072,8 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(dns_name) do
-        [{"dnsname", dns_name} | query_params]
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
       else
         query_params
       end
@@ -6160,15 +6160,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(vpc_region) do
-        [{"vpcregion", vpc_region} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(vpc_id) do
-        [{"vpcid", vpc_id} | query_params]
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
       else
         query_params
       end
@@ -6181,8 +6174,15 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxitems", max_items} | query_params]
+      if !is_nil(vpc_id) do
+        [{"vpcid", vpc_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(vpc_region) do
+        [{"vpcregion", vpc_region} | query_params]
       else
         query_params
       end
@@ -6229,8 +6229,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nexttoken", next_token} | query_params]
+      if !is_nil(hosted_zone_id) do
+        [{"hostedzoneid", hosted_zone_id} | query_params]
       else
         query_params
       end
@@ -6243,8 +6243,8 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(hosted_zone_id) do
-        [{"hostedzoneid", hosted_zone_id} | query_params]
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
       else
         query_params
       end
@@ -6360,15 +6360,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(start_record_type) do
-        [{"type", start_record_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start_record_name) do
-        [{"name", start_record_name} | query_params]
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
       else
         query_params
       end
@@ -6381,8 +6374,15 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxitems", max_items} | query_params]
+      if !is_nil(start_record_name) do
+        [{"name", start_record_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_record_type) do
+        [{"type", start_record_type} | query_params]
       else
         query_params
       end
@@ -6418,15 +6418,15 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxitems", max_items} | query_params]
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
       else
         query_params
       end
@@ -6524,15 +6524,15 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(traffic_policy_id_marker) do
-        [{"trafficpolicyid", traffic_policy_id_marker} | query_params]
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxitems", max_items} | query_params]
+      if !is_nil(traffic_policy_id_marker) do
+        [{"trafficpolicyid", traffic_policy_id_marker} | query_params]
       else
         query_params
       end
@@ -6582,15 +6582,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(traffic_policy_instance_type_marker) do
-        [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(traffic_policy_instance_name_marker) do
-        [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query_params]
+      if !is_nil(hosted_zone_id_marker) do
+        [{"hostedzoneid", hosted_zone_id_marker} | query_params]
       else
         query_params
       end
@@ -6603,8 +6596,15 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(hosted_zone_id_marker) do
-        [{"hostedzoneid", hosted_zone_id_marker} | query_params]
+      if !is_nil(traffic_policy_instance_name_marker) do
+        [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic_policy_instance_type_marker) do
+        [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query_params]
       else
         query_params
       end
@@ -6656,15 +6656,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(traffic_policy_instance_type_marker) do
-        [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(traffic_policy_instance_name_marker) do
-        [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query_params]
+      if !is_nil(hosted_zone_id) do
+        [{"id", hosted_zone_id} | query_params]
       else
         query_params
       end
@@ -6677,8 +6670,15 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(hosted_zone_id) do
-        [{"id", hosted_zone_id} | query_params]
+      if !is_nil(traffic_policy_instance_name_marker) do
+        [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic_policy_instance_type_marker) do
+        [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query_params]
       else
         query_params
       end
@@ -6733,29 +6733,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(traffic_policy_version) do
-        [{"version", traffic_policy_version} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(traffic_policy_instance_type_marker) do
-        [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(traffic_policy_instance_name_marker) do
-        [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(traffic_policy_id) do
-        [{"id", traffic_policy_id} | query_params]
+      if !is_nil(hosted_zone_id_marker) do
+        [{"hostedzoneid", hosted_zone_id_marker} | query_params]
       else
         query_params
       end
@@ -6768,8 +6747,29 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(hosted_zone_id_marker) do
-        [{"hostedzoneid", hosted_zone_id_marker} | query_params]
+      if !is_nil(traffic_policy_id) do
+        [{"id", traffic_policy_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic_policy_instance_name_marker) do
+        [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic_policy_instance_type_marker) do
+        [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic_policy_version) do
+        [{"version", traffic_policy_version} | query_params]
       else
         query_params
       end
@@ -6808,15 +6808,15 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(traffic_policy_version_marker) do
-        [{"trafficpolicyversion", traffic_policy_version_marker} | query_params]
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxitems", max_items} | query_params]
+      if !is_nil(traffic_policy_version_marker) do
+        [{"trafficpolicyversion", traffic_policy_version_marker} | query_params]
       else
         query_params
       end
@@ -6860,15 +6860,15 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nexttoken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxresults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxresults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
       else
         query_params
       end
@@ -6922,29 +6922,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(resolver_ip) do
-        [{"resolverip", resolver_ip} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(record_type) do
-        [{"recordtype", record_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(record_name) do
-        [{"recordname", record_name} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(hosted_zone_id) do
-        [{"hostedzoneid", hosted_zone_id} | query_params]
+      if !is_nil(e_dns0_client_subnet_ip) do
+        [{"edns0clientsubnetip", e_dns0_client_subnet_ip} | query_params]
       else
         query_params
       end
@@ -6957,8 +6936,29 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(e_dns0_client_subnet_ip) do
-        [{"edns0clientsubnetip", e_dns0_client_subnet_ip} | query_params]
+      if !is_nil(hosted_zone_id) do
+        [{"hostedzoneid", hosted_zone_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(record_name) do
+        [{"recordname", record_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(record_type) do
+        [{"recordtype", record_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resolver_ip) do
+        [{"resolverip", resolver_ip} | query_params]
       else
         query_params
       end

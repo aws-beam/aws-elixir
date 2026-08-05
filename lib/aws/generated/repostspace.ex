@@ -23,63 +23,97 @@ defmodule AWS.Repostspace do
 
   ## Example:
 
-      supported_email_domains_parameters() :: %{
-        "allowedDomains" => list(String.t() | atom()),
-        "enabled" => list(any())
-      }
-
-  """
-  @type supported_email_domains_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_spaces_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_spaces_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_invites_input() :: %{
-        required("accessorIds") => list(String.t() | atom()),
-        required("body") => String.t() | atom(),
-        required("title") => String.t() | atom()
-      }
-
-  """
-  @type send_invites_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       access_denied_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_add_channel_role_to_accessors_input() :: %{
+        required("accessorIds") => list(String.t() | atom()),
+        required("channelRole") => list(any())
+      }
+
+  """
+  @type batch_add_channel_role_to_accessors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_add_channel_role_to_accessors_output() :: %{
+        "addedAccessorIds" => list(String.t() | atom()),
+        "errors" => list(batch_error())
+      }
+
+  """
+  @type batch_add_channel_role_to_accessors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_add_role_input() :: %{
+        required("accessorIds") => list(String.t() | atom()),
+        required("role") => list(any())
+      }
+
+  """
+  @type batch_add_role_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_add_role_output() :: %{
+        "addedAccessorIds" => list(String.t() | atom()),
+        "errors" => list(batch_error())
+      }
+
+  """
+  @type batch_add_role_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_error() :: %{
+        "accessorId" => String.t() | atom(),
+        "error" => integer(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type batch_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_remove_channel_role_from_accessors_input() :: %{
+        required("accessorIds") => list(String.t() | atom()),
+        required("channelRole") => list(any())
+      }
+
+  """
+  @type batch_remove_channel_role_from_accessors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_remove_channel_role_from_accessors_output() :: %{
+        "errors" => list(batch_error()),
+        "removedAccessorIds" => list(String.t() | atom())
+      }
+
+  """
+  @type batch_remove_channel_role_from_accessors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -92,6 +126,73 @@ defmodule AWS.Repostspace do
 
   """
   @type batch_remove_role_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_remove_role_output() :: %{
+        "errors" => list(batch_error()),
+        "removedAccessorIds" => list(String.t() | atom())
+      }
+
+  """
+  @type batch_remove_role_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_data() :: %{
+        "channelDescription" => String.t() | atom(),
+        "channelId" => String.t() | atom(),
+        "channelName" => String.t() | atom(),
+        "channelStatus" => list(any()),
+        "createDateTime" => [non_neg_integer()],
+        "deleteDateTime" => [non_neg_integer()],
+        "groupCount" => integer(),
+        "spaceId" => String.t() | atom(),
+        "userCount" => integer()
+      }
+
+  """
+  @type channel_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_input() :: %{
+        optional("channelDescription") => String.t() | atom(),
+        required("channelName") => String.t() | atom()
+      }
+
+  """
+  @type create_channel_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_output() :: %{
+        "channelId" => String.t() | atom()
+      }
+
+  """
+  @type create_channel_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,13 +216,39 @@ defmodule AWS.Repostspace do
 
   ## Example:
 
-      batch_remove_channel_role_from_accessors_input() :: %{
-        required("accessorIds") => list(String.t() | atom()),
-        required("channelRole") => list(any())
+      create_space_output() :: %{
+        "spaceId" => String.t() | atom()
       }
 
   """
-  @type batch_remove_channel_role_from_accessors_input() :: %{(String.t() | atom()) => any()}
+  @type create_space_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_space_input() :: %{}
+
+  """
+  @type delete_space_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_admin_input() :: %{}
+
+  """
+  @type deregister_admin_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_input() :: %{}
+
+  """
+  @type get_channel_input() :: %{}
 
   @typedoc """
 
@@ -145,25 +272,10 @@ defmodule AWS.Repostspace do
 
   ## Example:
 
-      list_channels_output() :: %{
-        "channels" => list(channel_data()),
-        "nextToken" => [String.t() | atom()]
-      }
+      get_space_input() :: %{}
 
   """
-  @type list_channels_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      supported_email_domains_status() :: %{
-        "allowedDomains" => list(String.t() | atom()),
-        "enabled" => list(any())
-      }
-
-  """
-  @type supported_email_domains_status() :: %{(String.t() | atom()) => any()}
+  @type get_space_input() :: %{}
 
   @typedoc """
 
@@ -203,65 +315,6 @@ defmodule AWS.Repostspace do
 
   ## Example:
 
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_input() :: %{
-        optional("channelDescription") => String.t() | atom(),
-        required("channelName") => String.t() | atom()
-      }
-
-  """
-  @type create_channel_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_admin_input() :: %{}
-
-  """
-  @type register_admin_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_space_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("roleArn") => String.t() | atom(),
-        optional("supportedEmailDomains") => supported_email_domains_parameters(),
-        optional("tier") => list(any())
-      }
-
-  """
-  @type update_space_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_output() :: %{
-        "channelId" => String.t() | atom()
-      }
-
-  """
-  @type create_channel_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       internal_server_exception() :: %{
         "message" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()]
@@ -274,13 +327,37 @@ defmodule AWS.Repostspace do
 
   ## Example:
 
-      batch_add_role_input() :: %{
-        required("accessorIds") => list(String.t() | atom()),
-        required("role") => list(any())
+      list_channels_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type batch_add_role_input() :: %{(String.t() | atom()) => any()}
+  @type list_channels_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_output() :: %{
+        "channels" => list(channel_data()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_channels_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_spaces_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_spaces_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -293,6 +370,35 @@ defmodule AWS.Repostspace do
 
   """
   @type list_spaces_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_admin_input() :: %{}
+
+  """
+  @type register_admin_input() :: %{}
 
   @typedoc """
 
@@ -311,72 +417,29 @@ defmodule AWS.Repostspace do
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("tags") => map()
+      send_invites_input() :: %{
+        required("accessorIds") => list(String.t() | atom()),
+        required("body") => String.t() | atom(),
+        required("title") => String.t() | atom()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type send_invites_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      channel_data() :: %{
-        "channelDescription" => String.t() | atom(),
-        "channelId" => String.t() | atom(),
-        "channelName" => String.t() | atom(),
-        "channelStatus" => list(any()),
-        "createDateTime" => [non_neg_integer()],
-        "deleteDateTime" => [non_neg_integer()],
-        "groupCount" => integer(),
-        "spaceId" => String.t() | atom(),
-        "userCount" => integer()
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type channel_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_channels_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_space_output() :: %{
-        "spaceId" => String.t() | atom()
-      }
-
-  """
-  @type create_space_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_output() :: %{}
-
-  """
-  @type update_channel_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -409,35 +472,59 @@ defmodule AWS.Repostspace do
 
   ## Example:
 
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+      supported_email_domains_parameters() :: %{
+        "allowedDomains" => list(String.t() | atom()),
+        "enabled" => list(any())
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type supported_email_domains_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
+      supported_email_domains_status() :: %{
+        "allowedDomains" => list(String.t() | atom()),
+        "enabled" => list(any())
+      }
 
   """
-  @type untag_resource_response() :: %{}
+  @type supported_email_domains_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
+      tag_resource_request() :: %{
+        required("tags") => map()
       }
 
   """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -454,63 +541,10 @@ defmodule AWS.Repostspace do
 
   ## Example:
 
-      get_space_input() :: %{}
+      untag_resource_response() :: %{}
 
   """
-  @type get_space_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_channel_input() :: %{}
-
-  """
-  @type get_channel_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_add_channel_role_to_accessors_output() :: %{
-        "addedAccessorIds" => list(String.t() | atom()),
-        "errors" => list(batch_error())
-      }
-
-  """
-  @type batch_add_channel_role_to_accessors_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_space_input() :: %{}
-
-  """
-  @type delete_space_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_remove_channel_role_from_accessors_output() :: %{
-        "errors" => list(batch_error()),
-        "removedAccessorIds" => list(String.t() | atom())
-      }
-
-  """
-  @type batch_remove_channel_role_from_accessors_output() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -528,220 +562,186 @@ defmodule AWS.Repostspace do
 
   ## Example:
 
-      batch_add_channel_role_to_accessors_input() :: %{
-        required("accessorIds") => list(String.t() | atom()),
-        required("channelRole") => list(any())
+      update_channel_output() :: %{}
+
+  """
+  @type update_channel_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_space_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("roleArn") => String.t() | atom(),
+        optional("supportedEmailDomains") => supported_email_domains_parameters(),
+        optional("tier") => list(any())
       }
 
   """
-  @type batch_add_channel_role_to_accessors_input() :: %{(String.t() | atom()) => any()}
+  @type update_space_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      deregister_admin_input() :: %{}
-
-  """
-  @type deregister_admin_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_error() :: %{
-        "accessorId" => String.t() | atom(),
-        "error" => integer(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type batch_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_remove_role_output() :: %{
-        "errors" => list(batch_error()),
-        "removedAccessorIds" => list(String.t() | atom())
-      }
-
-  """
-  @type batch_remove_role_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
+        "reason" => list(any())
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_add_role_output() :: %{
-        "addedAccessorIds" => list(String.t() | atom()),
-        "errors" => list(batch_error())
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type batch_add_role_output() :: %{(String.t() | atom()) => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type batch_add_channel_role_to_accessors_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type batch_add_role_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type batch_remove_channel_role_from_accessors_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type batch_remove_role_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_channel_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_space_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_space_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type deregister_admin_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_channel_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_space_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_channels_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_spaces_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type register_admin_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type send_invites_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_channel_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type update_space_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{
@@ -1091,15 +1091,15 @@ defmodule AWS.Repostspace do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1124,15 +1124,15 @@ defmodule AWS.Repostspace do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

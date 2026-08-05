@@ -14,161 +14,26 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      update_shared_vpc_configuration_response() :: %{
-        "EnableFsxRouteTableUpdatesFromParticipantAccounts" => String.t() | atom()
-      }
-      
-  """
-  @type update_shared_vpc_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_file_system_ontap_configuration() :: %{
-        "AddRouteTableIds" => list(String.t() | atom()),
-        "AutomaticBackupRetentionDays" => integer(),
-        "DailyAutomaticBackupStartTime" => String.t() | atom(),
-        "DiskIopsConfiguration" => disk_iops_configuration(),
-        "EndpointIpv6AddressRange" => String.t() | atom(),
-        "FsxAdminPassword" => String.t() | atom(),
-        "HAPairs" => integer(),
-        "RemoveRouteTableIds" => list(String.t() | atom()),
-        "ThroughputCapacity" => integer(),
-        "ThroughputCapacityPerHAPair" => integer(),
-        "WeeklyMaintenanceStartTime" => String.t() | atom()
-      }
-      
-  """
-  @type update_file_system_ontap_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_volume_response() :: %{
-        "Volume" => volume()
-      }
-      
-  """
-  @type update_volume_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_snapshot_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("SnapshotId") => String.t() | atom()
-      }
-      
-  """
-  @type update_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_file_system_aliases_response() :: %{
-        "Aliases" => list(alias())
-      }
-      
-  """
-  @type disassociate_file_system_aliases_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_file_cache_response() :: %{
-        "FileCacheId" => String.t() | atom(),
-        "Lifecycle" => list(any())
-      }
-      
-  """
-  @type delete_file_cache_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_snapshots_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Snapshots" => list(snapshot())
-      }
-      
-  """
-  @type describe_snapshots_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      backup_not_found() :: %{
+      access_point_already_owned_by_you() :: %{
+        "ErrorCode" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type backup_not_found() :: %{(String.t() | atom()) => any()}
+  @type access_point_already_owned_by_you() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      associate_file_system_aliases_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("Aliases") => list(String.t() | atom()),
-        required("FileSystemId") => String.t() | atom()
+      active_directory_backup_attributes() :: %{
+        "ActiveDirectoryId" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "ResourceARN" => String.t() | atom()
       }
       
   """
-  @type associate_file_system_aliases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_volume_ontap_configuration() :: %{
-        "BypassSnaplockEnterpriseRetention" => boolean(),
-        "FinalBackupTags" => list(tag()),
-        "SkipFinalBackup" => boolean()
-      }
-      
-  """
-  @type delete_volume_ontap_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_backup_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("BackupId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_backup_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_file_system_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("FileSystemTypeVersion") => String.t() | atom(),
-        optional("LustreConfiguration") => update_file_system_lustre_configuration(),
-        optional("NetworkType") => list(any()),
-        optional("OntapConfiguration") => update_file_system_ontap_configuration(),
-        optional("OpenZFSConfiguration") => update_file_system_open_z_f_s_configuration(),
-        optional("StorageCapacity") => integer(),
-        optional("StorageType") => list(any()),
-        optional("WindowsConfiguration") => update_file_system_windows_configuration(),
-        required("FileSystemId") => String.t() | atom()
-      }
-      
-  """
-  @type update_file_system_request() :: %{(String.t() | atom()) => any()}
+  @type active_directory_backup_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -187,74 +52,233 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      windows_audit_log_configuration() :: %{
-        "AuditLogDestination" => String.t() | atom(),
-        "FileAccessAuditLogLevel" => list(any()),
-        "FileShareAccessAuditLogLevel" => list(any())
-      }
-      
-  """
-  @type windows_audit_log_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_cache_nfs_configuration() :: %{
-        "DnsIps" => list(String.t() | atom()),
-        "Version" => list(any())
-      }
-      
-  """
-  @type file_cache_nfs_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_does_not_support_tagging() :: %{
+      administrative_action() :: %{
+        "AdministrativeActionType" => list(any()),
+        "FailureDetails" => administrative_action_failure_details(),
         "Message" => String.t() | atom(),
-        "ResourceARN" => String.t() | atom()
+        "ProgressPercent" => integer(),
+        "RemainingTransferBytes" => float(),
+        "RequestTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TargetFileSystemValues" => file_system(),
+        "TargetSnapshotValues" => snapshot(),
+        "TargetVolumeValues" => volume(),
+        "TotalTransferBytes" => float()
       }
       
   """
-  @type resource_does_not_support_tagging() :: %{(String.t() | atom()) => any()}
+  @type administrative_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      open_z_f_s_user_or_group_quota() :: %{
-        "Id" => integer(),
-        "StorageCapacityQuotaGiB" => integer(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type open_z_f_s_user_or_group_quota() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_limit_exceeded() :: %{
-        "Limit" => list(any()),
+      administrative_action_failure_details() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type service_limit_exceeded() :: %{(String.t() | atom()) => any()}
+  @type administrative_action_failure_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_storage_virtual_machine_response() :: %{
-        "StorageVirtualMachine" => storage_virtual_machine()
+      aggregate_configuration() :: %{
+        "Aggregates" => list(String.t() | atom()),
+        "TotalConstituents" => integer()
       }
       
   """
-  @type update_storage_virtual_machine_response() :: %{(String.t() | atom()) => any()}
+  @type aggregate_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      alias() :: %{
+        "Lifecycle" => list(any()),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type alias() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_file_system_aliases_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("Aliases") => list(String.t() | atom()),
+        required("FileSystemId") => String.t() | atom()
+      }
+      
+  """
+  @type associate_file_system_aliases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_file_system_aliases_response() :: %{
+        "Aliases" => list(alias())
+      }
+      
+  """
+  @type associate_file_system_aliases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_export_policy() :: %{
+        "Events" => list(list(any())())
+      }
+      
+  """
+  @type auto_export_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_import_policy() :: %{
+        "Events" => list(list(any())())
+      }
+      
+  """
+  @type auto_import_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      autocommit_period() :: %{
+        "Type" => list(any()),
+        "Value" => integer()
+      }
+      
+  """
+  @type autocommit_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      backup() :: %{
+        "BackupId" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "DirectoryInformation" => active_directory_backup_attributes(),
+        "FailureDetails" => backup_failure_details(),
+        "FileSystem" => file_system(),
+        "KmsKeyId" => String.t() | atom(),
+        "Lifecycle" => list(any()),
+        "OwnerId" => String.t() | atom(),
+        "ProgressPercent" => integer(),
+        "ResourceARN" => String.t() | atom(),
+        "ResourceType" => list(any()),
+        "SizeInBytes" => float(),
+        "SourceBackupId" => String.t() | atom(),
+        "SourceBackupRegion" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "Type" => list(any()),
+        "Volume" => volume()
+      }
+      
+  """
+  @type backup() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      backup_being_copied() :: %{
+        "BackupId" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type backup_being_copied() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      backup_failure_details() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type backup_failure_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      backup_in_progress() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type backup_in_progress() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      backup_not_found() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type backup_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      backup_restoring() :: %{
+        "FileSystemId" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type backup_restoring() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bad_request() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type bad_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_data_repository_task_request() :: %{
+        required("TaskId") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_data_repository_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_data_repository_task_response() :: %{
+        "Lifecycle" => list(any()),
+        "TaskId" => String.t() | atom()
+      }
+      
+  """
+  @type cancel_data_repository_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -274,39 +298,1068 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      file_system_endpoints() :: %{
-        "Intercluster" => file_system_endpoint(),
-        "Management" => file_system_endpoint()
+      copy_backup_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("CopyTags") => boolean(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("SourceRegion") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("SourceBackupId") => String.t() | atom()
       }
       
   """
-  @type file_system_endpoints() :: %{(String.t() | atom()) => any()}
+  @type copy_backup_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      open_z_f_s_file_system_configuration() :: %{
+      copy_backup_response() :: %{
+        "Backup" => backup()
+      }
+      
+  """
+  @type copy_backup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_snapshot_and_update_volume_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("CopyStrategy") => list(any()),
+        optional("Options") => list(list(any())()),
+        required("SourceSnapshotARN") => String.t() | atom(),
+        required("VolumeId") => String.t() | atom()
+      }
+      
+  """
+  @type copy_snapshot_and_update_volume_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_snapshot_and_update_volume_response() :: %{
+        "AdministrativeActions" => list(administrative_action()),
+        "Lifecycle" => list(any()),
+        "VolumeId" => String.t() | atom()
+      }
+      
+  """
+  @type copy_snapshot_and_update_volume_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_aggregate_configuration() :: %{
+        "Aggregates" => list(String.t() | atom()),
+        "ConstituentsPerAggregate" => integer()
+      }
+      
+  """
+  @type create_aggregate_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_and_attach_s3_access_point_ontap_configuration() :: %{
+        "FileSystemIdentity" => ontap_file_system_identity(),
+        "VolumeId" => String.t() | atom()
+      }
+      
+  """
+  @type create_and_attach_s3_access_point_ontap_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      create_and_attach_s3_access_point_open_z_f_s_configuration() :: %{
+        "FileSystemIdentity" => open_z_f_s_file_system_identity(),
+        "VolumeId" => String.t() | atom()
+      }
+      
+  """
+  @type create_and_attach_s3_access_point_open_z_f_s_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      create_and_attach_s3_access_point_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("OntapConfiguration") => create_and_attach_s3_access_point_ontap_configuration(),
+        optional("OpenZFSConfiguration") => create_and_attach_s3_access_point_open_z_f_s_configuration(),
+        optional("S3AccessPoint") => create_and_attach_s3_access_point_s3_configuration(),
+        required("Name") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_and_attach_s3_access_point_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_and_attach_s3_access_point_response() :: %{
+        "S3AccessPointAttachment" => s3_access_point_attachment()
+      }
+      
+  """
+  @type create_and_attach_s3_access_point_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_and_attach_s3_access_point_s3_configuration() :: %{
+        "Policy" => String.t() | atom(),
+        "VpcConfiguration" => s3_access_point_vpc_configuration()
+      }
+      
+  """
+  @type create_and_attach_s3_access_point_s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_backup_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("FileSystemId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("VolumeId") => String.t() | atom()
+      }
+      
+  """
+  @type create_backup_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_backup_response() :: %{
+        "Backup" => backup()
+      }
+      
+  """
+  @type create_backup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_data_repository_association_request() :: %{
+        optional("BatchImportMetaDataOnCreate") => boolean(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("FileSystemPath") => String.t() | atom(),
+        optional("ImportedFileChunkSize") => integer(),
+        optional("S3") => s3_data_repository_configuration(),
+        optional("Tags") => list(tag()),
+        required("DataRepositoryPath") => String.t() | atom(),
+        required("FileSystemId") => String.t() | atom()
+      }
+      
+  """
+  @type create_data_repository_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_data_repository_association_response() :: %{
+        "Association" => data_repository_association()
+      }
+      
+  """
+  @type create_data_repository_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_data_repository_task_request() :: %{
+        optional("CapacityToRelease") => float(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Paths") => list(String.t() | atom()),
+        optional("ReleaseConfiguration") => release_configuration(),
+        optional("Tags") => list(tag()),
+        required("FileSystemId") => String.t() | atom(),
+        required("Report") => completion_report(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_data_repository_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_data_repository_task_response() :: %{
+        "DataRepositoryTask" => data_repository_task()
+      }
+      
+  """
+  @type create_data_repository_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_file_cache_lustre_configuration() :: %{
+        "DeploymentType" => list(any()),
+        "MetadataConfiguration" => file_cache_lustre_metadata_configuration(),
+        "PerUnitStorageThroughput" => integer(),
+        "WeeklyMaintenanceStartTime" => String.t() | atom()
+      }
+      
+  """
+  @type create_file_cache_lustre_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_file_cache_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("CopyTagsToDataRepositoryAssociations") => boolean(),
+        optional("DataRepositoryAssociations") => list(file_cache_data_repository_association()),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("LustreConfiguration") => create_file_cache_lustre_configuration(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        required("FileCacheType") => list(any()),
+        required("FileCacheTypeVersion") => String.t() | atom(),
+        required("StorageCapacity") => integer(),
+        required("SubnetIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_file_cache_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_file_cache_response() :: %{
+        "FileCache" => file_cache_creating()
+      }
+      
+  """
+  @type create_file_cache_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_file_system_from_backup_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("FileSystemTypeVersion") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("LustreConfiguration") => create_file_system_lustre_configuration(),
+        optional("NetworkType") => list(any()),
+        optional("OpenZFSConfiguration") => create_file_system_open_z_f_s_configuration(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("StorageCapacity") => integer(),
+        optional("StorageType") => list(any()),
+        optional("Tags") => list(tag()),
+        optional("WindowsConfiguration") => create_file_system_windows_configuration(),
+        required("BackupId") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_file_system_from_backup_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_file_system_from_backup_response() :: %{
+        "FileSystem" => file_system()
+      }
+      
+  """
+  @type create_file_system_from_backup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_file_system_lustre_configuration() :: %{
+        "AutoImportPolicy" => list(any()),
+        "AutomaticBackupRetentionDays" => integer(),
+        "CopyTagsToBackups" => boolean(),
+        "DailyAutomaticBackupStartTime" => String.t() | atom(),
+        "DataCompressionType" => list(any()),
+        "DataReadCacheConfiguration" => lustre_read_cache_configuration(),
+        "DeploymentType" => list(any()),
+        "DriveCacheType" => list(any()),
+        "EfaEnabled" => boolean(),
+        "ExportPath" => String.t() | atom(),
+        "ImportPath" => String.t() | atom(),
+        "ImportedFileChunkSize" => integer(),
+        "LogConfiguration" => lustre_log_create_configuration(),
+        "MetadataConfiguration" => create_file_system_lustre_metadata_configuration(),
+        "PerUnitStorageThroughput" => integer(),
+        "RootSquashConfiguration" => lustre_root_squash_configuration(),
+        "ThroughputCapacity" => integer(),
+        "WeeklyMaintenanceStartTime" => String.t() | atom()
+      }
+      
+  """
+  @type create_file_system_lustre_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_file_system_lustre_metadata_configuration() :: %{
+        "Iops" => integer(),
+        "Mode" => list(any())
+      }
+      
+  """
+  @type create_file_system_lustre_metadata_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_file_system_ontap_configuration() :: %{
+        "AutomaticBackupRetentionDays" => integer(),
+        "DailyAutomaticBackupStartTime" => String.t() | atom(),
+        "DeploymentType" => list(any()),
+        "DiskIopsConfiguration" => disk_iops_configuration(),
+        "EndpointIpAddressRange" => String.t() | atom(),
+        "EndpointIpv6AddressRange" => String.t() | atom(),
+        "FsxAdminPassword" => String.t() | atom(),
+        "HAPairs" => integer(),
+        "PreferredSubnetId" => String.t() | atom(),
+        "RouteTableIds" => list(String.t() | atom()),
+        "ThroughputCapacity" => integer(),
+        "ThroughputCapacityPerHAPair" => integer(),
+        "WeeklyMaintenanceStartTime" => String.t() | atom()
+      }
+      
+  """
+  @type create_file_system_ontap_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_file_system_open_z_f_s_configuration() :: %{
         "AutomaticBackupRetentionDays" => integer(),
         "CopyTagsToBackups" => boolean(),
         "CopyTagsToVolumes" => boolean(),
         "DailyAutomaticBackupStartTime" => String.t() | atom(),
         "DeploymentType" => list(any()),
         "DiskIopsConfiguration" => disk_iops_configuration(),
-        "EndpointIpAddress" => String.t() | atom(),
         "EndpointIpAddressRange" => String.t() | atom(),
-        "EndpointIpv6Address" => String.t() | atom(),
         "EndpointIpv6AddressRange" => String.t() | atom(),
         "PreferredSubnetId" => String.t() | atom(),
         "ReadCacheConfiguration" => open_z_f_s_read_cache_configuration(),
-        "RootVolumeId" => String.t() | atom(),
+        "RootVolumeConfiguration" => open_z_f_s_create_root_volume_configuration(),
         "RouteTableIds" => list(String.t() | atom()),
         "ThroughputCapacity" => integer(),
         "WeeklyMaintenanceStartTime" => String.t() | atom()
       }
       
   """
-  @type open_z_f_s_file_system_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_file_system_open_z_f_s_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_file_system_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("FileSystemTypeVersion") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("LustreConfiguration") => create_file_system_lustre_configuration(),
+        optional("NetworkType") => list(any()),
+        optional("OntapConfiguration") => create_file_system_ontap_configuration(),
+        optional("OpenZFSConfiguration") => create_file_system_open_z_f_s_configuration(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("StorageCapacity") => integer(),
+        optional("StorageType") => list(any()),
+        optional("Tags") => list(tag()),
+        optional("WindowsConfiguration") => create_file_system_windows_configuration(),
+        required("FileSystemType") => list(any()),
+        required("SubnetIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_file_system_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_file_system_response() :: %{
+        "FileSystem" => file_system()
+      }
+      
+  """
+  @type create_file_system_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_file_system_windows_configuration() :: %{
+        "ActiveDirectoryId" => String.t() | atom(),
+        "Aliases" => list(String.t() | atom()),
+        "AuditLogConfiguration" => windows_audit_log_create_configuration(),
+        "AutomaticBackupRetentionDays" => integer(),
+        "CopyTagsToBackups" => boolean(),
+        "DailyAutomaticBackupStartTime" => String.t() | atom(),
+        "DeploymentType" => list(any()),
+        "DiskIopsConfiguration" => disk_iops_configuration(),
+        "FsrmConfiguration" => windows_fsrm_configuration(),
+        "PreferredSubnetId" => String.t() | atom(),
+        "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_configuration(),
+        "ThroughputCapacity" => integer(),
+        "WeeklyMaintenanceStartTime" => String.t() | atom()
+      }
+      
+  """
+  @type create_file_system_windows_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ontap_volume_configuration() :: %{
+        "AggregateConfiguration" => create_aggregate_configuration(),
+        "CopyTagsToBackups" => boolean(),
+        "JunctionPath" => String.t() | atom(),
+        "OntapVolumeType" => list(any()),
+        "SecurityStyle" => list(any()),
+        "SizeInBytes" => float(),
+        "SizeInMegabytes" => integer(),
+        "SnaplockConfiguration" => create_snaplock_configuration(),
+        "SnapshotPolicy" => String.t() | atom(),
+        "StorageEfficiencyEnabled" => boolean(),
+        "StorageVirtualMachineId" => String.t() | atom(),
+        "TieringPolicy" => tiering_policy(),
+        "VolumeStyle" => list(any())
+      }
+      
+  """
+  @type create_ontap_volume_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_open_z_f_s_origin_snapshot_configuration() :: %{
+        "CopyStrategy" => list(any()),
+        "SnapshotARN" => String.t() | atom()
+      }
+      
+  """
+  @type create_open_z_f_s_origin_snapshot_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_open_z_f_s_volume_configuration() :: %{
+        "CopyTagsToSnapshots" => boolean(),
+        "DataCompressionType" => list(any()),
+        "NfsExports" => list(open_z_f_s_nfs_export()),
+        "OriginSnapshot" => create_open_z_f_s_origin_snapshot_configuration(),
+        "ParentVolumeId" => String.t() | atom(),
+        "ReadOnly" => boolean(),
+        "RecordSizeKiB" => integer(),
+        "StorageCapacityQuotaGiB" => integer(),
+        "StorageCapacityReservationGiB" => integer(),
+        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota())
+      }
+      
+  """
+  @type create_open_z_f_s_volume_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snaplock_configuration() :: %{
+        "AuditLogVolume" => boolean(),
+        "AutocommitPeriod" => autocommit_period(),
+        "PrivilegedDelete" => list(any()),
+        "RetentionPeriod" => snaplock_retention_period(),
+        "SnaplockType" => list(any()),
+        "VolumeAppendModeEnabled" => boolean()
+      }
+      
+  """
+  @type create_snaplock_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom(),
+        required("VolumeId") => String.t() | atom()
+      }
+      
+  """
+  @type create_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_response() :: %{
+        "Snapshot" => snapshot()
+      }
+      
+  """
+  @type create_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_storage_virtual_machine_request() :: %{
+        optional("ActiveDirectoryConfiguration") => create_svm_active_directory_configuration(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("RootVolumeSecurityStyle") => list(any()),
+        optional("SvmAdminPassword") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("FileSystemId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_storage_virtual_machine_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_storage_virtual_machine_response() :: %{
+        "StorageVirtualMachine" => storage_virtual_machine()
+      }
+      
+  """
+  @type create_storage_virtual_machine_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_svm_active_directory_configuration() :: %{
+        "NetBiosName" => String.t() | atom(),
+        "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_configuration()
+      }
+      
+  """
+  @type create_svm_active_directory_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_volume_from_backup_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("OntapConfiguration") => create_ontap_volume_configuration(),
+        optional("Tags") => list(tag()),
+        required("BackupId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_volume_from_backup_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_volume_from_backup_response() :: %{
+        "Volume" => volume()
+      }
+      
+  """
+  @type create_volume_from_backup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_volume_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("OntapConfiguration") => create_ontap_volume_configuration(),
+        optional("OpenZFSConfiguration") => create_open_z_f_s_volume_configuration(),
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom(),
+        required("VolumeType") => list(any())
+      }
+      
+  """
+  @type create_volume_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_volume_response() :: %{
+        "Volume" => volume()
+      }
+      
+  """
+  @type create_volume_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_repository_association() :: %{
+        "AssociationId" => String.t() | atom(),
+        "BatchImportMetaDataOnCreate" => boolean(),
+        "CreationTime" => non_neg_integer(),
+        "DataRepositoryPath" => String.t() | atom(),
+        "DataRepositorySubdirectories" => list(String.t() | atom()),
+        "FailureDetails" => data_repository_failure_details(),
+        "FileCacheId" => String.t() | atom(),
+        "FileCachePath" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
+        "FileSystemPath" => String.t() | atom(),
+        "ImportedFileChunkSize" => integer(),
+        "Lifecycle" => list(any()),
+        "NFS" => nfs_data_repository_configuration(),
+        "ResourceARN" => String.t() | atom(),
+        "S3" => s3_data_repository_configuration(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type data_repository_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_repository_association_not_found() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type data_repository_association_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_repository_configuration() :: %{
+        "AutoImportPolicy" => list(any()),
+        "ExportPath" => String.t() | atom(),
+        "FailureDetails" => data_repository_failure_details(),
+        "ImportPath" => String.t() | atom(),
+        "ImportedFileChunkSize" => integer(),
+        "Lifecycle" => list(any())
+      }
+      
+  """
+  @type data_repository_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_repository_failure_details() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type data_repository_failure_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_repository_task() :: %{
+        "CapacityToRelease" => float(),
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "FailureDetails" => data_repository_task_failure_details(),
+        "FileCacheId" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
+        "Lifecycle" => list(any()),
+        "Paths" => list(String.t() | atom()),
+        "ReleaseConfiguration" => release_configuration(),
+        "Report" => completion_report(),
+        "ResourceARN" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "Status" => data_repository_task_status(),
+        "Tags" => list(tag()),
+        "TaskId" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type data_repository_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_repository_task_ended() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type data_repository_task_ended() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_repository_task_executing() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type data_repository_task_executing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_repository_task_failure_details() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type data_repository_task_failure_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_repository_task_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type data_repository_task_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_repository_task_not_found() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type data_repository_task_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_repository_task_status() :: %{
+        "FailedCount" => float(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "ReleasedCapacity" => float(),
+        "SucceededCount" => float(),
+        "TotalCount" => float()
+      }
+      
+  """
+  @type data_repository_task_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_backup_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("BackupId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_backup_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_backup_response() :: %{
+        "BackupId" => String.t() | atom(),
+        "Lifecycle" => list(any())
+      }
+      
+  """
+  @type delete_backup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_data_repository_association_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("DeleteDataInFileSystem") => boolean(),
+        required("AssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_data_repository_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_data_repository_association_response() :: %{
+        "AssociationId" => String.t() | atom(),
+        "DeleteDataInFileSystem" => boolean(),
+        "Lifecycle" => list(any())
+      }
+      
+  """
+  @type delete_data_repository_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_file_cache_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("FileCacheId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_file_cache_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_file_cache_response() :: %{
+        "FileCacheId" => String.t() | atom(),
+        "Lifecycle" => list(any())
+      }
+      
+  """
+  @type delete_file_cache_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_file_system_lustre_configuration() :: %{
+        "FinalBackupTags" => list(tag()),
+        "SkipFinalBackup" => boolean()
+      }
+      
+  """
+  @type delete_file_system_lustre_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_file_system_lustre_response() :: %{
+        "FinalBackupId" => String.t() | atom(),
+        "FinalBackupTags" => list(tag())
+      }
+      
+  """
+  @type delete_file_system_lustre_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_file_system_open_z_f_s_configuration() :: %{
+        "FinalBackupTags" => list(tag()),
+        "Options" => list(list(any())()),
+        "SkipFinalBackup" => boolean()
+      }
+      
+  """
+  @type delete_file_system_open_z_f_s_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_file_system_open_z_f_s_response() :: %{
+        "FinalBackupId" => String.t() | atom(),
+        "FinalBackupTags" => list(tag())
+      }
+      
+  """
+  @type delete_file_system_open_z_f_s_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_file_system_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("LustreConfiguration") => delete_file_system_lustre_configuration(),
+        optional("OpenZFSConfiguration") => delete_file_system_open_z_f_s_configuration(),
+        optional("WindowsConfiguration") => delete_file_system_windows_configuration(),
+        required("FileSystemId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_file_system_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_file_system_response() :: %{
+        "FileSystemId" => String.t() | atom(),
+        "Lifecycle" => list(any()),
+        "LustreResponse" => delete_file_system_lustre_response(),
+        "OpenZFSResponse" => delete_file_system_open_z_f_s_response(),
+        "WindowsResponse" => delete_file_system_windows_response()
+      }
+      
+  """
+  @type delete_file_system_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_file_system_windows_configuration() :: %{
+        "FinalBackupTags" => list(tag()),
+        "SkipFinalBackup" => boolean()
+      }
+      
+  """
+  @type delete_file_system_windows_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_file_system_windows_response() :: %{
+        "FinalBackupId" => String.t() | atom(),
+        "FinalBackupTags" => list(tag())
+      }
+      
+  """
+  @type delete_file_system_windows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("SnapshotId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_response() :: %{
+        "Lifecycle" => list(any()),
+        "SnapshotId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_storage_virtual_machine_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("StorageVirtualMachineId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_storage_virtual_machine_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_storage_virtual_machine_response() :: %{
+        "Lifecycle" => list(any()),
+        "StorageVirtualMachineId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_storage_virtual_machine_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_volume_ontap_configuration() :: %{
+        "BypassSnaplockEnterpriseRetention" => boolean(),
+        "FinalBackupTags" => list(tag()),
+        "SkipFinalBackup" => boolean()
+      }
+      
+  """
+  @type delete_volume_ontap_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_volume_ontap_response() :: %{
+        "FinalBackupId" => String.t() | atom(),
+        "FinalBackupTags" => list(tag())
+      }
+      
+  """
+  @type delete_volume_ontap_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_volume_open_z_f_s_configuration() :: %{
+        "Options" => list(list(any())())
+      }
+      
+  """
+  @type delete_volume_open_z_f_s_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_volume_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("OntapConfiguration") => delete_volume_ontap_configuration(),
+        optional("OpenZFSConfiguration") => delete_volume_open_z_f_s_configuration(),
+        required("VolumeId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_volume_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,6 +1373,486 @@ defmodule AWS.FSx do
       
   """
   @type delete_volume_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_backups_request() :: %{
+        optional("BackupIds") => list(String.t() | atom()),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_backups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_backups_response() :: %{
+        "Backups" => list(backup()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_backups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_data_repository_associations_request() :: %{
+        optional("AssociationIds") => list(String.t() | atom()),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_data_repository_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_data_repository_associations_response() :: %{
+        "Associations" => list(data_repository_association()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_data_repository_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_data_repository_tasks_request() :: %{
+        optional("Filters") => list(data_repository_task_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TaskIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_data_repository_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_data_repository_tasks_response() :: %{
+        "DataRepositoryTasks" => list(data_repository_task()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_data_repository_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_file_caches_request() :: %{
+        optional("FileCacheIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_file_caches_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_file_caches_response() :: %{
+        "FileCaches" => list(file_cache()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_file_caches_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_file_system_aliases_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("FileSystemId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_file_system_aliases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_file_system_aliases_response() :: %{
+        "Aliases" => list(alias()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_file_system_aliases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_file_systems_request() :: %{
+        optional("FileSystemIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_file_systems_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_file_systems_response() :: %{
+        "FileSystems" => list(file_system()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_file_systems_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_s3_access_point_attachments_request() :: %{
+        optional("Filters") => list(s3_access_point_attachments_filter()),
+        optional("MaxResults") => integer(),
+        optional("Names") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_s3_access_point_attachments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_s3_access_point_attachments_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "S3AccessPointAttachments" => list(s3_access_point_attachment())
+      }
+      
+  """
+  @type describe_s3_access_point_attachments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_shared_vpc_configuration_request() :: %{}
+      
+  """
+  @type describe_shared_vpc_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_shared_vpc_configuration_response() :: %{
+        "EnableFsxRouteTableUpdatesFromParticipantAccounts" => String.t() | atom()
+      }
+      
+  """
+  @type describe_shared_vpc_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapshots_request() :: %{
+        optional("Filters") => list(snapshot_filter()),
+        optional("IncludeShared") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SnapshotIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_snapshots_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapshots_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Snapshots" => list(snapshot())
+      }
+      
+  """
+  @type describe_snapshots_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_storage_virtual_machines_request() :: %{
+        optional("Filters") => list(storage_virtual_machine_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StorageVirtualMachineIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_storage_virtual_machines_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_storage_virtual_machines_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "StorageVirtualMachines" => list(storage_virtual_machine())
+      }
+      
+  """
+  @type describe_storage_virtual_machines_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_volumes_request() :: %{
+        optional("Filters") => list(volume_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("VolumeIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_volumes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_volumes_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Volumes" => list(volume())
+      }
+      
+  """
+  @type describe_volumes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_and_delete_s3_access_point_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type detach_and_delete_s3_access_point_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_and_delete_s3_access_point_response() :: %{
+        "Lifecycle" => list(any()),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type detach_and_delete_s3_access_point_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_file_system_aliases_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("Aliases") => list(String.t() | atom()),
+        required("FileSystemId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_file_system_aliases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_file_system_aliases_response() :: %{
+        "Aliases" => list(alias())
+      }
+      
+  """
+  @type disassociate_file_system_aliases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disk_iops_configuration() :: %{
+        "Iops" => float(),
+        "Mode" => list(any())
+      }
+      
+  """
+  @type disk_iops_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duration_since_last_access() :: %{
+        "Unit" => list(any()),
+        "Value" => float()
+      }
+      
+  """
+  @type duration_since_last_access() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_cache() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DNSName" => String.t() | atom(),
+        "DataRepositoryAssociationIds" => list(String.t() | atom()),
+        "FailureDetails" => file_cache_failure_details(),
+        "FileCacheId" => String.t() | atom(),
+        "FileCacheType" => list(any()),
+        "FileCacheTypeVersion" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "Lifecycle" => list(any()),
+        "LustreConfiguration" => file_cache_lustre_configuration(),
+        "NetworkInterfaceIds" => list(String.t() | atom()),
+        "OwnerId" => String.t() | atom(),
+        "ResourceARN" => String.t() | atom(),
+        "StorageCapacity" => integer(),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type file_cache() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_cache_creating() :: %{
+        "CopyTagsToDataRepositoryAssociations" => boolean(),
+        "CreationTime" => non_neg_integer(),
+        "DNSName" => String.t() | atom(),
+        "DataRepositoryAssociationIds" => list(String.t() | atom()),
+        "FailureDetails" => file_cache_failure_details(),
+        "FileCacheId" => String.t() | atom(),
+        "FileCacheType" => list(any()),
+        "FileCacheTypeVersion" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "Lifecycle" => list(any()),
+        "LustreConfiguration" => file_cache_lustre_configuration(),
+        "NetworkInterfaceIds" => list(String.t() | atom()),
+        "OwnerId" => String.t() | atom(),
+        "ResourceARN" => String.t() | atom(),
+        "StorageCapacity" => integer(),
+        "SubnetIds" => list(String.t() | atom()),
+        "Tags" => list(tag()),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type file_cache_creating() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_cache_data_repository_association() :: %{
+        "DataRepositoryPath" => String.t() | atom(),
+        "DataRepositorySubdirectories" => list(String.t() | atom()),
+        "FileCachePath" => String.t() | atom(),
+        "NFS" => file_cache_nfs_configuration()
+      }
+      
+  """
+  @type file_cache_data_repository_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_cache_failure_details() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type file_cache_failure_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_cache_lustre_configuration() :: %{
+        "DeploymentType" => list(any()),
+        "LogConfiguration" => lustre_log_configuration(),
+        "MetadataConfiguration" => file_cache_lustre_metadata_configuration(),
+        "MountName" => String.t() | atom(),
+        "PerUnitStorageThroughput" => integer(),
+        "WeeklyMaintenanceStartTime" => String.t() | atom()
+      }
+      
+  """
+  @type file_cache_lustre_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_cache_lustre_metadata_configuration() :: %{
+        "StorageCapacity" => integer()
+      }
+      
+  """
+  @type file_cache_lustre_metadata_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_cache_nfs_configuration() :: %{
+        "DnsIps" => list(String.t() | atom()),
+        "Version" => list(any())
+      }
+      
+  """
+  @type file_cache_nfs_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_cache_not_found() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type file_cache_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,57 +1890,129 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      missing_file_cache_configuration() :: %{
+      file_system_endpoint() :: %{
+        "DNSName" => String.t() | atom(),
+        "IpAddresses" => list(String.t() | atom()),
+        "Ipv6Addresses" => list(String.t() | atom())
+      }
+      
+  """
+  @type file_system_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_system_endpoints() :: %{
+        "Intercluster" => file_system_endpoint(),
+        "Management" => file_system_endpoint()
+      }
+      
+  """
+  @type file_system_endpoints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_system_failure_details() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type missing_file_cache_configuration() :: %{(String.t() | atom()) => any()}
+  @type file_system_failure_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      snapshot() :: %{
-        "AdministrativeActions" => list(administrative_action()),
-        "CreationTime" => non_neg_integer(),
-        "Lifecycle" => list(any()),
-        "LifecycleTransitionReason" => lifecycle_transition_reason(),
-        "Name" => String.t() | atom(),
-        "ResourceARN" => String.t() | atom(),
-        "SnapshotId" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "VolumeId" => String.t() | atom()
+      file_system_lustre_metadata_configuration() :: %{
+        "Iops" => integer(),
+        "Mode" => list(any())
       }
       
   """
-  @type snapshot() :: %{(String.t() | atom()) => any()}
+  @type file_system_lustre_metadata_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_snapshot_response() :: %{
-        "Lifecycle" => list(any()),
-        "SnapshotId" => String.t() | atom()
+      file_system_not_found() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type delete_snapshot_response() :: %{(String.t() | atom()) => any()}
+  @type file_system_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_backup_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("FileSystemId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("VolumeId") => String.t() | atom()
+      filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type create_backup_request() :: %{(String.t() | atom()) => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      incompatible_parameter_error() :: %{
+        "Message" => String.t() | atom(),
+        "Parameter" => String.t() | atom()
+      }
+      
+  """
+  @type incompatible_parameter_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      incompatible_region_for_multi_a_z() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type incompatible_region_for_multi_a_z() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_error() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_access_point() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_access_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_data_repository_type() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_data_repository_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -424,62 +2029,298 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      storage_virtual_machine_not_found() :: %{
+      invalid_export_path() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type storage_virtual_machine_not_found() :: %{(String.t() | atom()) => any()}
+  @type invalid_export_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_s3_access_point_attachments_response() :: %{
+      invalid_import_path() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_import_path() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_network_settings() :: %{
+        "InvalidRouteTableId" => String.t() | atom(),
+        "InvalidSecurityGroupId" => String.t() | atom(),
+        "InvalidSubnetId" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_network_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_per_unit_storage_throughput() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_per_unit_storage_throughput() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_region() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_region() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_source_kms_key() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_source_kms_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_transition_reason() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type lifecycle_transition_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
         "NextToken" => String.t() | atom(),
-        "S3AccessPointAttachments" => list(s3_access_point_attachment())
+        "Tags" => list(tag())
       }
       
   """
-  @type describe_s3_access_point_attachments_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      open_z_f_s_nfs_export() :: %{
-        "ClientConfigurations" => list(open_z_f_s_client_configuration())
+      lustre_file_system_configuration() :: %{
+        "AutomaticBackupRetentionDays" => integer(),
+        "CopyTagsToBackups" => boolean(),
+        "DailyAutomaticBackupStartTime" => String.t() | atom(),
+        "DataCompressionType" => list(any()),
+        "DataReadCacheConfiguration" => lustre_read_cache_configuration(),
+        "DataRepositoryConfiguration" => data_repository_configuration(),
+        "DeploymentType" => list(any()),
+        "DriveCacheType" => list(any()),
+        "EfaEnabled" => boolean(),
+        "LogConfiguration" => lustre_log_configuration(),
+        "MetadataConfiguration" => file_system_lustre_metadata_configuration(),
+        "MountName" => String.t() | atom(),
+        "PerUnitStorageThroughput" => integer(),
+        "RootSquashConfiguration" => lustre_root_squash_configuration(),
+        "ThroughputCapacity" => integer(),
+        "WeeklyMaintenanceStartTime" => String.t() | atom()
       }
       
   """
-  @type open_z_f_s_nfs_export() :: %{(String.t() | atom()) => any()}
+  @type lustre_file_system_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      volume_not_found() :: %{
+      lustre_log_configuration() :: %{
+        "Destination" => String.t() | atom(),
+        "Level" => list(any())
+      }
+      
+  """
+  @type lustre_log_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lustre_log_create_configuration() :: %{
+        "Destination" => String.t() | atom(),
+        "Level" => list(any())
+      }
+      
+  """
+  @type lustre_log_create_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lustre_read_cache_configuration() :: %{
+        "SizeGiB" => integer(),
+        "SizingMode" => list(any())
+      }
+      
+  """
+  @type lustre_read_cache_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lustre_root_squash_configuration() :: %{
+        "NoSquashNids" => list(String.t() | atom()),
+        "RootSquash" => String.t() | atom()
+      }
+      
+  """
+  @type lustre_root_squash_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      missing_file_cache_configuration() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type volume_not_found() :: %{(String.t() | atom()) => any()}
+  @type missing_file_cache_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_volume_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("OntapConfiguration") => create_ontap_volume_configuration(),
-        optional("OpenZFSConfiguration") => create_open_z_f_s_volume_configuration(),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("VolumeType") => list(any())
+      missing_file_system_configuration() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type create_volume_request() :: %{(String.t() | atom()) => any()}
+  @type missing_file_system_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      missing_volume_configuration() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type missing_volume_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      nfs_data_repository_configuration() :: %{
+        "AutoExportPolicy" => auto_export_policy(),
+        "DnsIps" => list(String.t() | atom()),
+        "Version" => list(any())
+      }
+      
+  """
+  @type nfs_data_repository_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_service_resource_error() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceARN" => String.t() | atom()
+      }
+      
+  """
+  @type not_service_resource_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ontap_file_system_configuration() :: %{
+        "AutomaticBackupRetentionDays" => integer(),
+        "DailyAutomaticBackupStartTime" => String.t() | atom(),
+        "DeploymentType" => list(any()),
+        "DiskIopsConfiguration" => disk_iops_configuration(),
+        "EndpointIpAddressRange" => String.t() | atom(),
+        "EndpointIpv6AddressRange" => String.t() | atom(),
+        "Endpoints" => file_system_endpoints(),
+        "FsxAdminPassword" => String.t() | atom(),
+        "HAPairs" => integer(),
+        "PreferredSubnetId" => String.t() | atom(),
+        "RouteTableIds" => list(String.t() | atom()),
+        "ThroughputCapacity" => integer(),
+        "ThroughputCapacityPerHAPair" => integer(),
+        "WeeklyMaintenanceStartTime" => String.t() | atom()
+      }
+      
+  """
+  @type ontap_file_system_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ontap_file_system_identity() :: %{
+        "Type" => list(any()),
+        "UnixUser" => ontap_unix_file_system_user(),
+        "WindowsUser" => ontap_windows_file_system_user()
+      }
+      
+  """
+  @type ontap_file_system_identity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ontap_unix_file_system_user() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type ontap_unix_file_system_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -511,6 +2352,94 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      ontap_windows_file_system_user() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type ontap_windows_file_system_user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_z_f_s_client_configuration() :: %{
+        "Clients" => String.t() | atom(),
+        "Options" => list(String.t() | atom())
+      }
+      
+  """
+  @type open_z_f_s_client_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_z_f_s_create_root_volume_configuration() :: %{
+        "CopyTagsToSnapshots" => boolean(),
+        "DataCompressionType" => list(any()),
+        "NfsExports" => list(open_z_f_s_nfs_export()),
+        "ReadOnly" => boolean(),
+        "RecordSizeKiB" => integer(),
+        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota())
+      }
+      
+  """
+  @type open_z_f_s_create_root_volume_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_z_f_s_file_system_configuration() :: %{
+        "AutomaticBackupRetentionDays" => integer(),
+        "CopyTagsToBackups" => boolean(),
+        "CopyTagsToVolumes" => boolean(),
+        "DailyAutomaticBackupStartTime" => String.t() | atom(),
+        "DeploymentType" => list(any()),
+        "DiskIopsConfiguration" => disk_iops_configuration(),
+        "EndpointIpAddress" => String.t() | atom(),
+        "EndpointIpAddressRange" => String.t() | atom(),
+        "EndpointIpv6Address" => String.t() | atom(),
+        "EndpointIpv6AddressRange" => String.t() | atom(),
+        "PreferredSubnetId" => String.t() | atom(),
+        "ReadCacheConfiguration" => open_z_f_s_read_cache_configuration(),
+        "RootVolumeId" => String.t() | atom(),
+        "RouteTableIds" => list(String.t() | atom()),
+        "ThroughputCapacity" => integer(),
+        "WeeklyMaintenanceStartTime" => String.t() | atom()
+      }
+      
+  """
+  @type open_z_f_s_file_system_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_z_f_s_file_system_identity() :: %{
+        "PosixUser" => open_z_f_s_posix_file_system_user(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type open_z_f_s_file_system_identity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_z_f_s_nfs_export() :: %{
+        "ClientConfigurations" => list(open_z_f_s_client_configuration())
+      }
+      
+  """
+  @type open_z_f_s_nfs_export() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       open_z_f_s_origin_snapshot_configuration() :: %{
         "CopyStrategy" => list(any()),
         "SnapshotARN" => String.t() | atom()
@@ -523,227 +2452,14 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      open_z_f_s_posix_file_system_user() :: %{
+        "Gid" => float(),
+        "SecondaryGids" => list(float()),
+        "Uid" => float()
       }
       
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_file_system_lustre_configuration() :: %{
-        "AutoImportPolicy" => list(any()),
-        "AutomaticBackupRetentionDays" => integer(),
-        "DailyAutomaticBackupStartTime" => String.t() | atom(),
-        "DataCompressionType" => list(any()),
-        "DataReadCacheConfiguration" => lustre_read_cache_configuration(),
-        "LogConfiguration" => lustre_log_create_configuration(),
-        "MetadataConfiguration" => update_file_system_lustre_metadata_configuration(),
-        "PerUnitStorageThroughput" => integer(),
-        "RootSquashConfiguration" => lustre_root_squash_configuration(),
-        "ThroughputCapacity" => integer(),
-        "WeeklyMaintenanceStartTime" => String.t() | atom()
-      }
-      
-  """
-  @type update_file_system_lustre_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_volume_from_snapshot_response() :: %{
-        "AdministrativeActions" => list(administrative_action()),
-        "Lifecycle" => list(any()),
-        "VolumeId" => String.t() | atom()
-      }
-      
-  """
-  @type restore_volume_from_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      volume() :: %{
-        "AdministrativeActions" => list(administrative_action()),
-        "CreationTime" => non_neg_integer(),
-        "FileSystemId" => String.t() | atom(),
-        "Lifecycle" => list(any()),
-        "LifecycleTransitionReason" => lifecycle_transition_reason(),
-        "Name" => String.t() | atom(),
-        "OntapConfiguration" => ontap_volume_configuration(),
-        "OpenZFSConfiguration" => open_z_f_s_volume_configuration(),
-        "ResourceARN" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "VolumeId" => String.t() | atom(),
-        "VolumeType" => list(any())
-      }
-      
-  """
-  @type volume() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_file_system_windows_response() :: %{
-        "FinalBackupId" => String.t() | atom(),
-        "FinalBackupTags" => list(tag())
-      }
-      
-  """
-  @type delete_file_system_windows_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_repository_task_executing() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type data_repository_task_executing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      storage_virtual_machine_filter() :: %{
-        "Name" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type storage_virtual_machine_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_source_kms_key() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_source_kms_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_volumes_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Volumes" => list(volume())
-      }
-      
-  """
-  @type describe_volumes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_file_systems_response() :: %{
-        "FileSystems" => list(file_system()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_file_systems_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_file_cache_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("LustreConfiguration") => update_file_cache_lustre_configuration(),
-        required("FileCacheId") => String.t() | atom()
-      }
-      
-  """
-  @type update_file_cache_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_access_points() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_access_points() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      backup_being_copied() :: %{
-        "BackupId" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type backup_being_copied() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      incompatible_parameter_error() :: %{
-        "Message" => String.t() | atom(),
-        "Parameter" => String.t() | atom()
-      }
-      
-  """
-  @type incompatible_parameter_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_cache_lustre_configuration() :: %{
-        "DeploymentType" => list(any()),
-        "LogConfiguration" => lustre_log_configuration(),
-        "MetadataConfiguration" => file_cache_lustre_metadata_configuration(),
-        "MountName" => String.t() | atom(),
-        "PerUnitStorageThroughput" => integer(),
-        "WeeklyMaintenanceStartTime" => String.t() | atom()
-      }
-      
-  """
-  @type file_cache_lustre_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lustre_log_create_configuration() :: %{
-        "Destination" => String.t() | atom(),
-        "Level" => list(any())
-      }
-      
-  """
-  @type lustre_log_create_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_snapshot_response() :: %{
-        "Snapshot" => snapshot()
-      }
-      
-  """
-  @type update_snapshot_response() :: %{(String.t() | atom()) => any()}
+  @type open_z_f_s_posix_file_system_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -761,147 +2477,14 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      incompatible_region_for_multi_a_z() :: %{
-        "Message" => String.t() | atom()
+      open_z_f_s_user_or_group_quota() :: %{
+        "Id" => integer(),
+        "StorageCapacityQuotaGiB" => integer(),
+        "Type" => list(any())
       }
       
   """
-  @type incompatible_region_for_multi_a_z() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_data_repository_configuration() :: %{
-        "AutoExportPolicy" => auto_export_policy(),
-        "AutoImportPolicy" => auto_import_policy()
-      }
-      
-  """
-  @type s3_data_repository_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snaplock_retention_period() :: %{
-        "DefaultRetention" => retention_period(),
-        "MaximumRetention" => retention_period(),
-        "MinimumRetention" => retention_period()
-      }
-      
-  """
-  @type snaplock_retention_period() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_file_system_open_z_f_s_configuration() :: %{
-        "FinalBackupTags" => list(tag()),
-        "Options" => list(list(any())()),
-        "SkipFinalBackup" => boolean()
-      }
-      
-  """
-  @type delete_file_system_open_z_f_s_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      windows_fsrm_configuration() :: %{
-        "EventLogDestination" => String.t() | atom(),
-        "FsrmServiceEnabled" => boolean()
-      }
-      
-  """
-  @type windows_fsrm_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_volume_open_z_f_s_configuration() :: %{
-        "Options" => list(list(any())())
-      }
-      
-  """
-  @type delete_volume_open_z_f_s_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_svm_active_directory_configuration() :: %{
-        "NetBiosName" => String.t() | atom(),
-        "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_configuration()
-      }
-      
-  """
-  @type create_svm_active_directory_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_cache_creating() :: %{
-        "CopyTagsToDataRepositoryAssociations" => boolean(),
-        "CreationTime" => non_neg_integer(),
-        "DNSName" => String.t() | atom(),
-        "DataRepositoryAssociationIds" => list(String.t() | atom()),
-        "FailureDetails" => file_cache_failure_details(),
-        "FileCacheId" => String.t() | atom(),
-        "FileCacheType" => list(any()),
-        "FileCacheTypeVersion" => String.t() | atom(),
-        "KmsKeyId" => String.t() | atom(),
-        "Lifecycle" => list(any()),
-        "LustreConfiguration" => file_cache_lustre_configuration(),
-        "NetworkInterfaceIds" => list(String.t() | atom()),
-        "OwnerId" => String.t() | atom(),
-        "ResourceARN" => String.t() | atom(),
-        "StorageCapacity" => integer(),
-        "SubnetIds" => list(String.t() | atom()),
-        "Tags" => list(tag()),
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type file_cache_creating() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      backup_in_progress() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type backup_in_progress() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_data_repository_association_response() :: %{
-        "Association" => data_repository_association()
-      }
-      
-  """
-  @type create_data_repository_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_backup_unavailable() :: %{
-        "BackupId" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type source_backup_unavailable() :: %{(String.t() | atom()) => any()}
+  @type open_z_f_s_user_or_group_quota() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -935,126 +2518,111 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      create_open_z_f_s_volume_configuration() :: %{
-        "CopyTagsToSnapshots" => boolean(),
-        "DataCompressionType" => list(any()),
-        "NfsExports" => list(open_z_f_s_nfs_export()),
-        "OriginSnapshot" => create_open_z_f_s_origin_snapshot_configuration(),
-        "ParentVolumeId" => String.t() | atom(),
-        "ReadOnly" => boolean(),
-        "RecordSizeKiB" => integer(),
-        "StorageCapacityQuotaGiB" => integer(),
-        "StorageCapacityReservationGiB" => integer(),
-        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota())
+      release_configuration() :: %{
+        "DurationSinceLastAccess" => duration_since_last_access()
       }
       
   """
-  @type create_open_z_f_s_volume_configuration() :: %{(String.t() | atom()) => any()}
+  @type release_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      snaplock_configuration() :: %{
-        "AuditLogVolume" => boolean(),
-        "AutocommitPeriod" => autocommit_period(),
-        "PrivilegedDelete" => list(any()),
-        "RetentionPeriod" => snaplock_retention_period(),
-        "SnaplockType" => list(any()),
-        "VolumeAppendModeEnabled" => boolean()
-      }
-      
-  """
-  @type snaplock_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_error() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_storage_virtual_machine_request() :: %{
-        optional("ActiveDirectoryConfiguration") => create_svm_active_directory_configuration(),
+      release_file_system_nfs_v3_locks_request() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
-        optional("RootVolumeSecurityStyle") => list(any()),
-        optional("SvmAdminPassword") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("FileSystemId") => String.t() | atom(),
-        required("Name") => String.t() | atom()
+        required("FileSystemId") => String.t() | atom()
       }
       
   """
-  @type create_storage_virtual_machine_request() :: %{(String.t() | atom()) => any()}
+  @type release_file_system_nfs_v3_locks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      disk_iops_configuration() :: %{
-        "Iops" => float(),
-        "Mode" => list(any())
+      release_file_system_nfs_v3_locks_response() :: %{
+        "FileSystem" => file_system()
       }
       
   """
-  @type disk_iops_configuration() :: %{(String.t() | atom()) => any()}
+  @type release_file_system_nfs_v3_locks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_request() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      resource_does_not_support_tagging() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceARN" => String.t() | atom()
       }
       
   """
-  @type invalid_request() :: %{(String.t() | atom()) => any()}
+  @type resource_does_not_support_tagging() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      duration_since_last_access() :: %{
-        "Unit" => list(any()),
-        "Value" => float()
+      resource_not_found() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceARN" => String.t() | atom()
       }
       
   """
-  @type duration_since_last_access() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_snapshot_request() :: %{
+      restore_volume_from_snapshot_request() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
+        optional("Options") => list(list(any())()),
+        required("SnapshotId") => String.t() | atom(),
         required("VolumeId") => String.t() | atom()
       }
       
   """
-  @type create_snapshot_request() :: %{(String.t() | atom()) => any()}
+  @type restore_volume_from_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_data_repository_task_response() :: %{
-        "DataRepositoryTask" => data_repository_task()
+      restore_volume_from_snapshot_response() :: %{
+        "AdministrativeActions" => list(administrative_action()),
+        "Lifecycle" => list(any()),
+        "VolumeId" => String.t() | atom()
       }
       
   """
-  @type create_data_repository_task_response() :: %{(String.t() | atom()) => any()}
+  @type restore_volume_from_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retention_period() :: %{
+        "Type" => list(any()),
+        "Value" => integer()
+      }
+      
+  """
+  @type retention_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_access_point() :: %{
+        "Alias" => String.t() | atom(),
+        "ResourceARN" => String.t() | atom(),
+        "VpcConfiguration" => s3_access_point_vpc_configuration()
+      }
+      
+  """
+  @type s3_access_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1078,426 +2646,24 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      describe_data_repository_associations_response() :: %{
-        "Associations" => list(data_repository_association()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_data_repository_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_file_system_open_z_f_s_configuration() :: %{
-        "AutomaticBackupRetentionDays" => integer(),
-        "CopyTagsToBackups" => boolean(),
-        "CopyTagsToVolumes" => boolean(),
-        "DailyAutomaticBackupStartTime" => String.t() | atom(),
-        "DeploymentType" => list(any()),
-        "DiskIopsConfiguration" => disk_iops_configuration(),
-        "EndpointIpAddressRange" => String.t() | atom(),
-        "EndpointIpv6AddressRange" => String.t() | atom(),
-        "PreferredSubnetId" => String.t() | atom(),
-        "ReadCacheConfiguration" => open_z_f_s_read_cache_configuration(),
-        "RootVolumeConfiguration" => open_z_f_s_create_root_volume_configuration(),
-        "RouteTableIds" => list(String.t() | atom()),
-        "ThroughputCapacity" => integer(),
-        "WeeklyMaintenanceStartTime" => String.t() | atom()
-      }
-      
-  """
-  @type create_file_system_open_z_f_s_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_shared_vpc_configuration_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("EnableFsxRouteTableUpdatesFromParticipantAccounts") => String.t() | atom()
-      }
-      
-  """
-  @type update_shared_vpc_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_storage_virtual_machine_request() :: %{
-        optional("ActiveDirectoryConfiguration") => update_svm_active_directory_configuration(),
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("SvmAdminPassword") => String.t() | atom(),
-        required("StorageVirtualMachineId") => String.t() | atom()
-      }
-      
-  """
-  @type update_storage_virtual_machine_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      svm_endpoint() :: %{
-        "DNSName" => String.t() | atom(),
-        "IpAddresses" => list(String.t() | atom()),
-        "Ipv6Addresses" => list(String.t() | atom())
-      }
-      
-  """
-  @type svm_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_network_settings() :: %{
-        "InvalidRouteTableId" => String.t() | atom(),
-        "InvalidSecurityGroupId" => String.t() | atom(),
-        "InvalidSubnetId" => String.t() | atom(),
+      s3_access_point_attachment_not_found() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_network_settings() :: %{(String.t() | atom()) => any()}
+  @type s3_access_point_attachment_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_data_repository_tasks_request() :: %{
-        optional("Filters") => list(data_repository_task_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("TaskIds") => list(String.t() | atom())
+      s3_access_point_attachments_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type describe_data_repository_tasks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      release_file_system_nfs_v3_locks_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("FileSystemId") => String.t() | atom()
-      }
-      
-  """
-  @type release_file_system_nfs_v3_locks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_snapshot_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("SnapshotId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_file_cache_lustre_configuration() :: %{
-        "DeploymentType" => list(any()),
-        "MetadataConfiguration" => file_cache_lustre_metadata_configuration(),
-        "PerUnitStorageThroughput" => integer(),
-        "WeeklyMaintenanceStartTime" => String.t() | atom()
-      }
-      
-  """
-  @type create_file_cache_lustre_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_repository_task() :: %{
-        "CapacityToRelease" => float(),
-        "CreationTime" => non_neg_integer(),
-        "EndTime" => non_neg_integer(),
-        "FailureDetails" => data_repository_task_failure_details(),
-        "FileCacheId" => String.t() | atom(),
-        "FileSystemId" => String.t() | atom(),
-        "Lifecycle" => list(any()),
-        "Paths" => list(String.t() | atom()),
-        "ReleaseConfiguration" => release_configuration(),
-        "Report" => completion_report(),
-        "ResourceARN" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "Status" => data_repository_task_status(),
-        "Tags" => list(tag()),
-        "TaskId" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type data_repository_task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_and_attach_s3_access_point_response() :: %{
-        "S3AccessPointAttachment" => s3_access_point_attachment()
-      }
-      
-  """
-  @type create_and_attach_s3_access_point_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_backup_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("CopyTags") => boolean(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("SourceRegion") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("SourceBackupId") => String.t() | atom()
-      }
-      
-  """
-  @type copy_backup_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detach_and_delete_s3_access_point_response() :: %{
-        "Lifecycle" => list(any()),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type detach_and_delete_s3_access_point_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_snaplock_configuration() :: %{
-        "AuditLogVolume" => boolean(),
-        "AutocommitPeriod" => autocommit_period(),
-        "PrivilegedDelete" => list(any()),
-        "RetentionPeriod" => snaplock_retention_period(),
-        "SnaplockType" => list(any()),
-        "VolumeAppendModeEnabled" => boolean()
-      }
-      
-  """
-  @type create_snaplock_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_storage_virtual_machines_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "StorageVirtualMachines" => list(storage_virtual_machine())
-      }
-      
-  """
-  @type describe_storage_virtual_machines_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      auto_import_policy() :: %{
-        "Events" => list(list(any())())
-      }
-      
-  """
-  @type auto_import_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_file_system_aliases_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("FileSystemId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_file_system_aliases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_file_system_open_z_f_s_response() :: %{
-        "FinalBackupId" => String.t() | atom(),
-        "FinalBackupTags" => list(tag())
-      }
-      
-  """
-  @type delete_file_system_open_z_f_s_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      missing_file_system_configuration() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type missing_file_system_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retention_period() :: %{
-        "Type" => list(any()),
-        "Value" => integer()
-      }
-      
-  """
-  @type retention_period() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ontap_file_system_identity() :: %{
-        "Type" => list(any()),
-        "UnixUser" => ontap_unix_file_system_user(),
-        "WindowsUser" => ontap_windows_file_system_user()
-      }
-      
-  """
-  @type ontap_file_system_identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_cache_failure_details() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type file_cache_failure_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      svm_endpoints() :: %{
-        "Iscsi" => svm_endpoint(),
-        "Management" => svm_endpoint(),
-        "Nfs" => svm_endpoint(),
-        "Smb" => svm_endpoint()
-      }
-      
-  """
-  @type svm_endpoints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_and_attach_s3_access_point_open_z_f_s_configuration() :: %{
-        "FileSystemIdentity" => open_z_f_s_file_system_identity(),
-        "VolumeId" => String.t() | atom()
-      }
-      
-  """
-  @type create_and_attach_s3_access_point_open_z_f_s_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      not_service_resource_error() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceARN" => String.t() | atom()
-      }
-      
-  """
-  @type not_service_resource_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      release_configuration() :: %{
-        "DurationSinceLastAccess" => duration_since_last_access()
-      }
-      
-  """
-  @type release_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_system_failure_details() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type file_system_failure_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tiering_policy() :: %{
-        "CoolingPeriod" => integer(),
-        "Name" => list(any())
-      }
-      
-  """
-  @type tiering_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      svm_active_directory_configuration() :: %{
-        "NetBiosName" => String.t() | atom(),
-        "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_attributes()
-      }
-      
-  """
-  @type svm_active_directory_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      administrative_action() :: %{
-        "AdministrativeActionType" => list(any()),
-        "FailureDetails" => administrative_action_failure_details(),
-        "Message" => String.t() | atom(),
-        "ProgressPercent" => integer(),
-        "RemainingTransferBytes" => float(),
-        "RequestTime" => non_neg_integer(),
-        "Status" => list(any()),
-        "TargetFileSystemValues" => file_system(),
-        "TargetSnapshotValues" => snapshot(),
-        "TargetVolumeValues" => volume(),
-        "TotalTransferBytes" => float()
-      }
-      
-  """
-  @type administrative_action() :: %{(String.t() | atom()) => any()}
+  @type s3_access_point_attachments_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1515,36 +2681,204 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      create_volume_from_backup_response() :: %{
-        "Volume" => volume()
+      s3_access_point_open_z_f_s_configuration() :: %{
+        "FileSystemIdentity" => open_z_f_s_file_system_identity(),
+        "VolumeId" => String.t() | atom()
       }
       
   """
-  @type create_volume_from_backup_response() :: %{(String.t() | atom()) => any()}
+  @type s3_access_point_open_z_f_s_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      ontap_file_system_configuration() :: %{
-        "AutomaticBackupRetentionDays" => integer(),
-        "DailyAutomaticBackupStartTime" => String.t() | atom(),
-        "DeploymentType" => list(any()),
-        "DiskIopsConfiguration" => disk_iops_configuration(),
-        "EndpointIpAddressRange" => String.t() | atom(),
-        "EndpointIpv6AddressRange" => String.t() | atom(),
-        "Endpoints" => file_system_endpoints(),
-        "FsxAdminPassword" => String.t() | atom(),
-        "HAPairs" => integer(),
-        "PreferredSubnetId" => String.t() | atom(),
-        "RouteTableIds" => list(String.t() | atom()),
-        "ThroughputCapacity" => integer(),
-        "ThroughputCapacityPerHAPair" => integer(),
-        "WeeklyMaintenanceStartTime" => String.t() | atom()
+      s3_access_point_vpc_configuration() :: %{
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type ontap_file_system_configuration() :: %{(String.t() | atom()) => any()}
+  @type s3_access_point_vpc_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_data_repository_configuration() :: %{
+        "AutoExportPolicy" => auto_export_policy(),
+        "AutoImportPolicy" => auto_import_policy()
+      }
+      
+  """
+  @type s3_data_repository_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      self_managed_active_directory_attributes() :: %{
+        "DnsIps" => list(String.t() | atom()),
+        "DomainJoinServiceAccountSecret" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "FileSystemAdministratorsGroup" => String.t() | atom(),
+        "OrganizationalUnitDistinguishedName" => String.t() | atom(),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type self_managed_active_directory_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      self_managed_active_directory_configuration() :: %{
+        "DnsIps" => list(String.t() | atom()),
+        "DomainJoinServiceAccountSecret" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "FileSystemAdministratorsGroup" => String.t() | atom(),
+        "OrganizationalUnitDistinguishedName" => String.t() | atom(),
+        "Password" => String.t() | atom(),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type self_managed_active_directory_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      self_managed_active_directory_configuration_updates() :: %{
+        "DnsIps" => list(String.t() | atom()),
+        "DomainJoinServiceAccountSecret" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "FileSystemAdministratorsGroup" => String.t() | atom(),
+        "OrganizationalUnitDistinguishedName" => String.t() | atom(),
+        "Password" => String.t() | atom(),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type self_managed_active_directory_configuration_updates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_limit_exceeded() :: %{
+        "Limit" => list(any()),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type service_limit_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snaplock_configuration() :: %{
+        "AuditLogVolume" => boolean(),
+        "AutocommitPeriod" => autocommit_period(),
+        "PrivilegedDelete" => list(any()),
+        "RetentionPeriod" => snaplock_retention_period(),
+        "SnaplockType" => list(any()),
+        "VolumeAppendModeEnabled" => boolean()
+      }
+      
+  """
+  @type snaplock_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snaplock_retention_period() :: %{
+        "DefaultRetention" => retention_period(),
+        "MaximumRetention" => retention_period(),
+        "MinimumRetention" => retention_period()
+      }
+      
+  """
+  @type snaplock_retention_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot() :: %{
+        "AdministrativeActions" => list(administrative_action()),
+        "CreationTime" => non_neg_integer(),
+        "Lifecycle" => list(any()),
+        "LifecycleTransitionReason" => lifecycle_transition_reason(),
+        "Name" => String.t() | atom(),
+        "ResourceARN" => String.t() | atom(),
+        "SnapshotId" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "VolumeId" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type snapshot_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_not_found() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_backup_unavailable() :: %{
+        "BackupId" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type source_backup_unavailable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_misconfigured_state_recovery_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("FileSystemId") => String.t() | atom()
+      }
+      
+  """
+  @type start_misconfigured_state_recovery_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_misconfigured_state_recovery_response() :: %{
+        "FileSystem" => file_system()
+      }
+      
+  """
+  @type start_misconfigured_state_recovery_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1573,47 +2907,75 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      describe_shared_vpc_configuration_request() :: %{}
+      storage_virtual_machine_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
       
   """
-  @type describe_shared_vpc_configuration_request() :: %{}
+  @type storage_virtual_machine_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_shared_vpc_configuration_response() :: %{
-        "EnableFsxRouteTableUpdatesFromParticipantAccounts" => String.t() | atom()
+      storage_virtual_machine_not_found() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type describe_shared_vpc_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type storage_virtual_machine_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_volume_ontap_response() :: %{
-        "FinalBackupId" => String.t() | atom(),
-        "FinalBackupTags" => list(tag())
+      svm_active_directory_configuration() :: %{
+        "NetBiosName" => String.t() | atom(),
+        "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_attributes()
       }
       
   """
-  @type delete_volume_ontap_response() :: %{(String.t() | atom()) => any()}
+  @type svm_active_directory_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      restore_volume_from_snapshot_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Options") => list(list(any())()),
-        required("SnapshotId") => String.t() | atom(),
-        required("VolumeId") => String.t() | atom()
+      svm_endpoint() :: %{
+        "DNSName" => String.t() | atom(),
+        "IpAddresses" => list(String.t() | atom()),
+        "Ipv6Addresses" => list(String.t() | atom())
       }
       
   """
-  @type restore_volume_from_snapshot_request() :: %{(String.t() | atom()) => any()}
+  @type svm_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      svm_endpoints() :: %{
+        "Iscsi" => svm_endpoint(),
+        "Management" => svm_endpoint(),
+        "Nfs" => svm_endpoint(),
+        "Smb" => svm_endpoint()
+      }
+      
+  """
+  @type svm_endpoints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1631,241 +2993,147 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      describe_s3_access_point_attachments_request() :: %{
-        optional("Filters") => list(s3_access_point_attachments_filter()),
-        optional("MaxResults") => integer(),
-        optional("Names") => list(String.t() | atom()),
-        optional("NextToken") => String.t() | atom()
-      }
+      tag_resource_response() :: %{}
       
   """
-  @type describe_s3_access_point_attachments_request() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      file_cache() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DNSName" => String.t() | atom(),
-        "DataRepositoryAssociationIds" => list(String.t() | atom()),
-        "FailureDetails" => file_cache_failure_details(),
-        "FileCacheId" => String.t() | atom(),
-        "FileCacheType" => list(any()),
-        "FileCacheTypeVersion" => String.t() | atom(),
-        "KmsKeyId" => String.t() | atom(),
-        "Lifecycle" => list(any()),
-        "LustreConfiguration" => file_cache_lustre_configuration(),
-        "NetworkInterfaceIds" => list(String.t() | atom()),
-        "OwnerId" => String.t() | atom(),
-        "ResourceARN" => String.t() | atom(),
-        "StorageCapacity" => integer(),
-        "SubnetIds" => list(String.t() | atom()),
-        "VpcId" => String.t() | atom()
+      tiering_policy() :: %{
+        "CoolingPeriod" => integer(),
+        "Name" => list(any())
       }
       
   """
-  @type file_cache() :: %{(String.t() | atom()) => any()}
+  @type tiering_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_access_point_attachment_not_found() :: %{
+      too_many_access_points() :: %{
+        "ErrorCode" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type s3_access_point_attachment_not_found() :: %{(String.t() | atom()) => any()}
+  @type too_many_access_points() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_backups_response() :: %{
-        "Backups" => list(backup()),
-        "NextToken" => String.t() | atom()
+      unsupported_operation() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type describe_backups_response() :: %{(String.t() | atom()) => any()}
+  @type unsupported_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_file_system_request() :: %{
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_data_repository_association_request() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
-        optional("FileSystemTypeVersion") => String.t() | atom(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("LustreConfiguration") => create_file_system_lustre_configuration(),
-        optional("NetworkType") => list(any()),
-        optional("OntapConfiguration") => create_file_system_ontap_configuration(),
-        optional("OpenZFSConfiguration") => create_file_system_open_z_f_s_configuration(),
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        optional("StorageCapacity") => integer(),
-        optional("StorageType") => list(any()),
-        optional("Tags") => list(tag()),
-        optional("WindowsConfiguration") => create_file_system_windows_configuration(),
-        required("FileSystemType") => list(any()),
-        required("SubnetIds") => list(String.t() | atom())
+        optional("ImportedFileChunkSize") => integer(),
+        optional("S3") => s3_data_repository_configuration(),
+        required("AssociationId") => String.t() | atom()
       }
       
   """
-  @type create_file_system_request() :: %{(String.t() | atom()) => any()}
+  @type update_data_repository_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_file_system_windows_configuration() :: %{
-        "AuditLogConfiguration" => windows_audit_log_create_configuration(),
+      update_data_repository_association_response() :: %{
+        "Association" => data_repository_association()
+      }
+      
+  """
+  @type update_data_repository_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_file_cache_lustre_configuration() :: %{
+        "WeeklyMaintenanceStartTime" => String.t() | atom()
+      }
+      
+  """
+  @type update_file_cache_lustre_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_file_cache_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("LustreConfiguration") => update_file_cache_lustre_configuration(),
+        required("FileCacheId") => String.t() | atom()
+      }
+      
+  """
+  @type update_file_cache_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_file_cache_response() :: %{
+        "FileCache" => file_cache()
+      }
+      
+  """
+  @type update_file_cache_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_file_system_lustre_configuration() :: %{
+        "AutoImportPolicy" => list(any()),
         "AutomaticBackupRetentionDays" => integer(),
         "DailyAutomaticBackupStartTime" => String.t() | atom(),
-        "DiskIopsConfiguration" => disk_iops_configuration(),
-        "FsrmConfiguration" => windows_fsrm_configuration(),
-        "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_configuration_updates(),
+        "DataCompressionType" => list(any()),
+        "DataReadCacheConfiguration" => lustre_read_cache_configuration(),
+        "LogConfiguration" => lustre_log_create_configuration(),
+        "MetadataConfiguration" => update_file_system_lustre_metadata_configuration(),
+        "PerUnitStorageThroughput" => integer(),
+        "RootSquashConfiguration" => lustre_root_squash_configuration(),
         "ThroughputCapacity" => integer(),
         "WeeklyMaintenanceStartTime" => String.t() | atom()
       }
       
   """
-  @type update_file_system_windows_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_storage_virtual_machine_response() :: %{
-        "StorageVirtualMachine" => storage_virtual_machine()
-      }
-      
-  """
-  @type create_storage_virtual_machine_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_volume_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("OntapConfiguration") => update_ontap_volume_configuration(),
-        optional("OpenZFSConfiguration") => update_open_z_f_s_volume_configuration(),
-        required("VolumeId") => String.t() | atom()
-      }
-      
-  """
-  @type update_volume_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_volume_response() :: %{
-        "Volume" => volume()
-      }
-      
-  """
-  @type create_volume_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_open_z_f_s_volume_configuration() :: %{
-        "DataCompressionType" => list(any()),
-        "NfsExports" => list(open_z_f_s_nfs_export()),
-        "ReadOnly" => boolean(),
-        "RecordSizeKiB" => integer(),
-        "StorageCapacityQuotaGiB" => integer(),
-        "StorageCapacityReservationGiB" => integer(),
-        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota())
-      }
-      
-  """
-  @type update_open_z_f_s_volume_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_open_z_f_s_origin_snapshot_configuration() :: %{
-        "CopyStrategy" => list(any()),
-        "SnapshotARN" => String.t() | atom()
-      }
-      
-  """
-  @type create_open_z_f_s_origin_snapshot_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_file_system_lustre_configuration() :: %{
-        "FinalBackupTags" => list(tag()),
-        "SkipFinalBackup" => boolean()
-      }
-      
-  """
-  @type delete_file_system_lustre_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_repository_association() :: %{
-        "AssociationId" => String.t() | atom(),
-        "BatchImportMetaDataOnCreate" => boolean(),
-        "CreationTime" => non_neg_integer(),
-        "DataRepositoryPath" => String.t() | atom(),
-        "DataRepositorySubdirectories" => list(String.t() | atom()),
-        "FailureDetails" => data_repository_failure_details(),
-        "FileCacheId" => String.t() | atom(),
-        "FileCachePath" => String.t() | atom(),
-        "FileSystemId" => String.t() | atom(),
-        "FileSystemPath" => String.t() | atom(),
-        "ImportedFileChunkSize" => integer(),
-        "Lifecycle" => list(any()),
-        "NFS" => nfs_data_repository_configuration(),
-        "ResourceARN" => String.t() | atom(),
-        "S3" => s3_data_repository_configuration(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type data_repository_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_cache_lustre_metadata_configuration() :: %{
-        "StorageCapacity" => integer()
-      }
-      
-  """
-  @type file_cache_lustre_metadata_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lifecycle_transition_reason() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type lifecycle_transition_reason() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
+  @type update_file_system_lustre_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1883,424 +3151,22 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      create_file_cache_response() :: %{
-        "FileCache" => file_cache_creating()
-      }
-      
-  """
-  @type create_file_cache_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      active_directory_backup_attributes() :: %{
-        "ActiveDirectoryId" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "ResourceARN" => String.t() | atom()
-      }
-      
-  """
-  @type active_directory_backup_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_access_point() :: %{
-        "Alias" => String.t() | atom(),
-        "ResourceARN" => String.t() | atom(),
-        "VpcConfiguration" => s3_access_point_vpc_configuration()
-      }
-      
-  """
-  @type s3_access_point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_backup_response() :: %{
-        "Backup" => backup()
-      }
-      
-  """
-  @type create_backup_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_snapshots_request() :: %{
-        optional("Filters") => list(snapshot_filter()),
-        optional("IncludeShared") => boolean(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SnapshotIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_snapshots_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_file_system_aliases_response() :: %{
-        "Aliases" => list(alias())
-      }
-      
-  """
-  @type associate_file_system_aliases_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_and_attach_s3_access_point_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("OntapConfiguration") => create_and_attach_s3_access_point_ontap_configuration(),
-        optional("OpenZFSConfiguration") => create_and_attach_s3_access_point_open_z_f_s_configuration(),
-        optional("S3AccessPoint") => create_and_attach_s3_access_point_s3_configuration(),
-        required("Name") => String.t() | atom(),
-        required("Type") => list(any())
-      }
-      
-  """
-  @type create_and_attach_s3_access_point_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_data_repository_association_response() :: %{
-        "Association" => data_repository_association()
-      }
-      
-  """
-  @type update_data_repository_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_repository_task_filter() :: %{
-        "Name" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type data_repository_task_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_storage_virtual_machines_request() :: %{
-        optional("Filters") => list(storage_virtual_machine_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StorageVirtualMachineIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_storage_virtual_machines_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_data_repository_task_request() :: %{
-        optional("CapacityToRelease") => float(),
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Paths") => list(String.t() | atom()),
-        optional("ReleaseConfiguration") => release_configuration(),
-        optional("Tags") => list(tag()),
-        required("FileSystemId") => String.t() | atom(),
-        required("Report") => completion_report(),
-        required("Type") => list(any())
-      }
-      
-  """
-  @type create_data_repository_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lustre_file_system_configuration() :: %{
+      update_file_system_ontap_configuration() :: %{
+        "AddRouteTableIds" => list(String.t() | atom()),
         "AutomaticBackupRetentionDays" => integer(),
-        "CopyTagsToBackups" => boolean(),
         "DailyAutomaticBackupStartTime" => String.t() | atom(),
-        "DataCompressionType" => list(any()),
-        "DataReadCacheConfiguration" => lustre_read_cache_configuration(),
-        "DataRepositoryConfiguration" => data_repository_configuration(),
-        "DeploymentType" => list(any()),
-        "DriveCacheType" => list(any()),
-        "EfaEnabled" => boolean(),
-        "LogConfiguration" => lustre_log_configuration(),
-        "MetadataConfiguration" => file_system_lustre_metadata_configuration(),
-        "MountName" => String.t() | atom(),
-        "PerUnitStorageThroughput" => integer(),
-        "RootSquashConfiguration" => lustre_root_squash_configuration(),
+        "DiskIopsConfiguration" => disk_iops_configuration(),
+        "EndpointIpv6AddressRange" => String.t() | atom(),
+        "FsxAdminPassword" => String.t() | atom(),
+        "HAPairs" => integer(),
+        "RemoveRouteTableIds" => list(String.t() | atom()),
         "ThroughputCapacity" => integer(),
+        "ThroughputCapacityPerHAPair" => integer(),
         "WeeklyMaintenanceStartTime" => String.t() | atom()
       }
       
   """
-  @type lustre_file_system_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_file_system_lustre_configuration() :: %{
-        "AutoImportPolicy" => list(any()),
-        "AutomaticBackupRetentionDays" => integer(),
-        "CopyTagsToBackups" => boolean(),
-        "DailyAutomaticBackupStartTime" => String.t() | atom(),
-        "DataCompressionType" => list(any()),
-        "DataReadCacheConfiguration" => lustre_read_cache_configuration(),
-        "DeploymentType" => list(any()),
-        "DriveCacheType" => list(any()),
-        "EfaEnabled" => boolean(),
-        "ExportPath" => String.t() | atom(),
-        "ImportPath" => String.t() | atom(),
-        "ImportedFileChunkSize" => integer(),
-        "LogConfiguration" => lustre_log_create_configuration(),
-        "MetadataConfiguration" => create_file_system_lustre_metadata_configuration(),
-        "PerUnitStorageThroughput" => integer(),
-        "RootSquashConfiguration" => lustre_root_squash_configuration(),
-        "ThroughputCapacity" => integer(),
-        "WeeklyMaintenanceStartTime" => String.t() | atom()
-      }
-      
-  """
-  @type create_file_system_lustre_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_and_attach_s3_access_point_ontap_configuration() :: %{
-        "FileSystemIdentity" => ontap_file_system_identity(),
-        "VolumeId" => String.t() | atom()
-      }
-      
-  """
-  @type create_and_attach_s3_access_point_ontap_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      self_managed_active_directory_configuration_updates() :: %{
-        "DnsIps" => list(String.t() | atom()),
-        "DomainJoinServiceAccountSecret" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "FileSystemAdministratorsGroup" => String.t() | atom(),
-        "OrganizationalUnitDistinguishedName" => String.t() | atom(),
-        "Password" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type self_managed_active_directory_configuration_updates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      missing_volume_configuration() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type missing_volume_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_z_f_s_posix_file_system_user() :: %{
-        "Gid" => float(),
-        "SecondaryGids" => list(float()),
-        "Uid" => float()
-      }
-      
-  """
-  @type open_z_f_s_posix_file_system_user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_repository_task_failure_details() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type data_repository_task_failure_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_per_unit_storage_throughput() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_per_unit_storage_throughput() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_repository_task_ended() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type data_repository_task_ended() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_ontap_volume_configuration() :: %{
-        "CopyTagsToBackups" => boolean(),
-        "JunctionPath" => String.t() | atom(),
-        "SecurityStyle" => list(any()),
-        "SizeInBytes" => float(),
-        "SizeInMegabytes" => integer(),
-        "SnaplockConfiguration" => update_snaplock_configuration(),
-        "SnapshotPolicy" => String.t() | atom(),
-        "StorageEfficiencyEnabled" => boolean(),
-        "TieringPolicy" => tiering_policy()
-      }
-      
-  """
-  @type update_ontap_volume_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      volume_filter() :: %{
-        "Name" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type volume_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      administrative_action_failure_details() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type administrative_action_failure_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregate_configuration() :: %{
-        "Aggregates" => list(String.t() | atom()),
-        "TotalConstituents" => integer()
-      }
-      
-  """
-  @type aggregate_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_file_system_response() :: %{
-        "FileSystem" => file_system()
-      }
-      
-  """
-  @type update_file_system_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_access_point_attachments_filter() :: %{
-        "Name" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type s3_access_point_attachments_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_storage_virtual_machine_response() :: %{
-        "Lifecycle" => list(any()),
-        "StorageVirtualMachineId" => String.t() | atom()
-      }
-      
-  """
-  @type delete_storage_virtual_machine_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_file_cache_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("FileCacheId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_file_cache_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_backups_request() :: %{
-        optional("BackupIds") => list(String.t() | atom()),
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_backups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type update_file_system_ontap_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2327,48 +3193,282 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      update_file_cache_lustre_configuration() :: %{
+      update_file_system_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("FileSystemTypeVersion") => String.t() | atom(),
+        optional("LustreConfiguration") => update_file_system_lustre_configuration(),
+        optional("NetworkType") => list(any()),
+        optional("OntapConfiguration") => update_file_system_ontap_configuration(),
+        optional("OpenZFSConfiguration") => update_file_system_open_z_f_s_configuration(),
+        optional("StorageCapacity") => integer(),
+        optional("StorageType") => list(any()),
+        optional("WindowsConfiguration") => update_file_system_windows_configuration(),
+        required("FileSystemId") => String.t() | atom()
+      }
+      
+  """
+  @type update_file_system_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_file_system_response() :: %{
+        "FileSystem" => file_system()
+      }
+      
+  """
+  @type update_file_system_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_file_system_windows_configuration() :: %{
+        "AuditLogConfiguration" => windows_audit_log_create_configuration(),
+        "AutomaticBackupRetentionDays" => integer(),
+        "DailyAutomaticBackupStartTime" => String.t() | atom(),
+        "DiskIopsConfiguration" => disk_iops_configuration(),
+        "FsrmConfiguration" => windows_fsrm_configuration(),
+        "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_configuration_updates(),
+        "ThroughputCapacity" => integer(),
         "WeeklyMaintenanceStartTime" => String.t() | atom()
       }
       
   """
-  @type update_file_cache_lustre_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_file_system_windows_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      access_point_already_owned_by_you() :: %{
-        "ErrorCode" => String.t() | atom(),
+      update_ontap_volume_configuration() :: %{
+        "CopyTagsToBackups" => boolean(),
+        "JunctionPath" => String.t() | atom(),
+        "SecurityStyle" => list(any()),
+        "SizeInBytes" => float(),
+        "SizeInMegabytes" => integer(),
+        "SnaplockConfiguration" => update_snaplock_configuration(),
+        "SnapshotPolicy" => String.t() | atom(),
+        "StorageEfficiencyEnabled" => boolean(),
+        "TieringPolicy" => tiering_policy()
+      }
+      
+  """
+  @type update_ontap_volume_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_open_z_f_s_volume_configuration() :: %{
+        "DataCompressionType" => list(any()),
+        "NfsExports" => list(open_z_f_s_nfs_export()),
+        "ReadOnly" => boolean(),
+        "RecordSizeKiB" => integer(),
+        "StorageCapacityQuotaGiB" => integer(),
+        "StorageCapacityReservationGiB" => integer(),
+        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota())
+      }
+      
+  """
+  @type update_open_z_f_s_volume_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_shared_vpc_configuration_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("EnableFsxRouteTableUpdatesFromParticipantAccounts") => String.t() | atom()
+      }
+      
+  """
+  @type update_shared_vpc_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_shared_vpc_configuration_response() :: %{
+        "EnableFsxRouteTableUpdatesFromParticipantAccounts" => String.t() | atom()
+      }
+      
+  """
+  @type update_shared_vpc_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_snaplock_configuration() :: %{
+        "AuditLogVolume" => boolean(),
+        "AutocommitPeriod" => autocommit_period(),
+        "PrivilegedDelete" => list(any()),
+        "RetentionPeriod" => snaplock_retention_period(),
+        "VolumeAppendModeEnabled" => boolean()
+      }
+      
+  """
+  @type update_snaplock_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_snapshot_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("SnapshotId") => String.t() | atom()
+      }
+      
+  """
+  @type update_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_snapshot_response() :: %{
+        "Snapshot" => snapshot()
+      }
+      
+  """
+  @type update_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_storage_virtual_machine_request() :: %{
+        optional("ActiveDirectoryConfiguration") => update_svm_active_directory_configuration(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("SvmAdminPassword") => String.t() | atom(),
+        required("StorageVirtualMachineId") => String.t() | atom()
+      }
+      
+  """
+  @type update_storage_virtual_machine_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_storage_virtual_machine_response() :: %{
+        "StorageVirtualMachine" => storage_virtual_machine()
+      }
+      
+  """
+  @type update_storage_virtual_machine_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_svm_active_directory_configuration() :: %{
+        "NetBiosName" => String.t() | atom(),
+        "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_configuration_updates()
+      }
+      
+  """
+  @type update_svm_active_directory_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_volume_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("OntapConfiguration") => update_ontap_volume_configuration(),
+        optional("OpenZFSConfiguration") => update_open_z_f_s_volume_configuration(),
+        required("VolumeId") => String.t() | atom()
+      }
+      
+  """
+  @type update_volume_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_volume_response() :: %{
+        "Volume" => volume()
+      }
+      
+  """
+  @type update_volume_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      volume() :: %{
+        "AdministrativeActions" => list(administrative_action()),
+        "CreationTime" => non_neg_integer(),
+        "FileSystemId" => String.t() | atom(),
+        "Lifecycle" => list(any()),
+        "LifecycleTransitionReason" => lifecycle_transition_reason(),
+        "Name" => String.t() | atom(),
+        "OntapConfiguration" => ontap_volume_configuration(),
+        "OpenZFSConfiguration" => open_z_f_s_volume_configuration(),
+        "ResourceARN" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "VolumeId" => String.t() | atom(),
+        "VolumeType" => list(any())
+      }
+      
+  """
+  @type volume() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      volume_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type volume_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      volume_not_found() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type access_point_already_owned_by_you() :: %{(String.t() | atom()) => any()}
+  @type volume_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      ontap_unix_file_system_user() :: %{
-        "Name" => String.t() | atom()
+      windows_audit_log_configuration() :: %{
+        "AuditLogDestination" => String.t() | atom(),
+        "FileAccessAuditLogLevel" => list(any()),
+        "FileShareAccessAuditLogLevel" => list(any())
       }
       
   """
-  @type ontap_unix_file_system_user() :: %{(String.t() | atom()) => any()}
+  @type windows_audit_log_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_file_caches_request() :: %{
-        optional("FileCacheIds") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      windows_audit_log_create_configuration() :: %{
+        "AuditLogDestination" => String.t() | atom(),
+        "FileAccessAuditLogLevel" => list(any()),
+        "FileShareAccessAuditLogLevel" => list(any())
       }
       
   """
-  @type describe_file_caches_request() :: %{(String.t() | atom()) => any()}
+  @type windows_audit_log_create_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2401,1423 +3501,323 @@ defmodule AWS.FSx do
 
   ## Example:
       
-      file_system_not_found() :: %{
-        "Message" => String.t() | atom()
+      windows_fsrm_configuration() :: %{
+        "EventLogDestination" => String.t() | atom(),
+        "FsrmServiceEnabled" => boolean()
       }
       
   """
-  @type file_system_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_backup_response() :: %{
-        "BackupId" => String.t() | atom(),
-        "Lifecycle" => list(any())
-      }
-      
-  """
-  @type delete_backup_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      self_managed_active_directory_configuration() :: %{
-        "DnsIps" => list(String.t() | atom()),
-        "DomainJoinServiceAccountSecret" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "FileSystemAdministratorsGroup" => String.t() | atom(),
-        "OrganizationalUnitDistinguishedName" => String.t() | atom(),
-        "Password" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type self_managed_active_directory_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_data_repository_association_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("ImportedFileChunkSize") => integer(),
-        optional("S3") => s3_data_repository_configuration(),
-        required("AssociationId") => String.t() | atom()
-      }
-      
-  """
-  @type update_data_repository_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_import_path() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_import_path() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_cache_not_found() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type file_cache_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      backup_restoring() :: %{
-        "FileSystemId" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type backup_restoring() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceARN" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_file_system_ontap_configuration() :: %{
-        "AutomaticBackupRetentionDays" => integer(),
-        "DailyAutomaticBackupStartTime" => String.t() | atom(),
-        "DeploymentType" => list(any()),
-        "DiskIopsConfiguration" => disk_iops_configuration(),
-        "EndpointIpAddressRange" => String.t() | atom(),
-        "EndpointIpv6AddressRange" => String.t() | atom(),
-        "FsxAdminPassword" => String.t() | atom(),
-        "HAPairs" => integer(),
-        "PreferredSubnetId" => String.t() | atom(),
-        "RouteTableIds" => list(String.t() | atom()),
-        "ThroughputCapacity" => integer(),
-        "ThroughputCapacityPerHAPair" => integer(),
-        "WeeklyMaintenanceStartTime" => String.t() | atom()
-      }
-      
-  """
-  @type create_file_system_ontap_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_file_cache_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("CopyTagsToDataRepositoryAssociations") => boolean(),
-        optional("DataRepositoryAssociations") => list(file_cache_data_repository_association()),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("LustreConfiguration") => create_file_cache_lustre_configuration(),
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        required("FileCacheType") => list(any()),
-        required("FileCacheTypeVersion") => String.t() | atom(),
-        required("StorageCapacity") => integer(),
-        required("SubnetIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_file_cache_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_file_system_windows_configuration() :: %{
-        "FinalBackupTags" => list(tag()),
-        "SkipFinalBackup" => boolean()
-      }
-      
-  """
-  @type delete_file_system_windows_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_data_repository_task_response() :: %{
-        "Lifecycle" => list(any()),
-        "TaskId" => String.t() | atom()
-      }
-      
-  """
-  @type cancel_data_repository_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_file_system_aliases_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("Aliases") => list(String.t() | atom()),
-        required("FileSystemId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_file_system_aliases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_file_system_response() :: %{
-        "FileSystem" => file_system()
-      }
-      
-  """
-  @type create_file_system_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      backup_failure_details() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type backup_failure_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_volumes_request() :: %{
-        optional("Filters") => list(volume_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("VolumeIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_volumes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_misconfigured_state_recovery_response() :: %{
-        "FileSystem" => file_system()
-      }
-      
-  """
-  @type start_misconfigured_state_recovery_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      bad_request() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type bad_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_file_system_from_backup_response() :: %{
-        "FileSystem" => file_system()
-      }
-      
-  """
-  @type create_file_system_from_backup_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      alias() :: %{
-        "Lifecycle" => list(any()),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type alias() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_operation() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_file_system_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("LustreConfiguration") => delete_file_system_lustre_configuration(),
-        optional("OpenZFSConfiguration") => delete_file_system_open_z_f_s_configuration(),
-        optional("WindowsConfiguration") => delete_file_system_windows_configuration(),
-        required("FileSystemId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_file_system_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_data_repository_association_response() :: %{
-        "AssociationId" => String.t() | atom(),
-        "DeleteDataInFileSystem" => boolean(),
-        "Lifecycle" => list(any())
-      }
-      
-  """
-  @type delete_data_repository_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      autocommit_period() :: %{
-        "Type" => list(any()),
-        "Value" => integer()
-      }
-      
-  """
-  @type autocommit_period() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_access_point() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_access_point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_ontap_volume_configuration() :: %{
-        "AggregateConfiguration" => create_aggregate_configuration(),
-        "CopyTagsToBackups" => boolean(),
-        "JunctionPath" => String.t() | atom(),
-        "OntapVolumeType" => list(any()),
-        "SecurityStyle" => list(any()),
-        "SizeInBytes" => float(),
-        "SizeInMegabytes" => integer(),
-        "SnaplockConfiguration" => create_snaplock_configuration(),
-        "SnapshotPolicy" => String.t() | atom(),
-        "StorageEfficiencyEnabled" => boolean(),
-        "StorageVirtualMachineId" => String.t() | atom(),
-        "TieringPolicy" => tiering_policy(),
-        "VolumeStyle" => list(any())
-      }
-      
-  """
-  @type create_ontap_volume_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_backup_response() :: %{
-        "Backup" => backup()
-      }
-      
-  """
-  @type copy_backup_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snapshot_not_found() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type snapshot_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_data_repository_type() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_data_repository_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      self_managed_active_directory_attributes() :: %{
-        "DnsIps" => list(String.t() | atom()),
-        "DomainJoinServiceAccountSecret" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "FileSystemAdministratorsGroup" => String.t() | atom(),
-        "OrganizationalUnitDistinguishedName" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type self_managed_active_directory_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_snaplock_configuration() :: %{
-        "AuditLogVolume" => boolean(),
-        "AutocommitPeriod" => autocommit_period(),
-        "PrivilegedDelete" => list(any()),
-        "RetentionPeriod" => snaplock_retention_period(),
-        "VolumeAppendModeEnabled" => boolean()
-      }
-      
-  """
-  @type update_snaplock_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_file_system_aliases_response() :: %{
-        "Aliases" => list(alias()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_file_system_aliases_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_repository_configuration() :: %{
-        "AutoImportPolicy" => list(any()),
-        "ExportPath" => String.t() | atom(),
-        "FailureDetails" => data_repository_failure_details(),
-        "ImportPath" => String.t() | atom(),
-        "ImportedFileChunkSize" => integer(),
-        "Lifecycle" => list(any())
-      }
-      
-  """
-  @type data_repository_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_volume_from_backup_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("OntapConfiguration") => create_ontap_volume_configuration(),
-        optional("Tags") => list(tag()),
-        required("BackupId") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_volume_from_backup_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_snapshot_and_update_volume_response() :: %{
-        "AdministrativeActions" => list(administrative_action()),
-        "Lifecycle" => list(any()),
-        "VolumeId" => String.t() | atom()
-      }
-      
-  """
-  @type copy_snapshot_and_update_volume_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_access_point_open_z_f_s_configuration() :: %{
-        "FileSystemIdentity" => open_z_f_s_file_system_identity(),
-        "VolumeId" => String.t() | atom()
-      }
-      
-  """
-  @type s3_access_point_open_z_f_s_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_volume_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("OntapConfiguration") => delete_volume_ontap_configuration(),
-        optional("OpenZFSConfiguration") => delete_volume_open_z_f_s_configuration(),
-        required("VolumeId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_volume_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      release_file_system_nfs_v3_locks_response() :: %{
-        "FileSystem" => file_system()
-      }
-      
-  """
-  @type release_file_system_nfs_v3_locks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_access_point_vpc_configuration() :: %{
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type s3_access_point_vpc_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      nfs_data_repository_configuration() :: %{
-        "AutoExportPolicy" => auto_export_policy(),
-        "DnsIps" => list(String.t() | atom()),
-        "Version" => list(any())
-      }
-      
-  """
-  @type nfs_data_repository_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lustre_read_cache_configuration() :: %{
-        "SizeGiB" => integer(),
-        "SizingMode" => list(any())
-      }
-      
-  """
-  @type lustre_read_cache_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_misconfigured_state_recovery_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("FileSystemId") => String.t() | atom()
-      }
-      
-  """
-  @type start_misconfigured_state_recovery_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_data_repository_task_request() :: %{
-        required("TaskId") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_data_repository_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_file_system_from_backup_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("FileSystemTypeVersion") => String.t() | atom(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("LustreConfiguration") => create_file_system_lustre_configuration(),
-        optional("NetworkType") => list(any()),
-        optional("OpenZFSConfiguration") => create_file_system_open_z_f_s_configuration(),
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        optional("StorageCapacity") => integer(),
-        optional("StorageType") => list(any()),
-        optional("Tags") => list(tag()),
-        optional("WindowsConfiguration") => create_file_system_windows_configuration(),
-        required("BackupId") => String.t() | atom(),
-        required("SubnetIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_file_system_from_backup_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_data_repository_tasks_response() :: %{
-        "DataRepositoryTasks" => list(data_repository_task()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_data_repository_tasks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_file_system_response() :: %{
-        "FileSystemId" => String.t() | atom(),
-        "Lifecycle" => list(any()),
-        "LustreResponse" => delete_file_system_lustre_response(),
-        "OpenZFSResponse" => delete_file_system_open_z_f_s_response(),
-        "WindowsResponse" => delete_file_system_windows_response()
-      }
-      
-  """
-  @type delete_file_system_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_data_repository_associations_request() :: %{
-        optional("AssociationIds") => list(String.t() | atom()),
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_data_repository_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_data_repository_association_request() :: %{
-        optional("BatchImportMetaDataOnCreate") => boolean(),
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("FileSystemPath") => String.t() | atom(),
-        optional("ImportedFileChunkSize") => integer(),
-        optional("S3") => s3_data_repository_configuration(),
-        optional("Tags") => list(tag()),
-        required("DataRepositoryPath") => String.t() | atom(),
-        required("FileSystemId") => String.t() | atom()
-      }
-      
-  """
-  @type create_data_repository_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_file_caches_response() :: %{
-        "FileCaches" => list(file_cache()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_file_caches_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      windows_audit_log_create_configuration() :: %{
-        "AuditLogDestination" => String.t() | atom(),
-        "FileAccessAuditLogLevel" => list(any()),
-        "FileShareAccessAuditLogLevel" => list(any())
-      }
-      
-  """
-  @type windows_audit_log_create_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_svm_active_directory_configuration() :: %{
-        "NetBiosName" => String.t() | atom(),
-        "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_configuration_updates()
-      }
-      
-  """
-  @type update_svm_active_directory_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_file_system_lustre_response() :: %{
-        "FinalBackupId" => String.t() | atom(),
-        "FinalBackupTags" => list(tag())
-      }
-      
-  """
-  @type delete_file_system_lustre_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_file_cache_response() :: %{
-        "FileCache" => file_cache()
-      }
-      
-  """
-  @type update_file_cache_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ontap_windows_file_system_user() :: %{
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type ontap_windows_file_system_user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_aggregate_configuration() :: %{
-        "Aggregates" => list(String.t() | atom()),
-        "ConstituentsPerAggregate" => integer()
-      }
-      
-  """
-  @type create_aggregate_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_and_attach_s3_access_point_s3_configuration() :: %{
-        "Policy" => String.t() | atom(),
-        "VpcConfiguration" => s3_access_point_vpc_configuration()
-      }
-      
-  """
-  @type create_and_attach_s3_access_point_s3_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      backup() :: %{
-        "BackupId" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "DirectoryInformation" => active_directory_backup_attributes(),
-        "FailureDetails" => backup_failure_details(),
-        "FileSystem" => file_system(),
-        "KmsKeyId" => String.t() | atom(),
-        "Lifecycle" => list(any()),
-        "OwnerId" => String.t() | atom(),
-        "ProgressPercent" => integer(),
-        "ResourceARN" => String.t() | atom(),
-        "ResourceType" => list(any()),
-        "SizeInBytes" => float(),
-        "SourceBackupId" => String.t() | atom(),
-        "SourceBackupRegion" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "Type" => list(any()),
-        "Volume" => volume()
-      }
-      
-  """
-  @type backup() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_data_repository_association_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("DeleteDataInFileSystem") => boolean(),
-        required("AssociationId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_data_repository_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_file_systems_request() :: %{
-        optional("FileSystemIds") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_file_systems_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_repository_task_status() :: %{
-        "FailedCount" => float(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "ReleasedCapacity" => float(),
-        "SucceededCount" => float(),
-        "TotalCount" => float()
-      }
-      
-  """
-  @type data_repository_task_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_z_f_s_file_system_identity() :: %{
-        "PosixUser" => open_z_f_s_posix_file_system_user(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type open_z_f_s_file_system_identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_z_f_s_create_root_volume_configuration() :: %{
-        "CopyTagsToSnapshots" => boolean(),
-        "DataCompressionType" => list(any()),
-        "NfsExports" => list(open_z_f_s_nfs_export()),
-        "ReadOnly" => boolean(),
-        "RecordSizeKiB" => integer(),
-        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota())
-      }
-      
-  """
-  @type open_z_f_s_create_root_volume_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      auto_export_policy() :: %{
-        "Events" => list(list(any())())
-      }
-      
-  """
-  @type auto_export_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snapshot_filter() :: %{
-        "Name" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type snapshot_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_snapshot_response() :: %{
-        "Snapshot" => snapshot()
-      }
-      
-  """
-  @type create_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lustre_log_configuration() :: %{
-        "Destination" => String.t() | atom(),
-        "Level" => list(any())
-      }
-      
-  """
-  @type lustre_log_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_system_lustre_metadata_configuration() :: %{
-        "Iops" => integer(),
-        "Mode" => list(any())
-      }
-      
-  """
-  @type file_system_lustre_metadata_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_cache_data_repository_association() :: %{
-        "DataRepositoryPath" => String.t() | atom(),
-        "DataRepositorySubdirectories" => list(String.t() | atom()),
-        "FileCachePath" => String.t() | atom(),
-        "NFS" => file_cache_nfs_configuration()
-      }
-      
-  """
-  @type file_cache_data_repository_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_repository_association_not_found() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type data_repository_association_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_repository_task_not_found() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type data_repository_task_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lustre_root_squash_configuration() :: %{
-        "NoSquashNids" => list(String.t() | atom()),
-        "RootSquash" => String.t() | atom()
-      }
-      
-  """
-  @type lustre_root_squash_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_storage_virtual_machine_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("StorageVirtualMachineId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_storage_virtual_machine_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter() :: %{
-        "Name" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_z_f_s_client_configuration() :: %{
-        "Clients" => String.t() | atom(),
-        "Options" => list(String.t() | atom())
-      }
-      
-  """
-  @type open_z_f_s_client_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_region() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_region() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_file_system_windows_configuration() :: %{
-        "ActiveDirectoryId" => String.t() | atom(),
-        "Aliases" => list(String.t() | atom()),
-        "AuditLogConfiguration" => windows_audit_log_create_configuration(),
-        "AutomaticBackupRetentionDays" => integer(),
-        "CopyTagsToBackups" => boolean(),
-        "DailyAutomaticBackupStartTime" => String.t() | atom(),
-        "DeploymentType" => list(any()),
-        "DiskIopsConfiguration" => disk_iops_configuration(),
-        "FsrmConfiguration" => windows_fsrm_configuration(),
-        "PreferredSubnetId" => String.t() | atom(),
-        "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_configuration(),
-        "ThroughputCapacity" => integer(),
-        "WeeklyMaintenanceStartTime" => String.t() | atom()
-      }
-      
-  """
-  @type create_file_system_windows_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_repository_failure_details() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type data_repository_failure_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detach_and_delete_s3_access_point_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type detach_and_delete_s3_access_point_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_snapshot_and_update_volume_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("CopyStrategy") => list(any()),
-        optional("Options") => list(list(any())()),
-        required("SourceSnapshotARN") => String.t() | atom(),
-        required("VolumeId") => String.t() | atom()
-      }
-      
-  """
-  @type copy_snapshot_and_update_volume_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_export_path() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_export_path() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_file_system_lustre_metadata_configuration() :: %{
-        "Iops" => integer(),
-        "Mode" => list(any())
-      }
-      
-  """
-  @type create_file_system_lustre_metadata_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_system_endpoint() :: %{
-        "DNSName" => String.t() | atom(),
-        "IpAddresses" => list(String.t() | atom()),
-        "Ipv6Addresses" => list(String.t() | atom())
-      }
-      
-  """
-  @type file_system_endpoint() :: %{(String.t() | atom()) => any()}
+  @type windows_fsrm_configuration() :: %{(String.t() | atom()) => any()}
 
   @type associate_file_system_aliases_errors() ::
-          bad_request() | file_system_not_found() | internal_server_error()
+          internal_server_error() | file_system_not_found() | bad_request()
 
   @type cancel_data_repository_task_errors() ::
-          data_repository_task_not_found()
-          | unsupported_operation()
-          | bad_request()
-          | data_repository_task_ended()
+          unsupported_operation()
           | internal_server_error()
+          | data_repository_task_not_found()
+          | data_repository_task_ended()
+          | bad_request()
 
   @type copy_backup_errors() ::
-          invalid_region()
-          | unsupported_operation()
-          | bad_request()
-          | internal_server_error()
+          unsupported_operation()
           | source_backup_unavailable()
+          | service_limit_exceeded()
+          | invalid_source_kms_key()
+          | invalid_region()
+          | invalid_destination_kms_key()
+          | internal_server_error()
           | incompatible_region_for_multi_a_z()
           | incompatible_parameter_error()
-          | invalid_source_kms_key()
-          | invalid_destination_kms_key()
-          | service_limit_exceeded()
+          | bad_request()
           | backup_not_found()
 
   @type copy_snapshot_and_update_volume_errors() ::
-          bad_request()
+          service_limit_exceeded()
           | internal_server_error()
           | incompatible_parameter_error()
-          | service_limit_exceeded()
+          | bad_request()
 
   @type create_and_attach_s3_access_point_errors() ::
-          invalid_access_point()
+          volume_not_found()
           | unsupported_operation()
+          | too_many_access_points()
+          | invalid_request()
+          | invalid_access_point()
+          | internal_server_error()
+          | incompatible_parameter_error()
           | bad_request()
           | access_point_already_owned_by_you()
-          | invalid_request()
-          | internal_server_error()
-          | incompatible_parameter_error()
-          | too_many_access_points()
-          | volume_not_found()
 
   @type create_backup_errors() ::
-          unsupported_operation()
-          | bad_request()
-          | file_system_not_found()
-          | internal_server_error()
-          | backup_in_progress()
-          | incompatible_parameter_error()
-          | volume_not_found()
+          volume_not_found()
+          | unsupported_operation()
           | service_limit_exceeded()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | file_system_not_found()
+          | bad_request()
+          | backup_in_progress()
 
   @type create_data_repository_association_errors() ::
           unsupported_operation()
-          | bad_request()
-          | file_system_not_found()
+          | service_limit_exceeded()
           | internal_server_error()
           | incompatible_parameter_error()
-          | service_limit_exceeded()
+          | file_system_not_found()
+          | bad_request()
 
   @type create_data_repository_task_errors() ::
           unsupported_operation()
-          | bad_request()
-          | file_system_not_found()
+          | service_limit_exceeded()
           | internal_server_error()
           | incompatible_parameter_error()
+          | file_system_not_found()
           | data_repository_task_executing()
-          | service_limit_exceeded()
+          | bad_request()
 
   @type create_file_cache_errors() ::
-          bad_request()
+          service_limit_exceeded()
+          | missing_file_cache_configuration()
           | invalid_per_unit_storage_throughput()
           | invalid_network_settings()
           | internal_server_error()
           | incompatible_parameter_error()
-          | missing_file_cache_configuration()
-          | service_limit_exceeded()
+          | bad_request()
 
   @type create_file_system_errors() ::
-          invalid_export_path()
-          | bad_request()
-          | invalid_import_path()
-          | invalid_per_unit_storage_throughput()
+          service_limit_exceeded()
           | missing_file_system_configuration()
+          | invalid_per_unit_storage_throughput()
           | invalid_network_settings()
+          | invalid_import_path()
+          | invalid_export_path()
           | internal_server_error()
           | incompatible_parameter_error()
-          | service_limit_exceeded()
+          | bad_request()
           | active_directory_error()
 
   @type create_file_system_from_backup_errors() ::
-          bad_request()
-          | invalid_per_unit_storage_throughput()
+          service_limit_exceeded()
           | missing_file_system_configuration()
+          | invalid_per_unit_storage_throughput()
           | invalid_network_settings()
           | internal_server_error()
           | incompatible_parameter_error()
-          | service_limit_exceeded()
-          | active_directory_error()
+          | bad_request()
           | backup_not_found()
+          | active_directory_error()
 
   @type create_snapshot_errors() ::
-          bad_request() | internal_server_error() | volume_not_found() | service_limit_exceeded()
+          volume_not_found() | service_limit_exceeded() | internal_server_error() | bad_request()
 
   @type create_storage_virtual_machine_errors() ::
           unsupported_operation()
-          | bad_request()
-          | file_system_not_found()
+          | service_limit_exceeded()
           | internal_server_error()
           | incompatible_parameter_error()
-          | service_limit_exceeded()
+          | file_system_not_found()
+          | bad_request()
           | active_directory_error()
 
   @type create_volume_errors() ::
           unsupported_operation()
-          | bad_request()
-          | file_system_not_found()
+          | storage_virtual_machine_not_found()
+          | service_limit_exceeded()
           | missing_volume_configuration()
           | internal_server_error()
           | incompatible_parameter_error()
-          | storage_virtual_machine_not_found()
-          | service_limit_exceeded()
+          | file_system_not_found()
+          | bad_request()
 
   @type create_volume_from_backup_errors() ::
-          bad_request()
-          | file_system_not_found()
+          storage_virtual_machine_not_found()
+          | service_limit_exceeded()
           | missing_volume_configuration()
           | internal_server_error()
           | incompatible_parameter_error()
-          | storage_virtual_machine_not_found()
-          | service_limit_exceeded()
+          | file_system_not_found()
+          | bad_request()
           | backup_not_found()
 
   @type delete_backup_errors() ::
-          bad_request()
-          | backup_restoring()
-          | internal_server_error()
-          | backup_in_progress()
+          internal_server_error()
           | incompatible_parameter_error()
-          | backup_being_copied()
+          | bad_request()
+          | backup_restoring()
           | backup_not_found()
+          | backup_in_progress()
+          | backup_being_copied()
 
   @type delete_data_repository_association_errors() ::
-          data_repository_association_not_found()
-          | bad_request()
+          service_limit_exceeded()
           | internal_server_error()
           | incompatible_parameter_error()
-          | service_limit_exceeded()
+          | data_repository_association_not_found()
+          | bad_request()
 
   @type delete_file_cache_errors() ::
-          bad_request()
-          | file_cache_not_found()
+          service_limit_exceeded()
           | internal_server_error()
           | incompatible_parameter_error()
-          | service_limit_exceeded()
+          | file_cache_not_found()
+          | bad_request()
 
   @type delete_file_system_errors() ::
-          bad_request()
-          | file_system_not_found()
+          service_limit_exceeded()
           | internal_server_error()
           | incompatible_parameter_error()
-          | service_limit_exceeded()
+          | file_system_not_found()
+          | bad_request()
 
-  @type delete_snapshot_errors() :: snapshot_not_found() | bad_request() | internal_server_error()
+  @type delete_snapshot_errors() :: snapshot_not_found() | internal_server_error() | bad_request()
 
   @type delete_storage_virtual_machine_errors() ::
-          bad_request()
+          storage_virtual_machine_not_found()
           | internal_server_error()
           | incompatible_parameter_error()
-          | storage_virtual_machine_not_found()
+          | bad_request()
 
   @type delete_volume_errors() ::
-          bad_request()
+          volume_not_found()
+          | service_limit_exceeded()
           | internal_server_error()
           | incompatible_parameter_error()
-          | volume_not_found()
-          | service_limit_exceeded()
+          | bad_request()
 
   @type describe_backups_errors() ::
-          bad_request()
-          | file_system_not_found()
+          volume_not_found()
           | internal_server_error()
-          | volume_not_found()
+          | file_system_not_found()
+          | bad_request()
           | backup_not_found()
 
   @type describe_data_repository_associations_errors() ::
-          data_repository_association_not_found()
-          | invalid_data_repository_type()
-          | bad_request()
-          | file_system_not_found()
+          invalid_data_repository_type()
           | internal_server_error()
+          | file_system_not_found()
+          | data_repository_association_not_found()
+          | bad_request()
 
   @type describe_data_repository_tasks_errors() ::
-          data_repository_task_not_found()
-          | bad_request()
+          internal_server_error()
           | file_system_not_found()
-          | internal_server_error()
+          | data_repository_task_not_found()
+          | bad_request()
 
   @type describe_file_caches_errors() ::
-          bad_request() | file_cache_not_found() | internal_server_error()
+          internal_server_error() | file_cache_not_found() | bad_request()
 
   @type describe_file_system_aliases_errors() ::
-          bad_request() | file_system_not_found() | internal_server_error()
+          internal_server_error() | file_system_not_found() | bad_request()
 
   @type describe_file_systems_errors() ::
-          bad_request() | file_system_not_found() | internal_server_error()
+          internal_server_error() | file_system_not_found() | bad_request()
 
   @type describe_s3_access_point_attachments_errors() ::
           unsupported_operation()
-          | bad_request()
           | s3_access_point_attachment_not_found()
           | internal_server_error()
+          | bad_request()
 
-  @type describe_shared_vpc_configuration_errors() :: bad_request() | internal_server_error()
+  @type describe_shared_vpc_configuration_errors() :: internal_server_error() | bad_request()
 
   @type describe_snapshots_errors() ::
-          snapshot_not_found() | bad_request() | internal_server_error()
+          snapshot_not_found() | internal_server_error() | bad_request()
 
   @type describe_storage_virtual_machines_errors() ::
-          bad_request() | internal_server_error() | storage_virtual_machine_not_found()
+          storage_virtual_machine_not_found() | internal_server_error() | bad_request()
 
-  @type describe_volumes_errors() :: bad_request() | internal_server_error() | volume_not_found()
+  @type describe_volumes_errors() :: volume_not_found() | internal_server_error() | bad_request()
 
   @type detach_and_delete_s3_access_point_errors() ::
           unsupported_operation()
-          | bad_request()
           | s3_access_point_attachment_not_found()
           | internal_server_error()
           | incompatible_parameter_error()
+          | bad_request()
 
   @type disassociate_file_system_aliases_errors() ::
-          bad_request() | file_system_not_found() | internal_server_error()
+          internal_server_error() | file_system_not_found() | bad_request()
 
   @type list_tags_for_resource_errors() ::
-          bad_request()
-          | resource_not_found()
+          resource_not_found()
+          | resource_does_not_support_tagging()
           | not_service_resource_error()
           | internal_server_error()
-          | resource_does_not_support_tagging()
+          | bad_request()
 
   @type release_file_system_nfs_v3_locks_errors() ::
-          bad_request()
-          | file_system_not_found()
+          service_limit_exceeded()
           | internal_server_error()
           | incompatible_parameter_error()
-          | service_limit_exceeded()
+          | file_system_not_found()
+          | bad_request()
 
   @type restore_volume_from_snapshot_errors() ::
-          bad_request() | internal_server_error() | volume_not_found()
+          volume_not_found() | internal_server_error() | bad_request()
 
   @type start_misconfigured_state_recovery_errors() ::
-          bad_request() | file_system_not_found() | internal_server_error()
+          internal_server_error() | file_system_not_found() | bad_request()
 
   @type tag_resource_errors() ::
-          bad_request()
-          | resource_not_found()
+          resource_not_found()
+          | resource_does_not_support_tagging()
           | not_service_resource_error()
           | internal_server_error()
-          | resource_does_not_support_tagging()
+          | bad_request()
 
   @type untag_resource_errors() ::
-          bad_request()
-          | resource_not_found()
+          resource_not_found()
+          | resource_does_not_support_tagging()
           | not_service_resource_error()
           | internal_server_error()
-          | resource_does_not_support_tagging()
+          | bad_request()
 
   @type update_data_repository_association_errors() ::
-          data_repository_association_not_found()
-          | bad_request()
+          service_limit_exceeded()
           | internal_server_error()
           | incompatible_parameter_error()
-          | service_limit_exceeded()
+          | data_repository_association_not_found()
+          | bad_request()
 
   @type update_file_cache_errors() ::
           unsupported_operation()
-          | bad_request()
-          | file_cache_not_found()
+          | service_limit_exceeded()
+          | missing_file_cache_configuration()
           | internal_server_error()
           | incompatible_parameter_error()
-          | missing_file_cache_configuration()
-          | service_limit_exceeded()
+          | file_cache_not_found()
+          | bad_request()
 
   @type update_file_system_errors() ::
           unsupported_operation()
-          | bad_request()
-          | file_system_not_found()
+          | service_limit_exceeded()
           | missing_file_system_configuration()
           | invalid_network_settings()
           | internal_server_error()
           | incompatible_parameter_error()
-          | service_limit_exceeded()
+          | file_system_not_found()
+          | bad_request()
 
   @type update_shared_vpc_configuration_errors() ::
-          bad_request() | internal_server_error() | incompatible_parameter_error()
+          internal_server_error() | incompatible_parameter_error() | bad_request()
 
-  @type update_snapshot_errors() :: snapshot_not_found() | bad_request() | internal_server_error()
+  @type update_snapshot_errors() :: snapshot_not_found() | internal_server_error() | bad_request()
 
   @type update_storage_virtual_machine_errors() ::
           unsupported_operation()
-          | bad_request()
+          | storage_virtual_machine_not_found()
           | internal_server_error()
           | incompatible_parameter_error()
-          | storage_virtual_machine_not_found()
+          | bad_request()
 
   @type update_volume_errors() ::
-          bad_request()
+          volume_not_found()
           | missing_volume_configuration()
           | internal_server_error()
           | incompatible_parameter_error()
-          | volume_not_found()
+          | bad_request()
 
   def metadata do
     %{

@@ -39,36 +39,83 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
-      create_security_configuration_request() :: %{
-        optional("containerProvider") => container_provider(),
-        optional("tags") => map(),
-        required("clientToken") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("securityConfigurationData") => security_configuration_data()
+      authentication_configuration() :: %{
+        "iamConfiguration" => iam_configuration(),
+        "identityCenterConfiguration" => identity_center_configuration()
       }
 
   """
-  @type create_security_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type authentication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_job_template_request() :: %{}
+      authorization_configuration() :: %{
+        "encryptionConfiguration" => encryption_configuration(),
+        "lakeFormationConfiguration" => lake_formation_configuration()
+      }
 
   """
-  @type delete_job_template_request() :: %{}
+  @type authorization_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      in_transit_encryption_configuration() :: %{
-        "tlsCertificateConfiguration" => t_l_s_certificate_configuration()
+      cancel_job_run_request() :: %{}
+
+  """
+  @type cancel_job_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_job_run_response() :: %{
+        "id" => String.t() | atom(),
+        "virtualClusterId" => String.t() | atom()
       }
 
   """
-  @type in_transit_encryption_configuration() :: %{(String.t() | atom()) => any()}
+  @type cancel_job_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate() :: %{
+        "certificateArn" => String.t() | atom(),
+        "certificateData" => String.t() | atom()
+      }
+
+  """
+  @type certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_monitoring_configuration() :: %{
+        "logGroupName" => String.t() | atom(),
+        "logStreamNamePrefix" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration() :: %{
+        "classification" => String.t() | atom(),
+        "configurations" => list(configuration()),
+        "properties" => map()
+      }
+
+  """
+  @type configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -86,8 +133,369 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
+      container_log_rotation_configuration() :: %{
+        "maxFilesToKeep" => integer(),
+        "rotationSize" => String.t() | atom()
+      }
+
+  """
+  @type container_log_rotation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container_provider() :: %{
+        "id" => String.t() | atom(),
+        "info" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type container_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_job_template_request() :: %{
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
+        required("clientToken") => String.t() | atom(),
+        required("jobTemplateData") => job_template_data(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_job_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_job_template_response() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type create_job_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_managed_endpoint_request() :: %{
+        optional("certificateArn") => String.t() | atom(),
+        optional("configurationOverrides") => configuration_overrides(),
+        optional("sessionIdleTimeoutInMinutes") => integer(),
+        optional("tags") => map(),
+        required("clientToken") => String.t() | atom(),
+        required("executionRoleArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("releaseLabel") => String.t() | atom(),
+        required("type") => String.t() | atom()
+      }
+
+  """
+  @type create_managed_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_managed_endpoint_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "virtualClusterId" => String.t() | atom()
+      }
+
+  """
+  @type create_managed_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_security_configuration_request() :: %{
+        optional("containerProvider") => container_provider(),
+        optional("tags") => map(),
+        required("clientToken") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("securityConfigurationData") => security_configuration_data()
+      }
+
+  """
+  @type create_security_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_security_configuration_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type create_security_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_virtual_cluster_request() :: %{
+        optional("schedulerConfiguration") => scheduler_configuration(),
+        optional("securityConfigurationId") => String.t() | atom(),
+        optional("sessionEnabled") => boolean(),
+        optional("tags") => map(),
+        required("clientToken") => String.t() | atom(),
+        required("containerProvider") => container_provider(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_virtual_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_virtual_cluster_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type create_virtual_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_template_request() :: %{}
+
+  """
+  @type delete_job_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_template_response() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type delete_job_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_managed_endpoint_request() :: %{}
+
+  """
+  @type delete_managed_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_managed_endpoint_response() :: %{
+        "id" => String.t() | atom(),
+        "virtualClusterId" => String.t() | atom()
+      }
+
+  """
+  @type delete_managed_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_security_configuration_request() :: %{}
+
+  """
+  @type delete_security_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_security_configuration_response() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type delete_security_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_virtual_cluster_request() :: %{}
+
+  """
+  @type delete_virtual_cluster_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_virtual_cluster_response() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type delete_virtual_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_run_request() :: %{}
+
+  """
+  @type describe_job_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_run_response() :: %{
+        "jobRun" => job_run()
+      }
+
+  """
+  @type describe_job_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_template_request() :: %{}
+
+  """
+  @type describe_job_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_template_response() :: %{
+        "jobTemplate" => job_template()
+      }
+
+  """
+  @type describe_job_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_managed_endpoint_request() :: %{}
+
+  """
+  @type describe_managed_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_managed_endpoint_response() :: %{
+        "endpoint" => endpoint()
+      }
+
+  """
+  @type describe_managed_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_security_configuration_request() :: %{}
+
+  """
+  @type describe_security_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_security_configuration_response() :: %{
+        "securityConfiguration" => security_configuration()
+      }
+
+  """
+  @type describe_security_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_virtual_cluster_request() :: %{}
+
+  """
+  @type describe_virtual_cluster_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_virtual_cluster_response() :: %{
+        "virtualCluster" => virtual_cluster()
+      }
+
+  """
+  @type describe_virtual_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      e_k_s_request_throttled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type e_k_s_request_throttled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      eks_info() :: %{
+        "namespace" => String.t() | atom(),
+        "nodeLabel" => String.t() | atom()
+      }
+
+  """
+  @type eks_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_configuration() :: %{
+        "inTransitEncryptionConfiguration" => in_transit_encryption_configuration()
+      }
+
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       endpoint() :: %{
         "arn" => String.t() | atom(),
+        "authProxyUrl" => String.t() | atom(),
         "certificateArn" => String.t() | atom(),
         "certificateAuthority" => certificate(),
         "configurationOverrides" => configuration_overrides(),
@@ -114,64 +522,6 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
-      s3_monitoring_configuration() :: %{
-        "logUri" => String.t() | atom()
-      }
-
-  """
-  @type s3_monitoring_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_security_configurations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "securityConfigurations" => list(security_configuration())
-      }
-
-  """
-  @type list_security_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_virtual_clusters_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "virtualClusters" => list(virtual_cluster())
-      }
-
-  """
-  @type list_virtual_clusters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_job_template_response() :: %{
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type delete_job_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container_log_rotation_configuration() :: %{
-        "maxFilesToKeep" => integer(),
-        "rotationSize" => String.t() | atom()
-      }
-
-  """
-  @type container_log_rotation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       get_managed_endpoint_session_credentials_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("durationInSeconds") => integer(),
@@ -187,39 +537,74 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
-      describe_virtual_cluster_response() :: %{
-        "virtualCluster" => virtual_cluster()
+      get_managed_endpoint_session_credentials_response() :: %{
+        "credentials" => list(),
+        "endpointCredentials" => list(),
+        "expiresAt" => non_neg_integer(),
+        "id" => String.t() | atom()
       }
 
   """
-  @type describe_virtual_cluster_response() :: %{(String.t() | atom()) => any()}
+  @type get_managed_endpoint_session_credentials_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_managed_endpoints_request() :: %{
-        optional("createdAfter") => non_neg_integer(),
-        optional("createdBefore") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("states") => list(list(any())()),
-        optional("types") => list(String.t() | atom())
+      iam_configuration() :: %{
+        "systemRole" => String.t() | atom()
       }
 
   """
-  @type list_managed_endpoints_request() :: %{(String.t() | atom()) => any()}
+  @type iam_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      e_k_s_request_throttled_exception() :: %{
+      identity_center_configuration() :: %{
+        "emrIdentityCenterApplicationARN" => String.t() | atom(),
+        "enableIdentityCenter" => boolean(),
+        "identityCenterApplicationAssignmentRequired" => boolean(),
+        "identityCenterInstanceARN" => String.t() | atom()
+      }
+
+  """
+  @type identity_center_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      in_transit_encryption_configuration() :: %{
+        "tlsCertificateConfiguration" => t_l_s_certificate_configuration()
+      }
+
+  """
+  @type in_transit_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type e_k_s_request_throttled_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_driver() :: %{
+        "sparkSqlJobDriver" => spark_sql_job_driver(),
+        "sparkSubmitJobDriver" => spark_submit_job_driver()
+      }
+
+  """
+  @type job_driver() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -253,13 +638,36 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
-      list_job_templates_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "templates" => list(job_template())
+      job_template() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "decryptionError" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "jobTemplateData" => job_template_data(),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type list_job_templates_response() :: %{(String.t() | atom()) => any()}
+  @type job_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_template_data() :: %{
+        "configurationOverrides" => parametric_configuration_overrides(),
+        "executionRoleArn" => String.t() | atom(),
+        "jobDriver" => job_driver(),
+        "jobTags" => map(),
+        "parameterConfiguration" => map(),
+        "releaseLabel" => String.t() | atom()
+      }
+
+  """
+  @type job_template_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -278,12 +686,29 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
-      retry_policy_configuration() :: %{
-        "maxAttempts" => integer()
+      list_job_runs_request() :: %{
+        optional("createdAfter") => non_neg_integer(),
+        optional("createdBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("states") => list(list(any())())
       }
 
   """
-  @type retry_policy_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_job_runs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_runs_response() :: %{
+        "jobRuns" => list(job_run()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_job_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -303,229 +728,87 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
-      describe_job_run_request() :: %{}
-
-  """
-  @type describe_job_run_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      template_parameter_configuration() :: %{
-        "defaultValue" => String.t() | atom(),
-        "type" => list(any())
+      list_job_templates_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "templates" => list(job_template())
       }
 
   """
-  @type template_parameter_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_job_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_managed_endpoint_request() :: %{
-        optional("certificateArn") => String.t() | atom(),
-        optional("configurationOverrides") => configuration_overrides(),
-        optional("tags") => map(),
-        required("clientToken") => String.t() | atom(),
-        required("executionRoleArn") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("releaseLabel") => String.t() | atom(),
-        required("type") => String.t() | atom()
+      list_managed_endpoints_request() :: %{
+        optional("createdAfter") => non_neg_integer(),
+        optional("createdBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("states") => list(list(any())()),
+        optional("types") => list(String.t() | atom())
       }
 
   """
-  @type create_managed_endpoint_request() :: %{(String.t() | atom()) => any()}
+  @type list_managed_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_job_template_request() :: %{}
-
-  """
-  @type describe_job_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_virtual_cluster_request() :: %{
-        optional("securityConfigurationId") => String.t() | atom(),
-        optional("tags") => map(),
-        required("clientToken") => String.t() | atom(),
-        required("containerProvider") => container_provider(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_virtual_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      eks_info() :: %{
-        "namespace" => String.t() | atom(),
-        "nodeLabel" => String.t() | atom()
-      }
-
-  """
-  @type eks_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      secure_namespace_info() :: %{
-        "clusterId" => String.t() | atom(),
-        "namespace" => String.t() | atom()
-      }
-
-  """
-  @type secure_namespace_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration() :: %{
-        "classification" => String.t() | atom(),
-        "configurations" => list(configuration()),
-        "properties" => map()
-      }
-
-  """
-  @type configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_managed_endpoint_request() :: %{}
-
-  """
-  @type delete_managed_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_cluster() :: %{
-        "arn" => String.t() | atom(),
-        "containerProvider" => container_provider(),
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "securityConfigurationId" => String.t() | atom(),
-        "state" => list(any()),
-        "tags" => map()
-      }
-
-  """
-  @type virtual_cluster() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_security_configuration_request() :: %{}
-
-  """
-  @type describe_security_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      t_l_s_certificate_configuration() :: %{
-        "certificateProviderType" => list(any()),
-        "privateCertificateSecretArn" => String.t() | atom(),
-        "publicCertificateSecretArn" => String.t() | atom()
-      }
-
-  """
-  @type t_l_s_certificate_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_virtual_cluster_request() :: %{}
-
-  """
-  @type describe_virtual_cluster_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_managed_endpoint_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "virtualClusterId" => String.t() | atom()
-      }
-
-  """
-  @type create_managed_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_runs_response() :: %{
-        "jobRuns" => list(job_run()),
+      list_managed_endpoints_response() :: %{
+        "endpoints" => list(endpoint()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_job_runs_response() :: %{(String.t() | atom()) => any()}
+  @type list_managed_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_security_configurations_request() :: %{
+        optional("createdAfter") => non_neg_integer(),
+        optional("createdBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_security_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_security_configurations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "securityConfigurations" => list(security_configuration())
+      }
+
+  """
+  @type list_security_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -549,42 +832,52 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
-      cancel_job_run_response() :: %{
-        "id" => String.t() | atom(),
-        "virtualClusterId" => String.t() | atom()
+      list_virtual_clusters_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "virtualClusters" => list(virtual_cluster())
       }
 
   """
-  @type cancel_job_run_response() :: %{(String.t() | atom()) => any()}
+  @type list_virtual_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      job_template_data() :: %{
-        "configurationOverrides" => parametric_configuration_overrides(),
-        "executionRoleArn" => String.t() | atom(),
-        "jobDriver" => job_driver(),
-        "jobTags" => map(),
-        "parameterConfiguration" => map(),
-        "releaseLabel" => String.t() | atom()
+      managed_logs() :: %{
+        "allowAWSToRetainLogs" => list(any()),
+        "encryptionKeyArn" => String.t() | atom()
       }
 
   """
-  @type job_template_data() :: %{(String.t() | atom()) => any()}
+  @type managed_logs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_security_configuration_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
+      monitoring_configuration() :: %{
+        "cloudWatchMonitoringConfiguration" => cloud_watch_monitoring_configuration(),
+        "containerLogRotationConfiguration" => container_log_rotation_configuration(),
+        "managedLogs" => managed_logs(),
+        "persistentAppUI" => list(any()),
+        "s3MonitoringConfiguration" => s3_monitoring_configuration()
       }
 
   """
-  @type create_security_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parametric_cloud_watch_monitoring_configuration() :: %{
+        "logGroupName" => String.t() | atom(),
+        "logStreamNamePrefix" => String.t() | atom()
+      }
+
+  """
+  @type parametric_cloud_watch_monitoring_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -602,32 +895,25 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
-      tag_resource_response() :: %{}
+      parametric_monitoring_configuration() :: %{
+        "cloudWatchMonitoringConfiguration" => parametric_cloud_watch_monitoring_configuration(),
+        "persistentAppUI" => String.t() | atom(),
+        "s3MonitoringConfiguration" => parametric_s3_monitoring_configuration()
+      }
 
   """
-  @type tag_resource_response() :: %{}
+  @type parametric_monitoring_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      retry_policy_execution() :: %{
-        "currentAttemptCount" => integer()
+      parametric_s3_monitoring_configuration() :: %{
+        "logUri" => String.t() | atom()
       }
 
   """
-  @type retry_policy_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_virtual_cluster_response() :: %{
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type delete_virtual_cluster_response() :: %{(String.t() | atom()) => any()}
+  @type parametric_s3_monitoring_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -644,42 +930,82 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
-      delete_virtual_cluster_request() :: %{}
-
-  """
-  @type delete_virtual_cluster_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      spark_sql_job_driver() :: %{
-        "entryPoint" => String.t() | atom(),
-        "sparkSqlParameters" => String.t() | atom()
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type spark_sql_job_driver() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      security_configuration_data() :: %{
-        "authorizationConfiguration" => authorization_configuration()
+      retry_policy_configuration() :: %{
+        "maxAttempts" => integer()
       }
 
   """
-  @type security_configuration_data() :: %{(String.t() | atom()) => any()}
+  @type retry_policy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
+      retry_policy_execution() :: %{
+        "currentAttemptCount" => integer()
+      }
 
   """
-  @type untag_resource_response() :: %{}
+  @type retry_policy_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_monitoring_configuration() :: %{
+        "encryptionKeyArn" => String.t() | atom(),
+        "logUri" => String.t() | atom()
+      }
+
+  """
+  @type s3_monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduler_configuration() :: %{
+        "maxConcurrentJobRuns" => integer(),
+        "maxInQueueJobRuns" => integer()
+      }
+
+  """
+  @type scheduler_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduler_status() :: %{
+        "currentConcurrentJobRuns" => integer(),
+        "currentInQueueJobRuns" => integer()
+      }
+
+  """
+  @type scheduler_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secure_namespace_info() :: %{
+        "clusterId" => String.t() | atom(),
+        "namespace" => String.t() | atom()
+      }
+
+  """
+  @type secure_namespace_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -702,84 +1028,38 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
-      describe_managed_endpoint_request() :: %{}
+      security_configuration_data() :: %{
+        "authenticationConfiguration" => authentication_configuration(),
+        "authorizationConfiguration" => authorization_configuration()
+      }
 
   """
-  @type describe_managed_endpoint_request() :: %{}
+  @type security_configuration_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
+      spark_sql_job_driver() :: %{
+        "entryPoint" => String.t() | atom(),
+        "sparkSqlParameters" => String.t() | atom()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type spark_sql_job_driver() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      parametric_s3_monitoring_configuration() :: %{
-        "logUri" => String.t() | atom()
+      spark_submit_job_driver() :: %{
+        "entryPoint" => String.t() | atom(),
+        "entryPointArguments" => list(String.t() | atom()),
+        "sparkSubmitParameters" => String.t() | atom()
       }
 
   """
-  @type parametric_s3_monitoring_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parametric_cloud_watch_monitoring_configuration() :: %{
-        "logGroupName" => String.t() | atom(),
-        "logStreamNamePrefix" => String.t() | atom()
-      }
-
-  """
-  @type parametric_cloud_watch_monitoring_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_runs_request() :: %{
-        optional("createdAfter") => non_neg_integer(),
-        optional("createdBefore") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("states") => list(list(any())())
-      }
-
-  """
-  @type list_job_runs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_virtual_cluster_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type create_virtual_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_managed_endpoint_response() :: %{
-        "endpoint" => endpoint()
-      }
-
-  """
-  @type describe_managed_endpoint_response() :: %{(String.t() | atom()) => any()}
+  @type spark_submit_job_driver() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -805,104 +1085,6 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
-      list_security_configurations_request() :: %{
-        optional("createdAfter") => non_neg_integer(),
-        optional("createdBefore") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_security_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parametric_monitoring_configuration() :: %{
-        "cloudWatchMonitoringConfiguration" => parametric_cloud_watch_monitoring_configuration(),
-        "persistentAppUI" => String.t() | atom(),
-        "s3MonitoringConfiguration" => parametric_s3_monitoring_configuration()
-      }
-
-  """
-  @type parametric_monitoring_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate() :: %{
-        "certificateArn" => String.t() | atom(),
-        "certificateData" => String.t() | atom()
-      }
-
-  """
-  @type certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_driver() :: %{
-        "sparkSqlJobDriver" => spark_sql_job_driver(),
-        "sparkSubmitJobDriver" => spark_submit_job_driver()
-      }
-
-  """
-  @type job_driver() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_job_template_response() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type create_job_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_job_run_request() :: %{}
-
-  """
-  @type cancel_job_run_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      container_provider() :: %{
-        "id" => String.t() | atom(),
-        "info" => list(),
-        "type" => list(any())
-      }
-
-  """
-  @type container_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       start_job_run_response() :: %{
         "arn" => String.t() | atom(),
         "id" => String.t() | atom(),
@@ -917,256 +1099,194 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
-      encryption_configuration() :: %{
-        "inTransitEncryptionConfiguration" => in_transit_encryption_configuration()
+      t_l_s_certificate_configuration() :: %{
+        "certificateProviderType" => list(any()),
+        "privateCertificateSecretArn" => String.t() | atom(),
+        "publicCertificateSecretArn" => String.t() | atom()
       }
 
   """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+  @type t_l_s_certificate_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_security_configuration_response() :: %{
-        "securityConfiguration" => security_configuration()
+      tag_resource_request() :: %{
+        required("tags") => map()
       }
 
   """
-  @type describe_security_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_managed_endpoint_response() :: %{
-        "id" => String.t() | atom(),
-        "virtualClusterId" => String.t() | atom()
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      template_parameter_configuration() :: %{
+        "defaultValue" => String.t() | atom(),
+        "type" => list(any())
       }
 
   """
-  @type delete_managed_endpoint_response() :: %{(String.t() | atom()) => any()}
+  @type template_parameter_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      spark_submit_job_driver() :: %{
-        "entryPoint" => String.t() | atom(),
-        "entryPointArguments" => list(String.t() | atom()),
-        "sparkSubmitParameters" => String.t() | atom()
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type spark_submit_job_driver() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      monitoring_configuration() :: %{
-        "cloudWatchMonitoringConfiguration" => cloud_watch_monitoring_configuration(),
-        "containerLogRotationConfiguration" => container_log_rotation_configuration(),
-        "managedLogs" => managed_logs(),
-        "persistentAppUI" => list(any()),
-        "s3MonitoringConfiguration" => s3_monitoring_configuration()
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_virtual_cluster_request() :: %{
+        optional("schedulerConfiguration") => scheduler_configuration(),
+        required("clientToken") => String.t() | atom()
       }
 
   """
-  @type monitoring_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_virtual_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_managed_endpoint_session_credentials_response() :: %{
-        "credentials" => list(),
-        "expiresAt" => non_neg_integer(),
-        "id" => String.t() | atom()
+      update_virtual_cluster_response() :: %{
+        "virtualCluster" => virtual_cluster()
       }
 
   """
-  @type get_managed_endpoint_session_credentials_response() :: %{(String.t() | atom()) => any()}
+  @type update_virtual_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      authorization_configuration() :: %{
-        "encryptionConfiguration" => encryption_configuration(),
-        "lakeFormationConfiguration" => lake_formation_configuration()
+      validation_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type authorization_configuration() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      managed_logs() :: %{
-        "allowAWSToRetainLogs" => list(any()),
-        "encryptionKeyArn" => String.t() | atom()
-      }
-
-  """
-  @type managed_logs() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_job_template_response() :: %{
-        "jobTemplate" => job_template()
-      }
-
-  """
-  @type describe_job_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_job_run_response() :: %{
-        "jobRun" => job_run()
-      }
-
-  """
-  @type describe_job_run_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_monitoring_configuration() :: %{
-        "logGroupName" => String.t() | atom(),
-        "logStreamNamePrefix" => String.t() | atom()
-      }
-
-  """
-  @type cloud_watch_monitoring_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_endpoints_response() :: %{
-        "endpoints" => list(endpoint()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_managed_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_job_template_request() :: %{
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("tags") => map(),
-        required("clientToken") => String.t() | atom(),
-        required("jobTemplateData") => job_template_data(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_job_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_template() :: %{
+      virtual_cluster() :: %{
         "arn" => String.t() | atom(),
+        "containerProvider" => container_provider(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "decryptionError" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "jobTemplateData" => job_template_data(),
-        "kmsKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "schedulerConfiguration" => scheduler_configuration(),
+        "schedulerStatus" => scheduler_status(),
+        "securityConfigurationId" => String.t() | atom(),
+        "sessionEnabled" => boolean(),
+        "state" => list(any()),
         "tags" => map()
       }
 
   """
-  @type job_template() :: %{(String.t() | atom()) => any()}
+  @type virtual_cluster() :: %{(String.t() | atom()) => any()}
 
-  @type cancel_job_run_errors() :: internal_server_exception() | validation_exception()
+  @type cancel_job_run_errors() :: validation_exception() | internal_server_exception()
 
   @type create_job_template_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type create_managed_endpoint_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type create_security_configuration_errors() ::
-          internal_server_exception() | validation_exception()
+          validation_exception() | internal_server_exception()
 
   @type create_virtual_cluster_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | e_k_s_request_throttled_exception()
-
-  @type delete_job_template_errors() :: internal_server_exception() | validation_exception()
-
-  @type delete_managed_endpoint_errors() :: internal_server_exception() | validation_exception()
-
-  @type delete_virtual_cluster_errors() :: internal_server_exception() | validation_exception()
-
-  @type describe_job_run_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
-
-  @type describe_job_template_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
-
-  @type describe_managed_endpoint_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
-
-  @type describe_security_configuration_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
-
-  @type describe_virtual_cluster_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
-
-  @type get_managed_endpoint_session_credentials_errors() ::
-          request_throttled_exception()
+          validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | e_k_s_request_throttled_exception()
 
-  @type list_job_runs_errors() :: internal_server_exception() | validation_exception()
+  @type delete_job_template_errors() :: validation_exception() | internal_server_exception()
 
-  @type list_job_templates_errors() :: internal_server_exception() | validation_exception()
+  @type delete_managed_endpoint_errors() :: validation_exception() | internal_server_exception()
 
-  @type list_managed_endpoints_errors() :: internal_server_exception() | validation_exception()
+  @type delete_security_configuration_errors() ::
+          validation_exception() | internal_server_exception()
+
+  @type delete_virtual_cluster_errors() :: validation_exception() | internal_server_exception()
+
+  @type describe_job_run_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type describe_job_template_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type describe_managed_endpoint_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type describe_security_configuration_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type describe_virtual_cluster_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type get_managed_endpoint_session_credentials_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+
+  @type list_job_runs_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_job_templates_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_managed_endpoints_errors() :: validation_exception() | internal_server_exception()
 
   @type list_security_configurations_errors() ::
-          internal_server_exception() | validation_exception()
+          validation_exception() | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
-  @type list_virtual_clusters_errors() :: internal_server_exception() | validation_exception()
+  @type list_virtual_clusters_errors() :: validation_exception() | internal_server_exception()
 
   @type start_job_run_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception() | internal_server_exception() | validation_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type update_virtual_cluster_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   def metadata do
     %{
@@ -1338,7 +1458,7 @@ defmodule AWS.EMRcontainers do
   Creates a virtual cluster.
 
   Virtual cluster is a managed entity on Amazon EMR on EKS. You can create,
-  describe, list and delete virtual clusters. They do not consume any
+  update, describe, list and delete virtual clusters. They do not consume any
   additional resource in your system. A single virtual cluster maps to a single
   Kubernetes
   namespace. Given this relationship, you can model virtual clusters the same way
@@ -1449,10 +1569,44 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
+  Deletes a security configuration.
+  """
+  @spec delete_security_configuration(
+          map(),
+          String.t() | atom(),
+          delete_security_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_security_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_security_configuration_errors()}
+  def delete_security_configuration(%Client{} = client, id, input, options \\ []) do
+    url_path = "/securityconfigurations/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a virtual cluster.
 
   Virtual cluster is a managed entity on Amazon EMR on EKS. You can create,
-  describe, list and delete virtual clusters. They do not consume any
+  update, describe, list and delete virtual clusters. They do not consume any
   additional resource in your system. A single virtual cluster maps to a single
   Kubernetes
   namespace. Given this relationship, you can model virtual clusters the same way
@@ -1594,8 +1748,8 @@ defmodule AWS.EMRcontainers do
   Displays detailed information about a specified virtual cluster.
 
   Virtual cluster is a
-  managed entity on Amazon EMR on EKS. You can create, describe, list and delete
-  virtual
+  managed entity on Amazon EMR on EKS. You can create, update, describe, list and
+  delete virtual
   clusters. They do not consume any additional resource in your system. A single
   virtual
   cluster maps to a single Kubernetes namespace. Given this relationship, you can
@@ -1699,29 +1853,8 @@ defmodule AWS.EMRcontainers do
     query_params = []
 
     query_params =
-      if !is_nil(states) do
-        [{"states", states} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(created_after) do
+        [{"createdAfter", created_after} | query_params]
       else
         query_params
       end
@@ -1734,8 +1867,29 @@ defmodule AWS.EMRcontainers do
       end
 
     query_params =
-      if !is_nil(created_after) do
-        [{"createdAfter", created_after} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(states) do
+        [{"states", states} | query_params]
       else
         query_params
       end
@@ -1780,15 +1934,8 @@ defmodule AWS.EMRcontainers do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(created_after) do
+        [{"createdAfter", created_after} | query_params]
       else
         query_params
       end
@@ -1801,8 +1948,15 @@ defmodule AWS.EMRcontainers do
       end
 
     query_params =
-      if !is_nil(created_after) do
-        [{"createdAfter", created_after} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1850,29 +2004,8 @@ defmodule AWS.EMRcontainers do
     query_params = []
 
     query_params =
-      if !is_nil(types) do
-        [{"types", types} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(states) do
-        [{"states", states} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(created_after) do
+        [{"createdAfter", created_after} | query_params]
       else
         query_params
       end
@@ -1885,8 +2018,29 @@ defmodule AWS.EMRcontainers do
       end
 
     query_params =
-      if !is_nil(created_after) do
-        [{"createdAfter", created_after} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(states) do
+        [{"states", states} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(types) do
+        [{"types", types} | query_params]
       else
         query_params
       end
@@ -1932,15 +2086,8 @@ defmodule AWS.EMRcontainers do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(created_after) do
+        [{"createdAfter", created_after} | query_params]
       else
         query_params
       end
@@ -1953,8 +2100,15 @@ defmodule AWS.EMRcontainers do
       end
 
     query_params =
-      if !is_nil(created_after) do
-        [{"createdAfter", created_after} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1986,7 +2140,8 @@ defmodule AWS.EMRcontainers do
   Lists information about the specified virtual cluster.
 
   Virtual cluster is a managed
-  entity on Amazon EMR on EKS. You can create, describe, list and delete virtual
+  entity on Amazon EMR on EKS. You can create, update, describe, list and delete
+  virtual
   clusters. They do not consume any additional resource in your system. A single
   virtual
   cluster maps to a single Kubernetes namespace. Given this relationship, you can
@@ -2027,43 +2182,8 @@ defmodule AWS.EMRcontainers do
     query_params = []
 
     query_params =
-      if !is_nil(states) do
-        [{"states", states} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(eks_access_entry_integrated) do
-        [{"eksAccessEntryIntegrated", eks_access_entry_integrated} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(created_before) do
-        [{"createdBefore", created_before} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(created_after) do
-        [{"createdAfter", created_after} | query_params]
+      if !is_nil(container_provider_id) do
+        [{"containerProviderId", container_provider_id} | query_params]
       else
         query_params
       end
@@ -2076,8 +2196,43 @@ defmodule AWS.EMRcontainers do
       end
 
     query_params =
-      if !is_nil(container_provider_id) do
-        [{"containerProviderId", container_provider_id} | query_params]
+      if !is_nil(created_after) do
+        [{"createdAfter", created_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(created_before) do
+        [{"createdBefore", created_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(eks_access_entry_integrated) do
+        [{"eksAccessEntryIntegrated", eks_access_entry_integrated} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(states) do
+        [{"states", states} | query_params]
       else
         query_params
       end
@@ -2189,6 +2344,48 @@ defmodule AWS.EMRcontainers do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a virtual cluster.
+
+  Virtual cluster is a managed entity on Amazon EMR on EKS. You can create,
+  update, describe, list and delete virtual clusters. They do not consume any
+  additional resource in your system. A single virtual cluster maps to a single
+  Kubernetes
+  namespace. Given this relationship, you can model virtual clusters the same way
+  you model
+  Kubernetes namespaces to meet your requirements.
+  """
+  @spec update_virtual_cluster(
+          map(),
+          String.t() | atom(),
+          update_virtual_cluster_request(),
+          list()
+        ) ::
+          {:ok, update_virtual_cluster_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_virtual_cluster_errors()}
+  def update_virtual_cluster(%Client{} = client, id, input, options \\ []) do
+    url_path = "/virtualclusters/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,

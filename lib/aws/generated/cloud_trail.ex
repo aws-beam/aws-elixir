@@ -40,61 +40,314 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      invalid_import_source_exception() :: %{
+      access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_import_source_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_source_exception() :: %{
+      account_has_ongoing_import_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_source_exception() :: %{(String.t() | atom()) => any()}
+  @type account_has_ongoing_import_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      organization_not_in_all_features_mode_exception() :: %{
+      account_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type organization_not_in_all_features_mode_exception() :: %{(String.t() | atom()) => any()}
+  @type account_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_channels_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      account_not_registered_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type list_channels_request() :: %{(String.t() | atom()) => any()}
+  @type account_not_registered_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_event_configuration_response() :: %{
-        "AggregationConfigurations" => list(aggregation_configuration()),
-        "ContextKeySelectors" => list(context_key_selector()),
-        "EventDataStoreArn" => String.t() | atom(),
-        "MaxEventSize" => list(any()),
-        "TrailARN" => String.t() | atom()
+      account_registered_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type get_event_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type account_registered_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_tags_request() :: %{
+        required("ResourceId") => String.t() | atom(),
+        required("TagsList") => list(tag())
+      }
+      
+  """
+  @type add_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_tags_response() :: %{}
+      
+  """
+  @type add_tags_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      advanced_event_selector() :: %{
+        "FieldSelectors" => list(advanced_field_selector()),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type advanced_event_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      advanced_field_selector() :: %{
+        "EndsWith" => list(String.t() | atom()),
+        "Equals" => list(String.t() | atom()),
+        "Field" => String.t() | atom(),
+        "NotEndsWith" => list(String.t() | atom()),
+        "NotEquals" => list(String.t() | atom()),
+        "NotStartsWith" => list(String.t() | atom()),
+        "StartsWith" => list(String.t() | atom())
+      }
+      
+  """
+  @type advanced_field_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregation_configuration() :: %{
+        "EventCategory" => list(any()),
+        "Templates" => list(list(any())())
+      }
+      
+  """
+  @type aggregation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_query_request() :: %{
+        optional("EventDataStore") => String.t() | atom(),
+        optional("EventDataStoreOwnerAccountId") => String.t() | atom(),
+        required("QueryId") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_query_response() :: %{
+        "EventDataStoreOwnerAccountId" => String.t() | atom(),
+        "QueryId" => String.t() | atom(),
+        "QueryStatus" => list(any())
+      }
+      
+  """
+  @type cancel_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cannot_delegate_management_account_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type cannot_delegate_management_account_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_already_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type channel_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_arn_invalid_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type channel_arn_invalid_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_exists_for_e_d_s_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type channel_exists_for_e_d_s_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_max_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type channel_max_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type channel_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_trail_access_not_enabled_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_trail_access_not_enabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_trail_arn_invalid_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_trail_arn_invalid_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_trail_invalid_client_token_id_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_trail_invalid_client_token_id_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_logs_delivery_unavailable_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_watch_logs_delivery_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_modification_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      context_key_selector() :: %{
+        "Equals" => list(String.t() | atom()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type context_key_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_channel_request() :: %{
+        optional("Tags") => list(tag()),
+        required("Destinations") => list(destination()),
+        required("Name") => String.t() | atom(),
+        required("Source") => String.t() | atom()
+      }
+      
+  """
+  @type create_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,167 +368,33 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      update_channel_request() :: %{
-        optional("Destinations") => list(destination()),
-        optional("Name") => String.t() | atom(),
-        required("Channel") => String.t() | atom()
-      }
-      
-  """
-  @type update_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_trail_request() :: %{
-        optional("CloudWatchLogsLogGroupArn") => String.t() | atom(),
-        optional("CloudWatchLogsRoleArn") => String.t() | atom(),
-        optional("EnableLogFileValidation") => boolean(),
-        optional("IncludeGlobalServiceEvents") => boolean(),
-        optional("IsMultiRegionTrail") => boolean(),
-        optional("IsOrganizationTrail") => boolean(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("S3BucketName") => String.t() | atom(),
-        optional("S3KeyPrefix") => String.t() | atom(),
-        optional("SnsTopicName") => String.t() | atom(),
+      create_dashboard_request() :: %{
+        optional("RefreshSchedule") => refresh_schedule(),
+        optional("TagsList") => list(tag()),
+        optional("TerminationProtectionEnabled") => boolean(),
+        optional("Widgets") => list(request_widget()),
         required("Name") => String.t() | atom()
       }
       
   """
-  @type update_trail_request() :: %{(String.t() | atom()) => any()}
+  @type create_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      not_organization_master_account_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type not_organization_master_account_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_event_data_store_request() :: %{
-        required("EventDataStore") => String.t() | atom()
-      }
-      
-  """
-  @type get_event_data_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      trail() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
-        "CloudWatchLogsRoleArn" => String.t() | atom(),
-        "HasCustomEventSelectors" => boolean(),
-        "HasInsightSelectors" => boolean(),
-        "HomeRegion" => String.t() | atom(),
-        "IncludeGlobalServiceEvents" => boolean(),
-        "IsMultiRegionTrail" => boolean(),
-        "IsOrganizationTrail" => boolean(),
-        "KmsKeyId" => String.t() | atom(),
-        "LogFileValidationEnabled" => boolean(),
-        "Name" => String.t() | atom(),
-        "S3BucketName" => String.t() | atom(),
-        "S3KeyPrefix" => String.t() | atom(),
-        "SnsTopicARN" => String.t() | atom(),
-        "SnsTopicName" => String.t() | atom(),
-        "TrailARN" => String.t() | atom()
-      }
-      
-  """
-  @type trail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("ResourcePolicy") => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_event_data_store_ingestion_request() :: %{
-        required("EventDataStore") => String.t() | atom()
-      }
-      
-  """
-  @type stop_event_data_store_ingestion_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_event_data_store_ingestion_request() :: %{
-        required("EventDataStore") => String.t() | atom()
-      }
-      
-  """
-  @type start_event_data_store_ingestion_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_trails_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_trails_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_import_response() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "Destinations" => list(String.t() | atom()),
-        "EndEventTime" => non_neg_integer(),
-        "ImportId" => String.t() | atom(),
-        "ImportSource" => import_source(),
-        "ImportStatistics" => import_statistics(),
-        "ImportStatus" => list(any()),
-        "StartEventTime" => non_neg_integer(),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-      
-  """
-  @type stop_import_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_dashboard_response() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
+      create_dashboard_response() :: %{
         "DashboardArn" => String.t() | atom(),
-        "LastRefreshFailureReason" => String.t() | atom(),
-        "LastRefreshId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "RefreshSchedule" => refresh_schedule(),
-        "Status" => list(any()),
+        "TagsList" => list(tag()),
         "TerminationProtectionEnabled" => boolean(),
         "Type" => list(any()),
-        "UpdatedTimestamp" => non_neg_integer(),
         "Widgets" => list(widget())
       }
       
   """
-  @type get_dashboard_response() :: %{(String.t() | atom()) => any()}
+  @type create_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,6 +420,129 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      create_event_data_store_response() :: %{
+        "AdvancedEventSelectors" => list(advanced_event_selector()),
+        "BillingMode" => list(any()),
+        "CreatedTimestamp" => non_neg_integer(),
+        "EventDataStoreArn" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "MultiRegionEnabled" => boolean(),
+        "Name" => String.t() | atom(),
+        "OrganizationEnabled" => boolean(),
+        "RetentionPeriod" => integer(),
+        "Status" => list(any()),
+        "TagsList" => list(tag()),
+        "TerminationProtectionEnabled" => boolean(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type create_event_data_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_trail_request() :: %{
+        optional("CloudWatchLogsLogGroupArn") => String.t() | atom(),
+        optional("CloudWatchLogsRoleArn") => String.t() | atom(),
+        optional("EnableLogFileValidation") => boolean(),
+        optional("IncludeGlobalServiceEvents") => boolean(),
+        optional("IsMultiRegionTrail") => boolean(),
+        optional("IsOrganizationTrail") => boolean(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("S3KeyPrefix") => String.t() | atom(),
+        optional("SnsTopicName") => String.t() | atom(),
+        optional("TagsList") => list(tag()),
+        required("Name") => String.t() | atom(),
+        required("S3BucketName") => String.t() | atom()
+      }
+      
+  """
+  @type create_trail_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_trail_response() :: %{
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "CloudWatchLogsRoleArn" => String.t() | atom(),
+        "IncludeGlobalServiceEvents" => boolean(),
+        "IsMultiRegionTrail" => boolean(),
+        "IsOrganizationTrail" => boolean(),
+        "KmsKeyId" => String.t() | atom(),
+        "LogFileValidationEnabled" => boolean(),
+        "Name" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom(),
+        "SnsTopicARN" => String.t() | atom(),
+        "SnsTopicName" => String.t() | atom(),
+        "TrailARN" => String.t() | atom()
+      }
+      
+  """
+  @type create_trail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dashboard_detail() :: %{
+        "DashboardArn" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type dashboard_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_resource() :: %{
+        "Type" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type data_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delegated_admin_account_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type delegated_admin_account_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_channel_request() :: %{
+        required("Channel") => String.t() | atom()
+      }
+      
+  """
+  @type delete_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_channel_response() :: %{}
+      
+  """
+  @type delete_channel_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_dashboard_request() :: %{
         required("DashboardId") => String.t() | atom()
       }
@@ -312,293 +554,70 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      insufficient_s3_bucket_policy_exception() :: %{
-        "Message" => String.t() | atom()
-      }
+      delete_dashboard_response() :: %{}
       
   """
-  @type insufficient_s3_bucket_policy_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_dashboard_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      deregister_organization_delegated_admin_response() :: %{}
+      delete_event_data_store_request() :: %{
+        required("EventDataStore") => String.t() | atom()
+      }
       
   """
-  @type deregister_organization_delegated_admin_response() :: %{}
+  @type delete_event_data_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      enable_federation_response() :: %{
-        "EventDataStoreArn" => String.t() | atom(),
-        "FederationRoleArn" => String.t() | atom(),
-        "FederationStatus" => list(any())
-      }
+      delete_event_data_store_response() :: %{}
       
   """
-  @type enable_federation_response() :: %{(String.t() | atom()) => any()}
+  @type delete_event_data_store_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      event_data_store_not_found_exception() :: %{
-        "Message" => String.t() | atom()
+      delete_resource_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type event_data_store_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      remove_tags_request() :: %{
-        required("ResourceId") => String.t() | atom(),
-        required("TagsList") => list(tag())
-      }
+      delete_resource_policy_response() :: %{}
       
   """
-  @type remove_tags_request() :: %{(String.t() | atom()) => any()}
+  @type delete_resource_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      get_event_selectors_request() :: %{
-        required("TrailName") => String.t() | atom()
+      delete_trail_request() :: %{
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_event_selectors_request() :: %{(String.t() | atom()) => any()}
+  @type delete_trail_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      concurrent_modification_exception() :: %{
-        "Message" => String.t() | atom()
-      }
+      delete_trail_response() :: %{}
       
   """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      advanced_event_selector() :: %{
-        "FieldSelectors" => list(advanced_field_selector()),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type advanced_event_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_data_store_federation_enabled_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type event_data_store_federation_enabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      advanced_field_selector() :: %{
-        "EndsWith" => list(String.t() | atom()),
-        "Equals" => list(String.t() | atom()),
-        "Field" => String.t() | atom(),
-        "NotEndsWith" => list(String.t() | atom()),
-        "NotEquals" => list(String.t() | atom()),
-        "NotStartsWith" => list(String.t() | atom()),
-        "StartsWith" => list(String.t() | atom())
-      }
-      
-  """
-  @type advanced_field_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      not_organization_management_account_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type not_organization_management_account_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_insights_data_request() :: %{
-        optional("Dimensions") => map(),
-        optional("EndTime") => non_neg_integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StartTime") => non_neg_integer(),
-        required("DataType") => list(any()),
-        required("InsightSource") => String.t() | atom()
-      }
-      
-  """
-  @type list_insights_data_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_import_response() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "Destinations" => list(String.t() | atom()),
-        "EndEventTime" => non_neg_integer(),
-        "ImportId" => String.t() | atom(),
-        "ImportSource" => import_source(),
-        "ImportStatistics" => import_statistics(),
-        "ImportStatus" => list(any()),
-        "StartEventTime" => non_neg_integer(),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-      
-  """
-  @type get_import_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      imports_list_item() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "Destinations" => list(String.t() | atom()),
-        "ImportId" => String.t() | atom(),
-        "ImportStatus" => list(any()),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-      
-  """
-  @type imports_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logs_delivery_unavailable_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logs_delivery_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_sample_queries_search_result() :: %{
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Relevance" => float(),
-        "SQL" => String.t() | atom()
-      }
-      
-  """
-  @type search_sample_queries_search_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_query_statement_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_query_statement_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lookup_events_request() :: %{
-        optional("EndTime") => non_neg_integer(),
-        optional("EventCategory") => list(any()),
-        optional("LookupAttributes") => list(lookup_attribute()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StartTime") => non_neg_integer()
-      }
-      
-  """
-  @type lookup_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_statistics() :: %{
-        "EventsCompleted" => float(),
-        "FailedEntries" => float(),
-        "FilesCompleted" => float(),
-        "PrefixesCompleted" => float(),
-        "PrefixesFound" => float()
-      }
-      
-  """
-  @type import_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_trails_response() :: %{
-        "trailList" => list(trail())
-      }
-      
-  """
-  @type describe_trails_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type delete_trail_response() :: %{}
 
   @typedoc """
 
@@ -615,67 +634,10 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      add_tags_response() :: %{}
+      deregister_organization_delegated_admin_response() :: %{}
       
   """
-  @type add_tags_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_query_request() :: %{
-        optional("EventDataStore") => String.t() | atom(),
-        optional("EventDataStoreOwnerAccountId") => String.t() | atom(),
-        required("QueryId") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_bucket_does_not_exist_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type s3_bucket_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_home_region_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_home_region_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_trail_name_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_trail_name_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_combination_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
+  @type deregister_organization_delegated_admin_response() :: %{}
 
   @typedoc """
 
@@ -691,325 +653,6 @@ defmodule AWS.CloudTrail do
       
   """
   @type describe_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_insight_selectors_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_insight_selectors_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_event_data_store_response() :: %{
-        "AdvancedEventSelectors" => list(advanced_event_selector()),
-        "BillingMode" => list(any()),
-        "CreatedTimestamp" => non_neg_integer(),
-        "EventDataStoreArn" => String.t() | atom(),
-        "KmsKeyId" => String.t() | atom(),
-        "MultiRegionEnabled" => boolean(),
-        "Name" => String.t() | atom(),
-        "OrganizationEnabled" => boolean(),
-        "RetentionPeriod" => integer(),
-        "Status" => list(any()),
-        "TerminationProtectionEnabled" => boolean(),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-      
-  """
-  @type restore_event_data_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_event_category_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_event_category_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_data_store_max_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type event_data_store_max_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_import_response() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "Destinations" => list(String.t() | atom()),
-        "EndEventTime" => non_neg_integer(),
-        "ImportId" => String.t() | atom(),
-        "ImportSource" => import_source(),
-        "ImportStatus" => list(any()),
-        "StartEventTime" => non_neg_integer(),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-      
-  """
-  @type start_import_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_insight_selectors_response() :: %{
-        "EventDataStoreArn" => String.t() | atom(),
-        "InsightSelectors" => list(insight_selector()),
-        "InsightsDestination" => String.t() | atom(),
-        "TrailARN" => String.t() | atom()
-      }
-      
-  """
-  @type get_insight_selectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_import_source() :: %{
-        "S3BucketAccessRoleArn" => String.t() | atom(),
-        "S3BucketRegion" => String.t() | atom(),
-        "S3LocationUri" => String.t() | atom()
-      }
-      
-  """
-  @type s3_import_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_data_store_arn_invalid_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type event_data_store_arn_invalid_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      partition_key() :: %{
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-      
-  """
-  @type partition_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_queries_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Queries" => list(query())
-      }
-      
-  """
-  @type list_queries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_query_request() :: %{
-        required("EventDataStores") => list(String.t() | atom()),
-        required("Prompt") => String.t() | atom()
-      }
-      
-  """
-  @type generate_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_trail_invalid_client_token_id_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_trail_invalid_client_token_id_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_query_response() :: %{
-        "EventDataStoreOwnerAccountId" => String.t() | atom(),
-        "QueryAlias" => String.t() | atom(),
-        "QueryStatement" => String.t() | atom()
-      }
-      
-  """
-  @type generate_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_dashboard_refresh_response() :: %{
-        "RefreshId" => String.t() | atom()
-      }
-      
-  """
-  @type start_dashboard_refresh_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_queries_request() :: %{
-        optional("EndTime") => non_neg_integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("QueryStatus") => list(any()),
-        optional("StartTime") => non_neg_integer(),
-        required("EventDataStore") => String.t() | atom()
-      }
-      
-  """
-  @type list_queries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_sample_queries_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("SearchPhrase") => String.t() | atom()
-      }
-      
-  """
-  @type search_sample_queries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_query_response() :: %{
-        "EventDataStoreOwnerAccountId" => String.t() | atom(),
-        "QueryId" => String.t() | atom(),
-        "QueryStatus" => list(any())
-      }
-      
-  """
-  @type cancel_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_logging_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type start_logging_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_trail_access_not_enabled_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_trail_access_not_enabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      trail_not_provided_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type trail_not_provided_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_widget() :: %{
-        "QueryParameters" => list(String.t() | atom()),
-        "QueryStatement" => String.t() | atom(),
-        "ViewProperties" => map()
-      }
-      
-  """
-  @type request_widget() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cannot_delegate_management_account_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type cannot_delegate_management_account_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_event_data_store_ingestion_response() :: %{}
-      
-  """
-  @type stop_event_data_store_ingestion_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_lookup_attributes_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_lookup_attributes_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_event_data_store_response() :: %{}
-      
-  """
-  @type delete_event_data_store_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_channel_response() :: %{}
-      
-  """
-  @type delete_channel_response() :: %{}
 
   @typedoc """
 
@@ -1034,23 +677,346 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      trail_not_found_exception() :: %{
-        "Message" => String.t() | atom()
+      describe_trails_request() :: %{
+        optional("includeShadowTrails") => boolean(),
+        optional("trailNameList") => list(String.t() | atom())
       }
       
   """
-  @type trail_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_trails_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_resource_policy_request() :: %{
-        required("ResourceArn") => String.t() | atom()
+      describe_trails_response() :: %{
+        "trailList" => list(trail())
       }
       
   """
-  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
+  @type describe_trails_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination() :: %{
+        "Location" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_federation_request() :: %{
+        required("EventDataStore") => String.t() | atom()
+      }
+      
+  """
+  @type disable_federation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_federation_response() :: %{
+        "EventDataStoreArn" => String.t() | atom(),
+        "FederationStatus" => list(any())
+      }
+      
+  """
+  @type disable_federation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_federation_request() :: %{
+        required("EventDataStore") => String.t() | atom(),
+        required("FederationRoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type enable_federation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_federation_response() :: %{
+        "EventDataStoreArn" => String.t() | atom(),
+        "FederationRoleArn" => String.t() | atom(),
+        "FederationStatus" => list(any())
+      }
+      
+  """
+  @type enable_federation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "CloudTrailEvent" => String.t() | atom(),
+        "EventId" => String.t() | atom(),
+        "EventName" => String.t() | atom(),
+        "EventSource" => String.t() | atom(),
+        "EventTime" => non_neg_integer(),
+        "ReadOnly" => String.t() | atom(),
+        "Resources" => list(resource()),
+        "Username" => String.t() | atom()
+      }
+      
+  """
+  @type event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_data_store() :: %{
+        "AdvancedEventSelectors" => list(advanced_event_selector()),
+        "CreatedTimestamp" => non_neg_integer(),
+        "EventDataStoreArn" => String.t() | atom(),
+        "MultiRegionEnabled" => boolean(),
+        "Name" => String.t() | atom(),
+        "OrganizationEnabled" => boolean(),
+        "RetentionPeriod" => integer(),
+        "Status" => list(any()),
+        "TerminationProtectionEnabled" => boolean(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type event_data_store() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_data_store_already_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type event_data_store_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_data_store_arn_invalid_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type event_data_store_arn_invalid_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_data_store_federation_enabled_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type event_data_store_federation_enabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_data_store_has_ongoing_import_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type event_data_store_has_ongoing_import_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_data_store_max_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type event_data_store_max_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_data_store_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type event_data_store_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_data_store_termination_protected_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type event_data_store_termination_protected_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_selector() :: %{
+        "DataResources" => list(data_resource()),
+        "ExcludeManagementEventSources" => list(String.t() | atom()),
+        "IncludeManagementEvents" => boolean(),
+        "ReadWriteType" => list(any())
+      }
+      
+  """
+  @type event_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_query_request() :: %{
+        required("EventDataStores") => list(String.t() | atom()),
+        required("Prompt") => String.t() | atom()
+      }
+      
+  """
+  @type generate_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_query_response() :: %{
+        "EventDataStoreOwnerAccountId" => String.t() | atom(),
+        "QueryAlias" => String.t() | atom(),
+        "QueryStatement" => String.t() | atom()
+      }
+      
+  """
+  @type generate_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_response_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type generate_response_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_channel_request() :: %{
+        required("Channel") => String.t() | atom()
+      }
+      
+  """
+  @type get_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_channel_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "Destinations" => list(destination()),
+        "IngestionStatus" => ingestion_status(),
+        "Name" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "SourceConfig" => source_config()
+      }
+      
+  """
+  @type get_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dashboard_request() :: %{
+        required("DashboardId") => String.t() | atom()
+      }
+      
+  """
+  @type get_dashboard_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dashboard_response() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "DashboardArn" => String.t() | atom(),
+        "LastRefreshFailureReason" => String.t() | atom(),
+        "LastRefreshId" => String.t() | atom(),
+        "RefreshSchedule" => refresh_schedule(),
+        "Status" => list(any()),
+        "TerminationProtectionEnabled" => boolean(),
+        "Type" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "Widgets" => list(widget())
+      }
+      
+  """
+  @type get_dashboard_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_event_configuration_request() :: %{
+        optional("EventDataStore") => String.t() | atom(),
+        optional("TrailName") => String.t() | atom()
+      }
+      
+  """
+  @type get_event_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_event_configuration_response() :: %{
+        "AggregationConfigurations" => list(aggregation_configuration()),
+        "ContextKeySelectors" => list(context_key_selector()),
+        "EventDataStoreArn" => String.t() | atom(),
+        "MaxEventSize" => list(any()),
+        "TrailARN" => String.t() | atom()
+      }
+      
+  """
+  @type get_event_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_event_data_store_request() :: %{
+        required("EventDataStore") => String.t() | atom()
+      }
+      
+  """
+  @type get_event_data_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1081,621 +1047,12 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      get_channel_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "Destinations" => list(destination()),
-        "IngestionStatus" => ingestion_status(),
-        "Name" => String.t() | atom(),
-        "Source" => String.t() | atom(),
-        "SourceConfig" => source_config()
+      get_event_selectors_request() :: %{
+        required("TrailName") => String.t() | atom()
       }
       
   """
-  @type get_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      channel_arn_invalid_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type channel_arn_invalid_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      trail_already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type trail_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_trails_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Trails" => list(trail_info())
-      }
-      
-  """
-  @type list_trails_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_event_data_store_response() :: %{
-        "AdvancedEventSelectors" => list(advanced_event_selector()),
-        "BillingMode" => list(any()),
-        "CreatedTimestamp" => non_neg_integer(),
-        "EventDataStoreArn" => String.t() | atom(),
-        "KmsKeyId" => String.t() | atom(),
-        "MultiRegionEnabled" => boolean(),
-        "Name" => String.t() | atom(),
-        "OrganizationEnabled" => boolean(),
-        "RetentionPeriod" => integer(),
-        "Status" => list(any()),
-        "TagsList" => list(tag()),
-        "TerminationProtectionEnabled" => boolean(),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-      
-  """
-  @type create_event_data_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_trail_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_trail_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_import_failures_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ImportId") => String.t() | atom()
-      }
-      
-  """
-  @type list_import_failures_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_dashboard_request() :: %{
-        required("DashboardId") => String.t() | atom()
-      }
-      
-  """
-  @type get_dashboard_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_import_request() :: %{
-        required("ImportId") => String.t() | atom()
-      }
-      
-  """
-  @type get_import_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_insight_selectors_request() :: %{
-        optional("EventDataStore") => String.t() | atom(),
-        optional("InsightsDestination") => String.t() | atom(),
-        optional("TrailName") => String.t() | atom(),
-        required("InsightSelectors") => list(insight_selector())
-      }
-      
-  """
-  @type put_insight_selectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lookup_events_response() :: %{
-        "Events" => list(event()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type lookup_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_key_disabled_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_key_disabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_event_data_stores_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_event_data_stores_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_event_data_store_ingestion_response() :: %{}
-      
-  """
-  @type start_event_data_store_ingestion_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_sns_topic_policy_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type insufficient_sns_topic_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_tags_response() :: %{}
-      
-  """
-  @type remove_tags_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_failure_list_item() :: %{
-        "ErrorMessage" => String.t() | atom(),
-        "ErrorType" => String.t() | atom(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "Location" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type import_failure_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_cloud_watch_logs_role_arn_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_cloud_watch_logs_role_arn_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_organization_delegated_admin_response() :: %{}
-      
-  """
-  @type register_organization_delegated_admin_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourceTagList" => list(resource_tag())
-      }
-      
-  """
-  @type list_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_data_store() :: %{
-        "AdvancedEventSelectors" => list(advanced_event_selector()),
-        "CreatedTimestamp" => non_neg_integer(),
-        "EventDataStoreArn" => String.t() | atom(),
-        "MultiRegionEnabled" => boolean(),
-        "Name" => String.t() | atom(),
-        "OrganizationEnabled" => boolean(),
-        "RetentionPeriod" => integer(),
-        "Status" => list(any()),
-        "TerminationProtectionEnabled" => boolean(),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-      
-  """
-  @type event_data_store() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_event_configuration_request() :: %{
-        optional("AggregationConfigurations") => list(aggregation_configuration()),
-        optional("ContextKeySelectors") => list(context_key_selector()),
-        optional("EventDataStore") => String.t() | atom(),
-        optional("MaxEventSize") => list(any()),
-        optional("TrailName") => String.t() | atom()
-      }
-      
-  """
-  @type put_event_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_key_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_key_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type account_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_channel_request() :: %{
-        required("Channel") => String.t() | atom()
-      }
-      
-  """
-  @type get_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_id_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type query_id_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_dependency_service_access_permission_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type insufficient_dependency_service_access_permission_exception() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_dashboard_response() :: %{}
-      
-  """
-  @type delete_dashboard_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_event_configuration_response() :: %{
-        "AggregationConfigurations" => list(aggregation_configuration()),
-        "ContextKeySelectors" => list(context_key_selector()),
-        "EventDataStoreArn" => String.t() | atom(),
-        "MaxEventSize" => list(any()),
-        "TrailARN" => String.t() | atom()
-      }
-      
-  """
-  @type put_event_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_operation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_trail_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type get_trail_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_tag() :: %{
-        "ResourceId" => String.t() | atom(),
-        "TagsList" => list(tag())
-      }
-      
-  """
-  @type resource_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      public_key() :: %{
-        "Fingerprint" => String.t() | atom(),
-        "ValidityEndTime" => non_neg_integer(),
-        "ValidityStartTime" => non_neg_integer(),
-        "Value" => binary()
-      }
-      
-  """
-  @type public_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_federation_request() :: %{
-        required("EventDataStore") => String.t() | atom()
-      }
-      
-  """
-  @type disable_federation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_dashboard_request() :: %{
-        optional("RefreshSchedule") => refresh_schedule(),
-        optional("TerminationProtectionEnabled") => boolean(),
-        optional("Widgets") => list(request_widget()),
-        required("DashboardId") => String.t() | atom()
-      }
-      
-  """
-  @type update_dashboard_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      destination() :: %{
-        "Location" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_channel_request() :: %{
-        required("Channel") => String.t() | atom()
-      }
-      
-  """
-  @type delete_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_imports_response() :: %{
-        "Imports" => list(imports_list_item()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_imports_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_channel_request() :: %{
-        optional("Tags") => list(tag()),
-        required("Destinations") => list(destination()),
-        required("Name") => String.t() | atom(),
-        required("Source") => String.t() | atom()
-      }
-      
-  """
-  @type create_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_data_store_already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type event_data_store_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_trail_response() :: %{}
-      
-  """
-  @type delete_trail_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      channel() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type channel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_statistics_for_describe_query() :: %{
-        "BytesScanned" => float(),
-        "CreationTime" => non_neg_integer(),
-        "EventsMatched" => float(),
-        "EventsScanned" => float(),
-        "ExecutionTimeInMillis" => integer()
-      }
-      
-  """
-  @type query_statistics_for_describe_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      channel_max_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type channel_max_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_has_ongoing_import_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type account_has_ongoing_import_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_insights_data_response() :: %{
-        "Events" => list(event()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_insights_data_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      trail_info() :: %{
-        "HomeRegion" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "TrailARN" => String.t() | atom()
-      }
-      
-  """
-  @type trail_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insight_not_enabled_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type insight_not_enabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type get_event_selectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1714,352 +1071,31 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      invalid_event_data_store_category_exception() :: %{
-        "Message" => String.t() | atom()
+      get_import_request() :: %{
+        required("ImportId") => String.t() | atom()
       }
       
   """
-  @type invalid_event_data_store_category_exception() :: %{(String.t() | atom()) => any()}
+  @type get_import_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_query_request() :: %{
-        optional("DeliveryS3Uri") => String.t() | atom(),
-        optional("EventDataStoreOwnerAccountId") => String.t() | atom(),
-        optional("QueryAlias") => String.t() | atom(),
-        optional("QueryParameters") => list(String.t() | atom()),
-        optional("QueryStatement") => String.t() | atom()
+      get_import_response() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Destinations" => list(String.t() | atom()),
+        "EndEventTime" => non_neg_integer(),
+        "ImportId" => String.t() | atom(),
+        "ImportSource" => import_source(),
+        "ImportStatistics" => import_statistics(),
+        "ImportStatus" => list(any()),
+        "StartEventTime" => non_neg_integer(),
+        "UpdatedTimestamp" => non_neg_integer()
       }
       
   """
-  @type start_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dashboard_detail() :: %{
-        "DashboardArn" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type dashboard_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_policy_response() :: %{
-        "DelegatedAdminResourcePolicy" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "ResourcePolicy" => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_federation_response() :: %{
-        "EventDataStoreArn" => String.t() | atom(),
-        "FederationStatus" => list(any())
-      }
-      
-  """
-  @type disable_federation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_imports_request() :: %{
-        optional("Destination") => String.t() | atom(),
-        optional("ImportStatus") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_imports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      widget() :: %{
-        "QueryAlias" => String.t() | atom(),
-        "QueryParameters" => list(String.t() | atom()),
-        "QueryStatement" => String.t() | atom(),
-        "ViewProperties" => map()
-      }
-      
-  """
-  @type widget() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      refresh_schedule_frequency() :: %{
-        "Unit" => list(any()),
-        "Value" => integer()
-      }
-      
-  """
-  @type refresh_schedule_frequency() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_resource() :: %{
-        "Type" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type data_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_public_keys_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PublicKeyList" => list(public_key())
-      }
-      
-  """
-  @type list_public_keys_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_policy_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_event_configuration_request() :: %{
-        optional("EventDataStore") => String.t() | atom(),
-        optional("TrailName") => String.t() | atom()
-      }
-      
-  """
-  @type get_event_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_kms_key_id_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_kms_key_id_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_sns_topic_name_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_sns_topic_name_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_event_data_store_request() :: %{
-        required("EventDataStore") => String.t() | atom()
-      }
-      
-  """
-  @type delete_event_data_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_response_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type generate_response_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_query_results_response() :: %{
-        "ErrorMessage" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "QueryResultRows" => list(list(map())()),
-        "QueryStatistics" => query_statistics(),
-        "QueryStatus" => list(any())
-      }
-      
-  """
-  @type get_query_results_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dashboard_response() :: %{
-        "DashboardArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RefreshSchedule" => refresh_schedule(),
-        "TagsList" => list(tag()),
-        "TerminationProtectionEnabled" => boolean(),
-        "Type" => list(any()),
-        "Widgets" => list(widget())
-      }
-      
-  """
-  @type create_dashboard_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_trail_response() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
-        "CloudWatchLogsRoleArn" => String.t() | atom(),
-        "IncludeGlobalServiceEvents" => boolean(),
-        "IsMultiRegionTrail" => boolean(),
-        "IsOrganizationTrail" => boolean(),
-        "KmsKeyId" => String.t() | atom(),
-        "LogFileValidationEnabled" => boolean(),
-        "Name" => String.t() | atom(),
-        "S3BucketName" => String.t() | atom(),
-        "S3KeyPrefix" => String.t() | atom(),
-        "SnsTopicARN" => String.t() | atom(),
-        "SnsTopicName" => String.t() | atom(),
-        "TrailARN" => String.t() | atom()
-      }
-      
-  """
-  @type update_trail_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_management_account_s_l_r_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type no_management_account_s_l_r_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      context_key_selector() :: %{
-        "Equals" => list(String.t() | atom()),
-        "Type" => list(any())
-      }
-      
-  """
-  @type context_key_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      channel_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type channel_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_source() :: %{
-        "S3" => s3_import_source()
-      }
-      
-  """
-  @type import_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_response() :: %{
-        "DelegatedAdminResourcePolicy" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "ResourcePolicy" => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_next_token_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_trail_status_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type get_trail_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_s3_bucket_name_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_s3_bucket_name_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      channel_already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type channel_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type get_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2077,59 +1113,15 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      ingestion_status() :: %{
-        "LatestIngestionAttemptEventID" => String.t() | atom(),
-        "LatestIngestionAttemptTime" => non_neg_integer(),
-        "LatestIngestionErrorCode" => String.t() | atom(),
-        "LatestIngestionSuccessEventID" => String.t() | atom(),
-        "LatestIngestionSuccessTime" => non_neg_integer()
+      get_insight_selectors_response() :: %{
+        "EventDataStoreArn" => String.t() | atom(),
+        "InsightSelectors" => list(insight_selector()),
+        "InsightsDestination" => String.t() | atom(),
+        "TrailARN" => String.t() | atom()
       }
       
   """
-  @type ingestion_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_config() :: %{
-        "AdvancedEventSelectors" => list(advanced_event_selector()),
-        "ApplyToAllRegions" => boolean()
-      }
-      
-  """
-  @type source_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_policy_response() :: %{}
-      
-  """
-  @type delete_resource_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_date_range_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_date_range_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_policy_not_valid_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_policy_not_valid_exception() :: %{(String.t() | atom()) => any()}
+  @type get_insight_selectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2150,82 +1142,51 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      update_channel_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "Destinations" => list(destination()),
-        "Name" => String.t() | atom(),
-        "Source" => String.t() | atom()
+      get_query_results_response() :: %{
+        "ErrorMessage" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "QueryResultRows" => list(list(map())()),
+        "QueryStatistics" => query_statistics(),
+        "QueryStatus" => list(any())
       }
       
   """
-  @type update_channel_response() :: %{(String.t() | atom()) => any()}
+  @type get_query_results_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cloud_trail_arn_invalid_exception() :: %{
-        "Message" => String.t() | atom()
+      get_resource_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type cloud_trail_arn_invalid_exception() :: %{(String.t() | atom()) => any()}
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceIdList") => list(String.t() | atom())
+      get_resource_policy_response() :: %{
+        "DelegatedAdminResourcePolicy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourcePolicy" => String.t() | atom()
       }
       
   """
-  @type list_tags_request() :: %{(String.t() | atom()) => any()}
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_event_selectors_exception() :: %{
-        "Message" => String.t() | atom()
+      get_trail_request() :: %{
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type invalid_event_selectors_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      maximum_number_of_trails_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type maximum_number_of_trails_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_max_results_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_max_results_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      operation_not_permitted_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type operation_not_permitted_exception() :: %{(String.t() | atom()) => any()}
+  @type get_trail_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2242,749 +1203,12 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      inactive_query_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type inactive_query_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      refresh_schedule() :: %{
-        "Frequency" => refresh_schedule_frequency(),
-        "Status" => list(any()),
-        "TimeOfDay" => String.t() | atom()
-      }
-      
-  """
-  @type refresh_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organizations_not_in_use_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type organizations_not_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_arn_not_valid_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_arn_not_valid_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregation_configuration() :: %{
-        "EventCategory" => list(any()),
-        "Templates" => list(list(any())())
-      }
-      
-  """
-  @type aggregation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_tag_parameter_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_tag_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_import_failures_response() :: %{
-        "Failures" => list(import_failure_list_item()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_import_failures_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type import_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_sample_queries_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SearchResults" => list(search_sample_queries_search_result())
-      }
-      
-  """
-  @type search_sample_queries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_public_keys_request() :: %{
-        optional("EndTime") => non_neg_integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StartTime") => non_neg_integer()
-      }
-      
-  """
-  @type list_public_keys_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_cloud_watch_logs_log_group_arn_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_cloud_watch_logs_log_group_arn_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_type_not_supported_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_type_not_supported_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_event_data_store_response() :: %{
-        "AdvancedEventSelectors" => list(advanced_event_selector()),
-        "BillingMode" => list(any()),
-        "CreatedTimestamp" => non_neg_integer(),
-        "EventDataStoreArn" => String.t() | atom(),
-        "FederationRoleArn" => String.t() | atom(),
-        "FederationStatus" => list(any()),
-        "KmsKeyId" => String.t() | atom(),
-        "MultiRegionEnabled" => boolean(),
-        "Name" => String.t() | atom(),
-        "OrganizationEnabled" => boolean(),
-        "RetentionPeriod" => integer(),
-        "Status" => list(any()),
-        "TerminationProtectionEnabled" => boolean(),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-      
-  """
-  @type update_event_data_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dashboard_request() :: %{
-        optional("RefreshSchedule") => refresh_schedule(),
-        optional("TagsList") => list(tag()),
-        optional("TerminationProtectionEnabled") => boolean(),
-        optional("Widgets") => list(request_widget()),
+      get_trail_status_request() :: %{
         required("Name") => String.t() | atom()
       }
       
   """
-  @type create_dashboard_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      max_concurrent_queries_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type max_concurrent_queries_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_registered_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type account_registered_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_trail_response() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
-        "CloudWatchLogsRoleArn" => String.t() | atom(),
-        "IncludeGlobalServiceEvents" => boolean(),
-        "IsMultiRegionTrail" => boolean(),
-        "IsOrganizationTrail" => boolean(),
-        "KmsKeyId" => String.t() | atom(),
-        "LogFileValidationEnabled" => boolean(),
-        "Name" => String.t() | atom(),
-        "S3BucketName" => String.t() | atom(),
-        "S3KeyPrefix" => String.t() | atom(),
-        "SnsTopicARN" => String.t() | atom(),
-        "SnsTopicName" => String.t() | atom(),
-        "TrailARN" => String.t() | atom()
-      }
-      
-  """
-  @type create_trail_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inactive_event_data_store_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type inactive_event_data_store_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_event_selectors_response() :: %{
-        "AdvancedEventSelectors" => list(advanced_event_selector()),
-        "EventSelectors" => list(event_selector()),
-        "TrailARN" => String.t() | atom()
-      }
-      
-  """
-  @type put_event_selectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_event_data_store_request() :: %{
-        optional("AdvancedEventSelectors") => list(advanced_event_selector()),
-        optional("BillingMode") => list(any()),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("MultiRegionEnabled") => boolean(),
-        optional("Name") => String.t() | atom(),
-        optional("OrganizationEnabled") => boolean(),
-        optional("RetentionPeriod") => integer(),
-        optional("TerminationProtectionEnabled") => boolean(),
-        required("EventDataStore") => String.t() | atom()
-      }
-      
-  """
-  @type update_event_data_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_insights_metric_data_response() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "EventName" => String.t() | atom(),
-        "EventSource" => String.t() | atom(),
-        "InsightType" => list(any()),
-        "NextToken" => String.t() | atom(),
-        "Timestamps" => list(non_neg_integer()),
-        "TrailARN" => String.t() | atom(),
-        "Values" => list(float())
-      }
-      
-  """
-  @type list_insights_metric_data_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_import_request() :: %{
-        required("ImportId") => String.t() | atom()
-      }
-      
-  """
-  @type stop_import_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_query_response() :: %{
-        "EventDataStoreOwnerAccountId" => String.t() | atom(),
-        "QueryId" => String.t() | atom()
-      }
-      
-  """
-  @type start_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_s3_prefix_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_s3_prefix_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_event_selectors_request() :: %{
-        optional("AdvancedEventSelectors") => list(advanced_event_selector()),
-        optional("EventSelectors") => list(event_selector()),
-        required("TrailName") => String.t() | atom()
-      }
-      
-  """
-  @type put_event_selectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_channels_response() :: %{
-        "Channels" => list(channel()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_channels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_trail_request() :: %{
-        optional("CloudWatchLogsLogGroupArn") => String.t() | atom(),
-        optional("CloudWatchLogsRoleArn") => String.t() | atom(),
-        optional("EnableLogFileValidation") => boolean(),
-        optional("IncludeGlobalServiceEvents") => boolean(),
-        optional("IsMultiRegionTrail") => boolean(),
-        optional("IsOrganizationTrail") => boolean(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("S3KeyPrefix") => String.t() | atom(),
-        optional("SnsTopicName") => String.t() | atom(),
-        optional("TagsList") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("S3BucketName") => String.t() | atom()
-      }
-      
-  """
-  @type create_trail_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_logging_response() :: %{}
-      
-  """
-  @type stop_logging_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_dashboards_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NamePrefix") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Type") => list(any())
-      }
-      
-  """
-  @type list_dashboards_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_trails_request() :: %{
-        optional("includeShadowTrails") => boolean(),
-        optional("trailNameList") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_trails_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_insight_selectors_response() :: %{
-        "EventDataStoreArn" => String.t() | atom(),
-        "InsightSelectors" => list(insight_selector()),
-        "InsightsDestination" => String.t() | atom(),
-        "TrailARN" => String.t() | atom()
-      }
-      
-  """
-  @type put_insight_selectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_policy_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_organization_delegated_admin_request() :: %{
-        required("MemberAccountId") => String.t() | atom()
-      }
-      
-  """
-  @type register_organization_delegated_admin_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      channel_exists_for_e_d_s_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type channel_exists_for_e_d_s_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_token_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_insights_metric_data_request() :: %{
-        optional("DataType") => list(any()),
-        optional("EndTime") => non_neg_integer(),
-        optional("ErrorCode") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Period") => integer(),
-        optional("StartTime") => non_neg_integer(),
-        optional("TrailName") => String.t() | atom(),
-        required("EventName") => String.t() | atom(),
-        required("EventSource") => String.t() | atom(),
-        required("InsightType") => list(any())
-      }
-      
-  """
-  @type list_insights_metric_data_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query() :: %{
-        "CreationTime" => non_neg_integer(),
-        "QueryId" => String.t() | atom(),
-        "QueryStatus" => list(any())
-      }
-      
-  """
-  @type query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tags_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type tags_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_data_store_termination_protected_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type event_data_store_termination_protected_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_event_data_store_status_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_event_data_store_status_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event() :: %{
-        "AccessKeyId" => String.t() | atom(),
-        "CloudTrailEvent" => String.t() | atom(),
-        "EventId" => String.t() | atom(),
-        "EventName" => String.t() | atom(),
-        "EventSource" => String.t() | atom(),
-        "EventTime" => non_neg_integer(),
-        "ReadOnly" => String.t() | atom(),
-        "Resources" => list(resource()),
-        "Username" => String.t() | atom()
-      }
-      
-  """
-  @type event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_not_registered_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type account_not_registered_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_query_status_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_query_status_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_import_request() :: %{
-        optional("Destinations") => list(String.t() | atom()),
-        optional("EndEventTime") => non_neg_integer(),
-        optional("ImportId") => String.t() | atom(),
-        optional("ImportSource") => import_source(),
-        optional("StartEventTime") => non_neg_integer()
-      }
-      
-  """
-  @type start_import_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insight_selector() :: %{
-        "EventCategories" => list(list(any())()),
-        "InsightType" => list(any())
-      }
-      
-  """
-  @type insight_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource() :: %{
-        "ResourceName" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_logging_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type stop_logging_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_statistics() :: %{
-        "BytesScanned" => float(),
-        "ResultsCount" => integer(),
-        "TotalResultsCount" => integer()
-      }
-      
-  """
-  @type query_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_time_range_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_time_range_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_iam_access_permission_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type insufficient_iam_access_permission_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_tags_request() :: %{
-        required("ResourceId") => String.t() | atom(),
-        required("TagsList") => list(tag())
-      }
-      
-  """
-  @type add_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_event_data_stores_response() :: %{
-        "EventDataStores" => list(event_data_store()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_event_data_stores_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_federation_request() :: %{
-        required("EventDataStore") => String.t() | atom(),
-        required("FederationRoleArn") => String.t() | atom()
-      }
-      
-  """
-  @type enable_federation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_dashboard_response() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "DashboardArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RefreshSchedule" => refresh_schedule(),
-        "TerminationProtectionEnabled" => boolean(),
-        "Type" => list(any()),
-        "UpdatedTimestamp" => non_neg_integer(),
-        "Widgets" => list(widget())
-      }
-      
-  """
-  @type update_dashboard_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_logging_response() :: %{}
-      
-  """
-  @type start_logging_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delegated_admin_account_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type delegated_admin_account_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lookup_attribute() :: %{
-        "AttributeKey" => list(any()),
-        "AttributeValue" => String.t() | atom()
-      }
-      
-  """
-  @type lookup_attribute() :: %{(String.t() | atom()) => any()}
+  @type get_trail_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3017,24 +1241,141 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      list_dashboards_response() :: %{
-        "Dashboards" => list(dashboard_detail()),
-        "NextToken" => String.t() | atom()
+      import_failure_list_item() :: %{
+        "ErrorMessage" => String.t() | atom(),
+        "ErrorType" => String.t() | atom(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Location" => String.t() | atom(),
+        "Status" => list(any())
       }
       
   """
-  @type list_dashboards_response() :: %{(String.t() | atom()) => any()}
+  @type import_failure_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      event_data_store_has_ongoing_import_exception() :: %{
+      import_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type event_data_store_has_ongoing_import_exception() :: %{(String.t() | atom()) => any()}
+  @type import_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_source() :: %{
+        "S3" => s3_import_source()
+      }
+      
+  """
+  @type import_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_statistics() :: %{
+        "EventsCompleted" => float(),
+        "FailedEntries" => float(),
+        "FilesCompleted" => float(),
+        "PrefixesCompleted" => float(),
+        "PrefixesFound" => float()
+      }
+      
+  """
+  @type import_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      imports_list_item() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Destinations" => list(String.t() | atom()),
+        "ImportId" => String.t() | atom(),
+        "ImportStatus" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type imports_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inactive_event_data_store_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type inactive_event_data_store_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inactive_query_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type inactive_query_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_status() :: %{
+        "LatestIngestionAttemptEventID" => String.t() | atom(),
+        "LatestIngestionAttemptTime" => non_neg_integer(),
+        "LatestIngestionErrorCode" => String.t() | atom(),
+        "LatestIngestionSuccessEventID" => String.t() | atom(),
+        "LatestIngestionSuccessTime" => non_neg_integer()
+      }
+      
+  """
+  @type ingestion_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insight_not_enabled_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type insight_not_enabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insight_selector() :: %{
+        "EventCategories" => list(list(any())()),
+        "InsightType" => list(any())
+      }
+      
+  """
+  @type insight_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_dependency_service_access_permission_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type insufficient_dependency_service_access_permission_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -3051,15 +1392,1215 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      event_selector() :: %{
-        "DataResources" => list(data_resource()),
-        "ExcludeManagementEventSources" => list(String.t() | atom()),
-        "IncludeManagementEvents" => boolean(),
-        "ReadWriteType" => list(any())
+      insufficient_iam_access_permission_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type event_selector() :: %{(String.t() | atom()) => any()}
+  @type insufficient_iam_access_permission_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_s3_bucket_policy_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type insufficient_s3_bucket_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_sns_topic_policy_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type insufficient_sns_topic_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_cloud_watch_logs_log_group_arn_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_cloud_watch_logs_log_group_arn_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_cloud_watch_logs_role_arn_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_cloud_watch_logs_role_arn_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_date_range_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_date_range_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_event_category_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_event_category_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_event_data_store_category_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_event_data_store_category_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_event_data_store_status_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_event_data_store_status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_event_selectors_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_event_selectors_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_home_region_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_home_region_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_import_source_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_import_source_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_insight_selectors_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_insight_selectors_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_kms_key_id_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_kms_key_id_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_lookup_attributes_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_lookup_attributes_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_max_results_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_max_results_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_next_token_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_combination_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_query_statement_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_query_statement_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_query_status_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_query_status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_s3_bucket_name_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_s3_bucket_name_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_s3_prefix_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_s3_prefix_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_sns_topic_name_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_sns_topic_name_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_source_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_source_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_tag_parameter_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_tag_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_time_range_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_time_range_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_token_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_trail_name_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_trail_name_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_key_disabled_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_key_disabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_key_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_key_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_channels_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_channels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_channels_response() :: %{
+        "Channels" => list(channel()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_channels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dashboards_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NamePrefix") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type list_dashboards_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dashboards_response() :: %{
+        "Dashboards" => list(dashboard_detail()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_dashboards_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_event_data_stores_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_event_data_stores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_event_data_stores_response() :: %{
+        "EventDataStores" => list(event_data_store()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_event_data_stores_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_import_failures_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ImportId") => String.t() | atom()
+      }
+      
+  """
+  @type list_import_failures_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_import_failures_response() :: %{
+        "Failures" => list(import_failure_list_item()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_import_failures_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_imports_request() :: %{
+        optional("Destination") => String.t() | atom(),
+        optional("ImportStatus") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_imports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_imports_response() :: %{
+        "Imports" => list(imports_list_item()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_imports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_insights_data_request() :: %{
+        optional("Dimensions") => map(),
+        optional("EndTime") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer(),
+        required("DataType") => list(any()),
+        required("InsightSource") => String.t() | atom()
+      }
+      
+  """
+  @type list_insights_data_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_insights_data_response() :: %{
+        "Events" => list(event()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_insights_data_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_insights_metric_data_request() :: %{
+        optional("DataType") => list(any()),
+        optional("EndTime") => non_neg_integer(),
+        optional("ErrorCode") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Period") => integer(),
+        optional("StartTime") => non_neg_integer(),
+        optional("TrailName") => String.t() | atom(),
+        required("EventName") => String.t() | atom(),
+        required("EventSource") => String.t() | atom(),
+        required("InsightType") => list(any())
+      }
+      
+  """
+  @type list_insights_metric_data_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_insights_metric_data_response() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "EventName" => String.t() | atom(),
+        "EventSource" => String.t() | atom(),
+        "InsightType" => list(any()),
+        "NextToken" => String.t() | atom(),
+        "Timestamps" => list(non_neg_integer()),
+        "TrailARN" => String.t() | atom(),
+        "Values" => list(float())
+      }
+      
+  """
+  @type list_insights_metric_data_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_public_keys_request() :: %{
+        optional("EndTime") => non_neg_integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type list_public_keys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_public_keys_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PublicKeyList" => list(public_key())
+      }
+      
+  """
+  @type list_public_keys_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_queries_request() :: %{
+        optional("EndTime") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("QueryStatus") => list(any()),
+        optional("StartTime") => non_neg_integer(),
+        required("EventDataStore") => String.t() | atom()
+      }
+      
+  """
+  @type list_queries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_queries_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Queries" => list(query())
+      }
+      
+  """
+  @type list_queries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceIdList") => list(String.t() | atom())
+      }
+      
+  """
+  @type list_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceTagList" => list(resource_tag())
+      }
+      
+  """
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_trails_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_trails_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_trails_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Trails" => list(trail_info())
+      }
+      
+  """
+  @type list_trails_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lookup_attribute() :: %{
+        "AttributeKey" => list(any()),
+        "AttributeValue" => String.t() | atom()
+      }
+      
+  """
+  @type lookup_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lookup_events_request() :: %{
+        optional("EndTime") => non_neg_integer(),
+        optional("EventCategory") => list(any()),
+        optional("LookupAttributes") => list(lookup_attribute()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type lookup_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lookup_events_response() :: %{
+        "Events" => list(event()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type lookup_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      max_concurrent_queries_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type max_concurrent_queries_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      maximum_number_of_trails_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type maximum_number_of_trails_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_management_account_s_l_r_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type no_management_account_s_l_r_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_organization_management_account_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type not_organization_management_account_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_organization_master_account_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type not_organization_master_account_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_not_permitted_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type operation_not_permitted_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_not_in_all_features_mode_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type organization_not_in_all_features_mode_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organizations_not_in_use_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type organizations_not_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partition_key() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type partition_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      public_key() :: %{
+        "Fingerprint" => String.t() | atom(),
+        "ValidityEndTime" => non_neg_integer(),
+        "ValidityStartTime" => non_neg_integer(),
+        "Value" => binary()
+      }
+      
+  """
+  @type public_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_event_configuration_request() :: %{
+        optional("AggregationConfigurations") => list(aggregation_configuration()),
+        optional("ContextKeySelectors") => list(context_key_selector()),
+        optional("EventDataStore") => String.t() | atom(),
+        optional("MaxEventSize") => list(any()),
+        optional("TrailName") => String.t() | atom()
+      }
+      
+  """
+  @type put_event_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_event_configuration_response() :: %{
+        "AggregationConfigurations" => list(aggregation_configuration()),
+        "ContextKeySelectors" => list(context_key_selector()),
+        "EventDataStoreArn" => String.t() | atom(),
+        "MaxEventSize" => list(any()),
+        "TrailARN" => String.t() | atom()
+      }
+      
+  """
+  @type put_event_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_event_selectors_request() :: %{
+        optional("AdvancedEventSelectors") => list(advanced_event_selector()),
+        optional("EventSelectors") => list(event_selector()),
+        required("TrailName") => String.t() | atom()
+      }
+      
+  """
+  @type put_event_selectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_event_selectors_response() :: %{
+        "AdvancedEventSelectors" => list(advanced_event_selector()),
+        "EventSelectors" => list(event_selector()),
+        "TrailARN" => String.t() | atom()
+      }
+      
+  """
+  @type put_event_selectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_insight_selectors_request() :: %{
+        optional("EventDataStore") => String.t() | atom(),
+        optional("InsightsDestination") => String.t() | atom(),
+        optional("TrailName") => String.t() | atom(),
+        required("InsightSelectors") => list(insight_selector())
+      }
+      
+  """
+  @type put_insight_selectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_insight_selectors_response() :: %{
+        "EventDataStoreArn" => String.t() | atom(),
+        "InsightSelectors" => list(insight_selector()),
+        "InsightsDestination" => String.t() | atom(),
+        "TrailARN" => String.t() | atom()
+      }
+      
+  """
+  @type put_insight_selectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("ResourcePolicy") => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_response() :: %{
+        "DelegatedAdminResourcePolicy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourcePolicy" => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query() :: %{
+        "CreationTime" => non_neg_integer(),
+        "QueryId" => String.t() | atom(),
+        "QueryStatus" => list(any())
+      }
+      
+  """
+  @type query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_id_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type query_id_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_statistics() :: %{
+        "BytesScanned" => float(),
+        "ResultsCount" => integer(),
+        "TotalResultsCount" => integer()
+      }
+      
+  """
+  @type query_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_statistics_for_describe_query() :: %{
+        "BytesScanned" => float(),
+        "CreationTime" => non_neg_integer(),
+        "EventsMatched" => float(),
+        "EventsScanned" => float(),
+        "ExecutionTimeInMillis" => integer()
+      }
+      
+  """
+  @type query_statistics_for_describe_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      refresh_schedule() :: %{
+        "Frequency" => refresh_schedule_frequency(),
+        "Status" => list(any()),
+        "TimeOfDay" => String.t() | atom()
+      }
+      
+  """
+  @type refresh_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      refresh_schedule_frequency() :: %{
+        "Unit" => list(any()),
+        "Value" => integer()
+      }
+      
+  """
+  @type refresh_schedule_frequency() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_organization_delegated_admin_request() :: %{
+        required("MemberAccountId") => String.t() | atom()
+      }
+      
+  """
+  @type register_organization_delegated_admin_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_organization_delegated_admin_response() :: %{}
+      
+  """
+  @type register_organization_delegated_admin_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_tags_request() :: %{
+        required("ResourceId") => String.t() | atom(),
+        required("TagsList") => list(tag())
+      }
+      
+  """
+  @type remove_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_tags_response() :: %{}
+      
+  """
+  @type remove_tags_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_widget() :: %{
+        "QueryParameters" => list(String.t() | atom()),
+        "QueryStatement" => String.t() | atom(),
+        "ViewProperties" => map()
+      }
+      
+  """
+  @type request_widget() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource() :: %{
+        "ResourceName" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_arn_not_valid_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_arn_not_valid_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_policy_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_policy_not_valid_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_policy_not_valid_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_tag() :: %{
+        "ResourceId" => String.t() | atom(),
+        "TagsList" => list(tag())
+      }
+      
+  """
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_type_not_supported_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_type_not_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_event_data_store_request() :: %{
+        required("EventDataStore") => String.t() | atom()
+      }
+      
+  """
+  @type restore_event_data_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_event_data_store_response() :: %{
+        "AdvancedEventSelectors" => list(advanced_event_selector()),
+        "BillingMode" => list(any()),
+        "CreatedTimestamp" => non_neg_integer(),
+        "EventDataStoreArn" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "MultiRegionEnabled" => boolean(),
+        "Name" => String.t() | atom(),
+        "OrganizationEnabled" => boolean(),
+        "RetentionPeriod" => integer(),
+        "Status" => list(any()),
+        "TerminationProtectionEnabled" => boolean(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type restore_event_data_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_bucket_does_not_exist_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type s3_bucket_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_import_source() :: %{
+        "S3BucketAccessRoleArn" => String.t() | atom(),
+        "S3BucketRegion" => String.t() | atom(),
+        "S3LocationUri" => String.t() | atom()
+      }
+      
+  """
+  @type s3_import_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_sample_queries_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("SearchPhrase") => String.t() | atom()
+      }
+      
+  """
+  @type search_sample_queries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_sample_queries_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SearchResults" => list(search_sample_queries_search_result())
+      }
+      
+  """
+  @type search_sample_queries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_sample_queries_search_result() :: %{
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Relevance" => float(),
+        "SQL" => String.t() | atom()
+      }
+      
+  """
+  @type search_sample_queries_search_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3071,6 +2612,18 @@ defmodule AWS.CloudTrail do
       
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_config() :: %{
+        "AdvancedEventSelectors" => list(advanced_event_selector()),
+        "ApplyToAllRegions" => boolean()
+      }
+      
+  """
+  @type source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3088,710 +2641,1157 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
-      restore_event_data_store_request() :: %{
+      start_dashboard_refresh_response() :: %{
+        "RefreshId" => String.t() | atom()
+      }
+      
+  """
+  @type start_dashboard_refresh_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_event_data_store_ingestion_request() :: %{
         required("EventDataStore") => String.t() | atom()
       }
       
   """
-  @type restore_event_data_store_request() :: %{(String.t() | atom()) => any()}
+  @type start_event_data_store_ingestion_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_event_data_store_ingestion_response() :: %{}
+      
+  """
+  @type start_event_data_store_ingestion_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_import_request() :: %{
+        optional("Destinations") => list(String.t() | atom()),
+        optional("EndEventTime") => non_neg_integer(),
+        optional("ImportId") => String.t() | atom(),
+        optional("ImportSource") => import_source(),
+        optional("StartEventTime") => non_neg_integer()
+      }
+      
+  """
+  @type start_import_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_import_response() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Destinations" => list(String.t() | atom()),
+        "EndEventTime" => non_neg_integer(),
+        "ImportId" => String.t() | atom(),
+        "ImportSource" => import_source(),
+        "ImportStatus" => list(any()),
+        "StartEventTime" => non_neg_integer(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type start_import_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_logging_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type start_logging_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_logging_response() :: %{}
+      
+  """
+  @type start_logging_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_query_request() :: %{
+        optional("DeliveryS3Uri") => String.t() | atom(),
+        optional("EventDataStoreOwnerAccountId") => String.t() | atom(),
+        optional("QueryAlias") => String.t() | atom(),
+        optional("QueryParameters") => list(String.t() | atom()),
+        optional("QueryStatement") => String.t() | atom()
+      }
+      
+  """
+  @type start_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_query_response() :: %{
+        "EventDataStoreOwnerAccountId" => String.t() | atom(),
+        "QueryId" => String.t() | atom()
+      }
+      
+  """
+  @type start_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_event_data_store_ingestion_request() :: %{
+        required("EventDataStore") => String.t() | atom()
+      }
+      
+  """
+  @type stop_event_data_store_ingestion_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_event_data_store_ingestion_response() :: %{}
+      
+  """
+  @type stop_event_data_store_ingestion_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_import_request() :: %{
+        required("ImportId") => String.t() | atom()
+      }
+      
+  """
+  @type stop_import_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_import_response() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Destinations" => list(String.t() | atom()),
+        "EndEventTime" => non_neg_integer(),
+        "ImportId" => String.t() | atom(),
+        "ImportSource" => import_source(),
+        "ImportStatistics" => import_statistics(),
+        "ImportStatus" => list(any()),
+        "StartEventTime" => non_neg_integer(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type stop_import_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_logging_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type stop_logging_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_logging_response() :: %{}
+      
+  """
+  @type stop_logging_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tags_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type tags_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trail() :: %{
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "CloudWatchLogsRoleArn" => String.t() | atom(),
+        "HasCustomEventSelectors" => boolean(),
+        "HasInsightSelectors" => boolean(),
+        "HomeRegion" => String.t() | atom(),
+        "IncludeGlobalServiceEvents" => boolean(),
+        "IsMultiRegionTrail" => boolean(),
+        "IsOrganizationTrail" => boolean(),
+        "KmsKeyId" => String.t() | atom(),
+        "LogFileValidationEnabled" => boolean(),
+        "Name" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom(),
+        "SnsTopicARN" => String.t() | atom(),
+        "SnsTopicName" => String.t() | atom(),
+        "TrailARN" => String.t() | atom()
+      }
+      
+  """
+  @type trail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trail_already_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type trail_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trail_info() :: %{
+        "HomeRegion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "TrailARN" => String.t() | atom()
+      }
+      
+  """
+  @type trail_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trail_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type trail_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trail_not_provided_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type trail_not_provided_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_operation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_channel_request() :: %{
+        optional("Destinations") => list(destination()),
+        optional("Name") => String.t() | atom(),
+        required("Channel") => String.t() | atom()
+      }
+      
+  """
+  @type update_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_channel_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "Destinations" => list(destination()),
+        "Name" => String.t() | atom(),
+        "Source" => String.t() | atom()
+      }
+      
+  """
+  @type update_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_dashboard_request() :: %{
+        optional("RefreshSchedule") => refresh_schedule(),
+        optional("TerminationProtectionEnabled") => boolean(),
+        optional("Widgets") => list(request_widget()),
+        required("DashboardId") => String.t() | atom()
+      }
+      
+  """
+  @type update_dashboard_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_dashboard_response() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "DashboardArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RefreshSchedule" => refresh_schedule(),
+        "TerminationProtectionEnabled" => boolean(),
+        "Type" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "Widgets" => list(widget())
+      }
+      
+  """
+  @type update_dashboard_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_event_data_store_request() :: %{
+        optional("AdvancedEventSelectors") => list(advanced_event_selector()),
+        optional("BillingMode") => list(any()),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("MultiRegionEnabled") => boolean(),
+        optional("Name") => String.t() | atom(),
+        optional("OrganizationEnabled") => boolean(),
+        optional("RetentionPeriod") => integer(),
+        optional("TerminationProtectionEnabled") => boolean(),
+        required("EventDataStore") => String.t() | atom()
+      }
+      
+  """
+  @type update_event_data_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_event_data_store_response() :: %{
+        "AdvancedEventSelectors" => list(advanced_event_selector()),
+        "BillingMode" => list(any()),
+        "CreatedTimestamp" => non_neg_integer(),
+        "EventDataStoreArn" => String.t() | atom(),
+        "FederationRoleArn" => String.t() | atom(),
+        "FederationStatus" => list(any()),
+        "KmsKeyId" => String.t() | atom(),
+        "MultiRegionEnabled" => boolean(),
+        "Name" => String.t() | atom(),
+        "OrganizationEnabled" => boolean(),
+        "RetentionPeriod" => integer(),
+        "Status" => list(any()),
+        "TerminationProtectionEnabled" => boolean(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type update_event_data_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_trail_request() :: %{
+        optional("CloudWatchLogsLogGroupArn") => String.t() | atom(),
+        optional("CloudWatchLogsRoleArn") => String.t() | atom(),
+        optional("EnableLogFileValidation") => boolean(),
+        optional("IncludeGlobalServiceEvents") => boolean(),
+        optional("IsMultiRegionTrail") => boolean(),
+        optional("IsOrganizationTrail") => boolean(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("S3BucketName") => String.t() | atom(),
+        optional("S3KeyPrefix") => String.t() | atom(),
+        optional("SnsTopicName") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type update_trail_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_trail_response() :: %{
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "CloudWatchLogsRoleArn" => String.t() | atom(),
+        "IncludeGlobalServiceEvents" => boolean(),
+        "IsMultiRegionTrail" => boolean(),
+        "IsOrganizationTrail" => boolean(),
+        "KmsKeyId" => String.t() | atom(),
+        "LogFileValidationEnabled" => boolean(),
+        "Name" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom(),
+        "SnsTopicARN" => String.t() | atom(),
+        "SnsTopicName" => String.t() | atom(),
+        "TrailARN" => String.t() | atom()
+      }
+      
+  """
+  @type update_trail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      widget() :: %{
+        "QueryAlias" => String.t() | atom(),
+        "QueryParameters" => list(String.t() | atom()),
+        "QueryStatement" => String.t() | atom(),
+        "ViewProperties" => map()
+      }
+      
+  """
+  @type widget() :: %{(String.t() | atom()) => any()}
 
   @type add_tags_errors() ::
-          tags_limit_exceeded_exception()
-          | inactive_event_data_store_exception()
+          unsupported_operation_exception()
+          | tags_limit_exceeded_exception()
           | resource_type_not_supported_exception()
-          | invalid_tag_parameter_exception()
+          | resource_not_found_exception()
           | operation_not_permitted_exception()
+          | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_trail_name_exception()
+          | invalid_tag_parameter_exception()
+          | inactive_event_data_store_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
+          | conflict_exception()
           | cloud_trail_arn_invalid_exception()
           | channel_not_found_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | resource_not_found_exception()
           | channel_arn_invalid_exception()
-          | event_data_store_arn_invalid_exception()
-          | invalid_trail_name_exception()
-          | event_data_store_not_found_exception()
-          | not_organization_master_account_exception()
 
   @type cancel_query_errors() ::
-          invalid_parameter_exception()
-          | inactive_event_data_store_exception()
-          | inactive_query_exception()
+          unsupported_operation_exception()
+          | query_id_not_found_exception()
           | operation_not_permitted_exception()
           | no_management_account_s_l_r_exists_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | query_id_not_found_exception()
-          | event_data_store_arn_invalid_exception()
+          | invalid_parameter_exception()
+          | inactive_query_exception()
+          | inactive_event_data_store_exception()
           | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
+          | conflict_exception()
 
   @type create_channel_errors() ::
-          tags_limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | inactive_event_data_store_exception()
-          | invalid_tag_parameter_exception()
+          unsupported_operation_exception()
+          | tags_limit_exceeded_exception()
           | operation_not_permitted_exception()
-          | channel_already_exists_exception()
-          | invalid_event_data_store_category_exception()
-          | channel_max_limit_exceeded_exception()
-          | unsupported_operation_exception()
-          | event_data_store_arn_invalid_exception()
-          | event_data_store_not_found_exception()
+          | invalid_tag_parameter_exception()
           | invalid_source_exception()
+          | invalid_parameter_exception()
+          | invalid_event_data_store_category_exception()
+          | inactive_event_data_store_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
+          | channel_max_limit_exceeded_exception()
+          | channel_already_exists_exception()
 
   @type create_dashboard_errors() ::
-          service_quota_exceeded_exception()
+          unsupported_operation_exception()
+          | service_quota_exceeded_exception()
+          | invalid_tag_parameter_exception()
+          | invalid_query_statement_exception()
           | insufficient_encryption_policy_exception()
           | inactive_event_data_store_exception()
-          | invalid_tag_parameter_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | invalid_query_statement_exception()
           | event_data_store_not_found_exception()
+          | conflict_exception()
 
   @type create_event_data_store_errors() ::
-          insufficient_encryption_policy_exception()
-          | invalid_parameter_exception()
-          | invalid_tag_parameter_exception()
+          unsupported_operation_exception()
+          | throttling_exception()
           | organizations_not_in_use_exception()
+          | organization_not_in_all_features_mode_exception()
           | operation_not_permitted_exception()
-          | invalid_event_selectors_exception()
+          | not_organization_master_account_exception()
           | no_management_account_s_l_r_exists_exception()
-          | invalid_kms_key_id_exception()
-          | conflict_exception()
-          | event_data_store_already_exists_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
           | kms_key_not_found_exception()
           | kms_exception()
-          | cloud_trail_access_not_enabled_exception()
+          | invalid_tag_parameter_exception()
+          | invalid_parameter_exception()
+          | invalid_kms_key_id_exception()
+          | invalid_event_selectors_exception()
+          | insufficient_encryption_policy_exception()
+          | insufficient_dependency_service_access_permission_exception()
           | event_data_store_max_limit_exceeded_exception()
-          | throttling_exception()
-          | not_organization_master_account_exception()
-          | organization_not_in_all_features_mode_exception()
+          | event_data_store_already_exists_exception()
+          | conflict_exception()
+          | cloud_trail_access_not_enabled_exception()
 
   @type create_trail_errors() ::
-          insufficient_encryption_policy_exception()
-          | tags_limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | invalid_s3_prefix_exception()
-          | invalid_cloud_watch_logs_log_group_arn_exception()
-          | invalid_tag_parameter_exception()
-          | organizations_not_in_use_exception()
-          | operation_not_permitted_exception()
-          | maximum_number_of_trails_exceeded_exception()
-          | invalid_s3_bucket_name_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | invalid_sns_topic_name_exception()
-          | invalid_kms_key_id_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | kms_key_not_found_exception()
-          | invalid_cloud_watch_logs_role_arn_exception()
-          | insufficient_sns_topic_policy_exception()
-          | kms_exception()
-          | kms_key_disabled_exception()
-          | trail_already_exists_exception()
+          unsupported_operation_exception()
           | trail_not_provided_exception()
-          | cloud_trail_access_not_enabled_exception()
-          | cloud_trail_invalid_client_token_id_exception()
-          | invalid_parameter_combination_exception()
-          | invalid_trail_name_exception()
-          | s3_bucket_does_not_exist_exception()
-          | cloud_watch_logs_delivery_unavailable_exception()
+          | trail_already_exists_exception()
           | throttling_exception()
-          | insufficient_s3_bucket_policy_exception()
-          | not_organization_master_account_exception()
+          | tags_limit_exceeded_exception()
+          | s3_bucket_does_not_exist_exception()
+          | organizations_not_in_use_exception()
           | organization_not_in_all_features_mode_exception()
+          | operation_not_permitted_exception()
+          | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | maximum_number_of_trails_exceeded_exception()
+          | kms_key_not_found_exception()
+          | kms_key_disabled_exception()
+          | kms_exception()
+          | invalid_trail_name_exception()
+          | invalid_tag_parameter_exception()
+          | invalid_sns_topic_name_exception()
+          | invalid_s3_prefix_exception()
+          | invalid_s3_bucket_name_exception()
+          | invalid_parameter_exception()
+          | invalid_parameter_combination_exception()
+          | invalid_kms_key_id_exception()
+          | invalid_cloud_watch_logs_role_arn_exception()
+          | invalid_cloud_watch_logs_log_group_arn_exception()
+          | insufficient_sns_topic_policy_exception()
+          | insufficient_s3_bucket_policy_exception()
+          | insufficient_encryption_policy_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | conflict_exception()
+          | cloud_watch_logs_delivery_unavailable_exception()
+          | cloud_trail_invalid_client_token_id_exception()
+          | cloud_trail_access_not_enabled_exception()
 
   @type delete_channel_errors() ::
-          operation_not_permitted_exception()
+          unsupported_operation_exception()
+          | operation_not_permitted_exception()
           | channel_not_found_exception()
-          | unsupported_operation_exception()
           | channel_arn_invalid_exception()
 
   @type delete_dashboard_errors() ::
-          conflict_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_event_data_store_errors() ::
-          event_data_store_has_ongoing_import_exception()
-          | event_data_store_termination_protected_exception()
-          | channel_exists_for_e_d_s_exception()
-          | invalid_parameter_exception()
-          | inactive_event_data_store_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | event_data_store_arn_invalid_exception()
-          | event_data_store_federation_enabled_exception()
-          | event_data_store_not_found_exception()
           | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_parameter_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | inactive_event_data_store_exception()
+          | event_data_store_termination_protected_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_has_ongoing_import_exception()
+          | event_data_store_federation_enabled_exception()
+          | event_data_store_arn_invalid_exception()
+          | conflict_exception()
+          | channel_exists_for_e_d_s_exception()
 
   @type delete_resource_policy_errors() ::
-          resource_policy_not_found_exception()
+          unsupported_operation_exception()
           | resource_type_not_supported_exception()
+          | resource_policy_not_found_exception()
+          | resource_not_found_exception()
           | resource_arn_not_valid_exception()
           | operation_not_permitted_exception()
           | conflict_exception()
-          | unsupported_operation_exception()
-          | resource_not_found_exception()
 
   @type delete_trail_errors() ::
-          operation_not_permitted_exception()
-          | cloud_trail_arn_invalid_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
+          unsupported_operation_exception()
           | trail_not_found_exception()
+          | throttling_exception()
+          | operation_not_permitted_exception()
+          | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
           | invalid_trail_name_exception()
           | invalid_home_region_exception()
-          | throttling_exception()
-          | not_organization_master_account_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | conflict_exception()
+          | cloud_trail_arn_invalid_exception()
 
   @type deregister_organization_delegated_admin_errors() ::
-          account_not_registered_exception()
-          | invalid_parameter_exception()
+          unsupported_operation_exception()
           | organizations_not_in_use_exception()
-          | operation_not_permitted_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | account_not_found_exception()
-          | cloud_trail_access_not_enabled_exception()
-          | not_organization_management_account_exception()
           | organization_not_in_all_features_mode_exception()
+          | operation_not_permitted_exception()
+          | not_organization_management_account_exception()
+          | invalid_parameter_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | conflict_exception()
+          | cloud_trail_access_not_enabled_exception()
+          | account_not_registered_exception()
+          | account_not_found_exception()
 
   @type describe_query_errors() ::
-          invalid_parameter_exception()
-          | inactive_event_data_store_exception()
+          unsupported_operation_exception()
+          | query_id_not_found_exception()
           | operation_not_permitted_exception()
           | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
-          | query_id_not_found_exception()
-          | event_data_store_arn_invalid_exception()
+          | invalid_parameter_exception()
+          | inactive_event_data_store_exception()
           | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
 
   @type describe_trails_errors() ::
-          operation_not_permitted_exception()
-          | cloud_trail_arn_invalid_exception()
+          unsupported_operation_exception()
+          | operation_not_permitted_exception()
           | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
           | invalid_trail_name_exception()
+          | cloud_trail_arn_invalid_exception()
 
   @type disable_federation_errors() ::
-          invalid_parameter_exception()
-          | inactive_event_data_store_exception()
+          unsupported_operation_exception()
           | organizations_not_in_use_exception()
-          | operation_not_permitted_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | cloud_trail_access_not_enabled_exception()
-          | event_data_store_arn_invalid_exception()
-          | access_denied_exception()
-          | concurrent_modification_exception()
-          | event_data_store_not_found_exception()
-          | not_organization_master_account_exception()
           | organization_not_in_all_features_mode_exception()
+          | operation_not_permitted_exception()
+          | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_parameter_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | inactive_event_data_store_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
+          | concurrent_modification_exception()
+          | cloud_trail_access_not_enabled_exception()
+          | access_denied_exception()
 
   @type enable_federation_errors() ::
-          invalid_parameter_exception()
-          | inactive_event_data_store_exception()
+          unsupported_operation_exception()
           | organizations_not_in_use_exception()
-          | operation_not_permitted_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | cloud_trail_access_not_enabled_exception()
-          | event_data_store_arn_invalid_exception()
-          | access_denied_exception()
-          | event_data_store_federation_enabled_exception()
-          | concurrent_modification_exception()
-          | event_data_store_not_found_exception()
-          | not_organization_master_account_exception()
           | organization_not_in_all_features_mode_exception()
+          | operation_not_permitted_exception()
+          | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_parameter_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | inactive_event_data_store_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_federation_enabled_exception()
+          | event_data_store_arn_invalid_exception()
+          | concurrent_modification_exception()
+          | cloud_trail_access_not_enabled_exception()
+          | access_denied_exception()
 
   @type generate_query_errors() ::
-          invalid_parameter_exception()
-          | inactive_event_data_store_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
           | no_management_account_s_l_r_exists_exception()
+          | invalid_parameter_exception()
+          | inactive_event_data_store_exception()
           | generate_response_exception()
-          | unsupported_operation_exception()
-          | event_data_store_arn_invalid_exception()
           | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
 
   @type get_channel_errors() ::
-          operation_not_permitted_exception()
+          unsupported_operation_exception()
+          | operation_not_permitted_exception()
           | channel_not_found_exception()
-          | unsupported_operation_exception()
           | channel_arn_invalid_exception()
 
   @type get_dashboard_errors() ::
           unsupported_operation_exception() | resource_not_found_exception()
 
   @type get_event_configuration_errors() ::
-          invalid_event_data_store_status_exception()
-          | invalid_parameter_exception()
-          | operation_not_permitted_exception()
-          | cloud_trail_arn_invalid_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | invalid_event_data_store_category_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | trail_not_found_exception()
-          | event_data_store_arn_invalid_exception()
-          | invalid_parameter_combination_exception()
+          | operation_not_permitted_exception()
+          | no_management_account_s_l_r_exists_exception()
           | invalid_trail_name_exception()
+          | invalid_parameter_exception()
+          | invalid_parameter_combination_exception()
+          | invalid_event_data_store_status_exception()
+          | invalid_event_data_store_category_exception()
           | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
+          | cloud_trail_arn_invalid_exception()
 
   @type get_event_data_store_errors() ::
-          invalid_parameter_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
           | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
-          | event_data_store_arn_invalid_exception()
+          | invalid_parameter_exception()
           | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
 
   @type get_event_selectors_errors() ::
-          operation_not_permitted_exception()
-          | cloud_trail_arn_invalid_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | trail_not_found_exception()
+          | operation_not_permitted_exception()
+          | no_management_account_s_l_r_exists_exception()
           | invalid_trail_name_exception()
+          | cloud_trail_arn_invalid_exception()
 
   @type get_import_errors() ::
-          invalid_parameter_exception()
-          | import_not_found_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
-          | unsupported_operation_exception()
+          | invalid_parameter_exception()
+          | import_not_found_exception()
 
   @type get_insight_selectors_errors() ::
-          invalid_parameter_exception()
-          | operation_not_permitted_exception()
-          | cloud_trail_arn_invalid_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | insight_not_enabled_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | trail_not_found_exception()
-          | invalid_parameter_combination_exception()
-          | invalid_trail_name_exception()
           | throttling_exception()
+          | operation_not_permitted_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_trail_name_exception()
+          | invalid_parameter_exception()
+          | invalid_parameter_combination_exception()
+          | insight_not_enabled_exception()
+          | cloud_trail_arn_invalid_exception()
 
   @type get_query_results_errors() ::
-          insufficient_encryption_policy_exception()
-          | invalid_parameter_exception()
-          | inactive_event_data_store_exception()
-          | operation_not_permitted_exception()
-          | invalid_max_results_exception()
-          | invalid_next_token_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | query_id_not_found_exception()
-          | event_data_store_arn_invalid_exception()
+          | operation_not_permitted_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_parameter_exception()
+          | invalid_next_token_exception()
+          | invalid_max_results_exception()
+          | insufficient_encryption_policy_exception()
+          | inactive_event_data_store_exception()
           | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
 
   @type get_resource_policy_errors() ::
-          resource_policy_not_found_exception()
+          unsupported_operation_exception()
           | resource_type_not_supported_exception()
+          | resource_policy_not_found_exception()
+          | resource_not_found_exception()
           | resource_arn_not_valid_exception()
           | operation_not_permitted_exception()
-          | unsupported_operation_exception()
-          | resource_not_found_exception()
 
   @type get_trail_errors() ::
-          operation_not_permitted_exception()
-          | cloud_trail_arn_invalid_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | trail_not_found_exception()
+          | operation_not_permitted_exception()
           | invalid_trail_name_exception()
+          | cloud_trail_arn_invalid_exception()
 
   @type get_trail_status_errors() ::
-          operation_not_permitted_exception()
-          | cloud_trail_arn_invalid_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
           | trail_not_found_exception()
+          | operation_not_permitted_exception()
           | invalid_trail_name_exception()
+          | cloud_trail_arn_invalid_exception()
 
   @type list_channels_errors() ::
-          operation_not_permitted_exception()
+          unsupported_operation_exception()
+          | operation_not_permitted_exception()
           | invalid_next_token_exception()
-          | unsupported_operation_exception()
 
   @type list_dashboards_errors() :: unsupported_operation_exception()
 
   @type list_event_data_stores_errors() ::
-          operation_not_permitted_exception()
-          | invalid_max_results_exception()
-          | invalid_next_token_exception()
+          unsupported_operation_exception()
+          | operation_not_permitted_exception()
           | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
+          | invalid_next_token_exception()
+          | invalid_max_results_exception()
 
   @type list_import_failures_errors() ::
-          invalid_parameter_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
+          | invalid_parameter_exception()
           | invalid_next_token_exception()
-          | unsupported_operation_exception()
 
   @type list_imports_errors() ::
-          invalid_parameter_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
+          | invalid_parameter_exception()
           | invalid_next_token_exception()
-          | unsupported_operation_exception()
           | event_data_store_arn_invalid_exception()
 
   @type list_insights_data_errors() ::
-          invalid_parameter_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
-          | unsupported_operation_exception()
+          | invalid_parameter_exception()
 
   @type list_insights_metric_data_errors() ::
-          invalid_parameter_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
-          | unsupported_operation_exception()
           | invalid_trail_name_exception()
+          | invalid_parameter_exception()
 
   @type list_public_keys_errors() ::
-          invalid_time_range_exception()
-          | invalid_token_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
-          | unsupported_operation_exception()
+          | invalid_token_exception()
+          | invalid_time_range_exception()
 
   @type list_queries_errors() ::
-          invalid_query_status_exception()
-          | invalid_parameter_exception()
-          | inactive_event_data_store_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_query_status_exception()
+          | invalid_parameter_exception()
+          | invalid_next_token_exception()
           | invalid_max_results_exception()
           | invalid_date_range_exception()
-          | invalid_next_token_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
-          | event_data_store_arn_invalid_exception()
+          | inactive_event_data_store_exception()
           | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
 
   @type list_tags_errors() ::
-          invalid_token_exception()
-          | inactive_event_data_store_exception()
+          unsupported_operation_exception()
           | resource_type_not_supported_exception()
-          | operation_not_permitted_exception()
-          | cloud_trail_arn_invalid_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
           | resource_not_found_exception()
-          | channel_arn_invalid_exception()
-          | event_data_store_arn_invalid_exception()
+          | operation_not_permitted_exception()
+          | no_management_account_s_l_r_exists_exception()
           | invalid_trail_name_exception()
+          | invalid_token_exception()
+          | inactive_event_data_store_exception()
           | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
+          | cloud_trail_arn_invalid_exception()
+          | channel_arn_invalid_exception()
 
   @type list_trails_errors() ::
-          operation_not_permitted_exception() | unsupported_operation_exception()
+          unsupported_operation_exception() | operation_not_permitted_exception()
 
   @type lookup_events_errors() ::
-          invalid_time_range_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
-          | invalid_max_results_exception()
+          | invalid_time_range_exception()
           | invalid_next_token_exception()
-          | unsupported_operation_exception()
+          | invalid_max_results_exception()
           | invalid_lookup_attributes_exception()
           | invalid_event_category_exception()
 
   @type put_event_configuration_errors() ::
-          insufficient_iam_access_permission_exception()
-          | invalid_event_data_store_status_exception()
-          | invalid_parameter_exception()
-          | inactive_event_data_store_exception()
-          | operation_not_permitted_exception()
-          | cloud_trail_arn_invalid_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | invalid_event_data_store_category_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
+          unsupported_operation_exception()
           | trail_not_found_exception()
-          | event_data_store_arn_invalid_exception()
-          | invalid_parameter_combination_exception()
-          | invalid_trail_name_exception()
-          | invalid_home_region_exception()
           | throttling_exception()
-          | event_data_store_not_found_exception()
+          | operation_not_permitted_exception()
           | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_trail_name_exception()
+          | invalid_parameter_exception()
+          | invalid_parameter_combination_exception()
+          | invalid_home_region_exception()
+          | invalid_event_data_store_status_exception()
+          | invalid_event_data_store_category_exception()
+          | insufficient_iam_access_permission_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | inactive_event_data_store_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
+          | conflict_exception()
+          | cloud_trail_arn_invalid_exception()
 
   @type put_event_selectors_errors() ::
-          operation_not_permitted_exception()
-          | invalid_event_selectors_exception()
-          | cloud_trail_arn_invalid_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
+          unsupported_operation_exception()
           | trail_not_found_exception()
+          | throttling_exception()
+          | operation_not_permitted_exception()
+          | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
           | invalid_trail_name_exception()
           | invalid_home_region_exception()
-          | throttling_exception()
-          | not_organization_master_account_exception()
+          | invalid_event_selectors_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | conflict_exception()
+          | cloud_trail_arn_invalid_exception()
 
   @type put_insight_selectors_errors() ::
-          insufficient_encryption_policy_exception()
-          | invalid_parameter_exception()
-          | operation_not_permitted_exception()
-          | cloud_trail_arn_invalid_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
-          | kms_exception()
+          unsupported_operation_exception()
           | trail_not_found_exception()
-          | invalid_insight_selectors_exception()
-          | invalid_parameter_combination_exception()
-          | invalid_trail_name_exception()
-          | invalid_home_region_exception()
-          | s3_bucket_does_not_exist_exception()
           | throttling_exception()
-          | insufficient_s3_bucket_policy_exception()
+          | s3_bucket_does_not_exist_exception()
+          | operation_not_permitted_exception()
           | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | kms_exception()
+          | invalid_trail_name_exception()
+          | invalid_parameter_exception()
+          | invalid_parameter_combination_exception()
+          | invalid_insight_selectors_exception()
+          | invalid_home_region_exception()
+          | insufficient_s3_bucket_policy_exception()
+          | insufficient_encryption_policy_exception()
+          | cloud_trail_arn_invalid_exception()
 
   @type put_resource_policy_errors() ::
-          resource_type_not_supported_exception()
+          unsupported_operation_exception()
+          | resource_type_not_supported_exception()
+          | resource_policy_not_valid_exception()
+          | resource_not_found_exception()
           | resource_arn_not_valid_exception()
           | operation_not_permitted_exception()
-          | resource_policy_not_valid_exception()
           | conflict_exception()
-          | unsupported_operation_exception()
-          | resource_not_found_exception()
 
   @type register_organization_delegated_admin_errors() ::
-          delegated_admin_account_limit_exceeded_exception()
-          | insufficient_iam_access_permission_exception()
-          | invalid_parameter_exception()
-          | account_registered_exception()
+          unsupported_operation_exception()
           | organizations_not_in_use_exception()
-          | operation_not_permitted_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | account_not_found_exception()
-          | cannot_delegate_management_account_exception()
-          | cloud_trail_access_not_enabled_exception()
-          | not_organization_management_account_exception()
           | organization_not_in_all_features_mode_exception()
+          | operation_not_permitted_exception()
+          | not_organization_management_account_exception()
+          | invalid_parameter_exception()
+          | insufficient_iam_access_permission_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | delegated_admin_account_limit_exceeded_exception()
+          | conflict_exception()
+          | cloud_trail_access_not_enabled_exception()
+          | cannot_delegate_management_account_exception()
+          | account_registered_exception()
+          | account_not_found_exception()
 
   @type remove_tags_errors() ::
-          inactive_event_data_store_exception()
+          unsupported_operation_exception()
           | resource_type_not_supported_exception()
-          | invalid_tag_parameter_exception()
+          | resource_not_found_exception()
           | operation_not_permitted_exception()
+          | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_trail_name_exception()
+          | invalid_tag_parameter_exception()
+          | inactive_event_data_store_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
+          | conflict_exception()
           | cloud_trail_arn_invalid_exception()
           | channel_not_found_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | resource_not_found_exception()
           | channel_arn_invalid_exception()
-          | event_data_store_arn_invalid_exception()
-          | invalid_trail_name_exception()
-          | event_data_store_not_found_exception()
-          | not_organization_master_account_exception()
 
   @type restore_event_data_store_errors() ::
-          invalid_event_data_store_status_exception()
-          | invalid_parameter_exception()
+          unsupported_operation_exception()
           | organizations_not_in_use_exception()
-          | operation_not_permitted_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | cloud_trail_access_not_enabled_exception()
-          | event_data_store_arn_invalid_exception()
-          | event_data_store_max_limit_exceeded_exception()
-          | event_data_store_not_found_exception()
-          | not_organization_master_account_exception()
           | organization_not_in_all_features_mode_exception()
+          | operation_not_permitted_exception()
+          | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_parameter_exception()
+          | invalid_event_data_store_status_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_max_limit_exceeded_exception()
+          | event_data_store_arn_invalid_exception()
+          | cloud_trail_access_not_enabled_exception()
 
   @type search_sample_queries_errors() ::
-          invalid_parameter_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
-          | unsupported_operation_exception()
+          | invalid_parameter_exception()
 
   @type start_dashboard_refresh_errors() ::
-          service_quota_exceeded_exception()
-          | inactive_event_data_store_exception()
-          | unsupported_operation_exception()
+          unsupported_operation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | inactive_event_data_store_exception()
           | event_data_store_not_found_exception()
 
   @type start_event_data_store_ingestion_errors() ::
-          invalid_event_data_store_status_exception()
-          | invalid_parameter_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | invalid_event_data_store_category_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | event_data_store_arn_invalid_exception()
-          | event_data_store_not_found_exception()
           | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_parameter_exception()
+          | invalid_event_data_store_status_exception()
+          | invalid_event_data_store_category_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
+          | conflict_exception()
 
   @type start_import_errors() ::
-          insufficient_encryption_policy_exception()
-          | invalid_event_data_store_status_exception()
-          | invalid_parameter_exception()
-          | inactive_event_data_store_exception()
-          | import_not_found_exception()
+          unsupported_operation_exception()
           | operation_not_permitted_exception()
-          | invalid_event_data_store_category_exception()
-          | account_has_ongoing_import_exception()
-          | unsupported_operation_exception()
-          | event_data_store_arn_invalid_exception()
-          | event_data_store_not_found_exception()
+          | invalid_parameter_exception()
           | invalid_import_source_exception()
-
-  @type start_logging_errors() ::
-          operation_not_permitted_exception()
-          | cloud_trail_arn_invalid_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | trail_not_found_exception()
-          | invalid_trail_name_exception()
-          | invalid_home_region_exception()
-          | throttling_exception()
-          | not_organization_master_account_exception()
-
-  @type start_query_errors() ::
-          insufficient_encryption_policy_exception()
-          | invalid_parameter_exception()
-          | invalid_s3_prefix_exception()
-          | inactive_event_data_store_exception()
-          | max_concurrent_queries_exception()
-          | operation_not_permitted_exception()
-          | invalid_s3_bucket_name_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | unsupported_operation_exception()
-          | event_data_store_arn_invalid_exception()
-          | s3_bucket_does_not_exist_exception()
-          | invalid_query_statement_exception()
-          | event_data_store_not_found_exception()
-          | insufficient_s3_bucket_policy_exception()
-
-  @type stop_event_data_store_ingestion_errors() ::
-          invalid_event_data_store_status_exception()
-          | invalid_parameter_exception()
-          | operation_not_permitted_exception()
-          | no_management_account_s_l_r_exists_exception()
+          | invalid_event_data_store_status_exception()
           | invalid_event_data_store_category_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | event_data_store_arn_invalid_exception()
-          | event_data_store_not_found_exception()
-          | not_organization_master_account_exception()
-
-  @type stop_import_errors() ::
-          invalid_parameter_exception()
-          | import_not_found_exception()
-          | operation_not_permitted_exception()
-          | unsupported_operation_exception()
-
-  @type stop_logging_errors() ::
-          operation_not_permitted_exception()
-          | cloud_trail_arn_invalid_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | trail_not_found_exception()
-          | invalid_trail_name_exception()
-          | invalid_home_region_exception()
-          | throttling_exception()
-          | not_organization_master_account_exception()
-
-  @type update_channel_errors() ::
-          invalid_parameter_exception()
-          | inactive_event_data_store_exception()
-          | operation_not_permitted_exception()
-          | channel_already_exists_exception()
-          | channel_not_found_exception()
-          | invalid_event_data_store_category_exception()
-          | unsupported_operation_exception()
-          | channel_arn_invalid_exception()
-          | event_data_store_arn_invalid_exception()
-          | event_data_store_not_found_exception()
-
-  @type update_dashboard_errors() ::
-          service_quota_exceeded_exception()
           | insufficient_encryption_policy_exception()
           | inactive_event_data_store_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | resource_not_found_exception()
-          | invalid_query_statement_exception()
+          | import_not_found_exception()
           | event_data_store_not_found_exception()
-
-  @type update_event_data_store_errors() ::
-          insufficient_encryption_policy_exception()
-          | event_data_store_has_ongoing_import_exception()
-          | invalid_parameter_exception()
-          | inactive_event_data_store_exception()
-          | organizations_not_in_use_exception()
-          | operation_not_permitted_exception()
-          | invalid_event_selectors_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | invalid_kms_key_id_exception()
-          | conflict_exception()
-          | event_data_store_already_exists_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | kms_key_not_found_exception()
-          | kms_exception()
-          | cloud_trail_access_not_enabled_exception()
           | event_data_store_arn_invalid_exception()
-          | invalid_insight_selectors_exception()
-          | throttling_exception()
-          | event_data_store_not_found_exception()
-          | not_organization_master_account_exception()
-          | organization_not_in_all_features_mode_exception()
+          | account_has_ongoing_import_exception()
 
-  @type update_trail_errors() ::
-          insufficient_encryption_policy_exception()
-          | invalid_parameter_exception()
-          | invalid_s3_prefix_exception()
-          | invalid_cloud_watch_logs_log_group_arn_exception()
-          | organizations_not_in_use_exception()
-          | operation_not_permitted_exception()
-          | invalid_event_selectors_exception()
-          | cloud_trail_arn_invalid_exception()
-          | invalid_s3_bucket_name_exception()
-          | no_management_account_s_l_r_exists_exception()
-          | invalid_sns_topic_name_exception()
-          | invalid_kms_key_id_exception()
-          | conflict_exception()
-          | unsupported_operation_exception()
-          | insufficient_dependency_service_access_permission_exception()
-          | kms_key_not_found_exception()
-          | invalid_cloud_watch_logs_role_arn_exception()
-          | insufficient_sns_topic_policy_exception()
-          | kms_exception()
-          | kms_key_disabled_exception()
+  @type start_logging_errors() ::
+          unsupported_operation_exception()
           | trail_not_found_exception()
-          | trail_not_provided_exception()
-          | cloud_trail_access_not_enabled_exception()
-          | cloud_trail_invalid_client_token_id_exception()
-          | invalid_parameter_combination_exception()
+          | throttling_exception()
+          | operation_not_permitted_exception()
+          | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
           | invalid_trail_name_exception()
           | invalid_home_region_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | conflict_exception()
+          | cloud_trail_arn_invalid_exception()
+
+  @type start_query_errors() ::
+          unsupported_operation_exception()
           | s3_bucket_does_not_exist_exception()
-          | cloud_watch_logs_delivery_unavailable_exception()
-          | throttling_exception()
+          | operation_not_permitted_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | max_concurrent_queries_exception()
+          | invalid_s3_prefix_exception()
+          | invalid_s3_bucket_name_exception()
+          | invalid_query_statement_exception()
+          | invalid_parameter_exception()
           | insufficient_s3_bucket_policy_exception()
+          | insufficient_encryption_policy_exception()
+          | inactive_event_data_store_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
+
+  @type stop_event_data_store_ingestion_errors() ::
+          unsupported_operation_exception()
+          | operation_not_permitted_exception()
           | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_parameter_exception()
+          | invalid_event_data_store_status_exception()
+          | invalid_event_data_store_category_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
+          | conflict_exception()
+
+  @type stop_import_errors() ::
+          unsupported_operation_exception()
+          | operation_not_permitted_exception()
+          | invalid_parameter_exception()
+          | import_not_found_exception()
+
+  @type stop_logging_errors() ::
+          unsupported_operation_exception()
+          | trail_not_found_exception()
+          | throttling_exception()
+          | operation_not_permitted_exception()
+          | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | invalid_trail_name_exception()
+          | invalid_home_region_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | conflict_exception()
+          | cloud_trail_arn_invalid_exception()
+
+  @type update_channel_errors() ::
+          unsupported_operation_exception()
+          | operation_not_permitted_exception()
+          | invalid_parameter_exception()
+          | invalid_event_data_store_category_exception()
+          | inactive_event_data_store_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_arn_invalid_exception()
+          | channel_not_found_exception()
+          | channel_arn_invalid_exception()
+          | channel_already_exists_exception()
+
+  @type update_dashboard_errors() ::
+          unsupported_operation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | invalid_query_statement_exception()
+          | insufficient_encryption_policy_exception()
+          | inactive_event_data_store_exception()
+          | event_data_store_not_found_exception()
+          | conflict_exception()
+
+  @type update_event_data_store_errors() ::
+          unsupported_operation_exception()
+          | throttling_exception()
+          | organizations_not_in_use_exception()
           | organization_not_in_all_features_mode_exception()
+          | operation_not_permitted_exception()
+          | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | kms_key_not_found_exception()
+          | kms_exception()
+          | invalid_parameter_exception()
+          | invalid_kms_key_id_exception()
+          | invalid_insight_selectors_exception()
+          | invalid_event_selectors_exception()
+          | insufficient_encryption_policy_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | inactive_event_data_store_exception()
+          | event_data_store_not_found_exception()
+          | event_data_store_has_ongoing_import_exception()
+          | event_data_store_arn_invalid_exception()
+          | event_data_store_already_exists_exception()
+          | conflict_exception()
+          | cloud_trail_access_not_enabled_exception()
+
+  @type update_trail_errors() ::
+          unsupported_operation_exception()
+          | trail_not_provided_exception()
+          | trail_not_found_exception()
+          | throttling_exception()
+          | s3_bucket_does_not_exist_exception()
+          | organizations_not_in_use_exception()
+          | organization_not_in_all_features_mode_exception()
+          | operation_not_permitted_exception()
+          | not_organization_master_account_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | kms_key_not_found_exception()
+          | kms_key_disabled_exception()
+          | kms_exception()
+          | invalid_trail_name_exception()
+          | invalid_sns_topic_name_exception()
+          | invalid_s3_prefix_exception()
+          | invalid_s3_bucket_name_exception()
+          | invalid_parameter_exception()
+          | invalid_parameter_combination_exception()
+          | invalid_kms_key_id_exception()
+          | invalid_home_region_exception()
+          | invalid_event_selectors_exception()
+          | invalid_cloud_watch_logs_role_arn_exception()
+          | invalid_cloud_watch_logs_log_group_arn_exception()
+          | insufficient_sns_topic_policy_exception()
+          | insufficient_s3_bucket_policy_exception()
+          | insufficient_encryption_policy_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | conflict_exception()
+          | cloud_watch_logs_delivery_unavailable_exception()
+          | cloud_trail_invalid_client_token_id_exception()
+          | cloud_trail_arn_invalid_exception()
+          | cloud_trail_access_not_enabled_exception()
 
   def metadata do
     %{

@@ -71,240 +71,12 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      split_string_entry() :: %{
-        "delimiter" => String.t() | atom(),
-        "source" => String.t() | atom()
-      }
-      
-  """
-  @type split_string_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_log_stream_request() :: %{
-        required("logGroupName") => String.t() | atom(),
-        required("logStreamName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_log_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      substitute_string_entry() :: %{
-        "from" => String.t() | atom(),
-        "source" => String.t() | atom(),
-        "to" => String.t() | atom()
-      }
-      
-  """
-  @type substitute_string_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_transformer_request() :: %{
-        required("logGroupIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type delete_transformer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_delivery_source_request() :: %{
-        optional("deliverySourceConfiguration") => map(),
-        optional("tags") => map(),
-        required("logType") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_delivery_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      field_index() :: %{
-        "fieldIndexName" => String.t() | atom(),
-        "firstEventTime" => float(),
-        "lastEventTime" => float(),
-        "lastScanTime" => float(),
-        "logGroupIdentifier" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type field_index() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy() :: %{
-        "deliveryDestinationPolicy" => String.t() | atom()
-      }
-      
-  """
-  @type policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_operation_exception() :: %{
+      access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_scheduled_query_request() :: %{
-        required("identifier") => String.t() | atom()
-      }
-      
-  """
-  @type delete_scheduled_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_retention_policy_request() :: %{
-        required("logGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_retention_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_transformer_response() :: %{
-        "creationTime" => float(),
-        "lastModifiedTime" => float(),
-        "logGroupIdentifier" => String.t() | atom(),
-        "transformerConfig" => list(processor())
-      }
-      
-  """
-  @type get_transformer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      live_tail_session_update() :: %{
-        "sessionMetadata" => live_tail_session_metadata(),
-        "sessionResults" => list(live_tail_session_log_event())
-      }
-      
-  """
-  @type live_tail_session_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_key_entry() :: %{
-        "key" => String.t() | atom(),
-        "overwriteIfExists" => boolean(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type add_key_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      type_converter() :: %{
-        "entries" => list(type_converter_entry())
-      }
-      
-  """
-  @type type_converter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_keys() :: %{
-        "entries" => list(add_key_entry())
-      }
-      
-  """
-  @type add_keys() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_filter_match_record() :: %{
-        "eventMessage" => String.t() | atom(),
-        "eventNumber" => float(),
-        "extractedValues" => map()
-      }
-      
-  """
-  @type metric_filter_match_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_request() :: %{
-        optional("expectedRevisionId") => String.t() | atom(),
-        optional("policyDocument") => String.t() | atom(),
-        optional("policyName") => String.t() | atom(),
-        optional("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_query_request() :: %{
-        required("queryId") => String.t() | atom()
-      }
-      
-  """
-  @type stop_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_export_task_request() :: %{
-        optional("destinationPrefix") => String.t() | atom(),
-        optional("logStreamNamePrefix") => String.t() | atom(),
-        optional("taskName") => String.t() | atom(),
-        required("destination") => String.t() | atom(),
-        required("from") => float(),
-        required("logGroupName") => String.t() | atom(),
-        required("to") => float()
-      }
-      
-  """
-  @type create_export_task_request() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -327,1143 +99,37 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      delete_query_definition_response() :: %{
-        "success" => boolean()
-      }
-      
-  """
-  @type delete_query_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_log_group_fields_request() :: %{
-        optional("logGroupIdentifier") => String.t() | atom(),
-        optional("logGroupName") => String.t() | atom(),
-        optional("time") => float()
-      }
-      
-  """
-  @type get_log_group_fields_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_destination_request() :: %{
-        optional("tags") => map(),
-        required("destinationName") => String.t() | atom(),
-        required("roleArn") => String.t() | atom(),
-        required("targetArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      searched_log_stream() :: %{
-        "logStreamName" => String.t() | atom(),
-        "searchedCompletely" => boolean()
-      }
-      
-  """
-  @type searched_log_stream() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_scheduled_query_request() :: %{
-        required("identifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_scheduled_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_integration_response() :: %{
-        "integrationDetails" => list(),
-        "integrationName" => String.t() | atom(),
-        "integrationStatus" => list(any()),
-        "integrationType" => list(any())
-      }
-      
-  """
-  @type get_integration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_log_anomaly_detector_response() :: %{
-        "anomalyDetectorStatus" => list(any()),
-        "anomalyVisibilityTime" => float(),
-        "creationTimeStamp" => float(),
-        "detectorName" => String.t() | atom(),
-        "evaluationFrequency" => list(any()),
-        "filterPattern" => String.t() | atom(),
-        "kmsKeyId" => String.t() | atom(),
-        "lastModifiedTimeStamp" => float(),
-        "logGroupArnList" => list(String.t() | atom())
-      }
-      
-  """
-  @type get_log_anomaly_detector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_scheduled_query_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("destinationConfiguration") => destination_configuration(),
-        optional("endTimeOffset") => float(),
-        optional("logGroupIdentifiers") => list(String.t() | atom()),
-        optional("scheduleEndTime") => float(),
-        optional("scheduleStartTime") => float(),
-        optional("startTimeOffset") => float(),
-        optional("state") => list(any()),
-        optional("tags") => map(),
-        optional("timezone") => String.t() | atom(),
-        required("executionRoleArn") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("queryLanguage") => list(any()),
-        required("queryString") => String.t() | atom(),
-        required("scheduleExpression") => String.t() | atom()
-      }
-      
-  """
-  @type create_scheduled_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      integration_summary() :: %{
-        "integrationName" => String.t() | atom(),
-        "integrationStatus" => list(any()),
-        "integrationType" => list(any())
-      }
-      
-  """
-  @type integration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_delivery_request() :: %{
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_delivery_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_sources_for_s3_table_integration_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "sources" => list(s3_table_integration_source())
-      }
-      
-  """
-  @type list_sources_for_s3_table_integration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_streaming_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_streaming_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scheduled_query_destination() :: %{
-        "destinationIdentifier" => String.t() | atom(),
-        "destinationType" => list(any()),
-        "errorMessage" => String.t() | atom(),
-        "processedIdentifier" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type scheduled_query_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_to_map() :: %{
-        "flatten" => boolean(),
-        "flattenedElement" => list(any()),
-        "key" => String.t() | atom(),
-        "source" => String.t() | atom(),
-        "target" => String.t() | atom(),
-        "valueKey" => String.t() | atom()
-      }
-      
-  """
-  @type list_to_map() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_delivery_source_response() :: %{
-        "deliverySource" => delivery_source()
-      }
-      
-  """
-  @type put_delivery_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_export_task_request() :: %{
-        required("taskId") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_export_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_log_groups_for_query_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("queryId") => String.t() | atom()
-      }
-      
-  """
-  @type list_log_groups_for_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_log_group_request() :: %{
-        required("logGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_log_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_log_groups_for_query_response() :: %{
-        "logGroupIdentifiers" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_log_groups_for_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_log_groups_response() :: %{
-        "logGroups" => list(log_group()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_log_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_queries_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "queries" => list(query_info())
-      }
-      
-  """
-  @type describe_queries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_table_integration_source() :: %{
-        "createdTimeStamp" => float(),
-        "dataSource" => data_source(),
-        "identifier" => String.t() | atom(),
-        "parentSourceIdentifier" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => String.t() | atom()
-      }
-      
-  """
-  @type s3_table_integration_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_policies_request() :: %{
-        optional("accountIdentifiers") => list(String.t() | atom()),
-        optional("nextToken") => String.t() | atom(),
-        optional("policyName") => String.t() | atom(),
-        required("policyType") => list(any())
-      }
-      
-  """
-  @type describe_account_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_queries_request() :: %{
-        optional("logGroupName") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("queryLanguage") => list(any()),
-        optional("status") => list(any())
-      }
-      
-  """
-  @type describe_queries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_data_protection_policy_response() :: %{
-        "lastUpdatedTime" => float(),
-        "logGroupIdentifier" => String.t() | atom(),
-        "policyDocument" => String.t() | atom()
-      }
-      
-  """
-  @type put_data_protection_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_log_object_request() :: %{
-        optional("unmask") => boolean(),
-        required("logObjectPointer") => String.t() | atom()
-      }
-      
-  """
-  @type get_log_object_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_index_policies_response() :: %{
-        "indexPolicies" => list(index_policy()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_index_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_log_anomaly_detector_request() :: %{
-        optional("anomalyVisibilityTime") => float(),
-        optional("evaluationFrequency") => list(any()),
-        optional("filterPattern") => String.t() | atom(),
-        required("anomalyDetectorArn") => String.t() | atom(),
-        required("enabled") => boolean()
-      }
-      
-  """
-  @type update_log_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_delivery_source_response() :: %{
-        "deliverySource" => delivery_source()
-      }
-      
-  """
-  @type get_delivery_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      destination_configuration() :: %{
-        "s3Configuration" => s3_configuration()
-      }
-      
-  """
-  @type destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_log_group_fields_response() :: %{
-        "logGroupFields" => list(log_group_field())
-      }
-      
-  """
-  @type get_log_group_fields_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_statistics() :: %{
-        "bytesImported" => float()
-      }
-      
-  """
-  @type import_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_search_encryption_policy() :: %{
-        "policyName" => String.t() | atom(),
-        "status" => open_search_resource_status()
-      }
-      
-  """
-  @type open_search_encryption_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_scheduled_query_response() :: %{}
-      
-  """
-  @type delete_scheduled_query_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      rename_key_entry() :: %{
+      add_key_entry() :: %{
         "key" => String.t() | atom(),
         "overwriteIfExists" => boolean(),
-        "renameTo" => String.t() | atom()
+        "value" => String.t() | atom()
       }
       
   """
-  @type rename_key_entry() :: %{(String.t() | atom()) => any()}
+  @type add_key_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      live_tail_session_log_event() :: %{
-        "ingestionTime" => float(),
-        "logGroupIdentifier" => String.t() | atom(),
-        "logStreamName" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "timestamp" => float()
+      add_keys() :: %{
+        "entries" => list(add_key_entry())
       }
       
   """
-  @type live_tail_session_log_event() :: %{(String.t() | atom()) => any()}
+  @type add_keys() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_delivery_destinations_response() :: %{
-        "deliveryDestinations" => list(delivery_destination()),
-        "nextToken" => String.t() | atom()
+      aggregate_log_group_summary() :: %{
+        "groupingIdentifiers" => list(grouping_identifier()),
+        "logGroupCount" => integer()
       }
       
   """
-  @type describe_delivery_destinations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_index_policy_request() :: %{
-        required("logGroupIdentifier") => String.t() | atom(),
-        required("policyDocument") => String.t() | atom()
-      }
-      
-  """
-  @type put_index_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_filter() :: %{
-        "applyOnTransformedLogs" => boolean(),
-        "creationTime" => float(),
-        "emitSystemFieldDimensions" => list(String.t() | atom()),
-        "fieldSelectionCriteria" => String.t() | atom(),
-        "filterName" => String.t() | atom(),
-        "filterPattern" => String.t() | atom(),
-        "logGroupName" => String.t() | atom(),
-        "metricTransformations" => list(metric_transformation())
-      }
-      
-  """
-  @type metric_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parse_to_o_c_s_f() :: %{
-        "eventSource" => list(any()),
-        "mappingVersion" => String.t() | atom(),
-        "ocsfVersion" => list(any()),
-        "source" => String.t() | atom()
-      }
-      
-  """
-  @type parse_to_o_c_s_f() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_bearer_token_authentication_request() :: %{
-        required("bearerTokenAuthenticationEnabled") => boolean(),
-        required("logGroupIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type put_bearer_token_authentication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_storage_tier_policy_response() :: %{
-        "lastUpdatedTime" => float(),
-        "storageTier" => list(any())
-      }
-      
-  """
-  @type get_storage_tier_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lookup_table() :: %{
-        "description" => String.t() | atom(),
-        "kmsKeyId" => String.t() | atom(),
-        "lastUpdatedTime" => float(),
-        "lookupTableArn" => String.t() | atom(),
-        "lookupTableName" => String.t() | atom(),
-        "recordsCount" => float(),
-        "sizeBytes" => float(),
-        "tableFields" => list(String.t() | atom())
-      }
-      
-  """
-  @type lookup_table() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      substitute_string() :: %{
-        "entries" => list(substitute_string_entry())
-      }
-      
-  """
-  @type substitute_string() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_field_type() :: %{
-        "element" => log_field_type(),
-        "fields" => list(log_fields_list_item()),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type log_field_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_delivery_configuration() :: %{
-        "enableHiveCompatiblePath" => boolean(),
-        "suffixPath" => String.t() | atom()
-      }
-      
-  """
-  @type s3_delivery_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_log_group_request() :: %{
-        required("logGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_log_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filtered_log_event() :: %{
-        "eventId" => String.t() | atom(),
-        "ingestionTime" => float(),
-        "logStreamName" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "timestamp" => float()
-      }
-      
-  """
-  @type filtered_log_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_group_summary() :: %{
-        "logGroupArn" => String.t() | atom(),
-        "logGroupClass" => list(any()),
-        "logGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type log_group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parse_postgres() :: %{
-        "source" => String.t() | atom()
-      }
-      
-  """
-  @type parse_postgres() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_index_policies_request() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("logGroupIdentifiers") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_index_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_import_tasks_response() :: %{
-        "imports" => list(import()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_import_tasks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_query_definitions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "queryDefinitions" => list(query_definition())
-      }
-      
-  """
-  @type describe_query_definitions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_field_indexes_response() :: %{
-        "fieldIndexes" => list(field_index()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_field_indexes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_import_task_request() :: %{
-        optional("importFilter") => import_filter(),
-        required("importRoleArn") => String.t() | atom(),
-        required("importSourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_import_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unrecognized_client_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unrecognized_client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_scheduled_query_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("destinationConfiguration") => destination_configuration(),
-        optional("endTimeOffset") => float(),
-        optional("logGroupIdentifiers") => list(String.t() | atom()),
-        optional("scheduleEndTime") => float(),
-        optional("scheduleStartTime") => float(),
-        optional("startTimeOffset") => float(),
-        optional("state") => list(any()),
-        optional("timezone") => String.t() | atom(),
-        required("executionRoleArn") => String.t() | atom(),
-        required("identifier") => String.t() | atom(),
-        required("queryLanguage") => list(any()),
-        required("queryString") => String.t() | atom(),
-        required("scheduleExpression") => String.t() | atom()
-      }
-      
-  """
-  @type update_scheduled_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_data_protection_policy_response() :: %{
-        "lastUpdatedTime" => float(),
-        "logGroupIdentifier" => String.t() | atom(),
-        "policyDocument" => String.t() | atom()
-      }
-      
-  """
-  @type get_data_protection_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_destinations_response() :: %{
-        "destinations" => list(destination()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_destinations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_delivery_destination_policy_request() :: %{
-        required("deliveryDestinationName") => String.t() | atom()
-      }
-      
-  """
-  @type get_delivery_destination_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subscription_filter() :: %{
-        "applyOnTransformedLogs" => boolean(),
-        "creationTime" => float(),
-        "destinationArn" => String.t() | atom(),
-        "distribution" => list(any()),
-        "emitSystemFields" => list(String.t() | atom()),
-        "fieldSelectionCriteria" => String.t() | atom(),
-        "filterName" => String.t() | atom(),
-        "filterPattern" => String.t() | atom(),
-        "logGroupName" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-      
-  """
-  @type subscription_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_transformation() :: %{
-        "defaultValue" => float(),
-        "dimensions" => map(),
-        "metricName" => String.t() | atom(),
-        "metricNamespace" => String.t() | atom(),
-        "metricValue" => String.t() | atom(),
-        "unit" => list(any())
-      }
-      
-  """
-  @type metric_transformation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      anomaly_detector() :: %{
-        "anomalyDetectorArn" => String.t() | atom(),
-        "anomalyDetectorStatus" => list(any()),
-        "anomalyVisibilityTime" => float(),
-        "creationTimeStamp" => float(),
-        "detectorName" => String.t() | atom(),
-        "evaluationFrequency" => list(any()),
-        "filterPattern" => String.t() | atom(),
-        "kmsKeyId" => String.t() | atom(),
-        "lastModifiedTimeStamp" => float(),
-        "logGroupArnList" => list(String.t() | atom())
-      }
-      
-  """
-  @type anomaly_detector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_export_tasks_request() :: %{
-        optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("statusCode") => list(any()),
-        optional("taskId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_export_tasks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_compile_error() :: %{
-        "location" => query_compile_error_location(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type query_compile_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_account_policy_response() :: %{
-        "accountPolicy" => account_policy()
-      }
-      
-  """
-  @type put_account_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_kms_key_request() :: %{
-        optional("logGroupName") => String.t() | atom(),
-        optional("resourceIdentifier") => String.t() | atom(),
-        required("kmsKeyId") => String.t() | atom()
-      }
-      
-  """
-  @type associate_kms_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_templates_response() :: %{
-        "configurationTemplates" => list(configuration_template()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_configuration_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_log_groups_request() :: %{
-        optional("accountIdentifiers") => list(String.t() | atom()),
-        optional("includeLinkedAccounts") => boolean(),
-        optional("limit") => integer(),
-        optional("logGroupClass") => list(any()),
-        optional("logGroupIdentifiers") => list(String.t() | atom()),
-        optional("logGroupNamePattern") => String.t() | atom(),
-        optional("logGroupNamePrefix") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_log_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rename_keys() :: %{
-        "entries" => list(rename_key_entry())
-      }
-      
-  """
-  @type rename_keys() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_destination_policy_request() :: %{
-        optional("forceUpdate") => boolean(),
-        required("accessPolicy") => String.t() | atom(),
-        required("destinationName") => String.t() | atom()
-      }
-      
-  """
-  @type put_destination_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_tables_integration() :: %{
-        "datasourceName" => String.t() | atom(),
-        "datasourceType" => String.t() | atom()
-      }
-      
-  """
-  @type s3_tables_integration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parse_json() :: %{
-        "destination" => String.t() | atom(),
-        "source" => String.t() | atom()
-      }
-      
-  """
-  @type parse_json() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_delivery_destination_policy_request() :: %{
-        required("deliveryDestinationName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_delivery_destination_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_metric_filter_request() :: %{
-        required("filterName") => String.t() | atom(),
-        required("logGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_metric_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_delivery_sources_request() :: %{
-        optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_delivery_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_templates_request() :: %{
-        optional("deliveryDestinationTypes") => list(list(any())()),
-        optional("limit") => integer(),
-        optional("logTypes") => list(String.t() | atom()),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceTypes") => list(String.t() | atom()),
-        optional("service") => String.t() | atom()
-      }
-      
-  """
-  @type describe_configuration_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_search_resource_config() :: %{
-        "applicationArn" => String.t() | atom(),
-        "dashboardViewerPrincipals" => list(String.t() | atom()),
-        "dataSourceRoleArn" => String.t() | atom(),
-        "kmsKeyArn" => String.t() | atom(),
-        "retentionDays" => integer()
-      }
-      
-  """
-  @type open_search_resource_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_log_record_request() :: %{
-        optional("unmask") => boolean(),
-        required("logRecordPointer") => String.t() | atom()
-      }
-      
-  """
-  @type get_log_record_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_delivery_source_request() :: %{
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_delivery_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_transformer_request() :: %{
-        required("logEventMessages") => list(String.t() | atom()),
-        required("transformerConfig") => list(processor())
-      }
-      
-  """
-  @type test_transformer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_metric_filter_request() :: %{
-        optional("applyOnTransformedLogs") => boolean(),
-        optional("emitSystemFieldDimensions") => list(String.t() | atom()),
-        optional("fieldSelectionCriteria") => String.t() | atom(),
-        required("filterName") => String.t() | atom(),
-        required("filterPattern") => String.t() | atom(),
-        required("logGroupName") => String.t() | atom(),
-        required("metricTransformations") => list(metric_transformation())
-      }
-      
-  """
-  @type put_metric_filter_request() :: %{(String.t() | atom()) => any()}
+  @type aggregate_log_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1498,1197 +164,34 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      put_account_policy_request() :: %{
-        optional("scope") => list(any()),
-        optional("selectionCriteria") => String.t() | atom(),
-        required("policyDocument") => String.t() | atom(),
-        required("policyName") => String.t() | atom(),
-        required("policyType") => list(any())
-      }
-      
-  """
-  @type put_account_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delivery_destination() :: %{
-        "arn" => String.t() | atom(),
-        "deliveryDestinationConfiguration" => delivery_destination_configuration(),
-        "deliveryDestinationType" => list(any()),
-        "name" => String.t() | atom(),
-        "outputFormat" => list(any()),
-        "tags" => map()
-      }
-      
-  """
-  @type delivery_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pattern_token() :: %{
-        "dynamicTokenPosition" => integer(),
-        "enumerations" => map(),
-        "inferredTokenName" => String.t() | atom(),
-        "isDynamic" => boolean(),
-        "tokenString" => String.t() | atom()
-      }
-      
-  """
-  @type pattern_token() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      suppression_period() :: %{
-        "suppressionUnit" => list(any()),
-        "value" => integer()
-      }
-      
-  """
-  @type suppression_period() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_log_event() :: %{
-        "message" => String.t() | atom(),
-        "timestamp" => float()
-      }
-      
-  """
-  @type input_log_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_sources_for_s3_table_integration_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("integrationArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_sources_for_s3_table_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_aggregate_log_group_summaries_request() :: %{
-        optional("accountIdentifiers") => list(String.t() | atom()),
-        optional("dataSources") => list(data_source_filter()),
-        optional("includeLinkedAccounts") => boolean(),
-        optional("limit") => integer(),
-        optional("logGroupClass") => list(any()),
-        optional("logGroupNamePattern") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        required("groupBy") => list(any())
-      }
-      
-  """
-  @type list_aggregate_log_group_summaries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_group_field() :: %{
-        "name" => String.t() | atom(),
-        "percent" => integer()
-      }
-      
-  """
-  @type log_group_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_event() :: %{
-        "message" => String.t() | atom(),
-        "timestamp" => float()
-      }
-      
-  """
-  @type log_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregate_log_group_summary() :: %{
-        "groupingIdentifiers" => list(grouping_identifier()),
-        "logGroupCount" => integer()
-      }
-      
-  """
-  @type aggregate_log_group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_source() :: %{
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_search_application() :: %{
-        "applicationArn" => String.t() | atom(),
-        "applicationEndpoint" => String.t() | atom(),
-        "applicationId" => String.t() | atom(),
-        "status" => open_search_resource_status()
-      }
-      
-  """
-  @type open_search_application() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_log_streams_request() :: %{
-        optional("descending") => boolean(),
-        optional("limit") => integer(),
-        optional("logGroupIdentifier") => String.t() | atom(),
-        optional("logGroupName") => String.t() | atom(),
-        optional("logStreamNamePrefix") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("orderBy") => list(any())
-      }
-      
-  """
-  @type describe_log_streams_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scheduled_query_summary() :: %{
-        "creationTime" => float(),
-        "destinationConfiguration" => destination_configuration(),
-        "lastExecutionStatus" => list(any()),
-        "lastTriggeredTime" => float(),
-        "lastUpdatedTime" => float(),
-        "name" => String.t() | atom(),
-        "scheduleExpression" => String.t() | atom(),
-        "scheduleType" => list(any()),
-        "scheduledQueryArn" => String.t() | atom(),
-        "state" => list(any()),
-        "timezone" => String.t() | atom()
-      }
-      
-  """
-  @type scheduled_query_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_task_status() :: %{
-        "code" => list(any()),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type export_task_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_delivery_configuration_response() :: %{}
-      
-  """
-  @type update_delivery_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_compile_error_location() :: %{
-        "endCharOffset" => integer(),
-        "startCharOffset" => integer()
-      }
-      
-  """
-  @type query_compile_error_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_delivery_destination_request() :: %{
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_delivery_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_lookup_table_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyId") => String.t() | atom(),
-        required("lookupTableArn") => String.t() | atom(),
-        required("tableBody") => String.t() | atom()
-      }
-      
-  """
-  @type update_lookup_table_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output_log_event() :: %{
-        "ingestionTime" => float(),
-        "message" => String.t() | atom(),
-        "timestamp" => float()
-      }
-      
-  """
-  @type output_log_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_metric_filter_request() :: %{
-        required("filterPattern") => String.t() | atom(),
-        required("logEventMessages") => list(String.t() | atom())
-      }
-      
-  """
-  @type test_metric_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_integration_response() :: %{
-        "integrationName" => String.t() | atom(),
-        "integrationStatus" => list(any())
-      }
-      
-  """
-  @type put_integration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_data_protection_policy_request() :: %{
-        required("logGroupIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_data_protection_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_scheduled_query_history_response() :: %{
-        "name" => String.t() | atom(),
-        "nextToken" => String.t() | atom(),
-        "scheduledQueryArn" => String.t() | atom(),
-        "triggerHistory" => list(trigger_history_record())
-      }
-      
-  """
-  @type get_scheduled_query_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      upper_case_string() :: %{
-        "withKeys" => list(String.t() | atom())
-      }
-      
-  """
-  @type upper_case_string() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_log_fields_response() :: %{
-        "logFields" => list(log_fields_list_item())
-      }
-      
-  """
-  @type get_log_fields_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_integration_request() :: %{
-        optional("force") => boolean(),
-        required("integrationName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_log_events_request() :: %{
-        optional("entity") => entity(),
-        optional("sequenceToken") => String.t() | atom(),
-        required("logEvents") => list(input_log_event()),
-        required("logGroupName") => String.t() | atom(),
-        required("logStreamName") => String.t() | atom()
-      }
-      
-  """
-  @type put_log_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_task_execution_info() :: %{
-        "completionTime" => float(),
-        "creationTime" => float()
-      }
-      
-  """
-  @type export_task_execution_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_source_from_s3_table_integration_request() :: %{
-        required("identifier") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_source_from_s3_table_integration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_export_tasks_response() :: %{
-        "exportTasks" => list(export_task()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_export_tasks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_source_filter() :: %{
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type data_source_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_search_data_source() :: %{
-        "dataSourceName" => String.t() | atom(),
-        "status" => open_search_resource_status()
-      }
-      
-  """
-  @type open_search_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_delivery_destination_policy_response() :: %{
-        "policy" => policy()
-      }
-      
-  """
-  @type put_delivery_destination_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_live_tail_request() :: %{
-        optional("logEventFilterPattern") => String.t() | atom(),
-        optional("logStreamNamePrefixes") => list(String.t() | atom()),
-        optional("logStreamNames") => list(String.t() | atom()),
-        required("logGroupIdentifiers") => list(String.t() | atom())
-      }
-      
-  """
-  @type start_live_tail_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_filter() :: %{
-        "key" => String.t() | atom(),
-        "values" => list(String.t() | atom())
-      }
-      
-  """
-  @type tag_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_delivery_request() :: %{
-        optional("fieldDelimiter") => String.t() | atom(),
-        optional("recordFields") => list(String.t() | atom()),
-        optional("s3DeliveryConfiguration") => s3_delivery_configuration(),
-        optional("tags") => map(),
-        required("deliveryDestinationArn") => String.t() | atom(),
-        required("deliverySourceName") => String.t() | atom()
-      }
-      
-  """
-  @type create_delivery_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rejected_entity_info() :: %{
-        "errorType" => list(any())
-      }
-      
-  """
-  @type rejected_entity_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_log_anomaly_detector_request() :: %{
-        optional("anomalyVisibilityTime") => float(),
-        optional("detectorName") => String.t() | atom(),
-        optional("evaluationFrequency") => list(any()),
-        optional("filterPattern") => String.t() | atom(),
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("tags") => map(),
-        required("logGroupArnList") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_log_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_export_task_response() :: %{
-        "taskId" => String.t() | atom()
-      }
-      
-  """
-  @type create_export_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => map()
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_anomalies_response() :: %{
-        "anomalies" => list(anomaly()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_anomalies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_delivery_destinations_request() :: %{
-        optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_delivery_destinations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_keys() :: %{
-        "withKeys" => list(String.t() | atom())
-      }
-      
-  """
-  @type delete_keys() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      result_field() :: %{
-        "field" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type result_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_scheduled_queries_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("scheduleType") => list(any()),
-        optional("state") => list(any())
-      }
-      
-  """
-  @type list_scheduled_queries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      date_time_converter() :: %{
-        "locale" => String.t() | atom(),
-        "matchPatterns" => list(String.t() | atom()),
-        "source" => String.t() | atom(),
-        "sourceTimezone" => String.t() | atom(),
-        "target" => String.t() | atom(),
-        "targetFormat" => String.t() | atom(),
-        "targetTimezone" => String.t() | atom()
-      }
-      
-  """
-  @type date_time_converter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      entity() :: %{
-        "attributes" => map(),
-        "keyAttributes" => map()
-      }
-      
-  """
-  @type entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_data_protection_policy_request() :: %{
-        required("logGroupIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type delete_data_protection_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_import_task_request() :: %{
-        required("importId") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_import_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_import_task_batches_response() :: %{
-        "importBatches" => list(import_batch()),
-        "importId" => String.t() | atom(),
-        "importSourceArn" => String.t() | atom(),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_import_task_batches_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_integration_request() :: %{
-        required("integrationName") => String.t() | atom(),
-        required("integrationType") => list(any()),
-        required("resourceConfig") => list()
-      }
-      
-  """
-  @type put_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      destination() :: %{
-        "accessPolicy" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "creationTime" => float(),
-        "destinationName" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "targetArn" => String.t() | atom()
-      }
-      
-  """
-  @type destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_integration_request() :: %{
-        required("integrationName") => String.t() | atom()
-      }
-      
-  """
-  @type get_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_subscription_filters_request() :: %{
-        optional("filterNamePrefix") => String.t() | atom(),
-        optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("logGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_subscription_filters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      malformed_query_exception() :: %{
-        "message" => String.t() | atom(),
-        "queryCompileError" => query_compile_error()
-      }
-      
-  """
-  @type malformed_query_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      live_tail_session_start() :: %{
-        "logEventFilterPattern" => String.t() | atom(),
-        "logGroupIdentifiers" => list(String.t() | atom()),
-        "logStreamNamePrefixes" => list(String.t() | atom()),
-        "logStreamNames" => list(String.t() | atom()),
-        "requestId" => String.t() | atom(),
-        "sessionId" => String.t() | atom()
-      }
-      
-  """
-  @type live_tail_session_start() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parse_cloudfront() :: %{
-        "source" => String.t() | atom()
-      }
-      
-  """
-  @type parse_cloudfront() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_transformer_response() :: %{
-        "transformedLogs" => list(transformed_log_record())
-      }
-      
-  """
-  @type test_transformer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_scheduled_queries_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "scheduledQueries" => list(scheduled_query_summary())
-      }
-      
-  """
-  @type list_scheduled_queries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_log_anomaly_detector_request() :: %{
-        required("anomalyDetectorArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_log_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import() :: %{
-        "creationTime" => float(),
-        "errorMessage" => String.t() | atom(),
-        "importDestinationArn" => String.t() | atom(),
-        "importFilter" => import_filter(),
-        "importId" => String.t() | atom(),
-        "importSourceArn" => String.t() | atom(),
-        "importStatistics" => import_statistics(),
-        "importStatus" => list(any()),
-        "lastUpdatedTime" => float()
-      }
-      
-  """
-  @type import() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_sequence_token_exception() :: %{
-        "expectedSequenceToken" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_sequence_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_log_events_response() :: %{
-        "nextSequenceToken" => String.t() | atom(),
-        "rejectedEntityInfo" => rejected_entity_info(),
-        "rejectedLogEventsInfo" => rejected_log_events_info()
-      }
-      
-  """
-  @type put_log_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_query_definition_response() :: %{
-        "queryDefinitionId" => String.t() | atom()
-      }
-      
-  """
-  @type put_query_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delivery() :: %{
-        "arn" => String.t() | atom(),
-        "deliveryDestinationArn" => String.t() | atom(),
-        "deliveryDestinationType" => list(any()),
-        "deliverySourceName" => String.t() | atom(),
-        "fieldDelimiter" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "recordFields" => list(String.t() | atom()),
-        "s3DeliveryConfiguration" => s3_delivery_configuration(),
-        "tags" => map()
-      }
-      
-  """
-  @type delivery() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_metric_filters_response() :: %{
-        "metricFilters" => list(metric_filter()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_metric_filters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter_log_events_response() :: %{
-        "events" => list(filtered_log_event()),
-        "nextToken" => String.t() | atom(),
-        "searchedLogStreams" => list(searched_log_stream())
-      }
-      
-  """
-  @type filter_log_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_delivery_destination_policy_response() :: %{
-        "policy" => policy()
-      }
-      
-  """
-  @type get_delivery_destination_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_lookup_table_response() :: %{
-        "createdAt" => float(),
-        "lookupTableArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_lookup_table_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_resource_policies_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "resourcePolicies" => list(resource_policy())
-      }
-      
-  """
-  @type describe_resource_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_scheduled_query_history_request() :: %{
-        optional("executionStatuses") => list(list(any())()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("endTime") => float(),
-        required("identifier") => String.t() | atom(),
-        required("startTime") => float()
-      }
-      
-  """
-  @type get_scheduled_query_history_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fields_data() :: %{
-        "data" => binary()
-      }
-      
-  """
-  @type fields_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_deliveries_response() :: %{
-        "deliveries" => list(delivery()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_deliveries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_index_policy_response() :: %{}
-      
-  """
-  @type delete_index_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_delivery_destination_policy_request() :: %{
-        required("deliveryDestinationName") => String.t() | atom(),
-        required("deliveryDestinationPolicy") => String.t() | atom()
-      }
-      
-  """
-  @type put_delivery_destination_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_query_request() :: %{
-        optional("limit") => integer(),
-        optional("logGroupIdentifiers") => list(String.t() | atom()),
-        optional("logGroupName") => String.t() | atom(),
-        optional("logGroupNames") => list(String.t() | atom()),
-        optional("queryLanguage") => list(any()),
-        required("endTime") => float(),
-        required("queryString") => String.t() | atom(),
-        required("startTime") => float()
-      }
-      
-  """
-  @type start_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_scheduled_query_response() :: %{
-        "creationTime" => float(),
-        "description" => String.t() | atom(),
-        "destinationConfiguration" => destination_configuration(),
-        "endTimeOffset" => float(),
-        "executionRoleArn" => String.t() | atom(),
-        "lastExecutionStatus" => list(any()),
-        "lastTriggeredTime" => float(),
-        "lastUpdatedTime" => float(),
-        "logGroupIdentifiers" => list(String.t() | atom()),
-        "name" => String.t() | atom(),
-        "queryLanguage" => list(any()),
-        "queryString" => String.t() | atom(),
-        "scheduleEndTime" => float(),
-        "scheduleExpression" => String.t() | atom(),
-        "scheduleStartTime" => float(),
-        "scheduleType" => list(any()),
-        "scheduledQueryArn" => String.t() | atom(),
-        "startTimeOffset" => float(),
-        "state" => list(any()),
-        "timezone" => String.t() | atom()
-      }
-      
-  """
-  @type get_scheduled_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_subscription_filter_request() :: %{
-        optional("applyOnTransformedLogs") => boolean(),
-        optional("distribution") => list(any()),
-        optional("emitSystemFields") => list(String.t() | atom()),
-        optional("fieldSelectionCriteria") => String.t() | atom(),
-        optional("roleArn") => String.t() | atom(),
-        required("destinationArn") => String.t() | atom(),
-        required("filterName") => String.t() | atom(),
-        required("filterPattern") => String.t() | atom(),
-        required("logGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type put_subscription_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      session_timeout_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type session_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_deliveries_request() :: %{
-        optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_deliveries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_storage_tier_policy_request() :: %{}
-      
-  """
-  @type get_storage_tier_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_storage_tier_policy_response() :: %{
-        "lastUpdatedTime" => float(),
-        "storageTier" => list(any())
-      }
-      
-  """
-  @type put_storage_tier_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_lookup_table_response() :: %{
-        "description" => String.t() | atom(),
+      anomaly_detector() :: %{
+        "anomalyDetectorArn" => String.t() | atom(),
+        "anomalyDetectorStatus" => list(any()),
+        "anomalyVisibilityTime" => float(),
+        "creationTimeStamp" => float(),
+        "detectorName" => String.t() | atom(),
+        "evaluationFrequency" => list(any()),
+        "filterPattern" => String.t() | atom(),
         "kmsKeyId" => String.t() | atom(),
-        "lastUpdatedTime" => float(),
-        "lookupTableArn" => String.t() | atom(),
-        "lookupTableName" => String.t() | atom(),
-        "sizeBytes" => float(),
-        "tableBody" => String.t() | atom()
+        "lastModifiedTimeStamp" => float(),
+        "logGroupArnList" => list(String.t() | atom())
       }
       
   """
-  @type get_lookup_table_response() :: %{(String.t() | atom()) => any()}
+  @type anomaly_detector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      grouping_identifier() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
+      associate_kms_key_request() :: %{
+        optional("logGroupName") => String.t() | atom(),
+        optional("resourceIdentifier") => String.t() | atom(),
+        required("kmsKeyId") => String.t() | atom()
       }
       
   """
-  @type grouping_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_lookup_table_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("tags") => map(),
-        required("lookupTableName") => String.t() | atom(),
-        required("tableBody") => String.t() | atom()
-      }
-      
-  """
-  @type create_lookup_table_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      syslog_configuration() :: %{
-        "createdAt" => float(),
-        "logGroupArn" => String.t() | atom(),
-        "sourceType" => list(any()),
-        "vpcEndpointId" => String.t() | atom()
-      }
-      
-  """
-  @type syslog_configuration() :: %{(String.t() | atom()) => any()}
+  @type associate_kms_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2706,18 +209,6 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      create_scheduled_query_response() :: %{
-        "scheduledQueryArn" => String.t() | atom(),
-        "state" => list(any())
-      }
-      
-  """
-  @type create_scheduled_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       associate_source_to_s3_table_integration_response() :: %{
         "identifier" => String.t() | atom()
       }
@@ -2729,1042 +220,23 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      delete_resource_policy_request() :: %{
-        optional("expectedRevisionId") => String.t() | atom(),
-        optional("policyName") => String.t() | atom(),
-        optional("resourceArn") => String.t() | atom()
+      cancel_export_task_request() :: %{
+        required("taskId") => String.t() | atom()
       }
       
   """
-  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+  @type cancel_export_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      move_keys() :: %{
-        "entries" => list(move_key_entry())
-      }
-      
-  """
-  @type move_keys() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      index_policy() :: %{
-        "lastUpdateTime" => float(),
-        "logGroupIdentifier" => String.t() | atom(),
-        "policyDocument" => String.t() | atom(),
-        "policyName" => String.t() | atom(),
-        "source" => list(any())
-      }
-      
-  """
-  @type index_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_group() :: %{
-        "arn" => String.t() | atom(),
-        "bearerTokenAuthenticationEnabled" => boolean(),
-        "creationTime" => float(),
-        "dataProtectionStatus" => list(any()),
-        "deletionProtectionEnabled" => boolean(),
-        "inheritedProperties" => list(list(any())()),
-        "kmsKeyId" => String.t() | atom(),
-        "logGroupArn" => String.t() | atom(),
-        "logGroupClass" => list(any()),
-        "logGroupName" => String.t() | atom(),
-        "metricFilterCount" => integer(),
-        "retentionInDays" => integer(),
-        "storedBytes" => float()
-      }
-      
-  """
-  @type log_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_lookup_table_response() :: %{
-        "lastUpdatedTime" => float(),
-        "lookupTableArn" => String.t() | atom()
-      }
-      
-  """
-  @type update_lookup_table_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      live_tail_session_metadata() :: %{
-        "sampled" => boolean()
-      }
-      
-  """
-  @type live_tail_session_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_log_group_response() :: %{
-        "tags" => map()
-      }
-      
-  """
-  @type list_tags_log_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_destination_request() :: %{
-        required("destinationName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parse_vpc() :: %{
-        "source" => String.t() | atom()
-      }
-      
-  """
-  @type parse_vpc() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_live_tail_response() :: %{
-        "responseStream" => list()
-      }
-      
-  """
-  @type start_live_tail_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_query_results_response() :: %{
-        "encryptionKey" => String.t() | atom(),
-        "nextToken" => String.t() | atom(),
-        "queryLanguage" => list(any()),
-        "results" => list(list(result_field())()),
-        "statistics" => query_statistics(),
-        "status" => list(any())
-      }
-      
-  """
-  @type get_query_results_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_syslog_configurations_request() :: %{
-        optional("logGroupIdentifier") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("vpcEndpointId") => String.t() | atom()
-      }
-      
-  """
-  @type list_syslog_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_search_resource_status() :: %{
-        "status" => list(any()),
-        "statusMessage" => String.t() | atom()
-      }
-      
-  """
-  @type open_search_resource_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_log_anomaly_detectors_request() :: %{
-        optional("filterLogGroupArn") => String.t() | atom(),
-        optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_log_anomaly_detectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_destination_response() :: %{
-        "destination" => destination()
-      }
-      
-  """
-  @type put_destination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_query_definition_request() :: %{
-        required("queryDefinitionId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_query_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_import_task_response() :: %{
-        "creationTime" => float(),
-        "importDestinationArn" => String.t() | atom(),
-        "importId" => String.t() | atom()
-      }
-      
-  """
-  @type create_import_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      record_field() :: %{
-        "mandatory" => boolean(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type record_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_policies_response() :: %{
-        "accountPolicies" => list(account_policy()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_account_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_aggregate_log_group_summaries_response() :: %{
-        "aggregateLogGroupSummaries" => list(aggregate_log_group_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_aggregate_log_group_summaries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_anomaly_request() :: %{
-        optional("anomalyId") => String.t() | atom(),
-        optional("baseline") => boolean(),
-        optional("patternId") => String.t() | atom(),
-        optional("suppressionPeriod") => suppression_period(),
-        optional("suppressionType") => list(any()),
-        required("anomalyDetectorArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_anomaly_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_log_object_response() :: %{
-        "fieldStream" => list()
-      }
-      
-  """
-  @type get_log_object_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      processor() :: %{
-        "addKeys" => add_keys(),
-        "copyValue" => copy_value(),
-        "csv" => csv(),
-        "dateTimeConverter" => date_time_converter(),
-        "deleteKeys" => delete_keys(),
-        "grok" => grok(),
-        "listToMap" => list_to_map(),
-        "lowerCaseString" => lower_case_string(),
-        "moveKeys" => move_keys(),
-        "parseCloudfront" => parse_cloudfront(),
-        "parseJSON" => parse_json(),
-        "parseKeyValue" => parse_key_value(),
-        "parsePostgres" => parse_postgres(),
-        "parseRoute53" => parse_route53(),
-        "parseToOCSF" => parse_to_o_c_s_f(),
-        "parseVPC" => parse_vpc(),
-        "parseWAF" => parse_w_a_f(),
-        "renameKeys" => rename_keys(),
-        "splitString" => split_string(),
-        "substituteString" => substitute_string(),
-        "trimString" => trim_string(),
-        "typeConverter" => type_converter(),
-        "upperCaseString" => upper_case_string()
-      }
-      
-  """
-  @type processor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_log_group_request() :: %{
-        required("logGroupName") => String.t() | atom(),
-        required("tags") => map()
-      }
-      
-  """
-  @type tag_log_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_response() :: %{
-        "resourcePolicy" => resource_policy(),
-        "revisionId" => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_definition() :: %{
-        "lastModified" => float(),
-        "logGroupNames" => list(String.t() | atom()),
-        "name" => String.t() | atom(),
-        "parameters" => list(query_parameter()),
-        "queryDefinitionId" => String.t() | atom(),
-        "queryLanguage" => list(any()),
-        "queryString" => String.t() | atom()
-      }
-      
-  """
-  @type query_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_field_indexes_request() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("logGroupIdentifiers") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_field_indexes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_import_tasks_request() :: %{
-        optional("importId") => String.t() | atom(),
-        optional("importSourceArn") => String.t() | atom(),
-        optional("importStatus") => list(any()),
-        optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_import_tasks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_import_task_batches_request() :: %{
-        optional("batchImportStatus") => list(list(any())()),
-        optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom(),
+      cancel_import_task_request() :: %{
         required("importId") => String.t() | atom()
       }
       
   """
-  @type describe_import_task_batches_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_account_policy_request() :: %{
-        required("policyName") => String.t() | atom(),
-        required("policyType") => list(any())
-      }
-      
-  """
-  @type delete_account_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lower_case_string() :: %{
-        "withKeys" => list(String.t() | atom())
-      }
-      
-  """
-  @type lower_case_string() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_metric_filters_request() :: %{
-        optional("filterNamePrefix") => String.t() | atom(),
-        optional("limit") => integer(),
-        optional("logGroupName") => String.t() | atom(),
-        optional("metricName") => String.t() | atom(),
-        optional("metricNamespace") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_metric_filters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_search_integration_details() :: %{
-        "accessPolicy" => open_search_data_access_policy(),
-        "application" => open_search_application(),
-        "collection" => open_search_collection(),
-        "dataSource" => open_search_data_source(),
-        "encryptionPolicy" => open_search_encryption_policy(),
-        "lifecyclePolicy" => open_search_lifecycle_policy(),
-        "networkPolicy" => open_search_network_policy(),
-        "workspace" => open_search_workspace()
-      }
-      
-  """
-  @type open_search_integration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      move_key_entry() :: %{
-        "overwriteIfExists" => boolean(),
-        "source" => String.t() | atom(),
-        "target" => String.t() | atom()
-      }
-      
-  """
-  @type move_key_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rejected_log_events_info() :: %{
-        "expiredLogEventEndIndex" => integer(),
-        "tooNewLogEventStartIndex" => integer(),
-        "tooOldLogEventEndIndex" => integer()
-      }
-      
-  """
-  @type rejected_log_events_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_query_results_request() :: %{
-        optional("maxItems") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("queryId") => String.t() | atom()
-      }
-      
-  """
-  @type get_query_results_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_log_fields_request() :: %{
-        required("dataSourceName") => String.t() | atom(),
-        required("dataSourceType") => String.t() | atom()
-      }
-      
-  """
-  @type get_log_fields_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_log_events_request() :: %{
-        optional("endTime") => float(),
-        optional("limit") => integer(),
-        optional("logGroupIdentifier") => String.t() | atom(),
-        optional("logGroupName") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("startFromHead") => boolean(),
-        optional("startTime") => float(),
-        optional("unmask") => boolean(),
-        required("logStreamName") => String.t() | atom()
-      }
-      
-  """
-  @type get_log_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_subscription_filter_request() :: %{
-        required("filterName") => String.t() | atom(),
-        required("logGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_subscription_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_metric_filter_response() :: %{
-        "matches" => list(metric_filter_match_record())
-      }
-      
-  """
-  @type test_metric_filter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_value_entry() :: %{
-        "overwriteIfExists" => boolean(),
-        "source" => String.t() | atom(),
-        "target" => String.t() | atom()
-      }
-      
-  """
-  @type copy_value_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_parameter() :: %{
-        "defaultValue" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type query_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_syslog_configuration_request() :: %{
-        optional("vpcEndpointId") => String.t() | atom(),
-        required("logGroupIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type put_syslog_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_tags_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceName" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_delivery_configuration_request() :: %{
-        optional("fieldDelimiter") => String.t() | atom(),
-        optional("recordFields") => list(String.t() | atom()),
-        optional("s3DeliveryConfiguration") => s3_delivery_configuration(),
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type update_delivery_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      transformed_log_record() :: %{
-        "eventMessage" => String.t() | atom(),
-        "eventNumber" => float(),
-        "transformedEventMessage" => String.t() | atom()
-      }
-      
-  """
-  @type transformed_log_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_already_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delivery_source_configuration_schema() :: %{
-        "defaultValue" => String.t() | atom(),
-        "keyName" => String.t() | atom(),
-        "maxValue" => float(),
-        "minValue" => float(),
-        "supportedValues" => list(String.t() | atom()),
-        "valueType" => list(any())
-      }
-      
-  """
-  @type delivery_source_configuration_schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_transformer_request() :: %{
-        required("logGroupIdentifier") => String.t() | atom(),
-        required("transformerConfig") => list(processor())
-      }
-      
-  """
-  @type put_transformer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_stream() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => float(),
-        "firstEventTimestamp" => float(),
-        "lastEventTimestamp" => float(),
-        "lastIngestionTime" => float(),
-        "logStreamName" => String.t() | atom(),
-        "storedBytes" => float(),
-        "uploadSequenceToken" => String.t() | atom()
-      }
-      
-  """
-  @type log_stream() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      trim_string() :: %{
-        "withKeys" => list(String.t() | atom())
-      }
-      
-  """
-  @type trim_string() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_anomalies_request() :: %{
-        optional("anomalyDetectorArn") => String.t() | atom(),
-        optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("suppressionState") => list(any())
-      }
-      
-  """
-  @type list_anomalies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_syslog_configurations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "syslogConfigurations" => list(syslog_configuration())
-      }
-      
-  """
-  @type list_syslog_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_scheduled_query_response() :: %{
-        "creationTime" => float(),
-        "description" => String.t() | atom(),
-        "destinationConfiguration" => destination_configuration(),
-        "endTimeOffset" => float(),
-        "executionRoleArn" => String.t() | atom(),
-        "lastExecutionStatus" => list(any()),
-        "lastTriggeredTime" => float(),
-        "lastUpdatedTime" => float(),
-        "logGroupIdentifiers" => list(String.t() | atom()),
-        "name" => String.t() | atom(),
-        "queryLanguage" => list(any()),
-        "queryString" => String.t() | atom(),
-        "scheduleEndTime" => float(),
-        "scheduleExpression" => String.t() | atom(),
-        "scheduleStartTime" => float(),
-        "scheduleType" => list(any()),
-        "scheduledQueryArn" => String.t() | atom(),
-        "startTimeOffset" => float(),
-        "state" => list(any()),
-        "timezone" => String.t() | atom()
-      }
-      
-  """
-  @type update_scheduled_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parse_route53() :: %{
-        "source" => String.t() | atom()
-      }
-      
-  """
-  @type parse_route53() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_value() :: %{
-        "entries" => list(copy_value_entry())
-      }
-      
-  """
-  @type copy_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parse_key_value() :: %{
-        "destination" => String.t() | atom(),
-        "fieldDelimiter" => String.t() | atom(),
-        "keyPrefix" => String.t() | atom(),
-        "keyValueDelimiter" => String.t() | atom(),
-        "nonMatchValue" => String.t() | atom(),
-        "overwriteIfExists" => boolean(),
-        "source" => String.t() | atom()
-      }
-      
-  """
-  @type parse_key_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_log_events_response() :: %{
-        "events" => list(output_log_event()),
-        "nextBackwardToken" => String.t() | atom(),
-        "nextForwardToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_log_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_search_lifecycle_policy() :: %{
-        "policyName" => String.t() | atom(),
-        "status" => open_search_resource_status()
-      }
-      
-  """
-  @type open_search_lifecycle_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_log_streams_response() :: %{
-        "logStreams" => list(log_stream()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_log_streams_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_already_accepted_exception() :: %{
-        "expectedSequenceToken" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type data_already_accepted_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_delivery_sources_response() :: %{
-        "deliverySources" => list(delivery_source()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_delivery_sources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_delivery_response() :: %{
-        "delivery" => delivery()
-      }
-      
-  """
-  @type create_delivery_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_search_data_access_policy() :: %{
-        "policyName" => String.t() | atom(),
-        "status" => open_search_resource_status()
-      }
-      
-  """
-  @type open_search_data_access_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_log_anomaly_detectors_response() :: %{
-        "anomalyDetectors" => list(anomaly_detector()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_log_anomaly_detectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_lookup_table_request() :: %{
-        required("lookupTableArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_lookup_table_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_transformer_request() :: %{
-        required("logGroupIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_transformer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_log_anomaly_detector_request() :: %{
-        required("anomalyDetectorArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_log_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_search_network_policy() :: %{
-        "policyName" => String.t() | atom(),
-        "status" => open_search_resource_status()
-      }
-      
-  """
-  @type open_search_network_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_integrations_request() :: %{
-        optional("integrationNamePrefix") => String.t() | atom(),
-        optional("integrationStatus") => list(any()),
-        optional("integrationType") => list(any())
-      }
-      
-  """
-  @type list_integrations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_delivery_destination_response() :: %{
-        "deliveryDestination" => delivery_destination()
-      }
-      
-  """
-  @type put_delivery_destination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_log_stream_request() :: %{
-        required("logGroupName") => String.t() | atom(),
-        required("logStreamName") => String.t() | atom()
-      }
-      
-  """
-  @type create_log_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_search_collection() :: %{
-        "collectionArn" => String.t() | atom(),
-        "collectionEndpoint" => String.t() | atom(),
-        "status" => open_search_resource_status()
-      }
-      
-  """
-  @type open_search_collection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_query_response() :: %{
-        "queryId" => String.t() | atom()
-      }
-      
-  """
-  @type start_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_integrations_response() :: %{
-        "integrationSummaries" => list(integration_summary())
-      }
-      
-  """
-  @type list_integrations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_delivery_request() :: %{
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type get_delivery_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_integration_response() :: %{}
-      
-  """
-  @type delete_integration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      parse_w_a_f() :: %{
-        "source" => String.t() | atom()
-      }
-      
-  """
-  @type parse_w_a_f() :: %{(String.t() | atom()) => any()}
+  @type cancel_import_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3780,95 +252,6 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type cancel_import_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      session_streaming_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type session_streaming_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter_log_events_request() :: %{
-        optional("endTime") => float(),
-        optional("filterPattern") => String.t() | atom(),
-        optional("interleaved") => boolean(),
-        optional("limit") => integer(),
-        optional("logGroupIdentifier") => String.t() | atom(),
-        optional("logGroupName") => String.t() | atom(),
-        optional("logStreamNamePrefix") => String.t() | atom(),
-        optional("logStreamNames") => list(String.t() | atom()),
-        optional("nextToken") => String.t() | atom(),
-        optional("startFromHead") => boolean(),
-        optional("startTime") => float(),
-        optional("unmask") => boolean()
-      }
-      
-  """
-  @type filter_log_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      split_string() :: %{
-        "entries" => list(split_string_entry())
-      }
-      
-  """
-  @type split_string() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_index_policy_response() :: %{
-        "indexPolicy" => index_policy()
-      }
-      
-  """
-  @type put_index_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delivery_destination_configuration() :: %{
-        "destinationResourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type delivery_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_filter() :: %{
-        "endEventTime" => float(),
-        "startEventTime" => float()
-      }
-      
-  """
-  @type import_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3909,46 +292,1013 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      query_info() :: %{
-        "bytesScanned" => float(),
-        "createTime" => float(),
-        "logGroupName" => String.t() | atom(),
-        "queryDuration" => float(),
-        "queryId" => String.t() | atom(),
-        "queryLanguage" => list(any()),
-        "queryString" => String.t() | atom(),
-        "status" => list(any()),
-        "userIdentity" => String.t() | atom()
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type query_info() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_log_groups_response() :: %{
-        "logGroups" => list(log_group_summary()),
+      copy_value() :: %{
+        "entries" => list(copy_value_entry())
+      }
+      
+  """
+  @type copy_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_value_entry() :: %{
+        "overwriteIfExists" => boolean(),
+        "source" => String.t() | atom(),
+        "target" => String.t() | atom()
+      }
+      
+  """
+  @type copy_value_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_delivery_request() :: %{
+        optional("fieldDelimiter") => String.t() | atom(),
+        optional("recordFields") => list(String.t() | atom()),
+        optional("s3DeliveryConfiguration") => s3_delivery_configuration(),
+        optional("tags") => map(),
+        required("deliveryDestinationArn") => String.t() | atom(),
+        required("deliverySourceName") => String.t() | atom()
+      }
+      
+  """
+  @type create_delivery_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_delivery_response() :: %{
+        "delivery" => delivery()
+      }
+      
+  """
+  @type create_delivery_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_export_task_request() :: %{
+        optional("destinationPrefix") => String.t() | atom(),
+        optional("logStreamNamePrefix") => String.t() | atom(),
+        optional("taskName") => String.t() | atom(),
+        required("destination") => String.t() | atom(),
+        required("from") => float(),
+        required("logGroupName") => String.t() | atom(),
+        required("to") => float()
+      }
+      
+  """
+  @type create_export_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_export_task_response() :: %{
+        "taskId" => String.t() | atom()
+      }
+      
+  """
+  @type create_export_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_import_task_request() :: %{
+        optional("importFilter") => import_filter(),
+        required("importRoleArn") => String.t() | atom(),
+        required("importSourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_import_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_import_task_response() :: %{
+        "creationTime" => float(),
+        "importDestinationArn" => String.t() | atom(),
+        "importId" => String.t() | atom()
+      }
+      
+  """
+  @type create_import_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_log_anomaly_detector_request() :: %{
+        optional("anomalyVisibilityTime") => float(),
+        optional("detectorName") => String.t() | atom(),
+        optional("evaluationFrequency") => list(any()),
+        optional("filterPattern") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("tags") => map(),
+        required("logGroupArnList") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_log_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_log_anomaly_detector_response() :: %{
+        "anomalyDetectorArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_log_anomaly_detector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_log_group_request() :: %{
+        optional("deletionProtectionEnabled") => boolean(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("logGroupClass") => list(any()),
+        optional("tags") => map(),
+        required("logGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type create_log_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_log_stream_request() :: %{
+        required("logGroupName") => String.t() | atom(),
+        required("logStreamName") => String.t() | atom()
+      }
+      
+  """
+  @type create_log_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_lookup_table_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("queryId") => String.t() | atom(),
+        optional("tableBody") => String.t() | atom(),
+        optional("tags") => map(),
+        required("lookupTableName") => String.t() | atom()
+      }
+      
+  """
+  @type create_lookup_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_lookup_table_response() :: %{
+        "createdAt" => float(),
+        "lookupTableArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_lookup_table_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_scheduled_query_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("destinationConfiguration") => destination_configuration(),
+        optional("endTimeOffset") => float(),
+        optional("logGroupIdentifiers") => list(String.t() | atom()),
+        optional("scheduleEndTime") => float(),
+        optional("scheduleStartTime") => float(),
+        optional("startTimeOffset") => float(),
+        optional("state") => list(any()),
+        optional("tags") => map(),
+        optional("timezone") => String.t() | atom(),
+        required("executionRoleArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("queryLanguage") => list(any()),
+        required("queryString") => String.t() | atom(),
+        required("scheduleExpression") => String.t() | atom()
+      }
+      
+  """
+  @type create_scheduled_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_scheduled_query_response() :: %{
+        "scheduledQueryArn" => String.t() | atom(),
+        "state" => list(any())
+      }
+      
+  """
+  @type create_scheduled_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      csv() :: %{
+        "columns" => list(String.t() | atom()),
+        "delimiter" => String.t() | atom(),
+        "destination" => String.t() | atom(),
+        "quoteCharacter" => String.t() | atom(),
+        "source" => String.t() | atom()
+      }
+      
+  """
+  @type csv() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_already_accepted_exception() :: %{
+        "expectedSequenceToken" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type data_already_accepted_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_source() :: %{
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_source_filter() :: %{
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type data_source_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      date_time_converter() :: %{
+        "locale" => String.t() | atom(),
+        "matchPatterns" => list(String.t() | atom()),
+        "source" => String.t() | atom(),
+        "sourceTimezone" => String.t() | atom(),
+        "target" => String.t() | atom(),
+        "targetFormat" => String.t() | atom(),
+        "targetTimezone" => String.t() | atom()
+      }
+      
+  """
+  @type date_time_converter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_account_policy_request() :: %{
+        required("policyName") => String.t() | atom(),
+        required("policyType") => list(any())
+      }
+      
+  """
+  @type delete_account_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_data_protection_policy_request() :: %{
+        required("logGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_data_protection_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_delivery_destination_policy_request() :: %{
+        required("deliveryDestinationName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_delivery_destination_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_delivery_destination_request() :: %{
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_delivery_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_delivery_request() :: %{
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_delivery_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_delivery_source_request() :: %{
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_delivery_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_destination_request() :: %{
+        required("destinationName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_index_policy_request() :: %{
+        required("logGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_index_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_index_policy_response() :: %{}
+      
+  """
+  @type delete_index_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_integration_request() :: %{
+        optional("force") => boolean(),
+        required("integrationName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_integration_response() :: %{}
+      
+  """
+  @type delete_integration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_keys() :: %{
+        "withKeys" => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_keys() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_log_anomaly_detector_request() :: %{
+        required("anomalyDetectorArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_log_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_log_group_request() :: %{
+        required("logGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_log_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_log_stream_request() :: %{
+        required("logGroupName") => String.t() | atom(),
+        required("logStreamName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_log_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_lookup_table_request() :: %{
+        required("lookupTableArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_lookup_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_metric_filter_request() :: %{
+        required("filterName") => String.t() | atom(),
+        required("logGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_metric_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_query_definition_request() :: %{
+        required("queryDefinitionId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_query_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_query_definition_response() :: %{
+        "success" => boolean()
+      }
+      
+  """
+  @type delete_query_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_request() :: %{
+        optional("expectedRevisionId") => String.t() | atom(),
+        optional("policyName") => String.t() | atom(),
+        optional("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_retention_policy_request() :: %{
+        required("logGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_retention_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_scheduled_query_request() :: %{
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_scheduled_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_scheduled_query_response() :: %{}
+      
+  """
+  @type delete_scheduled_query_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_subscription_filter_request() :: %{
+        required("filterName") => String.t() | atom(),
+        required("logGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_subscription_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_syslog_configuration_request() :: %{
+        optional("vpcEndpointId") => String.t() | atom(),
+        required("logGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_syslog_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_transformer_request() :: %{
+        required("logGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_transformer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delivery() :: %{
+        "arn" => String.t() | atom(),
+        "deliveryDestinationArn" => String.t() | atom(),
+        "deliveryDestinationType" => list(any()),
+        "deliverySourceName" => String.t() | atom(),
+        "fieldDelimiter" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "recordFields" => list(String.t() | atom()),
+        "s3DeliveryConfiguration" => s3_delivery_configuration(),
+        "tags" => map()
+      }
+      
+  """
+  @type delivery() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delivery_destination() :: %{
+        "arn" => String.t() | atom(),
+        "deliveryDestinationConfiguration" => delivery_destination_configuration(),
+        "deliveryDestinationType" => list(any()),
+        "name" => String.t() | atom(),
+        "outputFormat" => list(any()),
+        "tags" => map()
+      }
+      
+  """
+  @type delivery_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delivery_destination_configuration() :: %{
+        "destinationResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type delivery_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delivery_source() :: %{
+        "arn" => String.t() | atom(),
+        "deliverySourceConfiguration" => map(),
+        "logType" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "resourceArns" => list(String.t() | atom()),
+        "service" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => list(any()),
+        "tags" => map()
+      }
+      
+  """
+  @type delivery_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delivery_source_configuration_schema() :: %{
+        "defaultValue" => String.t() | atom(),
+        "keyName" => String.t() | atom(),
+        "maxValue" => float(),
+        "minValue" => float(),
+        "supportedValues" => list(String.t() | atom()),
+        "valueType" => list(any())
+      }
+      
+  """
+  @type delivery_source_configuration_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_policies_request() :: %{
+        optional("accountIdentifiers") => list(String.t() | atom()),
+        optional("nextToken") => String.t() | atom(),
+        optional("policyName") => String.t() | atom(),
+        required("policyType") => list(any())
+      }
+      
+  """
+  @type describe_account_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_policies_response() :: %{
+        "accountPolicies" => list(account_policy()),
         "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_log_groups_response() :: %{(String.t() | atom()) => any()}
+  @type describe_account_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_configuration() :: %{
-        "destinationIdentifier" => String.t() | atom(),
-        "kmsKeyId" => String.t() | atom(),
-        "ownerAccountId" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
+      describe_configuration_templates_request() :: %{
+        optional("deliveryDestinationTypes") => list(list(any())()),
+        optional("limit") => integer(),
+        optional("logTypes") => list(String.t() | atom()),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceTypes") => list(String.t() | atom()),
+        optional("service") => String.t() | atom()
       }
       
   """
-  @type s3_configuration() :: %{(String.t() | atom()) => any()}
+  @type describe_configuration_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_templates_response() :: %{
+        "configurationTemplates" => list(configuration_template()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_configuration_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_deliveries_request() :: %{
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_deliveries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_deliveries_response() :: %{
+        "deliveries" => list(delivery()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_deliveries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_delivery_destinations_request() :: %{
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_delivery_destinations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_delivery_destinations_response() :: %{
+        "deliveryDestinations" => list(delivery_destination()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_delivery_destinations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_delivery_sources_request() :: %{
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_delivery_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_delivery_sources_response() :: %{
+        "deliverySources" => list(delivery_source()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_delivery_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_destinations_request() :: %{
+        optional("DestinationNamePrefix") => String.t() | atom(),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_destinations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_destinations_response() :: %{
+        "destinations" => list(destination()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_destinations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_export_tasks_request() :: %{
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("statusCode") => list(any()),
+        optional("taskId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_export_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_export_tasks_response() :: %{
+        "exportTasks" => list(export_task()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_export_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_field_indexes_request() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("logGroupIdentifiers") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_field_indexes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_field_indexes_response() :: %{
+        "fieldIndexes" => list(field_index()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_field_indexes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_import_task_batches_request() :: %{
+        optional("batchImportStatus") => list(list(any())()),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("importId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_import_task_batches_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_import_task_batches_response() :: %{
+        "importBatches" => list(import_batch()),
+        "importId" => String.t() | atom(),
+        "importSourceArn" => String.t() | atom(),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_import_task_batches_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_import_tasks_request() :: %{
+        optional("importId") => String.t() | atom(),
+        optional("importSourceArn") => String.t() | atom(),
+        optional("importStatus") => list(any()),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_import_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_import_tasks_response() :: %{
+        "imports" => list(import()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_import_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_index_policies_request() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("logGroupIdentifiers") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_index_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_index_policies_response() :: %{
+        "indexPolicies" => list(index_policy()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_index_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_log_groups_request() :: %{
+        optional("accountIdentifiers") => list(String.t() | atom()),
+        optional("includeLinkedAccounts") => boolean(),
+        optional("limit") => integer(),
+        optional("logGroupClass") => list(any()),
+        optional("logGroupIdentifiers") => list(String.t() | atom()),
+        optional("logGroupNamePattern") => String.t() | atom(),
+        optional("logGroupNamePrefix") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_log_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_log_groups_response() :: %{
+        "logGroups" => list(log_group()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_log_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_log_streams_request() :: %{
+        optional("descending") => boolean(),
+        optional("limit") => integer(),
+        optional("logGroupIdentifier") => String.t() | atom(),
+        optional("logGroupName") => String.t() | atom(),
+        optional("logStreamNamePrefix") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("orderBy") => list(any())
+      }
+      
+  """
+  @type describe_log_streams_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_log_streams_response() :: %{
+        "logStreams" => list(log_stream()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_log_streams_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3979,13 +1329,187 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      untag_log_group_request() :: %{
-        required("logGroupName") => String.t() | atom(),
-        required("tags") => list(String.t() | atom())
+      describe_metric_filters_request() :: %{
+        optional("filterNamePrefix") => String.t() | atom(),
+        optional("limit") => integer(),
+        optional("logGroupName") => String.t() | atom(),
+        optional("metricName") => String.t() | atom(),
+        optional("metricNamespace") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type untag_log_group_request() :: %{(String.t() | atom()) => any()}
+  @type describe_metric_filters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_metric_filters_response() :: %{
+        "metricFilters" => list(metric_filter()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_metric_filters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_queries_request() :: %{
+        optional("logGroupName") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("queryLanguage") => list(any()),
+        optional("status") => list(any())
+      }
+      
+  """
+  @type describe_queries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_queries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "queries" => list(query_info())
+      }
+      
+  """
+  @type describe_queries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_query_definitions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("queryDefinitionNamePrefix") => String.t() | atom(),
+        optional("queryLanguage") => list(any())
+      }
+      
+  """
+  @type describe_query_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_query_definitions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "queryDefinitions" => list(query_definition())
+      }
+      
+  """
+  @type describe_query_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_resource_policies_request() :: %{
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("policyScope") => list(any()),
+        optional("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_resource_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_resource_policies_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "resourcePolicies" => list(resource_policy())
+      }
+      
+  """
+  @type describe_resource_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_subscription_filters_request() :: %{
+        optional("filterNamePrefix") => String.t() | atom(),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("logGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_subscription_filters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_subscription_filters_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "subscriptionFilters" => list(subscription_filter())
+      }
+      
+  """
+  @type describe_subscription_filters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination() :: %{
+        "accessPolicy" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "creationTime" => float(),
+        "destinationName" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "targetArn" => String.t() | atom()
+      }
+      
+  """
+  @type destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination_configuration() :: %{
+        "lookupTableConfiguration" => lookup_table_configuration(),
+        "s3Configuration" => s3_configuration()
+      }
+      
+  """
+  @type destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_kms_key_request() :: %{
+        optional("logGroupName") => String.t() | atom(),
+        optional("resourceIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_kms_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_source_from_s3_table_integration_request() :: %{
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_source_from_s3_table_integration_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -3999,6 +1523,18 @@ defmodule AWS.CloudWatchLogs do
   @type disassociate_source_from_s3_table_integration_response() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      entity() :: %{
+        "attributes" => map(),
+        "keyAttributes" => map()
+      }
+      
+  """
+  @type entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4023,109 +1559,148 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      log_fields_list_item() :: %{
-        "logFieldName" => String.t() | atom(),
-        "logFieldType" => log_field_type()
+      export_task_execution_info() :: %{
+        "completionTime" => float(),
+        "creationTime" => float()
       }
       
   """
-  @type log_fields_list_item() :: %{(String.t() | atom()) => any()}
+  @type export_task_execution_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_subscription_filters_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "subscriptionFilters" => list(subscription_filter())
+      export_task_status() :: %{
+        "code" => list(any()),
+        "message" => String.t() | atom()
       }
       
   """
-  @type describe_subscription_filters_response() :: %{(String.t() | atom()) => any()}
+  @type export_task_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      query_statistics() :: %{
-        "bytesScanned" => float(),
-        "estimatedBytesSkipped" => float(),
-        "estimatedRecordsSkipped" => float(),
-        "logGroupsScanned" => float(),
-        "recordsMatched" => float(),
-        "recordsScanned" => float()
+      field_index() :: %{
+        "fieldIndexName" => String.t() | atom(),
+        "firstEventTime" => float(),
+        "lastEventTime" => float(),
+        "lastScanTime" => float(),
+        "logGroupIdentifier" => String.t() | atom(),
+        "type" => list(any())
       }
       
   """
-  @type query_statistics() :: %{(String.t() | atom()) => any()}
+  @type field_index() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_retention_policy_request() :: %{
-        required("logGroupName") => String.t() | atom(),
-        required("retentionInDays") => integer()
+      fields_data() :: %{
+        "data" => binary()
       }
       
   """
-  @type put_retention_policy_request() :: %{(String.t() | atom()) => any()}
+  @type fields_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_destinations_request() :: %{
-        optional("DestinationNamePrefix") => String.t() | atom(),
+      filter_log_events_request() :: %{
+        optional("endTime") => float(),
+        optional("filterPattern") => String.t() | atom(),
+        optional("interleaved") => boolean(),
         optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom()
+        optional("logGroupIdentifier") => String.t() | atom(),
+        optional("logGroupName") => String.t() | atom(),
+        optional("logStreamNamePrefix") => String.t() | atom(),
+        optional("logStreamNames") => list(String.t() | atom()),
+        optional("nextToken") => String.t() | atom(),
+        optional("startFromHead") => boolean(),
+        optional("startTime") => float(),
+        optional("unmask") => boolean()
       }
       
   """
-  @type describe_destinations_request() :: %{(String.t() | atom()) => any()}
+  @type filter_log_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delivery_source() :: %{
-        "arn" => String.t() | atom(),
-        "deliverySourceConfiguration" => map(),
-        "logType" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "resourceArns" => list(String.t() | atom()),
-        "service" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => list(any()),
-        "tags" => map()
+      filter_log_events_response() :: %{
+        "events" => list(filtered_log_event()),
+        "nextToken" => String.t() | atom(),
+        "searchedLogStreams" => list(searched_log_stream())
       }
       
   """
-  @type delivery_source() :: %{(String.t() | atom()) => any()}
+  @type filter_log_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      open_search_workspace() :: %{
-        "status" => open_search_resource_status(),
-        "workspaceId" => String.t() | atom()
+      filtered_log_event() :: %{
+        "eventId" => String.t() | atom(),
+        "ingestionTime" => float(),
+        "logStreamName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "timestamp" => float()
       }
       
   """
-  @type open_search_workspace() :: %{(String.t() | atom()) => any()}
+  @type filtered_log_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_data_protection_policy_request() :: %{
-        required("logGroupIdentifier") => String.t() | atom(),
-        required("policyDocument") => String.t() | atom()
+      get_data_protection_policy_request() :: %{
+        required("logGroupIdentifier") => String.t() | atom()
       }
       
   """
-  @type put_data_protection_policy_request() :: %{(String.t() | atom()) => any()}
+  @type get_data_protection_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_protection_policy_response() :: %{
+        "lastUpdatedTime" => float(),
+        "logGroupIdentifier" => String.t() | atom(),
+        "policyDocument" => String.t() | atom()
+      }
+      
+  """
+  @type get_data_protection_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_delivery_destination_policy_request() :: %{
+        required("deliveryDestinationName") => String.t() | atom()
+      }
+      
+  """
+  @type get_delivery_destination_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_delivery_destination_policy_response() :: %{
+        "policy" => policy()
+      }
+      
+  """
+  @type get_delivery_destination_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4142,35 +1717,34 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      type_converter_entry() :: %{
-        "key" => String.t() | atom(),
-        "type" => list(any())
+      get_delivery_destination_response() :: %{
+        "deliveryDestination" => delivery_destination()
       }
       
   """
-  @type type_converter_entry() :: %{(String.t() | atom()) => any()}
+  @type get_delivery_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stop_query_response() :: %{
-        "success" => boolean()
+      get_delivery_request() :: %{
+        required("id") => String.t() | atom()
       }
       
   """
-  @type stop_query_response() :: %{(String.t() | atom()) => any()}
+  @type get_delivery_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_index_policy_request() :: %{
-        required("logGroupIdentifier") => String.t() | atom()
+      get_delivery_response() :: %{
+        "delivery" => delivery()
       }
       
   """
-  @type delete_index_policy_request() :: %{(String.t() | atom()) => any()}
+  @type get_delivery_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4187,97 +1761,366 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      create_log_anomaly_detector_response() :: %{
-        "anomalyDetectorArn" => String.t() | atom()
+      get_delivery_source_response() :: %{
+        "deliverySource" => delivery_source()
       }
       
   """
-  @type create_log_anomaly_detector_response() :: %{(String.t() | atom()) => any()}
+  @type get_delivery_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_resource_policies_request() :: %{
+      get_integration_request() :: %{
+        required("integrationName") => String.t() | atom()
+      }
+      
+  """
+  @type get_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_integration_response() :: %{
+        "integrationDetails" => list(),
+        "integrationName" => String.t() | atom(),
+        "integrationStatus" => list(any()),
+        "integrationType" => list(any())
+      }
+      
+  """
+  @type get_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_anomaly_detector_request() :: %{
+        required("anomalyDetectorArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_log_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_anomaly_detector_response() :: %{
+        "anomalyDetectorStatus" => list(any()),
+        "anomalyVisibilityTime" => float(),
+        "creationTimeStamp" => float(),
+        "detectorName" => String.t() | atom(),
+        "evaluationFrequency" => list(any()),
+        "filterPattern" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "lastModifiedTimeStamp" => float(),
+        "logGroupArnList" => list(String.t() | atom())
+      }
+      
+  """
+  @type get_log_anomaly_detector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_events_request() :: %{
+        optional("endTime") => float(),
         optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("policyScope") => list(any()),
-        optional("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_resource_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_query_definition_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("logGroupNames") => list(String.t() | atom()),
-        optional("parameters") => list(query_parameter()),
-        optional("queryDefinitionId") => String.t() | atom(),
-        optional("queryLanguage") => list(any()),
-        required("name") => String.t() | atom(),
-        required("queryString") => String.t() | atom()
-      }
-      
-  """
-  @type put_query_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_policy() :: %{
-        "lastUpdatedTime" => float(),
-        "policyDocument" => String.t() | atom(),
-        "policyName" => String.t() | atom(),
-        "policyScope" => list(any()),
-        "resourceArn" => String.t() | atom(),
-        "revisionId" => String.t() | atom()
-      }
-      
-  """
-  @type resource_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_storage_tier_policy_request() :: %{
-        required("storageTier") => list(any())
-      }
-      
-  """
-  @type put_storage_tier_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_delivery_destination_request() :: %{
-        optional("deliveryDestinationConfiguration") => delivery_destination_configuration(),
-        optional("deliveryDestinationType") => list(any()),
-        optional("outputFormat") => list(any()),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type put_delivery_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_kms_key_request() :: %{
+        optional("logGroupIdentifier") => String.t() | atom(),
         optional("logGroupName") => String.t() | atom(),
-        optional("resourceIdentifier") => String.t() | atom()
+        optional("nextToken") => String.t() | atom(),
+        optional("startFromHead") => boolean(),
+        optional("startTime") => float(),
+        optional("unmask") => boolean(),
+        required("logStreamName") => String.t() | atom()
       }
       
   """
-  @type disassociate_kms_key_request() :: %{(String.t() | atom()) => any()}
+  @type get_log_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_events_response() :: %{
+        "events" => list(output_log_event()),
+        "nextBackwardToken" => String.t() | atom(),
+        "nextForwardToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_log_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_fields_request() :: %{
+        required("dataSourceName") => String.t() | atom(),
+        required("dataSourceType") => String.t() | atom()
+      }
+      
+  """
+  @type get_log_fields_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_fields_response() :: %{
+        "logFields" => list(log_fields_list_item())
+      }
+      
+  """
+  @type get_log_fields_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_group_fields_request() :: %{
+        optional("logGroupIdentifier") => String.t() | atom(),
+        optional("logGroupName") => String.t() | atom(),
+        optional("time") => float()
+      }
+      
+  """
+  @type get_log_group_fields_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_group_fields_response() :: %{
+        "logGroupFields" => list(log_group_field())
+      }
+      
+  """
+  @type get_log_group_fields_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_object_request() :: %{
+        optional("unmask") => boolean(),
+        required("logObjectPointer") => String.t() | atom()
+      }
+      
+  """
+  @type get_log_object_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_object_response() :: %{
+        "fieldStream" => list()
+      }
+      
+  """
+  @type get_log_object_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_record_request() :: %{
+        optional("unmask") => boolean(),
+        required("logRecordPointer") => String.t() | atom()
+      }
+      
+  """
+  @type get_log_record_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_record_response() :: %{
+        "logRecord" => map()
+      }
+      
+  """
+  @type get_log_record_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lookup_table_request() :: %{
+        required("lookupTableArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_lookup_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lookup_table_response() :: %{
+        "description" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "lastUpdatedTime" => float(),
+        "lookupTableArn" => String.t() | atom(),
+        "lookupTableName" => String.t() | atom(),
+        "sizeBytes" => float(),
+        "tableBody" => String.t() | atom()
+      }
+      
+  """
+  @type get_lookup_table_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_query_results_request() :: %{
+        optional("maxItems") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("queryId") => String.t() | atom()
+      }
+      
+  """
+  @type get_query_results_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_query_results_response() :: %{
+        "encryptionKey" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "queryLanguage" => list(any()),
+        "results" => list(list(result_field())()),
+        "statistics" => query_statistics(),
+        "status" => list(any())
+      }
+      
+  """
+  @type get_query_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_scheduled_query_history_request() :: %{
+        optional("executionStatuses") => list(list(any())()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("endTime") => float(),
+        required("identifier") => String.t() | atom(),
+        required("startTime") => float()
+      }
+      
+  """
+  @type get_scheduled_query_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_scheduled_query_history_response() :: %{
+        "name" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "scheduledQueryArn" => String.t() | atom(),
+        "triggerHistory" => list(trigger_history_record())
+      }
+      
+  """
+  @type get_scheduled_query_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_scheduled_query_request() :: %{
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_scheduled_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_scheduled_query_response() :: %{
+        "creationTime" => float(),
+        "description" => String.t() | atom(),
+        "destinationConfiguration" => destination_configuration(),
+        "endTimeOffset" => float(),
+        "executionRoleArn" => String.t() | atom(),
+        "lastExecutionStatus" => list(any()),
+        "lastTriggeredTime" => float(),
+        "lastUpdatedTime" => float(),
+        "logGroupIdentifiers" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "queryLanguage" => list(any()),
+        "queryString" => String.t() | atom(),
+        "scheduleEndTime" => float(),
+        "scheduleExpression" => String.t() | atom(),
+        "scheduleStartTime" => float(),
+        "scheduleType" => list(any()),
+        "scheduledQueryArn" => String.t() | atom(),
+        "startTimeOffset" => float(),
+        "state" => list(any()),
+        "timezone" => String.t() | atom()
+      }
+      
+  """
+  @type get_scheduled_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_storage_tier_policy_request() :: %{}
+      
+  """
+  @type get_storage_tier_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_storage_tier_policy_response() :: %{
+        "lastUpdatedTime" => float(),
+        "storageTier" => list(any())
+      }
+      
+  """
+  @type get_storage_tier_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_transformer_request() :: %{
+        required("logGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_transformer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_transformer_response() :: %{
+        "creationTime" => float(),
+        "lastModifiedTime" => float(),
+        "logGroupIdentifier" => String.t() | atom(),
+        "transformerConfig" => list(processor())
+      }
+      
+  """
+  @type get_transformer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4295,54 +2138,305 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      delete_syslog_configuration_request() :: %{
-        optional("vpcEndpointId") => String.t() | atom(),
-        required("logGroupIdentifier") => String.t() | atom()
+      grouping_identifier() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type delete_syslog_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type grouping_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_delivery_response() :: %{
-        "delivery" => delivery()
+      import() :: %{
+        "creationTime" => float(),
+        "errorMessage" => String.t() | atom(),
+        "importDestinationArn" => String.t() | atom(),
+        "importFilter" => import_filter(),
+        "importId" => String.t() | atom(),
+        "importSourceArn" => String.t() | atom(),
+        "importStatistics" => import_statistics(),
+        "importStatus" => list(any()),
+        "lastUpdatedTime" => float()
       }
       
   """
-  @type get_delivery_response() :: %{(String.t() | atom()) => any()}
+  @type import() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      csv() :: %{
-        "columns" => list(String.t() | atom()),
-        "delimiter" => String.t() | atom(),
-        "destination" => String.t() | atom(),
-        "quoteCharacter" => String.t() | atom(),
-        "source" => String.t() | atom()
+      import_batch() :: %{
+        "batchId" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "status" => list(any())
       }
       
   """
-  @type csv() :: %{(String.t() | atom()) => any()}
+  @type import_batch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_log_group_request() :: %{
-        optional("deletionProtectionEnabled") => boolean(),
-        optional("kmsKeyId") => String.t() | atom(),
+      import_filter() :: %{
+        "endEventTime" => float(),
+        "startEventTime" => float()
+      }
+      
+  """
+  @type import_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_statistics() :: %{
+        "bytesImported" => float()
+      }
+      
+  """
+  @type import_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      index_policy() :: %{
+        "lastUpdateTime" => float(),
+        "logGroupIdentifier" => String.t() | atom(),
+        "policyDocument" => String.t() | atom(),
+        "policyName" => String.t() | atom(),
+        "source" => list(any())
+      }
+      
+  """
+  @type index_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_log_event() :: %{
+        "message" => String.t() | atom(),
+        "timestamp" => float()
+      }
+      
+  """
+  @type input_log_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      integration_summary() :: %{
+        "integrationName" => String.t() | atom(),
+        "integrationStatus" => list(any()),
+        "integrationType" => list(any())
+      }
+      
+  """
+  @type integration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_streaming_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_streaming_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_operation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_sequence_token_exception() :: %{
+        "expectedSequenceToken" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_sequence_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_aggregate_log_group_summaries_request() :: %{
+        optional("accountIdentifiers") => list(String.t() | atom()),
+        optional("dataSources") => list(data_source_filter()),
+        optional("includeLinkedAccounts") => boolean(),
+        optional("limit") => integer(),
         optional("logGroupClass") => list(any()),
-        optional("tags") => map(),
-        required("logGroupName") => String.t() | atom()
+        optional("logGroupNamePattern") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        required("groupBy") => list(any())
       }
       
   """
-  @type create_log_group_request() :: %{(String.t() | atom()) => any()}
+  @type list_aggregate_log_group_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_aggregate_log_group_summaries_response() :: %{
+        "aggregateLogGroupSummaries" => list(aggregate_log_group_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_aggregate_log_group_summaries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_anomalies_request() :: %{
+        optional("anomalyDetectorArn") => String.t() | atom(),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("suppressionState") => list(any())
+      }
+      
+  """
+  @type list_anomalies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_anomalies_response() :: %{
+        "anomalies" => list(anomaly()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_anomalies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_integrations_request() :: %{
+        optional("integrationNamePrefix") => String.t() | atom(),
+        optional("integrationStatus") => list(any()),
+        optional("integrationType") => list(any())
+      }
+      
+  """
+  @type list_integrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_integrations_response() :: %{
+        "integrationSummaries" => list(integration_summary())
+      }
+      
+  """
+  @type list_integrations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_log_anomaly_detectors_request() :: %{
+        optional("filterLogGroupArn") => String.t() | atom(),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_log_anomaly_detectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_log_anomaly_detectors_response() :: %{
+        "anomalyDetectors" => list(anomaly_detector()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_log_anomaly_detectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_log_groups_for_query_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("queryId") => String.t() | atom()
+      }
+      
+  """
+  @type list_log_groups_for_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_log_groups_for_query_response() :: %{
+        "logGroupIdentifiers" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_log_groups_for_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4367,12 +2461,90 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      get_lookup_table_request() :: %{
-        required("lookupTableArn") => String.t() | atom()
+      list_log_groups_response() :: %{
+        "logGroups" => list(log_group_summary()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type get_lookup_table_request() :: %{(String.t() | atom()) => any()}
+  @type list_log_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_scheduled_queries_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("scheduleType") => list(any()),
+        optional("state") => list(any())
+      }
+      
+  """
+  @type list_scheduled_queries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_scheduled_queries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "scheduledQueries" => list(scheduled_query_summary())
+      }
+      
+  """
+  @type list_scheduled_queries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sources_for_s3_table_integration_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("integrationArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_sources_for_s3_table_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sources_for_s3_table_integration_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "sources" => list(s3_table_integration_source())
+      }
+      
+  """
+  @type list_sources_for_s3_table_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_syslog_configurations_request() :: %{
+        optional("logGroupIdentifier") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("vpcEndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type list_syslog_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_syslog_configurations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "syslogConfigurations" => list(syslog_configuration())
+      }
+      
+  """
+  @type list_syslog_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4389,36 +2561,1704 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      get_delivery_destination_response() :: %{
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_log_group_request() :: %{
+        required("logGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_log_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_log_group_response() :: %{
+        "tags" => map()
+      }
+      
+  """
+  @type list_tags_log_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_to_map() :: %{
+        "flatten" => boolean(),
+        "flattenedElement" => list(any()),
+        "key" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "target" => String.t() | atom(),
+        "valueKey" => String.t() | atom()
+      }
+      
+  """
+  @type list_to_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      live_tail_session_log_event() :: %{
+        "ingestionTime" => float(),
+        "logGroupIdentifier" => String.t() | atom(),
+        "logStreamName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "timestamp" => float()
+      }
+      
+  """
+  @type live_tail_session_log_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      live_tail_session_metadata() :: %{
+        "sampled" => boolean()
+      }
+      
+  """
+  @type live_tail_session_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      live_tail_session_start() :: %{
+        "logEventFilterPattern" => String.t() | atom(),
+        "logGroupIdentifiers" => list(String.t() | atom()),
+        "logStreamNamePrefixes" => list(String.t() | atom()),
+        "logStreamNames" => list(String.t() | atom()),
+        "requestId" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+      
+  """
+  @type live_tail_session_start() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      live_tail_session_update() :: %{
+        "sessionMetadata" => live_tail_session_metadata(),
+        "sessionResults" => list(live_tail_session_log_event())
+      }
+      
+  """
+  @type live_tail_session_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_event() :: %{
+        "message" => String.t() | atom(),
+        "timestamp" => float()
+      }
+      
+  """
+  @type log_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_field_type() :: %{
+        "element" => log_field_type(),
+        "fields" => list(log_fields_list_item()),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type log_field_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_fields_list_item() :: %{
+        "logFieldName" => String.t() | atom(),
+        "logFieldType" => log_field_type()
+      }
+      
+  """
+  @type log_fields_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_group() :: %{
+        "arn" => String.t() | atom(),
+        "bearerTokenAuthenticationEnabled" => boolean(),
+        "creationTime" => float(),
+        "dataProtectionStatus" => list(any()),
+        "deletionProtectionEnabled" => boolean(),
+        "inheritedProperties" => list(list(any())()),
+        "kmsKeyId" => String.t() | atom(),
+        "logGroupArn" => String.t() | atom(),
+        "logGroupClass" => list(any()),
+        "logGroupName" => String.t() | atom(),
+        "metricFilterCount" => integer(),
+        "retentionInDays" => integer(),
+        "storedBytes" => float()
+      }
+      
+  """
+  @type log_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_group_field() :: %{
+        "name" => String.t() | atom(),
+        "percent" => integer()
+      }
+      
+  """
+  @type log_group_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_group_summary() :: %{
+        "logGroupArn" => String.t() | atom(),
+        "logGroupClass" => list(any()),
+        "logGroupName" => String.t() | atom()
+      }
+      
+  """
+  @type log_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_stream() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => float(),
+        "firstEventTimestamp" => float(),
+        "lastEventTimestamp" => float(),
+        "lastIngestionTime" => float(),
+        "logStreamName" => String.t() | atom(),
+        "storedBytes" => float(),
+        "uploadSequenceToken" => String.t() | atom()
+      }
+      
+  """
+  @type log_stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lookup_table() :: %{
+        "description" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "lastUpdatedTime" => float(),
+        "lookupTableArn" => String.t() | atom(),
+        "lookupTableName" => String.t() | atom(),
+        "recordsCount" => float(),
+        "sizeBytes" => float(),
+        "tableFields" => list(String.t() | atom())
+      }
+      
+  """
+  @type lookup_table() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lookup_table_configuration() :: %{
+        "description" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "tableName" => String.t() | atom(),
+        "tags" => map()
+      }
+      
+  """
+  @type lookup_table_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lower_case_string() :: %{
+        "withKeys" => list(String.t() | atom())
+      }
+      
+  """
+  @type lower_case_string() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      malformed_query_exception() :: %{
+        "message" => String.t() | atom(),
+        "queryCompileError" => query_compile_error()
+      }
+      
+  """
+  @type malformed_query_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_filter() :: %{
+        "applyOnTransformedLogs" => boolean(),
+        "creationTime" => float(),
+        "emitSystemFieldDimensions" => list(String.t() | atom()),
+        "fieldSelectionCriteria" => String.t() | atom(),
+        "filterName" => String.t() | atom(),
+        "filterPattern" => String.t() | atom(),
+        "logGroupName" => String.t() | atom(),
+        "metricTransformations" => list(metric_transformation())
+      }
+      
+  """
+  @type metric_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_filter_match_record() :: %{
+        "eventMessage" => String.t() | atom(),
+        "eventNumber" => float(),
+        "extractedValues" => map()
+      }
+      
+  """
+  @type metric_filter_match_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_transformation() :: %{
+        "defaultValue" => float(),
+        "dimensions" => map(),
+        "metricName" => String.t() | atom(),
+        "metricNamespace" => String.t() | atom(),
+        "metricValue" => String.t() | atom(),
+        "unit" => list(any())
+      }
+      
+  """
+  @type metric_transformation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      move_key_entry() :: %{
+        "overwriteIfExists" => boolean(),
+        "source" => String.t() | atom(),
+        "target" => String.t() | atom()
+      }
+      
+  """
+  @type move_key_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      move_keys() :: %{
+        "entries" => list(move_key_entry())
+      }
+      
+  """
+  @type move_keys() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_application() :: %{
+        "applicationArn" => String.t() | atom(),
+        "applicationEndpoint" => String.t() | atom(),
+        "applicationId" => String.t() | atom(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_application() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_collection() :: %{
+        "collectionArn" => String.t() | atom(),
+        "collectionEndpoint" => String.t() | atom(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_collection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_data_access_policy() :: %{
+        "policyName" => String.t() | atom(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_data_access_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_data_source() :: %{
+        "dataSourceName" => String.t() | atom(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_encryption_policy() :: %{
+        "policyName" => String.t() | atom(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_encryption_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_integration_details() :: %{
+        "accessPolicy" => open_search_data_access_policy(),
+        "application" => open_search_application(),
+        "collection" => open_search_collection(),
+        "dataSource" => open_search_data_source(),
+        "encryptionPolicy" => open_search_encryption_policy(),
+        "lifecyclePolicy" => open_search_lifecycle_policy(),
+        "networkPolicy" => open_search_network_policy(),
+        "workspace" => open_search_workspace()
+      }
+      
+  """
+  @type open_search_integration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_lifecycle_policy() :: %{
+        "policyName" => String.t() | atom(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_lifecycle_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_network_policy() :: %{
+        "policyName" => String.t() | atom(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_network_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_resource_config() :: %{
+        "applicationArn" => String.t() | atom(),
+        "dashboardViewerPrincipals" => list(String.t() | atom()),
+        "dataSourceRoleArn" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "retentionDays" => integer()
+      }
+      
+  """
+  @type open_search_resource_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_resource_status() :: %{
+        "status" => list(any()),
+        "statusMessage" => String.t() | atom()
+      }
+      
+  """
+  @type open_search_resource_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_workspace() :: %{
+        "status" => open_search_resource_status(),
+        "workspaceId" => String.t() | atom()
+      }
+      
+  """
+  @type open_search_workspace() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_aborted_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type operation_aborted_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_log_event() :: %{
+        "ingestionTime" => float(),
+        "message" => String.t() | atom(),
+        "timestamp" => float()
+      }
+      
+  """
+  @type output_log_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_cloudfront() :: %{
+        "source" => String.t() | atom()
+      }
+      
+  """
+  @type parse_cloudfront() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_json() :: %{
+        "destination" => String.t() | atom(),
+        "source" => String.t() | atom()
+      }
+      
+  """
+  @type parse_json() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_key_value() :: %{
+        "destination" => String.t() | atom(),
+        "fieldDelimiter" => String.t() | atom(),
+        "keyPrefix" => String.t() | atom(),
+        "keyValueDelimiter" => String.t() | atom(),
+        "nonMatchValue" => String.t() | atom(),
+        "overwriteIfExists" => boolean(),
+        "source" => String.t() | atom()
+      }
+      
+  """
+  @type parse_key_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_postgres() :: %{
+        "source" => String.t() | atom()
+      }
+      
+  """
+  @type parse_postgres() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_route53() :: %{
+        "source" => String.t() | atom()
+      }
+      
+  """
+  @type parse_route53() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_to_o_c_s_f() :: %{
+        "eventSource" => list(any()),
+        "mappingVersion" => String.t() | atom(),
+        "ocsfVersion" => list(any()),
+        "source" => String.t() | atom()
+      }
+      
+  """
+  @type parse_to_o_c_s_f() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_vpc() :: %{
+        "source" => String.t() | atom()
+      }
+      
+  """
+  @type parse_vpc() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_w_a_f() :: %{
+        "source" => String.t() | atom()
+      }
+      
+  """
+  @type parse_w_a_f() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pattern_token() :: %{
+        "dynamicTokenPosition" => integer(),
+        "enumerations" => map(),
+        "inferredTokenName" => String.t() | atom(),
+        "isDynamic" => boolean(),
+        "tokenString" => String.t() | atom()
+      }
+      
+  """
+  @type pattern_token() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy() :: %{
+        "deliveryDestinationPolicy" => String.t() | atom()
+      }
+      
+  """
+  @type policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      processor() :: %{
+        "addKeys" => add_keys(),
+        "copyValue" => copy_value(),
+        "csv" => csv(),
+        "dateTimeConverter" => date_time_converter(),
+        "deleteKeys" => delete_keys(),
+        "grok" => grok(),
+        "listToMap" => list_to_map(),
+        "lowerCaseString" => lower_case_string(),
+        "moveKeys" => move_keys(),
+        "parseCloudfront" => parse_cloudfront(),
+        "parseJSON" => parse_json(),
+        "parseKeyValue" => parse_key_value(),
+        "parsePostgres" => parse_postgres(),
+        "parseRoute53" => parse_route53(),
+        "parseToOCSF" => parse_to_o_c_s_f(),
+        "parseVPC" => parse_vpc(),
+        "parseWAF" => parse_w_a_f(),
+        "renameKeys" => rename_keys(),
+        "splitString" => split_string(),
+        "substituteString" => substitute_string(),
+        "trimString" => trim_string(),
+        "typeConverter" => type_converter(),
+        "upperCaseString" => upper_case_string()
+      }
+      
+  """
+  @type processor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_account_policy_request() :: %{
+        optional("scope") => list(any()),
+        optional("selectionCriteria") => String.t() | atom(),
+        required("policyDocument") => String.t() | atom(),
+        required("policyName") => String.t() | atom(),
+        required("policyType") => list(any())
+      }
+      
+  """
+  @type put_account_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_account_policy_response() :: %{
+        "accountPolicy" => account_policy()
+      }
+      
+  """
+  @type put_account_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_bearer_token_authentication_request() :: %{
+        required("bearerTokenAuthenticationEnabled") => boolean(),
+        required("logGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type put_bearer_token_authentication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_data_protection_policy_request() :: %{
+        required("logGroupIdentifier") => String.t() | atom(),
+        required("policyDocument") => String.t() | atom()
+      }
+      
+  """
+  @type put_data_protection_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_data_protection_policy_response() :: %{
+        "lastUpdatedTime" => float(),
+        "logGroupIdentifier" => String.t() | atom(),
+        "policyDocument" => String.t() | atom()
+      }
+      
+  """
+  @type put_data_protection_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_delivery_destination_policy_request() :: %{
+        required("deliveryDestinationName") => String.t() | atom(),
+        required("deliveryDestinationPolicy") => String.t() | atom()
+      }
+      
+  """
+  @type put_delivery_destination_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_delivery_destination_policy_response() :: %{
+        "policy" => policy()
+      }
+      
+  """
+  @type put_delivery_destination_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_delivery_destination_request() :: %{
+        optional("deliveryDestinationConfiguration") => delivery_destination_configuration(),
+        optional("deliveryDestinationType") => list(any()),
+        optional("outputFormat") => list(any()),
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type put_delivery_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_delivery_destination_response() :: %{
         "deliveryDestination" => delivery_destination()
       }
       
   """
-  @type get_delivery_destination_response() :: %{(String.t() | atom()) => any()}
+  @type put_delivery_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_log_record_response() :: %{
-        "logRecord" => map()
+      put_delivery_source_request() :: %{
+        optional("deliverySourceConfiguration") => map(),
+        optional("tags") => map(),
+        required("logType") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type get_log_record_response() :: %{(String.t() | atom()) => any()}
+  @type put_delivery_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      import_batch() :: %{
-        "batchId" => String.t() | atom(),
+      put_delivery_source_response() :: %{
+        "deliverySource" => delivery_source()
+      }
+      
+  """
+  @type put_delivery_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_destination_policy_request() :: %{
+        optional("forceUpdate") => boolean(),
+        required("accessPolicy") => String.t() | atom(),
+        required("destinationName") => String.t() | atom()
+      }
+      
+  """
+  @type put_destination_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_destination_request() :: %{
+        optional("tags") => map(),
+        required("destinationName") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        required("targetArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_destination_response() :: %{
+        "destination" => destination()
+      }
+      
+  """
+  @type put_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_index_policy_request() :: %{
+        required("logGroupIdentifier") => String.t() | atom(),
+        required("policyDocument") => String.t() | atom()
+      }
+      
+  """
+  @type put_index_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_index_policy_response() :: %{
+        "indexPolicy" => index_policy()
+      }
+      
+  """
+  @type put_index_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_integration_request() :: %{
+        required("integrationName") => String.t() | atom(),
+        required("integrationType") => list(any()),
+        required("resourceConfig") => list()
+      }
+      
+  """
+  @type put_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_integration_response() :: %{
+        "integrationName" => String.t() | atom(),
+        "integrationStatus" => list(any())
+      }
+      
+  """
+  @type put_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_log_events_request() :: %{
+        optional("entity") => entity(),
+        optional("sequenceToken") => String.t() | atom(),
+        required("logEvents") => list(input_log_event()),
+        required("logGroupName") => String.t() | atom(),
+        required("logStreamName") => String.t() | atom()
+      }
+      
+  """
+  @type put_log_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_log_events_response() :: %{
+        "nextSequenceToken" => String.t() | atom(),
+        "rejectedEntityInfo" => rejected_entity_info(),
+        "rejectedLogEventsInfo" => rejected_log_events_info()
+      }
+      
+  """
+  @type put_log_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_log_group_deletion_protection_request() :: %{
+        required("deletionProtectionEnabled") => boolean(),
+        required("logGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type put_log_group_deletion_protection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_metric_filter_request() :: %{
+        optional("applyOnTransformedLogs") => boolean(),
+        optional("emitSystemFieldDimensions") => list(String.t() | atom()),
+        optional("fieldSelectionCriteria") => String.t() | atom(),
+        required("filterName") => String.t() | atom(),
+        required("filterPattern") => String.t() | atom(),
+        required("logGroupName") => String.t() | atom(),
+        required("metricTransformations") => list(metric_transformation())
+      }
+      
+  """
+  @type put_metric_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_query_definition_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("logGroupNames") => list(String.t() | atom()),
+        optional("parameters") => list(query_parameter()),
+        optional("queryDefinitionId") => String.t() | atom(),
+        optional("queryLanguage") => list(any()),
+        required("name") => String.t() | atom(),
+        required("queryString") => String.t() | atom()
+      }
+      
+  """
+  @type put_query_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_query_definition_response() :: %{
+        "queryDefinitionId" => String.t() | atom()
+      }
+      
+  """
+  @type put_query_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_request() :: %{
+        optional("expectedRevisionId") => String.t() | atom(),
+        optional("policyDocument") => String.t() | atom(),
+        optional("policyName") => String.t() | atom(),
+        optional("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_response() :: %{
+        "resourcePolicy" => resource_policy(),
+        "revisionId" => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_retention_policy_request() :: %{
+        required("logGroupName") => String.t() | atom(),
+        required("retentionInDays") => integer()
+      }
+      
+  """
+  @type put_retention_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_storage_tier_policy_request() :: %{
+        required("storageTier") => list(any())
+      }
+      
+  """
+  @type put_storage_tier_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_storage_tier_policy_response() :: %{
+        "lastUpdatedTime" => float(),
+        "storageTier" => list(any())
+      }
+      
+  """
+  @type put_storage_tier_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_subscription_filter_request() :: %{
+        optional("applyOnTransformedLogs") => boolean(),
+        optional("distribution") => list(any()),
+        optional("emitSystemFields") => list(String.t() | atom()),
+        optional("fieldSelectionCriteria") => String.t() | atom(),
+        optional("roleArn") => String.t() | atom(),
+        required("destinationArn") => String.t() | atom(),
+        required("filterName") => String.t() | atom(),
+        required("filterPattern") => String.t() | atom(),
+        required("logGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type put_subscription_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_syslog_configuration_request() :: %{
+        optional("vpcEndpointId") => String.t() | atom(),
+        required("logGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type put_syslog_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_transformer_request() :: %{
+        required("logGroupIdentifier") => String.t() | atom(),
+        required("transformerConfig") => list(processor())
+      }
+      
+  """
+  @type put_transformer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_compile_error() :: %{
+        "location" => query_compile_error_location(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type query_compile_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_compile_error_location() :: %{
+        "endCharOffset" => integer(),
+        "startCharOffset" => integer()
+      }
+      
+  """
+  @type query_compile_error_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_definition() :: %{
+        "lastModified" => float(),
+        "logGroupNames" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "parameters" => list(query_parameter()),
+        "queryDefinitionId" => String.t() | atom(),
+        "queryLanguage" => list(any()),
+        "queryString" => String.t() | atom()
+      }
+      
+  """
+  @type query_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_info() :: %{
+        "bytesScanned" => float(),
+        "createTime" => float(),
+        "logGroupName" => String.t() | atom(),
+        "queryDuration" => float(),
+        "queryId" => String.t() | atom(),
+        "queryLanguage" => list(any()),
+        "queryString" => String.t() | atom(),
+        "status" => list(any()),
+        "userIdentity" => String.t() | atom()
+      }
+      
+  """
+  @type query_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_parameter() :: %{
+        "defaultValue" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type query_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_statistics() :: %{
+        "bytesScanned" => float(),
+        "estimatedBytesSkipped" => float(),
+        "estimatedRecordsSkipped" => float(),
+        "logGroupsScanned" => float(),
+        "recordsMatched" => float(),
+        "recordsScanned" => float()
+      }
+      
+  """
+  @type query_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      record_field() :: %{
+        "mandatory" => boolean(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type record_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rejected_entity_info() :: %{
+        "errorType" => list(any())
+      }
+      
+  """
+  @type rejected_entity_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rejected_log_events_info() :: %{
+        "expiredLogEventEndIndex" => integer(),
+        "tooNewLogEventStartIndex" => integer(),
+        "tooOldLogEventEndIndex" => integer()
+      }
+      
+  """
+  @type rejected_log_events_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rename_key_entry() :: %{
+        "key" => String.t() | atom(),
+        "overwriteIfExists" => boolean(),
+        "renameTo" => String.t() | atom()
+      }
+      
+  """
+  @type rename_key_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rename_keys() :: %{
+        "entries" => list(rename_key_entry())
+      }
+      
+  """
+  @type rename_keys() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_policy() :: %{
+        "lastUpdatedTime" => float(),
+        "policyDocument" => String.t() | atom(),
+        "policyName" => String.t() | atom(),
+        "policyScope" => list(any()),
+        "resourceArn" => String.t() | atom(),
+        "revisionId" => String.t() | atom()
+      }
+      
+  """
+  @type resource_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      result_field() :: %{
+        "field" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type result_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_configuration() :: %{
+        "destinationIdentifier" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+      
+  """
+  @type s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_delivery_configuration() :: %{
+        "enableHiveCompatiblePath" => boolean(),
+        "suffixPath" => String.t() | atom()
+      }
+      
+  """
+  @type s3_delivery_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_table_integration_source() :: %{
+        "createdTimeStamp" => float(),
+        "dataSource" => data_source(),
+        "identifier" => String.t() | atom(),
+        "parentSourceIdentifier" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom()
+      }
+      
+  """
+  @type s3_table_integration_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_tables_integration() :: %{
+        "datasourceName" => String.t() | atom(),
+        "datasourceType" => String.t() | atom()
+      }
+      
+  """
+  @type s3_tables_integration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduled_query_destination() :: %{
+        "destinationIdentifier" => String.t() | atom(),
+        "destinationType" => list(any()),
         "errorMessage" => String.t() | atom(),
+        "processedIdentifier" => String.t() | atom(),
         "status" => list(any())
       }
       
   """
-  @type import_batch() :: %{(String.t() | atom()) => any()}
+  @type scheduled_query_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduled_query_summary() :: %{
+        "creationTime" => float(),
+        "destinationConfiguration" => destination_configuration(),
+        "lastExecutionStatus" => list(any()),
+        "lastTriggeredTime" => float(),
+        "lastUpdatedTime" => float(),
+        "name" => String.t() | atom(),
+        "scheduleExpression" => String.t() | atom(),
+        "scheduleType" => list(any()),
+        "scheduledQueryArn" => String.t() | atom(),
+        "state" => list(any()),
+        "timezone" => String.t() | atom()
+      }
+      
+  """
+  @type scheduled_query_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      searched_log_stream() :: %{
+        "logStreamName" => String.t() | atom(),
+        "searchedCompletely" => boolean()
+      }
+      
+  """
+  @type searched_log_stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_streaming_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type session_streaming_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_timeout_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type session_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      split_string() :: %{
+        "entries" => list(split_string_entry())
+      }
+      
+  """
+  @type split_string() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      split_string_entry() :: %{
+        "delimiter" => String.t() | atom(),
+        "source" => String.t() | atom()
+      }
+      
+  """
+  @type split_string_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_live_tail_request() :: %{
+        optional("logEventFilterPattern") => String.t() | atom(),
+        optional("logStreamNamePrefixes") => list(String.t() | atom()),
+        optional("logStreamNames") => list(String.t() | atom()),
+        required("logGroupIdentifiers") => list(String.t() | atom())
+      }
+      
+  """
+  @type start_live_tail_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_live_tail_response() :: %{
+        "responseStream" => list()
+      }
+      
+  """
+  @type start_live_tail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_query_request() :: %{
+        optional("limit") => integer(),
+        optional("logGroupIdentifiers") => list(String.t() | atom()),
+        optional("logGroupName") => String.t() | atom(),
+        optional("logGroupNames") => list(String.t() | atom()),
+        optional("queryLanguage") => list(any()),
+        required("endTime") => float(),
+        required("queryString") => String.t() | atom(),
+        required("startTime") => float()
+      }
+      
+  """
+  @type start_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_query_response() :: %{
+        "queryId" => String.t() | atom()
+      }
+      
+  """
+  @type start_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_query_request() :: %{
+        required("queryId") => String.t() | atom()
+      }
+      
+  """
+  @type stop_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_query_response() :: %{
+        "success" => boolean()
+      }
+      
+  """
+  @type stop_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subscription_filter() :: %{
+        "applyOnTransformedLogs" => boolean(),
+        "creationTime" => float(),
+        "destinationArn" => String.t() | atom(),
+        "distribution" => list(any()),
+        "emitSystemFields" => list(String.t() | atom()),
+        "fieldSelectionCriteria" => String.t() | atom(),
+        "filterName" => String.t() | atom(),
+        "filterPattern" => String.t() | atom(),
+        "logGroupName" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+      
+  """
+  @type subscription_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      substitute_string() :: %{
+        "entries" => list(substitute_string_entry())
+      }
+      
+  """
+  @type substitute_string() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      substitute_string_entry() :: %{
+        "from" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "to" => String.t() | atom()
+      }
+      
+  """
+  @type substitute_string_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      suppression_period() :: %{
+        "suppressionUnit" => list(any()),
+        "value" => integer()
+      }
+      
+  """
+  @type suppression_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      syslog_configuration() :: %{
+        "createdAt" => float(),
+        "logGroupArn" => String.t() | atom(),
+        "sourceType" => list(any()),
+        "vpcEndpointId" => String.t() | atom()
+      }
+      
+  """
+  @type syslog_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_filter() :: %{
+        "key" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type tag_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_log_group_request() :: %{
+        required("logGroupName") => String.t() | atom(),
+        required("tags") => map()
+      }
+      
+  """
+  @type tag_log_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => map()
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_metric_filter_request() :: %{
+        required("filterPattern") => String.t() | atom(),
+        required("logEventMessages") => list(String.t() | atom())
+      }
+      
+  """
+  @type test_metric_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_metric_filter_response() :: %{
+        "matches" => list(metric_filter_match_record())
+      }
+      
+  """
+  @type test_metric_filter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_transformer_request() :: %{
+        required("logEventMessages") => list(String.t() | atom()),
+        required("transformerConfig") => list(processor())
+      }
+      
+  """
+  @type test_transformer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_transformer_response() :: %{
+        "transformedLogs" => list(transformed_log_record())
+      }
+      
+  """
+  @type test_transformer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transformed_log_record() :: %{
+        "eventMessage" => String.t() | atom(),
+        "eventNumber" => float(),
+        "transformedEventMessage" => String.t() | atom()
+      }
+      
+  """
+  @type transformed_log_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4439,779 +4279,957 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
-      service_quota_exceeded_exception() :: %{
+      trim_string() :: %{
+        "withKeys" => list(String.t() | atom())
+      }
+      
+  """
+  @type trim_string() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      type_converter() :: %{
+        "entries" => list(type_converter_entry())
+      }
+      
+  """
+  @type type_converter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      type_converter_entry() :: %{
+        "key" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type type_converter_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unrecognized_client_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type unrecognized_client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_log_group_deletion_protection_request() :: %{
-        required("deletionProtectionEnabled") => boolean(),
-        required("logGroupIdentifier") => String.t() | atom()
+      untag_log_group_request() :: %{
+        required("logGroupName") => String.t() | atom(),
+        required("tags") => list(String.t() | atom())
       }
       
   """
-  @type put_log_group_deletion_protection_request() :: %{(String.t() | atom()) => any()}
+  @type untag_log_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_query_definitions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("queryDefinitionNamePrefix") => String.t() | atom(),
-        optional("queryLanguage") => list(any())
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
       
   """
-  @type describe_query_definitions_request() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      operation_aborted_exception() :: %{
+      update_anomaly_request() :: %{
+        optional("anomalyId") => String.t() | atom(),
+        optional("baseline") => boolean(),
+        optional("patternId") => String.t() | atom(),
+        optional("suppressionPeriod") => suppression_period(),
+        optional("suppressionType") => list(any()),
+        required("anomalyDetectorArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_anomaly_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_delivery_configuration_request() :: %{
+        optional("fieldDelimiter") => String.t() | atom(),
+        optional("recordFields") => list(String.t() | atom()),
+        optional("s3DeliveryConfiguration") => s3_delivery_configuration(),
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type update_delivery_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_delivery_configuration_response() :: %{}
+      
+  """
+  @type update_delivery_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_log_anomaly_detector_request() :: %{
+        optional("anomalyVisibilityTime") => float(),
+        optional("evaluationFrequency") => list(any()),
+        optional("filterPattern") => String.t() | atom(),
+        required("anomalyDetectorArn") => String.t() | atom(),
+        required("enabled") => boolean()
+      }
+      
+  """
+  @type update_log_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_lookup_table_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("queryId") => String.t() | atom(),
+        optional("tableBody") => String.t() | atom(),
+        required("lookupTableArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_lookup_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_lookup_table_response() :: %{
+        "lastUpdatedTime" => float(),
+        "lookupTableArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_lookup_table_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_scheduled_query_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("destinationConfiguration") => destination_configuration(),
+        optional("endTimeOffset") => float(),
+        optional("logGroupIdentifiers") => list(String.t() | atom()),
+        optional("scheduleEndTime") => float(),
+        optional("scheduleStartTime") => float(),
+        optional("startTimeOffset") => float(),
+        optional("state") => list(any()),
+        optional("timezone") => String.t() | atom(),
+        required("executionRoleArn") => String.t() | atom(),
+        required("identifier") => String.t() | atom(),
+        required("queryLanguage") => list(any()),
+        required("queryString") => String.t() | atom(),
+        required("scheduleExpression") => String.t() | atom()
+      }
+      
+  """
+  @type update_scheduled_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_scheduled_query_response() :: %{
+        "creationTime" => float(),
+        "description" => String.t() | atom(),
+        "destinationConfiguration" => destination_configuration(),
+        "endTimeOffset" => float(),
+        "executionRoleArn" => String.t() | atom(),
+        "lastExecutionStatus" => list(any()),
+        "lastTriggeredTime" => float(),
+        "lastUpdatedTime" => float(),
+        "logGroupIdentifiers" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "queryLanguage" => list(any()),
+        "queryString" => String.t() | atom(),
+        "scheduleEndTime" => float(),
+        "scheduleExpression" => String.t() | atom(),
+        "scheduleStartTime" => float(),
+        "scheduleType" => list(any()),
+        "scheduledQueryArn" => String.t() | atom(),
+        "startTimeOffset" => float(),
+        "state" => list(any()),
+        "timezone" => String.t() | atom()
+      }
+      
+  """
+  @type update_scheduled_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upper_case_string() :: %{
+        "withKeys" => list(String.t() | atom())
+      }
+      
+  """
+  @type upper_case_string() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type operation_aborted_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type associate_kms_key_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type associate_source_to_s3_table_integration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type cancel_export_task_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
 
   @type cancel_import_task_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
+          | access_denied_exception()
 
   @type create_delivery_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_export_task_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
-          | resource_already_exists_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | resource_already_exists_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type create_import_task_errors() ::
-          invalid_parameter_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_log_anomaly_detector_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type create_log_group_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_already_exists_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type create_log_stream_errors() ::
-          invalid_parameter_exception()
-          | resource_already_exists_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | resource_already_exists_exception()
+          | invalid_parameter_exception()
 
   @type create_lookup_table_errors() ::
-          invalid_parameter_exception()
-          | resource_already_exists_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          validation_exception()
           | service_unavailable_exception()
+          | resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
 
   @type create_scheduled_query_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_account_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type delete_data_protection_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type delete_delivery_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_delivery_destination_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_delivery_destination_policy_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_delivery_source_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_destination_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type delete_index_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type delete_integration_errors() ::
-          invalid_parameter_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
 
   @type delete_log_anomaly_detector_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type delete_log_group_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type delete_log_stream_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type delete_lookup_table_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | invalid_parameter_exception()
           | access_denied_exception()
-          | service_unavailable_exception()
 
   @type delete_metric_filter_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type delete_query_definition_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type delete_resource_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type delete_retention_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type delete_scheduled_query_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type delete_subscription_filter_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type delete_syslog_configuration_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
-          | resource_not_found_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
+          | access_denied_exception()
 
   @type delete_transformer_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
 
   @type describe_account_policies_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type describe_configuration_templates_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
 
   @type describe_deliveries_errors() ::
-          service_quota_exceeded_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
 
   @type describe_delivery_destinations_errors() ::
-          service_quota_exceeded_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
 
   @type describe_delivery_sources_errors() ::
-          service_quota_exceeded_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
 
   @type describe_destinations_errors() ::
-          invalid_parameter_exception() | service_unavailable_exception()
+          service_unavailable_exception() | invalid_parameter_exception()
 
   @type describe_export_tasks_errors() ::
-          invalid_parameter_exception() | service_unavailable_exception()
+          service_unavailable_exception() | invalid_parameter_exception()
 
   @type describe_field_indexes_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type describe_import_task_batches_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
+          | access_denied_exception()
 
   @type describe_import_tasks_errors() ::
-          invalid_parameter_exception()
+          throttling_exception()
           | resource_not_found_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
+          | access_denied_exception()
 
   @type describe_index_policies_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type describe_log_groups_errors() ::
-          invalid_parameter_exception() | service_unavailable_exception()
+          service_unavailable_exception() | invalid_parameter_exception()
 
   @type describe_log_streams_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type describe_lookup_tables_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | invalid_parameter_exception()
           | access_denied_exception()
-          | service_unavailable_exception()
 
   @type describe_metric_filters_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type describe_queries_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type describe_query_definitions_errors() ::
-          invalid_parameter_exception() | service_unavailable_exception()
+          service_unavailable_exception() | invalid_parameter_exception()
 
   @type describe_resource_policies_errors() ::
-          invalid_parameter_exception() | service_unavailable_exception()
+          service_unavailable_exception() | invalid_parameter_exception()
 
   @type describe_subscription_filters_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type disassociate_kms_key_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type disassociate_source_from_s3_table_integration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type filter_log_events_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type get_data_protection_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type get_delivery_errors() ::
-          service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
 
   @type get_delivery_destination_errors() ::
-          service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
 
   @type get_delivery_destination_policy_errors() ::
-          resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
 
   @type get_delivery_source_errors() ::
-          service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
 
   @type get_integration_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type get_log_anomaly_detector_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type get_log_events_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type get_log_fields_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type get_log_group_fields_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type get_log_object_errors() ::
-          invalid_parameter_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
-          | access_denied_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
+          | access_denied_exception()
 
   @type get_log_record_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type get_lookup_table_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | invalid_parameter_exception()
           | access_denied_exception()
-          | service_unavailable_exception()
 
   @type get_query_results_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type get_scheduled_query_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_scheduled_query_history_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_storage_tier_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
           | access_denied_exception()
-          | service_unavailable_exception()
 
   @type get_transformer_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
 
   @type list_aggregate_log_group_summaries_errors() ::
-          invalid_parameter_exception() | validation_exception() | service_unavailable_exception()
+          validation_exception() | service_unavailable_exception() | invalid_parameter_exception()
 
   @type list_anomalies_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type list_integrations_errors() ::
-          invalid_parameter_exception() | service_unavailable_exception()
+          service_unavailable_exception() | invalid_parameter_exception()
 
   @type list_log_anomaly_detectors_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type list_log_groups_errors() ::
-          invalid_parameter_exception() | service_unavailable_exception()
+          service_unavailable_exception() | invalid_parameter_exception()
 
   @type list_log_groups_for_query_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | invalid_parameter_exception()
           | access_denied_exception()
-          | service_unavailable_exception()
 
   @type list_scheduled_queries_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_sources_for_s3_table_integration_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_syslog_configurations_errors() ::
-          invalid_parameter_exception()
-          | resource_not_found_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type list_tags_log_group_errors() ::
-          resource_not_found_exception() | service_unavailable_exception()
+          service_unavailable_exception() | resource_not_found_exception()
 
   @type put_account_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type put_bearer_token_authentication_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
+          | access_denied_exception()
 
   @type put_data_protection_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type put_delivery_destination_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type put_delivery_destination_policy_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type put_delivery_source_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type put_destination_errors() ::
-          operation_aborted_exception()
+          service_unavailable_exception()
+          | operation_aborted_exception()
           | invalid_parameter_exception()
-          | service_unavailable_exception()
 
   @type put_destination_policy_errors() ::
-          operation_aborted_exception()
+          service_unavailable_exception()
+          | operation_aborted_exception()
           | invalid_parameter_exception()
-          | service_unavailable_exception()
 
   @type put_index_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type put_integration_errors() ::
-          invalid_parameter_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
+          validation_exception()
           | service_unavailable_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
 
   @type put_log_events_errors() ::
-          invalid_parameter_exception()
-          | data_already_accepted_exception()
-          | invalid_sequence_token_exception()
-          | resource_not_found_exception()
-          | unrecognized_client_exception()
+          unrecognized_client_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_sequence_token_exception()
+          | invalid_parameter_exception()
+          | data_already_accepted_exception()
 
   @type put_log_group_deletion_protection_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
+          | access_denied_exception()
 
   @type put_metric_filter_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
 
   @type put_query_definition_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type put_resource_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type put_retention_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type put_storage_tier_policy_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
           | access_denied_exception()
-          | service_unavailable_exception()
 
   @type put_subscription_filter_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
 
   @type put_syslog_configuration_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
-          | resource_not_found_exception()
-          | access_denied_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
+          | access_denied_exception()
 
   @type put_transformer_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | operation_aborted_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
 
   @type start_live_tail_errors() ::
-          invalid_parameter_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | limit_exceeded_exception()
-          | access_denied_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
+          | access_denied_exception()
 
   @type start_query_errors() ::
-          invalid_parameter_exception()
-          | malformed_query_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
+          | malformed_query_exception()
           | limit_exceeded_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type stop_query_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
-  @type tag_log_group_errors() :: invalid_parameter_exception() | resource_not_found_exception()
+  @type tag_log_group_errors() :: resource_not_found_exception() | invalid_parameter_exception()
 
   @type tag_resource_errors() ::
-          invalid_parameter_exception()
-          | too_many_tags_exception()
-          | resource_not_found_exception()
+          too_many_tags_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
 
   @type test_metric_filter_errors() ::
-          invalid_parameter_exception() | service_unavailable_exception()
+          service_unavailable_exception() | invalid_parameter_exception()
 
   @type test_transformer_errors() ::
-          invalid_parameter_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
+          | invalid_parameter_exception()
           | invalid_operation_exception()
 
   @type untag_log_group_errors() :: resource_not_found_exception()
 
   @type untag_resource_errors() ::
-          invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | invalid_parameter_exception()
 
   @type update_anomaly_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type update_delivery_configuration_errors() ::
-          conflict_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_log_anomaly_detector_errors() ::
-          operation_aborted_exception()
-          | invalid_parameter_exception()
+          service_unavailable_exception()
           | resource_not_found_exception()
-          | service_unavailable_exception()
+          | operation_aborted_exception()
+          | invalid_parameter_exception()
 
   @type update_lookup_table_errors() ::
-          invalid_parameter_exception()
-          | resource_not_found_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
 
   @type update_scheduled_query_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   def metadata do
     %{
@@ -5690,16 +5708,17 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Creates a lookup table by uploading CSV data.
+  Creates a lookup table by uploading CSV data or from CloudWatch Logs query
+  results.
 
-  You can use lookup tables to enrich log
-  data in CloudWatch Logs Insights queries with reference data such as user
-  details, application
-  names, or error descriptions.
+  You can use lookup tables to enrich log data in CloudWatch Logs queries with
+  reference data such as user details, application names, or error descriptions.
 
-  The table name must be unique within your account and Region. The CSV content
-  must include
-  a header row with column names, use UTF-8 encoding, and not exceed 10 MB.
+  The table name must be unique within your account and Region. You must specify
+  either
+  `tableBody` or `queryId`, but not both. If you use
+  `tableBody`, the CSV content must include a header row with column names, use
+  UTF-8 encoding, and not exceed 10 MB.
   """
   @spec create_lookup_table(map(), create_lookup_table_request(), list()) ::
           {:ok, create_lookup_table_response(), any()}
@@ -7219,7 +7238,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Returns the storage tier policy for your account.
+  Returns the storage tier policy for the account.
   """
   @spec get_storage_tier_policy(map(), get_storage_tier_policy_request(), list()) ::
           {:ok, get_storage_tier_policy_response(), any()}
@@ -8810,11 +8829,11 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Sets the storage tier policy for your account.
+  Sets the storage tier policy for the account.
 
   When you set the storage tier to
-  `INTELLIGENT_TIERING`, CloudWatch Logs automatically moves your log data between
-  storage tiers based on access patterns to optimize costs.
+  `INTELLIGENT_TIERING`, the service automatically moves log data to the most
+  cost-effective storage tier based on access frequency.
   """
   @spec put_storage_tier_policy(map(), put_storage_tier_policy_request(), list()) ::
           {:ok, put_storage_tier_policy_response(), any()}
@@ -9387,14 +9406,16 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Updates an existing lookup table by replacing all of its CSV content.
+  Updates an existing lookup table by replacing all of its content with new CSV
+  data or
+  CloudWatch Logs query results.
 
-  After the update
-  completes, queries that use this table will use the new data.
+  After the update completes, queries that use this table
+  use the new data.
 
-  This is a full replacement operation. All existing content is replaced with the
-  new CSV
-  data.
+  This is a full replacement operation. All existing content is replaced. You must
+  specify
+  either `tableBody` or `queryId`, but not both.
   """
   @spec update_lookup_table(map(), update_lookup_table_request(), list()) ::
           {:ok, update_lookup_table_response(), any()}

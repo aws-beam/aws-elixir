@@ -22,109 +22,12 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
-      list_application_states_result() :: %{
-        "ApplicationStateList" => list(application_state()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_application_states_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_attributes_request() :: %{
-        optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom(),
-        required("ResourceAttributeList") => list(resource_attribute())
-      }
-      
-  """
-  @type put_resource_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_migration_task_state_result() :: %{}
-      
-  """
-  @type notify_migration_task_state_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_unavailable_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_migration_task_state_request() :: %{
-        optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("NextUpdateSeconds") => integer(),
-        required("ProgressUpdateStream") => String.t() | atom(),
-        required("Task") => task(),
-        required("UpdateDateTime") => non_neg_integer()
-      }
-      
-  """
-  @type notify_migration_task_state_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      created_artifact() :: %{
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type created_artifact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RetryAfterSeconds" => integer()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unauthorized_operation() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unauthorized_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -143,6 +46,164 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
+      associate_created_artifact_request() :: %{
+        optional("DryRun") => boolean(),
+        required("CreatedArtifact") => created_artifact(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
+      }
+      
+  """
+  @type associate_created_artifact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_created_artifact_result() :: %{}
+      
+  """
+  @type associate_created_artifact_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_discovered_resource_request() :: %{
+        optional("DryRun") => boolean(),
+        required("DiscoveredResource") => discovered_resource(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
+      }
+      
+  """
+  @type associate_discovered_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_discovered_resource_result() :: %{}
+      
+  """
+  @type associate_discovered_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_source_resource_request() :: %{
+        optional("DryRun") => boolean(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom(),
+        required("SourceResource") => source_resource()
+      }
+      
+  """
+  @type associate_source_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_source_resource_result() :: %{}
+      
+  """
+  @type associate_source_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_progress_update_stream_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ProgressUpdateStreamName") => String.t() | atom()
+      }
+      
+  """
+  @type create_progress_update_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_progress_update_stream_result() :: %{}
+      
+  """
+  @type create_progress_update_stream_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      created_artifact() :: %{
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type created_artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_progress_update_stream_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ProgressUpdateStreamName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_progress_update_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_progress_update_stream_result() :: %{}
+      
+  """
+  @type delete_progress_update_stream_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_state_request() :: %{
+        required("ApplicationId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_application_state_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_state_result() :: %{
+        "ApplicationStatus" => list(any()),
+        "LastUpdatedTime" => non_neg_integer()
+      }
+      
+  """
+  @type describe_application_state_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_migration_task_request() :: %{
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
+      }
+      
+  """
+  @type describe_migration_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_migration_task_result() :: %{
         "MigrationTask" => migration_task()
       }
@@ -154,12 +215,213 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
-      policy_error_exception() :: %{
+      disassociate_created_artifact_request() :: %{
+        optional("DryRun") => boolean(),
+        required("CreatedArtifactName") => String.t() | atom(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_created_artifact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_created_artifact_result() :: %{}
+      
+  """
+  @type disassociate_created_artifact_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_discovered_resource_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ConfigurationId") => String.t() | atom(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_discovered_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_discovered_resource_result() :: %{}
+      
+  """
+  @type disassociate_discovered_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_source_resource_request() :: %{
+        optional("DryRun") => boolean(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom(),
+        required("SourceResourceName") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_source_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_source_resource_result() :: %{}
+      
+  """
+  @type disassociate_source_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      discovered_resource() :: %{
+        "ConfigurationId" => String.t() | atom(),
+        "Description" => String.t() | atom()
+      }
+      
+  """
+  @type discovered_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dry_run_operation() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type policy_error_exception() :: %{(String.t() | atom()) => any()}
+  @type dry_run_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      home_region_not_set_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type home_region_not_set_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_migration_task_request() :: %{
+        optional("DryRun") => boolean(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
+      }
+      
+  """
+  @type import_migration_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_migration_task_result() :: %{}
+      
+  """
+  @type import_migration_task_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_error() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_input_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_states_request() :: %{
+        optional("ApplicationIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_application_states_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_application_states_result() :: %{
+        "ApplicationStateList" => list(application_state()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_application_states_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_created_artifacts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
+      }
+      
+  """
+  @type list_created_artifacts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_created_artifacts_result() :: %{
+        "CreatedArtifactList" => list(created_artifact()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_created_artifacts_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_discovered_resources_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
+      }
+      
+  """
+  @type list_discovered_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -177,10 +439,64 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
-      associate_created_artifact_result() :: %{}
+      list_migration_task_updates_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
+      }
       
   """
-  @type associate_created_artifact_result() :: %{}
+  @type list_migration_task_updates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_migration_task_updates_result() :: %{
+        "MigrationTaskUpdateList" => list(migration_task_update()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_migration_task_updates_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_migration_tasks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceName") => String.t() | atom()
+      }
+      
+  """
+  @type list_migration_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_migration_tasks_result() :: %{
+        "MigrationTaskSummaryList" => list(migration_task_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_migration_tasks_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_progress_update_streams_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_progress_update_streams_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -198,12 +514,27 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
-      home_region_not_set_exception() :: %{
-        "Message" => String.t() | atom()
+      list_source_resources_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
       }
       
   """
-  @type home_region_not_set_exception() :: %{(String.t() | atom()) => any()}
+  @type list_source_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_source_resources_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "SourceResourceList" => list(source_resource())
+      }
+      
+  """
+  @type list_source_resources_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,26 +550,6 @@ defmodule AWS.MigrationHub do
       
   """
   @type migration_task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_state_request() :: %{
-        required("ApplicationId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_application_state_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_attributes_result() :: %{}
-      
-  """
-  @type put_resource_attributes_result() :: %{}
 
   @typedoc """
 
@@ -260,276 +571,14 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
-      internal_server_error() :: %{
-        "Message" => String.t() | atom()
+      migration_task_update() :: %{
+        "MigrationTaskState" => task(),
+        "UpdateDateTime" => non_neg_integer(),
+        "UpdateType" => list(any())
       }
       
   """
-  @type internal_server_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_source_resource_result() :: %{}
-      
-  """
-  @type associate_source_resource_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_source_resource_request() :: %{
-        optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom(),
-        required("SourceResourceName") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_source_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_attribute() :: %{
-        "Type" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type resource_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_discovered_resources_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom()
-      }
-      
-  """
-  @type list_discovered_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_progress_update_stream_request() :: %{
-        optional("DryRun") => boolean(),
-        required("ProgressUpdateStreamName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_progress_update_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_created_artifact_request() :: %{
-        optional("DryRun") => boolean(),
-        required("CreatedArtifactName") => String.t() | atom(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_created_artifact_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_discovered_resource_result() :: %{}
-      
-  """
-  @type disassociate_discovered_resource_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_discovered_resource_result() :: %{}
-      
-  """
-  @type associate_discovered_resource_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_application_states_request() :: %{
-        optional("ApplicationIds") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_application_states_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      progress_update_stream_summary() :: %{
-        "ProgressUpdateStreamName" => String.t() | atom()
-      }
-      
-  """
-  @type progress_update_stream_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_discovered_resource_request() :: %{
-        optional("DryRun") => boolean(),
-        required("ConfigurationId") => String.t() | atom(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_discovered_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_source_resource_result() :: %{}
-      
-  """
-  @type disassociate_source_resource_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_migration_task_request() :: %{
-        optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom()
-      }
-      
-  """
-  @type import_migration_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_migration_task_updates_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom()
-      }
-      
-  """
-  @type list_migration_task_updates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_progress_update_stream_result() :: %{}
-      
-  """
-  @type create_progress_update_stream_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      discovered_resource() :: %{
-        "ConfigurationId" => String.t() | atom(),
-        "Description" => String.t() | atom()
-      }
-      
-  """
-  @type discovered_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_migration_tasks_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceName") => String.t() | atom()
-      }
-      
-  """
-  @type list_migration_tasks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_created_artifact_request() :: %{
-        optional("DryRun") => boolean(),
-        required("CreatedArtifact") => created_artifact(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom()
-      }
-      
-  """
-  @type associate_created_artifact_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dry_run_operation() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type dry_run_operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_discovered_resource_request() :: %{
-        optional("DryRun") => boolean(),
-        required("DiscoveredResource") => discovered_resource(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom()
-      }
-      
-  """
-  @type associate_discovered_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task() :: %{
-        "ProgressPercent" => integer(),
-        "Status" => list(any()),
-        "StatusDetail" => String.t() | atom()
-      }
-      
-  """
-  @type task() :: %{(String.t() | atom()) => any()}
+  @type migration_task_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -549,39 +598,114 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
-      list_migration_task_updates_result() :: %{
-        "MigrationTaskUpdateList" => list(migration_task_update()),
-        "NextToken" => String.t() | atom()
-      }
+      notify_application_state_result() :: %{}
       
   """
-  @type list_migration_task_updates_result() :: %{(String.t() | atom()) => any()}
+  @type notify_application_state_result() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      list_source_resources_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom()
-      }
-      
-  """
-  @type list_source_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_progress_update_stream_request() :: %{
+      notify_migration_task_state_request() :: %{
         optional("DryRun") => boolean(),
-        required("ProgressUpdateStreamName") => String.t() | atom()
+        required("MigrationTaskName") => String.t() | atom(),
+        required("NextUpdateSeconds") => integer(),
+        required("ProgressUpdateStream") => String.t() | atom(),
+        required("Task") => task(),
+        required("UpdateDateTime") => non_neg_integer()
       }
       
   """
-  @type create_progress_update_stream_request() :: %{(String.t() | atom()) => any()}
+  @type notify_migration_task_state_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_migration_task_state_result() :: %{}
+      
+  """
+  @type notify_migration_task_state_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_error_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type policy_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      progress_update_stream_summary() :: %{
+        "ProgressUpdateStreamName" => String.t() | atom()
+      }
+      
+  """
+  @type progress_update_stream_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_attributes_request() :: %{
+        optional("DryRun") => boolean(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom(),
+        required("ResourceAttributeList") => list(resource_attribute())
+      }
+      
+  """
+  @type put_resource_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_attributes_result() :: %{}
+      
+  """
+  @type put_resource_attributes_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_attribute() :: %{
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type resource_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_unavailable_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -600,371 +724,247 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
-      notify_application_state_result() :: %{}
-      
-  """
-  @type notify_application_state_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_source_resource_request() :: %{
-        optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom(),
-        required("SourceResource") => source_resource()
+      task() :: %{
+        "ProgressPercent" => integer(),
+        "Status" => list(any()),
+        "StatusDetail" => String.t() | atom()
       }
       
   """
-  @type associate_source_resource_request() :: %{(String.t() | atom()) => any()}
+  @type task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_source_resources_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "SourceResourceList" => list(source_resource())
+      throttling_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RetryAfterSeconds" => integer()
       }
       
   """
-  @type list_source_resources_result() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_input_exception() :: %{
+      unauthorized_operation() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_progress_update_stream_result() :: %{}
-      
-  """
-  @type delete_progress_update_stream_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_migration_task_result() :: %{}
-      
-  """
-  @type import_migration_task_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_migration_task_request() :: %{
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom()
-      }
-      
-  """
-  @type describe_migration_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_migration_tasks_result() :: %{
-        "MigrationTaskSummaryList" => list(migration_task_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_migration_tasks_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_created_artifact_result() :: %{}
-      
-  """
-  @type disassociate_created_artifact_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_state_result() :: %{
-        "ApplicationStatus" => list(any()),
-        "LastUpdatedTime" => non_neg_integer()
-      }
-      
-  """
-  @type describe_application_state_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_created_artifacts_result() :: %{
-        "CreatedArtifactList" => list(created_artifact()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_created_artifacts_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      migration_task_update() :: %{
-        "MigrationTaskState" => task(),
-        "UpdateDateTime" => non_neg_integer(),
-        "UpdateType" => list(any())
-      }
-      
-  """
-  @type migration_task_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_created_artifacts_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("MigrationTaskName") => String.t() | atom(),
-        required("ProgressUpdateStream") => String.t() | atom()
-      }
-      
-  """
-  @type list_created_artifacts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_progress_update_streams_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_progress_update_streams_request() :: %{(String.t() | atom()) => any()}
+  @type unauthorized_operation() :: %{(String.t() | atom()) => any()}
 
   @type associate_created_artifact_errors() ::
-          invalid_input_exception()
-          | dry_run_operation()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | home_region_not_set_exception()
-          | unauthorized_operation()
-          | access_denied_exception()
+          unauthorized_operation()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_input_exception()
+          | internal_server_error()
+          | home_region_not_set_exception()
+          | dry_run_operation()
+          | access_denied_exception()
 
   @type associate_discovered_resource_errors() ::
-          invalid_input_exception()
-          | dry_run_operation()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | home_region_not_set_exception()
-          | policy_error_exception()
-          | unauthorized_operation()
-          | access_denied_exception()
+          unauthorized_operation()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | policy_error_exception()
+          | invalid_input_exception()
+          | internal_server_error()
+          | home_region_not_set_exception()
+          | dry_run_operation()
+          | access_denied_exception()
 
   @type associate_source_resource_errors() ::
-          invalid_input_exception()
-          | dry_run_operation()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | unauthorized_operation()
-          | access_denied_exception()
+          unauthorized_operation()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_input_exception()
+          | internal_server_error()
+          | dry_run_operation()
+          | access_denied_exception()
 
   @type create_progress_update_stream_errors() ::
-          invalid_input_exception()
-          | dry_run_operation()
-          | internal_server_error()
-          | home_region_not_set_exception()
-          | unauthorized_operation()
-          | access_denied_exception()
+          unauthorized_operation()
           | throttling_exception()
           | service_unavailable_exception()
+          | invalid_input_exception()
+          | internal_server_error()
+          | home_region_not_set_exception()
+          | dry_run_operation()
+          | access_denied_exception()
 
   @type delete_progress_update_stream_errors() ::
-          invalid_input_exception()
-          | dry_run_operation()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | home_region_not_set_exception()
-          | unauthorized_operation()
-          | access_denied_exception()
+          unauthorized_operation()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_input_exception()
+          | internal_server_error()
+          | home_region_not_set_exception()
+          | dry_run_operation()
+          | access_denied_exception()
 
   @type describe_application_state_errors() ::
-          invalid_input_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
+          | policy_error_exception()
+          | invalid_input_exception()
           | internal_server_error()
           | home_region_not_set_exception()
-          | policy_error_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type describe_migration_task_errors() ::
-          invalid_input_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
+          | invalid_input_exception()
           | internal_server_error()
           | home_region_not_set_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type disassociate_created_artifact_errors() ::
-          invalid_input_exception()
-          | dry_run_operation()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | home_region_not_set_exception()
-          | unauthorized_operation()
-          | access_denied_exception()
+          unauthorized_operation()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_input_exception()
+          | internal_server_error()
+          | home_region_not_set_exception()
+          | dry_run_operation()
+          | access_denied_exception()
 
   @type disassociate_discovered_resource_errors() ::
-          invalid_input_exception()
-          | dry_run_operation()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | home_region_not_set_exception()
-          | unauthorized_operation()
-          | access_denied_exception()
+          unauthorized_operation()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_input_exception()
+          | internal_server_error()
+          | home_region_not_set_exception()
+          | dry_run_operation()
+          | access_denied_exception()
 
   @type disassociate_source_resource_errors() ::
-          invalid_input_exception()
-          | dry_run_operation()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | unauthorized_operation()
-          | access_denied_exception()
+          unauthorized_operation()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_input_exception()
+          | internal_server_error()
+          | dry_run_operation()
+          | access_denied_exception()
 
   @type import_migration_task_errors() ::
-          invalid_input_exception()
-          | dry_run_operation()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | home_region_not_set_exception()
-          | unauthorized_operation()
-          | access_denied_exception()
+          unauthorized_operation()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_input_exception()
+          | internal_server_error()
+          | home_region_not_set_exception()
+          | dry_run_operation()
+          | access_denied_exception()
 
   @type list_application_states_errors() ::
-          invalid_input_exception()
+          throttling_exception()
+          | service_unavailable_exception()
+          | invalid_input_exception()
           | internal_server_error()
           | home_region_not_set_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_created_artifacts_errors() ::
-          invalid_input_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
+          | invalid_input_exception()
           | internal_server_error()
           | home_region_not_set_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_discovered_resources_errors() ::
-          invalid_input_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
+          | invalid_input_exception()
           | internal_server_error()
           | home_region_not_set_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_migration_task_updates_errors() ::
-          invalid_input_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
+          | invalid_input_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_migration_tasks_errors() ::
-          invalid_input_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
+          | policy_error_exception()
+          | invalid_input_exception()
           | internal_server_error()
           | home_region_not_set_exception()
-          | policy_error_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_progress_update_streams_errors() ::
-          invalid_input_exception()
+          throttling_exception()
+          | service_unavailable_exception()
+          | invalid_input_exception()
           | internal_server_error()
           | home_region_not_set_exception()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type list_source_resources_errors() ::
-          invalid_input_exception()
+          throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
+          | invalid_input_exception()
           | internal_server_error()
           | access_denied_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
 
   @type notify_application_state_errors() ::
-          invalid_input_exception()
-          | dry_run_operation()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | home_region_not_set_exception()
-          | policy_error_exception()
-          | unauthorized_operation()
-          | access_denied_exception()
+          unauthorized_operation()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | policy_error_exception()
+          | invalid_input_exception()
+          | internal_server_error()
+          | home_region_not_set_exception()
+          | dry_run_operation()
+          | access_denied_exception()
 
   @type notify_migration_task_state_errors() ::
-          invalid_input_exception()
-          | dry_run_operation()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | home_region_not_set_exception()
-          | unauthorized_operation()
-          | access_denied_exception()
+          unauthorized_operation()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_input_exception()
+          | internal_server_error()
+          | home_region_not_set_exception()
+          | dry_run_operation()
+          | access_denied_exception()
 
   @type put_resource_attributes_errors() ::
-          invalid_input_exception()
-          | dry_run_operation()
-          | resource_not_found_exception()
-          | internal_server_error()
-          | home_region_not_set_exception()
-          | unauthorized_operation()
-          | access_denied_exception()
+          unauthorized_operation()
           | throttling_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_input_exception()
+          | internal_server_error()
+          | home_region_not_set_exception()
+          | dry_run_operation()
+          | access_denied_exception()
 
   def metadata do
     %{

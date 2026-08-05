@@ -60,14 +60,115 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
-      search_resources_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceQuery") => resource_query()
+      account_settings() :: %{
+        "GroupLifecycleEventsDesiredStatus" => list(any()),
+        "GroupLifecycleEventsStatus" => list(any()),
+        "GroupLifecycleEventsStatusMessage" => String.t() | atom()
       }
 
   """
-  @type search_resources_input() :: %{(String.t() | atom()) => any()}
+  @type account_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_tag_sync_task_input() :: %{
+        required("TaskArn") => String.t() | atom()
+      }
+
+  """
+  @type cancel_tag_sync_task_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_group_input() :: %{
+        optional("Configuration") => list(group_configuration_item()),
+        optional("Criticality") => integer(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
+        optional("ResourceQuery") => resource_query(),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_group_output() :: %{
+        "Group" => group(),
+        "GroupConfiguration" => group_configuration(),
+        "ResourceQuery" => resource_query(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_group_input() :: %{
+        optional("Group") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom()
+      }
+
+  """
+  @type delete_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_group_output() :: %{
+        "Group" => group()
+      }
+
+  """
+  @type delete_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failed_resource() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type failed_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -84,146 +185,23 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
-      method_not_allowed_exception() :: %{
-        "Message" => String.t() | atom()
+      get_group_configuration_input() :: %{
+        optional("Group") => String.t() | atom()
       }
 
   """
-  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+  @type get_group_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      group_query() :: %{
-        "GroupName" => String.t() | atom(),
-        "ResourceQuery" => resource_query()
+      get_group_configuration_output() :: %{
+        "GroupConfiguration" => group_configuration()
       }
 
   """
-  @type group_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_group_query_input() :: %{
-        optional("Group") => String.t() | atom(),
-        optional("GroupName") => String.t() | atom(),
-        required("ResourceQuery") => resource_query()
-      }
-
-  """
-  @type update_group_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_grouping_statuses_input() :: %{
-        optional("Filters") => list(list_grouping_statuses_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Group") => String.t() | atom()
-      }
-
-  """
-  @type list_grouping_statuses_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_input() :: %{
-        required("Keys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_resources_input() :: %{
-        required("Group") => String.t() | atom(),
-        required("ResourceArns") => list(String.t() | atom())
-      }
-
-  """
-  @type group_resources_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_group_resources_input() :: %{
-        optional("Filters") => list(resource_filter()),
-        optional("Group") => String.t() | atom(),
-        optional("GroupName") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_group_resources_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tag_sync_tasks_filter() :: %{
-        "GroupArn" => String.t() | atom(),
-        "GroupName" => String.t() | atom()
-      }
-
-  """
-  @type list_tag_sync_tasks_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_filter() :: %{
-        "Name" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type resource_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_group_query_output() :: %{
-        "GroupQuery" => group_query()
-      }
-
-  """
-  @type update_group_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_group_output() :: %{
-        "Group" => group()
-      }
-
-  """
-  @type update_group_output() :: %{(String.t() | atom()) => any()}
+  @type get_group_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -236,6 +214,51 @@ defmodule AWS.ResourceGroups do
 
   """
   @type get_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_output() :: %{
+        "Group" => group()
+      }
+
+  """
+  @type get_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_query_input() :: %{
+        optional("Group") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom()
+      }
+
+  """
+  @type get_group_query_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_query_output() :: %{
+        "GroupQuery" => group_query()
+      }
+
+  """
+  @type get_group_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tag_sync_task_input() :: %{
+        required("TaskArn") => String.t() | atom()
+      }
+
+  """
+  @type get_tag_sync_task_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -261,30 +284,22 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
-      list_groups_input() :: %{
-        optional("Filters") => list(group_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
+      get_tags_input() :: %{}
 
   """
-  @type list_groups_input() :: %{(String.t() | atom()) => any()}
+  @type get_tags_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_group_input() :: %{
-        optional("Criticality") => integer(),
-        optional("Description") => String.t() | atom(),
-        optional("DisplayName") => String.t() | atom(),
-        optional("Group") => String.t() | atom(),
-        optional("GroupName") => String.t() | atom(),
-        optional("Owner") => String.t() | atom()
+      get_tags_output() :: %{
+        "Arn" => String.t() | atom(),
+        "Tags" => map()
       }
 
   """
-  @type update_group_input() :: %{(String.t() | atom()) => any()}
+  @type get_tags_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -307,40 +322,6 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
-      get_group_query_output() :: %{
-        "GroupQuery" => group_query()
-      }
-
-  """
-  @type get_group_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_group_query_input() :: %{
-        optional("Group") => String.t() | atom(),
-        optional("GroupName") => String.t() | atom()
-      }
-
-  """
-  @type get_group_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       group_configuration() :: %{
         "Configuration" => list(group_configuration_item()),
         "FailureReason" => String.t() | atom(),
@@ -350,6 +331,95 @@ defmodule AWS.ResourceGroups do
 
   """
   @type group_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_configuration_item() :: %{
+        "Parameters" => list(group_configuration_parameter()),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type group_configuration_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_configuration_parameter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type group_configuration_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type group_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_identifier() :: %{
+        "Criticality" => integer(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "GroupArn" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "Owner" => String.t() | atom()
+      }
+
+  """
+  @type group_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_query() :: %{
+        "GroupName" => String.t() | atom(),
+        "ResourceQuery" => resource_query()
+      }
+
+  """
+  @type group_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_resources_input() :: %{
+        required("Group") => String.t() | atom(),
+        required("ResourceArns") => list(String.t() | atom())
+      }
+
+  """
+  @type group_resources_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_resources_output() :: %{
+        "Failed" => list(failed_resource()),
+        "Pending" => list(pending_resource()),
+        "Succeeded" => list(String.t() | atom())
+      }
+
+  """
+  @type group_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -371,53 +441,6 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
-      untag_output() :: %{
-        "Arn" => String.t() | atom(),
-        "Keys" => list(String.t() | atom())
-      }
-
-  """
-  @type untag_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_group_configuration_output() :: %{
-        "GroupConfiguration" => group_configuration()
-      }
-
-  """
-  @type get_group_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_settings() :: %{
-        "GroupLifecycleEventsDesiredStatus" => list(any()),
-        "GroupLifecycleEventsStatus" => list(any()),
-        "GroupLifecycleEventsStatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type account_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_group_output() :: %{
-        "Group" => group()
-      }
-
-  """
-  @type get_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       internal_server_error_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -429,10 +452,380 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
-      get_tags_input() :: %{}
+      list_group_resources_input() :: %{
+        optional("Filters") => list(resource_filter()),
+        optional("Group") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
 
   """
-  @type get_tags_input() :: %{}
+  @type list_group_resources_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_group_resources_item() :: %{
+        "Identifier" => resource_identifier(),
+        "Status" => resource_status()
+      }
+
+  """
+  @type list_group_resources_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_group_resources_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "QueryErrors" => list(query_error()),
+        "ResourceIdentifiers" => list(resource_identifier()),
+        "Resources" => list(list_group_resources_item())
+      }
+
+  """
+  @type list_group_resources_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_grouping_statuses_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type list_grouping_statuses_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_grouping_statuses_input() :: %{
+        optional("Filters") => list(list_grouping_statuses_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Group") => String.t() | atom()
+      }
+
+  """
+  @type list_grouping_statuses_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_grouping_statuses_output() :: %{
+        "Group" => String.t() | atom(),
+        "GroupingStatuses" => list(grouping_statuses_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_grouping_statuses_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_groups_input() :: %{
+        optional("Filters") => list(group_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_groups_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_groups_output() :: %{
+        "GroupIdentifiers" => list(group_identifier()),
+        "Groups" => list(group()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_groups_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tag_sync_tasks_filter() :: %{
+        "GroupArn" => String.t() | atom(),
+        "GroupName" => String.t() | atom()
+      }
+
+  """
+  @type list_tag_sync_tasks_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tag_sync_tasks_input() :: %{
+        optional("Filters") => list(list_tag_sync_tasks_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_tag_sync_tasks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tag_sync_tasks_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "TagSyncTasks" => list(tag_sync_task_item())
+      }
+
+  """
+  @type list_tag_sync_tasks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      method_not_allowed_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pending_resource() :: %{
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type pending_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_group_configuration_input() :: %{
+        optional("Configuration") => list(group_configuration_item()),
+        optional("Group") => String.t() | atom()
+      }
+
+  """
+  @type put_group_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_group_configuration_output() :: %{}
+
+  """
+  @type put_group_configuration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      query_error() :: %{
+        "ErrorCode" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type query_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type resource_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_identifier() :: %{
+        "ResourceArn" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_query() :: %{
+        "Query" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type resource_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_status() :: %{
+        "Name" => list(any())
+      }
+
+  """
+  @type resource_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_resources_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceQuery") => resource_query()
+      }
+
+  """
+  @type search_resources_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_resources_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "QueryErrors" => list(query_error()),
+        "ResourceIdentifiers" => list(resource_identifier())
+      }
+
+  """
+  @type search_resources_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_tag_sync_task_input() :: %{
+        optional("ResourceQuery") => resource_query(),
+        optional("TagKey") => String.t() | atom(),
+        optional("TagValue") => String.t() | atom(),
+        required("Group") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type start_tag_sync_task_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_tag_sync_task_output() :: %{
+        "GroupArn" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "ResourceQuery" => resource_query(),
+        "RoleArn" => String.t() | atom(),
+        "TagKey" => String.t() | atom(),
+        "TagValue" => String.t() | atom(),
+        "TaskArn" => String.t() | atom()
+      }
+
+  """
+  @type start_tag_sync_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_input() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_output() :: %{
+        "Arn" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type tag_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_sync_task_item() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ErrorMessage" => String.t() | atom(),
+        "GroupArn" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "ResourceQuery" => resource_query(),
+        "RoleArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "TagKey" => String.t() | atom(),
+        "TagValue" => String.t() | atom(),
+        "TaskArn" => String.t() | atom()
+      }
+
+  """
+  @type tag_sync_task_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -463,340 +856,24 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
-      pending_resource() :: %{
-        "ResourceArn" => String.t() | atom()
+      untag_input() :: %{
+        required("Keys") => list(String.t() | atom())
       }
 
   """
-  @type pending_resource() :: %{(String.t() | atom()) => any()}
+  @type untag_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_tags_output() :: %{
+      untag_output() :: %{
         "Arn" => String.t() | atom(),
-        "Tags" => map()
+        "Keys" => list(String.t() | atom())
       }
 
   """
-  @type get_tags_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_input() :: %{
-        optional("Configuration") => list(group_configuration_item()),
-        optional("Criticality") => integer(),
-        optional("Description") => String.t() | atom(),
-        optional("DisplayName") => String.t() | atom(),
-        optional("Owner") => String.t() | atom(),
-        optional("ResourceQuery") => resource_query(),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_tag_sync_task_output() :: %{
-        "GroupArn" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "ResourceQuery" => resource_query(),
-        "RoleArn" => String.t() | atom(),
-        "TagKey" => String.t() | atom(),
-        "TagValue" => String.t() | atom(),
-        "TaskArn" => String.t() | atom()
-      }
-
-  """
-  @type start_tag_sync_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_configuration_parameter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type group_configuration_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tag_sync_tasks_input() :: %{
-        optional("Filters") => list(list_tag_sync_tasks_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_tag_sync_tasks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_grouping_statuses_output() :: %{
-        "Group" => String.t() | atom(),
-        "GroupingStatuses" => list(grouping_statuses_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_grouping_statuses_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_tag_sync_task_input() :: %{
-        optional("ResourceQuery") => resource_query(),
-        optional("TagKey") => String.t() | atom(),
-        optional("TagValue") => String.t() | atom(),
-        required("Group") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom()
-      }
-
-  """
-  @type start_tag_sync_task_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_group_input() :: %{
-        optional("Group") => String.t() | atom(),
-        optional("GroupName") => String.t() | atom()
-      }
-
-  """
-  @type delete_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_group_configuration_input() :: %{
-        optional("Configuration") => list(group_configuration_item()),
-        optional("Group") => String.t() | atom()
-      }
-
-  """
-  @type put_group_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_group_resources_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "QueryErrors" => list(query_error()),
-        "ResourceIdentifiers" => list(resource_identifier()),
-        "Resources" => list(list_group_resources_item())
-      }
-
-  """
-  @type list_group_resources_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_resources_output() :: %{
-        "Failed" => list(failed_resource()),
-        "Pending" => list(pending_resource()),
-        "Succeeded" => list(String.t() | atom())
-      }
-
-  """
-  @type group_resources_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_output() :: %{
-        "Group" => group(),
-        "GroupConfiguration" => group_configuration(),
-        "ResourceQuery" => resource_query(),
-        "Tags" => map()
-      }
-
-  """
-  @type create_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_status() :: %{
-        "Name" => list(any())
-      }
-
-  """
-  @type resource_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_filter() :: %{
-        "Name" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type group_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_output() :: %{
-        "Arn" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type tag_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_input() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_groups_output() :: %{
-        "GroupIdentifiers" => list(group_identifier()),
-        "Groups" => list(group()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_groups_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_query() :: %{
-        "Query" => String.t() | atom(),
-        "Type" => list(any())
-      }
-
-  """
-  @type resource_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_group_resources_item() :: %{
-        "Identifier" => resource_identifier(),
-        "Status" => resource_status()
-      }
-
-  """
-  @type list_group_resources_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_identifier() :: %{
-        "ResourceArn" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tag_sync_tasks_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "TagSyncTasks" => list(tag_sync_task_item())
-      }
-
-  """
-  @type list_tag_sync_tasks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_group_output() :: %{
-        "Group" => group()
-      }
-
-  """
-  @type delete_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_configuration_item() :: %{
-        "Parameters" => list(group_configuration_parameter()),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type group_configuration_item() :: %{(String.t() | atom()) => any()}
+  @type untag_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -813,19 +890,6 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
-      failed_resource() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
-
-  """
-  @type failed_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       update_account_settings_output() :: %{
         "AccountSettings" => account_settings()
       }
@@ -837,298 +901,234 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
-      put_group_configuration_output() :: %{}
+      update_group_input() :: %{
+        optional("Criticality") => integer(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("Group") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
+        optional("Owner") => String.t() | atom()
+      }
 
   """
-  @type put_group_configuration_output() :: %{}
+  @type update_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cancel_tag_sync_task_input() :: %{
-        required("TaskArn") => String.t() | atom()
+      update_group_output() :: %{
+        "Group" => group()
       }
 
   """
-  @type cancel_tag_sync_task_input() :: %{(String.t() | atom()) => any()}
+  @type update_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      group_identifier() :: %{
-        "Criticality" => integer(),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "GroupArn" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "Owner" => String.t() | atom()
+      update_group_query_input() :: %{
+        optional("Group") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
+        required("ResourceQuery") => resource_query()
       }
 
   """
-  @type group_identifier() :: %{(String.t() | atom()) => any()}
+  @type update_group_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_sync_task_item() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "ErrorMessage" => String.t() | atom(),
-        "GroupArn" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "ResourceQuery" => resource_query(),
-        "RoleArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "TagKey" => String.t() | atom(),
-        "TagValue" => String.t() | atom(),
-        "TaskArn" => String.t() | atom()
+      update_group_query_output() :: %{
+        "GroupQuery" => group_query()
       }
 
   """
-  @type tag_sync_task_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_error() :: %{
-        "ErrorCode" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type query_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_grouping_statuses_filter() :: %{
-        "Name" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type list_grouping_statuses_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_resources_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "QueryErrors" => list(query_error()),
-        "ResourceIdentifiers" => list(resource_identifier())
-      }
-
-  """
-  @type search_resources_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_tag_sync_task_input() :: %{
-        required("TaskArn") => String.t() | atom()
-      }
-
-  """
-  @type get_tag_sync_task_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_group_configuration_input() :: %{
-        optional("Group") => String.t() | atom()
-      }
-
-  """
-  @type get_group_configuration_input() :: %{(String.t() | atom()) => any()}
+  @type update_group_query_output() :: %{(String.t() | atom()) => any()}
 
   @type cancel_tag_sync_task_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type create_group_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
+          too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_group_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_account_settings_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
+          too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_group_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_group_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_group_query_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_tag_sync_task_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
+          | not_found_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_tags_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type group_resources_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_group_resources_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
+          | not_found_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_grouping_statuses_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
+          too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_groups_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
+          too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_tag_sync_tasks_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type put_group_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type search_resources_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type start_tag_sync_task_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | not_found_exception()
-          | internal_server_error_exception()
-          | unauthorized_exception()
+          unauthorized_exception()
           | too_many_requests_exception()
+          | not_found_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type tag_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type ungroup_resources_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type untag_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_account_settings_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
+          too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_group_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_group_query_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          too_many_requests_exception()
           | not_found_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | method_not_allowed_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   def metadata do
     %{

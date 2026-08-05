@@ -30,6 +30,1441 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      attribute() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authorization_data() :: %{
+        "authorizationToken" => String.t() | atom(),
+        "expiresAt" => non_neg_integer(),
+        "proxyEndpoint" => String.t() | atom()
+      }
+      
+  """
+  @type authorization_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_ecr_container_image_details() :: %{
+        "architecture" => String.t() | atom(),
+        "author" => String.t() | atom(),
+        "imageHash" => String.t() | atom(),
+        "imageTags" => list(String.t() | atom()),
+        "inUseCount" => float(),
+        "lastInUseAt" => non_neg_integer(),
+        "platform" => String.t() | atom(),
+        "pushedAt" => non_neg_integer(),
+        "registry" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type aws_ecr_container_image_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_check_layer_availability_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("layerDigests") => list(String.t() | atom()),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type batch_check_layer_availability_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_check_layer_availability_response() :: %{
+        "failures" => list(layer_failure()),
+        "layers" => list(layer())
+      }
+      
+  """
+  @type batch_check_layer_availability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_image_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("imageIds") => list(image_identifier()),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type batch_delete_image_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_image_response() :: %{
+        "failures" => list(image_failure()),
+        "imageIds" => list(image_identifier())
+      }
+      
+  """
+  @type batch_delete_image_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_image_request() :: %{
+        optional("acceptedMediaTypes") => list(String.t() | atom()),
+        optional("registryId") => String.t() | atom(),
+        required("imageIds") => list(image_identifier()),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type batch_get_image_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_image_response() :: %{
+        "failures" => list(image_failure()),
+        "images" => list(image())
+      }
+      
+  """
+  @type batch_get_image_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_repository_scanning_configuration_request() :: %{
+        required("repositoryNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_repository_scanning_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_repository_scanning_configuration_response() :: %{
+        "failures" => list(repository_scanning_configuration_failure()),
+        "scanningConfigurations" => list(repository_scanning_configuration())
+      }
+      
+  """
+  @type batch_get_repository_scanning_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      blocked_by_organization_policy_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type blocked_by_organization_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      complete_layer_upload_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("layerDigests") => list(String.t() | atom()),
+        required("repositoryName") => String.t() | atom(),
+        required("uploadId") => String.t() | atom()
+      }
+      
+  """
+  @type complete_layer_upload_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      complete_layer_upload_response() :: %{
+        "layerDigest" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "uploadId" => String.t() | atom()
+      }
+      
+  """
+  @type complete_layer_upload_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_pull_through_cache_rule_request() :: %{
+        optional("credentialArn") => String.t() | atom(),
+        optional("customRoleArn") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        optional("upstreamRegistry") => list(any()),
+        optional("upstreamRepositoryPrefix") => String.t() | atom(),
+        required("ecrRepositoryPrefix") => String.t() | atom(),
+        required("upstreamRegistryUrl") => String.t() | atom()
+      }
+      
+  """
+  @type create_pull_through_cache_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_pull_through_cache_rule_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "credentialArn" => String.t() | atom(),
+        "customRoleArn" => String.t() | atom(),
+        "ecrRepositoryPrefix" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "upstreamRegistry" => list(any()),
+        "upstreamRegistryUrl" => String.t() | atom(),
+        "upstreamRepositoryPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type create_pull_through_cache_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_repository_creation_template_request() :: %{
+        optional("customRoleArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("encryptionConfiguration") => encryption_configuration_for_repository_creation_template(),
+        optional("imageTagMutability") => list(any()),
+        optional("imageTagMutabilityExclusionFilters") => list(image_tag_mutability_exclusion_filter()),
+        optional("lifecyclePolicy") => String.t() | atom(),
+        optional("repositoryPolicy") => String.t() | atom(),
+        optional("resourceTags") => list(tag()),
+        required("appliedFor") => list(list(any())()),
+        required("prefix") => String.t() | atom()
+      }
+      
+  """
+  @type create_repository_creation_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_repository_creation_template_response() :: %{
+        "registryId" => String.t() | atom(),
+        "repositoryCreationTemplate" => repository_creation_template()
+      }
+      
+  """
+  @type create_repository_creation_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_repository_request() :: %{
+        optional("encryptionConfiguration") => encryption_configuration(),
+        optional("imageScanningConfiguration") => image_scanning_configuration(),
+        optional("imageTagMutability") => list(any()),
+        optional("imageTagMutabilityExclusionFilters") => list(image_tag_mutability_exclusion_filter()),
+        optional("registryId") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type create_repository_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_repository_response() :: %{
+        "repository" => repository()
+      }
+      
+  """
+  @type create_repository_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cvss_score() :: %{
+        "baseScore" => float(),
+        "scoringVector" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+      
+  """
+  @type cvss_score() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cvss_score_adjustment() :: %{
+        "metric" => String.t() | atom(),
+        "reason" => String.t() | atom()
+      }
+      
+  """
+  @type cvss_score_adjustment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cvss_score_details() :: %{
+        "adjustments" => list(cvss_score_adjustment()),
+        "score" => float(),
+        "scoreSource" => String.t() | atom(),
+        "scoringVector" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+      
+  """
+  @type cvss_score_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_lifecycle_policy_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_lifecycle_policy_response() :: %{
+        "lastEvaluatedAt" => non_neg_integer(),
+        "lifecyclePolicyText" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type delete_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_pull_through_cache_rule_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("ecrRepositoryPrefix") => String.t() | atom()
+      }
+      
+  """
+  @type delete_pull_through_cache_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_pull_through_cache_rule_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "credentialArn" => String.t() | atom(),
+        "customRoleArn" => String.t() | atom(),
+        "ecrRepositoryPrefix" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "upstreamRegistryUrl" => String.t() | atom(),
+        "upstreamRepositoryPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type delete_pull_through_cache_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_registry_policy_request() :: %{}
+      
+  """
+  @type delete_registry_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_registry_policy_response() :: %{
+        "policyText" => String.t() | atom(),
+        "registryId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_registry_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_repository_creation_template_request() :: %{
+        required("prefix") => String.t() | atom()
+      }
+      
+  """
+  @type delete_repository_creation_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_repository_creation_template_response() :: %{
+        "registryId" => String.t() | atom(),
+        "repositoryCreationTemplate" => repository_creation_template()
+      }
+      
+  """
+  @type delete_repository_creation_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_repository_policy_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_repository_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_repository_policy_response() :: %{
+        "policyText" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type delete_repository_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_repository_request() :: %{
+        optional("force") => boolean(),
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_repository_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_repository_response() :: %{
+        "repository" => repository()
+      }
+      
+  """
+  @type delete_repository_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_signing_configuration_request() :: %{}
+      
+  """
+  @type delete_signing_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_signing_configuration_response() :: %{
+        "registryId" => String.t() | atom(),
+        "signingConfiguration" => signing_configuration()
+      }
+      
+  """
+  @type delete_signing_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_pull_time_update_exclusion_request() :: %{
+        required("principalArn") => String.t() | atom()
+      }
+      
+  """
+  @type deregister_pull_time_update_exclusion_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_pull_time_update_exclusion_response() :: %{
+        "principalArn" => String.t() | atom()
+      }
+      
+  """
+  @type deregister_pull_time_update_exclusion_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_image_replication_status_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("imageId") => image_identifier(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_image_replication_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_image_replication_status_response() :: %{
+        "imageId" => image_identifier(),
+        "replicationStatuses" => list(image_replication_status()),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type describe_image_replication_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_image_scan_findings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        required("imageId") => image_identifier(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_image_scan_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_image_scan_findings_response() :: %{
+        "imageId" => image_identifier(),
+        "imageScanFindings" => image_scan_findings(),
+        "imageScanStatus" => image_scan_status(),
+        "nextToken" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type describe_image_scan_findings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_image_signing_status_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("imageId") => image_identifier(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_image_signing_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_image_signing_status_response() :: %{
+        "imageId" => image_identifier(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "signingStatuses" => list(image_signing_status())
+      }
+      
+  """
+  @type describe_image_signing_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_images_filter() :: %{
+        "imageStatus" => list(any()),
+        "tagStatus" => list(any())
+      }
+      
+  """
+  @type describe_images_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_images_request() :: %{
+        optional("filter") => describe_images_filter(),
+        optional("imageIds") => list(image_identifier()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_images_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_images_response() :: %{
+        "imageDetails" => list(image_detail()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_images_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_pull_through_cache_rules_request() :: %{
+        optional("ecrRepositoryPrefixes") => list(String.t() | atom()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("registryId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_pull_through_cache_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_pull_through_cache_rules_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "pullThroughCacheRules" => list(pull_through_cache_rule())
+      }
+      
+  """
+  @type describe_pull_through_cache_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registry_request() :: %{}
+      
+  """
+  @type describe_registry_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_registry_response() :: %{
+        "registryId" => String.t() | atom(),
+        "replicationConfiguration" => replication_configuration()
+      }
+      
+  """
+  @type describe_registry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_repositories_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        optional("repositoryNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_repositories_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_repositories_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "repositories" => list(repository())
+      }
+      
+  """
+  @type describe_repositories_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_repository_creation_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("prefixes") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_repository_creation_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_repository_creation_templates_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryCreationTemplates" => list(repository_creation_template())
+      }
+      
+  """
+  @type describe_repository_creation_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      empty_upload_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type empty_upload_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_configuration() :: %{
+        "encryptionType" => list(any()),
+        "kmsKey" => String.t() | atom()
+      }
+      
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_configuration_for_repository_creation_template() :: %{
+        "encryptionType" => list(any()),
+        "kmsKey" => String.t() | atom()
+      }
+      
+  """
+  @type encryption_configuration_for_repository_creation_template() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      enhanced_image_scan_finding() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "exploitAvailable" => String.t() | atom(),
+        "findingArn" => String.t() | atom(),
+        "firstObservedAt" => non_neg_integer(),
+        "fixAvailable" => String.t() | atom(),
+        "lastObservedAt" => non_neg_integer(),
+        "packageVulnerabilityDetails" => package_vulnerability_details(),
+        "remediation" => remediation(),
+        "resources" => list(resource()),
+        "score" => float(),
+        "scoreDetails" => score_details(),
+        "severity" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type enhanced_image_scan_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      exclusion_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type exclusion_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      exclusion_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type exclusion_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_setting_request() :: %{
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type get_account_setting_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_setting_response() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type get_account_setting_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_authorization_token_request() :: %{
+        optional("registryIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_authorization_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_authorization_token_response() :: %{
+        "authorizationData" => list(authorization_data())
+      }
+      
+  """
+  @type get_authorization_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_download_url_for_layer_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("layerDigest") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type get_download_url_for_layer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_download_url_for_layer_response() :: %{
+        "downloadUrl" => String.t() | atom(),
+        "layerDigest" => String.t() | atom()
+      }
+      
+  """
+  @type get_download_url_for_layer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lifecycle_policy_preview_request() :: %{
+        optional("filter") => lifecycle_policy_preview_filter(),
+        optional("imageIds") => list(image_identifier()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type get_lifecycle_policy_preview_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lifecycle_policy_preview_response() :: %{
+        "lifecyclePolicyText" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "previewResults" => list(lifecycle_policy_preview_result()),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "status" => list(any()),
+        "summary" => lifecycle_policy_preview_summary()
+      }
+      
+  """
+  @type get_lifecycle_policy_preview_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lifecycle_policy_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type get_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lifecycle_policy_response() :: %{
+        "lastEvaluatedAt" => non_neg_integer(),
+        "lifecyclePolicyText" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type get_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_registry_policy_request() :: %{}
+      
+  """
+  @type get_registry_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_registry_policy_response() :: %{
+        "policyText" => String.t() | atom(),
+        "registryId" => String.t() | atom()
+      }
+      
+  """
+  @type get_registry_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_registry_scanning_configuration_request() :: %{}
+      
+  """
+  @type get_registry_scanning_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_registry_scanning_configuration_response() :: %{
+        "registryId" => String.t() | atom(),
+        "scanningConfiguration" => registry_scanning_configuration()
+      }
+      
+  """
+  @type get_registry_scanning_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_repository_policy_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type get_repository_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_repository_policy_response() :: %{
+        "policyText" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type get_repository_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_signing_configuration_request() :: %{}
+      
+  """
+  @type get_signing_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_signing_configuration_response() :: %{
+        "registryId" => String.t() | atom(),
+        "signingConfiguration" => signing_configuration()
+      }
+      
+  """
+  @type get_signing_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image() :: %{
+        "imageId" => image_identifier(),
+        "imageManifest" => String.t() | atom(),
+        "imageManifestMediaType" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type image() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type image_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_archived_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type image_archived_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_detail() :: %{
+        "artifactMediaType" => String.t() | atom(),
+        "imageDigest" => String.t() | atom(),
+        "imageManifestMediaType" => String.t() | atom(),
+        "imagePushedAt" => non_neg_integer(),
+        "imageScanFindingsSummary" => image_scan_findings_summary(),
+        "imageScanStatus" => image_scan_status(),
+        "imageSizeInBytes" => float(),
+        "imageStatus" => list(any()),
+        "imageTags" => list(String.t() | atom()),
+        "lastActivatedAt" => non_neg_integer(),
+        "lastArchivedAt" => non_neg_integer(),
+        "lastRecordedPullTime" => non_neg_integer(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "subjectManifestDigest" => String.t() | atom()
+      }
+      
+  """
+  @type image_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_digest_does_not_match_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type image_digest_does_not_match_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_failure() :: %{
+        "failureCode" => list(any()),
+        "failureReason" => String.t() | atom(),
+        "imageId" => image_identifier()
+      }
+      
+  """
+  @type image_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_identifier() :: %{
+        "imageDigest" => String.t() | atom(),
+        "imageTag" => String.t() | atom()
+      }
+      
+  """
+  @type image_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type image_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_referrer() :: %{
+        "annotations" => map(),
+        "artifactStatus" => list(any()),
+        "artifactType" => String.t() | atom(),
+        "digest" => String.t() | atom(),
+        "mediaType" => String.t() | atom(),
+        "size" => float()
+      }
+      
+  """
+  @type image_referrer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_replication_status() :: %{
+        "failureCode" => String.t() | atom(),
+        "region" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type image_replication_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_scan_finding() :: %{
+        "attributes" => list(attribute()),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "severity" => list(any()),
+        "uri" => String.t() | atom()
+      }
+      
+  """
+  @type image_scan_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_scan_findings() :: %{
+        "enhancedFindings" => list(enhanced_image_scan_finding()),
+        "findingSeverityCounts" => map(),
+        "findings" => list(image_scan_finding()),
+        "imageScanCompletedAt" => non_neg_integer(),
+        "vulnerabilitySourceUpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type image_scan_findings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_scan_findings_summary() :: %{
+        "findingSeverityCounts" => map(),
+        "imageScanCompletedAt" => non_neg_integer(),
+        "vulnerabilitySourceUpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type image_scan_findings_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_scan_status() :: %{
+        "description" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type image_scan_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_scanning_configuration() :: %{
+        "scanOnPush" => boolean()
+      }
+      
+  """
+  @type image_scanning_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_signing_status() :: %{
+        "failureCode" => String.t() | atom(),
+        "failureReason" => String.t() | atom(),
+        "signingProfileArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type image_signing_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_storage_class_update_not_supported_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type image_storage_class_update_not_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_tag_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type image_tag_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_tag_mutability_exclusion_filter() :: %{
+        "filter" => String.t() | atom(),
+        "filterType" => list(any())
+      }
+      
+  """
+  @type image_tag_mutability_exclusion_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      initiate_layer_upload_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type initiate_layer_upload_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      initiate_layer_upload_response() :: %{
+        "partSize" => float(),
+        "uploadId" => String.t() | atom()
+      }
+      
+  """
+  @type initiate_layer_upload_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_layer_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_layer_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_layer_part_exception() :: %{
+        "lastValidByteReceived" => float(),
+        "message" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "uploadId" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_layer_part_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_tag_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_tag_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_exception() :: %{
+        "kmsError" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      layer() :: %{
+        "layerAvailability" => list(any()),
+        "layerDigest" => String.t() | atom(),
+        "layerSize" => float(),
+        "mediaType" => String.t() | atom()
+      }
+      
+  """
+  @type layer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      layer_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type layer_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      layer_failure() :: %{
+        "failureCode" => list(any()),
+        "failureReason" => String.t() | atom(),
+        "layerDigest" => String.t() | atom()
+      }
+      
+  """
+  @type layer_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      layer_inaccessible_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type layer_inaccessible_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      layer_part_too_small_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type layer_part_too_small_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       layers_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -41,12 +1476,333 @@ defmodule AWS.ECR do
 
   ## Example:
       
-      put_replication_configuration_response() :: %{
-        "replicationConfiguration" => replication_configuration()
+      lifecycle_policy_not_found_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type put_replication_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type lifecycle_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_policy_preview_filter() :: %{
+        "tagStatus" => list(any())
+      }
+      
+  """
+  @type lifecycle_policy_preview_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_policy_preview_in_progress_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type lifecycle_policy_preview_in_progress_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_policy_preview_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type lifecycle_policy_preview_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_policy_preview_result() :: %{
+        "action" => lifecycle_policy_rule_action(),
+        "appliedRulePriority" => integer(),
+        "imageDigest" => String.t() | atom(),
+        "imagePushedAt" => non_neg_integer(),
+        "imageTags" => list(String.t() | atom()),
+        "storageClass" => list(any())
+      }
+      
+  """
+  @type lifecycle_policy_preview_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_policy_preview_summary() :: %{
+        "expiringImageTotalCount" => integer(),
+        "transitioningImageTotalCounts" => list(transitioning_image_total_count())
+      }
+      
+  """
+  @type lifecycle_policy_preview_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_policy_rule_action() :: %{
+        "targetStorageClass" => list(any()),
+        "type" => list(any())
+      }
+      
+  """
+  @type lifecycle_policy_rule_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_image_referrers_filter() :: %{
+        "artifactStatus" => list(any()),
+        "artifactTypes" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_image_referrers_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_image_referrers_request() :: %{
+        optional("filter") => list_image_referrers_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom(),
+        required("subjectId") => subject_identifier()
+      }
+      
+  """
+  @type list_image_referrers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_image_referrers_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "referrers" => list(image_referrer())
+      }
+      
+  """
+  @type list_image_referrers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_images_filter() :: %{
+        "imageStatus" => list(any()),
+        "tagStatus" => list(any())
+      }
+      
+  """
+  @type list_images_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_images_request() :: %{
+        optional("filter") => list_images_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type list_images_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_images_response() :: %{
+        "imageIds" => list(image_identifier()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_images_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pull_time_update_exclusions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_pull_time_update_exclusions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pull_time_update_exclusions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "pullTimeUpdateExclusions" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_pull_time_update_exclusions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      package_vulnerability_details() :: %{
+        "cvss" => list(cvss_score()),
+        "referenceUrls" => list(String.t() | atom()),
+        "relatedVulnerabilities" => list(String.t() | atom()),
+        "source" => String.t() | atom(),
+        "sourceUrl" => String.t() | atom(),
+        "vendorCreatedAt" => non_neg_integer(),
+        "vendorSeverity" => String.t() | atom(),
+        "vendorUpdatedAt" => non_neg_integer(),
+        "vulnerabilityId" => String.t() | atom(),
+        "vulnerablePackages" => list(vulnerable_package())
+      }
+      
+  """
+  @type package_vulnerability_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pull_through_cache_rule() :: %{
+        "createdAt" => non_neg_integer(),
+        "credentialArn" => String.t() | atom(),
+        "customRoleArn" => String.t() | atom(),
+        "ecrRepositoryPrefix" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "upstreamRegistry" => list(any()),
+        "upstreamRegistryUrl" => String.t() | atom(),
+        "upstreamRepositoryPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type pull_through_cache_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pull_through_cache_rule_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type pull_through_cache_rule_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pull_through_cache_rule_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type pull_through_cache_rule_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_account_setting_request() :: %{
+        required("name") => String.t() | atom(),
+        required("value") => String.t() | atom()
+      }
+      
+  """
+  @type put_account_setting_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_account_setting_response() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type put_account_setting_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_image_request() :: %{
+        optional("imageDigest") => String.t() | atom(),
+        optional("imageManifestMediaType") => String.t() | atom(),
+        optional("imageTag") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        required("imageManifest") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type put_image_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_image_response() :: %{
+        "image" => image()
+      }
+      
+  """
+  @type put_image_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -65,48 +1821,505 @@ defmodule AWS.ECR do
 
   ## Example:
       
-      lifecycle_policy_preview_not_found_exception() :: %{
+      put_image_scanning_configuration_response() :: %{
+        "imageScanningConfiguration" => image_scanning_configuration(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type put_image_scanning_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_image_tag_mutability_request() :: %{
+        optional("imageTagMutabilityExclusionFilters") => list(image_tag_mutability_exclusion_filter()),
+        optional("registryId") => String.t() | atom(),
+        required("imageTagMutability") => list(any()),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type put_image_tag_mutability_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_image_tag_mutability_response() :: %{
+        "imageTagMutability" => list(any()),
+        "imageTagMutabilityExclusionFilters" => list(image_tag_mutability_exclusion_filter()),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type put_image_tag_mutability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_lifecycle_policy_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("lifecyclePolicyText") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type put_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_lifecycle_policy_response() :: %{
+        "lifecyclePolicyText" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type put_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_registry_policy_request() :: %{
+        required("policyText") => String.t() | atom()
+      }
+      
+  """
+  @type put_registry_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_registry_policy_response() :: %{
+        "policyText" => String.t() | atom(),
+        "registryId" => String.t() | atom()
+      }
+      
+  """
+  @type put_registry_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_registry_scanning_configuration_request() :: %{
+        optional("rules") => list(registry_scanning_rule()),
+        optional("scanType") => list(any())
+      }
+      
+  """
+  @type put_registry_scanning_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_registry_scanning_configuration_response() :: %{
+        "registryScanningConfiguration" => registry_scanning_configuration()
+      }
+      
+  """
+  @type put_registry_scanning_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_replication_configuration_request() :: %{
+        required("replicationConfiguration") => replication_configuration()
+      }
+      
+  """
+  @type put_replication_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_replication_configuration_response() :: %{
+        "replicationConfiguration" => replication_configuration()
+      }
+      
+  """
+  @type put_replication_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_signing_configuration_request() :: %{
+        required("signingConfiguration") => signing_configuration()
+      }
+      
+  """
+  @type put_signing_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_signing_configuration_response() :: %{
+        "signingConfiguration" => signing_configuration()
+      }
+      
+  """
+  @type put_signing_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recommendation() :: %{
+        "text" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+      
+  """
+  @type recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      referenced_images_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type lifecycle_policy_preview_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type referenced_images_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cvss_score_adjustment() :: %{
-        "metric" => String.t() | atom(),
-        "reason" => String.t() | atom()
+      register_pull_time_update_exclusion_request() :: %{
+        required("principalArn") => String.t() | atom()
       }
       
   """
-  @type cvss_score_adjustment() :: %{(String.t() | atom()) => any()}
+  @type register_pull_time_update_exclusion_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      attribute() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
+      register_pull_time_update_exclusion_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "principalArn" => String.t() | atom()
       }
       
   """
-  @type attribute() :: %{(String.t() | atom()) => any()}
+  @type register_pull_time_update_exclusion_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_delete_image_response() :: %{
-        "failures" => list(image_failure()),
-        "imageIds" => list(image_identifier())
+      registry_policy_not_found_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type batch_delete_image_response() :: %{(String.t() | atom()) => any()}
+  @type registry_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registry_scanning_configuration() :: %{
+        "rules" => list(registry_scanning_rule()),
+        "scanType" => list(any())
+      }
+      
+  """
+  @type registry_scanning_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registry_scanning_rule() :: %{
+        "repositoryFilters" => list(scanning_repository_filter()),
+        "scanFrequency" => list(any())
+      }
+      
+  """
+  @type registry_scanning_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remediation() :: %{
+        "recommendation" => recommendation()
+      }
+      
+  """
+  @type remediation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_configuration() :: %{
+        "rules" => list(replication_rule())
+      }
+      
+  """
+  @type replication_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_destination() :: %{
+        "region" => String.t() | atom(),
+        "registryId" => String.t() | atom()
+      }
+      
+  """
+  @type replication_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_rule() :: %{
+        "destinations" => list(replication_destination()),
+        "repositoryFilters" => list(repository_filter())
+      }
+      
+  """
+  @type replication_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      repository() :: %{
+        "createdAt" => non_neg_integer(),
+        "encryptionConfiguration" => encryption_configuration(),
+        "imageScanningConfiguration" => image_scanning_configuration(),
+        "imageTagMutability" => list(any()),
+        "imageTagMutabilityExclusionFilters" => list(image_tag_mutability_exclusion_filter()),
+        "registryId" => String.t() | atom(),
+        "repositoryArn" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "repositoryUri" => String.t() | atom()
+      }
+      
+  """
+  @type repository() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      repository_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type repository_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      repository_creation_template() :: %{
+        "appliedFor" => list(list(any())()),
+        "createdAt" => non_neg_integer(),
+        "customRoleArn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "encryptionConfiguration" => encryption_configuration_for_repository_creation_template(),
+        "imageTagMutability" => list(any()),
+        "imageTagMutabilityExclusionFilters" => list(image_tag_mutability_exclusion_filter()),
+        "lifecyclePolicy" => String.t() | atom(),
+        "prefix" => String.t() | atom(),
+        "repositoryPolicy" => String.t() | atom(),
+        "resourceTags" => list(tag()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type repository_creation_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      repository_filter() :: %{
+        "filter" => String.t() | atom(),
+        "filterType" => list(any())
+      }
+      
+  """
+  @type repository_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      repository_not_empty_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type repository_not_empty_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      repository_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type repository_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      repository_policy_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type repository_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      repository_scanning_configuration() :: %{
+        "appliedScanFilters" => list(scanning_repository_filter()),
+        "repositoryArn" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "scanFrequency" => list(any()),
+        "scanOnPush" => boolean()
+      }
+      
+  """
+  @type repository_scanning_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      repository_scanning_configuration_failure() :: %{
+        "failureCode" => list(any()),
+        "failureReason" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type repository_scanning_configuration_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource() :: %{
+        "details" => resource_details(),
+        "id" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_details() :: %{
+        "awsEcrContainerImage" => aws_ecr_container_image_details()
+      }
+      
+  """
+  @type resource_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scan_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type scan_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scanning_repository_filter() :: %{
+        "filter" => String.t() | atom(),
+        "filterType" => list(any())
+      }
+      
+  """
+  @type scanning_repository_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      score_details() :: %{
+        "cvss" => cvss_score_details()
+      }
+      
+  """
+  @type score_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      secret_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type secret_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_repository_policy_request() :: %{
+        optional("force") => boolean(),
+        optional("registryId") => String.t() | atom(),
+        required("policyText") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type set_repository_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,59 +2338,346 @@ defmodule AWS.ECR do
 
   ## Example:
       
-      get_account_setting_request() :: %{
-        required("name") => String.t() | atom()
+      signing_configuration() :: %{
+        "rules" => list(signing_rule())
       }
       
   """
-  @type get_account_setting_request() :: %{(String.t() | atom()) => any()}
+  @type signing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      referenced_images_not_found_exception() :: %{
+      signing_configuration_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type referenced_images_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type signing_configuration_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      image_already_exists_exception() :: %{
-        "message" => String.t() | atom()
+      signing_repository_filter() :: %{
+        "filter" => String.t() | atom(),
+        "filterType" => list(any())
       }
       
   """
-  @type image_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type signing_repository_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_repository_creation_template_response() :: %{
+      signing_rule() :: %{
+        "repositoryFilters" => list(signing_repository_filter()),
+        "signingProfileArn" => String.t() | atom()
+      }
+      
+  """
+  @type signing_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_image_scan_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("imageId") => image_identifier(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type start_image_scan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_image_scan_response() :: %{
+        "imageId" => image_identifier(),
+        "imageScanStatus" => image_scan_status(),
         "registryId" => String.t() | atom(),
-        "repositoryCreationTemplate" => repository_creation_template()
-      }
-      
-  """
-  @type delete_repository_creation_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      repository_scanning_configuration_failure() :: %{
-        "failureCode" => list(any()),
-        "failureReason" => String.t() | atom(),
         "repositoryName" => String.t() | atom()
       }
       
   """
-  @type repository_scanning_configuration_failure() :: %{(String.t() | atom()) => any()}
+  @type start_image_scan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_lifecycle_policy_preview_request() :: %{
+        optional("lifecyclePolicyText") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type start_lifecycle_policy_preview_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_lifecycle_policy_preview_response() :: %{
+        "lifecyclePolicyText" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type start_lifecycle_policy_preview_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subject_identifier() :: %{
+        "imageDigest" => String.t() | atom()
+      }
+      
+  """
+  @type subject_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      template_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type template_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      template_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type template_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transitioning_image_total_count() :: %{
+        "imageTotalCount" => integer(),
+        "targetStorageClass" => list(any())
+      }
+      
+  """
+  @type transitioning_image_total_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unable_to_access_secret_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unable_to_access_secret_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unable_to_decrypt_secret_value_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unable_to_decrypt_secret_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unable_to_get_upstream_image_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unable_to_get_upstream_image_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unable_to_get_upstream_layer_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unable_to_get_upstream_layer_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unable_to_list_upstream_image_referrers_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unable_to_list_upstream_image_referrers_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_image_type_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_image_type_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_upstream_registry_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_upstream_registry_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_image_storage_class_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("imageId") => image_identifier(),
+        required("repositoryName") => String.t() | atom(),
+        required("targetStorageClass") => list(any())
+      }
+      
+  """
+  @type update_image_storage_class_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_image_storage_class_response() :: %{
+        "imageId" => image_identifier(),
+        "imageStatus" => list(any()),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+      
+  """
+  @type update_image_storage_class_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_pull_through_cache_rule_request() :: %{
+        optional("credentialArn") => String.t() | atom(),
+        optional("customRoleArn") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        required("ecrRepositoryPrefix") => String.t() | atom()
+      }
+      
+  """
+  @type update_pull_through_cache_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_pull_through_cache_rule_response() :: %{
+        "credentialArn" => String.t() | atom(),
+        "customRoleArn" => String.t() | atom(),
+        "ecrRepositoryPrefix" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "upstreamRepositoryPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type update_pull_through_cache_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -215,6 +2715,47 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      upload_layer_part_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("layerPartBlob") => binary(),
+        required("partFirstByte") => float(),
+        required("partLastByte") => float(),
+        required("repositoryName") => String.t() | atom(),
+        required("uploadId") => String.t() | atom()
+      }
+      
+  """
+  @type upload_layer_part_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_layer_part_response() :: %{
+        "lastByteReceived" => float(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "uploadId" => String.t() | atom()
+      }
+      
+  """
+  @type upload_layer_part_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upload_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type upload_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validate_pull_through_cache_rule_request() :: %{
         optional("registryId") => String.t() | atom(),
         required("ecrRepositoryPrefix") => String.t() | atom()
@@ -222,624 +2763,6 @@ defmodule AWS.ECR do
       
   """
   @type validate_pull_through_cache_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_repository_policy_response() :: %{
-        "policyText" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type get_repository_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_registry_scanning_configuration_response() :: %{
-        "registryId" => String.t() | atom(),
-        "scanningConfiguration" => registry_scanning_configuration()
-      }
-      
-  """
-  @type get_registry_scanning_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_image_tag_mutability_response() :: %{
-        "imageTagMutability" => list(any()),
-        "imageTagMutabilityExclusionFilters" => list(image_tag_mutability_exclusion_filter()),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type put_image_tag_mutability_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_pull_time_update_exclusion_response() :: %{
-        "principalArn" => String.t() | atom()
-      }
-      
-  """
-  @type deregister_pull_time_update_exclusion_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_repository_creation_template_request() :: %{
-        optional("customRoleArn") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("encryptionConfiguration") => encryption_configuration_for_repository_creation_template(),
-        optional("imageTagMutability") => list(any()),
-        optional("imageTagMutabilityExclusionFilters") => list(image_tag_mutability_exclusion_filter()),
-        optional("lifecyclePolicy") => String.t() | atom(),
-        optional("repositoryPolicy") => String.t() | atom(),
-        optional("resourceTags") => list(tag()),
-        required("appliedFor") => list(list(any())()),
-        required("prefix") => String.t() | atom()
-      }
-      
-  """
-  @type create_repository_creation_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_repository_scanning_configuration_request() :: %{
-        required("repositoryNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_repository_scanning_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_repository_scanning_configuration_response() :: %{
-        "failures" => list(repository_scanning_configuration_failure()),
-        "scanningConfigurations" => list(repository_scanning_configuration())
-      }
-      
-  """
-  @type batch_get_repository_scanning_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      registry_policy_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type registry_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_replication_configuration_request() :: %{
-        required("replicationConfiguration") => replication_configuration()
-      }
-      
-  """
-  @type put_replication_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_failure() :: %{
-        "failureCode" => list(any()),
-        "failureReason" => String.t() | atom(),
-        "imageId" => image_identifier()
-      }
-      
-  """
-  @type image_failure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_lifecycle_policy_response() :: %{
-        "lastEvaluatedAt" => non_neg_integer(),
-        "lifecyclePolicyText" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type get_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_image_storage_class_response() :: %{
-        "imageId" => image_identifier(),
-        "imageStatus" => list(any()),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type update_image_storage_class_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_scan_findings() :: %{
-        "enhancedFindings" => list(enhanced_image_scan_finding()),
-        "findingSeverityCounts" => map(),
-        "findings" => list(image_scan_finding()),
-        "imageScanCompletedAt" => non_neg_integer(),
-        "vulnerabilitySourceUpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type image_scan_findings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_scan_status() :: %{
-        "description" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type image_scan_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_lifecycle_policy_preview_response() :: %{
-        "lifecyclePolicyText" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type start_lifecycle_policy_preview_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_scanning_configuration() :: %{
-        "scanOnPush" => boolean()
-      }
-      
-  """
-  @type image_scanning_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_upstream_registry_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_upstream_registry_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_lifecycle_policy_response() :: %{
-        "lifecyclePolicyText" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type put_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_authorization_token_request() :: %{
-        optional("registryIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_authorization_token_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      repository_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type repository_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      package_vulnerability_details() :: %{
-        "cvss" => list(cvss_score()),
-        "referenceUrls" => list(String.t() | atom()),
-        "relatedVulnerabilities" => list(String.t() | atom()),
-        "source" => String.t() | atom(),
-        "sourceUrl" => String.t() | atom(),
-        "vendorCreatedAt" => non_neg_integer(),
-        "vendorSeverity" => String.t() | atom(),
-        "vendorUpdatedAt" => non_neg_integer(),
-        "vulnerabilityId" => String.t() | atom(),
-        "vulnerablePackages" => list(vulnerable_package())
-      }
-      
-  """
-  @type package_vulnerability_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      transitioning_image_total_count() :: %{
-        "imageTotalCount" => integer(),
-        "targetStorageClass" => list(any())
-      }
-      
-  """
-  @type transitioning_image_total_count() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      signing_rule() :: %{
-        "repositoryFilters" => list(signing_repository_filter()),
-        "signingProfileArn" => String.t() | atom()
-      }
-      
-  """
-  @type signing_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_storage_class_update_not_supported_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type image_storage_class_update_not_supported_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_registry_policy_request() :: %{}
-      
-  """
-  @type delete_registry_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_registry_policy_request() :: %{}
-      
-  """
-  @type get_registry_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_pull_through_cache_rule_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "credentialArn" => String.t() | atom(),
-        "customRoleArn" => String.t() | atom(),
-        "ecrRepositoryPrefix" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "upstreamRegistry" => list(any()),
-        "upstreamRegistryUrl" => String.t() | atom(),
-        "upstreamRepositoryPrefix" => String.t() | atom()
-      }
-      
-  """
-  @type create_pull_through_cache_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lifecycle_policy_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type lifecycle_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_images_filter() :: %{
-        "imageStatus" => list(any()),
-        "tagStatus" => list(any())
-      }
-      
-  """
-  @type describe_images_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_pull_through_cache_rule_request() :: %{
-        optional("credentialArn") => String.t() | atom(),
-        optional("customRoleArn") => String.t() | atom(),
-        optional("registryId") => String.t() | atom(),
-        required("ecrRepositoryPrefix") => String.t() | atom()
-      }
-      
-  """
-  @type update_pull_through_cache_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_image_signing_status_response() :: %{
-        "imageId" => image_identifier(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom(),
-        "signingStatuses" => list(image_signing_status())
-      }
-      
-  """
-  @type describe_image_signing_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_account_setting_response() :: %{
-        "name" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type put_account_setting_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replication_rule() :: %{
-        "destinations" => list(replication_destination()),
-        "repositoryFilters" => list(repository_filter())
-      }
-      
-  """
-  @type replication_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_pull_through_cache_rule_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "credentialArn" => String.t() | atom(),
-        "customRoleArn" => String.t() | atom(),
-        "ecrRepositoryPrefix" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "upstreamRegistryUrl" => String.t() | atom(),
-        "upstreamRepositoryPrefix" => String.t() | atom()
-      }
-      
-  """
-  @type delete_pull_through_cache_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_pull_time_update_exclusion_request() :: %{
-        required("principalArn") => String.t() | atom()
-      }
-      
-  """
-  @type register_pull_time_update_exclusion_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pull_through_cache_rule_already_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type pull_through_cache_rule_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_registry_request() :: %{}
-      
-  """
-  @type describe_registry_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_image_replication_status_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("imageId") => image_identifier(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_image_replication_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_tag_already_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type image_tag_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_images_request() :: %{
-        optional("filter") => describe_images_filter(),
-        optional("imageIds") => list(image_identifier()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("registryId") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_images_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_repositories_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("registryId") => String.t() | atom(),
-        optional("repositoryNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_repositories_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      layer_failure() :: %{
-        "failureCode" => list(any()),
-        "failureReason" => String.t() | atom(),
-        "layerDigest" => String.t() | atom()
-      }
-      
-  """
-  @type layer_failure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replication_destination() :: %{
-        "region" => String.t() | atom(),
-        "registryId" => String.t() | atom()
-      }
-      
-  """
-  @type replication_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_signing_configuration_response() :: %{
-        "signingConfiguration" => signing_configuration()
-      }
-      
-  """
-  @type put_signing_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lifecycle_policy_preview_summary() :: %{
-        "expiringImageTotalCount" => integer(),
-        "transitioningImageTotalCounts" => list(transitioning_image_total_count())
-      }
-      
-  """
-  @type lifecycle_policy_preview_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scanning_repository_filter() :: %{
-        "filter" => String.t() | atom(),
-        "filterType" => list(any())
-      }
-      
-  """
-  @type scanning_repository_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -863,455 +2786,12 @@ defmodule AWS.ECR do
 
   ## Example:
       
-      batch_check_layer_availability_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("layerDigests") => list(String.t() | atom()),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type batch_check_layer_availability_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      signing_repository_filter() :: %{
-        "filter" => String.t() | atom(),
-        "filterType" => list(any())
-      }
-      
-  """
-  @type signing_repository_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_image_scan_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("imageId") => image_identifier(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type start_image_scan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      repository() :: %{
-        "createdAt" => non_neg_integer(),
-        "encryptionConfiguration" => encryption_configuration(),
-        "imageScanningConfiguration" => image_scanning_configuration(),
-        "imageTagMutability" => list(any()),
-        "imageTagMutabilityExclusionFilters" => list(image_tag_mutability_exclusion_filter()),
-        "registryId" => String.t() | atom(),
-        "repositoryArn" => String.t() | atom(),
-        "repositoryName" => String.t() | atom(),
-        "repositoryUri" => String.t() | atom()
-      }
-      
-  """
-  @type repository() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_pull_time_update_exclusions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_pull_time_update_exclusions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cvss_score() :: %{
-        "baseScore" => float(),
-        "scoringVector" => String.t() | atom(),
-        "source" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-      
-  """
-  @type cvss_score() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      repository_policy_not_found_exception() :: %{
+      validation_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type repository_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lifecycle_policy_preview_filter() :: %{
-        "tagStatus" => list(any())
-      }
-      
-  """
-  @type lifecycle_policy_preview_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      complete_layer_upload_response() :: %{
-        "layerDigest" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom(),
-        "uploadId" => String.t() | atom()
-      }
-      
-  """
-  @type complete_layer_upload_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_image_referrers_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "referrers" => list(image_referrer())
-      }
-      
-  """
-  @type list_image_referrers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_signing_status() :: %{
-        "failureCode" => String.t() | atom(),
-        "failureReason" => String.t() | atom(),
-        "signingProfileArn" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type image_signing_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      exclusion_already_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type exclusion_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      encryption_configuration_for_repository_creation_template() :: %{
-        "encryptionType" => list(any()),
-        "kmsKey" => String.t() | atom()
-      }
-      
-  """
-  @type encryption_configuration_for_repository_creation_template() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      get_signing_configuration_response() :: %{
-        "registryId" => String.t() | atom(),
-        "signingConfiguration" => signing_configuration()
-      }
-      
-  """
-  @type get_signing_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_identifier() :: %{
-        "imageDigest" => String.t() | atom(),
-        "imageTag" => String.t() | atom()
-      }
-      
-  """
-  @type image_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_account_setting_response() :: %{
-        "name" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type get_account_setting_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_exception() :: %{
-        "kmsError" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_repository_creation_templates_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("prefixes") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_repository_creation_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unable_to_list_upstream_image_referrers_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unable_to_list_upstream_image_referrers_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registry_scanning_rule() :: %{
-        "repositoryFilters" => list(scanning_repository_filter()),
-        "scanFrequency" => list(any())
-      }
-      
-  """
-  @type registry_scanning_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_repository_policy_request() :: %{
-        optional("force") => boolean(),
-        optional("registryId") => String.t() | atom(),
-        required("policyText") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type set_repository_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enhanced_image_scan_finding() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "exploitAvailable" => String.t() | atom(),
-        "findingArn" => String.t() | atom(),
-        "firstObservedAt" => non_neg_integer(),
-        "fixAvailable" => String.t() | atom(),
-        "lastObservedAt" => non_neg_integer(),
-        "packageVulnerabilityDetails" => package_vulnerability_details(),
-        "remediation" => remediation(),
-        "resources" => list(resource()),
-        "score" => float(),
-        "scoreDetails" => score_details(),
-        "severity" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "title" => String.t() | atom(),
-        "type" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type enhanced_image_scan_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_image_request() :: %{
-        optional("acceptedMediaTypes") => list(String.t() | atom()),
-        optional("registryId") => String.t() | atom(),
-        required("imageIds") => list(image_identifier()),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type batch_get_image_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_image_tag_mutability_request() :: %{
-        optional("imageTagMutabilityExclusionFilters") => list(image_tag_mutability_exclusion_filter()),
-        optional("registryId") => String.t() | atom(),
-        required("imageTagMutability") => list(any()),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type put_image_tag_mutability_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authorization_data() :: %{
-        "authorizationToken" => String.t() | atom(),
-        "expiresAt" => non_neg_integer(),
-        "proxyEndpoint" => String.t() | atom()
-      }
-      
-  """
-  @type authorization_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      repository_scanning_configuration() :: %{
-        "appliedScanFilters" => list(scanning_repository_filter()),
-        "repositoryArn" => String.t() | atom(),
-        "repositoryName" => String.t() | atom(),
-        "scanFrequency" => list(any()),
-        "scanOnPush" => boolean()
-      }
-      
-  """
-  @type repository_scanning_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      repository_already_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type repository_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pull_through_cache_rule() :: %{
-        "createdAt" => non_neg_integer(),
-        "credentialArn" => String.t() | atom(),
-        "customRoleArn" => String.t() | atom(),
-        "ecrRepositoryPrefix" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "upstreamRegistry" => list(any()),
-        "upstreamRegistryUrl" => String.t() | atom(),
-        "upstreamRepositoryPrefix" => String.t() | atom()
-      }
-      
-  """
-  @type pull_through_cache_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_pull_time_update_exclusion_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "principalArn" => String.t() | atom()
-      }
-      
-  """
-  @type register_pull_time_update_exclusion_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_account_setting_request() :: %{
-        required("name") => String.t() | atom(),
-        required("value") => String.t() | atom()
-      }
-      
-  """
-  @type put_account_setting_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_repository_creation_templates_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "repositoryCreationTemplates" => list(repository_creation_template())
-      }
-      
-  """
-  @type describe_repository_creation_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_signing_configuration_request() :: %{
-        required("signingConfiguration") => signing_configuration()
-      }
-      
-  """
-  @type put_signing_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_image_replication_status_response() :: %{
-        "imageId" => image_identifier(),
-        "replicationStatuses" => list(image_replication_status()),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type describe_image_replication_status_response() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1332,1836 +2812,356 @@ defmodule AWS.ECR do
   """
   @type vulnerable_package() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-      
-      put_registry_scanning_configuration_request() :: %{
-        optional("rules") => list(registry_scanning_rule()),
-        optional("scanType") => list(any())
-      }
-      
-  """
-  @type put_registry_scanning_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_repository_policy_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_repository_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      upload_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type upload_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_signing_configuration_response() :: %{
-        "registryId" => String.t() | atom(),
-        "signingConfiguration" => signing_configuration()
-      }
-      
-  """
-  @type delete_signing_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_image_request() :: %{
-        optional("imageDigest") => String.t() | atom(),
-        optional("imageManifestMediaType") => String.t() | atom(),
-        optional("imageTag") => String.t() | atom(),
-        optional("registryId") => String.t() | atom(),
-        required("imageManifest") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type put_image_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_image_referrers_request() :: %{
-        optional("filter") => list_image_referrers_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("registryId") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom(),
-        required("subjectId") => subject_identifier()
-      }
-      
-  """
-  @type list_image_referrers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lifecycle_policy_preview_result() :: %{
-        "action" => lifecycle_policy_rule_action(),
-        "appliedRulePriority" => integer(),
-        "imageDigest" => String.t() | atom(),
-        "imagePushedAt" => non_neg_integer(),
-        "imageTags" => list(String.t() | atom()),
-        "storageClass" => list(any())
-      }
-      
-  """
-  @type lifecycle_policy_preview_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_layer_part_exception() :: %{
-        "lastValidByteReceived" => float(),
-        "message" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom(),
-        "uploadId" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_layer_part_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remediation() :: %{
-        "recommendation" => recommendation()
-      }
-      
-  """
-  @type remediation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      score_details() :: %{
-        "cvss" => cvss_score_details()
-      }
-      
-  """
-  @type score_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type image_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      upload_layer_part_response() :: %{
-        "lastByteReceived" => float(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom(),
-        "uploadId" => String.t() | atom()
-      }
-      
-  """
-  @type upload_layer_part_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      registry_scanning_configuration() :: %{
-        "rules" => list(registry_scanning_rule()),
-        "scanType" => list(any())
-      }
-      
-  """
-  @type registry_scanning_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_registry_policy_response() :: %{
-        "policyText" => String.t() | atom(),
-        "registryId" => String.t() | atom()
-      }
-      
-  """
-  @type put_registry_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      template_already_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type template_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lifecycle_policy_rule_action() :: %{
-        "targetStorageClass" => list(any()),
-        "type" => list(any())
-      }
-      
-  """
-  @type lifecycle_policy_rule_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      complete_layer_upload_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("layerDigests") => list(String.t() | atom()),
-        required("repositoryName") => String.t() | atom(),
-        required("uploadId") => String.t() | atom()
-      }
-      
-  """
-  @type complete_layer_upload_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      layer_part_too_small_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type layer_part_too_small_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_tag_mutability_exclusion_filter() :: %{
-        "filter" => String.t() | atom(),
-        "filterType" => list(any())
-      }
-      
-  """
-  @type image_tag_mutability_exclusion_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_archived_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type image_archived_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_image_response() :: %{
-        "failures" => list(image_failure()),
-        "images" => list(image())
-      }
-      
-  """
-  @type batch_get_image_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_registry_scanning_configuration_request() :: %{}
-      
-  """
-  @type get_registry_scanning_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_registry_response() :: %{
-        "registryId" => String.t() | atom(),
-        "replicationConfiguration" => replication_configuration()
-      }
-      
-  """
-  @type describe_registry_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_lifecycle_policy_preview_request() :: %{
-        optional("lifecyclePolicyText") => String.t() | atom(),
-        optional("registryId") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type start_lifecycle_policy_preview_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      secret_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type secret_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pull_through_cache_rule_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type pull_through_cache_rule_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_pull_time_update_exclusion_request() :: %{
-        required("principalArn") => String.t() | atom()
-      }
-      
-  """
-  @type deregister_pull_time_update_exclusion_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_image_storage_class_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("imageId") => image_identifier(),
-        required("repositoryName") => String.t() | atom(),
-        required("targetStorageClass") => list(any())
-      }
-      
-  """
-  @type update_image_storage_class_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_pull_through_cache_rule_request() :: %{
-        optional("credentialArn") => String.t() | atom(),
-        optional("customRoleArn") => String.t() | atom(),
-        optional("registryId") => String.t() | atom(),
-        optional("upstreamRegistry") => list(any()),
-        optional("upstreamRepositoryPrefix") => String.t() | atom(),
-        required("ecrRepositoryPrefix") => String.t() | atom(),
-        required("upstreamRegistryUrl") => String.t() | atom()
-      }
-      
-  """
-  @type create_pull_through_cache_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_repository_request() :: %{
-        optional("force") => boolean(),
-        optional("registryId") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_repository_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lifecycle_policy_preview_in_progress_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type lifecycle_policy_preview_in_progress_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_lifecycle_policy_preview_request() :: %{
-        optional("filter") => lifecycle_policy_preview_filter(),
-        optional("imageIds") => list(image_identifier()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("registryId") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type get_lifecycle_policy_preview_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_repository_request() :: %{
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("imageScanningConfiguration") => image_scanning_configuration(),
-        optional("imageTagMutability") => list(any()),
-        optional("imageTagMutabilityExclusionFilters") => list(image_tag_mutability_exclusion_filter()),
-        optional("registryId") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type create_repository_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image() :: %{
-        "imageId" => image_identifier(),
-        "imageManifest" => String.t() | atom(),
-        "imageManifestMediaType" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type image() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scan_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type scan_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      signing_configuration() :: %{
-        "rules" => list(signing_rule())
-      }
-      
-  """
-  @type signing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_lifecycle_policy_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type get_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_registry_policy_request() :: %{
-        required("policyText") => String.t() | atom()
-      }
-      
-  """
-  @type put_registry_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_image_scan_findings_response() :: %{
-        "imageId" => image_identifier(),
-        "imageScanFindings" => image_scan_findings(),
-        "imageScanStatus" => image_scan_status(),
-        "nextToken" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type describe_image_scan_findings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      layer_already_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type layer_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_lifecycle_policy_response() :: %{
-        "lastEvaluatedAt" => non_neg_integer(),
-        "lifecyclePolicyText" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type delete_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replication_configuration() :: %{
-        "rules" => list(replication_rule())
-      }
-      
-  """
-  @type replication_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      signing_configuration_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type signing_configuration_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cvss_score_details() :: %{
-        "adjustments" => list(cvss_score_adjustment()),
-        "score" => float(),
-        "scoreSource" => String.t() | atom(),
-        "scoringVector" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-      
-  """
-  @type cvss_score_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unable_to_access_secret_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unable_to_access_secret_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_registry_policy_response() :: %{
-        "policyText" => String.t() | atom(),
-        "registryId" => String.t() | atom()
-      }
-      
-  """
-  @type delete_registry_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_image_type_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_image_type_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_pull_time_update_exclusions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "pullTimeUpdateExclusions" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_pull_time_update_exclusions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_registry_scanning_configuration_response() :: %{
-        "registryScanningConfiguration" => registry_scanning_configuration()
-      }
-      
-  """
-  @type put_registry_scanning_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_images_request() :: %{
-        optional("filter") => list_images_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("registryId") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type list_images_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_lifecycle_policy_preview_response() :: %{
-        "lifecyclePolicyText" => String.t() | atom(),
-        "nextToken" => String.t() | atom(),
-        "previewResults" => list(lifecycle_policy_preview_result()),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom(),
-        "status" => list(any()),
-        "summary" => lifecycle_policy_preview_summary()
-      }
-      
-  """
-  @type get_lifecycle_policy_preview_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_layer_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_layer_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_images_response() :: %{
-        "imageIds" => list(image_identifier()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_images_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_repository_response() :: %{
-        "repository" => repository()
-      }
-      
-  """
-  @type delete_repository_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_images_response() :: %{
-        "imageDetails" => list(image_detail()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_images_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_tags_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      layer() :: %{
-        "layerAvailability" => list(any()),
-        "layerDigest" => String.t() | atom(),
-        "layerSize" => float(),
-        "mediaType" => String.t() | atom()
-      }
-      
-  """
-  @type layer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      repository_not_empty_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type repository_not_empty_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_lifecycle_policy_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_tag_parameter_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_tag_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_image_referrers_filter() :: %{
-        "artifactStatus" => list(any()),
-        "artifactTypes" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_image_referrers_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_images_filter() :: %{
-        "imageStatus" => list(any()),
-        "tagStatus" => list(any())
-      }
-      
-  """
-  @type list_images_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_authorization_token_response() :: %{
-        "authorizationData" => list(authorization_data())
-      }
-      
-  """
-  @type get_authorization_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aws_ecr_container_image_details() :: %{
-        "architecture" => String.t() | atom(),
-        "author" => String.t() | atom(),
-        "imageHash" => String.t() | atom(),
-        "imageTags" => list(String.t() | atom()),
-        "inUseCount" => float(),
-        "lastInUseAt" => non_neg_integer(),
-        "platform" => String.t() | atom(),
-        "pushedAt" => non_neg_integer(),
-        "registry" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type aws_ecr_container_image_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recommendation() :: %{
-        "text" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-      
-  """
-  @type recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      layer_inaccessible_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type layer_inaccessible_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_scan_findings_summary() :: %{
-        "findingSeverityCounts" => map(),
-        "imageScanCompletedAt" => non_neg_integer(),
-        "vulnerabilitySourceUpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type image_scan_findings_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_signing_configuration_request() :: %{}
-      
-  """
-  @type delete_signing_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_replication_status() :: %{
-        "failureCode" => String.t() | atom(),
-        "region" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type image_replication_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      encryption_configuration() :: %{
-        "encryptionType" => list(any()),
-        "kmsKey" => String.t() | atom()
-      }
-      
-  """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_download_url_for_layer_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("layerDigest") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type get_download_url_for_layer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_pull_through_cache_rule_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("ecrRepositoryPrefix") => String.t() | atom()
-      }
-      
-  """
-  @type delete_pull_through_cache_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_image_scanning_configuration_response() :: %{
-        "imageScanningConfiguration" => image_scanning_configuration(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type put_image_scanning_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_image_response() :: %{
-        "image" => image()
-      }
-      
-  """
-  @type put_image_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unable_to_get_upstream_image_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unable_to_get_upstream_image_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      empty_upload_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type empty_upload_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      blocked_by_organization_policy_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type blocked_by_organization_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_image_signing_status_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("imageId") => image_identifier(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_image_signing_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      upload_layer_part_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("layerPartBlob") => binary(),
-        required("partFirstByte") => float(),
-        required("partLastByte") => float(),
-        required("repositoryName") => String.t() | atom(),
-        required("uploadId") => String.t() | atom()
-      }
-      
-  """
-  @type upload_layer_part_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_repository_policy_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type get_repository_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_registry_policy_response() :: %{
-        "policyText" => String.t() | atom(),
-        "registryId" => String.t() | atom()
-      }
-      
-  """
-  @type get_registry_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_download_url_for_layer_response() :: %{
-        "downloadUrl" => String.t() | atom(),
-        "layerDigest" => String.t() | atom()
-      }
-      
-  """
-  @type get_download_url_for_layer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_digest_does_not_match_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type image_digest_does_not_match_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_detail() :: %{
-        "artifactMediaType" => String.t() | atom(),
-        "imageDigest" => String.t() | atom(),
-        "imageManifestMediaType" => String.t() | atom(),
-        "imagePushedAt" => non_neg_integer(),
-        "imageScanFindingsSummary" => image_scan_findings_summary(),
-        "imageScanStatus" => image_scan_status(),
-        "imageSizeInBytes" => float(),
-        "imageStatus" => list(any()),
-        "imageTags" => list(String.t() | atom()),
-        "lastActivatedAt" => non_neg_integer(),
-        "lastArchivedAt" => non_neg_integer(),
-        "lastRecordedPullTime" => non_neg_integer(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom(),
-        "subjectManifestDigest" => String.t() | atom()
-      }
-      
-  """
-  @type image_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      repository_filter() :: %{
-        "filter" => String.t() | atom(),
-        "filterType" => list(any())
-      }
-      
-  """
-  @type repository_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_lifecycle_policy_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("lifecyclePolicyText") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type put_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      initiate_layer_upload_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type initiate_layer_upload_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_check_layer_availability_response() :: %{
-        "failures" => list(layer_failure()),
-        "layers" => list(layer())
-      }
-      
-  """
-  @type batch_check_layer_availability_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_details() :: %{
-        "awsEcrContainerImage" => aws_ecr_container_image_details()
-      }
-      
-  """
-  @type resource_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource() :: %{
-        "details" => resource_details(),
-        "id" => String.t() | atom(),
-        "tags" => map(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      template_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type template_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      initiate_layer_upload_response() :: %{
-        "partSize" => float(),
-        "uploadId" => String.t() | atom()
-      }
-      
-  """
-  @type initiate_layer_upload_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_repository_response() :: %{
-        "repository" => repository()
-      }
-      
-  """
-  @type create_repository_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_signing_configuration_request() :: %{}
-      
-  """
-  @type get_signing_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      repository_creation_template() :: %{
-        "appliedFor" => list(list(any())()),
-        "createdAt" => non_neg_integer(),
-        "customRoleArn" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "encryptionConfiguration" => encryption_configuration_for_repository_creation_template(),
-        "imageTagMutability" => list(any()),
-        "imageTagMutabilityExclusionFilters" => list(image_tag_mutability_exclusion_filter()),
-        "lifecyclePolicy" => String.t() | atom(),
-        "prefix" => String.t() | atom(),
-        "repositoryPolicy" => String.t() | atom(),
-        "resourceTags" => list(tag()),
-        "updatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type repository_creation_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_image_scan_findings_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("registryId") => String.t() | atom(),
-        required("imageId") => image_identifier(),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_image_scan_findings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_scan_finding() :: %{
-        "attributes" => list(attribute()),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "severity" => list(any()),
-        "uri" => String.t() | atom()
-      }
-      
-  """
-  @type image_scan_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_pull_through_cache_rules_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "pullThroughCacheRules" => list(pull_through_cache_rule())
-      }
-      
-  """
-  @type describe_pull_through_cache_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_image_scan_response() :: %{
-        "imageId" => image_identifier(),
-        "imageScanStatus" => image_scan_status(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type start_image_scan_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_pull_through_cache_rule_response() :: %{
-        "credentialArn" => String.t() | atom(),
-        "customRoleArn" => String.t() | atom(),
-        "ecrRepositoryPrefix" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "upstreamRepositoryPrefix" => String.t() | atom()
-      }
-      
-  """
-  @type update_pull_through_cache_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_repository_creation_template_response() :: %{
-        "registryId" => String.t() | atom(),
-        "repositoryCreationTemplate" => repository_creation_template()
-      }
-      
-  """
-  @type create_repository_creation_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_delete_image_request() :: %{
-        optional("registryId") => String.t() | atom(),
-        required("imageIds") => list(image_identifier()),
-        required("repositoryName") => String.t() | atom()
-      }
-      
-  """
-  @type batch_delete_image_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_referrer() :: %{
-        "annotations" => map(),
-        "artifactStatus" => list(any()),
-        "artifactType" => String.t() | atom(),
-        "digest" => String.t() | atom(),
-        "mediaType" => String.t() | atom(),
-        "size" => float()
-      }
-      
-  """
-  @type image_referrer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      exclusion_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type exclusion_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_repositories_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "repositories" => list(repository())
-      }
-      
-  """
-  @type describe_repositories_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_repository_creation_template_request() :: %{
-        required("prefix") => String.t() | atom()
-      }
-      
-  """
-  @type delete_repository_creation_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_pull_through_cache_rules_request() :: %{
-        optional("ecrRepositoryPrefixes") => list(String.t() | atom()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("registryId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_pull_through_cache_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unable_to_decrypt_secret_value_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unable_to_decrypt_secret_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unable_to_get_upstream_layer_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unable_to_get_upstream_layer_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_repository_policy_response() :: %{
-        "policyText" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-      
-  """
-  @type delete_repository_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subject_identifier() :: %{
-        "imageDigest" => String.t() | atom()
-      }
-      
-  """
-  @type subject_identifier() :: %{(String.t() | atom()) => any()}
-
   @type batch_check_layer_availability_errors() ::
-          invalid_parameter_exception() | server_exception() | repository_not_found_exception()
+          server_exception() | repository_not_found_exception() | invalid_parameter_exception()
 
   @type batch_delete_image_errors() ::
-          invalid_parameter_exception() | server_exception() | repository_not_found_exception()
+          server_exception() | repository_not_found_exception() | invalid_parameter_exception()
 
   @type batch_get_image_errors() ::
-          invalid_parameter_exception()
-          | unable_to_get_upstream_image_exception()
+          unable_to_get_upstream_image_exception()
           | server_exception()
-          | limit_exceeded_exception()
           | repository_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
 
   @type batch_get_repository_scanning_configuration_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | validation_exception()
           | repository_not_found_exception()
+          | invalid_parameter_exception()
 
   @type complete_layer_upload_errors() ::
-          invalid_parameter_exception()
-          | empty_upload_exception()
+          upload_not_found_exception()
           | server_exception()
-          | invalid_layer_exception()
-          | layer_already_exists_exception()
-          | layer_part_too_small_exception()
-          | upload_not_found_exception()
-          | kms_exception()
           | repository_not_found_exception()
+          | layer_part_too_small_exception()
+          | layer_already_exists_exception()
+          | kms_exception()
+          | invalid_parameter_exception()
+          | invalid_layer_exception()
+          | empty_upload_exception()
 
   @type create_pull_through_cache_rule_errors() ::
-          unable_to_decrypt_secret_value_exception()
-          | invalid_parameter_exception()
-          | server_exception()
+          validation_exception()
+          | unsupported_upstream_registry_exception()
+          | unable_to_decrypt_secret_value_exception()
           | unable_to_access_secret_exception()
+          | server_exception()
           | secret_not_found_exception()
-          | validation_exception()
           | pull_through_cache_rule_already_exists_exception()
           | limit_exceeded_exception()
-          | unsupported_upstream_registry_exception()
+          | invalid_parameter_exception()
 
   @type create_repository_errors() ::
-          invalid_parameter_exception()
+          too_many_tags_exception()
           | server_exception()
-          | invalid_tag_parameter_exception()
-          | too_many_tags_exception()
           | repository_already_exists_exception()
-          | kms_exception()
           | limit_exceeded_exception()
+          | kms_exception()
+          | invalid_tag_parameter_exception()
+          | invalid_parameter_exception()
 
   @type create_repository_creation_template_errors() ::
-          invalid_parameter_exception()
-          | server_exception()
+          validation_exception()
           | template_already_exists_exception()
-          | validation_exception()
+          | server_exception()
           | limit_exceeded_exception()
+          | invalid_parameter_exception()
 
   @type delete_lifecycle_policy_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | validation_exception()
-          | lifecycle_policy_not_found_exception()
           | repository_not_found_exception()
+          | lifecycle_policy_not_found_exception()
+          | invalid_parameter_exception()
 
   @type delete_pull_through_cache_rule_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
           | pull_through_cache_rule_not_found_exception()
-          | validation_exception()
+          | invalid_parameter_exception()
 
   @type delete_registry_policy_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | validation_exception()
           | registry_policy_not_found_exception()
+          | invalid_parameter_exception()
 
   @type delete_repository_errors() ::
-          invalid_parameter_exception()
-          | server_exception()
+          server_exception()
+          | repository_not_found_exception()
           | repository_not_empty_exception()
           | kms_exception()
-          | repository_not_found_exception()
+          | invalid_parameter_exception()
 
   @type delete_repository_creation_template_errors() ::
-          template_not_found_exception()
-          | invalid_parameter_exception()
+          validation_exception()
+          | template_not_found_exception()
           | server_exception()
-          | validation_exception()
+          | invalid_parameter_exception()
 
   @type delete_repository_policy_errors() ::
-          invalid_parameter_exception()
-          | server_exception()
+          server_exception()
           | repository_policy_not_found_exception()
           | repository_not_found_exception()
+          | invalid_parameter_exception()
 
   @type delete_signing_configuration_errors() ::
-          server_exception()
+          validation_exception()
           | signing_configuration_not_found_exception()
-          | validation_exception()
+          | server_exception()
 
   @type deregister_pull_time_update_exclusion_errors() ::
-          exclusion_not_found_exception()
-          | invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | validation_exception()
           | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | exclusion_not_found_exception()
 
   @type describe_image_replication_status_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | image_not_found_exception()
-          | validation_exception()
           | repository_not_found_exception()
+          | invalid_parameter_exception()
+          | image_not_found_exception()
 
   @type describe_image_scan_findings_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
           | scan_not_found_exception()
-          | image_not_found_exception()
-          | validation_exception()
           | repository_not_found_exception()
+          | invalid_parameter_exception()
+          | image_not_found_exception()
 
   @type describe_image_signing_status_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | image_not_found_exception()
-          | validation_exception()
           | repository_not_found_exception()
+          | invalid_parameter_exception()
+          | image_not_found_exception()
 
   @type describe_images_errors() ::
-          invalid_parameter_exception()
-          | server_exception()
-          | image_not_found_exception()
+          server_exception()
           | repository_not_found_exception()
+          | invalid_parameter_exception()
+          | image_not_found_exception()
 
   @type describe_pull_through_cache_rules_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
           | pull_through_cache_rule_not_found_exception()
-          | validation_exception()
+          | invalid_parameter_exception()
 
   @type describe_registry_errors() ::
-          invalid_parameter_exception() | server_exception() | validation_exception()
+          validation_exception() | server_exception() | invalid_parameter_exception()
 
   @type describe_repositories_errors() ::
-          invalid_parameter_exception() | server_exception() | repository_not_found_exception()
+          server_exception() | repository_not_found_exception() | invalid_parameter_exception()
 
   @type describe_repository_creation_templates_errors() ::
-          invalid_parameter_exception() | server_exception() | validation_exception()
+          validation_exception() | server_exception() | invalid_parameter_exception()
 
   @type get_account_setting_errors() ::
-          invalid_parameter_exception() | server_exception() | validation_exception()
+          validation_exception() | server_exception() | invalid_parameter_exception()
 
-  @type get_authorization_token_errors() :: invalid_parameter_exception() | server_exception()
+  @type get_authorization_token_errors() :: server_exception() | invalid_parameter_exception()
 
   @type get_download_url_for_layer_errors() ::
           unable_to_get_upstream_layer_exception()
-          | invalid_parameter_exception()
-          | layer_inaccessible_exception()
           | server_exception()
           | repository_not_found_exception()
           | layers_not_found_exception()
+          | layer_inaccessible_exception()
+          | invalid_parameter_exception()
 
   @type get_lifecycle_policy_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | validation_exception()
-          | lifecycle_policy_not_found_exception()
           | repository_not_found_exception()
+          | lifecycle_policy_not_found_exception()
+          | invalid_parameter_exception()
 
   @type get_lifecycle_policy_preview_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | validation_exception()
           | repository_not_found_exception()
           | lifecycle_policy_preview_not_found_exception()
+          | invalid_parameter_exception()
 
   @type get_registry_policy_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | validation_exception()
           | registry_policy_not_found_exception()
+          | invalid_parameter_exception()
 
   @type get_registry_scanning_configuration_errors() ::
-          invalid_parameter_exception() | server_exception() | validation_exception()
+          validation_exception() | server_exception() | invalid_parameter_exception()
 
   @type get_repository_policy_errors() ::
-          invalid_parameter_exception()
-          | server_exception()
+          server_exception()
           | repository_policy_not_found_exception()
           | repository_not_found_exception()
+          | invalid_parameter_exception()
 
   @type get_signing_configuration_errors() ::
-          invalid_parameter_exception()
-          | server_exception()
+          validation_exception()
           | signing_configuration_not_found_exception()
-          | validation_exception()
+          | server_exception()
+          | invalid_parameter_exception()
 
   @type initiate_layer_upload_errors() ::
-          invalid_parameter_exception()
-          | server_exception()
-          | kms_exception()
+          server_exception()
           | repository_not_found_exception()
+          | kms_exception()
+          | invalid_parameter_exception()
 
   @type list_image_referrers_errors() ::
-          invalid_parameter_exception()
-          | server_exception()
+          validation_exception()
           | unable_to_list_upstream_image_referrers_exception()
-          | validation_exception()
+          | server_exception()
           | repository_not_found_exception()
+          | invalid_parameter_exception()
 
   @type list_images_errors() ::
-          invalid_parameter_exception() | server_exception() | repository_not_found_exception()
+          server_exception() | repository_not_found_exception() | invalid_parameter_exception()
 
   @type list_pull_time_update_exclusions_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | validation_exception()
           | limit_exceeded_exception()
+          | invalid_parameter_exception()
 
   @type list_tags_for_resource_errors() ::
-          invalid_parameter_exception() | server_exception() | repository_not_found_exception()
+          server_exception() | repository_not_found_exception() | invalid_parameter_exception()
 
   @type put_account_setting_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | validation_exception()
           | limit_exceeded_exception()
+          | invalid_parameter_exception()
 
   @type put_image_errors() ::
-          image_digest_does_not_match_exception()
-          | invalid_parameter_exception()
-          | server_exception()
-          | kms_exception()
-          | image_tag_already_exists_exception()
-          | limit_exceeded_exception()
+          server_exception()
           | repository_not_found_exception()
-          | image_already_exists_exception()
           | referenced_images_not_found_exception()
+          | limit_exceeded_exception()
           | layers_not_found_exception()
+          | kms_exception()
+          | invalid_parameter_exception()
+          | image_tag_already_exists_exception()
+          | image_digest_does_not_match_exception()
+          | image_already_exists_exception()
 
   @type put_image_scanning_configuration_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | validation_exception()
           | repository_not_found_exception()
+          | invalid_parameter_exception()
 
   @type put_image_tag_mutability_errors() ::
-          invalid_parameter_exception() | server_exception() | repository_not_found_exception()
+          server_exception() | repository_not_found_exception() | invalid_parameter_exception()
 
   @type put_lifecycle_policy_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | validation_exception()
           | repository_not_found_exception()
+          | invalid_parameter_exception()
 
   @type put_registry_policy_errors() ::
-          invalid_parameter_exception() | server_exception() | validation_exception()
+          validation_exception() | server_exception() | invalid_parameter_exception()
 
   @type put_registry_scanning_configuration_errors() ::
-          blocked_by_organization_policy_exception()
-          | invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | validation_exception()
+          | invalid_parameter_exception()
+          | blocked_by_organization_policy_exception()
 
   @type put_replication_configuration_errors() ::
-          invalid_parameter_exception() | server_exception() | validation_exception()
+          validation_exception() | server_exception() | invalid_parameter_exception()
 
   @type put_signing_configuration_errors() ::
-          invalid_parameter_exception() | server_exception() | validation_exception()
+          validation_exception() | server_exception() | invalid_parameter_exception()
 
   @type register_pull_time_update_exclusion_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | exclusion_already_exists_exception()
-          | validation_exception()
           | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | exclusion_already_exists_exception()
 
   @type set_repository_policy_errors() ::
-          invalid_parameter_exception() | server_exception() | repository_not_found_exception()
+          server_exception() | repository_not_found_exception() | invalid_parameter_exception()
 
   @type start_image_scan_errors() ::
-          invalid_parameter_exception()
-          | server_exception()
+          validation_exception()
           | unsupported_image_type_exception()
-          | image_archived_exception()
-          | image_not_found_exception()
-          | validation_exception()
-          | limit_exceeded_exception()
+          | server_exception()
           | repository_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | image_not_found_exception()
+          | image_archived_exception()
 
   @type start_lifecycle_policy_preview_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | lifecycle_policy_preview_in_progress_exception()
-          | validation_exception()
-          | lifecycle_policy_not_found_exception()
           | repository_not_found_exception()
+          | lifecycle_policy_preview_in_progress_exception()
+          | lifecycle_policy_not_found_exception()
+          | invalid_parameter_exception()
 
   @type tag_resource_errors() ::
-          invalid_parameter_exception()
+          too_many_tags_exception()
           | server_exception()
-          | invalid_tag_parameter_exception()
-          | too_many_tags_exception()
           | repository_not_found_exception()
+          | invalid_tag_parameter_exception()
+          | invalid_parameter_exception()
 
   @type untag_resource_errors() ::
-          invalid_parameter_exception()
+          too_many_tags_exception()
           | server_exception()
-          | invalid_tag_parameter_exception()
-          | too_many_tags_exception()
           | repository_not_found_exception()
+          | invalid_tag_parameter_exception()
+          | invalid_parameter_exception()
 
   @type update_image_storage_class_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
-          | image_not_found_exception()
-          | validation_exception()
-          | image_storage_class_update_not_supported_exception()
           | repository_not_found_exception()
+          | invalid_parameter_exception()
+          | image_storage_class_update_not_supported_exception()
+          | image_not_found_exception()
 
   @type update_pull_through_cache_rule_errors() ::
-          unable_to_decrypt_secret_value_exception()
-          | invalid_parameter_exception()
-          | server_exception()
+          validation_exception()
+          | unable_to_decrypt_secret_value_exception()
           | unable_to_access_secret_exception()
-          | pull_through_cache_rule_not_found_exception()
+          | server_exception()
           | secret_not_found_exception()
-          | validation_exception()
+          | pull_through_cache_rule_not_found_exception()
+          | invalid_parameter_exception()
 
   @type update_repository_creation_template_errors() ::
-          template_not_found_exception()
-          | invalid_parameter_exception()
+          validation_exception()
+          | template_not_found_exception()
           | server_exception()
-          | validation_exception()
+          | invalid_parameter_exception()
 
   @type upload_layer_part_errors() ::
-          invalid_parameter_exception()
+          upload_not_found_exception()
           | server_exception()
-          | invalid_layer_part_exception()
-          | upload_not_found_exception()
-          | kms_exception()
-          | limit_exceeded_exception()
           | repository_not_found_exception()
+          | limit_exceeded_exception()
+          | kms_exception()
+          | invalid_parameter_exception()
+          | invalid_layer_part_exception()
 
   @type validate_pull_through_cache_rule_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
           | server_exception()
           | pull_through_cache_rule_not_found_exception()
-          | validation_exception()
+          | invalid_parameter_exception()
 
   def metadata do
     %{

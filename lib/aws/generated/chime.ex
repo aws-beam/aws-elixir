@@ -74,13 +74,838 @@ defmodule AWS.Chime do
 
   ## Example:
 
-      list_bots_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      access_denied_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type list_bots_request() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account() :: %{
+        "AccountId" => String.t() | atom(),
+        "AccountStatus" => list(any()),
+        "AccountType" => list(any()),
+        "AwsAccountId" => String.t() | atom(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "DefaultLicense" => list(any()),
+        "Name" => String.t() | atom(),
+        "SigninDelegateGroups" => list(signin_delegate_group()),
+        "SupportedLicenses" => list(list(any())())
+      }
+
+  """
+  @type account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_settings() :: %{
+        "DisableRemoteControl" => boolean(),
+        "EnableDialOut" => boolean()
+      }
+
+  """
+  @type account_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alexa_for_business_metadata() :: %{
+        "AlexaForBusinessRoomArn" => String.t() | atom(),
+        "IsAlexaForBusinessEnabled" => boolean()
+      }
+
+  """
+  @type alexa_for_business_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_phone_number_with_user_request() :: %{
+        required("E164PhoneNumber") => String.t() | atom()
+      }
+
+  """
+  @type associate_phone_number_with_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_phone_number_with_user_response() :: %{}
+
+  """
+  @type associate_phone_number_with_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_signin_delegate_groups_with_account_request() :: %{
+        required("SigninDelegateGroups") => list(signin_delegate_group())
+      }
+
+  """
+  @type associate_signin_delegate_groups_with_account_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      associate_signin_delegate_groups_with_account_response() :: %{}
+
+  """
+  @type associate_signin_delegate_groups_with_account_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_room_membership_request() :: %{
+        required("MembershipItemList") => list(membership_item())
+      }
+
+  """
+  @type batch_create_room_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_room_membership_response() :: %{
+        "Errors" => list(member_error())
+      }
+
+  """
+  @type batch_create_room_membership_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_phone_number_request() :: %{
+        required("PhoneNumberIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_phone_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_phone_number_response() :: %{
+        "PhoneNumberErrors" => list(phone_number_error())
+      }
+
+  """
+  @type batch_delete_phone_number_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_suspend_user_request() :: %{
+        required("UserIdList") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_suspend_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_suspend_user_response() :: %{
+        "UserErrors" => list(user_error())
+      }
+
+  """
+  @type batch_suspend_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_unsuspend_user_request() :: %{
+        required("UserIdList") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_unsuspend_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_unsuspend_user_response() :: %{
+        "UserErrors" => list(user_error())
+      }
+
+  """
+  @type batch_unsuspend_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_phone_number_request() :: %{
+        required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item())
+      }
+
+  """
+  @type batch_update_phone_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_phone_number_response() :: %{
+        "PhoneNumberErrors" => list(phone_number_error())
+      }
+
+  """
+  @type batch_update_phone_number_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_user_request() :: %{
+        required("UpdateUserRequestItems") => list(update_user_request_item())
+      }
+
+  """
+  @type batch_update_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_user_response() :: %{
+        "UserErrors" => list(user_error())
+      }
+
+  """
+  @type batch_update_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bot() :: %{
+        "BotEmail" => String.t() | atom(),
+        "BotId" => String.t() | atom(),
+        "BotType" => list(any()),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Disabled" => boolean(),
+        "DisplayName" => String.t() | atom(),
+        "SecurityToken" => String.t() | atom(),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "UserId" => String.t() | atom()
+      }
+
+  """
+  @type bot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      business_calling_settings() :: %{
+        "CdrBucket" => String.t() | atom()
+      }
+
+  """
+  @type business_calling_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversation_retention_settings() :: %{
+        "RetentionDays" => integer()
+      }
+
+  """
+  @type conversation_retention_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_account_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_account_response() :: %{
+        "Account" => account()
+      }
+
+  """
+  @type create_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bot_request() :: %{
+        optional("Domain") => String.t() | atom(),
+        required("DisplayName") => String.t() | atom()
+      }
+
+  """
+  @type create_bot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bot_response() :: %{
+        "Bot" => bot()
+      }
+
+  """
+  @type create_bot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_meeting_dial_out_request() :: %{
+        required("FromPhoneNumber") => String.t() | atom(),
+        required("JoinToken") => String.t() | atom(),
+        required("ToPhoneNumber") => String.t() | atom()
+      }
+
+  """
+  @type create_meeting_dial_out_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_meeting_dial_out_response() :: %{
+        "TransactionId" => String.t() | atom()
+      }
+
+  """
+  @type create_meeting_dial_out_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_phone_number_order_request() :: %{
+        required("E164PhoneNumbers") => list(String.t() | atom()),
+        required("ProductType") => list(any())
+      }
+
+  """
+  @type create_phone_number_order_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_phone_number_order_response() :: %{
+        "PhoneNumberOrder" => phone_number_order()
+      }
+
+  """
+  @type create_phone_number_order_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_room_membership_request() :: %{
+        optional("Role") => list(any()),
+        required("MemberId") => String.t() | atom()
+      }
+
+  """
+  @type create_room_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_room_membership_response() :: %{
+        "RoomMembership" => room_membership()
+      }
+
+  """
+  @type create_room_membership_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_room_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_room_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_room_response() :: %{
+        "Room" => room()
+      }
+
+  """
+  @type create_room_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_request() :: %{
+        optional("Email") => String.t() | atom(),
+        optional("UserType") => list(any()),
+        optional("Username") => String.t() | atom()
+      }
+
+  """
+  @type create_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_response() :: %{
+        "User" => user()
+      }
+
+  """
+  @type create_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_account_request() :: %{}
+
+  """
+  @type delete_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_account_response() :: %{}
+
+  """
+  @type delete_account_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_events_configuration_request() :: %{}
+
+  """
+  @type delete_events_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_phone_number_request() :: %{}
+
+  """
+  @type delete_phone_number_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_room_membership_request() :: %{}
+
+  """
+  @type delete_room_membership_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_room_request() :: %{}
+
+  """
+  @type delete_room_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_phone_number_from_user_request() :: %{}
+
+  """
+  @type disassociate_phone_number_from_user_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_phone_number_from_user_response() :: %{}
+
+  """
+  @type disassociate_phone_number_from_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_signin_delegate_groups_from_account_request() :: %{
+        required("GroupNames") => list(String.t() | atom())
+      }
+
+  """
+  @type disassociate_signin_delegate_groups_from_account_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_signin_delegate_groups_from_account_response() :: %{}
+
+  """
+  @type disassociate_signin_delegate_groups_from_account_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      events_configuration() :: %{
+        "BotId" => String.t() | atom(),
+        "LambdaFunctionArn" => String.t() | atom(),
+        "OutboundEventsHTTPSEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type events_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_request() :: %{}
+
+  """
+  @type get_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_response() :: %{
+        "Account" => account()
+      }
+
+  """
+  @type get_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_settings_request() :: %{}
+
+  """
+  @type get_account_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_settings_response() :: %{
+        "AccountSettings" => account_settings()
+      }
+
+  """
+  @type get_account_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_request() :: %{}
+
+  """
+  @type get_bot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_response() :: %{
+        "Bot" => bot()
+      }
+
+  """
+  @type get_bot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_events_configuration_request() :: %{}
+
+  """
+  @type get_events_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_events_configuration_response() :: %{
+        "EventsConfiguration" => events_configuration()
+      }
+
+  """
+  @type get_events_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_global_settings_response() :: %{
+        "BusinessCalling" => business_calling_settings(),
+        "VoiceConnector" => voice_connector_settings()
+      }
+
+  """
+  @type get_global_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_phone_number_order_request() :: %{}
+
+  """
+  @type get_phone_number_order_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_phone_number_order_response() :: %{
+        "PhoneNumberOrder" => phone_number_order()
+      }
+
+  """
+  @type get_phone_number_order_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_phone_number_request() :: %{}
+
+  """
+  @type get_phone_number_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_phone_number_response() :: %{
+        "PhoneNumber" => phone_number()
+      }
+
+  """
+  @type get_phone_number_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_phone_number_settings_response() :: %{
+        "CallingName" => String.t() | atom(),
+        "CallingNameUpdatedTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type get_phone_number_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_retention_settings_request() :: %{}
+
+  """
+  @type get_retention_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_retention_settings_response() :: %{
+        "InitiateDeletionTimestamp" => non_neg_integer(),
+        "RetentionSettings" => retention_settings()
+      }
+
+  """
+  @type get_retention_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_room_request() :: %{}
+
+  """
+  @type get_room_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_room_response() :: %{
+        "Room" => room()
+      }
+
+  """
+  @type get_room_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_request() :: %{}
+
+  """
+  @type get_user_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_response() :: %{
+        "User" => user()
+      }
+
+  """
+  @type get_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_settings_request() :: %{}
+
+  """
+  @type get_user_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_settings_response() :: %{
+        "UserSettings" => user_settings()
+      }
+
+  """
+  @type get_user_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invite() :: %{
+        "EmailAddress" => String.t() | atom(),
+        "EmailStatus" => list(any()),
+        "InviteId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type invite() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invite_users_request() :: %{
+        optional("UserType") => list(any()),
+        required("UserEmailList") => list(String.t() | atom())
+      }
+
+  """
+  @type invite_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invite_users_response() :: %{
+        "Invites" => list(invite())
+      }
+
+  """
+  @type invite_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -95,6 +920,209 @@ defmodule AWS.Chime do
 
   """
   @type list_accounts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_accounts_response() :: %{
+        "Accounts" => list(account()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bots_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_bots_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bots_response() :: %{
+        "Bots" => list(bot()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_bots_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_phone_number_orders_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_phone_number_orders_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_phone_number_orders_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PhoneNumberOrders" => list(phone_number_order())
+      }
+
+  """
+  @type list_phone_number_orders_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_phone_numbers_request() :: %{
+        optional("FilterName") => list(any()),
+        optional("FilterValue") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProductType") => list(any()),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type list_phone_numbers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_phone_numbers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PhoneNumbers" => list(phone_number())
+      }
+
+  """
+  @type list_phone_numbers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_room_memberships_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_room_memberships_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_room_memberships_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RoomMemberships" => list(room_membership())
+      }
+
+  """
+  @type list_room_memberships_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rooms_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("MemberId") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_rooms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rooms_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Rooms" => list(room())
+      }
+
+  """
+  @type list_rooms_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_supported_phone_number_countries_request() :: %{
+        required("ProductType") => list(any())
+      }
+
+  """
+  @type list_supported_phone_number_countries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_supported_phone_number_countries_response() :: %{
+        "PhoneNumberCountries" => list(phone_number_country())
+      }
+
+  """
+  @type list_supported_phone_number_countries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_users_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("UserEmail") => String.t() | atom(),
+        optional("UserType") => list(any())
+      }
+
+  """
+  @type list_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_users_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Users" => list(user())
+      }
+
+  """
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logout_user_request() :: %{}
+
+  """
+  @type logout_user_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      logout_user_response() :: %{}
+
+  """
+  @type logout_user_response() :: %{}
 
   @typedoc """
 
@@ -115,405 +1143,50 @@ defmodule AWS.Chime do
 
   ## Example:
 
-      list_supported_phone_number_countries_request() :: %{
-        required("ProductType") => list(any())
+      member_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "MemberId" => String.t() | atom()
       }
 
   """
-  @type list_supported_phone_number_countries_request() :: %{(String.t() | atom()) => any()}
+  @type member_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_user_request_item() :: %{
-        "AlexaForBusinessMetadata" => alexa_for_business_metadata(),
-        "LicenseType" => list(any()),
-        "UserId" => String.t() | atom(),
-        "UserType" => list(any())
+      membership_item() :: %{
+        "MemberId" => String.t() | atom(),
+        "Role" => list(any())
       }
 
   """
-  @type update_user_request_item() :: %{(String.t() | atom()) => any()}
+  @type membership_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_limit_exceeded_exception() :: %{
+      not_found_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t() | atom()
       }
 
   """
-  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      retention_settings() :: %{
-        "ConversationRetentionSettings" => conversation_retention_settings(),
-        "RoomRetentionSettings" => room_retention_settings()
-      }
-
-  """
-  @type retention_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_room_membership_request() :: %{
-        optional("Role") => list(any()),
-        required("MemberId") => String.t() | atom()
-      }
-
-  """
-  @type create_room_membership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_signin_delegate_groups_with_account_response() :: %{}
-
-  """
-  @type associate_signin_delegate_groups_with_account_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_request() :: %{
-        optional("DefaultLicense") => list(any()),
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invite() :: %{
-        "EmailAddress" => String.t() | atom(),
-        "EmailStatus" => list(any()),
-        "InviteId" => String.t() | atom(),
+      ordered_phone_number() :: %{
+        "E164PhoneNumber" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type invite() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      telephony_settings() :: %{
-        "InboundCalling" => boolean(),
-        "OutboundCalling" => boolean(),
-        "SMS" => boolean()
-      }
-
-  """
-  @type telephony_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_phone_number_order_response() :: %{
-        "PhoneNumberOrder" => phone_number_order()
-      }
-
-  """
-  @type get_phone_number_order_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_account_response() :: %{}
-
-  """
-  @type delete_account_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_phone_number_order_response() :: %{
-        "PhoneNumberOrder" => phone_number_order()
-      }
-
-  """
-  @type create_phone_number_order_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      phone_number_error() :: %{
-        "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "PhoneNumberId" => String.t() | atom()
-      }
-
-  """
-  @type phone_number_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_available_phone_numbers_request() :: %{
-        optional("AreaCode") => String.t() | atom(),
-        optional("City") => String.t() | atom(),
-        optional("Country") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("PhoneNumberType") => list(any()),
-        optional("State") => String.t() | atom(),
-        optional("TollFreePrefix") => String.t() | atom()
-      }
-
-  """
-  @type search_available_phone_numbers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_error() :: %{
-        "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "UserId" => String.t() | atom()
-      }
-
-  """
-  @type user_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_phone_number_with_user_response() :: %{}
-
-  """
-  @type associate_phone_number_with_user_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_accounts_response() :: %{
-        "Accounts" => list(account()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_accounts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_room_request() :: %{}
-
-  """
-  @type delete_room_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_phone_number_request() :: %{}
-
-  """
-  @type get_phone_number_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_room_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_room_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_meeting_dial_out_response() :: %{
-        "TransactionId" => String.t() | atom()
-      }
-
-  """
-  @type create_meeting_dial_out_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_retention_settings_request() :: %{}
-
-  """
-  @type get_retention_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_rooms_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Rooms" => list(room())
-      }
-
-  """
-  @type list_rooms_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_response() :: %{
-        "Account" => account()
-      }
-
-  """
-  @type update_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      business_calling_settings() :: %{
-        "CdrBucket" => String.t() | atom()
-      }
-
-  """
-  @type business_calling_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_settings_request() :: %{
-        required("AccountSettings") => account_settings()
-      }
-
-  """
-  @type update_account_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_room_membership_response() :: %{
-        "RoomMembership" => room_membership()
-      }
-
-  """
-  @type update_room_membership_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_response() :: %{
-        "User" => user()
-      }
-
-  """
-  @type get_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_events_configuration_response() :: %{
-        "EventsConfiguration" => events_configuration()
-      }
-
-  """
-  @type put_events_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conversation_retention_settings() :: %{
-        "RetentionDays" => integer()
-      }
-
-  """
-  @type conversation_retention_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_request() :: %{
-        optional("AlexaForBusinessMetadata") => alexa_for_business_metadata(),
-        optional("LicenseType") => list(any()),
-        optional("UserType") => list(any())
-      }
-
-  """
-  @type update_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_global_settings_request() :: %{
-        optional("BusinessCalling") => business_calling_settings(),
-        optional("VoiceConnector") => voice_connector_settings()
-      }
-
-  """
-  @type update_global_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_supported_phone_number_countries_response() :: %{
-        "PhoneNumberCountries" => list(phone_number_country())
-      }
-
-  """
-  @type list_supported_phone_number_countries_response() :: %{(String.t() | atom()) => any()}
+  @type ordered_phone_number() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -542,335 +1215,71 @@ defmodule AWS.Chime do
 
   ## Example:
 
-      restore_phone_number_request() :: %{}
-
-  """
-  @type restore_phone_number_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_suspend_user_request() :: %{
-        required("UserIdList") => list(String.t() | atom())
+      phone_number_association() :: %{
+        "AssociatedTimestamp" => non_neg_integer(),
+        "Name" => list(any()),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type batch_suspend_user_request() :: %{(String.t() | atom()) => any()}
+  @type phone_number_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reset_personal_pin_request() :: %{}
-
-  """
-  @type reset_personal_pin_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      signin_delegate_group() :: %{
-        "GroupName" => String.t() | atom()
+      phone_number_capabilities() :: %{
+        "InboundCall" => boolean(),
+        "InboundMMS" => boolean(),
+        "InboundSMS" => boolean(),
+        "OutboundCall" => boolean(),
+        "OutboundMMS" => boolean(),
+        "OutboundSMS" => boolean()
       }
 
   """
-  @type signin_delegate_group() :: %{(String.t() | atom()) => any()}
+  @type phone_number_capabilities() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_account_settings_request() :: %{}
-
-  """
-  @type get_account_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      alexa_for_business_metadata() :: %{
-        "AlexaForBusinessRoomArn" => String.t() | atom(),
-        "IsAlexaForBusinessEnabled" => boolean()
+      phone_number_country() :: %{
+        "CountryCode" => String.t() | atom(),
+        "SupportedPhoneNumberTypes" => list(list(any())())
       }
 
   """
-  @type alexa_for_business_metadata() :: %{(String.t() | atom()) => any()}
+  @type phone_number_country() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_phone_number_response() :: %{
-        "PhoneNumber" => phone_number()
+      phone_number_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "PhoneNumberId" => String.t() | atom()
       }
 
   """
-  @type get_phone_number_response() :: %{(String.t() | atom()) => any()}
+  @type phone_number_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_delete_phone_number_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error())
+      phone_number_order() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "OrderedPhoneNumbers" => list(ordered_phone_number()),
+        "PhoneNumberOrderId" => String.t() | atom(),
+        "ProductType" => list(any()),
+        "Status" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type batch_delete_phone_number_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_personal_pin_response() :: %{
-        "User" => user()
-      }
-
-  """
-  @type reset_personal_pin_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redact_conversation_message_request() :: %{}
-
-  """
-  @type redact_conversation_message_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_bot_response() :: %{
-        "Bot" => bot()
-      }
-
-  """
-  @type create_bot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redact_room_message_request() :: %{}
-
-  """
-  @type redact_room_message_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_settings_response() :: %{
-        "AccountSettings" => account_settings()
-      }
-
-  """
-  @type get_account_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_signin_delegate_groups_from_account_response() :: %{}
-
-  """
-  @type disassociate_signin_delegate_groups_from_account_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_request() :: %{}
-
-  """
-  @type get_bot_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_room_response() :: %{
-        "Room" => room()
-      }
-
-  """
-  @type get_room_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_phone_number_orders_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_phone_number_orders_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      membership_item() :: %{
-        "MemberId" => String.t() | atom(),
-        "Role" => list(any())
-      }
-
-  """
-  @type membership_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_phone_number_request() :: %{
-        required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item())
-      }
-
-  """
-  @type batch_update_phone_number_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_phone_number_response() :: %{
-        "PhoneNumber" => phone_number()
-      }
-
-  """
-  @type update_phone_number_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_response() :: %{
-        "User" => user()
-      }
-
-  """
-  @type update_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_settings() :: %{
-        "DisableRemoteControl" => boolean(),
-        "EnableDialOut" => boolean()
-      }
-
-  """
-  @type account_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_account_request() :: %{
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_retention_settings_response() :: %{
-        "InitiateDeletionTimestamp" => non_neg_integer(),
-        "RetentionSettings" => retention_settings()
-      }
-
-  """
-  @type put_retention_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_room_request() :: %{
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_room_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_request() :: %{}
-
-  """
-  @type get_user_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_response() :: %{
-        "Account" => account()
-      }
-
-  """
-  @type get_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_phone_number_settings_response() :: %{
-        "CallingName" => String.t() | atom(),
-        "CallingNameUpdatedTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type get_phone_number_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_settings_response() :: %{
-        "UserSettings" => user_settings()
-      }
-
-  """
-  @type get_user_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_phone_numbers_request() :: %{
-        optional("FilterName") => list(any()),
-        optional("FilterValue") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ProductType") => list(any()),
-        optional("Status") => list(any())
-      }
-
-  """
-  @type list_phone_numbers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_events_configuration_request() :: %{}
-
-  """
-  @type get_events_configuration_request() :: %{}
+  @type phone_number_order() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -888,14 +1297,287 @@ defmodule AWS.Chime do
 
   ## Example:
 
-      member_error() :: %{
-        "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "MemberId" => String.t() | atom()
+      put_events_configuration_response() :: %{
+        "EventsConfiguration" => events_configuration()
       }
 
   """
-  @type member_error() :: %{(String.t() | atom()) => any()}
+  @type put_events_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_retention_settings_request() :: %{
+        required("RetentionSettings") => retention_settings()
+      }
+
+  """
+  @type put_retention_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_retention_settings_response() :: %{
+        "InitiateDeletionTimestamp" => non_neg_integer(),
+        "RetentionSettings" => retention_settings()
+      }
+
+  """
+  @type put_retention_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redact_conversation_message_request() :: %{}
+
+  """
+  @type redact_conversation_message_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      redact_conversation_message_response() :: %{}
+
+  """
+  @type redact_conversation_message_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      redact_room_message_request() :: %{}
+
+  """
+  @type redact_room_message_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      redact_room_message_response() :: %{}
+
+  """
+  @type redact_room_message_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      regenerate_security_token_request() :: %{}
+
+  """
+  @type regenerate_security_token_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      regenerate_security_token_response() :: %{
+        "Bot" => bot()
+      }
+
+  """
+  @type regenerate_security_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_personal_pin_request() :: %{}
+
+  """
+  @type reset_personal_pin_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_personal_pin_response() :: %{
+        "User" => user()
+      }
+
+  """
+  @type reset_personal_pin_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_limit_exceeded_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_phone_number_request() :: %{}
+
+  """
+  @type restore_phone_number_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_phone_number_response() :: %{
+        "PhoneNumber" => phone_number()
+      }
+
+  """
+  @type restore_phone_number_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retention_settings() :: %{
+        "ConversationRetentionSettings" => conversation_retention_settings(),
+        "RoomRetentionSettings" => room_retention_settings()
+      }
+
+  """
+  @type retention_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      room() :: %{
+        "AccountId" => String.t() | atom(),
+        "CreatedBy" => String.t() | atom(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "RoomId" => String.t() | atom(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type room() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      room_membership() :: %{
+        "InvitedBy" => String.t() | atom(),
+        "Member" => member(),
+        "Role" => list(any()),
+        "RoomId" => String.t() | atom(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type room_membership() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      room_retention_settings() :: %{
+        "RetentionDays" => integer()
+      }
+
+  """
+  @type room_retention_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_available_phone_numbers_request() :: %{
+        optional("AreaCode") => String.t() | atom(),
+        optional("City") => String.t() | atom(),
+        optional("Country") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PhoneNumberType") => list(any()),
+        optional("State") => String.t() | atom(),
+        optional("TollFreePrefix") => String.t() | atom()
+      }
+
+  """
+  @type search_available_phone_numbers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_available_phone_numbers_response() :: %{
+        "E164PhoneNumbers" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type search_available_phone_numbers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_failure_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signin_delegate_group() :: %{
+        "GroupName" => String.t() | atom()
+      }
+
+  """
+  @type signin_delegate_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      telephony_settings() :: %{
+        "InboundCalling" => boolean(),
+        "OutboundCalling" => boolean(),
+        "SMS" => boolean()
+      }
+
+  """
+  @type telephony_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttled_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttled_client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -913,12 +1595,230 @@ defmodule AWS.Chime do
 
   ## Example:
 
-      room_retention_settings() :: %{
-        "RetentionDays" => integer()
+      unprocessable_entity_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type room_retention_settings() :: %{(String.t() | atom()) => any()}
+  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_request() :: %{
+        optional("DefaultLicense") => list(any()),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_response() :: %{
+        "Account" => account()
+      }
+
+  """
+  @type update_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_settings_request() :: %{
+        required("AccountSettings") => account_settings()
+      }
+
+  """
+  @type update_account_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_settings_response() :: %{}
+
+  """
+  @type update_account_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_bot_request() :: %{
+        optional("Disabled") => boolean()
+      }
+
+  """
+  @type update_bot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_bot_response() :: %{
+        "Bot" => bot()
+      }
+
+  """
+  @type update_bot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_global_settings_request() :: %{
+        optional("BusinessCalling") => business_calling_settings(),
+        optional("VoiceConnector") => voice_connector_settings()
+      }
+
+  """
+  @type update_global_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_phone_number_request() :: %{
+        optional("CallingName") => String.t() | atom(),
+        optional("ProductType") => list(any())
+      }
+
+  """
+  @type update_phone_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_phone_number_request_item() :: %{
+        "CallingName" => String.t() | atom(),
+        "PhoneNumberId" => String.t() | atom(),
+        "ProductType" => list(any())
+      }
+
+  """
+  @type update_phone_number_request_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_phone_number_response() :: %{
+        "PhoneNumber" => phone_number()
+      }
+
+  """
+  @type update_phone_number_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_phone_number_settings_request() :: %{
+        required("CallingName") => String.t() | atom()
+      }
+
+  """
+  @type update_phone_number_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_room_membership_request() :: %{
+        optional("Role") => list(any())
+      }
+
+  """
+  @type update_room_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_room_membership_response() :: %{
+        "RoomMembership" => room_membership()
+      }
+
+  """
+  @type update_room_membership_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_room_request() :: %{
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_room_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_room_response() :: %{
+        "Room" => room()
+      }
+
+  """
+  @type update_room_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_request() :: %{
+        optional("AlexaForBusinessMetadata") => alexa_for_business_metadata(),
+        optional("LicenseType") => list(any()),
+        optional("UserType") => list(any())
+      }
+
+  """
+  @type update_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_request_item() :: %{
+        "AlexaForBusinessMetadata" => alexa_for_business_metadata(),
+        "LicenseType" => list(any()),
+        "UserId" => String.t() | atom(),
+        "UserType" => list(any())
+      }
+
+  """
+  @type update_user_request_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_response() :: %{
+        "User" => user()
+      }
+
+  """
+  @type update_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_settings_request() :: %{
+        required("UserSettings") => user_settings()
+      }
+
+  """
+  @type update_user_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -947,378 +1847,14 @@ defmodule AWS.Chime do
 
   ## Example:
 
-      unprocessable_entity_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
+      user_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "UserId" => String.t() | atom()
       }
 
   """
-  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_signin_delegate_groups_with_account_request() :: %{
-        required("SigninDelegateGroups") => list(signin_delegate_group())
-      }
-
-  """
-  @type associate_signin_delegate_groups_with_account_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      put_retention_settings_request() :: %{
-        required("RetentionSettings") => retention_settings()
-      }
-
-  """
-  @type put_retention_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_phone_number_from_user_response() :: %{}
-
-  """
-  @type disassociate_phone_number_from_user_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_account_response() :: %{
-        "Account" => account()
-      }
-
-  """
-  @type create_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttled_client_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttled_client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bot_request() :: %{
-        optional("Disabled") => boolean()
-      }
-
-  """
-  @type update_bot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      phone_number_order() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "OrderedPhoneNumbers" => list(ordered_phone_number()),
-        "PhoneNumberOrderId" => String.t() | atom(),
-        "ProductType" => list(any()),
-        "Status" => list(any()),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type phone_number_order() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_room_response() :: %{
-        "Room" => room()
-      }
-
-  """
-  @type update_room_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_settings_request() :: %{}
-
-  """
-  @type get_user_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      invite_users_response() :: %{
-        "Invites" => list(invite())
-      }
-
-  """
-  @type invite_users_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_phone_number_request_item() :: %{
-        "CallingName" => String.t() | atom(),
-        "PhoneNumberId" => String.t() | atom(),
-        "ProductType" => list(any())
-      }
-
-  """
-  @type update_phone_number_request_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_phone_number_request() :: %{
-        optional("CallingName") => String.t() | atom(),
-        optional("ProductType") => list(any())
-      }
-
-  """
-  @type update_phone_number_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_unsuspend_user_response() :: %{
-        "UserErrors" => list(user_error())
-      }
-
-  """
-  @type batch_unsuspend_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redact_room_message_response() :: %{}
-
-  """
-  @type redact_room_message_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_unsuspend_user_request() :: %{
-        required("UserIdList") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_unsuspend_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_room_memberships_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RoomMemberships" => list(room_membership())
-      }
-
-  """
-  @type list_room_memberships_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_user_response() :: %{
-        "User" => user()
-      }
-
-  """
-  @type create_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_phone_number_request() :: %{}
-
-  """
-  @type delete_phone_number_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_room_membership_request() :: %{
-        required("MembershipItemList") => list(membership_item())
-      }
-
-  """
-  @type batch_create_room_membership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_settings_response() :: %{}
-
-  """
-  @type update_account_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      voice_connector_settings() :: %{
-        "CdrBucket" => String.t() | atom()
-      }
-
-  """
-  @type voice_connector_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_phone_numbers_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PhoneNumbers" => list(phone_number())
-      }
-
-  """
-  @type list_phone_numbers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_user_response() :: %{
-        "UserErrors" => list(user_error())
-      }
-
-  """
-  @type batch_update_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_account_request() :: %{}
-
-  """
-  @type delete_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      room_membership() :: %{
-        "InvitedBy" => String.t() | atom(),
-        "Member" => member(),
-        "Role" => list(any()),
-        "RoomId" => String.t() | atom(),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type room_membership() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_users_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("UserEmail") => String.t() | atom(),
-        optional("UserType") => list(any())
-      }
-
-  """
-  @type list_users_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_room_membership_response() :: %{
-        "Errors" => list(member_error())
-      }
-
-  """
-  @type batch_create_room_membership_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_settings_request() :: %{
-        required("UserSettings") => user_settings()
-      }
-
-  """
-  @type update_user_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_phone_number_order_request() :: %{
-        required("E164PhoneNumbers") => list(String.t() | atom()),
-        required("ProductType") => list(any())
-      }
-
-  """
-  @type create_phone_number_order_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      phone_number_association() :: %{
-        "AssociatedTimestamp" => non_neg_integer(),
-        "Name" => list(any()),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type phone_number_association() :: %{(String.t() | atom()) => any()}
+  @type user_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1335,1113 +1871,577 @@ defmodule AWS.Chime do
 
   ## Example:
 
-      get_retention_settings_response() :: %{
-        "InitiateDeletionTimestamp" => non_neg_integer(),
-        "RetentionSettings" => retention_settings()
+      voice_connector_settings() :: %{
+        "CdrBucket" => String.t() | atom()
       }
 
   """
-  @type get_retention_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_events_configuration_response() :: %{
-        "EventsConfiguration" => events_configuration()
-      }
-
-  """
-  @type get_events_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_room_request() :: %{}
-
-  """
-  @type get_room_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_user_request() :: %{
-        required("UpdateUserRequestItems") => list(update_user_request_item())
-      }
-
-  """
-  @type batch_update_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_room_membership_request() :: %{}
-
-  """
-  @type delete_room_membership_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      events_configuration() :: %{
-        "BotId" => String.t() | atom(),
-        "LambdaFunctionArn" => String.t() | atom(),
-        "OutboundEventsHTTPSEndpoint" => String.t() | atom()
-      }
-
-  """
-  @type events_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_rooms_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("MemberId") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_rooms_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_suspend_user_response() :: %{
-        "UserErrors" => list(user_error())
-      }
-
-  """
-  @type batch_suspend_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      phone_number_capabilities() :: %{
-        "InboundCall" => boolean(),
-        "InboundMMS" => boolean(),
-        "InboundSMS" => boolean(),
-        "OutboundCall" => boolean(),
-        "OutboundMMS" => boolean(),
-        "OutboundSMS" => boolean()
-      }
-
-  """
-  @type phone_number_capabilities() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logout_user_response() :: %{}
-
-  """
-  @type logout_user_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      account() :: %{
-        "AccountId" => String.t() | atom(),
-        "AccountStatus" => list(any()),
-        "AccountType" => list(any()),
-        "AwsAccountId" => String.t() | atom(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "DefaultLicense" => list(any()),
-        "Name" => String.t() | atom(),
-        "SigninDelegateGroups" => list(signin_delegate_group()),
-        "SupportedLicenses" => list(list(any())())
-      }
-
-  """
-  @type account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_phone_number_with_user_request() :: %{
-        required("E164PhoneNumber") => String.t() | atom()
-      }
-
-  """
-  @type associate_phone_number_with_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_response() :: %{
-        "Bot" => bot()
-      }
-
-  """
-  @type get_bot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_phone_number_request() :: %{
-        required("PhoneNumberIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_delete_phone_number_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_users_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Users" => list(user())
-      }
-
-  """
-  @type list_users_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_phone_number_response() :: %{
-        "PhoneNumber" => phone_number()
-      }
-
-  """
-  @type restore_phone_number_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bots_response() :: %{
-        "Bots" => list(bot()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_bots_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_failure_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      regenerate_security_token_request() :: %{}
-
-  """
-  @type regenerate_security_token_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_signin_delegate_groups_from_account_request() :: %{
-        required("GroupNames") => list(String.t() | atom())
-      }
-
-  """
-  @type disassociate_signin_delegate_groups_from_account_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      phone_number_country() :: %{
-        "CountryCode" => String.t() | atom(),
-        "SupportedPhoneNumberTypes" => list(list(any())())
-      }
-
-  """
-  @type phone_number_country() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_request() :: %{}
-
-  """
-  @type get_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_bot_request() :: %{
-        optional("Domain") => String.t() | atom(),
-        required("DisplayName") => String.t() | atom()
-      }
-
-  """
-  @type create_bot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_room_memberships_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_room_memberships_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      regenerate_security_token_response() :: %{
-        "Bot" => bot()
-      }
-
-  """
-  @type regenerate_security_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_available_phone_numbers_response() :: %{
-        "E164PhoneNumbers" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type search_available_phone_numbers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logout_user_request() :: %{}
-
-  """
-  @type logout_user_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      room() :: %{
-        "AccountId" => String.t() | atom(),
-        "CreatedBy" => String.t() | atom(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "RoomId" => String.t() | atom(),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type room() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_meeting_dial_out_request() :: %{
-        required("FromPhoneNumber") => String.t() | atom(),
-        required("JoinToken") => String.t() | atom(),
-        required("ToPhoneNumber") => String.t() | atom()
-      }
-
-  """
-  @type create_meeting_dial_out_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_phone_number_order_request() :: %{}
-
-  """
-  @type get_phone_number_order_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_phone_number_orders_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PhoneNumberOrders" => list(phone_number_order())
-      }
-
-  """
-  @type list_phone_number_orders_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_global_settings_response() :: %{
-        "BusinessCalling" => business_calling_settings(),
-        "VoiceConnector" => voice_connector_settings()
-      }
-
-  """
-  @type get_global_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_events_configuration_request() :: %{}
-
-  """
-  @type delete_events_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ordered_phone_number() :: %{
-        "E164PhoneNumber" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type ordered_phone_number() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_phone_number_settings_request() :: %{
-        required("CallingName") => String.t() | atom()
-      }
-
-  """
-  @type update_phone_number_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redact_conversation_message_response() :: %{}
-
-  """
-  @type redact_conversation_message_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      invite_users_request() :: %{
-        optional("UserType") => list(any()),
-        required("UserEmailList") => list(String.t() | atom())
-      }
-
-  """
-  @type invite_users_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_phone_number_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error())
-      }
-
-  """
-  @type batch_update_phone_number_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_room_membership_response() :: %{
-        "RoomMembership" => room_membership()
-      }
-
-  """
-  @type create_room_membership_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_user_request() :: %{
-        optional("Email") => String.t() | atom(),
-        optional("UserType") => list(any()),
-        optional("Username") => String.t() | atom()
-      }
-
-  """
-  @type create_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_room_membership_request() :: %{
-        optional("Role") => list(any())
-      }
-
-  """
-  @type update_room_membership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_phone_number_from_user_request() :: %{}
-
-  """
-  @type disassociate_phone_number_from_user_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      bot() :: %{
-        "BotEmail" => String.t() | atom(),
-        "BotId" => String.t() | atom(),
-        "BotType" => list(any()),
-        "CreatedTimestamp" => non_neg_integer(),
-        "Disabled" => boolean(),
-        "DisplayName" => String.t() | atom(),
-        "SecurityToken" => String.t() | atom(),
-        "UpdatedTimestamp" => non_neg_integer(),
-        "UserId" => String.t() | atom()
-      }
-
-  """
-  @type bot() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_room_response() :: %{
-        "Room" => room()
-      }
-
-  """
-  @type create_room_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bot_response() :: %{
-        "Bot" => bot()
-      }
-
-  """
-  @type update_bot_response() :: %{(String.t() | atom()) => any()}
+  @type voice_connector_settings() :: %{(String.t() | atom()) => any()}
 
   @type associate_phone_number_with_user_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
+          | forbidden_exception()
+          | bad_request_exception()
           | access_denied_exception()
-          | service_unavailable_exception()
 
   @type associate_signin_delegate_groups_with_account_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type batch_create_room_membership_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type batch_delete_phone_number_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type batch_suspend_user_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type batch_unsuspend_user_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type batch_update_phone_number_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type batch_update_user_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type create_account_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type create_bot_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
           | resource_limit_exceeded_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type create_meeting_dial_out_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
-          | access_denied_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
           | resource_limit_exceeded_exception()
+          | forbidden_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   @type create_phone_number_order_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
-          | access_denied_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
           | resource_limit_exceeded_exception()
+          | forbidden_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   @type create_room_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
           | resource_limit_exceeded_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type create_room_membership_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | conflict_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
           | resource_limit_exceeded_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
 
   @type create_user_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
+          | forbidden_exception()
           | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | bad_request_exception()
 
   @type delete_account_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unprocessable_entity_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unprocessable_entity_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_events_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | unauthorized_client_exception()
+          unauthorized_client_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
           | resource_limit_exceeded_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_phone_number_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_room_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type delete_room_membership_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type disassociate_phone_number_from_user_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type disassociate_signin_delegate_groups_from_account_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_account_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_account_settings_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_bot_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_events_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | unauthorized_client_exception()
+          unauthorized_client_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
           | resource_limit_exceeded_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_global_settings_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_phone_number_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_phone_number_order_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_phone_number_settings_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_retention_settings_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_room_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_user_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type get_user_settings_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type invite_users_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_accounts_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_bots_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_phone_number_orders_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_phone_numbers_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_room_memberships_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_rooms_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type list_supported_phone_number_countries_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
-          | access_denied_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | forbidden_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   @type list_users_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type logout_user_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type put_events_configuration_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
-          | unauthorized_client_exception()
+          unauthorized_client_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
           | resource_limit_exceeded_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type put_retention_settings_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
+          | forbidden_exception()
           | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | bad_request_exception()
 
   @type redact_conversation_message_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type redact_room_message_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type regenerate_security_token_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type reset_personal_pin_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type restore_phone_number_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
-          | not_found_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
           | resource_limit_exceeded_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type search_available_phone_numbers_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
-          | access_denied_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | forbidden_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   @type update_account_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_account_settings_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
+          | forbidden_exception()
           | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | bad_request_exception()
 
   @type update_bot_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_global_settings_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_phone_number_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
+          | forbidden_exception()
           | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | bad_request_exception()
 
   @type update_phone_number_settings_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          unauthorized_client_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
           | service_unavailable_exception()
+          | service_failure_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_room_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_room_membership_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_user_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   @type update_user_settings_errors() ::
-          bad_request_exception()
-          | forbidden_exception()
+          unauthorized_client_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
           | service_failure_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | bad_request_exception()
 
   def metadata do
     %{
@@ -3633,15 +3633,8 @@ defmodule AWS.Chime do
     query_params = []
 
     query_params =
-      if !is_nil(user_email) do
-        [{"user-email", user_email} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
@@ -3654,8 +3647,15 @@ defmodule AWS.Chime do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(user_email) do
+        [{"user-email", user_email} | query_params]
       else
         query_params
       end
@@ -3692,15 +3692,15 @@ defmodule AWS.Chime do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -3734,15 +3734,15 @@ defmodule AWS.Chime do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -3785,29 +3785,8 @@ defmodule AWS.Chime do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(product_type) do
-        [{"product-type", product_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(filter_name) do
+        [{"filter-name", filter_name} | query_params]
       else
         query_params
       end
@@ -3820,8 +3799,29 @@ defmodule AWS.Chime do
       end
 
     query_params =
-      if !is_nil(filter_name) do
-        [{"filter-name", filter_name} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(product_type) do
+        [{"product-type", product_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -3863,15 +3863,15 @@ defmodule AWS.Chime do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -3912,8 +3912,8 @@ defmodule AWS.Chime do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
@@ -3926,8 +3926,8 @@ defmodule AWS.Chime do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -3995,15 +3995,8 @@ defmodule AWS.Chime do
     query_params = []
 
     query_params =
-      if !is_nil(user_type) do
-        [{"user-type", user_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(user_email) do
-        [{"user-email", user_email} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
@@ -4016,8 +4009,15 @@ defmodule AWS.Chime do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(user_email) do
+        [{"user-email", user_email} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(user_type) do
+        [{"user-type", user_type} | query_params]
       else
         query_params
       end
@@ -4396,43 +4396,8 @@ defmodule AWS.Chime do
     query_params = []
 
     query_params =
-      if !is_nil(toll_free_prefix) do
-        [{"toll-free-prefix", toll_free_prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(phone_number_type) do
-        [{"phone-number-type", phone_number_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(country) do
-        [{"country", country} | query_params]
+      if !is_nil(area_code) do
+        [{"area-code", area_code} | query_params]
       else
         query_params
       end
@@ -4445,8 +4410,43 @@ defmodule AWS.Chime do
       end
 
     query_params =
-      if !is_nil(area_code) do
-        [{"area-code", area_code} | query_params]
+      if !is_nil(country) do
+        [{"country", country} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(phone_number_type) do
+        [{"phone-number-type", phone_number_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(state) do
+        [{"state", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(toll_free_prefix) do
+        [{"toll-free-prefix", toll_free_prefix} | query_params]
       else
         query_params
       end

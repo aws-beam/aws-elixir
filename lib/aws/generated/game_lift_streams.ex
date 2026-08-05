@@ -27,23 +27,104 @@ defmodule AWS.GameLiftStreams do
 
   ## Example:
 
-      get_stream_group_output() :: %{
-        "Arn" => String.t() | atom(),
-        "AssociatedApplications" => list(String.t() | atom()),
-        "CreatedAt" => [non_neg_integer()],
-        "DefaultApplication" => default_application(),
-        "Description" => String.t() | atom(),
-        "ExpiresAt" => [non_neg_integer()],
-        "Id" => String.t() | atom(),
-        "LastUpdatedAt" => [non_neg_integer()],
-        "LocationStates" => list(location_state()),
-        "Status" => list(any()),
-        "StatusReason" => list(any()),
-        "StreamClass" => list(any())
+      access_denied_exception() :: %{
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type get_stream_group_output() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_stream_group_locations_input() :: %{
+        required("LocationConfigurations") => list(location_configuration())
+      }
+
+  """
+  @type add_stream_group_locations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_stream_group_locations_output() :: %{
+        "Identifier" => String.t() | atom(),
+        "Locations" => list(location_state())
+      }
+
+  """
+  @type add_stream_group_locations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedAt" => [non_neg_integer()],
+        "RuntimeEnvironment" => runtime_environment(),
+        "Status" => list(any())
+      }
+
+  """
+  @type application_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_applications_input() :: %{
+        required("ApplicationIdentifiers") => list(String.t() | atom())
+      }
+
+  """
+  @type associate_applications_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_applications_output() :: %{
+        "ApplicationArns" => list(String.t() | atom()),
+        "Arn" => String.t() | atom()
+      }
+
+  """
+  @type associate_applications_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_input() :: %{
+        optional("ApplicationLogOutputUri") => String.t() | atom(),
+        optional("ApplicationLogPaths") => list(String.t() | atom()),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("ApplicationSourceUri") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
+        required("ExecutablePath") => String.t() | atom(),
+        required("RuntimeEnvironment") => runtime_environment()
+      }
+
+  """
+  @type create_application_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,76 +154,135 @@ defmodule AWS.GameLiftStreams do
 
   ## Example:
 
-      list_stream_sessions_by_account_input() :: %{
-        optional("ExportFilesStatus") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
+      create_stream_group_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DefaultApplicationIdentifier") => String.t() | atom(),
+        optional("LocationConfigurations") => list(location_configuration()),
+        optional("Tags") => map(),
+        required("Description") => String.t() | atom(),
+        required("StreamClass") => list(any())
       }
 
   """
-  @type list_stream_sessions_by_account_input() :: %{(String.t() | atom()) => any()}
+  @type create_stream_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()]
+      create_stream_group_output() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedApplications" => list(String.t() | atom()),
+        "CreatedAt" => [non_neg_integer()],
+        "DefaultApplication" => default_application(),
+        "Description" => String.t() | atom(),
+        "ExpiresAt" => [non_neg_integer()],
+        "Id" => String.t() | atom(),
+        "LastUpdatedAt" => [non_neg_integer()],
+        "LocationStates" => list(location_state()),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "StreamClass" => list(any())
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type create_stream_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_application_input() :: %{}
+      create_stream_session_admin_shell_input() :: %{}
 
   """
-  @type delete_application_input() :: %{}
+  @type create_stream_session_admin_shell_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      vpc_transit_configuration() :: %{
-        "Ipv4CidrBlocks" => list(String.t() | atom()),
-        "VpcId" => String.t() | atom()
+      create_stream_session_admin_shell_output() :: %{
+        "SessionId" => String.t() | atom(),
+        "StreamUrl" => String.t() | atom(),
+        "TokenValue" => String.t() | atom()
       }
 
   """
-  @type vpc_transit_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_stream_session_admin_shell_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "Message" => [String.t() | atom()]
+      create_stream_session_connection_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("SignalRequest") => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type create_stream_session_connection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_stream_session_input() :: %{}
+      create_stream_session_connection_output() :: %{
+        "SignalResponse" => String.t() | atom()
+      }
 
   """
-  @type get_stream_session_input() :: %{}
+  @type create_stream_session_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      export_stream_session_files_output() :: %{}
+      create_stream_url_input() :: %{
+        optional("AdditionalEnvironmentVariables") => map(),
+        optional("AdditionalLaunchArgs") => list([String.t() | atom()]()),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayConfiguration") => display_configuration(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("SessionLengthSeconds") => integer(),
+        optional("UsageLimit") => integer(),
+        required("ApplicationIdentifier") => String.t() | atom(),
+        required("Locations") => list(String.t() | atom()),
+        required("Protocol") => list(any()),
+        required("UrlExpiresAfterMinutes") => integer()
+      }
 
   """
-  @type export_stream_session_files_output() :: %{}
+  @type create_stream_url_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stream_url_output() :: %{
+        "AdditionalEnvironmentVariables" => map(),
+        "AdditionalLaunchArgs" => list([String.t() | atom()]()),
+        "ApplicationArn" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "DisplayConfiguration" => display_configuration(),
+        "ExpiresAt" => [non_neg_integer()],
+        "Locations" => list(String.t() | atom()),
+        "Protocol" => list(any()),
+        "RemainingUses" => integer(),
+        "RoleArn" => String.t() | atom(),
+        "SessionLengthSeconds" => integer(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "StreamGroupArn" => String.t() | atom(),
+        "StreamUrl" => String.t() | atom(),
+        "StreamUrlId" => String.t() | atom(),
+        "UsageLimit" => integer()
+      }
+
+  """
+  @type create_stream_url_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -160,89 +300,19 @@ defmodule AWS.GameLiftStreams do
 
   ## Example:
 
-      performance_stats_configuration() :: %{
-        "SharedWithClient" => [boolean()]
-      }
+      delete_application_input() :: %{}
 
   """
-  @type performance_stats_configuration() :: %{(String.t() | atom()) => any()}
+  @type delete_application_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      vpc_transit_configuration_response() :: %{
-        "Ipv4CidrBlocks" => list(String.t() | atom()),
-        "TransitGatewayId" => [String.t() | atom()],
-        "TransitGatewayResourceShareArn" => [String.t() | atom()],
-        "VpcId" => String.t() | atom()
-      }
+      delete_stream_group_input() :: %{}
 
   """
-  @type vpc_transit_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_stream_sessions_input() :: %{
-        optional("ExportFilesStatus") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
-      }
-
-  """
-  @type list_stream_sessions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_session_access_not_ready_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type stream_session_access_not_ready_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      location_configuration() :: %{
-        "AlwaysOnCapacity" => integer(),
-        "LocationName" => String.t() | atom(),
-        "MaximumCapacity" => integer(),
-        "OnDemandCapacity" => integer(),
-        "TargetIdleCapacity" => integer(),
-        "VpcTransitConfiguration" => vpc_transit_configuration()
-      }
-
-  """
-  @type location_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_stream_group_locations_input() :: %{
-        required("LocationConfigurations") => list(location_configuration())
-      }
-
-  """
-  @type add_stream_group_locations_input() :: %{(String.t() | atom()) => any()}
+  @type delete_stream_group_input() :: %{}
 
   @typedoc """
 
@@ -271,12 +341,54 @@ defmodule AWS.GameLiftStreams do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "Message" => [String.t() | atom()]
+      display_configuration() :: %{
+        "Resolution" => resolution()
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type display_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_files_metadata() :: %{
+        "OutputUri" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
+      }
+
+  """
+  @type export_files_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_stream_session_files_input() :: %{
+        required("OutputUri") => String.t() | atom()
+      }
+
+  """
+  @type export_stream_session_files_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_stream_session_files_output() :: %{}
+
+  """
+  @type export_stream_session_files_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_input() :: %{}
+
+  """
+  @type get_application_input() :: %{}
 
   @typedoc """
 
@@ -306,12 +418,180 @@ defmodule AWS.GameLiftStreams do
 
   ## Example:
 
-      resource_not_found_exception() :: %{
+      get_stream_group_input() :: %{}
+
+  """
+  @type get_stream_group_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stream_group_output() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedApplications" => list(String.t() | atom()),
+        "CreatedAt" => [non_neg_integer()],
+        "DefaultApplication" => default_application(),
+        "Description" => String.t() | atom(),
+        "ExpiresAt" => [non_neg_integer()],
+        "Id" => String.t() | atom(),
+        "LastUpdatedAt" => [non_neg_integer()],
+        "LocationStates" => list(location_state()),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "StreamClass" => list(any())
+      }
+
+  """
+  @type get_stream_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stream_session_input() :: %{}
+
+  """
+  @type get_stream_session_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stream_session_output() :: %{
+        "AdditionalEnvironmentVariables" => map(),
+        "AdditionalLaunchArgs" => list([String.t() | atom()]()),
+        "ApplicationArn" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "ConnectionTimeoutSeconds" => integer(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "DisplayConfiguration" => display_configuration(),
+        "ExportFilesMetadata" => export_files_metadata(),
+        "LastUpdatedAt" => [non_neg_integer()],
+        "Location" => String.t() | atom(),
+        "LogFileLocationUri" => String.t() | atom(),
+        "PerformanceStatsConfiguration" => performance_stats_configuration(),
+        "Protocol" => list(any()),
+        "RoleArn" => String.t() | atom(),
+        "SessionLengthSeconds" => integer(),
+        "SignalRequest" => String.t() | atom(),
+        "SignalResponse" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "StreamGroupId" => String.t() | atom(),
+        "UserId" => String.t() | atom(),
+        "WebSdkProtocolUrl" => String.t() | atom()
+      }
+
+  """
+  @type get_stream_session_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stream_url_input() :: %{}
+
+  """
+  @type get_stream_url_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stream_url_output() :: %{
+        "AdditionalEnvironmentVariables" => map(),
+        "AdditionalLaunchArgs" => list([String.t() | atom()]()),
+        "ApplicationArn" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "DisplayConfiguration" => display_configuration(),
+        "ExpiresAt" => [non_neg_integer()],
+        "Locations" => list(String.t() | atom()),
+        "Protocol" => list(any()),
+        "RemainingUses" => integer(),
+        "RoleArn" => String.t() | atom(),
+        "SessionLengthSeconds" => integer(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "StreamGroupArn" => String.t() | atom(),
+        "StreamSessions" => list(stream_session_summary()),
+        "StreamUrl" => String.t() | atom(),
+        "StreamUrlId" => String.t() | atom(),
+        "UsageLimit" => integer()
+      }
+
+  """
+  @type get_stream_url_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_shader_caches_input() :: %{}
+
+  """
+  @type list_application_shader_caches_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_shader_caches_output() :: %{
+        "Items" => list(shader_cache_summary())
+      }
+
+  """
+  @type list_application_shader_caches_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_applications_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_output() :: %{
+        "Items" => list(application_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_applications_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_stream_groups_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_stream_groups_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -324,6 +604,120 @@ defmodule AWS.GameLiftStreams do
 
   """
   @type list_stream_groups_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_stream_sessions_by_account_input() :: %{
+        optional("ExportFilesStatus") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type list_stream_sessions_by_account_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_stream_sessions_by_account_output() :: %{
+        "Items" => list(stream_session_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_stream_sessions_by_account_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_stream_sessions_input() :: %{
+        optional("ExportFilesStatus") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type list_stream_sessions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_stream_sessions_output() :: %{
+        "Items" => list(stream_session_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_stream_sessions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_stream_urls_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any()),
+        optional("StreamGroupIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_stream_urls_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_stream_urls_output() :: %{
+        "Items" => list(stream_url_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_stream_urls_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      location_configuration() :: %{
+        "AlwaysOnCapacity" => integer(),
+        "LocationName" => String.t() | atom(),
+        "MaximumCapacity" => integer(),
+        "OnDemandCapacity" => integer(),
+        "TargetIdleCapacity" => integer(),
+        "VpcTransitConfiguration" => vpc_transit_configuration()
+      }
+
+  """
+  @type location_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -350,63 +744,23 @@ defmodule AWS.GameLiftStreams do
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("Tags") => map()
+      performance_stats_configuration() :: %{
+        "SharedWithClient" => [boolean()]
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type performance_stats_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_stream_group_output() :: %{
-        "Arn" => String.t() | atom(),
-        "AssociatedApplications" => list(String.t() | atom()),
-        "CreatedAt" => [non_neg_integer()],
-        "DefaultApplication" => default_application(),
-        "Description" => String.t() | atom(),
-        "ExpiresAt" => [non_neg_integer()],
-        "Id" => String.t() | atom(),
-        "LastUpdatedAt" => [non_neg_integer()],
-        "LocationStates" => list(location_state()),
-        "Status" => list(any()),
-        "StatusReason" => list(any()),
-        "StreamClass" => list(any())
+      remove_stream_group_locations_input() :: %{
+        required("Locations") => list([String.t() | atom()]())
       }
 
   """
-  @type create_stream_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_session_summary() :: %{
-        "ApplicationArn" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "ExportFilesMetadata" => export_files_metadata(),
-        "LastUpdatedAt" => [non_neg_integer()],
-        "Location" => String.t() | atom(),
-        "Protocol" => list(any()),
-        "Status" => list(any()),
-        "StatusReason" => list(any()),
-        "UserId" => String.t() | atom()
-      }
-
-  """
-  @type stream_session_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
+  @type remove_stream_group_locations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -424,150 +778,98 @@ defmodule AWS.GameLiftStreams do
 
   ## Example:
 
-      create_application_input() :: %{
-        optional("ApplicationLogOutputUri") => String.t() | atom(),
-        optional("ApplicationLogPaths") => list(String.t() | atom()),
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("ApplicationSourceUri") => String.t() | atom(),
-        required("Description") => String.t() | atom(),
-        required("ExecutablePath") => String.t() | atom(),
-        required("RuntimeEnvironment") => runtime_environment()
+      resolution() :: %{
+        "Height" => integer(),
+        "Width" => integer()
       }
 
   """
-  @type create_application_input() :: %{(String.t() | atom()) => any()}
+  @type resolution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_application_input() :: %{}
-
-  """
-  @type get_application_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_stream_group_input() :: %{
-        optional("DefaultApplicationIdentifier") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("LocationConfigurations") => list(location_configuration())
-      }
-
-  """
-  @type update_stream_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
+      resource_not_found_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      export_stream_session_files_input() :: %{
-        required("OutputUri") => String.t() | atom()
+      revoke_stream_url_input() :: %{
+        optional("RevocationMode") => list(any())
       }
 
   """
-  @type export_stream_session_files_input() :: %{(String.t() | atom()) => any()}
+  @type revoke_stream_url_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
+      runtime_environment() :: %{
+        "Type" => list(any()),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type runtime_environment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_stream_session_output() :: %{
-        "AdditionalEnvironmentVariables" => map(),
-        "AdditionalLaunchArgs" => list([String.t() | atom()]()),
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      shader_cache_summary() :: %{
         "ApplicationArn" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "ConnectionTimeoutSeconds" => integer(),
-        "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t() | atom(),
-        "ExportFilesMetadata" => export_files_metadata(),
-        "LastUpdatedAt" => [non_neg_integer()],
-        "Location" => String.t() | atom(),
-        "LogFileLocationUri" => String.t() | atom(),
-        "PerformanceStatsConfiguration" => performance_stats_configuration(),
-        "Protocol" => list(any()),
-        "SessionLengthSeconds" => integer(),
-        "SignalRequest" => String.t() | atom(),
-        "SignalResponse" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusReason" => list(any()),
-        "StreamGroupId" => String.t() | atom(),
-        "UserId" => String.t() | atom(),
-        "WebSdkProtocolUrl" => String.t() | atom()
-      }
-
-  """
-  @type get_stream_session_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_stream_group_locations_output() :: %{
+        "AssociatedStreamGroups" => list(String.t() | atom()),
         "Identifier" => String.t() | atom(),
-        "Locations" => list(location_state())
+        "LastUpdatedAt" => [non_neg_integer()],
+        "Status" => list(any()),
+        "StorageBytes" => [float()]
       }
 
   """
-  @type add_stream_group_locations_output() :: %{(String.t() | atom()) => any()}
+  @type shader_cache_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_stream_sessions_by_account_output() :: %{
-        "Items" => list(stream_session_summary()),
-        "NextToken" => String.t() | atom()
+      start_stream_session_input() :: %{
+        optional("AdditionalEnvironmentVariables") => map(),
+        optional("AdditionalLaunchArgs") => list([String.t() | atom()]()),
+        optional("ClientToken") => String.t() | atom(),
+        optional("ConnectionTimeoutSeconds") => integer(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayConfiguration") => display_configuration(),
+        optional("Locations") => list(String.t() | atom()),
+        optional("PerformanceStatsConfiguration") => performance_stats_configuration(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("SessionLengthSeconds") => integer(),
+        optional("UserId") => String.t() | atom(),
+        required("ApplicationIdentifier") => String.t() | atom(),
+        required("Protocol") => list(any()),
+        required("SignalRequest") => String.t() | atom()
       }
 
   """
-  @type list_stream_sessions_by_account_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_stream_sessions_output() :: %{
-        "Items" => list(stream_session_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_stream_sessions_output() :: %{(String.t() | atom()) => any()}
+  @type start_stream_session_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -581,12 +883,14 @@ defmodule AWS.GameLiftStreams do
         "ConnectionTimeoutSeconds" => integer(),
         "CreatedAt" => [non_neg_integer()],
         "Description" => String.t() | atom(),
+        "DisplayConfiguration" => display_configuration(),
         "ExportFilesMetadata" => export_files_metadata(),
         "LastUpdatedAt" => [non_neg_integer()],
         "Location" => String.t() | atom(),
         "LogFileLocationUri" => String.t() | atom(),
         "PerformanceStatsConfiguration" => performance_stats_configuration(),
         "Protocol" => list(any()),
+        "RoleArn" => String.t() | atom(),
         "SessionLengthSeconds" => integer(),
         "SignalRequest" => String.t() | atom(),
         "SignalResponse" => String.t() | atom(),
@@ -604,71 +908,135 @@ defmodule AWS.GameLiftStreams do
 
   ## Example:
 
-      application_summary() :: %{
+      stream_group_summary() :: %{
         "Arn" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedAt" => [non_neg_integer()],
-        "RuntimeEnvironment" => runtime_environment(),
-        "Status" => list(any())
-      }
-
-  """
-  @type application_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_stream_group_locations_input() :: %{
-        required("Locations") => list([String.t() | atom()]())
-      }
-
-  """
-  @type remove_stream_group_locations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_stream_group_output() :: %{
-        "Arn" => String.t() | atom(),
-        "AssociatedApplications" => list(String.t() | atom()),
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
         "Description" => String.t() | atom(),
         "ExpiresAt" => [non_neg_integer()],
         "Id" => String.t() | atom(),
         "LastUpdatedAt" => [non_neg_integer()],
-        "LocationStates" => list(location_state()),
         "Status" => list(any()),
-        "StatusReason" => list(any()),
         "StreamClass" => list(any())
       }
 
   """
-  @type update_stream_group_output() :: %{(String.t() | atom()) => any()}
+  @type stream_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_stream_group_input() :: %{}
+      stream_session_access_not_ready_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
 
   """
-  @type delete_stream_group_input() :: %{}
+  @type stream_session_access_not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_session_summary() :: %{
+        "ApplicationArn" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "ExportFilesMetadata" => export_files_metadata(),
+        "LastUpdatedAt" => [non_neg_integer()],
+        "Location" => String.t() | atom(),
+        "Protocol" => list(any()),
+        "RoleArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "UserId" => String.t() | atom()
+      }
+
+  """
+  @type stream_session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_url_summary() :: %{
+        "ApplicationArn" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "ExpiresAt" => [non_neg_integer()],
+        "RemainingUses" => integer(),
+        "SessionLengthSeconds" => integer(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "StreamGroupArn" => String.t() | atom(),
+        "StreamUrl" => String.t() | atom(),
+        "StreamUrlId" => String.t() | atom(),
+        "UsageLimit" => integer()
+      }
+
+  """
+  @type stream_url_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_stream_session_input() :: %{}
+
+  """
+  @type terminate_stream_session_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -711,406 +1079,290 @@ defmodule AWS.GameLiftStreams do
 
   ## Example:
 
-      list_stream_groups_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      update_stream_group_input() :: %{
+        optional("DefaultApplicationIdentifier") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("LocationConfigurations") => list(location_configuration())
       }
 
   """
-  @type list_stream_groups_input() :: %{(String.t() | atom()) => any()}
+  @type update_stream_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_stream_session_admin_shell_output() :: %{
-        "SessionId" => String.t() | atom(),
-        "StreamUrl" => String.t() | atom(),
-        "TokenValue" => String.t() | atom()
-      }
-
-  """
-  @type create_stream_session_admin_shell_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_applications_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_applications_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_group_summary() :: %{
+      update_stream_group_output() :: %{
         "Arn" => String.t() | atom(),
+        "AssociatedApplications" => list(String.t() | atom()),
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
         "Description" => String.t() | atom(),
         "ExpiresAt" => [non_neg_integer()],
         "Id" => String.t() | atom(),
         "LastUpdatedAt" => [non_neg_integer()],
+        "LocationStates" => list(location_state()),
         "Status" => list(any()),
+        "StatusReason" => list(any()),
         "StreamClass" => list(any())
       }
 
   """
-  @type stream_group_summary() :: %{(String.t() | atom()) => any()}
+  @type update_stream_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_stream_session_connection_input() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("SignalRequest") => String.t() | atom()
-      }
-
-  """
-  @type create_stream_session_connection_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_stream_session_admin_shell_input() :: %{}
-
-  """
-  @type create_stream_session_admin_shell_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_stream_session_connection_output() :: %{
-        "SignalResponse" => String.t() | atom()
-      }
-
-  """
-  @type create_stream_session_connection_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_applications_output() :: %{
-        "ApplicationArns" => list(String.t() | atom()),
-        "Arn" => String.t() | atom()
-      }
-
-  """
-  @type associate_applications_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_files_metadata() :: %{
-        "OutputUri" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusReason" => String.t() | atom()
-      }
-
-  """
-  @type export_files_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      terminate_stream_session_input() :: %{}
-
-  """
-  @type terminate_stream_session_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_stream_session_input() :: %{
-        optional("AdditionalEnvironmentVariables") => map(),
-        optional("AdditionalLaunchArgs") => list([String.t() | atom()]()),
-        optional("ClientToken") => String.t() | atom(),
-        optional("ConnectionTimeoutSeconds") => integer(),
-        optional("Description") => String.t() | atom(),
-        optional("Locations") => list(String.t() | atom()),
-        optional("PerformanceStatsConfiguration") => performance_stats_configuration(),
-        optional("SessionLengthSeconds") => integer(),
-        optional("UserId") => String.t() | atom(),
-        required("ApplicationIdentifier") => String.t() | atom(),
-        required("Protocol") => list(any()),
-        required("SignalRequest") => String.t() | atom()
-      }
-
-  """
-  @type start_stream_session_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_applications_output() :: %{
-        "Items" => list(application_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_applications_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_applications_input() :: %{
-        required("ApplicationIdentifiers") => list(String.t() | atom())
-      }
-
-  """
-  @type associate_applications_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      runtime_environment() :: %{
-        "Type" => list(any()),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type runtime_environment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_stream_group_input() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("DefaultApplicationIdentifier") => String.t() | atom(),
-        optional("LocationConfigurations") => list(location_configuration()),
-        optional("Tags") => map(),
-        required("Description") => String.t() | atom(),
-        required("StreamClass") => list(any())
-      }
-
-  """
-  @type create_stream_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_stream_group_input() :: %{}
-
-  """
-  @type get_stream_group_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
+      validation_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_transit_configuration() :: %{
+        "Ipv4CidrBlocks" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_transit_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_transit_configuration_response() :: %{
+        "Ipv4CidrBlocks" => list(String.t() | atom()),
+        "TransitGatewayId" => [String.t() | atom()],
+        "TransitGatewayResourceShareArn" => [String.t() | atom()],
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_transit_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @type add_stream_group_locations_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type associate_applications_errors() ::
-          service_quota_exceeded_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_application_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_stream_group_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type create_stream_session_admin_shell_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | stream_session_access_not_ready_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | stream_session_access_not_ready_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_stream_session_connection_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
+
+  @type create_stream_url_errors() ::
+          validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_application_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type delete_stream_group_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type disassociate_applications_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type export_stream_session_files_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_application_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_stream_group_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_stream_session_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_stream_url_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_application_shader_caches_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_applications_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_stream_groups_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_stream_sessions_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_stream_sessions_by_account_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_stream_urls_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type remove_stream_group_locations_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type revoke_stream_url_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type start_stream_session_errors() ::
-          conflict_exception()
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
+          | conflict_exception()
           | access_denied_exception()
-          | throttling_exception()
 
   @type tag_resource_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type terminate_stream_session_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | throttling_exception()
-
-  @type untag_resource_errors() ::
-          internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type update_application_errors() ::
-          resource_not_found_exception()
-          | internal_server_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | throttling_exception()
-
-  @type update_stream_group_errors() ::
-          service_quota_exceeded_exception()
-          | conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | validation_exception()
           | access_denied_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_application_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_stream_group_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -1483,6 +1735,42 @@ defmodule AWS.GameLiftStreams do
   end
 
   @doc """
+  Creates a stream URL that grants temporary access to a stream session in a web
+  browser without requiring an Amazon Web Services account or client integration.
+
+  You can use the stream URL to start a stream session up to the number of times
+  set by `UsageLimit`, until it expires after `UrlExpiresAfterMinutes`. Each
+  successful use starts a new stream session.
+
+  To make the request idempotent, provide a `ClientToken`.
+  """
+  @spec create_stream_url(map(), String.t() | atom(), create_stream_url_input(), list()) ::
+          {:ok, create_stream_url_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_stream_url_errors()}
+  def create_stream_url(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/streamgroups/#{AWS.Util.encode_uri(identifier)}/streamurls"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Permanently deletes an Amazon GameLift Streams application resource.
 
   This also deletes the application content files stored with Amazon GameLift
@@ -1762,6 +2050,54 @@ defmodule AWS.GameLiftStreams do
   end
 
   @doc """
+  Retrieves properties for a stream URL, including its current status, usage, and
+  the stream sessions started through it.
+
+  If you delete the stream group or application that backs the stream URL, this
+  operation updates the status of the stream URL to `REVOKED`.
+  """
+  @spec get_stream_url(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_stream_url_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_stream_url_errors()}
+  def get_stream_url(%Client{} = client, identifier, stream_url_identifier, options \\ []) do
+    url_path =
+      "/streamgroups/#{AWS.Util.encode_uri(identifier)}/streamurls/#{AWS.Util.encode_uri(stream_url_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the shader caches associated with an Amazon GameLift Streams application.
+
+  Each shader cache entry includes its status, associated stream groups, and size
+  in bytes.
+
+  Returns shader caches associated with the specified Amazon GameLift Streams
+  application in all statuses.
+  """
+  @spec list_application_shader_caches(map(), String.t() | atom(), list()) ::
+          {:ok, list_application_shader_caches_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_application_shader_caches_errors()}
+  def list_application_shader_caches(%Client{} = client, identifier, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(identifier)}/shadercaches"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a list of all Amazon GameLift Streams applications that are associated
   with the Amazon Web Services account in use.
 
@@ -1779,15 +2115,15 @@ defmodule AWS.GameLiftStreams do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1815,15 +2151,15 @@ defmodule AWS.GameLiftStreams do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1869,15 +2205,8 @@ defmodule AWS.GameLiftStreams do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"Status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(export_files_status) do
+        [{"ExportFilesStatus", export_files_status} | query_params]
       else
         query_params
       end
@@ -1890,8 +2219,15 @@ defmodule AWS.GameLiftStreams do
       end
 
     query_params =
-      if !is_nil(export_files_status) do
-        [{"ExportFilesStatus", export_files_status} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"Status", status} | query_params]
       else
         query_params
       end
@@ -1937,15 +2273,8 @@ defmodule AWS.GameLiftStreams do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"Status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(export_files_status) do
+        [{"ExportFilesStatus", export_files_status} | query_params]
       else
         query_params
       end
@@ -1958,8 +2287,81 @@ defmodule AWS.GameLiftStreams do
       end
 
     query_params =
-      if !is_nil(export_files_status) do
-        [{"ExportFilesStatus", export_files_status} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"Status", status} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of the stream URLs in the current Amazon Web Services Region
+  for your Amazon Web Services account.
+
+  You can filter the results by status or by stream group. Use the pagination
+  parameters to retrieve results as a set of sequential pages. If you delete the
+  stream group or application that backs a stream URL, this operation updates that
+  stream URL's status to `REVOKED`.
+  """
+  @spec list_stream_urls(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_stream_urls_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_stream_urls_errors()}
+  def list_stream_urls(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        stream_group_identifier \\ nil,
+        options \\ []
+      ) do
+    url_path = "/streamurls"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"Status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(stream_group_identifier) do
+        [{"StreamGroupIdentifier", stream_group_identifier} | query_params]
       else
         query_params
       end
@@ -2038,6 +2440,56 @@ defmodule AWS.GameLiftStreams do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Revokes a stream URL so that it can no longer start new stream sessions.
+
+  By default, stream sessions that are already running continue until they end on
+  their own. To also end running sessions, set `RevocationMode` to
+  `REVOKE_AND_TERMINATE_SESSIONS`.
+
+  Revoking a stream URL is permanent. The status of the stream URL changes to
+  `REVOKED`.
+  """
+  @spec revoke_stream_url(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          revoke_stream_url_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, revoke_stream_url_errors()}
+  def revoke_stream_url(
+        %Client{} = client,
+        identifier,
+        stream_url_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/streamgroups/#{AWS.Util.encode_uri(identifier)}/streamurls/#{AWS.Util.encode_uri(stream_url_identifier)}/revoke"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

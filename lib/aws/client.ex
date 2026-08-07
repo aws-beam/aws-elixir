@@ -209,6 +209,43 @@ defmodule AWS.Client do
   end
 
   @doc """
+  Applies credentials to the existing client fields.
+
+  This accepts either a static credential map (built with `AWS.Credentials.from_static/4`)
+  or a provider tuple in the form `{:provider, module, opts}`.
+  """
+  def put_credentials(%__MODULE__{} = client, %{} = credentials) do
+    %__MODULE__{
+      client
+      | access_key_id: Map.get(credentials, :access_key_id, client.access_key_id),
+        secret_access_key: Map.get(credentials, :secret_access_key, client.secret_access_key),
+        session_token: Map.get(credentials, :session_token, client.session_token),
+        region: Map.get(credentials, :region, client.region)
+    }
+  end
+
+  def put_credentials(%__MODULE__{} = client, {:provider, module, opts}) do
+    case module.resolve(opts) do
+      {:ok, credentials} -> put_credentials(client, credentials)
+      {:error, _reason} -> client
+    end
+  end
+
+  @doc """
+  Resolves credential values into the existing client fields.
+
+  This is a convenience wrapper around `put_credentials/2` for provider-backed
+  credential sources.
+  """
+  def resolve_credentials(%__MODULE__{} = client) do
+    client
+  end
+
+  def resolve_credentials(%__MODULE__{} = client, credentials) do
+    put_credentials(client, credentials)
+  end
+
+  @doc """
   Makes a HTTP request using the specified client.
 
   ## Retries and options.

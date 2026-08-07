@@ -1143,6 +1143,7 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       describe_field_indexes_request() :: %{
+        optional("indexCategories") => list(list(any())()),
         optional("nextToken") => String.t() | atom(),
         required("logGroupIdentifiers") => list(String.t() | atom())
       }
@@ -1586,6 +1587,7 @@ defmodule AWS.CloudWatchLogs do
       field_index() :: %{
         "fieldIndexName" => String.t() | atom(),
         "firstEventTime" => float(),
+        "indexCategory" => list(any()),
         "lastEventTime" => float(),
         "lastScanTime" => float(),
         "logGroupIdentifier" => String.t() | atom(),
@@ -6394,11 +6396,13 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Returns a list of custom and default field indexes which are discovered in log
-  data.
+  Returns a list of field indexes discovered in log data.
 
-  For
-  more information about field index policies, see
+  By default, the response includes
+  the `DEFAULT`, `CUSTOM`, and `INACTIVE` index categories. To
+  return indexes from other categories, use the `indexCategories` parameter.
+
+  For more information about field index policies, see
   [PutIndexPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html).
   """
   @spec describe_field_indexes(map(), describe_field_indexes_request(), list()) ::

@@ -470,6 +470,33 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      create_backup_access_point_request() :: %{
+        optional("AccessPointMetadata") => map(),
+        optional("AccessPointPolicy") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom(),
+        required("RecoveryPointArn") => String.t() | atom()
+      }
+
+  """
+  @type create_backup_access_point_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backup_access_point_response() :: %{
+        "AccessPointArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type create_backup_access_point_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_backup_plan_input() :: %{
         optional("BackupPlanTags") => map(),
         optional("CreatorRequestId") => String.t() | atom(),
@@ -785,6 +812,15 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      delete_backup_access_point_input() :: %{}
+
+  """
+  @type delete_backup_access_point_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_backup_plan_input() :: %{}
 
   """
@@ -925,6 +961,36 @@ defmodule AWS.Backup do
 
   """
   @type dependency_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_backup_access_point_input() :: %{}
+
+  """
+  @type describe_backup_access_point_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_backup_access_point_response() :: %{
+        "AccessPointArn" => String.t() | atom(),
+        "AccessPointMetadata" => map(),
+        "BackupVaultArn" => String.t() | atom(),
+        "BackupVaultName" => String.t() | atom(),
+        "CreationTime" => [non_neg_integer()],
+        "Name" => String.t() | atom(),
+        "RecoveryPointArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceType" => [String.t() | atom()],
+        "Status" => list(any()),
+        "StatusMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type describe_backup_access_point_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1911,6 +1977,101 @@ defmodule AWS.Backup do
 
   """
   @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_points_member() :: %{
+        "AccessPointArn" => String.t() | atom(),
+        "AccessPointMetadata" => map(),
+        "BackupVaultArn" => String.t() | atom(),
+        "BackupVaultName" => String.t() | atom(),
+        "CreationTime" => [non_neg_integer()],
+        "Name" => String.t() | atom(),
+        "RecoveryPointArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceType" => [String.t() | atom()],
+        "Status" => list(any()),
+        "StatusMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type list_access_points_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_access_points_by_recovery_point_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_backup_access_points_by_recovery_point_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_access_points_by_recovery_point_response() :: %{
+        "BackupAccessPoints" => list(list_access_points_member()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_backup_access_points_by_recovery_point_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_access_points_by_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_backup_access_points_by_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_access_points_by_resource_response() :: %{
+        "BackupAccessPoints" => list(list_access_points_member()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_backup_access_points_by_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_access_points_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_backup_access_points_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_access_points_response() :: %{
+        "BackupAccessPoints" => list(list_access_points_member()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_backup_access_points_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3856,6 +4017,16 @@ defmodule AWS.Backup do
           | invalid_resource_state_exception()
           | invalid_parameter_value_exception()
 
+  @type create_backup_access_point_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_value_exception()
+          | conflict_exception()
+          | already_exists_exception()
+
   @type create_backup_plan_errors() ::
           service_unavailable_exception()
           | missing_parameter_value_exception()
@@ -3938,6 +4109,13 @@ defmodule AWS.Backup do
           | conflict_exception()
           | already_exists_exception()
 
+  @type delete_backup_access_point_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
+          | invalid_request_exception()
+          | invalid_parameter_value_exception()
+
   @type delete_backup_plan_errors() ::
           service_unavailable_exception()
           | resource_not_found_exception()
@@ -4009,6 +4187,13 @@ defmodule AWS.Backup do
           service_unavailable_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
+          | invalid_parameter_value_exception()
+
+  @type describe_backup_access_point_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
+          | invalid_request_exception()
           | invalid_parameter_value_exception()
 
   @type describe_backup_job_errors() ::
@@ -4191,6 +4376,15 @@ defmodule AWS.Backup do
           | resource_not_found_exception()
           | missing_parameter_value_exception()
           | invalid_parameter_value_exception()
+
+  @type list_backup_access_points_errors() ::
+          service_unavailable_exception() | invalid_parameter_value_exception()
+
+  @type list_backup_access_points_by_recovery_point_errors() ::
+          service_unavailable_exception() | invalid_parameter_value_exception()
+
+  @type list_backup_access_points_by_resource_errors() ::
+          service_unavailable_exception() | invalid_parameter_value_exception()
 
   @type list_backup_job_summaries_errors() ::
           service_unavailable_exception() | invalid_parameter_value_exception()
@@ -4566,6 +4760,44 @@ defmodule AWS.Backup do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a backup access point for an Amazon S3 recovery point.
+
+  A backup access point provides
+  on-demand, read-only access to the backup data in a recovery point through an
+  Amazon S3 access point,
+  without initiating a restore.
+
+  While a backup access point is active for a recovery point, Backup pauses
+  lifecycle transitions
+  and blocks deletion of that recovery point.
+  """
+  @spec create_backup_access_point(map(), create_backup_access_point_request(), list()) ::
+          {:ok, create_backup_access_point_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_backup_access_point_errors()}
+  def create_backup_access_point(%Client{} = client, input, options \\ []) do
+    url_path = "/backup-access-point/create"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -5006,6 +5238,48 @@ defmodule AWS.Backup do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes a backup access point.
+
+  This deletes the underlying Amazon S3 access point and, if no other
+  backup access points remain for the recovery point, resumes lifecycle
+  transitions for that recovery point.
+
+  Always delete backup access points using this operation rather than deleting the
+  underlying Amazon S3
+  access point directly.
+  """
+  @spec delete_backup_access_point(
+          map(),
+          String.t() | atom(),
+          delete_backup_access_point_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_backup_access_point_errors()}
+  def delete_backup_access_point(%Client{} = client, access_point_arn, input, options \\ []) do
+    url_path = "/backup-access-point/delete/#{AWS.Util.encode_uri(access_point_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -5494,6 +5768,30 @@ defmodule AWS.Backup do
       options,
       200
     )
+  end
+
+  @doc """
+  Returns metadata about a backup access point, including its status and the
+  details of the underlying
+  Amazon S3 access point.
+
+  After a backup access point reaches the `AVAILABLE` status, use this operation
+  to retrieve the
+  Amazon S3 access point ARN and alias that you need to read the backup data.
+  """
+  @spec describe_backup_access_point(map(), String.t() | atom(), list()) ::
+          {:ok, describe_backup_access_point_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_backup_access_point_errors()}
+  def describe_backup_access_point(%Client{} = client, access_point_arn, options \\ []) do
+    url_path = "/backup-access-point/#{AWS.Util.encode_uri(access_point_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6381,6 +6679,144 @@ defmodule AWS.Backup do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of the backup access points in your account and Region.
+  """
+  @spec list_backup_access_points(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_backup_access_points_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_backup_access_points_errors()}
+  def list_backup_access_points(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/backup-access-point"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the backup access points associated with the specified recovery point.
+
+  If you own the recovery point and have shared it with other accounts, the
+  response includes backup access
+  points created by those accounts.
+  """
+  @spec list_backup_access_points_by_recovery_point(
+          map(),
+          String.t() | atom(),
+          list_backup_access_points_by_recovery_point_request(),
+          list()
+        ) ::
+          {:ok, list_backup_access_points_by_recovery_point_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_backup_access_points_by_recovery_point_errors()}
+  def list_backup_access_points_by_recovery_point(
+        %Client{} = client,
+        recovery_point_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/backup-access-point/recovery-point/#{AWS.Util.encode_uri(recovery_point_arn)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "MaxResults"},
+        {"NextToken", "NextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the backup access points associated with the specified resource, such as
+  an Amazon S3
+  bucket.
+  """
+  @spec list_backup_access_points_by_resource(
+          map(),
+          String.t() | atom(),
+          list_backup_access_points_by_resource_request(),
+          list()
+        ) ::
+          {:ok, list_backup_access_points_by_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_backup_access_points_by_resource_errors()}
+  def list_backup_access_points_by_resource(
+        %Client{} = client,
+        resource_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/backup-access-point/resource/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "MaxResults"},
+        {"NextToken", "NextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7276,10 +7712,12 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns an array of resources successfully backed up by Backup, including
-  the time the resource was saved, an Amazon Resource Name (ARN) of the resource,
-  and a
-  resource type.
+  Returns an array of resources with recovery points created by Backup
+  (regardless of the recovery point's
+  [status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeRecoveryPoint.html#Backup-DescribeRecoveryPoint-response-Status)),
+  including the time the resource was saved, an Amazon Resource Name (ARN) of the
+  resource,
+  and a resource type.
   """
   @spec list_protected_resources(
           map(),

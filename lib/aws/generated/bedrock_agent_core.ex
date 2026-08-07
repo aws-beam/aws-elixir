@@ -853,6 +853,28 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      delete_capacity_provider_session_request() :: %{}
+
+  """
+  @type delete_capacity_provider_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_capacity_provider_session_response() :: %{
+        "capacityProviderArn" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_capacity_provider_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_event_input() :: %{}
 
   """
@@ -4531,6 +4553,13 @@ defmodule AWS.BedrockAgentCore do
           | conflict_exception()
           | access_denied_exception()
 
+  @type delete_capacity_provider_session_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type delete_event_errors() ::
           validation_exception()
           | throttled_exception()
@@ -5323,6 +5352,54 @@ defmodule AWS.BedrockAgentCore do
           | {:error, delete_batch_evaluation_errors()}
   def delete_batch_evaluation(%Client{} = client, batch_evaluation_id, input, options \\ []) do
     url_path = "/evaluations/batch-evaluate/#{AWS.Util.encode_uri(batch_evaluation_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes a session associated with a capacity provider in Amazon Bedrock
+  AgentCore and makes the session unavailable for further use.
+
+  To delete a capacity provider session, specify both the capacity provider
+  identifier and the session ID. After you delete a session, you cannot restart
+  it.
+  """
+  @spec delete_capacity_provider_session(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_capacity_provider_session_request(),
+          list()
+        ) ::
+          {:ok, delete_capacity_provider_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_capacity_provider_session_errors()}
+  def delete_capacity_provider_session(
+        %Client{} = client,
+        capacity_provider_id,
+        session_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/capacity-providers/#{AWS.Util.encode_uri(capacity_provider_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
+
     headers = []
     custom_headers = []
     query_params = []

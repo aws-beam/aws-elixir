@@ -115,6 +115,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      agent_runtime_version_summary() :: %{
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeVersion" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type agent_runtime_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_skills_descriptor() :: %{
         "skillDefinition" => skill_definition(),
         "skillMd" => skill_md_definition()
@@ -253,6 +266,43 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      batch_put_gateway_rate_limits_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("rateLimits") => list(batch_put_limit_entry())
+      }
+
+  """
+  @type batch_put_gateway_rate_limits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_gateway_rate_limits_response() :: %{
+        "rateLimits" => list(gateway_rate_limit_detail())
+      }
+
+  """
+  @type batch_put_gateway_rate_limits_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_limit_entry() :: %{
+        "description" => String.t() | atom(),
+        "dimensionKeys" => list(String.t() | atom()),
+        "entries" => list(limit_entry()),
+        "rateLimitId" => String.t() | atom()
+      }
+
+  """
+  @type batch_put_limit_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bedrock_evaluator_model_config() :: %{
         "additionalModelRequestFields" => any(),
         "inferenceConfig" => inference_configuration(),
@@ -344,6 +394,68 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type browser_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_provider_configuration() :: %{
+        "capacityProviderArn" => String.t() | atom()
+      }
+
+  """
+  @type capacity_provider_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_provider_summary() :: %{
+        "capacityProviderArn" => String.t() | atom(),
+        "capacityProviderId" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type capacity_provider_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_provider_volume_configuration() :: %{
+        "mountPath" => String.t() | atom(),
+        "volumeName" => String.t() | atom()
+      }
+
+  """
+  @type capacity_provider_volume_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_reservation_specification() :: %{
+        "capacityReservationPreference" => list(any()),
+        "capacityReservationTarget" => capacity_reservation_target()
+      }
+
+  """
+  @type capacity_reservation_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_reservation_target() :: %{
+        "capacityReservationId" => String.t() | atom(),
+        "capacityReservationResourceGroupArn" => String.t() | atom()
+      }
+
+  """
+  @type capacity_reservation_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,17 +789,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
       create_agent_runtime_request() :: %{
         optional("authorizerConfiguration") => list(),
+        optional("capacityProviderConfiguration") => capacity_provider_configuration(),
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
         optional("filesystemConfigurations") => list(list()),
         optional("lifecycleConfiguration") => lifecycle_configuration(),
+        optional("networkConfiguration") => network_configuration(),
         optional("protocolConfiguration") => protocol_configuration(),
         optional("requestHeaderConfiguration") => list(),
         optional("tags") => map(),
         required("agentRuntimeArtifact") => list(),
         required("agentRuntimeName") => String.t() | atom(),
-        required("networkConfiguration") => network_configuration(),
         required("roleArn") => String.t() | atom()
       }
 
@@ -802,6 +915,36 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_browser_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_capacity_provider_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("computeConfiguration") => list(),
+        required("name") => String.t() | atom(),
+        required("permissionsConfiguration") => permissions_configuration()
+      }
+
+  """
+  @type create_capacity_provider_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_capacity_provider_output() :: %{
+        "capacityProviderArn" => String.t() | atom(),
+        "capacityProviderId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_capacity_provider_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -955,6 +1098,39 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_evaluator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_rate_limit_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("rateLimitId") => String.t() | atom(),
+        required("dimensionKeys") => list(String.t() | atom()),
+        required("entries") => list(limit_entry())
+      }
+
+  """
+  @type create_gateway_rate_limit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_rate_limit_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dimensionKeys" => list(String.t() | atom()),
+        "entries" => list(limit_entry()),
+        "gatewayIdentifier" => String.t() | atom(),
+        "rateLimitId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type create_gateway_rate_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1697,6 +1873,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       delete_agent_runtime_request() :: %{
+        optional("agentRuntimeVersion") => String.t() | atom(),
         optional("clientToken") => String.t() | atom()
       }
 
@@ -1709,6 +1886,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       delete_agent_runtime_response() :: %{
         "agentRuntimeId" => String.t() | atom(),
+        "agentRuntimeVersion" => String.t() | atom(),
         "status" => list(any())
       }
 
@@ -1784,6 +1962,29 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_browser_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_capacity_provider_input() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_capacity_provider_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_capacity_provider_output() :: %{
+        "capacityProviderId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_capacity_provider_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1904,6 +2105,27 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_evaluator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gateway_rate_limit_request() :: %{}
+
+  """
+  @type delete_gateway_rate_limit_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gateway_rate_limit_response() :: %{
+        "rateLimitId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_gateway_rate_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2310,6 +2532,39 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      ebs_volume_configuration() :: %{
+        "encrypted" => [boolean()],
+        "iops" => integer(),
+        "kmsKeyId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sizeGiB" => integer(),
+        "snapshotId" => String.t() | atom(),
+        "throughput" => integer(),
+        "volumeType" => list(any())
+      }
+
+  """
+  @type ebs_volume_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ec2_configuration() :: %{
+        "launchTemplateSource" => list(),
+        "lifecycleConfiguration" => instance_lifecycle_configuration(),
+        "rootVolume" => root_volume_configuration(),
+        "volumes" => list(list()),
+        "vpcConfiguration" => vpc_configuration()
+      }
+
+  """
+  @type ec2_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       efs_access_point_configuration() :: %{
         "accessPointArn" => String.t() | atom(),
         "mountPath" => String.t() | atom()
@@ -2341,6 +2596,38 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type encryption_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ephemeral_block_device_mapping() :: %{
+        "deviceName" => String.t() | atom(),
+        "ebs" => ephemeral_ebs_volume_configuration(),
+        "virtualName" => String.t() | atom()
+      }
+
+  """
+  @type ephemeral_block_device_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ephemeral_ebs_volume_configuration() :: %{
+        "ebsCardIndex" => integer(),
+        "encrypted" => [boolean()],
+        "iops" => integer(),
+        "kmsKeyId" => String.t() | atom(),
+        "snapshotId" => String.t() | atom(),
+        "throughput" => integer(),
+        "volumeInitializationRate" => integer(),
+        "volumeSize" => integer(),
+        "volumeType" => list(any())
+      }
+
+  """
+  @type ephemeral_ebs_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2576,6 +2863,24 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      gateway_rate_limit_detail() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dimensionKeys" => list(String.t() | atom()),
+        "entries" => list(limit_entry()),
+        "gatewayIdentifier" => String.t() | atom(),
+        "rateLimitId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type gateway_rate_limit_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       gateway_rule_detail() :: %{
         "actions" => list(list()),
         "conditions" => list(list()),
@@ -2688,6 +2993,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "agentRuntimeName" => String.t() | atom(),
         "agentRuntimeVersion" => String.t() | atom(),
         "authorizerConfiguration" => list(),
+        "capacityProviderConfiguration" => capacity_provider_configuration(),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
         "environmentVariables" => map(),
@@ -2797,6 +3103,36 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_browser_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_capacity_provider_input() :: %{}
+
+  """
+  @type get_capacity_provider_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_capacity_provider_output() :: %{
+        "capacityProviderArn" => String.t() | atom(),
+        "capacityProviderId" => String.t() | atom(),
+        "computeConfiguration" => list(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "permissionsConfiguration" => permissions_configuration(),
+        "status" => list(any()),
+        "statusCode" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type get_capacity_provider_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2957,6 +3293,33 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_evaluator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_gateway_rate_limit_request() :: %{}
+
+  """
+  @type get_gateway_rate_limit_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_gateway_rate_limit_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dimensionKeys" => list(String.t() | atom()),
+        "entries" => list(limit_entry()),
+        "gatewayIdentifier" => String.t() | atom(),
+        "rateLimitId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_gateway_rate_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4221,6 +4584,29 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      instance_lifecycle_configuration() :: %{
+        "idleInstanceTimeout" => [integer()],
+        "maxLifetime" => [integer()]
+      }
+
+  """
+  @type instance_lifecycle_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_requirements() :: %{
+        "allowedInstanceTypes" => list(String.t() | atom())
+      }
+
+  """
+  @type instance_requirements() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       interceptor_input_configuration() :: %{
         "passRequestHeaders" => [boolean()],
         "payloadFilter" => interceptor_payload_filter()
@@ -4348,6 +4734,36 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      launch_parameters() :: %{
+        "capacityReservationSpecification" => capacity_reservation_specification(),
+        "ephemeralVolumes" => list(ephemeral_block_device_mapping()),
+        "instanceProfileArn" => String.t() | atom(),
+        "instanceRequirements" => instance_requirements(),
+        "licenseSpecifications" => list(license_specification()),
+        "monitoring" => list(any()),
+        "operatingSystem" => list(any()),
+        "propagatedTags" => map(),
+        "sshKeyName" => String.t() | atom()
+      }
+
+  """
+  @type launch_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      license_specification() :: %{
+        "licenseConfigurationArn" => String.t() | atom()
+      }
+
+  """
+  @type license_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       lifecycle_configuration() :: %{
         "idleRuntimeSessionTimeout" => [integer()],
         "maxLifetime" => [integer()]
@@ -4355,6 +4771,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type lifecycle_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_entry() :: %{
+        "connections" => list(rate_config()),
+        "dimensions" => map(),
+        "requests" => list(rate_config()),
+        "tokens" => list(rate_config())
+      }
+
+  """
+  @type limit_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4405,6 +4835,34 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_agent_runtime_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_runtime_versions_by_capacity_provider_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_agent_runtime_versions_by_capacity_provider_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_runtime_versions_by_capacity_provider_output() :: %{
+        "agentRuntimes" => list(agent_runtime_version_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_agent_runtime_versions_by_capacity_provider_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -4527,6 +4985,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_browsers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_capacity_providers_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_capacity_providers_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_capacity_providers_output() :: %{
+        "capacityProviders" => list(capacity_provider_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_capacity_providers_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4701,6 +5183,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_evaluators_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateway_rate_limits_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_gateway_rate_limits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateway_rate_limits_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "rateLimits" => list(gateway_rate_limit_detail())
+      }
+
+  """
+  @type list_gateway_rate_limits_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5857,6 +6363,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      permissions_configuration() :: %{
+        "capacityProviderOperatorRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type permissions_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       policy() :: %{
         "createdAt" => non_neg_integer(),
         "definition" => list(),
@@ -6079,6 +6596,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      rate_config() :: %{
+        "period" => list(any()),
+        "rate" => [float()]
+      }
+
+  """
+  @type rate_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reasoning_configuration() :: %{
         "effort" => [String.t() | atom()]
       }
@@ -6197,6 +6726,33 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retryable_conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type retryable_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      root_volume_configuration() :: %{
+        "encrypted" => [boolean()],
+        "freeSpaceGiB" => integer(),
+        "iops" => integer(),
+        "kmsKeyId" => String.t() | atom(),
+        "throughput" => integer(),
+        "volumeType" => list(any())
+      }
+
+  """
+  @type root_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7149,16 +7705,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
       update_agent_runtime_request() :: %{
         optional("authorizerConfiguration") => list(),
+        optional("capacityProviderConfiguration") => capacity_provider_configuration(),
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
         optional("filesystemConfigurations") => list(list()),
         optional("lifecycleConfiguration") => lifecycle_configuration(),
         optional("metadataConfiguration") => runtime_metadata_configuration(),
+        optional("networkConfiguration") => network_configuration(),
         optional("protocolConfiguration") => protocol_configuration(),
         optional("requestHeaderConfiguration") => list(),
         required("agentRuntimeArtifact") => list(),
-        required("networkConfiguration") => network_configuration(),
         required("roleArn") => String.t() | atom()
       }
 
@@ -7212,6 +7769,34 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type update_api_key_credential_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_capacity_provider_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => updated_description()
+      }
+
+  """
+  @type update_capacity_provider_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_capacity_provider_output() :: %{
+        "capacityProviderArn" => String.t() | atom(),
+        "capacityProviderId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_capacity_provider_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7326,6 +7911,36 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type update_evaluator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gateway_rate_limit_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("entries") => list(limit_entry())
+      }
+
+  """
+  @type update_gateway_rate_limit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gateway_rate_limit_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dimensionKeys" => list(String.t() | atom()),
+        "entries" => list(limit_entry()),
+        "gatewayIdentifier" => String.t() | atom(),
+        "rateLimitId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_gateway_rate_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8280,6 +8895,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      vpc_configuration() :: %{
+        "securityGroups" => list(String.t() | atom()),
+        "subnets" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       waf_configuration() :: %{
         "failureMode" => list(any())
       }
@@ -8341,6 +8968,15 @@ defmodule AWS.BedrockAgentCoreControl do
           | conflict_exception()
           | access_denied_exception()
 
+  @type batch_put_gateway_rate_limits_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_agent_runtime_errors() ::
           validation_exception()
           | throttling_exception()
@@ -8383,6 +9019,16 @@ defmodule AWS.BedrockAgentCoreControl do
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_capacity_provider_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | retryable_conflict_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -8432,6 +9078,15 @@ defmodule AWS.BedrockAgentCoreControl do
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_gateway_rate_limit_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -8612,6 +9267,15 @@ defmodule AWS.BedrockAgentCoreControl do
           | conflict_exception()
           | access_denied_exception()
 
+  @type delete_capacity_provider_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | retryable_conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type delete_code_interpreter_errors() ::
           validation_exception()
           | throttling_exception()
@@ -8654,6 +9318,14 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
 
   @type delete_gateway_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_gateway_rate_limit_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -8824,6 +9496,13 @@ defmodule AWS.BedrockAgentCoreControl do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_capacity_provider_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_code_interpreter_errors() ::
           throttling_exception()
           | service_quota_exceeded_exception()
@@ -8861,6 +9540,13 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
 
   @type get_gateway_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_gateway_rate_limit_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -9034,6 +9720,12 @@ defmodule AWS.BedrockAgentCoreControl do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_agent_runtime_versions_by_capacity_provider_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_agent_runtimes_errors() ::
           validation_exception()
           | throttling_exception()
@@ -9055,6 +9747,12 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
 
   @type list_browsers_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_capacity_providers_errors() ::
           validation_exception()
           | throttling_exception()
           | internal_server_exception()
@@ -9103,6 +9801,13 @@ defmodule AWS.BedrockAgentCoreControl do
   @type list_evaluators_errors() ::
           validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_gateway_rate_limits_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -9350,6 +10055,15 @@ defmodule AWS.BedrockAgentCoreControl do
           | conflict_exception()
           | access_denied_exception()
 
+  @type update_capacity_provider_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | retryable_conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_configuration_bundle_errors() ::
           validation_exception()
           | throttling_exception()
@@ -9388,6 +10102,14 @@ defmodule AWS.BedrockAgentCoreControl do
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_gateway_rate_limit_errors() ::
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -9587,6 +10309,44 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Atomically creates or updates multiple rate limits for a gateway.
+
+  The operation updates existing limits with matching keys and creates new limits
+  for new keys. If the operation fails, the service applies no changes. Retry the
+  request after resolving the issue.
+  """
+  @spec batch_put_gateway_rate_limits(
+          map(),
+          String.t() | atom(),
+          batch_put_gateway_rate_limits_request(),
+          list()
+        ) ::
+          {:ok, batch_put_gateway_rate_limits_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_put_gateway_rate_limits_errors()}
+  def batch_put_gateway_rate_limits(%Client{} = client, gateway_identifier, input, options \\ []) do
+    url_path = "/gateways/#{AWS.Util.encode_uri(gateway_identifier)}/rate-limits/batch"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an Amazon Bedrock AgentCore Runtime.
   """
   @spec create_agent_runtime(map(), create_agent_runtime_request(), list()) ::
@@ -9741,6 +10501,44 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Creates a capacity provider.
+
+  A capacity provider defines the Amazon EC2 infrastructure for AgentCore Runtime,
+  including the operating system, allowed instance types, networking, and storage.
+  It also specifies the IAM permissions that AgentCore uses to manage those
+  instances.
+
+  The capacity provider name must be unique within your account. After you create
+  the capacity provider, it enters a `CREATING` state and transitions to `READY`
+  when it is available for use.
+  """
+  @spec create_capacity_provider(map(), create_capacity_provider_input(), list()) ::
+          {:ok, create_capacity_provider_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_capacity_provider_errors()}
+  def create_capacity_provider(%Client{} = client, input, options \\ []) do
+    url_path = "/capacity-providers"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -9941,6 +10739,43 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Creates a rate limit for a gateway.
+
+  Rate limits define throttling rules for each dimension that control request
+  rates, token consumption rates, and concurrent connections through the gateway.
+  """
+  @spec create_gateway_rate_limit(
+          map(),
+          String.t() | atom(),
+          create_gateway_rate_limit_request(),
+          list()
+        ) ::
+          {:ok, create_gateway_rate_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_gateway_rate_limit_errors()}
+  def create_gateway_rate_limit(%Client{} = client, gateway_identifier, input, options \\ []) do
+    url_path = "/gateways/#{AWS.Util.encode_uri(gateway_identifier)}/rate-limits"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -10457,7 +11292,8 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Deletes an Amazon Bedrock AgentCore Runtime.
+  Deletes an Amazon Bedrock AgentCore Runtime, or a single version of an AgentCore
+  Runtime when you provide the version qualifier.
   """
   @spec delete_agent_runtime(map(), String.t() | atom(), delete_agent_runtime_request(), list()) ::
           {:ok, delete_agent_runtime_response(), any()}
@@ -10471,6 +11307,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
     {query_params, input} =
       [
+        {"agentRuntimeVersion", "version"},
         {"clientToken", "clientToken"}
       ]
       |> Request.build_params(input)
@@ -10491,7 +11328,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Deletes an AAgentCore Runtime endpoint.
+  Deletes an AgentCore Runtime endpoint.
   """
   @spec delete_agent_runtime_endpoint(
           map(),
@@ -10641,6 +11478,49 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes a capacity provider.
+
+  Before you delete a capacity provider, disassociate all agent runtimes and
+  runtime versions that reference it. If any references remain, the operation
+  fails.
+  """
+  @spec delete_capacity_provider(
+          map(),
+          String.t() | atom(),
+          delete_capacity_provider_input(),
+          list()
+        ) ::
+          {:ok, delete_capacity_provider_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_capacity_provider_errors()}
+  def delete_capacity_provider(%Client{} = client, capacity_provider_id, input, options \\ []) do
+    url_path = "/capacity-providers/#{AWS.Util.encode_uri(capacity_provider_id)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -10849,6 +11729,49 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Deletes a gateway rate limit.
+  """
+  @spec delete_gateway_rate_limit(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_gateway_rate_limit_request(),
+          list()
+        ) ::
+          {:ok, delete_gateway_rate_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_gateway_rate_limit_errors()}
+  def delete_gateway_rate_limit(
+        %Client{} = client,
+        gateway_identifier,
+        rate_limit_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/gateways/#{AWS.Util.encode_uri(gateway_identifier)}/rate-limits/#{AWS.Util.encode_uri(rate_limit_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -11577,6 +12500,25 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Retrieves information about a capacity provider, including its status,
+  permissions configuration, and compute configuration.
+  """
+  @spec get_capacity_provider(map(), String.t() | atom(), list()) ::
+          {:ok, get_capacity_provider_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_capacity_provider_errors()}
+  def get_capacity_provider(%Client{} = client, capacity_provider_id, options \\ []) do
+    url_path = "/capacity-providers/#{AWS.Util.encode_uri(capacity_provider_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets information about a custom code interpreter.
   """
   @spec get_code_interpreter(map(), String.t() | atom(), list()) ::
@@ -11709,6 +12651,26 @@ defmodule AWS.BedrockAgentCoreControl do
           | {:error, get_gateway_errors()}
   def get_gateway(%Client{} = client, gateway_identifier, options \\ []) do
     url_path = "/gateways/#{AWS.Util.encode_uri(gateway_identifier)}/"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a gateway rate limit.
+  """
+  @spec get_gateway_rate_limit(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_gateway_rate_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_gateway_rate_limit_errors()}
+  def get_gateway_rate_limit(%Client{} = client, gateway_identifier, rate_limit_id, options \\ []) do
+    url_path =
+      "/gateways/#{AWS.Util.encode_uri(gateway_identifier)}/rate-limits/#{AWS.Util.encode_uri(rate_limit_id)}"
+
     headers = []
     query_params = []
 
@@ -12305,6 +13267,55 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Lists the agent runtime versions that are associated with a capacity provider.
+
+  Use this operation to identify the runtimes you must disassociate before you can
+  delete the capacity provider. Results are paginated; use the `nextToken`
+  parameter to retrieve additional results.
+  """
+  @spec list_agent_runtime_versions_by_capacity_provider(
+          map(),
+          String.t() | atom(),
+          list_agent_runtime_versions_by_capacity_provider_input(),
+          list()
+        ) ::
+          {:ok, list_agent_runtime_versions_by_capacity_provider_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_agent_runtime_versions_by_capacity_provider_errors()}
+  def list_agent_runtime_versions_by_capacity_provider(
+        %Client{} = client,
+        capacity_provider_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/capacity-providers/#{AWS.Util.encode_uri(capacity_provider_id)}/runtime-versions"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all Amazon Secure Agents in your account.
   """
   @spec list_agent_runtimes(map(), list_agent_runtimes_request(), list()) ::
@@ -12425,6 +13436,46 @@ defmodule AWS.BedrockAgentCoreControl do
         {"maxResults", "maxResults"},
         {"nextToken", "nextToken"},
         {"type", "type"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the capacity providers in your account and returns summary information for
+  each one.
+
+  To retrieve the full configuration for a specific capacity provider, use
+  `GetCapacityProvider`. Results are paginated; use the `nextToken` parameter to
+  retrieve additional results.
+  """
+  @spec list_capacity_providers(map(), list_capacity_providers_input(), list()) ::
+          {:ok, list_capacity_providers_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_capacity_providers_errors()}
+  def list_capacity_providers(%Client{} = client, input, options \\ []) do
+    url_path = "/capacity-providers"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
       ]
       |> Request.build_params(input)
 
@@ -12725,6 +13776,53 @@ defmodule AWS.BedrockAgentCoreControl do
       options,
       200
     )
+  end
+
+  @doc """
+  Lists all rate limits for a gateway.
+
+  Results are paginated. Use the `nextToken` parameter to retrieve additional
+  results.
+  """
+  @spec list_gateway_rate_limits(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_gateway_rate_limits_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_gateway_rate_limits_errors()}
+  def list_gateway_rate_limits(
+        %Client{} = client,
+        gateway_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/gateways/#{AWS.Util.encode_uri(gateway_identifier)}/rate-limits"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -14099,6 +15197,43 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Updates a capacity provider.
+
+  Only the description can be changed. To change other configuration, such as
+  instance types, networking, or storage, create a new capacity provider.
+  """
+  @spec update_capacity_provider(
+          map(),
+          String.t() | atom(),
+          update_capacity_provider_input(),
+          list()
+        ) ::
+          {:ok, update_capacity_provider_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_capacity_provider_errors()}
+  def update_capacity_provider(%Client{} = client, capacity_provider_id, input, options \\ []) do
+    url_path = "/capacity-providers/#{AWS.Util.encode_uri(capacity_provider_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Updates a configuration bundle by creating a new version with the specified
   changes.
 
@@ -14264,6 +15399,51 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Updates the entries of a gateway rate limit.
+
+  The dimension keys are immutable after creation.
+  """
+  @spec update_gateway_rate_limit(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_gateway_rate_limit_request(),
+          list()
+        ) ::
+          {:ok, update_gateway_rate_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_gateway_rate_limit_errors()}
+  def update_gateway_rate_limit(
+        %Client{} = client,
+        gateway_identifier,
+        rate_limit_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/gateways/#{AWS.Util.encode_uri(gateway_identifier)}/rate-limits/#{AWS.Util.encode_uri(rate_limit_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

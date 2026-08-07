@@ -711,6 +711,19 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
+      net_payment_term() :: %{
+        "id" => String.t() | atom(),
+        "paymentDuePeriod" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type net_payment_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       offer_associated_entity() :: %{
         "offerSet" => offer_set_information(),
         "product" => product_information()

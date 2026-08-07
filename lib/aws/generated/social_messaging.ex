@@ -109,6 +109,28 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      create_whats_app_dataset_input() :: %{
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type create_whats_app_dataset_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_dataset_output() :: %{
+        "datasetId" => String.t() | atom()
+      }
+
+  """
+  @type create_whats_app_dataset_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_whats_app_flow_input() :: %{
         optional("cloneFlowId") => String.t() | atom(),
         optional("flowJson") => binary(),
@@ -576,6 +598,7 @@ defmodule AWS.SocialMessaging do
 
       linked_whats_app_business_account() :: %{
         "arn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
         "eventDestinations" => list(whats_app_business_account_event_destination()),
         "id" => String.t() | atom(),
         "linkDate" => non_neg_integer(),
@@ -609,6 +632,7 @@ defmodule AWS.SocialMessaging do
 
       linked_whats_app_business_account_summary() :: %{
         "arn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
         "eventDestinations" => list(whats_app_business_account_event_destination()),
         "id" => String.t() | atom(),
         "linkDate" => non_neg_integer(),
@@ -1007,6 +1031,30 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      send_whats_app_conversion_event_input() :: %{
+        required("datasetId") => String.t() | atom(),
+        required("eventData") => binary(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type send_whats_app_conversion_event_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_whats_app_conversion_event_output() :: %{
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type send_whats_app_conversion_event_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       send_whats_app_message_input() :: %{
         required("message") => binary(),
         required("metaApiVersion") => [String.t() | atom()],
@@ -1316,6 +1364,14 @@ defmodule AWS.SocialMessaging do
           | invalid_parameters_exception()
           | dependency_exception()
 
+  @type create_whats_app_dataset_errors() ::
+          throttled_request_exception()
+          | resource_not_found_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+          | dependency_exception()
+          | access_denied_by_meta_exception()
+
   @type create_whats_app_flow_errors() ::
           throttled_request_exception()
           | resource_not_found_exception()
@@ -1496,6 +1552,14 @@ defmodule AWS.SocialMessaging do
           | invalid_parameters_exception()
           | internal_service_exception()
 
+  @type send_whats_app_conversion_event_errors() ::
+          throttled_request_exception()
+          | resource_not_found_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+          | dependency_exception()
+          | access_denied_by_meta_exception()
+
   @type send_whats_app_message_errors() ::
           throttled_request_exception()
           | resource_not_found_exception()
@@ -1568,6 +1632,35 @@ defmodule AWS.SocialMessaging do
           | {:error, associate_whats_app_business_account_errors()}
   def associate_whats_app_business_account(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/signup"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a Meta Conversions API dataset for a WhatsApp Business Account.
+  """
+  @spec create_whats_app_dataset(map(), create_whats_app_dataset_input(), list()) ::
+          {:ok, create_whats_app_dataset_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_whats_app_dataset_errors()}
+  def create_whats_app_dataset(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/waba/dataset"
     headers = []
     custom_headers = []
     query_params = []
@@ -2511,6 +2604,36 @@ defmodule AWS.SocialMessaging do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sends a conversion event to Meta's Conversions API for the specified WhatsApp
+  Business Account dataset.
+  """
+  @spec send_whats_app_conversion_event(map(), send_whats_app_conversion_event_input(), list()) ::
+          {:ok, send_whats_app_conversion_event_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_whats_app_conversion_event_errors()}
+  def send_whats_app_conversion_event(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/waba/dataset/events"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

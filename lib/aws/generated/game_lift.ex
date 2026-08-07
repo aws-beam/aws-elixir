@@ -6130,7 +6130,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2, Container
+  **This API works with the following fleet types:** EC2, Anywhere, Container
 
   Adds remote locations to an EC2 and begins populating the new locations with
   instances.
@@ -7051,7 +7051,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2, Anywhere, Container
+  **This API works with the following fleet types:** EC2, Anywhere
 
   Deletes all resources and information related to a fleet and shuts down any
   currently
@@ -7087,7 +7087,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2, Container
+  **This API works with the following fleet types:** EC2, Anywhere, Container
 
   Removes locations from a multi-location fleet.
 
@@ -7274,7 +7274,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2
+  **This API works with the following fleet types:** EC2, Container
 
   Deletes a fleet scaling policy.
 
@@ -7977,7 +7977,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2, Container
+  **This API works with the following fleet types:** EC2, Anywhere, Container
 
   Retrieves information on a fleet's remote locations, including life-cycle status
   and
@@ -8029,7 +8029,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2, Container
+  **This API works with the following fleet types:** EC2, Anywhere, Container
 
   Retrieves the resource capacity settings for a fleet location.
 
@@ -8073,7 +8073,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2, Anywhere, Container
+  **This API works with the following fleet types:** EC2, Anywhere
 
   Retrieves current usage data for a fleet location.
 
@@ -8117,7 +8117,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2, Container
+  **This API works with the following fleet types:** EC2
 
   Retrieves a fleet's inbound connection permissions.
 
@@ -8162,7 +8162,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2, Container
+  **This API works with the following fleet types:** EC2
 
   Retrieves utilization statistics for one or more fleets.
 
@@ -8766,7 +8766,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2
+  **This API works with the following fleet types:** EC2, Container
 
   Retrieves all scaling policies applied to a fleet.
 
@@ -9605,7 +9605,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2
+  **This API works with the following fleet types:** EC2, Container
 
   Creates or updates a scaling policy for a fleet.
 
@@ -9714,7 +9714,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** Anywhere, Container
+  **This API works with the following fleet types:** Anywhere
 
   Registers a compute resource in an Amazon GameLift Servers Anywhere fleet.
 
@@ -10906,7 +10906,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2, Anywhere, Container
+  **This API works with the following fleet types:** EC2, Anywhere
 
   Updates a fleet's mutable attributes, such as game session protection and
   resource
@@ -11037,7 +11037,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2, Container
+  **This API works with the following fleet types:** EC2
 
   Updates permissions that allow inbound traffic to connect to game sessions in
   the

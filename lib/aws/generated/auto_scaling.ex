@@ -260,6 +260,7 @@ defmodule AWS.AutoScaling do
         "MinSize" => integer(),
         "MixedInstancesPolicy" => mixed_instances_policy(),
         "NewInstancesProtectedFromScaleIn" => boolean(),
+        "Operator" => operator(),
         "PlacementGroup" => String.t() | atom(),
         "PredictedCapacity" => integer(),
         "ServiceLinkedRoleARN" => String.t() | atom(),
@@ -567,6 +568,7 @@ defmodule AWS.AutoScaling do
         optional("MaxInstanceLifetime") => integer(),
         optional("MixedInstancesPolicy") => mixed_instances_policy(),
         optional("NewInstancesProtectedFromScaleIn") => boolean(),
+        optional("Operator") => operator(),
         optional("PlacementGroup") => String.t() | atom(),
         optional("ServiceLinkedRoleARN") => String.t() | atom(),
         optional("SkipZonalShiftValidation") => boolean(),
@@ -1961,6 +1963,17 @@ defmodule AWS.AutoScaling do
       
   """
   @type notification_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operator() :: %{
+        "Principal" => String.t() | atom()
+      }
+      
+  """
+  @type operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

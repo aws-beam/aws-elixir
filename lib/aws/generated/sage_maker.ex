@@ -18402,7 +18402,8 @@ defmodule AWS.SageMaker do
         "EvaluationType" => list(any()),
         "EvaluatorArn" => String.t() | atom(),
         "JobType" => list(any()),
-        "Peft" => list(any())
+        "Peft" => list(any()),
+        "SequenceLength" => String.t() | atom()
       }
       
   """

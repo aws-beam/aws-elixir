@@ -36,6 +36,19 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      authorizer_logs() :: %{
+        "CloudWatchLogs" => cloud_watch_logs(),
+        "Firehose" => firehose(),
+        "S3" => s3()
+      }
+
+  """
+  @type authorizer_logs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bad_request_exception() :: %{
         "InvalidParameter" => String.t() | atom(),
         "Message" => String.t() | atom()
@@ -2005,6 +2018,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       logging_info() :: %{
+        optional("AuthorizerLogs") => authorizer_logs(),
         required("BrokerLogs") => broker_logs()
       }
 

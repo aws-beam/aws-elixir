@@ -275,6 +275,21 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      concurrent_executor_configuration() :: %{
+        "FunctionList" => list(function_ref()),
+        "MaxConcurrency" => integer(),
+        "Output" => map(),
+        "Runtime" => list(any()),
+        "TimeoutMilliseconds" => integer()
+      }
+
+  """
+  @type concurrent_executor_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       configure_logs_for_channel_request() :: %{
         required("ChannelName") => String.t() | atom(),
         required("LogTypes") => list(list(any())())
@@ -906,6 +921,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       function_ref() :: %{
+        "Alias" => String.t() | atom(),
         "FunctionId" => String.t() | atom(),
         "RunCondition" => String.t() | atom()
       }
@@ -974,6 +990,7 @@ defmodule AWS.MediaTailor do
 
       get_function_response() :: %{
         "Arn" => String.t() | atom(),
+        "ConcurrentExecutorConfiguration" => concurrent_executor_configuration(),
         "CustomOutputConfiguration" => custom_output_configuration(),
         "Description" => String.t() | atom(),
         "FunctionId" => String.t() | atom(),
@@ -1449,6 +1466,7 @@ defmodule AWS.MediaTailor do
 
       mediatailor_function() :: %{
         "Arn" => String.t() | atom(),
+        "ConcurrentExecutorConfiguration" => concurrent_executor_configuration(),
         "CustomOutputConfiguration" => custom_output_configuration(),
         "Description" => String.t() | atom(),
         "FunctionId" => String.t() | atom(),
@@ -1571,6 +1589,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       put_function_request() :: %{
+        optional("ConcurrentExecutorConfiguration") => concurrent_executor_configuration(),
         optional("CustomOutputConfiguration") => custom_output_configuration(),
         optional("Description") => String.t() | atom(),
         optional("HttpRequestConfiguration") => http_request_configuration(),
@@ -1588,6 +1607,7 @@ defmodule AWS.MediaTailor do
 
       put_function_response() :: %{
         "Arn" => String.t() | atom(),
+        "ConcurrentExecutorConfiguration" => concurrent_executor_configuration(),
         "CustomOutputConfiguration" => custom_output_configuration(),
         "Description" => String.t() | atom(),
         "FunctionId" => String.t() | atom(),

@@ -5671,8 +5671,8 @@ defmodule AWS.EC2 do
       create_secondary_network_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("DryRun") => boolean(),
-        optional("Ipv4CidrBlock") => String.t() | atom(),
         optional("TagSpecifications") => list(tag_specification()),
+        required("Ipv4CidrBlock") => String.t() | atom(),
         required("NetworkType") => list(any())
       }
       
@@ -19481,6 +19481,7 @@ defmodule AWS.EC2 do
       
       get_spot_placement_scores_request() :: %{
         optional("DryRun") => boolean(),
+        optional("IncludeLocalZones") => boolean(),
         optional("InstanceRequirementsWithMetadata") => instance_requirements_with_metadata_request(),
         optional("InstanceTypes") => list(String.t() | atom()),
         optional("MaxResults") => integer(),

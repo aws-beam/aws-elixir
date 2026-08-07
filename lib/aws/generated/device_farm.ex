@@ -1221,6 +1221,7 @@ defmodule AWS.DeviceFarm do
         "created" => non_neg_integer(),
         "device" => device(),
         "deviceMinutes" => device_minutes(),
+        "insights" => job_insights(),
         "instanceArn" => String.t() | atom(),
         "message" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -1235,6 +1236,51 @@ defmodule AWS.DeviceFarm do
       
   """
   @type job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_insights() :: %{
+        "status" => list(any()),
+        "testReport" => test_report()
+      }
+      
+  """
+  @type job_insights() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_report() :: %{
+        "jobDetailsUrl" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "metrics" => job_report_metrics()
+      }
+      
+  """
+  @type job_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_report_metrics() :: %{
+        "averageJobExecutionDurationSeconds" => float(),
+        "jobsErrored" => integer(),
+        "jobsFailed" => integer(),
+        "jobsPassed" => integer(),
+        "jobsPassedPercentage" => float(),
+        "jobsSkipped" => integer(),
+        "jobsStopped" => integer(),
+        "jobsTotal" => integer(),
+        "medianJobExecutionDurationSeconds" => float(),
+        "totalJobExecutionDurationSeconds" => float()
+      }
+      
+  """
+  @type job_report_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2161,6 +2207,8 @@ defmodule AWS.DeviceFarm do
         "environmentVariables" => list(environment_variable()),
         "eventCount" => integer(),
         "executionRoleArn" => String.t() | atom(),
+        "insights" => run_insights(),
+        "insightsTypes" => list(list(any())()),
         "jobTimeoutMinutes" => integer(),
         "locale" => String.t() | atom(),
         "location" => location(),
@@ -2191,6 +2239,18 @@ defmodule AWS.DeviceFarm do
 
   ## Example:
       
+      run_insights() :: %{
+        "jobReport" => job_report(),
+        "status" => list(any())
+      }
+      
+  """
+  @type run_insights() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       sample() :: %{
         "arn" => String.t() | atom(),
         "type" => list(any()),
@@ -2212,6 +2272,7 @@ defmodule AWS.DeviceFarm do
         "environmentVariables" => list(environment_variable()),
         "executionRoleArn" => String.t() | atom(),
         "extraDataPackageArn" => String.t() | atom(),
+        "insightsTypes" => list(list(any())()),
         "locale" => String.t() | atom(),
         "location" => location(),
         "networkProfileArn" => String.t() | atom(),
@@ -2513,6 +2574,38 @@ defmodule AWS.DeviceFarm do
       
   """
   @type test_grid_vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_report() :: %{
+        "message" => String.t() | atom(),
+        "metrics" => test_report_metrics(),
+        "testDetailsUrl" => String.t() | atom()
+      }
+      
+  """
+  @type test_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_report_metrics() :: %{
+        "medianTestExecutionDurationSeconds" => float(),
+        "testsErrored" => integer(),
+        "testsFailed" => integer(),
+        "testsOther" => integer(),
+        "testsPassed" => integer(),
+        "testsPassedPercentage" => float(),
+        "testsSkipped" => integer(),
+        "testsTotal" => integer(),
+        "totalTestExecutionDurationSeconds" => float()
+      }
+      
+  """
+  @type test_report_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

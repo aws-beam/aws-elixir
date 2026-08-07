@@ -209,6 +209,19 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      account_free_trial_status() :: %{
+        "AccountId" => String.t() | atom(),
+        "EvaluatedAt" => non_neg_integer(),
+        "FreeTrialStatuses" => list(free_trial_status())
+      }
+
+  """
+  @type account_free_trial_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       action() :: %{
         "ActionType" => String.t() | atom(),
         "AwsApiCallAction" => aws_api_call_action(),
@@ -10323,6 +10336,20 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      free_trial_status() :: %{
+        "ExpiresAt" => non_neg_integer(),
+        "FeatureType" => list(any()),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type free_trial_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       generate_recommended_policy_v2_request() :: %{}
 
   """
@@ -11538,6 +11565,32 @@ defmodule AWS.SecurityHub do
 
   """
   @type list_finding_aggregators_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_free_trial_statuses_v2_request() :: %{
+        optional("AccountIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Statuses") => list(list(any())())
+      }
+
+  """
+  @type list_free_trial_statuses_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_free_trial_statuses_v2_response() :: %{
+        "AccountFreeTrialStatuses" => list(account_free_trial_status()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_free_trial_statuses_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15002,6 +15055,13 @@ defmodule AWS.SecurityHub do
           | invalid_input_exception()
           | invalid_access_exception()
           | internal_exception()
+          | access_denied_exception()
+
+  @type list_free_trial_statuses_v2_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type list_invitations_errors() ::
@@ -18713,6 +18773,39 @@ defmodule AWS.SecurityHub do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the free trial status of Security Hub features.
+
+  A delegated Security Hub administrator can list the status for accounts in its
+  organization. Any other account can list the status only for itself. Free trial
+  status remains available after a feature is disabled.
+  """
+  @spec list_free_trial_statuses_v2(map(), list_free_trial_statuses_v2_request(), list()) ::
+          {:ok, list_free_trial_statuses_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_free_trial_statuses_v2_errors()}
+  def list_free_trial_statuses_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/freetrial/statusv2/list"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

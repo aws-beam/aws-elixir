@@ -1023,6 +1023,19 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      net_payment_term() :: %{
+        "id" => String.t() | atom(),
+        "paymentDuePeriod" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type net_payment_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       payment_request_summary() :: %{
         "agreementId" => String.t() | atom(),
         "chargeAmount" => String.t() | atom(),

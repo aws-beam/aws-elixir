@@ -1,4 +1,7 @@
 # Change Log
+## [v1.0.15] - 2026-08-07
+- Fix codegen generating faulty code
+
 ## [v1.0.14] - 2026-07-08
 - Update Hackney and friends to mitigate vulnerabilities
 

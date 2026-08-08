@@ -127,6 +127,10 @@ defmodule AWS.Client do
     create(access_key_id, secret_access_key, token, region, nil)
   end
 
+  def create(_access_key_id, _secret_access_key, _token, nil, _endpoint) do
+    raise RuntimeError, "missing region"
+  end
+
   def create(access_key_id, secret_access_key, token, region, endpoint) do
     %AWS.Client{
       access_key_id: access_key_id,

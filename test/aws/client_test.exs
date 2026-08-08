@@ -183,6 +183,15 @@ defmodule AWS.ClientTest do
              } == client
     end
 
+    test "create/1 raises when region is nil" do
+      System.put_env("AWS_ACCESS_KEY_ID", "AK")
+      System.put_env("AWS_SECRET_ACCESS_KEY", "SK")
+
+      assert_raise RuntimeError, "missing region", fn ->
+        AWS.Client.create(nil)
+      end
+    end
+
     test "create/1 raises when access key is missing" do
       System.put_env("AWS_SECRET_ACCESS_KEY", "SK")
 
@@ -211,6 +220,12 @@ defmodule AWS.ClientTest do
              } == client
     end
 
+    test "create/3 raises when region is nil" do
+      assert_raise RuntimeError, "missing region", fn ->
+        AWS.Client.create("AK", "SK", nil)
+      end
+    end
+
     test "create/4 sets token and leaves endpoint nil" do
       client = AWS.Client.create("AK", "SK", "TOKEN", "ap-south-1")
 
@@ -223,6 +238,12 @@ defmodule AWS.ClientTest do
              } == client
     end
 
+    test "create/4 raises when region is nil" do
+      assert_raise RuntimeError, "missing region", fn ->
+        AWS.Client.create("AK", "SK", "TOKEN", nil)
+      end
+    end
+
     test "create/5 sets token and endpoint" do
       client = AWS.Client.create("AK", "SK", "TOKEN", "sa-east-1", "custom.local")
 
@@ -233,6 +254,12 @@ defmodule AWS.ClientTest do
                region: "sa-east-1",
                endpoint: "custom.local"
              } == client
+    end
+
+    test "create/5 raises when region is nil with custom endpoint" do
+      assert_raise RuntimeError, "missing region", fn ->
+        AWS.Client.create("AK", "SK", "TOKEN", nil, "custom.local")
+      end
     end
 
     test "create/3 equals create/5 with nil token and endpoint" do

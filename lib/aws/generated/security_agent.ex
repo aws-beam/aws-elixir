@@ -38,7 +38,9 @@ defmodule AWS.SecurityAgent do
       actor() :: %{
         "authentication" => authentication(),
         "description" => [String.t() | atom()],
+        "enableEmailMfa" => [boolean()],
         "identifier" => [String.t() | atom()],
+        "mfaForwardingAddress" => String.t() | atom(),
         "uris" => list([String.t() | atom()]())
       }
 

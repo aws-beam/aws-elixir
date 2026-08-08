@@ -2123,6 +2123,36 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      batch_modify_ipam_routing_policy_registrations_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("Force") => boolean(),
+        required("DeltaJson") => String.t() | atom(),
+        required("IpamInternetRegistryAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type batch_modify_ipam_routing_policy_registrations_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_modify_ipam_routing_policy_registrations_result() :: %{
+        "IpamRoutingPolicyRegistrationDelta" => ipam_routing_policy_registration_delta()
+      }
+      
+  """
+  @type batch_modify_ipam_routing_policy_registrations_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       blob_attribute_value() :: %{
         optional("Value") => binary()
       }
@@ -2246,7 +2276,9 @@ defmodule AWS.EC2 do
         "AsnAssociations" => list(asn_association()),
         "Cidr" => String.t() | atom(),
         "Description" => String.t() | atom(),
+        "IpamPoolId" => String.t() | atom(),
         "NetworkBorderGroup" => String.t() | atom(),
+        "PoolId" => String.t() | atom(),
         "State" => list(any()),
         "StatusMessage" => String.t() | atom()
       }
@@ -4678,6 +4710,34 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_ipam_internet_registry_association_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("IpamId") => String.t() | atom(),
+        required("OrganizationHandle") => String.t() | atom(),
+        required("Rir") => list(any())
+      }
+      
+  """
+  @type create_ipam_internet_registry_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ipam_internet_registry_association_result() :: %{
+        "IpamInternetRegistryAssociation" => ipam_internet_registry_association()
+      }
+      
+  """
+  @type create_ipam_internet_registry_association_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_ipam_policy_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("DryRun") => boolean(),
@@ -4848,6 +4908,36 @@ defmodule AWS.EC2 do
       
   """
   @type create_ipam_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ipam_routing_policy_registration_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("Force") => boolean(),
+        optional("MaxLength") => integer(),
+        optional("PermitMoreSpecificAnnouncements") => boolean(),
+        required("Asns") => list(String.t() | atom()),
+        required("Cidr") => String.t() | atom(),
+        required("IpamInternetRegistryAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type create_ipam_routing_policy_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ipam_routing_policy_registration_result() :: %{
+        "IpamRoutingPolicyRegistrationDelta" => ipam_routing_policy_registration_delta()
+      }
+      
+  """
+  @type create_ipam_routing_policy_registration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7655,6 +7745,29 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_ipam_internet_registry_association_request() :: %{
+        optional("DryRun") => boolean(),
+        required("IpamInternetRegistryAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_ipam_internet_registry_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_ipam_internet_registry_association_result() :: %{
+        "IpamInternetRegistryAssociation" => ipam_internet_registry_association()
+      }
+      
+  """
+  @type delete_ipam_internet_registry_association_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_ipam_policy_request() :: %{
         optional("DryRun") => boolean(),
         required("IpamPolicyId") => String.t() | atom()
@@ -7790,6 +7903,32 @@ defmodule AWS.EC2 do
       
   """
   @type delete_ipam_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_ipam_routing_policy_registration_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("Force") => boolean(),
+        required("Cidr") => String.t() | atom(),
+        required("IpamInternetRegistryAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_ipam_routing_policy_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_ipam_routing_policy_registration_result() :: %{
+        "IpamRoutingPolicyRegistrationDelta" => ipam_routing_policy_registration_delta()
+      }
+      
+  """
+  @type delete_ipam_routing_policy_registration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11726,6 +11865,35 @@ defmodule AWS.EC2 do
   @type describe_ipam_external_resource_verification_tokens_result() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ipam_internet_registry_associations_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("IpamInternetRegistryAssociationIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_ipam_internet_registry_associations_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ipam_internet_registry_associations_result() :: %{
+        "IpamInternetRegistryAssociations" => list(ipam_internet_registry_association()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_ipam_internet_registry_associations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16945,6 +17113,35 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      enable_ipam_internet_registry_association_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        required("ChildHandle") => String.t() | atom(),
+        required("IpamInternetRegistryAssociationId") => String.t() | atom(),
+        required("ParentBpkiTa") => String.t() | atom(),
+        required("ParentHandle") => String.t() | atom(),
+        required("RpkiVersion") => String.t() | atom(),
+        required("ServiceUri") => String.t() | atom()
+      }
+      
+  """
+  @type enable_ipam_internet_registry_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_ipam_internet_registry_association_result() :: %{
+        "IpamInternetRegistryAssociation" => ipam_internet_registry_association()
+      }
+      
+  """
+  @type enable_ipam_internet_registry_association_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       enable_ipam_organization_admin_account_request() :: %{
         optional("DryRun") => boolean(),
         required("DelegatedAdminAccountId") => String.t() | atom()
@@ -18892,6 +19089,90 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_ipam_discovered_routes_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IpamResourceDiscoveryId") => String.t() | atom(),
+        required("ResourceRegion") => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_discovered_routes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_discovered_routes_result() :: %{
+        "IpamDiscoveredRoutes" => list(ipam_discovered_route()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_discovered_routes_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_internet_registry_association_asns_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IpamInternetRegistryAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_internet_registry_association_asns_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_internet_registry_association_asns_result() :: %{
+        "IpamInternetRegistryAssociationAsns" => list(ipam_internet_registry_association_asn()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_internet_registry_association_asns_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_internet_registry_association_cidrs_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IpamInternetRegistryAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_internet_registry_association_cidrs_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_internet_registry_association_cidrs_result() :: %{
+        "IpamInternetRegistryAssociationCidrs" => list(ipam_internet_registry_association_cidr()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_internet_registry_association_cidrs_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_ipam_policy_allocation_rules_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -19116,6 +19397,118 @@ defmodule AWS.EC2 do
       
   """
   @type get_ipam_resource_cidrs_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_route_origin_authorizations_request() :: %{
+        optional("Cidr") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IpamInternetRegistryAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_route_origin_authorizations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_route_origin_authorizations_result() :: %{
+        "IpamRouteOriginAuthorizations" => list(ipam_route_origin_authorization_info()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_route_origin_authorizations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_route_protection_findings_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IpamId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_route_protection_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_route_protection_findings_result() :: %{
+        "IpamId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "RouteProtectionFindings" => list(ipam_route_protection_finding())
+      }
+      
+  """
+  @type get_ipam_route_protection_findings_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_routing_policy_registration_deltas_request() :: %{
+        optional("ChronologicalOrder") => list(any()),
+        optional("DeltaId") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("EndTime") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer(),
+        required("IpamInternetRegistryAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_routing_policy_registration_deltas_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_routing_policy_registration_deltas_result() :: %{
+        "IpamRoutingPolicyRegistrationDeltas" => list(ipam_routing_policy_registration_delta()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_routing_policy_registration_deltas_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_routing_policy_registrations_request() :: %{
+        optional("Cidr") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IpamInternetRegistryAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_routing_policy_registrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_routing_policy_registrations_result() :: %{
+        "IpamRoutingPolicyRegistrations" => list(ipam_routing_policy_registration()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_routing_policy_registrations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -22274,6 +22667,27 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      ipam_discovered_route() :: %{
+        "AdvertisementType" => list(any()),
+        "Asn" => String.t() | atom(),
+        "Cidr" => String.t() | atom(),
+        "IpamPoolId" => String.t() | atom(),
+        "IpamResourceDiscoveryId" => String.t() | atom(),
+        "NetworkBorderGroup" => String.t() | atom(),
+        "PoolId" => String.t() | atom(),
+        "ResourceOwnerId" => String.t() | atom(),
+        "ResourceRegion" => String.t() | atom(),
+        "SampleTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
+  """
+  @type ipam_discovered_route() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ipam_discovery_failure_reason() :: %{
         "Code" => list(any()),
         "Message" => String.t() | atom()
@@ -22302,6 +22716,51 @@ defmodule AWS.EC2 do
       
   """
   @type ipam_external_resource_verification_token() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_internet_registry_association() :: %{
+        "ChildRequestXml" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IpamId" => String.t() | atom(),
+        "IpamInternetRegistryAssociationArn" => String.t() | atom(),
+        "IpamInternetRegistryAssociationId" => String.t() | atom(),
+        "IpamRegion" => String.t() | atom(),
+        "OrganizationHandle" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "Rir" => list(any()),
+        "State" => list(any()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type ipam_internet_registry_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_internet_registry_association_asn() :: %{
+        "Asn" => String.t() | atom(),
+        "LastObservedAt" => non_neg_integer()
+      }
+      
+  """
+  @type ipam_internet_registry_association_asn() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_internet_registry_association_cidr() :: %{
+        "Cidr" => String.t() | atom(),
+        "LastObservedAt" => non_neg_integer()
+      }
+      
+  """
+  @type ipam_internet_registry_association_cidr() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -22739,6 +23198,103 @@ defmodule AWS.EC2 do
       
   """
   @type ipam_resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_route_origin_authorization() :: %{
+        "Asn" => String.t() | atom(),
+        "Expiration" => non_neg_integer(),
+        "Match" => boolean(),
+        "MaxLength" => integer(),
+        "Prefix" => String.t() | atom()
+      }
+      
+  """
+  @type ipam_route_origin_authorization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_route_origin_authorization_info() :: %{
+        "Asn" => String.t() | atom(),
+        "Cidr" => String.t() | atom(),
+        "MaxLength" => integer()
+      }
+      
+  """
+  @type ipam_route_origin_authorization_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_route_overlap() :: %{
+        "Asn" => String.t() | atom(),
+        "DetectedAt" => non_neg_integer(),
+        "Prefix" => String.t() | atom()
+      }
+      
+  """
+  @type ipam_route_overlap() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_route_protection_finding() :: %{
+        "AdvertisementType" => list(any()),
+        "Asn" => String.t() | atom(),
+        "Cidr" => String.t() | atom(),
+        "IpamPoolId" => String.t() | atom(),
+        "NetworkBorderGroup" => String.t() | atom(),
+        "PoolId" => String.t() | atom(),
+        "ResourceOwnerId" => String.t() | atom(),
+        "ResourceRegion" => String.t() | atom(),
+        "RoaSampleTime" => non_neg_integer(),
+        "Roas" => list(ipam_route_origin_authorization()),
+        "RouteOverlaps" => list(ipam_route_overlap()),
+        "RpkiStatus" => list(any()),
+        "RpkiStrength" => list(any()),
+        "SampleTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
+  """
+  @type ipam_route_protection_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_routing_policy_registration() :: %{
+        "Asns" => list(String.t() | atom()),
+        "Cidr" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LatestDeltaId" => String.t() | atom(),
+        "MaxLength" => integer(),
+        "PermitMoreSpecificAnnouncements" => boolean(),
+        "State" => list(any())
+      }
+      
+  """
+  @type ipam_routing_policy_registration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_routing_policy_registration_delta() :: %{
+        "DeltaId" => String.t() | atom(),
+        "DeltaJson" => String.t() | atom(),
+        "State" => list(any()),
+        "StateMessage" => String.t() | atom()
+      }
+      
+  """
+  @type ipam_routing_policy_registration_delta() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -25207,6 +25763,36 @@ defmodule AWS.EC2 do
       
   """
   @type modify_ipam_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_ipam_routing_policy_registration_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("Force") => boolean(),
+        optional("MaxLength") => integer(),
+        optional("PermitMoreSpecificAnnouncements") => boolean(),
+        required("Asns") => list(String.t() | atom()),
+        required("Cidr") => String.t() | atom(),
+        required("IpamInternetRegistryAssociationId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_ipam_routing_policy_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_ipam_routing_policy_registration_result() :: %{
+        "IpamRoutingPolicyRegistrationDelta" => ipam_routing_policy_registration_delta()
+      }
+      
+  """
+  @type modify_ipam_routing_policy_registration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -36075,6 +36661,32 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Modifies multiple routing policy registrations in a single operation.
+
+  You can create, update, or delete Route Origin Authorizations (ROAs) in batch.
+  """
+  @spec batch_modify_ipam_routing_policy_registrations(
+          map(),
+          batch_modify_ipam_routing_policy_registrations_request(),
+          list()
+        ) ::
+          {:ok, batch_modify_ipam_routing_policy_registrations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def batch_modify_ipam_routing_policy_registrations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "BatchModifyIpamRoutingPolicyRegistrations",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Bundles an Amazon instance store-backed Windows instance.
 
   During bundling, only the root device volume (C:\) is bundled. Data on other
@@ -36632,7 +37244,7 @@ defmodule AWS.EC2 do
 
     *
   Default values: `Interval` is 60 seconds, `Timeout` is 6 seconds,
-  `FailureThreshold` is 2, `SuccessThreshold` is 5, `StatusCodeMatcher` is `200`,
+  `FailureThreshold` is 2, `SuccessThreshold` is 2, `StatusCodeMatcher` is `200`,
   `InitializationGracePeriodSeconds` is 300 seconds.
 
     *
@@ -37418,6 +38030,29 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Creates an association between an IPAM and a Regional Internet Registry (RIR)
+  for Resource Public Key Infrastructure (RPKI) management.
+
+  You can use this association to create Route Origin Authorizations (ROAs) for IP
+  address prefixes registered with the internet registry. Your IPAM must be in the
+  Advanced tier to use this feature.
+  """
+  @spec create_ipam_internet_registry_association(
+          map(),
+          create_ipam_internet_registry_association_request(),
+          list()
+        ) ::
+          {:ok, create_ipam_internet_registry_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_ipam_internet_registry_association(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateIpamInternetRegistryAssociation", input, options)
+  end
+
+  @doc """
   Creates an IPAM policy.
 
   An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM
@@ -37536,6 +38171,25 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "CreateIpamResourceDiscovery", input, options)
+  end
+
+  @doc """
+  Creates a routing policy registration and publishes Route Origin Authorizations
+  (ROAs) to the RPKI for the specified CIDR prefix and ASNs.
+  """
+  @spec create_ipam_routing_policy_registration(
+          map(),
+          create_ipam_routing_policy_registration_request(),
+          list()
+        ) ::
+          {:ok, create_ipam_routing_policy_registration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_ipam_routing_policy_registration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateIpamRoutingPolicyRegistration", input, options)
   end
 
   @doc """
@@ -39946,6 +40600,27 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Deletes an IPAM internet registry association.
+
+  Before deleting, you must remove all routing policy registrations associated
+  with the internet registry.
+  """
+  @spec delete_ipam_internet_registry_association(
+          map(),
+          delete_ipam_internet_registry_association_request(),
+          list()
+        ) ::
+          {:ok, delete_ipam_internet_registry_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_ipam_internet_registry_association(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteIpamInternetRegistryAssociation", input, options)
+  end
+
+  @doc """
   Deletes an IPAM policy.
 
   An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM
@@ -40053,6 +40728,24 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "DeleteIpamResourceDiscovery", input, options)
+  end
+
+  @doc """
+  Deletes a routing policy registration for a specified CIDR prefix.
+  """
+  @spec delete_ipam_routing_policy_registration(
+          map(),
+          delete_ipam_routing_policy_registration_request(),
+          list()
+        ) ::
+          {:ok, delete_ipam_routing_policy_registration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_ipam_routing_policy_registration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteIpamRoutingPolicyRegistration", input, options)
   end
 
   @doc """
@@ -43541,6 +44234,27 @@ defmodule AWS.EC2 do
       input,
       options
     )
+  end
+
+  @doc """
+  Describes one or more IPAM internet registry associations.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+  """
+  @spec describe_ipam_internet_registry_associations(
+          map(),
+          describe_ipam_internet_registry_associations_request(),
+          list()
+        ) ::
+          {:ok, describe_ipam_internet_registry_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_ipam_internet_registry_associations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeIpamInternetRegistryAssociations", input, options)
   end
 
   @doc """
@@ -47593,6 +48307,29 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Enables Resource Public Key Infrastructure (RPKI) on an existing IPAM internet
+  registry association by providing BGP Public Key Infrastructure (BPKI)
+  certificate details.
+
+  After enabling, you can create Route Origin Authorizations (ROAs) for prefixes
+  registered with the internet registry.
+  """
+  @spec enable_ipam_internet_registry_association(
+          map(),
+          enable_ipam_internet_registry_association_request(),
+          list()
+        ) ::
+          {:ok, enable_ipam_internet_registry_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def enable_ipam_internet_registry_association(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "EnableIpamInternetRegistryAssociation", input, options)
+  end
+
+  @doc """
   Enable an Organizations member account as the IPAM admin account.
 
   You cannot select the Organizations management account as the IPAM admin
@@ -48687,6 +49424,69 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Retrieves Border Gateway Protocol (BGP) routes discovered by IPAM resource
+  discovery for a specified Region.
+
+  Use this operation to view the Bring Your Own IP (BYOIP) address ranges that are
+  currently advertised through BGP. We recommend using pagination to ensure that
+  the operation returns quickly and successfully.
+  """
+  @spec get_ipam_discovered_routes(map(), get_ipam_discovered_routes_request(), list()) ::
+          {:ok, get_ipam_discovered_routes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_ipam_discovered_routes(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetIpamDiscoveredRoutes", input, options)
+  end
+
+  @doc """
+  Retrieves Autonomous System Numbers (ASNs) registered with an internet registry
+  for an IPAM internet registry association.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+  """
+  @spec get_ipam_internet_registry_association_asns(
+          map(),
+          get_ipam_internet_registry_association_asns_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_internet_registry_association_asns_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_ipam_internet_registry_association_asns(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetIpamInternetRegistryAssociationAsns", input, options)
+  end
+
+  @doc """
+  Retrieves IP address CIDRs registered with an internet registry for an IPAM
+  internet registry association.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+  """
+  @spec get_ipam_internet_registry_association_cidrs(
+          map(),
+          get_ipam_internet_registry_association_cidrs_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_internet_registry_association_cidrs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_ipam_internet_registry_association_cidrs(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetIpamInternetRegistryAssociationCidrs", input, options)
+  end
+
+  @doc """
   Gets the allocation rules for an IPAM policy.
 
   An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM
@@ -48893,6 +49693,96 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "GetIpamResourceCidrs", input, options)
+  end
+
+  @doc """
+  Retrieves the current Route Origin Authorizations (ROAs) published to the RPKI
+  for an IPAM internet registry association.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+  """
+  @spec get_ipam_route_origin_authorizations(
+          map(),
+          get_ipam_route_origin_authorizations_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_route_origin_authorizations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_ipam_route_origin_authorizations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetIpamRouteOriginAuthorizations", input, options)
+  end
+
+  @doc """
+  Retrieves route protection findings for an IPAM.
+
+  Route protection findings show the Resource Public Key Infrastructure (RPKI)
+  validation status of your Bring Your Own IP (BYOIP) routes. Findings identify
+  routes that have valid, invalid, or unknown validation states. We recommend
+  using pagination to ensure that the operation returns quickly and successfully.
+  """
+  @spec get_ipam_route_protection_findings(
+          map(),
+          get_ipam_route_protection_findings_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_route_protection_findings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_ipam_route_protection_findings(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetIpamRouteProtectionFindings", input, options)
+  end
+
+  @doc """
+  Retrieves the history of routing policy registration changes for an IPAM
+  internet registry association.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+  """
+  @spec get_ipam_routing_policy_registration_deltas(
+          map(),
+          get_ipam_routing_policy_registration_deltas_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_routing_policy_registration_deltas_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_ipam_routing_policy_registration_deltas(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetIpamRoutingPolicyRegistrationDeltas", input, options)
+  end
+
+  @doc """
+  Retrieves routing policy registrations for an IPAM internet registry
+  association.
+
+  Each registration represents a Route Origin Authorization (ROA) that has been
+  created or is pending publication to the RPKI. We recommend using pagination to
+  ensure that the operation returns quickly and successfully.
+  """
+  @spec get_ipam_routing_policy_registrations(
+          map(),
+          get_ipam_routing_policy_registrations_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_routing_policy_registrations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_ipam_routing_policy_registrations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetIpamRoutingPolicyRegistrations", input, options)
   end
 
   @doc """
@@ -50800,6 +51690,27 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "ModifyIpamResourceDiscovery", input, options)
+  end
+
+  @doc """
+  Modifies an existing routing policy registration.
+
+  You can update the authorized ASNs, maximum prefix length, and other properties
+  of a Route Origin Authorization (ROA).
+  """
+  @spec modify_ipam_routing_policy_registration(
+          map(),
+          modify_ipam_routing_policy_registration_request(),
+          list()
+        ) ::
+          {:ok, modify_ipam_routing_policy_registration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_ipam_routing_policy_registration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ModifyIpamRoutingPolicyRegistration", input, options)
   end
 
   @doc """

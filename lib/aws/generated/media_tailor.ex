@@ -76,7 +76,8 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       ad_decision_server_configuration() :: %{
-        "HttpRequest" => http_request()
+        "HttpRequest" => http_request(),
+        "VastResponse" => vast_response()
       }
 
   """
@@ -1388,6 +1389,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       live_pre_roll_configuration() :: %{
+        "AdDecisionServerConfiguration" => pre_roll_ad_decision_server_configuration(),
         "AdDecisionServerUrl" => String.t() | atom(),
         "MaxDurationSeconds" => integer()
       }
@@ -1515,6 +1517,28 @@ defmodule AWS.MediaTailor do
 
   """
   @type playback_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pre_roll_ad_decision_server_configuration() :: %{
+        "VastResponse" => pre_roll_vast_response()
+      }
+
+  """
+  @type pre_roll_ad_decision_server_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pre_roll_vast_response() :: %{
+        "AdSequencingMode" => list(any())
+      }
+
+  """
+  @type pre_roll_vast_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2209,6 +2233,17 @@ defmodule AWS.MediaTailor do
 
   """
   @type update_vod_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vast_response() :: %{
+        "AdSequencingMode" => list(any())
+      }
+
+  """
+  @type vast_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

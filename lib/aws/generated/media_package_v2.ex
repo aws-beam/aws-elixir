@@ -332,6 +332,7 @@ defmodule AWS.MediaPackageV2 do
         optional("MssManifests") => list(create_mss_manifest_configuration()),
         optional("Segment") => segment(),
         optional("StartoverWindowSeconds") => [integer()],
+        optional("StreamNameOutputMode") => list(any()),
         optional("Tags") => map(),
         optional("UriSeparator") => list(any()),
         required("ContainerType") => list(any()),
@@ -362,6 +363,7 @@ defmodule AWS.MediaPackageV2 do
         "OriginEndpointName" => String.t() | atom(),
         "Segment" => segment(),
         "StartoverWindowSeconds" => [integer()],
+        "StreamNameOutputMode" => list(any()),
         "Tags" => map(),
         "UriSeparator" => list(any())
       }
@@ -894,6 +896,7 @@ defmodule AWS.MediaPackageV2 do
         "ResetAt" => [non_neg_integer()],
         "Segment" => segment(),
         "StartoverWindowSeconds" => [integer()],
+        "StreamNameOutputMode" => list(any()),
         "Tags" => map(),
         "UriSeparator" => list(any())
       }
@@ -1205,6 +1208,7 @@ defmodule AWS.MediaPackageV2 do
         "ModifiedAt" => [non_neg_integer()],
         "MssManifests" => list(list_mss_manifest_configuration()),
         "OriginEndpointName" => String.t() | atom(),
+        "StreamNameOutputMode" => list(any()),
         "UriSeparator" => list(any())
       }
 
@@ -1542,6 +1546,7 @@ defmodule AWS.MediaPackageV2 do
         optional("MssManifests") => list(create_mss_manifest_configuration()),
         optional("Segment") => segment(),
         optional("StartoverWindowSeconds") => [integer()],
+        optional("StreamNameOutputMode") => list(any()),
         optional("UriSeparator") => list(any()),
         required("ContainerType") => list(any())
       }
@@ -1570,6 +1575,7 @@ defmodule AWS.MediaPackageV2 do
         "OriginEndpointName" => String.t() | atom(),
         "Segment" => segment(),
         "StartoverWindowSeconds" => [integer()],
+        "StreamNameOutputMode" => list(any()),
         "Tags" => map(),
         "UriSeparator" => list(any())
       }

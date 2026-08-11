@@ -70,11 +70,24 @@ defmodule AWS.ElementalInference do
   ## Example:
 
       clipping_config() :: %{
-        "callbackMetadata" => String.t() | atom()
+        "callbackMetadata" => String.t() | atom(),
+        "dataSourceConfiguration" => data_source_configuration()
       }
 
   """
   @type clipping_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      competitor() :: %{
+        "isHome" => [boolean()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type competitor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -174,6 +187,17 @@ defmodule AWS.ElementalInference do
 
   """
   @type cropping_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_configuration() :: %{
+        "fixtureId" => String.t() | atom()
+      }
+
+  """
+  @type data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -303,6 +327,33 @@ defmodule AWS.ElementalInference do
 
   """
   @type feed_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fixture_summary() :: %{
+        "competitors" => list(competitor()),
+        "fixtureGroup" => [String.t() | atom()],
+        "fixtureId" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "scheduledStart" => [non_neg_integer()],
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type fixture_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_timed_out_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type gateway_timed_out_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -466,12 +517,63 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      search_filter() :: %{
+        "name" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_fixtures_request() :: %{
+        optional("endDate") => String.t() | atom(),
+        optional("filters") => list(search_filter()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        required("sport") => list(any()),
+        required("startDate") => String.t() | atom()
+      }
+
+  """
+  @type search_fixtures_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_fixtures_response() :: %{
+        "fixtures" => list(fixture_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type search_fixtures_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -706,6 +808,14 @@ defmodule AWS.ElementalInference do
           | too_many_request_exception()
           | resource_not_found_exception()
           | internal_server_error_exception()
+          | access_denied_exception()
+
+  @type search_fixtures_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | service_unavailable_exception()
+          | internal_server_error_exception()
+          | gateway_timed_out_exception()
           | access_denied_exception()
 
   @type tag_resource_errors() ::
@@ -1111,6 +1221,42 @@ defmodule AWS.ElementalInference do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Searches for the fixtures (sports events, such as a specific basketball game)
+  that are available for a sport in a date window.
+
+  Each fixture in the response includes a fixtureId that you specify in the
+  clipping output of a feed, so that Elemental Inference maps the event data for
+  that fixture onto the clipping metadata. This operation is paginated: if there
+  are more fixtures than fit in one page, the response includes a nextToken that
+  you pass in a subsequent request.
+  """
+  @spec search_fixtures(map(), search_fixtures_request(), list()) ::
+          {:ok, search_fixtures_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_fixtures_errors()}
+  def search_fixtures(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/fixtures"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

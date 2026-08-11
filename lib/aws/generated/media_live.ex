@@ -6080,7 +6080,8 @@ defmodule AWS.MediaLive do
         "PasswordParam" => String.t() | atom(),
         "StreamName" => String.t() | atom(),
         "Url" => String.t() | atom(),
-        "Username" => String.t() | atom()
+        "Username" => String.t() | atom(),
+        "VirtualSourceAddress" => String.t() | atom()
       }
 
   """

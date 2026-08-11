@@ -16840,6 +16840,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      prefix_aware_routing_config() :: %{
+        "ConcurrencyThreshold" => integer(),
+        "PrefixLength" => integer()
+      }
+      
+  """
+  @type prefix_aware_routing_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       presigned_url_access_config() :: %{
         "AcceptEula" => boolean(),
         "ExpectedS3Url" => String.t() | atom()
@@ -17139,6 +17151,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       production_variant_routing_config() :: %{
+        "PrefixAwareRoutingConfig" => prefix_aware_routing_config(),
         "RoutingStrategy" => list(any())
       }
       

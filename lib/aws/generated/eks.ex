@@ -239,6 +239,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      allowed_values_constraint() :: %{
+        "allowedValues" => list(String.t() | atom())
+      }
+
+  """
+  @type allowed_values_constraint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       argo_cd_aws_idc_config_request() :: %{
         "idcInstanceArn" => String.t() | atom(),
         "idcRegion" => String.t() | atom()
@@ -620,6 +631,9 @@ defmodule AWS.EKS do
         "health" => cluster_health(),
         "id" => String.t() | atom(),
         "identity" => identity(),
+        "kubeApiServerConfig" => kube_api_server_config_response(),
+        "kubeControllerManagerConfig" => kube_controller_manager_config_response(),
+        "kubeSchedulerConfig" => kube_scheduler_config_response(),
         "kubernetesNetworkConfig" => kubernetes_network_config_response(),
         "logging" => logging(),
         "name" => String.t() | atom(),
@@ -670,6 +684,8 @@ defmodule AWS.EKS do
       cluster_version_information() :: %{
         "clusterType" => String.t() | atom(),
         "clusterVersion" => String.t() | atom(),
+        "controlPlaneComponentConfig" => control_plane_config_info(),
+        "controlPlaneScalingTiers" => list(control_plane_scaling_tier_info()),
         "defaultPlatformVersion" => String.t() | atom(),
         "defaultVersion" => boolean(),
         "endOfExtendedSupportDate" => non_neg_integer(),
@@ -753,6 +769,19 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      control_plane_config_info() :: %{
+        "kubeApiServerConfig" => kube_api_server_version_config(),
+        "kubeControllerManagerConfig" => kube_controller_manager_version_config(),
+        "kubeSchedulerConfig" => kube_scheduler_version_config()
+      }
+
+  """
+  @type control_plane_config_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       control_plane_placement_request() :: %{
         "groupName" => String.t() | atom(),
         "spreadLevel" => list(any())
@@ -783,6 +812,21 @@ defmodule AWS.EKS do
 
   """
   @type control_plane_scaling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_plane_scaling_tier_info() :: %{
+        "apiRequestConcurrency" => integer(),
+        "clusterDatabaseSizeGb" => integer(),
+        "controlPlaneComponentConfigOverrides" => control_plane_config_info(),
+        "podSchedulingRatePerSecond" => integer(),
+        "tierName" => String.t() | atom()
+      }
+
+  """
+  @type control_plane_scaling_tier_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -893,6 +937,9 @@ defmodule AWS.EKS do
         optional("controlPlaneScalingConfig") => control_plane_scaling_config(),
         optional("deletionProtection") => boolean(),
         optional("encryptionConfig") => list(encryption_config()),
+        optional("kubeApiServerConfig") => kube_api_server_config_request(),
+        optional("kubeControllerManagerConfig") => kube_controller_manager_config_request(),
+        optional("kubeSchedulerConfig") => kube_scheduler_config_request(),
         optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
         optional("logging") => logging(),
         optional("outpostConfig") => outpost_config_request(),
@@ -1619,6 +1666,30 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      duration_constraints() :: %{
+        "max" => String.t() | atom(),
+        "min" => String.t() | atom()
+      }
+
+  """
+  @type duration_constraints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      duration_parameter_config() :: %{
+        "constraints" => duration_constraints(),
+        "defaultValue" => String.t() | atom()
+      }
+
+  """
+  @type duration_parameter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       eks_anywhere_subscription() :: %{
         "arn" => String.t() | atom(),
         "autoRenew" => boolean(),
@@ -1768,6 +1839,41 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      horizontal_pod_autoscaler_controller_config_request() :: %{
+        "horizontalPodAutoscalerSyncPeriod" => String.t() | atom()
+      }
+
+  """
+  @type horizontal_pod_autoscaler_controller_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      horizontal_pod_autoscaler_controller_config_response() :: %{
+        "horizontalPodAutoscalerSyncPeriod" => String.t() | atom()
+      }
+
+  """
+  @type horizontal_pod_autoscaler_controller_config_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      horizontal_pod_autoscaler_controller_version_config() :: %{
+        "horizontalPodAutoscalerSyncPeriod" => duration_parameter_config()
+      }
+
+  """
+  @type horizontal_pod_autoscaler_controller_version_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       identity() :: %{
         "oidc" => o_id_c()
       }
@@ -1892,6 +1998,18 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      integer_range_constraint() :: %{
+        "max" => integer(),
+        "min" => integer()
+      }
+
+  """
+  @type integer_range_constraint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_parameter_exception() :: %{
         "addonName" => String.t() | atom(),
         "clusterName" => String.t() | atom(),
@@ -1943,6 +2061,108 @@ defmodule AWS.EKS do
 
   """
   @type issue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kube_api_server_config_request() :: %{
+        "eventTtl" => String.t() | atom(),
+        "serviceNodePortRange" => service_node_port_range()
+      }
+
+  """
+  @type kube_api_server_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kube_api_server_config_response() :: %{
+        "eventTtl" => String.t() | atom(),
+        "serviceNodePortRange" => service_node_port_range()
+      }
+
+  """
+  @type kube_api_server_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kube_api_server_version_config() :: %{
+        "eventTtl" => duration_parameter_config(),
+        "serviceNodePortRange" => port_range_parameter_config()
+      }
+
+  """
+  @type kube_api_server_version_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kube_controller_manager_config_request() :: %{
+        "horizontalPodAutoscalerControllerConfig" => horizontal_pod_autoscaler_controller_config_request()
+      }
+
+  """
+  @type kube_controller_manager_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kube_controller_manager_config_response() :: %{
+        "horizontalPodAutoscalerControllerConfig" => horizontal_pod_autoscaler_controller_config_response()
+      }
+
+  """
+  @type kube_controller_manager_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kube_controller_manager_version_config() :: %{
+        "horizontalPodAutoscalerControllerConfig" => horizontal_pod_autoscaler_controller_version_config()
+      }
+
+  """
+  @type kube_controller_manager_version_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kube_scheduler_config_request() :: %{
+        "nodeResourcesFit" => node_resources_fit_config()
+      }
+
+  """
+  @type kube_scheduler_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kube_scheduler_config_response() :: %{
+        "nodeResourcesFit" => node_resources_fit_config()
+      }
+
+  """
+  @type kube_scheduler_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kube_scheduler_version_config() :: %{
+        "nodeResourcesFit" => node_resources_fit_version_config()
+      }
+
+  """
+  @type kube_scheduler_version_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2408,6 +2628,28 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      node_resources_fit_config() :: %{
+        "scoringStrategy" => scoring_strategy()
+      }
+
+  """
+  @type node_resources_fit_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_resources_fit_version_config() :: %{
+        "scoringStrategy" => scoring_strategy_config()
+      }
+
+  """
+  @type node_resources_fit_version_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       nodegroup() :: %{
         "amiType" => list(any()),
         "capacityType" => list(any()),
@@ -2624,6 +2866,30 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      port_range_constraints() :: %{
+        "maxPort" => integer_range_constraint(),
+        "minPort" => integer_range_constraint()
+      }
+
+  """
+  @type port_range_constraints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      port_range_parameter_config() :: %{
+        "constraints" => port_range_constraints(),
+        "defaultValue" => service_node_port_range()
+      }
+
+  """
+  @type port_range_parameter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       provider() :: %{
         "keyArn" => String.t() | atom()
       }
@@ -2718,6 +2984,18 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      resource_constraints() :: %{
+        "name" => allowed_values_constraint(),
+        "weight" => integer_range_constraint()
+      }
+
+  """
+  @type resource_constraints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_in_use_exception() :: %{
         "addonName" => String.t() | atom(),
         "clusterName" => String.t() | atom(),
@@ -2773,12 +3051,60 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      resource_weight() :: %{
+        "name" => String.t() | atom(),
+        "weight" => integer()
+      }
+
+  """
+  @type resource_weight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rollback_config() :: %{
         "timeoutMinutes" => integer()
       }
 
   """
   @type rollback_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scoring_strategy() :: %{
+        "resources" => list(resource_weight()),
+        "type" => list(any())
+      }
+
+  """
+  @type scoring_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scoring_strategy_config() :: %{
+        "constraints" => scoring_strategy_constraints(),
+        "defaultValue" => scoring_strategy()
+      }
+
+  """
+  @type scoring_strategy_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scoring_strategy_constraints() :: %{
+        "resources" => resource_constraints(),
+        "scoringStrategy" => allowed_values_constraint()
+      }
+
+  """
+  @type scoring_strategy_constraints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2794,6 +3120,18 @@ defmodule AWS.EKS do
 
   """
   @type server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_node_port_range() :: %{
+        "maxPort" => integer(),
+        "minPort" => integer()
+      }
+
+  """
+  @type service_node_port_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3077,6 +3415,9 @@ defmodule AWS.EKS do
         optional("computeConfig") => compute_config_request(),
         optional("controlPlaneScalingConfig") => control_plane_scaling_config(),
         optional("deletionProtection") => boolean(),
+        optional("kubeApiServerConfig") => kube_api_server_config_request(),
+        optional("kubeControllerManagerConfig") => kube_controller_manager_config_request(),
+        optional("kubeSchedulerConfig") => kube_scheduler_config_request(),
         optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
         optional("logging") => logging(),
         optional("remoteNetworkConfig") => remote_network_config_request(),

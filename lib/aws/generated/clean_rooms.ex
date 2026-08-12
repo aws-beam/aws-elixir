@@ -126,6 +126,86 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      analysis_log_export() :: %{
+        "analysisId" => String.t() | atom(),
+        "analysisLogExportId" => String.t() | atom(),
+        "analysisType" => list(any()),
+        "createTime" => [non_neg_integer()],
+        "error" => analysis_log_export_error(),
+        "membershipId" => String.t() | atom(),
+        "resultConfiguration" => analysis_log_export_result_configuration(),
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type analysis_log_export() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_log_export_error() :: %{
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type analysis_log_export_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_log_export_output_configuration() :: %{
+        "s3" => analysis_log_export_s3_output_configuration()
+      }
+
+  """
+  @type analysis_log_export_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_log_export_result_configuration() :: %{
+        "outputConfiguration" => analysis_log_export_output_configuration()
+      }
+
+  """
+  @type analysis_log_export_result_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_log_export_s3_output_configuration() :: %{
+        "bucket" => [String.t() | atom()],
+        "keyPrefix" => String.t() | atom()
+      }
+
+  """
+  @type analysis_log_export_s3_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_log_export_summary() :: %{
+        "analysisId" => String.t() | atom(),
+        "analysisLogExportId" => String.t() | atom(),
+        "analysisType" => list(any()),
+        "createTime" => [non_neg_integer()],
+        "status" => list(any())
+      }
+
+  """
+  @type analysis_log_export_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       analysis_parameter() :: %{
         "defaultValue" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -1974,6 +2054,26 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      get_analysis_log_export_input() :: %{}
+
+  """
+  @type get_analysis_log_export_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_analysis_log_export_output() :: %{
+        "analysisLogExport" => analysis_log_export()
+      }
+
+  """
+  @type get_analysis_log_export_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_analysis_template_input() :: %{}
 
   """
@@ -2934,6 +3034,32 @@ defmodule AWS.CleanRooms do
 
   """
   @type job_compute_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_analysis_log_exports_input() :: %{
+        optional("analysisIdentifier") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_analysis_log_exports_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_analysis_log_exports_output() :: %{
+        "analysisLogExports" => list(analysis_log_export_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_analysis_log_exports_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4490,6 +4616,30 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      start_analysis_log_export_input() :: %{
+        required("analysisId") => String.t() | atom(),
+        required("analysisType") => list(any()),
+        required("resultConfiguration") => analysis_log_export_result_configuration()
+      }
+
+  """
+  @type start_analysis_log_export_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_analysis_log_export_output() :: %{
+        "analysisLogExport" => analysis_log_export()
+      }
+
+  """
+  @type start_analysis_log_export_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_protected_job_input() :: %{
         optional("computeConfiguration") => list(),
         optional("jobComputePayerAccountId") => String.t() | atom(),
@@ -5296,6 +5446,13 @@ defmodule AWS.CleanRooms do
           | conflict_exception()
           | access_denied_exception()
 
+  @type get_analysis_log_export_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_analysis_template_errors() ::
           validation_exception()
           | throttling_exception()
@@ -5443,6 +5600,13 @@ defmodule AWS.CleanRooms do
           | access_denied_exception()
 
   @type get_schema_analysis_rule_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_analysis_log_exports_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -5627,6 +5791,14 @@ defmodule AWS.CleanRooms do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type start_analysis_log_export_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type start_protected_job_errors() ::
           validation_exception()
           | throttling_exception()
@@ -5687,6 +5859,7 @@ defmodule AWS.CleanRooms do
   @type update_configured_table_analysis_rule_errors() ::
           validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -6280,10 +6453,8 @@ defmodule AWS.CleanRooms do
   @doc """
   Creates an intermediate table in a membership.
 
-  An intermediate table stores a query definition that you can execute later using
-  `PopulateIntermediateTable` to materialize cached results. The intermediate
-  table is owned by the member with the CAN_QUERY ability. This operation does not
-  execute the stored query.
+  The intermediate table is owned by the member with the CAN_QUERY ability. To
+  populate the table with results, use `PopulateIntermediateTable`.
   """
   @spec create_intermediate_table(
           map(),
@@ -6319,9 +6490,7 @@ defmodule AWS.CleanRooms do
   @doc """
   Creates an analysis rule for an intermediate table.
 
-  Only the CUSTOM analysis rule type is supported. The service automatically
-  determines whether the rule is first-party or multi-party restricted based on
-  the intermediate table's inherited constraints. Only the intermediate table
+  Only the CUSTOM analysis rule type is supported. Only the intermediate table
   owner can call this operation.
   """
   @spec create_intermediate_table_analysis_rule(
@@ -6814,9 +6983,8 @@ defmodule AWS.CleanRooms do
   @doc """
   Deletes an intermediate table.
 
-  When you delete the table, the service marks it as DELETED, removes its analysis
-  rule and schema, and triggers storage cleanup. This operation is idempotent.
-  Only the intermediate table owner can call this operation.
+  The delete is idempotent. Only the intermediate table owner can call this
+  operation.
   """
   @spec delete_intermediate_table(
           map(),
@@ -7029,12 +7197,12 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
-  Invalidates a specific intermediate table that references the caller's base
+  Marks an intermediate table as invalid when it references the caller's base
   table.
 
   The data provider (base table owner) calls this operation, not the intermediate
-  table owner. By default, invalidation cascades to descendant intermediate
-  tables.
+  table owner. By default, the operation also marks all descendant intermediate
+  tables as invalid.
   """
   @spec disallow_intermediate_table(
           map(),
@@ -7067,6 +7235,35 @@ defmodule AWS.CleanRooms do
       options,
       200
     )
+  end
+
+  @doc """
+  Returns information about an analysis log export, including its current status
+  and, if the export failed, the reason for the failure.
+
+  Poll this operation until the `status` is `SUCCESS` or `FAILED`. An export can't
+  be canceled after it starts.
+  """
+  @spec get_analysis_log_export(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_analysis_log_export_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_analysis_log_export_errors()}
+  def get_analysis_log_export(
+        %Client{} = client,
+        analysis_log_export_identifier,
+        membership_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysislogexports/#{AWS.Util.encode_uri(analysis_log_export_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -7642,6 +7839,71 @@ defmodule AWS.CleanRooms do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists analysis log exports, sorted by the most recent export.
+
+  Results are paginated. Use the `nextToken` parameter to retrieve additional
+  results.
+  """
+  @spec list_analysis_log_exports(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_analysis_log_exports_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_analysis_log_exports_errors()}
+  def list_analysis_log_exports(
+        %Client{} = client,
+        membership_identifier,
+        analysis_identifier \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysislogexports"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(analysis_identifier) do
+        [{"analysisIdentifier", analysis_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -8795,13 +9057,12 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
-  Executes the stored query of an intermediate table to materialize data into
-  managed storage.
+  Runs the stored query of an intermediate table and makes the results available
+  for querying.
 
-  With this operation, you can perform initial population and subsequent
-  refreshes. Each call creates a new version. The returned analysis ID can be
-  tracked using `GetProtectedQuery`. Only the intermediate table owner can call
-  this operation.
+  Each call creates a new version. Use `GetProtectedQuery` with the returned
+  analysis ID to track progress. Only the intermediate table owner can call this
+  operation.
   """
   @spec populate_intermediate_table(
           map(),
@@ -8854,6 +9115,67 @@ defmodule AWS.CleanRooms do
           | {:error, preview_privacy_impact_errors()}
   def preview_privacy_impact(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/previewprivacyimpact"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts an export of the Apache Spark logs for a protected query to an Amazon S3
+  bucket that you own.
+
+  Use the exported logs to diagnose a query that failed or that ran more slowly
+  than you expected.
+
+  Clean Rooms exports a redacted copy of the Spark logs instead of the raw logs.
+  Analyze the exported logs with the tooling of your choice, such as Spark History
+  Server. For details about what the exported logs contain, see
+  [https://docs.aws.amazon.com/clean-rooms/latest/userguide/export-analysis-logs-contents.html](https://docs.aws.amazon.com/clean-rooms/latest/userguide/export-analysis-logs-contents.html).  The export runs asynchronously and returns with a `status` of `IN_PROGRESS`.
+  Call `GetAnalysisLogExport` to poll for the final status.
+
+  To use this operation, you must have the `CAN_EXPORT_QUERY_ANALYSIS_LOG` ability
+  for your membership. You must also be the query runner or the query payer.
+  Having the ability alone is not sufficient.
+
+  The query must have reached a terminal state, and it must have reached the
+  execution stage. A query that failed validation or that was canceled before it
+  started produces no Spark logs.
+
+  Log export isn't supported for queries that use differential privacy, and isn't
+  supported for PySpark jobs.
+
+  The destination bucket must be in the same Amazon Web Services Region as the
+  collaboration. Cross-Region export isn't supported.
+
+  For more information, see
+  [https://docs.aws.amazon.com/clean-rooms/latest/userguide/export-analysis-logs.html](https://docs.aws.amazon.com/clean-rooms/latest/userguide/export-analysis-logs.html).
+  """
+  @spec start_analysis_log_export(
+          map(),
+          String.t() | atom(),
+          start_analysis_log_export_input(),
+          list()
+        ) ::
+          {:ok, start_analysis_log_export_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_analysis_log_export_errors()}
+  def start_analysis_log_export(%Client{} = client, membership_identifier, input, options \\ []) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysislogexports"
     headers = []
     custom_headers = []
     query_params = []

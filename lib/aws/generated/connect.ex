@@ -1086,6 +1086,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      available_filter() :: %{
+        "Id" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type available_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       available_number_summary() :: %{
         "PhoneNumber" => String.t() | atom(),
         "PhoneNumberCountryCode" => list(any()),
@@ -1427,6 +1439,20 @@ defmodule AWS.Connect do
 
   """
   @type boolean_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      calculation_component() :: %{
+        "Alias" => String.t() | atom(),
+        "MetricFilters" => list(metric_filter()),
+        "MetricId" => String.t() | atom(),
+        "MetricName" => String.t() | atom()
+      }
+
+  """
+  @type calculation_component() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2783,6 +2809,36 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_metric_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("PositiveTrendIndicator") => list(any()),
+        optional("Status") => list(any()),
+        optional("Tags") => map(),
+        required("MetricCalculation") => metric_calculation(),
+        required("Name") => String.t() | atom(),
+        required("Unit") => list(any())
+      }
+
+  """
+  @type create_metric_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_metric_response() :: %{
+        "MetricArn" => String.t() | atom(),
+        "MetricId" => String.t() | atom()
+      }
+
+  """
+  @type create_metric_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_notification_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("ExpiresAt") => non_neg_integer(),
@@ -4022,6 +4078,24 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_metric_request() :: %{}
+
+  """
+  @type delete_metric_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_metric_response() :: %{}
+
+  """
+  @type delete_metric_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_notification_request() :: %{}
 
   """
@@ -4685,6 +4759,26 @@ defmodule AWS.Connect do
 
   """
   @type describe_instance_storage_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_metric_request() :: %{}
+
+  """
+  @type describe_metric_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_metric_response() :: %{
+        "Metric" => metric_definition()
+      }
+
+  """
+  @type describe_metric_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8716,6 +8810,31 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_metrics_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
+
+  """
+  @type list_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_metrics_response() :: %{
+        "MetricSummaryList" => list(metric_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_notifications_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -9723,6 +9842,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      metric_calculation() :: %{
+        "Calculation" => String.t() | atom(),
+        "CalculationComponents" => list(calculation_component())
+      }
+
+  """
+  @type metric_calculation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       metric_data_v2() :: %{
         "Metric" => metric_v2(),
         "Value" => float()
@@ -9730,6 +9861,93 @@ defmodule AWS.Connect do
 
   """
   @type metric_data_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_definition() :: %{
+        "Arn" => String.t() | atom(),
+        "Category" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "CreatedUser" => list(),
+        "CreationMethod" => list(any()),
+        "DefaultStat" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EffectiveTime" => non_neg_integer(),
+        "Filters" => list(available_filter()),
+        "Groupings" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LastModifiedUser" => list(),
+        "MetricCalculation" => metric_calculation(),
+        "Name" => String.t() | atom(),
+        "PositiveTrendIndicator" => list(any()),
+        "PrimaryEventSource" => String.t() | atom(),
+        "PrimaryEventSourceEffectiveTimestampType" => String.t() | atom(),
+        "RefreshRate" => float(),
+        "Status" => list(any()),
+        "SupportedStats" => list(String.t() | atom()),
+        "SupportsCustomCalculation" => boolean(),
+        "SupportsPreaggregateCalculation" => boolean(),
+        "Tags" => map(),
+        "Type" => list(any()),
+        "Unit" => list(any())
+      }
+
+  """
+  @type metric_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_filter() :: %{
+        "BooleanCondition" => metric_filter_boolean_condition(),
+        "MetricFilterKey" => String.t() | atom(),
+        "Negate" => boolean(),
+        "NumberCondition" => metric_filter_number_condition(),
+        "StringCondition" => metric_filter_string_condition()
+      }
+
+  """
+  @type metric_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_filter_boolean_condition() :: %{
+        "Comparison" => list(any())
+      }
+
+  """
+  @type metric_filter_boolean_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_filter_number_condition() :: %{
+        "Comparison" => list(any()),
+        "Values" => list(float())
+      }
+
+  """
+  @type metric_filter_number_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_filter_string_condition() :: %{
+        "Comparison" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type metric_filter_string_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9769,6 +9987,48 @@ defmodule AWS.Connect do
 
   """
   @type metric_result_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_search_criteria() :: %{
+        "AndConditions" => list(metric_search_criteria()),
+        "BooleanCondition" => boolean_condition(),
+        "OrConditions" => list(metric_search_criteria()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type metric_search_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_search_filter() :: %{
+        "TagFilter" => control_plane_tag_filter()
+      }
+
+  """
+  @type metric_search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type metric_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12090,6 +12350,34 @@ defmodule AWS.Connect do
 
   """
   @type search_hours_of_operations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_metrics_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SearchCriteria") => metric_search_criteria(),
+        optional("SearchFilter") => metric_search_filter(),
+        required("InstanceId") => String.t() | atom()
+      }
+
+  """
+  @type search_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_metrics_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "Metrics" => list(metric_definition()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type search_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14656,6 +14944,49 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_metric_content_request() :: %{
+        optional("MetricCalculation") => metric_calculation(),
+        optional("PositiveTrendIndicator") => list(any()),
+        optional("Unit") => list(any())
+      }
+
+  """
+  @type update_metric_content_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_metric_content_response() :: %{}
+
+  """
+  @type update_metric_content_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_metric_metadata_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_metric_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_metric_metadata_response() :: %{}
+
+  """
+  @type update_metric_metadata_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_notification_content_request() :: %{
         required("Content") => map()
       }
@@ -16516,6 +16847,16 @@ defmodule AWS.Connect do
           | internal_service_exception()
           | duplicate_resource_exception()
 
+  @type create_metric_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | duplicate_resource_exception()
+          | access_denied_exception()
+
   @type create_notification_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -16848,6 +17189,15 @@ defmodule AWS.Connect do
           | invalid_request_exception()
           | internal_service_exception()
 
+  @type delete_metric_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
   @type delete_notification_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -17138,6 +17488,14 @@ defmodule AWS.Connect do
           | invalid_request_exception()
           | invalid_parameter_exception()
           | internal_service_exception()
+
+  @type describe_metric_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | access_denied_exception()
 
   @type describe_notification_errors() ::
           throttling_exception()
@@ -17763,6 +18121,14 @@ defmodule AWS.Connect do
           | invalid_parameter_exception()
           | internal_service_exception()
 
+  @type list_metrics_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
   @type list_notifications_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -18162,6 +18528,14 @@ defmodule AWS.Connect do
           | invalid_request_exception()
           | invalid_parameter_exception()
           | internal_service_exception()
+
+  @type search_metrics_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | access_denied_exception()
 
   @type search_notifications_errors() ::
           throttling_exception()
@@ -18723,6 +19097,23 @@ defmodule AWS.Connect do
           | invalid_request_exception()
           | invalid_parameter_exception()
           | internal_service_exception()
+
+  @type update_metric_content_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
+  @type update_metric_metadata_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | duplicate_resource_exception()
+          | access_denied_exception()
 
   @type update_notification_content_errors() ::
           throttling_exception()
@@ -21275,6 +21666,39 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates a new metric definition for the specified Connect Customer instance.
+
+  You can create custom metrics
+  that use formulas referencing existing Amazon Web Services-managed metrics,
+  optionally with filters applied.
+  """
+  @spec create_metric(map(), String.t() | atom(), create_metric_request(), list()) ::
+          {:ok, create_metric_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_metric_errors()}
+  def create_metric(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/metrics/definitions/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new notification to be delivered to specified recipients.
 
   Notifications can include localized content with links, and an optional
@@ -22934,6 +23358,46 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Deletes an existing metric from the specified Connect Customer instance.
+
+  This operation fails with `ResourceConflictException` if the metric is currently
+  in use in a dashboard.
+  """
+  @spec delete_metric(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_metric_request(),
+          list()
+        ) ::
+          {:ok, delete_metric_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_metric_errors()}
+  def delete_metric(%Client{} = client, instance_id, metric_id, input, options \\ []) do
+    url_path =
+      "/metrics/definitions/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(metric_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a notification.
 
   Once deleted, the notification is no longer visible to all users and cannot be
@@ -24396,6 +24860,27 @@ defmodule AWS.Connect do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the full definition of an existing metric from the specified Connect
+  Customer instance.
+  """
+  @spec describe_metric(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_metric_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_metric_errors()}
+  def describe_metric(%Client{} = client, instance_id, metric_id, options \\ []) do
+    url_path =
+      "/metrics/definitions/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(metric_id)}"
+
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -28179,6 +28664,62 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Retrieves a paginated list of metric summaries for the specified Connect
+  Customer instance.
+
+  Use pagination to ensure that the operation returns quickly and successfully.
+  """
+  @spec list_metrics(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_metrics_errors()}
+  def list_metrics(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/metrics/definitions/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a paginated list of all notifications in the Amazon Connect instance.
   """
   @spec list_notifications(
@@ -30718,6 +31259,38 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Searches for metrics in the specified Connect Customer instance using search
+  criteria and optional tag-based filters.
+
+  Use pagination to ensure that the operation returns quickly and successfully.
+  """
+  @spec search_metrics(map(), search_metrics_request(), list()) ::
+          {:ok, search_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_metrics_errors()}
+  def search_metrics(%Client{} = client, input, options \\ []) do
+    url_path = "/search-metrics"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Searches for notifications based on specified criteria and filters.
 
   Returns a paginated list of notifications matching the search parameters,
@@ -32469,8 +33042,8 @@ defmodule AWS.Connect do
 
   Some of the supported resource types are agents, routing profiles, queues, quick
   connects, flows, agent
-  statuses, hours of operation, phone numbers, security profiles, and task
-  templates. For a complete list, see [Tagging resources in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
+  statuses, hours of operation, phone numbers, security profiles, task templates,
+  and custom metrics. For a complete list, see [Tagging resources in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
 
   For sample policies that use tags, see [Connect Customer Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
   in the *Connect Customer Administrator Guide*.
@@ -33777,6 +34350,82 @@ defmodule AWS.Connect do
         {"ResourceType", "resourceType"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the calculation, unit, and/or trend indicator of an existing metric in
+  the specified Connect Customer instance.
+  """
+  @spec update_metric_content(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_metric_content_request(),
+          list()
+        ) ::
+          {:ok, update_metric_content_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_metric_content_errors()}
+  def update_metric_content(%Client{} = client, instance_id, metric_id, input, options \\ []) do
+    url_path =
+      "/metrics/definitions/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(metric_id)}/content"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the name and/or description of an existing metric in the specified
+  Connect Customer instance.
+  """
+  @spec update_metric_metadata(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_metric_metadata_request(),
+          list()
+        ) ::
+          {:ok, update_metric_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_metric_metadata_errors()}
+  def update_metric_metadata(%Client{} = client, instance_id, metric_id, input, options \\ []) do
+    url_path =
+      "/metrics/definitions/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(metric_id)}/metadata"
+
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 

@@ -3183,6 +3183,19 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      online_evaluation_trace_config() :: %{
+        "endTime" => [non_neg_integer()],
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type online_evaluation_trace_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       payment_instrument() :: %{
         "createdAt" => non_neg_integer(),
         "paymentConnectorId" => String.t() | atom(),

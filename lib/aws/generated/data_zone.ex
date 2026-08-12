@@ -495,6 +495,7 @@ defmodule AWS.DataZone do
         "assetId" => String.t() | atom(),
         "errorMessage" => [String.t() | atom()],
         "filterIds" => list(String.t() | atom()),
+        "scopeName" => [String.t() | atom()],
         "status" => [String.t() | atom()]
       }
 

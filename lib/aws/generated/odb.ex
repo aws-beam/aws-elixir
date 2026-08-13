@@ -105,6 +105,36 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      associate_virtual_machines_to_exadb_vm_cluster_input() :: %{
+        required("desiredNodeCount") => [integer()],
+        required("exadbVmClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type associate_virtual_machines_to_exadb_vm_cluster_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_virtual_machines_to_exadb_vm_cluster_output() :: %{
+        "displayName" => [String.t() | atom()],
+        "exadbVmClusterId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type associate_virtual_machines_to_exadb_vm_cluster_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       autonomous_database() :: %{
         "actualUsedDataStorageSizeInTBs" => [float()],
         "adminPasswordSourceSummary" => admin_password_source_summary(),
@@ -1158,6 +1188,86 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      create_exadb_vm_cluster_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("clusterName") => String.t() | atom(),
+        optional("dataCollectionOptions") => data_collection_options(),
+        optional("licenseModel") => list(any()),
+        optional("scanListenerPortTcp") => [integer()],
+        optional("scanListenerPortTcpSsl") => [integer()],
+        optional("shapeAttribute") => list(any()),
+        optional("systemVersion") => [String.t() | atom()],
+        optional("tags") => map(),
+        optional("timeZone") => [String.t() | atom()],
+        required("displayName") => String.t() | atom(),
+        required("enabledEcpuCount") => [integer()],
+        required("exascaleDbStorageVaultId") => String.t() | atom(),
+        required("gridImageId") => [String.t() | atom()],
+        required("hostname") => String.t() | atom(),
+        required("nodeCount") => [integer()],
+        required("odbNetworkId") => String.t() | atom(),
+        required("shape") => [String.t() | atom()],
+        required("sshPublicKeys") => list([String.t() | atom()]()),
+        required("totalEcpuCount") => [integer()],
+        required("vmFileSystemStorageTotalSizeInGBs") => [integer()]
+      }
+      
+  """
+  @type create_exadb_vm_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_exadb_vm_cluster_output() :: %{
+        "displayName" => [String.t() | atom()],
+        "exadbVmClusterId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type create_exadb_vm_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_exascale_db_storage_vault_input() :: %{
+        optional("additionalFlashCacheInPercent") => [integer()],
+        optional("autoscaleLimitInGBs") => [integer()],
+        optional("availabilityZone") => [String.t() | atom()],
+        optional("availabilityZoneId") => [String.t() | atom()],
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => [String.t() | atom()],
+        optional("isAutoscaleEnabled") => [boolean()],
+        optional("tags") => map(),
+        optional("timeZone") => [String.t() | atom()],
+        required("displayName") => String.t() | atom(),
+        required("highCapacityDatabaseStorageTotalSizeInGBs") => [integer()]
+      }
+      
+  """
+  @type create_exascale_db_storage_vault_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_exascale_db_storage_vault_output() :: %{
+        "displayName" => [String.t() | atom()],
+        "exascaleDbStorageVaultId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type create_exascale_db_storage_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_odb_network_input() :: %{
         optional("availabilityZone") => [String.t() | atom()],
         optional("availabilityZoneId") => [String.t() | atom()],
@@ -1576,6 +1686,7 @@ defmodule AWS.Odb do
         "minimumNodeCount" => [integer()],
         "name" => [String.t() | atom()],
         "runtimeMinimumCoreCount" => [integer()],
+        "shapeAttributes" => list(list(any())()),
         "shapeFamily" => [String.t() | atom()],
         "shapeType" => list(any())
       }
@@ -1677,6 +1788,46 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      delete_exadb_vm_cluster_input() :: %{
+        required("exadbVmClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_exadb_vm_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_exadb_vm_cluster_output() :: %{}
+      
+  """
+  @type delete_exadb_vm_cluster_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_exascale_db_storage_vault_input() :: %{
+        required("exascaleDbStorageVaultId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_exascale_db_storage_vault_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_exascale_db_storage_vault_output() :: %{}
+      
+  """
+  @type delete_exascale_db_storage_vault_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_odb_network_input() :: %{
         required("deleteAssociatedResources") => [boolean()]
       }
@@ -1737,6 +1888,36 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      disassociate_virtual_machines_from_exadb_vm_cluster_input() :: %{
+        required("dbNodeIds") => list(String.t() | atom()),
+        required("exadbVmClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_virtual_machines_from_exadb_vm_cluster_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_virtual_machines_from_exadb_vm_cluster_output() :: %{
+        "displayName" => [String.t() | atom()],
+        "exadbVmClusterId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type disassociate_virtual_machines_from_exadb_vm_cluster_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       disaster_recovery_configuration() :: %{
         "disasterRecoveryType" => list(any()),
         "isReplicateAutomaticBackups" => [boolean()],
@@ -1772,6 +1953,201 @@ defmodule AWS.Odb do
       
   """
   @type exadata_iorm_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      exadb_vm_cluster() :: %{
+        "clusterName" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "dataCollectionOptions" => data_collection_options(),
+        "displayName" => String.t() | atom(),
+        "domain" => [String.t() | atom()],
+        "enabledEcpuCount" => [integer()],
+        "exadbVmClusterArn" => String.t() | atom(),
+        "exadbVmClusterId" => String.t() | atom(),
+        "exascaleDbStorageVaultArn" => String.t() | atom(),
+        "exascaleDbStorageVaultId" => String.t() | atom(),
+        "giVersion" => [String.t() | atom()],
+        "gridImageId" => [String.t() | atom()],
+        "gridImageType" => list(any()),
+        "hostname" => String.t() | atom(),
+        "iamRoles" => list(iam_role()),
+        "iormConfigCache" => exadata_iorm_config(),
+        "lastUpdateHistoryEntryId" => [String.t() | atom()],
+        "licenseModel" => list(any()),
+        "listenerPort" => [integer()],
+        "memorySizeInGBs" => [integer()],
+        "nodeCount" => [integer()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociUrl" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "odbNetworkArn" => String.t() | atom(),
+        "odbNetworkId" => String.t() | atom(),
+        "percentProgress" => [float()],
+        "scanDnsName" => [String.t() | atom()],
+        "scanDnsRecordId" => [String.t() | atom()],
+        "scanIpIds" => list([String.t() | atom()]()),
+        "scanListenerPortTcp" => [integer()],
+        "scanListenerPortTcpSsl" => [integer()],
+        "shape" => [String.t() | atom()],
+        "shapeAttribute" => list(any()),
+        "snapshotFileSystemStorage" => exadb_vm_cluster_storage_details(),
+        "sshPublicKeys" => list([String.t() | atom()]()),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "systemVersion" => [String.t() | atom()],
+        "timeZone" => [String.t() | atom()],
+        "totalEcpuCount" => [integer()],
+        "totalFileSystemStorage" => exadb_vm_cluster_storage_details(),
+        "vipIds" => list([String.t() | atom()]()),
+        "vmFileSystemStorage" => exadb_vm_cluster_storage_details()
+      }
+      
+  """
+  @type exadb_vm_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      exadb_vm_cluster_storage_details() :: %{
+        "totalSizeInGBs" => [integer()]
+      }
+      
+  """
+  @type exadb_vm_cluster_storage_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      exadb_vm_cluster_summary() :: %{
+        "clusterName" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "dataCollectionOptions" => data_collection_options(),
+        "displayName" => String.t() | atom(),
+        "domain" => [String.t() | atom()],
+        "enabledEcpuCount" => [integer()],
+        "exadbVmClusterArn" => String.t() | atom(),
+        "exadbVmClusterId" => String.t() | atom(),
+        "exascaleDbStorageVaultArn" => String.t() | atom(),
+        "exascaleDbStorageVaultId" => String.t() | atom(),
+        "giVersion" => [String.t() | atom()],
+        "gridImageId" => [String.t() | atom()],
+        "gridImageType" => list(any()),
+        "hostname" => String.t() | atom(),
+        "iamRoles" => list(iam_role()),
+        "iormConfigCache" => exadata_iorm_config(),
+        "lastUpdateHistoryEntryId" => [String.t() | atom()],
+        "licenseModel" => list(any()),
+        "listenerPort" => [integer()],
+        "memorySizeInGBs" => [integer()],
+        "nodeCount" => [integer()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociUrl" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "odbNetworkArn" => String.t() | atom(),
+        "odbNetworkId" => String.t() | atom(),
+        "percentProgress" => [float()],
+        "scanDnsName" => [String.t() | atom()],
+        "scanDnsRecordId" => [String.t() | atom()],
+        "scanIpIds" => list([String.t() | atom()]()),
+        "scanListenerPortTcp" => [integer()],
+        "scanListenerPortTcpSsl" => [integer()],
+        "shape" => [String.t() | atom()],
+        "shapeAttribute" => list(any()),
+        "snapshotFileSystemStorage" => exadb_vm_cluster_storage_details(),
+        "sshPublicKeys" => list([String.t() | atom()]()),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "systemVersion" => [String.t() | atom()],
+        "timeZone" => [String.t() | atom()],
+        "totalEcpuCount" => [integer()],
+        "totalFileSystemStorage" => exadb_vm_cluster_storage_details(),
+        "vipIds" => list([String.t() | atom()]()),
+        "vmFileSystemStorage" => exadb_vm_cluster_storage_details()
+      }
+      
+  """
+  @type exadb_vm_cluster_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      exascale_db_storage_details() :: %{
+        "availableSizeInGBs" => [integer()],
+        "totalSizeInGBs" => [integer()]
+      }
+      
+  """
+  @type exascale_db_storage_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      exascale_db_storage_vault() :: %{
+        "additionalFlashCacheInPercent" => [integer()],
+        "attachedShapeAttributes" => list(list(any())()),
+        "autoscaleLimitInGBs" => [integer()],
+        "availabilityZone" => [String.t() | atom()],
+        "availabilityZoneId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "exascaleDbStorageVaultArn" => String.t() | atom(),
+        "exascaleDbStorageVaultId" => String.t() | atom(),
+        "highCapacityDatabaseStorage" => exascale_db_storage_details(),
+        "isAutoscaleEnabled" => [boolean()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociUrl" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "percentProgress" => [float()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "timeZone" => [String.t() | atom()],
+        "vmClusterArns" => list(String.t() | atom()),
+        "vmClusterCount" => [integer()],
+        "vmClusterIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type exascale_db_storage_vault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      exascale_db_storage_vault_summary() :: %{
+        "additionalFlashCacheInPercent" => [integer()],
+        "attachedShapeAttributes" => list(list(any())()),
+        "autoscaleLimitInGBs" => [integer()],
+        "availabilityZone" => [String.t() | atom()],
+        "availabilityZoneId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "exascaleDbStorageVaultArn" => String.t() | atom(),
+        "exascaleDbStorageVaultId" => String.t() | atom(),
+        "highCapacityDatabaseStorage" => exascale_db_storage_details(),
+        "isAutoscaleEnabled" => [boolean()],
+        "ociResourceAnchorName" => [String.t() | atom()],
+        "ociUrl" => [String.t() | atom()],
+        "ocid" => [String.t() | atom()],
+        "percentProgress" => [float()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "timeZone" => [String.t() | atom()],
+        "vmClusterArns" => list(String.t() | atom()),
+        "vmClusterCount" => [integer()],
+        "vmClusterIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type exascale_db_storage_vault_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1951,10 +2327,13 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      get_db_node_input() :: %{}
+      get_db_node_input() :: %{
+        optional("cloudVmClusterId") => String.t() | atom(),
+        optional("exadbVmClusterId") => String.t() | atom()
+      }
       
   """
-  @type get_db_node_input() :: %{}
+  @type get_db_node_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1986,6 +2365,50 @@ defmodule AWS.Odb do
       
   """
   @type get_db_server_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_exadb_vm_cluster_input() :: %{
+        required("exadbVmClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type get_exadb_vm_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_exadb_vm_cluster_output() :: %{
+        "exadbVmCluster" => exadb_vm_cluster()
+      }
+      
+  """
+  @type get_exadb_vm_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_exascale_db_storage_vault_input() :: %{
+        required("exascaleDbStorageVaultId") => String.t() | atom()
+      }
+      
+  """
+  @type get_exascale_db_storage_vault_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_exascale_db_storage_vault_output() :: %{
+        "exascaleDbStorageVault" => exascale_db_storage_vault()
+      }
+      
+  """
+  @type get_exascale_db_storage_vault_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2053,6 +2476,18 @@ defmodule AWS.Odb do
       
   """
   @type get_odb_peering_connection_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gi_minor_version_summary() :: %{
+        "gridImageId" => [String.t() | atom()],
+        "version" => [String.t() | atom()]
+      }
+      
+  """
+  @type gi_minor_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2377,6 +2812,8 @@ defmodule AWS.Odb do
   ## Example:
       
       list_db_nodes_input() :: %{
+        optional("cloudVmClusterId") => String.t() | atom(),
+        optional("exadbVmClusterId") => String.t() | atom(),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()]
       }
@@ -2428,7 +2865,8 @@ defmodule AWS.Odb do
         optional("availabilityZone") => [String.t() | atom()],
         optional("availabilityZoneId") => [String.t() | atom()],
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
+        optional("nextToken") => [String.t() | atom()],
+        optional("shapeFamily") => [String.t() | atom()]
       }
       
   """
@@ -2445,6 +2883,83 @@ defmodule AWS.Odb do
       
   """
   @type list_db_system_shapes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_exadb_vm_clusters_input() :: %{
+        optional("exascaleDbStorageVaultId") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_exadb_vm_clusters_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_exadb_vm_clusters_output() :: %{
+        "exadbVmClusters" => list(exadb_vm_cluster_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_exadb_vm_clusters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_exascale_db_storage_vaults_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_exascale_db_storage_vaults_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_exascale_db_storage_vaults_output() :: %{
+        "exascaleDbStorageVaults" => list(exascale_db_storage_vault_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_exascale_db_storage_vaults_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_gi_minor_versions_input() :: %{
+        optional("availabilityZone") => [String.t() | atom()],
+        optional("availabilityZoneId") => [String.t() | atom()],
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("shapeFamily") => [String.t() | atom()],
+        required("giVersion") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_gi_minor_versions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_gi_minor_versions_output() :: %{
+        "giMinorVersions" => list(gi_minor_version_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_gi_minor_versions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2865,10 +3380,13 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      reboot_db_node_input() :: %{}
+      reboot_db_node_input() :: %{
+        optional("cloudVmClusterId") => String.t() | atom(),
+        optional("exadbVmClusterId") => String.t() | atom()
+      }
       
   """
-  @type reboot_db_node_input() :: %{}
+  @type reboot_db_node_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3058,10 +3576,13 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      start_db_node_input() :: %{}
+      start_db_node_input() :: %{
+        optional("cloudVmClusterId") => String.t() | atom(),
+        optional("exadbVmClusterId") => String.t() | atom()
+      }
       
   """
-  @type start_db_node_input() :: %{}
+  @type start_db_node_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3105,10 +3626,13 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      stop_db_node_input() :: %{}
+      stop_db_node_input() :: %{
+        optional("cloudVmClusterId") => String.t() | atom(),
+        optional("exadbVmClusterId") => String.t() | atom()
+      }
       
   """
-  @type stop_db_node_input() :: %{}
+  @type stop_db_node_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3374,6 +3898,72 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      update_exadb_vm_cluster_input() :: %{
+        optional("dataCollectionOptions") => data_collection_options(),
+        optional("displayName") => String.t() | atom(),
+        optional("enabledEcpuCount") => [integer()],
+        optional("gridImageId") => [String.t() | atom()],
+        optional("licenseModel") => list(any()),
+        optional("sshPublicKeys") => list([String.t() | atom()]()),
+        optional("systemVersion") => [String.t() | atom()],
+        optional("totalEcpuCount") => [integer()],
+        optional("updateAction") => list(any()),
+        optional("vmFileSystemStorageTotalSizeInGBs") => [integer()],
+        required("exadbVmClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type update_exadb_vm_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_exadb_vm_cluster_output() :: %{
+        "displayName" => [String.t() | atom()],
+        "exadbVmClusterId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_exadb_vm_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_exascale_db_storage_vault_input() :: %{
+        optional("additionalFlashCacheInPercent") => [integer()],
+        optional("autoscaleLimitInGBs") => [integer()],
+        optional("description") => [String.t() | atom()],
+        optional("displayName") => String.t() | atom(),
+        optional("highCapacityDatabaseStorageTotalSizeInGBs") => [integer()],
+        optional("isAutoscaleEnabled") => [boolean()],
+        required("exascaleDbStorageVaultId") => String.t() | atom()
+      }
+      
+  """
+  @type update_exascale_db_storage_vault_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_exascale_db_storage_vault_output() :: %{
+        "displayName" => [String.t() | atom()],
+        "exascaleDbStorageVaultId" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_exascale_db_storage_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_odb_network_input() :: %{
         optional("crossRegionS3RestoreSourcesToDisable") => list([String.t() | atom()]()),
         optional("crossRegionS3RestoreSourcesToEnable") => list([String.t() | atom()]()),
@@ -3497,6 +4087,15 @@ defmodule AWS.Odb do
           | conflict_exception()
           | access_denied_exception()
 
+  @type associate_virtual_machines_to_exadb_vm_cluster_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_autonomous_database_errors() ::
           validation_exception()
           | throttling_exception()
@@ -3544,6 +4143,23 @@ defmodule AWS.Odb do
           | throttling_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_exadb_vm_cluster_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_exascale_db_storage_vault_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -3602,6 +4218,22 @@ defmodule AWS.Odb do
           | conflict_exception()
           | access_denied_exception()
 
+  @type delete_exadb_vm_cluster_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_exascale_db_storage_vault_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type delete_odb_network_errors() ::
           validation_exception()
           | throttling_exception()
@@ -3617,6 +4249,14 @@ defmodule AWS.Odb do
           | access_denied_exception()
 
   @type disassociate_iam_role_from_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type disassociate_virtual_machines_from_exadb_vm_cluster_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -3689,6 +4329,20 @@ defmodule AWS.Odb do
           | access_denied_exception()
 
   @type get_db_server_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_exadb_vm_cluster_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_exascale_db_storage_vault_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -3802,6 +4456,25 @@ defmodule AWS.Odb do
           | access_denied_exception()
 
   @type list_db_system_shapes_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_exadb_vm_clusters_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_exascale_db_storage_vaults_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_gi_minor_versions_errors() ::
           validation_exception()
           | throttling_exception()
           | internal_server_exception()
@@ -3933,6 +4606,22 @@ defmodule AWS.Odb do
           | conflict_exception()
           | access_denied_exception()
 
+  @type update_exadb_vm_cluster_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_exascale_db_storage_vault_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_odb_network_errors() ::
           validation_exception()
           | throttling_exception()
@@ -3996,6 +4685,25 @@ defmodule AWS.Odb do
       metadata()
 
     Request.request_post(client, meta, "AssociateIamRoleToResource", input, options)
+  end
+
+  @doc """
+  Adds virtual machines to the specified Exascale VM cluster.
+  """
+  @spec associate_virtual_machines_to_exadb_vm_cluster(
+          map(),
+          associate_virtual_machines_to_exadb_vm_cluster_input(),
+          list()
+        ) ::
+          {:ok, associate_virtual_machines_to_exadb_vm_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_virtual_machines_to_exadb_vm_cluster_errors()}
+  def associate_virtual_machines_to_exadb_vm_cluster(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AssociateVirtualMachinesToExadbVmCluster", input, options)
   end
 
   @doc """
@@ -4102,6 +4810,36 @@ defmodule AWS.Odb do
       metadata()
 
     Request.request_post(client, meta, "CreateCloudVmCluster", input, options)
+  end
+
+  @doc """
+  Creates an Exascale VM cluster.
+  """
+  @spec create_exadb_vm_cluster(map(), create_exadb_vm_cluster_input(), list()) ::
+          {:ok, create_exadb_vm_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_exadb_vm_cluster_errors()}
+  def create_exadb_vm_cluster(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateExadbVmCluster", input, options)
+  end
+
+  @doc """
+  Creates an Exascale storage vault.
+  """
+  @spec create_exascale_db_storage_vault(map(), create_exascale_db_storage_vault_input(), list()) ::
+          {:ok, create_exascale_db_storage_vault_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_exascale_db_storage_vault_errors()}
+  def create_exascale_db_storage_vault(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateExascaleDbStorageVault", input, options)
   end
 
   @doc """
@@ -4228,6 +4966,36 @@ defmodule AWS.Odb do
   end
 
   @doc """
+  Deletes the specified Exascale VM cluster.
+  """
+  @spec delete_exadb_vm_cluster(map(), delete_exadb_vm_cluster_input(), list()) ::
+          {:ok, delete_exadb_vm_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_exadb_vm_cluster_errors()}
+  def delete_exadb_vm_cluster(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteExadbVmCluster", input, options)
+  end
+
+  @doc """
+  Deletes the specified Exascale storage vault.
+  """
+  @spec delete_exascale_db_storage_vault(map(), delete_exascale_db_storage_vault_input(), list()) ::
+          {:ok, delete_exascale_db_storage_vault_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_exascale_db_storage_vault_errors()}
+  def delete_exascale_db_storage_vault(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteExascaleDbStorageVault", input, options)
+  end
+
+  @doc """
   Deletes the specified ODB network.
   """
   @spec delete_odb_network(map(), delete_odb_network_input(), list()) ::
@@ -4279,6 +5047,35 @@ defmodule AWS.Odb do
       metadata()
 
     Request.request_post(client, meta, "DisassociateIamRoleFromResource", input, options)
+  end
+
+  @doc """
+  Removes virtual machines from the specified Exascale VM cluster.
+  """
+  @spec disassociate_virtual_machines_from_exadb_vm_cluster(
+          map(),
+          disassociate_virtual_machines_from_exadb_vm_cluster_input(),
+          list()
+        ) ::
+          {:ok, disassociate_virtual_machines_from_exadb_vm_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_virtual_machines_from_exadb_vm_cluster_errors()}
+  def disassociate_virtual_machines_from_exadb_vm_cluster(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DisassociateVirtualMachinesFromExadbVmCluster",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -4449,6 +5246,36 @@ defmodule AWS.Odb do
       metadata()
 
     Request.request_post(client, meta, "GetDbServer", input, options)
+  end
+
+  @doc """
+  Returns information about the specified Exascale VM cluster.
+  """
+  @spec get_exadb_vm_cluster(map(), get_exadb_vm_cluster_input(), list()) ::
+          {:ok, get_exadb_vm_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_exadb_vm_cluster_errors()}
+  def get_exadb_vm_cluster(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetExadbVmCluster", input, options)
+  end
+
+  @doc """
+  Returns information about the specified Exascale storage vault.
+  """
+  @spec get_exascale_db_storage_vault(map(), get_exascale_db_storage_vault_input(), list()) ::
+          {:ok, get_exascale_db_storage_vault_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_exascale_db_storage_vault_errors()}
+  def get_exascale_db_storage_vault(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetExascaleDbStorageVault", input, options)
   end
 
   @doc """
@@ -4726,6 +5553,54 @@ defmodule AWS.Odb do
       metadata()
 
     Request.request_post(client, meta, "ListDbSystemShapes", input, options)
+  end
+
+  @doc """
+  Returns information about the Exascale VM clusters owned by your Amazon Web
+  Services account.
+  """
+  @spec list_exadb_vm_clusters(map(), list_exadb_vm_clusters_input(), list()) ::
+          {:ok, list_exadb_vm_clusters_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_exadb_vm_clusters_errors()}
+  def list_exadb_vm_clusters(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListExadbVmClusters", input, options)
+  end
+
+  @doc """
+  Returns information about the Exascale storage vaults owned by your Amazon Web
+  Services account.
+  """
+  @spec list_exascale_db_storage_vaults(map(), list_exascale_db_storage_vaults_input(), list()) ::
+          {:ok, list_exascale_db_storage_vaults_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_exascale_db_storage_vaults_errors()}
+  def list_exascale_db_storage_vaults(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListExascaleDbStorageVaults", input, options)
+  end
+
+  @doc """
+  Returns a list of the Oracle Grid Infrastructure (GI) minor versions for the
+  specified major version.
+  """
+  @spec list_gi_minor_versions(map(), list_gi_minor_versions_input(), list()) ::
+          {:ok, list_gi_minor_versions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_gi_minor_versions_errors()}
+  def list_gi_minor_versions(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListGiMinorVersions", input, options)
   end
 
   @doc """
@@ -5025,6 +5900,36 @@ defmodule AWS.Odb do
       metadata()
 
     Request.request_post(client, meta, "UpdateCloudExadataInfrastructure", input, options)
+  end
+
+  @doc """
+  Updates the specified Exascale VM cluster.
+  """
+  @spec update_exadb_vm_cluster(map(), update_exadb_vm_cluster_input(), list()) ::
+          {:ok, update_exadb_vm_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_exadb_vm_cluster_errors()}
+  def update_exadb_vm_cluster(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateExadbVmCluster", input, options)
+  end
+
+  @doc """
+  Updates the specified Exascale storage vault.
+  """
+  @spec update_exascale_db_storage_vault(map(), update_exascale_db_storage_vault_input(), list()) ::
+          {:ok, update_exascale_db_storage_vault_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_exascale_db_storage_vault_errors()}
+  def update_exascale_db_storage_vault(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateExascaleDbStorageVault", input, options)
   end
 
   @doc """

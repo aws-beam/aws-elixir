@@ -170,6 +170,30 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      acquire_role_request() :: %{
+        optional("ReplacementValues") => map(),
+        optional("TemplateMinorVersion") => integer(),
+        required("TemplateArn") => String.t() | atom()
+      }
+      
+  """
+  @type acquire_role_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acquire_role_response() :: %{
+        "Role" => role()
+      }
+      
+  """
+  @type acquire_role_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       add_client_id_to_open_id_connect_provider_request() :: %{
         required("ClientID") => String.t() | atom(),
         required("OpenIDConnectProviderArn") => String.t() | atom()
@@ -1452,6 +1476,26 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      get_account_properties_request() :: %{}
+      
+  """
+  @type get_account_properties_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_properties_response() :: %{
+        "Properties" => map()
+      }
+      
+  """
+  @type get_account_properties_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_account_summary_response() :: %{
         "SummaryMap" => map()
       }
@@ -1845,6 +1889,29 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      get_role_template_version_request() :: %{
+        optional("MinorVersion") => integer(),
+        required("TemplateArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_role_template_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_role_template_version_response() :: %{
+        "RoleTemplateVersion" => role_template_version()
+      }
+      
+  """
+  @type get_role_template_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_saml_provider_request() :: %{
         required("SAMLProviderArn") => String.t() | atom()
       }
@@ -2082,6 +2149,18 @@ defmodule AWS.IAM do
       
   """
   @type group_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inline_policy() :: %{
+        "PolicyDocument" => String.t() | atom(),
+        "PolicyName" => String.t() | atom()
+      }
+      
+  """
+  @type inline_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3207,6 +3286,17 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      name_conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type name_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       no_such_entity_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -3279,6 +3369,23 @@ defmodule AWS.IAM do
       
   """
   @type organizations_decision_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_definition() :: %{
+        "DefaultValue" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Immutable" => boolean(),
+        "IsRequired" => boolean(),
+        "Name" => String.t() | atom(),
+        "SubType" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type parameter_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3472,6 +3579,26 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      put_account_properties_request() :: %{
+        required("Properties") => map()
+      }
+      
+  """
+  @type put_account_properties_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_account_properties_response() :: %{}
+      
+  """
+  @type put_account_properties_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       put_group_policy_request() :: %{
         required("GroupName") => String.t() | atom(),
         required("PolicyDocument") => String.t() | atom(),
@@ -3585,6 +3712,17 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      replacement_value_entry() :: %{
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type replacement_value_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       report_generation_limit_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -3660,6 +3798,7 @@ defmodule AWS.IAM do
         "RoleId" => String.t() | atom(),
         "RoleLastUsed" => role_last_used(),
         "RoleName" => String.t() | atom(),
+        "SourceRoleTemplate" => source_role_template(),
         "Tags" => list(tag())
       }
       
@@ -3699,6 +3838,61 @@ defmodule AWS.IAM do
       
   """
   @type role_last_used() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      role_modified_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type role_modified_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      role_template_disabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type role_template_disabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      role_template_version() :: %{
+        "AssumeRolePolicyDocumentTemplate" => String.t() | atom(),
+        "CreateTimestamp" => non_neg_integer(),
+        "DefaultMinorVersion" => integer(),
+        "Description" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "InlinePolicyTemplates" => list(inline_policy()),
+        "MajorVersion" => integer(),
+        "ManagedByType" => list(any()),
+        "ManagedByValue" => String.t() | atom(),
+        "ManagedPolicyArns" => list(String.t() | atom()),
+        "MaxSessionDuration" => integer(),
+        "MinorVersion" => integer(),
+        "ParametersDefinition" => list(parameter_definition()),
+        "PermissionBoundaryArn" => String.t() | atom(),
+        "RoleDescriptionPattern" => String.t() | atom(),
+        "RoleNamePattern" => String.t() | atom(),
+        "RolePathPattern" => String.t() | atom(),
+        "RoleTagsTemplate" => list(tag_template()),
+        "TemplateArn" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateVersionId" => String.t() | atom(),
+        "UpdateTimestamp" => non_neg_integer(),
+        "VersionEnabled" => boolean()
+      }
+      
+  """
+  @type role_template_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3966,6 +4160,18 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      source_role_template() :: %{
+        "TemplateArn" => String.t() | atom(),
+        "TemplateMinorVersion" => integer()
+      }
+      
+  """
+  @type source_role_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ssh_public_key() :: %{
         "Fingerprint" => String.t() | atom(),
         "SSHPublicKeyBody" => String.t() | atom(),
@@ -4101,6 +4307,18 @@ defmodule AWS.IAM do
       
   """
   @type tag_server_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_template() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4609,6 +4827,18 @@ defmodule AWS.IAM do
           | no_such_entity_exception()
           | concurrent_modification_exception()
 
+  @type acquire_role_errors() ::
+          service_failure_exception()
+          | role_template_disabled_exception()
+          | role_modified_exception()
+          | no_such_entity_exception()
+          | name_conflict_exception()
+          | malformed_policy_document_exception()
+          | limit_exceeded_exception()
+          | invalid_input_exception()
+          | entity_already_exists_exception()
+          | concurrent_modification_exception()
+
   @type add_client_id_to_open_id_connect_provider_errors() ::
           service_failure_exception()
           | no_such_entity_exception()
@@ -4955,6 +5185,8 @@ defmodule AWS.IAM do
   @type get_account_password_policy_errors() ::
           service_failure_exception() | no_such_entity_exception()
 
+  @type get_account_properties_errors() :: service_failure_exception() | invalid_input_exception()
+
   @type get_account_summary_errors() :: service_failure_exception()
 
   @type get_context_keys_for_custom_policy_errors() :: invalid_input_exception()
@@ -5000,6 +5232,9 @@ defmodule AWS.IAM do
   @type get_role_errors() :: service_failure_exception() | no_such_entity_exception()
 
   @type get_role_policy_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type get_role_template_version_errors() ::
+          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
 
   @type get_saml_provider_errors() ::
           service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
@@ -5112,6 +5347,11 @@ defmodule AWS.IAM do
   @type list_user_tags_errors() :: service_failure_exception() | no_such_entity_exception()
 
   @type list_users_errors() :: service_failure_exception()
+
+  @type put_account_properties_errors() ::
+          service_failure_exception()
+          | invalid_input_exception()
+          | concurrent_modification_exception()
 
   @type put_group_policy_errors() ::
           service_failure_exception()
@@ -5450,6 +5690,32 @@ defmodule AWS.IAM do
       metadata()
 
     Request.request_post(client, meta, "AcceptDelegationRequest", input, options)
+  end
+
+  @doc """
+  Creates an IAM role from the specified role template.
+
+  The new role takes its
+  configuration—including its name, path, trust policy, inline and managed
+  policies,
+  permissions boundary, tags, and maximum session duration—from the role
+  template version that you specify. For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the
+  *IAM User Guide*.
+
+  If the template version defines parameters, use the `ReplacementValues`
+  parameter to supply the values that the service substitutes into the role during
+  creation.
+  """
+  @spec acquire_role(map(), acquire_role_request(), list()) ::
+          {:ok, acquire_role_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, acquire_role_errors()}
+  def acquire_role(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AcquireRole", input, options)
   end
 
   @doc """
@@ -7521,6 +7787,33 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Retrieves the account-level properties for the caller's Amazon Web Services
+  account.
+
+  Account
+  properties are configuration settings that control account-wide IAM features
+  such as
+  Role Manager.
+
+  The service returns properties as key-value pairs in
+  `Namespace/PropertyName` format. Each namespace groups related
+  configuration settings. Use
+  [PutAccountProperties](https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutAccountProperties.html)
+  to modify these properties.
+  """
+  @spec get_account_properties(map(), get_account_properties_request(), list()) ::
+          {:ok, get_account_properties_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_account_properties_errors()}
+  def get_account_properties(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetAccountProperties", input, options)
+  end
+
+  @doc """
   Retrieves information about IAM entity usage and IAM quotas in the Amazon Web
   Services
   account.
@@ -8072,6 +8365,32 @@ defmodule AWS.IAM do
       metadata()
 
     Request.request_post(client, meta, "GetRolePolicy", input, options)
+  end
+
+  @doc """
+  Retrieves information about a version of the specified role template.
+
+  Role templates
+  define a reusable configuration—including role name and path patterns, trust
+  policy, inline and managed policies, permissions boundary, tags, and maximum
+  session
+  duration—that you use to create IAM roles with
+  [AcquireRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html).
+
+  If you do not specify a minor version, the service returns the template's
+  default
+  minor version.
+  """
+  @spec get_role_template_version(map(), get_role_template_version_request(), list()) ::
+          {:ok, get_role_template_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_role_template_version_errors()}
+  def get_role_template_version(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetRoleTemplateVersion", input, options)
   end
 
   @doc """
@@ -9375,6 +9694,31 @@ defmodule AWS.IAM do
       metadata()
 
     Request.request_post(client, meta, "ListVirtualMFADevices", input, options)
+  end
+
+  @doc """
+  Sets account-level properties for the caller's Amazon Web Services account.
+
+  Account properties are
+  configuration settings that control account-wide IAM features such as Role
+  Manager.
+
+  Specify properties as key-value pairs in
+  `Namespace/PropertyName` format. All properties in a single request must
+  belong to the same namespace. Use
+  [GetAccountProperties](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountProperties.html)
+  to view the current properties.
+  """
+  @spec put_account_properties(map(), put_account_properties_request(), list()) ::
+          {:ok, put_account_properties_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_account_properties_errors()}
+  def put_account_properties(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutAccountProperties", input, options)
   end
 
   @doc """

@@ -809,6 +809,7 @@ defmodule AWS.MediaConnect do
       create_router_output_request() :: %{
         optional("AvailabilityZone") => [String.t() | atom()],
         optional("ClientToken") => String.t() | atom(),
+        optional("FabricConfiguration") => fabric_configuration(),
         optional("MaintenanceConfiguration") => list(),
         optional("RegionName") => [String.t() | atom()],
         optional("Tags") => map(),
@@ -1267,6 +1268,17 @@ defmodule AWS.MediaConnect do
 
   """
   @type entitlement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fabric_configuration() :: %{
+        "RecoveryLatencyMode" => list(any())
+      }
+
+  """
+  @type fabric_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3052,6 +3064,7 @@ defmodule AWS.MediaConnect do
         "AvailabilityZone" => [String.t() | atom()],
         "Configuration" => list(),
         "CreatedAt" => [non_neg_integer()],
+        "FabricConfiguration" => fabric_configuration(),
         "Id" => [String.t() | atom()],
         "IpAddress" => [String.t() | atom()],
         "MaintenanceConfiguration" => list(),
@@ -4147,6 +4160,7 @@ defmodule AWS.MediaConnect do
 
       update_router_output_request() :: %{
         optional("Configuration") => list(),
+        optional("FabricConfiguration") => fabric_configuration(),
         optional("MaintenanceConfiguration") => list(),
         optional("MaximumBitrate") => [float()],
         optional("Name") => [String.t() | atom()],

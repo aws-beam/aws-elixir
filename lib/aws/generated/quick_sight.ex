@@ -651,6 +651,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      applicable_to() :: %{
+        "GroupArns" => list(String.t() | atom()),
+        "Type" => list(any())
+      }
+
+  """
+  @type applicable_to() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       application_theme() :: %{
         "BrandColorPalette" => brand_color_palette(),
         "BrandElementStyle" => brand_element_style(),
@@ -659,6 +671,26 @@ defmodule AWS.QuickSight do
 
   """
   @type application_theme() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      approval_policy() :: %{
+        "Actions" => list(list(any())()),
+        "ApplicableTo" => applicable_to(),
+        "ApprovalGroups" => list(String.t() | atom()),
+        "AssetTypes" => list(list(any())()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PolicyArn" => String.t() | atom(),
+        "PolicyId" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type approval_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -720,6 +752,7 @@ defmodule AWS.QuickSight do
         "RefreshSchedules" => list(asset_bundle_export_job_refresh_schedule_override_properties()),
         "ResourceIdOverrideConfiguration" => asset_bundle_export_job_resource_id_override_configuration(),
         "Themes" => list(asset_bundle_export_job_theme_override_properties()),
+        "TopicsV2" => list(asset_bundle_export_job_topic_v2_override_properties()),
         "VPCConnections" => list(asset_bundle_export_job_vpc_connection_override_properties())
       }
 
@@ -865,6 +898,20 @@ defmodule AWS.QuickSight do
 
   """
   @type asset_bundle_export_job_theme_override_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_bundle_export_job_topic_v2_override_properties() :: %{
+        "Arn" => String.t() | atom(),
+        "Properties" => list(list(any())())
+      }
+
+  """
+  @type asset_bundle_export_job_topic_v2_override_properties() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1156,6 +1203,7 @@ defmodule AWS.QuickSight do
         "RefreshSchedules" => list(asset_bundle_import_job_refresh_schedule_override_parameters()),
         "ResourceIdOverrideConfiguration" => asset_bundle_import_job_resource_id_override_configuration(),
         "Themes" => list(asset_bundle_import_job_theme_override_parameters()),
+        "TopicsV2" => list(asset_bundle_import_job_topic_v2_override_parameters()),
         "VPCConnections" => list(asset_bundle_import_job_vpc_connection_override_parameters())
       }
 
@@ -1172,7 +1220,8 @@ defmodule AWS.QuickSight do
         "DataSets" => list(asset_bundle_import_job_data_set_override_permissions()),
         "DataSources" => list(asset_bundle_import_job_data_source_override_permissions()),
         "Folders" => list(asset_bundle_import_job_folder_override_permissions()),
-        "Themes" => list(asset_bundle_import_job_theme_override_permissions())
+        "Themes" => list(asset_bundle_import_job_theme_override_permissions()),
+        "TopicsV2" => list(asset_bundle_import_job_topic_v2_override_permissions())
       }
 
   """
@@ -1189,6 +1238,7 @@ defmodule AWS.QuickSight do
         "DataSources" => list(asset_bundle_import_job_data_source_override_tags()),
         "Folders" => list(asset_bundle_import_job_folder_override_tags()),
         "Themes" => list(asset_bundle_import_job_theme_override_tags()),
+        "TopicsV2" => list(asset_bundle_import_job_topic_v2_override_tags()),
         "VPCConnections" => list(asset_bundle_import_job_vpc_connection_override_tags())
       }
 
@@ -1286,6 +1336,47 @@ defmodule AWS.QuickSight do
 
   """
   @type asset_bundle_import_job_theme_override_tags() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_bundle_import_job_topic_v2_override_parameters() :: %{
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "TopicId" => String.t() | atom()
+      }
+
+  """
+  @type asset_bundle_import_job_topic_v2_override_parameters() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      asset_bundle_import_job_topic_v2_override_permissions() :: %{
+        "Permissions" => asset_bundle_resource_permissions(),
+        "TopicIds" => list(String.t() | atom())
+      }
+
+  """
+  @type asset_bundle_import_job_topic_v2_override_permissions() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      asset_bundle_import_job_topic_v2_override_tags() :: %{
+        "Tags" => list(tag()),
+        "TopicIds" => list(String.t() | atom())
+      }
+
+  """
+  @type asset_bundle_import_job_topic_v2_override_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1892,6 +1983,45 @@ defmodule AWS.QuickSight do
 
   """
   @type batch_delete_topic_reviewed_answer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_describe_user_limits_error() :: %{
+        "errorCode" => [String.t() | atom()],
+        "message" => [String.t() | atom()],
+        "namespace" => [String.t() | atom()],
+        "userArn" => [String.t() | atom()],
+        "userName" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_describe_user_limits_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_describe_user_limits_request() :: %{
+        optional("resourceTypes") => list(list(any())()),
+        optional("users") => list(user_limits_entry())
+      }
+
+  """
+  @type batch_describe_user_limits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_describe_user_limits_response() :: %{
+        "errors" => list(batch_describe_user_limits_error()),
+        "userLimits" => list(user_limits())
+      }
+
+  """
+  @type batch_describe_user_limits_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3634,6 +3764,34 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      create_approval_policy_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("Actions") => list(list(any())()),
+        required("ApplicableTo") => applicable_to(),
+        required("ApprovalGroups") => list(String.t() | atom()),
+        required("AssetTypes") => list(list(any())()),
+        required("Name") => String.t() | atom(),
+        required("PolicyId") => String.t() | atom()
+      }
+
+  """
+  @type create_approval_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_approval_policy_response() :: %{
+        "Policy" => approval_policy()
+      }
+
+  """
+  @type create_approval_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_brand_request() :: %{
         optional("BrandDefinition") => brand_definition(),
         optional("Tags") => list(tag())
@@ -3813,6 +3971,35 @@ defmodule AWS.QuickSight do
 
   """
   @type create_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dlp_setting_request() :: %{
+        optional("Tags") => list(tag()),
+        required("Enabled") => boolean(),
+        required("Name") => String.t() | atom(),
+        required("ProviderConfig") => list(),
+        required("ProviderOutageAction") => list(any()),
+        required("ProviderType") => list(any())
+      }
+
+  """
+  @type create_dlp_setting_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dlp_setting_response() :: %{
+        "Arn" => String.t() | atom(),
+        "DlpSettingId" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type create_dlp_setting_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4033,6 +4220,32 @@ defmodule AWS.QuickSight do
 
   """
   @type create_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_limits_profile_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("clientToken") => String.t() | atom(),
+        required("profileName") => String.t() | atom(),
+        required("resourceLimits") => map()
+      }
+
+  """
+  @type create_limits_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_limits_profile_response() :: %{
+        "arn" => String.t() | atom(),
+        "profileId" => String.t() | atom()
+      }
+
+  """
+  @type create_limits_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6346,6 +6559,24 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_approval_policy_request() :: %{}
+
+  """
+  @type delete_approval_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_approval_policy_response() :: %{}
+
+  """
+  @type delete_approval_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_brand_assignment_request() :: %{}
 
   """
@@ -6523,6 +6754,28 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_dlp_setting_request() :: %{}
+
+  """
+  @type delete_dlp_setting_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dlp_setting_response() :: %{
+        "Arn" => String.t() | atom(),
+        "DlpSettingId" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_dlp_setting_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_flow_request() :: %{}
 
   """
@@ -6691,6 +6944,26 @@ defmodule AWS.QuickSight do
 
   """
   @type delete_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_limits_profile_request() :: %{}
+
+  """
+  @type delete_limits_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_limits_profile_response() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type delete_limits_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7340,6 +7613,26 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_approval_policy_request() :: %{}
+
+  """
+  @type describe_approval_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_approval_policy_response() :: %{
+        "Policy" => approval_policy()
+      }
+
+  """
+  @type describe_approval_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_asset_bundle_export_job_request() :: %{}
 
   """
@@ -7830,6 +8123,27 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_dlp_setting_request() :: %{}
+
+  """
+  @type describe_dlp_setting_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dlp_setting_response() :: %{
+        "DlpSetting" => dlp_setting_details(),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type describe_dlp_setting_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_flow_request() :: %{
         required("PublishState") => list(any())
       }
@@ -8115,6 +8429,26 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_limits_profile_request() :: %{}
+
+  """
+  @type describe_limits_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_limits_profile_response() :: %{
+        "profile" => limits_profile()
+      }
+
+  """
+  @type describe_limits_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8760,6 +9094,42 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      dlp_setting_details() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "DlpSettingId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProviderConfig" => list(),
+        "ProviderOutageAction" => list(any()),
+        "ProviderType" => list(any()),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type dlp_setting_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dlp_setting_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "DlpSettingId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProviderType" => list(any()),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type dlp_setting_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       domain_not_whitelisted_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
@@ -8829,6 +9199,21 @@ defmodule AWS.QuickSight do
 
   """
   @type dynamic_default_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      effective_limit() :: %{
+        "limitUnit" => list(any()),
+        "limitValue" => float(),
+        "profileId" => String.t() | atom(),
+        "resourceType" => list(any()),
+        "source" => list(any())
+      }
+
+  """
+  @type effective_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12073,6 +12458,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      label_action_mapping() :: %{
+        "Action" => list(any()),
+        "LabelId" => String.t() | atom(),
+        "LabelName" => String.t() | atom()
+      }
+
+  """
+  @type label_action_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       label_options() :: %{
         "CustomLabel" => String.t() | atom(),
         "FontConfiguration" => font_configuration(),
@@ -12180,6 +12578,24 @@ defmodule AWS.QuickSight do
 
   """
   @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limits_profile() :: %{
+        "accountId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "profileName" => String.t() | atom(),
+        "resourceLimits" => map(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type limits_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12428,6 +12844,30 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_approval_policies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_approval_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_approval_policies_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Policies" => list(approval_policy())
+      }
+
+  """
+  @type list_approval_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_asset_bundle_export_jobs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -12665,6 +13105,31 @@ defmodule AWS.QuickSight do
 
   """
   @type list_data_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dlp_settings_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_dlp_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dlp_settings_response() :: %{
+        "DlpSettingSummaries" => list(dlp_setting_summary()),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type list_dlp_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12952,6 +13417,31 @@ defmodule AWS.QuickSight do
 
   """
   @type list_knowledge_bases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_limits_profiles_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()],
+        optional("resourceType") => list(any())
+      }
+
+  """
+  @type list_limits_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_limits_profiles_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "profiles" => list(limits_profile())
+      }
+
+  """
+  @type list_limits_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13763,6 +14253,30 @@ defmodule AWS.QuickSight do
 
   """
   @type metric_comparison_computation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      microsoft_purview_credentials() :: %{
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type microsoft_purview_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      microsoft_purview_provider_config() :: %{
+        "Credentials" => microsoft_purview_credentials(),
+        "LabelActionMappings" => list(label_action_mapping()),
+        "UnmappedAction" => list(any())
+      }
+
+  """
+  @type microsoft_purview_provider_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15193,6 +15707,18 @@ defmodule AWS.QuickSight do
 
   """
   @type presto_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_limit_value() :: %{
+        "maxValue" => float(),
+        "unit" => list(any())
+      }
+
+  """
+  @type profile_limit_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -20517,6 +21043,33 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_approval_policy_request() :: %{
+        optional("Actions") => list(list(any())()),
+        optional("ApplicableTo") => applicable_to(),
+        optional("ApprovalGroups") => list(String.t() | atom()),
+        optional("AssetTypes") => list(list(any())()),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_approval_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_approval_policy_response() :: %{
+        "Policy" => approval_policy()
+      }
+
+  """
+  @type update_approval_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_brand_assignment_request() :: %{
         required("BrandArn") => String.t() | atom()
       }
@@ -20894,6 +21447,34 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_dlp_setting_request() :: %{
+        optional("Enabled") => boolean(),
+        optional("Name") => String.t() | atom(),
+        optional("ProviderConfig") => list(),
+        optional("ProviderOutageAction") => list(any()),
+        optional("ProviderType") => list(any())
+      }
+
+  """
+  @type update_dlp_setting_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dlp_setting_response() :: %{
+        "Arn" => String.t() | atom(),
+        "DlpSettingId" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type update_dlp_setting_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_flow_permissions_input() :: %{
         optional("GrantPermissions") => list(permission()),
         optional("RevokePermissions") => list(permission())
@@ -21181,6 +21762,30 @@ defmodule AWS.QuickSight do
 
   """
   @type update_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_limits_profile_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("profileName") => String.t() | atom(),
+        optional("resourceLimits") => map()
+      }
+
+  """
+  @type update_limits_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_limits_profile_response() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type update_limits_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -21934,6 +22539,31 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      user_limits() :: %{
+        "effectiveLimits" => list(effective_limit()),
+        "namespace" => [String.t() | atom()],
+        "userName" => [String.t() | atom()]
+      }
+
+  """
+  @type user_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_limits_entry() :: %{
+        "namespace" => [String.t() | atom()],
+        "userName" => [String.t() | atom()]
+      }
+
+  """
+  @type user_limits_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_name_or_email_filter() :: %{
         "prefix" => String.t() | atom()
       }
@@ -22558,6 +23188,12 @@ defmodule AWS.QuickSight do
           | conflict_exception()
           | access_denied_exception()
 
+  @type batch_describe_user_limits_errors() ::
+          throttling_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type cancel_ingestion_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -22615,6 +23251,15 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | conflict_exception()
 
+  @type create_approval_policy_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_brand_errors() ::
           throttling_exception()
           | limit_exceeded_exception()
@@ -22665,6 +23310,15 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | internal_failure_exception()
           | customer_managed_key_unavailable_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_dlp_setting_errors() ::
+          throttling_exception()
+          | resource_exists_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
           | conflict_exception()
           | access_denied_exception()
 
@@ -22746,6 +23400,14 @@ defmodule AWS.QuickSight do
           | invalid_request_exception()
           | invalid_parameter_value_exception()
           | internal_failure_exception()
+          | access_denied_exception()
+
+  @type create_limits_profile_errors() ::
+          throttling_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_namespace_errors() ::
@@ -22928,6 +23590,13 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | conflict_exception()
 
+  @type delete_approval_policy_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type delete_brand_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -22991,6 +23660,13 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | internal_failure_exception()
           | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_dlp_setting_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
           | access_denied_exception()
 
   @type delete_flow_errors() ::
@@ -23059,6 +23735,14 @@ defmodule AWS.QuickSight do
           | precondition_not_met_exception()
           | limit_exceeded_exception()
           | invalid_request_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_limits_profile_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | internal_failure_exception()
           | conflict_exception()
@@ -23296,6 +23980,13 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | internal_failure_exception()
 
+  @type describe_approval_policy_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type describe_asset_bundle_export_job_errors() ::
           unsupported_user_edition_exception()
           | throttling_exception()
@@ -23439,6 +24130,13 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | access_denied_exception()
 
+  @type describe_dlp_setting_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type describe_flow_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -23535,6 +24233,13 @@ defmodule AWS.QuickSight do
           | precondition_not_met_exception()
           | limit_exceeded_exception()
           | invalid_request_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type describe_limits_profile_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | internal_failure_exception()
           | access_denied_exception()
@@ -23831,6 +24536,13 @@ defmodule AWS.QuickSight do
           | invalid_next_token_exception()
           | internal_failure_exception()
 
+  @type list_approval_policies_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type list_asset_bundle_export_jobs_errors() ::
           unsupported_user_edition_exception()
           | throttling_exception()
@@ -23885,6 +24597,12 @@ defmodule AWS.QuickSight do
           throttling_exception()
           | invalid_parameter_value_exception()
           | invalid_next_token_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type list_dlp_settings_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
           | internal_failure_exception()
           | access_denied_exception()
 
@@ -23978,6 +24696,12 @@ defmodule AWS.QuickSight do
           throttling_exception()
           | precondition_not_met_exception()
           | invalid_request_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type list_limits_profiles_errors() ::
+          throttling_exception()
           | invalid_parameter_value_exception()
           | internal_failure_exception()
           | access_denied_exception()
@@ -24460,6 +25184,14 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | access_denied_exception()
 
+  @type update_approval_policy_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_brand_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -24581,6 +25313,14 @@ defmodule AWS.QuickSight do
           | conflict_exception()
           | access_denied_exception()
 
+  @type update_dlp_setting_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_flow_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -24671,6 +25411,14 @@ defmodule AWS.QuickSight do
           | precondition_not_met_exception()
           | limit_exceeded_exception()
           | invalid_request_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_limits_profile_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | internal_failure_exception()
           | conflict_exception()
@@ -25054,6 +25802,42 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes the effective resource limits for one or more Amazon Quick Sight
+  users, including the limits that apply to each user based on their profile
+  assignments.
+  """
+  @spec batch_describe_user_limits(
+          map(),
+          String.t() | atom(),
+          batch_describe_user_limits_request(),
+          list()
+        ) ::
+          {:ok, batch_describe_user_limits_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_describe_user_limits_errors()}
+  def batch_describe_user_limits(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/governance/limits/accounts/#{AWS.Util.encode_uri(account_id)}/user-limits"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Cancels an ongoing ingestion of data into SPICE.
   """
   @spec cancel_ingestion(
@@ -25353,6 +26137,35 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Creates an approval policy in Quick Sight.
+  """
+  @spec create_approval_policy(map(), create_approval_policy_request(), list()) ::
+          {:ok, create_approval_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_approval_policy_errors()}
+  def create_approval_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/governance/approvalworkflows/policies"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an Quick Sight brand.
   """
   @spec create_brand(
@@ -25522,6 +26335,47 @@ defmodule AWS.QuickSight do
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a data loss prevention (DLP) setting configuration for an Amazon Web
+  Services account.
+
+  A DLP setting defines the DLP provider, the enforcement behavior, and the Quick
+  capabilities that the setting applies to.
+  """
+  @spec create_dlp_setting(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_dlp_setting_request(),
+          list()
+        ) ::
+          {:ok, create_dlp_setting_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_dlp_setting_errors()}
+  def create_dlp_setting(%Client{} = client, aws_account_id, dlp_setting_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-loss-prevention/settings/#{AWS.Util.encode_uri(dlp_setting_id)}"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -25918,6 +26772,36 @@ defmodule AWS.QuickSight do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Creates a limits profile that defines resource usage limits for Amazon Quick
+  Sight users.
+  """
+  @spec create_limits_profile(map(), String.t() | atom(), create_limits_profile_request(), list()) ::
+          {:ok, create_limits_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_limits_profile_errors()}
+  def create_limits_profile(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/governance/limits/accounts/#{AWS.Util.encode_uri(account_id)}/profiles"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -26749,6 +27633,40 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Deletes an approval policy in Quick Sight.
+  """
+  @spec delete_approval_policy(
+          map(),
+          String.t() | atom(),
+          delete_approval_policy_request(),
+          list()
+        ) ::
+          {:ok, delete_approval_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_approval_policy_errors()}
+  def delete_approval_policy(%Client{} = client, policy_id, input, options \\ []) do
+    url_path = "/governance/approvalworkflows/policies/#{AWS.Util.encode_uri(policy_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
 
   This API permanently deletes the specified Quick Sight brand.
 
@@ -27069,6 +27987,43 @@ defmodule AWS.QuickSight do
         {"Namespace", "namespace"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a DLP setting configuration from an Amazon Web Services account.
+  """
+  @spec delete_dlp_setting(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_dlp_setting_request(),
+          list()
+        ) ::
+          {:ok, delete_dlp_setting_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_dlp_setting_errors()}
+  def delete_dlp_setting(%Client{} = client, aws_account_id, dlp_setting_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-loss-prevention/settings/#{AWS.Util.encode_uri(dlp_setting_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -27432,6 +28387,43 @@ defmodule AWS.QuickSight do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Deletes a limits profile.
+  """
+  @spec delete_limits_profile(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_limits_profile_request(),
+          list()
+        ) ::
+          {:ok, delete_limits_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_limits_profile_errors()}
+  def delete_limits_profile(%Client{} = client, account_id, profile_id, input, options \\ []) do
+    url_path =
+      "/governance/limits/accounts/#{AWS.Util.encode_uri(account_id)}/profiles/#{AWS.Util.encode_uri(profile_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -28507,6 +29499,24 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes an approval policy in Quick Sight.
+  """
+  @spec describe_approval_policy(map(), String.t() | atom(), list()) ::
+          {:ok, describe_approval_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_approval_policy_errors()}
+  def describe_approval_policy(%Client{} = client, policy_id, options \\ []) do
+    url_path = "/governance/approvalworkflows/policies/#{AWS.Util.encode_uri(policy_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Describes an existing export job.
 
   Poll job descriptions after a job starts to know the status of the job. When a
@@ -29186,6 +30196,27 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes the full configuration of a DLP setting in an Amazon Web Services
+  account.
+  """
+  @spec describe_dlp_setting(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_dlp_setting_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_dlp_setting_errors()}
+  def describe_dlp_setting(%Client{} = client, aws_account_id, dlp_setting_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-loss-prevention/settings/#{AWS.Util.encode_uri(dlp_setting_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns the full details of a flow for the latest version of the requested
   publish state.
   """
@@ -29580,6 +30611,26 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases/#{AWS.Util.encode_uri(knowledge_base_id)}/permissions"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the properties of an existing limits profile.
+  """
+  @spec describe_limits_profile(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_limits_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_limits_profile_errors()}
+  def describe_limits_profile(%Client{} = client, account_id, profile_id, options \\ []) do
+    url_path =
+      "/governance/limits/accounts/#{AWS.Util.encode_uri(account_id)}/profiles/#{AWS.Util.encode_uri(profile_id)}"
 
     headers = []
     query_params = []
@@ -31008,6 +32059,53 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Lists all approval policies in the specified Quick Sight account.
+
+  The results are paginated. If the
+  response includes a `NextToken` value, pass it in a subsequent call to retrieve
+  the next
+  set of results.
+  """
+  @spec list_approval_policies(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_approval_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_approval_policies_errors()}
+  def list_approval_policies(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/governance/approvalworkflows/policies"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists all asset bundle export jobs that have been taken place in the last 14
   days.
 
@@ -31360,6 +32458,50 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all DLP settings in an Amazon Web Services account.
+  """
+  @spec list_dlp_settings(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_dlp_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_dlp_settings_errors()}
+  def list_dlp_settings(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-loss-prevention/settings"
     headers = []
     query_params = []
 
@@ -31912,6 +33054,63 @@ defmodule AWS.QuickSight do
     query_params =
       if !is_nil(next_token) do
         [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all limits profiles in an Amazon Quick Sight account.
+
+  Results are paginated. Use the `maxResults` parameter to limit the number of
+  results returned in a single call, and use the `nextToken` parameter to retrieve
+  the next page of results.
+  """
+  @spec list_limits_profiles(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_limits_profiles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_limits_profiles_errors()}
+  def list_limits_profiles(
+        %Client{} = client,
+        account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/governance/limits/accounts/#{AWS.Util.encode_uri(account_id)}/profiles"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
       else
         query_params
       end
@@ -34332,6 +35531,40 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Updates an approval policy in Quick Sight.
+  """
+  @spec update_approval_policy(
+          map(),
+          String.t() | atom(),
+          update_approval_policy_request(),
+          list()
+        ) ::
+          {:ok, update_approval_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_approval_policy_errors()}
+  def update_approval_policy(%Client{} = client, policy_id, input, options \\ []) do
+    url_path = "/governance/approvalworkflows/policies/#{AWS.Util.encode_uri(policy_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates a brand.
   """
   @spec update_brand(
@@ -34918,6 +36151,45 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Updates an existing DLP setting configuration in an Amazon Web Services account.
+
+  Fields that are omitted from the request retain their current values.
+  """
+  @spec update_dlp_setting(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_dlp_setting_request(),
+          list()
+        ) ::
+          {:ok, update_dlp_setting_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_dlp_setting_errors()}
+  def update_dlp_setting(%Client{} = client, aws_account_id, dlp_setting_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-loss-prevention/settings/#{AWS.Util.encode_uri(dlp_setting_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates an existing flow.
 
   Supply only the fields you want to change. Updates both DRAFT and PUBLISHED
@@ -35362,6 +36634,43 @@ defmodule AWS.QuickSight do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the properties of an existing limits profile.
+  """
+  @spec update_limits_profile(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_limits_profile_request(),
+          list()
+        ) ::
+          {:ok, update_limits_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_limits_profile_errors()}
+  def update_limits_profile(%Client{} = client, account_id, profile_id, input, options \\ []) do
+    url_path =
+      "/governance/limits/accounts/#{AWS.Util.encode_uri(account_id)}/profiles/#{AWS.Util.encode_uri(profile_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

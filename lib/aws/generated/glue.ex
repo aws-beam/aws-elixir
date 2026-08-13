@@ -21596,7 +21596,7 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Starts a materialized view refresh task run, for a specified table and columns.
+  Starts a materialized view refresh task run for a specified materialized view.
   """
   @spec start_materialized_view_refresh_task_run(
           map(),
@@ -21780,7 +21780,7 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Stops a materialized view refresh task run, for a specified table and columns.
+  Stops a materialized view refresh task run for a specified materialized view.
   """
   @spec stop_materialized_view_refresh_task_run(
           map(),

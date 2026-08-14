@@ -126,6 +126,21 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      aggregation_threshold() :: %{
+        "allowedAggregateExpressionType" => list(any()),
+        "identityColumns" => list(String.t() | atom()),
+        "minimumIdentityCount" => [integer()],
+        "outputColumnThresholds" => list(output_column_threshold()),
+        "type" => list(any())
+      }
+
+  """
+  @type aggregation_threshold() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       analysis_log_export() :: %{
         "analysisId" => String.t() | atom(),
         "analysisLogExportId" => String.t() | atom(),
@@ -257,10 +272,12 @@ defmodule AWS.CleanRooms do
 
       analysis_rule_custom() :: %{
         "additionalAnalyses" => list(any()),
+        "aggregationThresholds" => list(aggregation_threshold()),
         "allowedAdditionalAnalyses" => list(String.t() | atom()),
         "allowedAnalyses" => list(String.t() | atom()),
         "allowedAnalysisProviders" => list(String.t() | atom()),
         "allowedResultReceivers" => list(String.t() | atom()),
+        "comparisonControls" => comparison_controls(),
         "differentialPrivacy" => differential_privacy_configuration(),
         "disallowedOutputColumns" => list(String.t() | atom())
       }
@@ -954,6 +971,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      comparison_controls() :: %{
+        "allowedColumnComparisonColumns" => list(String.t() | atom()),
+        "allowedLiteralComparisonColumns" => list(String.t() | atom())
+      }
+
+  """
+  @type comparison_controls() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       configured_audience_model_association() :: %{
         "arn" => String.t() | atom(),
         "collaborationArn" => String.t() | atom(),
@@ -1196,10 +1225,12 @@ defmodule AWS.CleanRooms do
 
       consolidated_policy_custom() :: %{
         "additionalAnalyses" => list(any()),
+        "aggregationThresholds" => list(aggregation_threshold()),
         "allowedAdditionalAnalyses" => list(String.t() | atom()),
         "allowedAnalyses" => list(String.t() | atom()),
         "allowedAnalysisProviders" => list(String.t() | atom()),
         "allowedResultReceivers" => list(String.t() | atom()),
+        "comparisonControls" => comparison_controls(),
         "differentialPrivacy" => differential_privacy_configuration(),
         "disallowedOutputColumns" => list(String.t() | atom())
       }
@@ -2885,10 +2916,12 @@ defmodule AWS.CleanRooms do
 
       intermediate_table_analysis_rule_custom() :: %{
         "additionalAnalyses" => list(any()),
+        "aggregationThresholds" => list(aggregation_threshold()),
         "allowedAdditionalAnalyses" => list(String.t() | atom()),
         "allowedAnalyses" => list(String.t() | atom()),
         "allowedAnalysisProviders" => list(String.t() | atom()),
         "allowedResultReceivers" => list(String.t() | atom()),
+        "comparisonControls" => comparison_controls(),
         "differentialPrivacy" => differential_privacy_configuration(),
         "disallowedOutputColumns" => list(String.t() | atom())
       }
@@ -3887,6 +3920,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type model_training_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_column_threshold() :: %{
+        "minimumIdentityCount" => [integer()],
+        "outputColumnName" => String.t() | atom()
+      }
+
+  """
+  @type output_column_threshold() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

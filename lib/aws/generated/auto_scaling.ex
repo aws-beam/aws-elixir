@@ -99,6 +99,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       activity_type() :: %{
+        optional("Activities") => list(activity()),
         optional("Activity") => activity()
       }
       
@@ -1328,6 +1329,17 @@ defmodule AWS.AutoScaling do
       
   """
   @type get_predictive_scaling_forecast_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idempotent_call_in_progress_fault() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type idempotent_call_in_progress_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2667,7 +2679,9 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       terminate_instance_in_auto_scaling_group_type() :: %{
-        required("InstanceId") => String.t() | atom(),
+        optional("AutoScalingGroupName") => String.t() | atom(),
+        optional("InstanceId") => String.t() | atom(),
+        optional("InstanceIds") => list(String.t() | atom()),
         required("ShouldDecrementDesiredCapacity") => boolean()
       }
       
@@ -2917,7 +2931,9 @@ defmodule AWS.AutoScaling do
   @type get_predictive_scaling_forecast_errors() :: resource_contention_fault()
 
   @type launch_instances_errors() ::
-          resource_contention_fault() | idempotent_parameter_mismatch_error()
+          resource_contention_fault()
+          | idempotent_parameter_mismatch_error()
+          | idempotent_call_in_progress_fault()
 
   @type put_lifecycle_hook_errors() :: resource_contention_fault() | limit_exceeded_fault()
 
@@ -4884,7 +4900,7 @@ defmodule AWS.AutoScaling do
   This
   operation cannot be called on instances in a warm pool.
 
-  This call simply makes a termination request. The instance is not terminated
+  This call simply makes a termination request. The instances are not terminated
   immediately. When an instance is terminated, the instance status changes to
   `terminated`. You can't connect to or start an instance after you've
   terminated it.
@@ -4892,6 +4908,11 @@ defmodule AWS.AutoScaling do
   If you do not specify the option to decrement the desired capacity, Amazon EC2
   Auto Scaling launches
   instances to replace the ones that are terminated.
+
+  To terminate multiple instances in a single call, use the `InstanceIds`
+  and `AutoScalingGroupName` parameters instead of `InstanceId`.
+  When terminating multiple instances, the response populates
+  `Activities` instead of `Activity`.
 
   By default, Amazon EC2 Auto Scaling balances instances across all Availability
   Zones. If you

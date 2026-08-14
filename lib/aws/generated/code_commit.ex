@@ -92,6 +92,12 @@ defmodule AWS.CodeCommit do
 
     *
 
+  `GetBlobDifferences`, which returns a structured, line-level
+  diff between two blob versions in a repository, with optional surrounding
+  context lines.
+
+    *
+
   `GetFile`, which returns the base-64 encoded content of a specified file.
 
     *
@@ -1698,6 +1704,35 @@ defmodule AWS.CodeCommit do
 
   ## Example:
       
+      diff_change() :: %{
+        "afterLineNumber" => integer(),
+        "beforeLineNumber" => integer(),
+        "content" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type diff_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      diff_hunk() :: %{
+        "afterLineCount" => integer(),
+        "afterStartLine" => integer(),
+        "beforeLineCount" => integer(),
+        "beforeStartLine" => integer(),
+        "changes" => list(diff_change())
+      }
+      
+  """
+  @type diff_hunk() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       difference() :: %{
         "afterBlob" => blob_metadata(),
         "beforeBlob" => blob_metadata(),
@@ -2079,6 +2114,38 @@ defmodule AWS.CodeCommit do
       
   """
   @type get_approval_rule_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_blob_differences_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("beforeBlobId") => String.t() | atom(),
+        optional("contextLines") => integer(),
+        optional("ignoreWhitespace") => boolean(),
+        required("afterBlobId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
+      }
+      
+  """
+  @type get_blob_differences_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_blob_differences_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "afterBlobSize" => float(),
+        "beforeBlobSize" => float(),
+        "hunks" => list(diff_hunk()),
+        "isBinary" => boolean()
+      }
+      
+  """
+  @type get_blob_differences_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5284,6 +5351,17 @@ defmodule AWS.CodeCommit do
   """
   @type user_info() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
   @type associate_approval_rule_template_with_repository_errors() ::
           repository_name_required_exception()
           | repository_does_not_exist_exception()
@@ -5679,6 +5757,23 @@ defmodule AWS.CodeCommit do
           repository_name_required_exception()
           | repository_does_not_exist_exception()
           | invalid_repository_name_exception()
+          | invalid_blob_id_exception()
+          | file_too_large_exception()
+          | encryption_key_unavailable_exception()
+          | encryption_key_not_found_exception()
+          | encryption_key_disabled_exception()
+          | encryption_key_access_denied_exception()
+          | encryption_integrity_checks_failed_exception()
+          | blob_id_required_exception()
+          | blob_id_does_not_exist_exception()
+
+  @type get_blob_differences_errors() ::
+          validation_exception()
+          | repository_name_required_exception()
+          | repository_does_not_exist_exception()
+          | invalid_repository_name_exception()
+          | invalid_max_results_exception()
+          | invalid_continuation_token_exception()
           | invalid_blob_id_exception()
           | file_too_large_exception()
           | encryption_key_unavailable_exception()
@@ -7079,6 +7174,31 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+  Returns a structured, line-level diff between two blob versions in a repository.
+
+  The
+  diff is returned as an ordered list of hunks, where each hunk represents a
+  contiguous
+  run of changed lines together with any surrounding unchanged context lines.
+
+  Results are paginated. Use `MaxResults` and `NextToken` to
+  retrieve additional pages.
+
+  For the typical usage workflow, see `GetDifferences`.
+  """
+  @spec get_blob_differences(map(), get_blob_differences_input(), list()) ::
+          {:ok, get_blob_differences_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_blob_differences_errors()}
+  def get_blob_differences(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetBlobDifferences", input, options)
+  end
+
+  @doc """
   Returns information about a repository branch, including its name and the last
   commit ID.
   """
@@ -7191,6 +7311,9 @@ defmodule AWS.CodeCommit do
 
   Results can be
   limited to a specified path.
+
+  For line-level diff details, pass the `beforeBlob.blobId` and
+  `afterBlob.blobId` values from a `Difference` object to `GetBlobDifferences`.
   """
   @spec get_differences(map(), get_differences_input(), list()) ::
           {:ok, get_differences_output(), any()}

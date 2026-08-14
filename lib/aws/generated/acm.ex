@@ -243,7 +243,8 @@ defmodule AWS.ACM do
         "Status" => list(any()),
         "Subject" => String.t() | atom(),
         "SubjectAlternativeNames" => list(String.t() | atom()),
-        "Type" => list(any())
+        "Type" => list(any()),
+        "UpdateSummary" => update_summary()
       }
       
   """
@@ -255,7 +256,8 @@ defmodule AWS.ACM do
       
       certificate_options() :: %{
         "CertificateTransparencyLoggingPreference" => list(any()),
-        "Export" => list(any())
+        "Export" => list(any()),
+        "ValidationMethod" => list(any())
       }
       
   """
@@ -641,6 +643,17 @@ defmodule AWS.ACM do
 
   ## Example:
       
+      dns_validation_challenge() :: %{
+        "ResourceRecord" => resource_record()
+      }
+      
+  """
+  @type dns_validation_challenge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       domain_scope() :: %{
         "ExactDomain" => list(any()),
         "Subdomains" => list(any()),
@@ -671,6 +684,18 @@ defmodule AWS.ACM do
 
   ## Example:
       
+      domain_validation_method_update_summary() :: %{
+        "From" => list(any()),
+        "To" => list(any())
+      }
+      
+  """
+  @type domain_validation_method_update_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       domain_validation_option() :: %{
         "DomainName" => String.t() | atom(),
         "ValidationDomain" => String.t() | atom()
@@ -678,6 +703,31 @@ defmodule AWS.ACM do
       
   """
   @type domain_validation_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      domain_validation_summary() :: %{
+        "ActiveValidationConfiguration" => validation_configuration(),
+        "DomainName" => String.t() | atom(),
+        "RequestedValidationConfiguration" => validation_configuration()
+      }
+      
+  """
+  @type domain_validation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      email_validation_challenge() :: %{
+        "ValidationDomain" => String.t() | atom(),
+        "ValidationEmails" => list(String.t() | atom())
+      }
+      
+  """
+  @type email_validation_challenge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1062,6 +1112,31 @@ defmodule AWS.ACM do
       
   """
   @type list_acme_external_account_bindings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_certificate_domain_validations_request() :: %{
+        optional("MaxItems") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("CertificateArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_certificate_domain_validations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_certificate_domain_validations_response() :: %{
+        "DomainValidationSummaryList" => list(domain_validation_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_certificate_domain_validations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1518,6 +1593,34 @@ defmodule AWS.ACM do
 
   ## Example:
       
+      update_summary() :: %{
+        "DomainValidationMethodUpdateSummary" => domain_validation_method_update_summary(),
+        "RequestedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "Type" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type update_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_configuration() :: %{
+        "ValidationChallenge" => list(),
+        "ValidationMethod" => list(any()),
+        "ValidationStatus" => list(any())
+      }
+      
+  """
+  @type validation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -1700,6 +1803,12 @@ defmodule AWS.ACM do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_certificate_domain_validations_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_args_exception()
+          | access_denied_exception()
+
   @type list_certificates_errors() :: validation_exception() | invalid_args_exception()
 
   @type list_tags_for_certificate_errors() ::
@@ -1801,6 +1910,7 @@ defmodule AWS.ACM do
           | limit_exceeded_exception()
           | invalid_state_exception()
           | invalid_arn_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -2327,6 +2437,31 @@ defmodule AWS.ACM do
   end
 
   @doc """
+  Returns per-domain validation summaries for an ACM certificate.
+
+  Each summary includes the domain name, the active validation configuration, and
+  the requested validation configuration when a validation method migration is in
+  progress. You can use the results to monitor the progress of an email-to-DNS
+  validation migration and to retrieve the CNAME records required for DNS
+  validation.
+  """
+  @spec list_certificate_domain_validations(
+          map(),
+          list_certificate_domain_validations_request(),
+          list()
+        ) ::
+          {:ok, list_certificate_domain_validations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_certificate_domain_validations_errors()}
+  def list_certificate_domain_validations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListCertificateDomainValidations", input, options)
+  end
+
+  @doc """
   Retrieves a list of certificate ARNs and domain names.
 
   You can request that only certificates that match a specific status be listed.
@@ -2678,11 +2813,11 @@ defmodule AWS.ACM do
   end
 
   @doc """
-  Updates a certificate.
+  Updates certificate options.
 
-  You can use this function to specify whether to export your certificate.
-  Certificate transparency logging opt-out is no longer available. For more
-  information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency)
+  You can use this operation to change the domain validation method or specify
+  whether to export your certificate. For more information, see [Migrate from email to DNS
+  validation](https://docs.aws.amazon.com/acm/latest/userguide/email-to-dns-migration.html)
   and [Certificate Manager Exportable Managed Certificates](https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html).
   """
   @spec update_certificate_options(map(), update_certificate_options_request(), list()) ::

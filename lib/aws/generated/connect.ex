@@ -337,6 +337,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      ai_agent_input() :: %{
+        "AiAgentId" => String.t() | atom()
+      }
+
+  """
+  @type ai_agent_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ai_agent_search_criteria() :: %{
         "AiAgentEscalated" => boolean(),
         "AiUseCase" => list(any()),
@@ -13205,6 +13216,38 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      start_assistant_contact_request() :: %{
+        optional("Attributes") => map(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("InitialMessage") => chat_message(),
+        optional("PersistentChat") => persistent_chat(),
+        optional("RelatedContactId") => String.t() | atom(),
+        required("AiAgent") => ai_agent_input(),
+        required("InstanceId") => String.t() | atom(),
+        required("ParticipantDetails") => participant_details()
+      }
+
+  """
+  @type start_assistant_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_assistant_contact_response() :: %{
+        "ContactId" => String.t() | atom(),
+        "ContinuedFromContactId" => String.t() | atom(),
+        "ParticipantId" => String.t() | atom(),
+        "ParticipantToken" => String.t() | atom()
+      }
+
+  """
+  @type start_assistant_contact_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_attached_file_upload_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("CreatedBy") => list(),
@@ -13646,6 +13689,7 @@ defmodule AWS.Connect do
         optional("Description") => String.t() | atom(),
         optional("References") => map(),
         optional("RelatedContactId") => String.t() | atom(),
+        optional("SegmentAttributes") => map(),
         required("ContactFlowId") => String.t() | atom(),
         required("InstanceId") => String.t() | atom(),
         required("ParticipantDetails") => participant_details()
@@ -18678,6 +18722,14 @@ defmodule AWS.Connect do
           | internal_service_exception()
           | access_denied_exception()
 
+  @type start_assistant_contact_errors() ::
+          resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
   @type start_attached_file_upload_errors() ::
           throttling_exception()
           | service_quota_exceeded_exception()
@@ -18807,6 +18859,7 @@ defmodule AWS.Connect do
           | invalid_request_exception()
           | invalid_parameter_exception()
           | internal_service_exception()
+          | access_denied_exception()
 
   @type stop_contact_errors() ::
           resource_not_found_exception()
@@ -31921,6 +31974,51 @@ defmodule AWS.Connect do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a chat contact with an AI agent.
+
+  Use the returned `ParticipantToken` to call the
+  [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) API.
+
+  For more information about chat, see the following topics in the *Connect
+  Customer
+  Administrator Guide*:
+
+    *
+
+  [Concepts: Web and mobile messaging capabilities in Connect
+  Customer](https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html)
+
+    *
+
+  [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat)
+  """
+  @spec start_assistant_contact(map(), start_assistant_contact_request(), list()) ::
+          {:ok, start_assistant_contact_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_assistant_contact_errors()}
+  def start_assistant_contact(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/assistant"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

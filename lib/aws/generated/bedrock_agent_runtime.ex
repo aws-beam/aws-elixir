@@ -3,6 +3,13 @@
 
 defmodule AWS.BedrockAgentRuntime do
   @moduledoc """
+  Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to
+  new customers.
+
+  For capabilities similar to Bedrock Agents Classic, explore Amazon Bedrock
+  AgentCore. Existing customers can continue to use the service as normal. For
+  more information, see [Amazon Bedrock Agents Classic availability change](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html).
+
   Contains APIs related to model invocation and querying of knowledge bases.
   """
 
@@ -661,6 +668,29 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      check_ingested_document_acl_request() :: %{
+        required("documentId") => String.t() | atom(),
+        required("userContext") => user_context()
+      }
+
+  """
+  @type check_ingested_document_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      check_ingested_document_acl_response() :: %{
+        "hasAccess" => [boolean()]
+      }
+
+  """
+  @type check_ingested_document_acl_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       citation() :: %{
         "generatedResponsePart" => generated_response_part(),
         "retrievedReferences" => list(retrieved_reference())
@@ -927,6 +957,67 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type dependency_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_acl() :: %{
+        "allowList" => document_acl_membership(),
+        "denyList" => document_acl_membership()
+      }
+
+  """
+  @type document_acl() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_acl_condition() :: %{
+        "conditionOperator" => list(any()),
+        "groups" => list(document_acl_group()),
+        "users" => list(document_acl_user())
+      }
+
+  """
+  @type document_acl_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_acl_group() :: %{
+        "id" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type document_acl_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_acl_membership() :: %{
+        "conditions" => list(document_acl_condition()),
+        "memberRelation" => list(any())
+      }
+
+  """
+  @type document_acl_membership() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_acl_user() :: %{
+        "id" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type document_acl_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1603,6 +1694,28 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type get_flow_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ingested_document_acl_request() :: %{
+        required("documentId") => String.t() | atom()
+      }
+
+  """
+  @type get_ingested_document_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ingested_document_acl_response() :: %{
+        "documentAcl" => document_acl()
+      }
+
+  """
+  @type get_ingested_document_acl_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4031,6 +4144,13 @@ defmodule AWS.BedrockAgentRuntime do
           | bad_gateway_exception()
           | access_denied_exception()
 
+  @type check_ingested_document_acl_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type create_invocation_errors() ::
           validation_exception()
           | throttling_exception()
@@ -4112,6 +4232,13 @@ defmodule AWS.BedrockAgentRuntime do
           | access_denied_exception()
 
   @type get_flow_execution_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_ingested_document_acl_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -4348,6 +4475,54 @@ defmodule AWS.BedrockAgentRuntime do
           | {:error, agentic_retrieve_stream_errors()}
   def agentic_retrieve_stream(%Client{} = client, input, options \\ []) do
     url_path = "/agenticRetrieveStream"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Checks whether a user has access to a specific document by verifying against the
+  ingested access control list (ACL) in a knowledge base.
+
+  Use this operation to validate that document-level access control is working as
+  expected after ingestion. To use this operation, you must have the
+  `bedrock:CheckIngestedDocumentAcl` permission.
+  """
+  @spec check_ingested_document_acl(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          check_ingested_document_acl_request(),
+          list()
+        ) ::
+          {:ok, check_ingested_document_acl_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, check_ingested_document_acl_errors()}
+  def check_ingested_document_acl(
+        %Client{} = client,
+        data_source_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/check-ingested-document-acl"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -4795,6 +4970,54 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
+  Retrieves the ingested access control list (ACL) for a specific document in a
+  knowledge base.
+
+  Use this operation to inspect the allow and deny lists that were ingested for a
+  document to troubleshoot access control issues. To use this operation, you must
+  have the `bedrock:GetIngestedDocumentAcl` permission.
+  """
+  @spec get_ingested_document_acl(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          get_ingested_document_acl_request(),
+          list()
+        ) ::
+          {:ok, get_ingested_document_acl_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_ingested_document_acl_errors()}
+  def get_ingested_document_acl(
+        %Client{} = client,
+        data_source_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/get-ingested-document-acl"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves the details of a specific invocation step within an invocation in a
   session.
 
@@ -4863,11 +5086,15 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
+  Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to
+  new customers.
 
+  For capabilities similar to Bedrock Agents Classic, explore Amazon Bedrock
+  AgentCore. Existing customers can continue to use the service as normal. For
+  more information, see [Amazon Bedrock Agents Classic availability change](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html).
 
-  Sends a prompt for the agent to process and respond to.
-
-  Note the following fields for the request:
+  Sends a prompt for the agent to process and respond to. Note the following
+  fields for the request:
 
     * To continue the same conversation with an agent, use the same
   `sessionId` value in the request.

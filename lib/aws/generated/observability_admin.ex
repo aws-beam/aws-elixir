@@ -129,7 +129,9 @@ defmodule AWS.ObservabilityAdmin do
         "LastUpdateTimeStamp" => [float()],
         "RuleArn" => String.t() | atom(),
         "RuleHealth" => list(any()),
-        "RuleName" => String.t() | atom()
+        "RuleName" => String.t() | atom(),
+        "TagPropagationFailureReason" => list(any()),
+        "TagPropagationStatus" => list(any())
       }
 
   """
@@ -389,7 +391,8 @@ defmodule AWS.ObservabilityAdmin do
       destination_logs_configuration() :: %{
         "BackupConfiguration" => logs_backup_configuration(),
         "LogGroupNameConfiguration" => log_group_name_configuration(),
-        "LogsEncryptionConfiguration" => logs_encryption_configuration()
+        "LogsEncryptionConfiguration" => logs_encryption_configuration(),
+        "TagPropagationConfiguration" => tag_propagation_configuration()
       }
 
   """
@@ -481,7 +484,9 @@ defmodule AWS.ObservabilityAdmin do
         "LastUpdateTimeStamp" => [float()],
         "RuleArn" => String.t() | atom(),
         "RuleHealth" => list(any()),
-        "RuleName" => String.t() | atom()
+        "RuleName" => String.t() | atom(),
+        "TagPropagationFailureReason" => list(any()),
+        "TagPropagationStatus" => list(any())
       }
 
   """
@@ -1140,6 +1145,18 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type stop_telemetry_enrichment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_propagation_configuration() :: %{
+        "DestinationRoleArn" => String.t() | atom(),
+        "TagConflictResolutionStrategy" => list(any())
+      }
+
+  """
+  @type tag_propagation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

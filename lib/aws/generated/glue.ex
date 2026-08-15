@@ -227,6 +227,8 @@ defmodule AWS.Glue do
       
       associate_glossary_terms_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("ItemIdentifier") => String.t() | atom(),
+        optional("IterableFormName") => String.t() | atom(),
         required("GlossaryTermIdentifiers") => list(String.t() | atom())
       }
       
@@ -239,7 +241,9 @@ defmodule AWS.Glue do
       
       associate_glossary_terms_response() :: %{
         "AssetIdentifier" => String.t() | atom(),
-        "GlossaryTerms" => list(String.t() | atom())
+        "GlossaryTerms" => list(String.t() | atom()),
+        "ItemIdentifier" => String.t() | atom(),
+        "IterableFormName" => String.t() | atom()
       }
       
   """
@@ -3936,7 +3940,9 @@ defmodule AWS.Glue do
   ## Example:
       
       delete_attachment_response() :: %{
-        "AssetIdentifier" => String.t() | atom()
+        "AssetIdentifier" => String.t() | atom(),
+        "ItemIdentifier" => String.t() | atom(),
+        "IterableFormName" => String.t() | atom()
       }
       
   """
@@ -4982,6 +4988,8 @@ defmodule AWS.Glue do
       
       disassociate_glossary_terms_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("ItemIdentifier") => String.t() | atom(),
+        optional("IterableFormName") => String.t() | atom(),
         required("GlossaryTermIdentifiers") => list(String.t() | atom())
       }
       
@@ -4994,7 +5002,9 @@ defmodule AWS.Glue do
       
       disassociate_glossary_terms_response() :: %{
         "AssetIdentifier" => String.t() | atom(),
-        "GlossaryTerms" => list(String.t() | atom())
+        "GlossaryTerms" => list(String.t() | atom()),
+        "ItemIdentifier" => String.t() | atom(),
+        "IterableFormName" => String.t() | atom()
       }
       
   """
@@ -16481,6 +16491,7 @@ defmodule AWS.Glue do
           throttling_exception()
           | invalid_input_exception()
           | internal_service_exception()
+          | entity_not_found_exception()
           | concurrent_modification_exception()
           | access_denied_exception()
 

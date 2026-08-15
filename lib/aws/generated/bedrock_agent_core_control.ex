@@ -1437,6 +1437,7 @@ defmodule AWS.BedrockAgentCoreControl do
       create_payment_connector_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("provisionMode") => list(any()),
         required("credentialProviderConfigurations") => list(list()),
         required("name") => String.t() | atom(),
         required("type") => list(any())
@@ -1450,6 +1451,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       create_payment_connector_response() :: %{
+        "authorizationUrl" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(list()),
         "name" => String.t() | atom(),
@@ -1498,6 +1500,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("authorizerConfiguration") => list(),
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("tags") => map(),
         required("authorizerType") => list(any()),
         required("name") => String.t() | atom(),
@@ -1515,6 +1518,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "authorizerConfiguration" => list(),
         "authorizerType" => list(any()),
         "createdAt" => non_neg_integer(),
+        "kmsKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "paymentManagerArn" => String.t() | atom(),
         "paymentManagerId" => String.t() | atom(),
@@ -3572,6 +3576,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       get_payment_connector_response() :: %{
+        "authorizationUrl" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(list()),
         "description" => String.t() | atom(),
@@ -3631,6 +3636,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "authorizerType" => list(any()),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "paymentManagerArn" => String.t() | atom(),
@@ -6348,6 +6354,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "authorizerType" => list(any()),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "paymentManagerArn" => String.t() | atom(),
@@ -7373,6 +7380,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      subscription_required_exception() :: %{
+        "message" => [String.t() | atom()],
+        "productName" => [String.t() | atom()],
+        "subscriptionUrl" => [String.t() | atom()]
+      }
+
+  """
+  @type subscription_required_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       summary_consolidation_override() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
@@ -8250,6 +8270,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       update_payment_connector_response() :: %{
+        "authorizationUrl" => String.t() | atom(),
         "credentialProviderConfigurations" => list(list()),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
@@ -8300,6 +8321,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("authorizerType") => list(any()),
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("roleArn") => String.t() | atom()
       }
 
@@ -8312,6 +8334,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       update_payment_manager_response() :: %{
         "authorizerType" => list(any()),
+        "kmsKeyArn" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "paymentManagerArn" => String.t() | atom(),
@@ -9159,6 +9182,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @type create_payment_connector_errors() ::
           validation_exception()
           | throttling_exception()
+          | subscription_required_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -10182,6 +10206,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @type update_payment_connector_errors() ::
           validation_exception()
           | throttling_exception()
+          | subscription_required_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()

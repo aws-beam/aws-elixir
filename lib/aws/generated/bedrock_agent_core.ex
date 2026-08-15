@@ -776,6 +776,7 @@ defmodule AWS.BedrockAgentCore do
 
       crypto_x402_payment_input() :: %{
         "payload" => any(),
+        "permit2AllowanceLimit" => String.t() | atom(),
         "version" => [String.t() | atom()]
       }
 
@@ -3142,6 +3143,32 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      mpp_payment_input() :: %{
+        "buyerPaysGasFees" => [boolean()],
+        "version" => String.t() | atom(),
+        "wwwAuthenticateHeaders" => list(String.t() | atom())
+      }
+
+  """
+  @type mpp_payment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mpp_payment_output() :: %{
+        "paymentCredential" => String.t() | atom(),
+        "selectedPaymentId" => [String.t() | atom()],
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type mpp_payment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       o_auth2_authentication() :: %{
         "emailAddress" => String.t() | atom(),
         "name" => [String.t() | atom()],
@@ -4071,6 +4098,19 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      subscription_required_exception() :: %{
+        "message" => [String.t() | atom()],
+        "productName" => [String.t() | atom()],
+        "subscriptionUrl" => [String.t() | atom()]
+      }
+
+  """
+  @type subscription_required_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       system_prompt_configuration_bundle() :: %{
         "bundleArn" => String.t() | atom(),
         "systemPromptJsonPath" => [String.t() | atom()],
@@ -4535,7 +4575,9 @@ defmodule AWS.BedrockAgentCore do
   @type create_payment_instrument_errors() ::
           validation_exception()
           | throttling_exception()
+          | subscription_required_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -4543,6 +4585,7 @@ defmodule AWS.BedrockAgentCore do
   @type create_payment_session_errors() ::
           validation_exception()
           | throttling_exception()
+          | subscription_required_exception()
           | service_quota_exceeded_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -4897,7 +4940,9 @@ defmodule AWS.BedrockAgentCore do
   @type process_payment_errors() ::
           validation_exception()
           | throttling_exception()
+          | subscription_required_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()

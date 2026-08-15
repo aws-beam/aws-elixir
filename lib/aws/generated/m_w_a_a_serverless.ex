@@ -48,6 +48,7 @@ defmodule AWS.MWAAServerless do
       
       create_workflow_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("Code") => list(),
         optional("Description") => String.t() | atom(),
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("EngineVersion") => list(integer()),
@@ -178,6 +179,8 @@ defmodule AWS.MWAAServerless do
   ## Example:
       
       get_workflow_response() :: %{
+        "Code" => list(),
+        "CodeSnapshottedAt" => non_neg_integer(),
         "CreatedAt" => non_neg_integer(),
         "DefinitionS3Location" => definition_s3_location(),
         "Description" => String.t() | atom(),
@@ -418,6 +421,19 @@ defmodule AWS.MWAAServerless do
 
   ## Example:
       
+      s3_location() :: %{
+        "Bucket" => [String.t() | atom()],
+        "ObjectKey" => [String.t() | atom()],
+        "VersionId" => [String.t() | atom()]
+      }
+      
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       schedule_configuration() :: %{
         "CronExpression" => [String.t() | atom()]
       }
@@ -565,6 +581,7 @@ defmodule AWS.MWAAServerless do
   ## Example:
       
       update_workflow_request() :: %{
+        optional("Code") => list(),
         optional("Description") => String.t() | atom(),
         optional("EngineVersion") => list(integer()),
         optional("LoggingConfiguration") => logging_configuration(),

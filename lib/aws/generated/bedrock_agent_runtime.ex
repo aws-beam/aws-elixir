@@ -133,6 +133,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       agentic_retrieve_action() :: %{
         "fullDocumentExpansion" => agentic_retrieve_full_doc_expansion_details(),
+        "memoryRetrieve" => agentic_retrieve_memory_retrieve_details(),
         "retrieve" => agentic_retrieve_action_details()
       }
 
@@ -279,6 +280,74 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agentic_retrieve_memory_configuration() :: %{
+        "memoryId" => String.t() | atom(),
+        "persistenceMode" => list(any()),
+        "retrievalConfigs" => list(agentic_retrieve_memory_retrieval_config()),
+        "sessionBinding" => agentic_retrieve_memory_session_binding()
+      }
+
+  """
+  @type agentic_retrieve_memory_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_memory_metadata_filter() :: %{
+        "left" => list(),
+        "operator" => list(any()),
+        "right" => list()
+      }
+
+  """
+  @type agentic_retrieve_memory_metadata_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_memory_retrieval_config() :: %{
+        "metadataFilters" => list(agentic_retrieve_memory_metadata_filter()),
+        "namespace" => String.t() | atom(),
+        "namespacePath" => String.t() | atom(),
+        "strategyId" => String.t() | atom()
+      }
+
+  """
+  @type agentic_retrieve_memory_retrieval_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_memory_retrieve_details() :: %{
+        "inputQuery" => agentic_retrieve_message_content(),
+        "memoryId" => [String.t() | atom()],
+        "namespace" => [String.t() | atom()],
+        "namespacePath" => [String.t() | atom()],
+        "strategyId" => [String.t() | atom()]
+      }
+
+  """
+  @type agentic_retrieve_memory_retrieve_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_memory_session_binding() :: %{
+        "actorId" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type agentic_retrieve_memory_session_binding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agentic_retrieve_message() :: %{
         "content" => agentic_retrieve_message_content(),
         "role" => list(any())
@@ -387,6 +456,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       agentic_retrieve_stream_request() :: %{
         optional("generateResponse") => [boolean()],
+        optional("memoryConfiguration") => agentic_retrieve_memory_configuration(),
         optional("nextToken") => String.t() | atom(),
         optional("policyConfiguration") => agentic_retrieve_policy_configuration(),
         optional("userContext") => user_context(),

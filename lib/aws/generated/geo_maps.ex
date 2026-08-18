@@ -4,18 +4,18 @@
 defmodule AWS.GeoMaps do
   @moduledoc """
   Integrate high-quality base map data into your applications using
-  [MapLibre](https://maplibre.org).
-
-  Capabilities include:
+  [MapLibre](https://maplibre.org).  Capabilities include:
 
     * Access to comprehensive base map data, allowing you to tailor the
-  map display to your specific needs.
+  map display to your specific needs. See
+  [GetTile](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetTile.html).
 
     * Multiple pre-designed map styles suited for various application
-  types, such as navigation, logistics, or data visualization.
-
-    * Generation of static map images for scenarios where interactive
-  maps aren't suitable, such as:
+  types, such as navigation, logistics, or data visualization. See
+  [GetStyleDescriptor](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetStyleDescriptor.html).     * Generation of static map images for scenarios where interactive
+  maps aren't suitable. See
+  [GetStaticMap](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetStaticMap.html).
+  Use cases include:
 
       * Embedding in emails or documents
 
@@ -95,19 +95,19 @@ defmodule AWS.GeoMaps do
         optional("BoundedPositions") => String.t() | atom(),
         optional("BoundingBox") => String.t() | atom(),
         optional("Center") => String.t() | atom(),
-        optional("ColorScheme") => String.t() | atom(),
+        optional("ColorScheme") => list(any()),
         optional("CompactOverlay") => String.t() | atom(),
         optional("CropLabels") => [boolean()],
         optional("GeoJsonOverlay") => String.t() | atom(),
         optional("Key") => String.t() | atom(),
-        optional("LabelSize") => String.t() | atom(),
+        optional("LabelSize") => list(any()),
         optional("Language") => String.t() | atom(),
         optional("Padding") => integer(),
-        optional("PointsOfInterests") => String.t() | atom(),
+        optional("PointsOfInterests") => list(any()),
         optional("PoliticalView") => String.t() | atom(),
         optional("Radius") => float(),
-        optional("ScaleBarUnit") => String.t() | atom(),
-        optional("Style") => String.t() | atom(),
+        optional("ScaleBarUnit") => list(any()),
+        optional("Style") => list(any()),
         optional("Zoom") => float(),
         required("Height") => integer(),
         required("Width") => integer()
@@ -136,14 +136,16 @@ defmodule AWS.GeoMaps do
   ## Example:
 
       get_style_descriptor_request() :: %{
-        optional("Buildings") => String.t() | atom(),
-        optional("ColorScheme") => String.t() | atom(),
-        optional("ContourDensity") => String.t() | atom(),
+        optional("Buildings") => list(any()),
+        optional("ColorScheme") => list(any()),
+        optional("ContourDensity") => list(any()),
         optional("Key") => String.t() | atom(),
+        optional("PoiCategories") => list(list(any())()),
+        optional("PoiDensity") => list(any()),
         optional("PoliticalView") => String.t() | atom(),
-        optional("Terrain") => String.t() | atom(),
-        optional("Traffic") => String.t() | atom(),
-        optional("TravelModes") => list(String.t() | atom())
+        optional("Terrain") => list(any()),
+        optional("Traffic") => list(any()),
+        optional("TravelModes") => list(list(any())())
       }
 
   """
@@ -168,7 +170,7 @@ defmodule AWS.GeoMaps do
   ## Example:
 
       get_tile_request() :: %{
-        optional("AdditionalFeatures") => list(String.t() | atom()),
+        optional("AdditionalFeatures") => list(list(any())()),
         optional("Key") => String.t() | atom()
       }
 
@@ -230,7 +232,7 @@ defmodule AWS.GeoMaps do
       validation_exception() :: %{
         "FieldList" => list(validation_exception_field()),
         "Message" => [String.t() | atom()],
-        "Reason" => String.t() | atom()
+        "Reason" => list(any())
       }
 
   """
@@ -289,7 +291,7 @@ defmodule AWS.GeoMaps do
           | {:error, term()}
   def get_glyphs(%Client{} = client, font_stack, font_unicode_range, options \\ []) do
     url_path =
-      "/glyphs/#{AWS.Util.encode_uri(font_stack)}/#{AWS.Util.encode_uri(font_unicode_range)}"
+      "/v2/glyphs/#{AWS.Util.encode_uri(font_stack)}/#{AWS.Util.encode_uri(font_unicode_range)}"
 
     headers = []
     query_params = []
@@ -329,7 +331,7 @@ defmodule AWS.GeoMaps do
           | {:error, term()}
   def get_sprites(%Client{} = client, color_scheme, file_name, style, variant, options \\ []) do
     url_path =
-      "/styles/#{AWS.Util.encode_uri(style)}/#{AWS.Util.encode_uri(color_scheme)}/#{AWS.Util.encode_uri(variant)}/sprites/#{AWS.Util.encode_uri(file_name)}"
+      "/v2/styles/#{AWS.Util.encode_uri(style)}/#{AWS.Util.encode_uri(color_scheme)}/#{AWS.Util.encode_uri(variant)}/sprites/#{AWS.Util.encode_uri(file_name)}"
 
     headers = []
     query_params = []
@@ -351,13 +353,13 @@ defmodule AWS.GeoMaps do
   end
 
   @doc """
-  This operation is not supported in `ap-southeast-1` and `ap-southeast-5` regions
-  for
-  [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
-
   `GetStaticMap` provides high-quality static map images with customizable
-  options. You can modify the map's appearance and overlay additional information.
-  It's an ideal solution for applications requiring tailored static map snapshots.
+  options.
+
+  You can modify the map's appearance and overlay additional information. It's an
+  ideal solution for applications requiring tailored static map snapshots. Not
+  supported in `ap-southeast-1` and `ap-southeast-5` regions for
+  [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
 
   For more information, see the following topics in the *Amazon Location Service
   Developer Guide*:
@@ -421,7 +423,7 @@ defmodule AWS.GeoMaps do
         zoom \\ nil,
         options \\ []
       ) do
-    url_path = "/static/#{AWS.Util.encode_uri(file_name)}"
+    url_path = "/v2/static/#{AWS.Util.encode_uri(file_name)}"
     headers = []
     query_params = []
 
@@ -592,6 +594,8 @@ defmodule AWS.GeoMaps do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_style_descriptor_response(), any()}
@@ -604,13 +608,15 @@ defmodule AWS.GeoMaps do
         color_scheme \\ nil,
         contour_density \\ nil,
         key \\ nil,
+        poi_categories \\ nil,
+        poi_density \\ nil,
         political_view \\ nil,
         terrain \\ nil,
         traffic \\ nil,
         travel_modes \\ nil,
         options \\ []
       ) do
-    url_path = "/styles/#{AWS.Util.encode_uri(style)}/descriptor"
+    url_path = "/v2/styles/#{AWS.Util.encode_uri(style)}/descriptor"
     headers = []
     query_params = []
 
@@ -638,6 +644,20 @@ defmodule AWS.GeoMaps do
     query_params =
       if !is_nil(key) do
         [{"key", key} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(poi_categories) do
+        [{"poi-categories", poi_categories} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(poi_density) do
+        [{"poi-density", poi_density} | query_params]
       else
         query_params
       end
@@ -721,7 +741,7 @@ defmodule AWS.GeoMaps do
         options \\ []
       ) do
     url_path =
-      "/tiles/#{AWS.Util.encode_uri(tileset)}/#{AWS.Util.encode_uri(z)}/#{AWS.Util.encode_uri(x)}/#{AWS.Util.encode_uri(y)}"
+      "/v2/tiles/#{AWS.Util.encode_uri(tileset)}/#{AWS.Util.encode_uri(z)}/#{AWS.Util.encode_uri(x)}/#{AWS.Util.encode_uri(y)}"
 
     headers = []
     query_params = []

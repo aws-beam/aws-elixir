@@ -2522,6 +2522,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      derived_evaluator_config() :: %{
+        "baseEvaluatorId" => String.t() | atom(),
+        "modelConfig" => list()
+      }
+
+  """
+  @type derived_evaluator_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       descriptors() :: %{
         "a2a" => a2a_descriptor(),
         "agentSkills" => agent_skills_descriptor(),
@@ -2780,6 +2792,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "kmsKeyArn" => String.t() | atom(),
         "level" => list(any()),
         "lockedForModification" => [boolean()],
+        "provider" => list(any()),
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
@@ -3288,9 +3301,11 @@ defmodule AWS.BedrockAgentCoreControl do
         "evaluatorConfig" => list(),
         "evaluatorId" => String.t() | atom(),
         "evaluatorName" => String.t() | atom(),
+        "evaluatorType" => list(any()),
         "kmsKeyArn" => String.t() | atom(),
         "level" => list(any()),
         "lockedForModification" => [boolean()],
+        "provider" => list(any()),
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
@@ -11144,8 +11159,14 @@ defmodule AWS.BedrockAgentCoreControl do
   the Cedar schema generated from the Gateway's tools' input schemas, which
   defines the available tools, their parameters, and expected data types. This is
   an asynchronous operation. Use the
-  [GetPolicy](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetPolicy.html)
-  operation to poll the `status` field to track completion.
+  [GetPolicy](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetPolicy.html) operation to poll the `status` field to track completion.
+
+  If the new policy is a temporal policy, creating it invalidates the policy
+  engine's active temporal sessions. For more information about temporal policy
+  sessions, see [session-based temporal
+  policies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy-session-based-temporal.html).
+  The policy engine returns an HTTP 409 `ConflictException` to in-flight sessions.
+  To resume, you must start a new session with a new session ID.
   """
   @spec create_policy(map(), String.t() | atom(), create_policy_request(), list()) ::
           {:ok, create_policy_response(), any()}
@@ -15850,6 +15871,13 @@ defmodule AWS.BedrockAgentCoreControl do
   while maintaining the policy's identity. The updated policy is validated against
   the Cedar schema before being applied. This is an asynchronous operation. Use
   the `GetPolicy` operation to poll the `status` field to track completion.
+
+  If the updated policy is a temporal policy, the policy engine invalidates all
+  active temporal sessions. If the update adds or removes temporal operators, the
+  policy engine also invalidates active temporal sessions. For more information
+  about temporal policy sessions, see [session-based temporal policies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy-session-based-temporal.html).
+  The policy engine returns an HTTP 409 `ConflictException` to in-flight sessions.
+  To resume, you must start a new session with a new session ID.
   """
   @spec update_policy(
           map(),

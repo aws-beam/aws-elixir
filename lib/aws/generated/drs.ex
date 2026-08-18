@@ -71,6 +71,28 @@ defmodule AWS.Drs do
 
   ## Example:
 
+      cancel_recovery_plan_execution_request() :: %{
+        required("recoveryPlanExecutionArn") => String.t() | atom()
+      }
+
+  """
+  @type cancel_recovery_plan_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_recovery_plan_execution_response() :: %{
+        "recoveryPlanExecution" => recovery_plan_execution()
+      }
+
+  """
+  @type cancel_recovery_plan_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "code" => String.t() | atom(),
         "message" => String.t() | atom(),
@@ -150,6 +172,57 @@ defmodule AWS.Drs do
 
   """
   @type create_launch_configuration_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recovery_plan_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_recovery_plan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recovery_plan_response() :: %{
+        "recoveryPlan" => recovery_plan()
+      }
+
+  """
+  @type create_recovery_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recovery_plan_step_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("stepOrder") => integer(),
+        required("configuration") => list(),
+        required("recoveryPlanArn") => String.t() | atom(),
+        required("stepName") => String.t() | atom()
+      }
+
+  """
+  @type create_recovery_plan_step_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recovery_plan_step_response() :: %{
+        "recoveryPlanStep" => recovery_plan_step()
+      }
+
+  """
+  @type create_recovery_plan_step_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -344,6 +417,72 @@ defmodule AWS.Drs do
 
   """
   @type delete_recovery_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recovery_plan_execution_request() :: %{
+        required("recoveryPlanExecutionArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_recovery_plan_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recovery_plan_execution_response() :: %{
+        "recoveryPlanExecutionArn" => String.t() | atom()
+      }
+
+  """
+  @type delete_recovery_plan_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recovery_plan_request() :: %{
+        required("recoveryPlanArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_recovery_plan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recovery_plan_response() :: %{
+        "recoveryPlanArn" => String.t() | atom()
+      }
+
+  """
+  @type delete_recovery_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recovery_plan_step_request() :: %{
+        required("recoveryPlanStepArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_recovery_plan_step_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recovery_plan_step_response() :: %{
+        "recoveryPlanStepArn" => String.t() | atom()
+      }
+
+  """
+  @type delete_recovery_plan_step_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -712,6 +851,29 @@ defmodule AWS.Drs do
 
   ## Example:
 
+      error_detail() :: %{
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_server_step_configuration() :: %{
+        "servers" => list(recovery_plan_execution_server())
+      }
+
+  """
+  @type execution_server_step_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       export_source_network_cfn_template_request() :: %{
         required("sourceNetworkID") => String.t() | atom()
       }
@@ -766,6 +928,94 @@ defmodule AWS.Drs do
 
   """
   @type get_launch_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_plan_execution_request() :: %{
+        required("recoveryPlanExecutionArn") => String.t() | atom()
+      }
+
+  """
+  @type get_recovery_plan_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_plan_execution_response() :: %{
+        "recoveryPlanExecution" => recovery_plan_execution()
+      }
+
+  """
+  @type get_recovery_plan_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_plan_execution_step_request() :: %{
+        required("recoveryPlanExecutionStepArn") => String.t() | atom()
+      }
+
+  """
+  @type get_recovery_plan_execution_step_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_plan_execution_step_response() :: %{
+        "recoveryPlanExecutionStep" => recovery_plan_execution_step()
+      }
+
+  """
+  @type get_recovery_plan_execution_step_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_plan_request() :: %{
+        required("recoveryPlanArn") => String.t() | atom()
+      }
+
+  """
+  @type get_recovery_plan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_plan_response() :: %{
+        "recoveryPlan" => recovery_plan()
+      }
+
+  """
+  @type get_recovery_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_plan_step_request() :: %{
+        required("recoveryPlanStepArn") => String.t() | atom()
+      }
+
+  """
+  @type get_recovery_plan_step_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_plan_step_response() :: %{
+        "recoveryPlanStep" => recovery_plan_step()
+      }
+
+  """
+  @type get_recovery_plan_step_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1103,6 +1353,118 @@ defmodule AWS.Drs do
 
   ## Example:
 
+      list_recovery_plan_execution_steps_filter() :: %{
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type list_recovery_plan_execution_steps_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_plan_execution_steps_request() :: %{
+        optional("filter") => list_recovery_plan_execution_steps_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("recoveryPlanExecutionArn") => String.t() | atom()
+      }
+
+  """
+  @type list_recovery_plan_execution_steps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_plan_execution_steps_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "recoveryPlanExecutionSteps" => list(recovery_plan_execution_step_summary())
+      }
+
+  """
+  @type list_recovery_plan_execution_steps_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_plan_executions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("recoveryPlanArn") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type list_recovery_plan_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_plan_executions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "recoveryPlanExecutions" => list(recovery_plan_execution_summary())
+      }
+
+  """
+  @type list_recovery_plan_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_plan_steps_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("recoveryPlanArn") => String.t() | atom()
+      }
+
+  """
+  @type list_recovery_plan_steps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_plan_steps_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "recoveryPlanSteps" => list(recovery_plan_step())
+      }
+
+  """
+  @type list_recovery_plan_steps_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_plans_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_recovery_plans_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_plans_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "recoveryPlans" => list(recovery_plan_summary())
+      }
+
+  """
+  @type list_recovery_plans_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_staging_accounts_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom()
@@ -1427,6 +1789,160 @@ defmodule AWS.Drs do
 
   ## Example:
 
+      recovery_plan() :: %{
+        "createdAt" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "recoveryPlanArn" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "updatedAt" => String.t() | atom()
+      }
+
+  """
+  @type recovery_plan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_plan_execution() :: %{
+        "completedAt" => String.t() | atom(),
+        "errorDetail" => error_detail(),
+        "mode" => String.t() | atom(),
+        "recoveryPlanArn" => String.t() | atom(),
+        "recoveryPlanExecutionArn" => String.t() | atom(),
+        "startedAt" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type recovery_plan_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_plan_execution_server() :: %{
+        "impactLevel" => String.t() | atom(),
+        "jobID" => String.t() | atom(),
+        "serverArn" => String.t() | atom()
+      }
+
+  """
+  @type recovery_plan_execution_server() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_plan_execution_source_server() :: %{
+        "recoverySnapshotID" => String.t() | atom(),
+        "sourceServerID" => String.t() | atom()
+      }
+
+  """
+  @type recovery_plan_execution_source_server() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_plan_execution_step() :: %{
+        "attempt" => integer(),
+        "configuration" => list(),
+        "createdAt" => String.t() | atom(),
+        "errorDetail" => error_detail(),
+        "recoveryPlanExecutionStepArn" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "stepIndex" => integer(),
+        "stepName" => String.t() | atom(),
+        "updatedAt" => String.t() | atom()
+      }
+
+  """
+  @type recovery_plan_execution_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_plan_execution_step_summary() :: %{
+        "configuration" => list(),
+        "errorDetail" => error_detail(),
+        "recoveryPlanExecutionStepArn" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "stepIndex" => integer(),
+        "stepName" => String.t() | atom()
+      }
+
+  """
+  @type recovery_plan_execution_step_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_plan_execution_summary() :: %{
+        "errorDetail" => error_detail(),
+        "mode" => String.t() | atom(),
+        "recoveryPlanArn" => String.t() | atom(),
+        "recoveryPlanExecutionArn" => String.t() | atom(),
+        "startedAt" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type recovery_plan_execution_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_plan_server() :: %{
+        "impactLevel" => String.t() | atom(),
+        "serverArn" => String.t() | atom()
+      }
+
+  """
+  @type recovery_plan_server() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_plan_step() :: %{
+        "configuration" => list(),
+        "createdAt" => String.t() | atom(),
+        "recoveryPlanStepArn" => String.t() | atom(),
+        "stepName" => String.t() | atom(),
+        "stepOrder" => integer(),
+        "updatedAt" => String.t() | atom()
+      }
+
+  """
+  @type recovery_plan_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_plan_summary() :: %{
+        "createdAt" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "recoveryPlanArn" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "updatedAt" => String.t() | atom()
+      }
+
+  """
+  @type recovery_plan_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       recovery_snapshot() :: %{
         "ebsSnapshots" => list(String.t() | atom()),
         "expectedTimestamp" => String.t() | atom(),
@@ -1437,6 +1953,29 @@ defmodule AWS.Drs do
 
   """
   @type recovery_snapshot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reorder_recovery_plan_steps_request() :: %{
+        required("orderedStepArns") => list(String.t() | atom()),
+        required("recoveryPlanArn") => String.t() | atom()
+      }
+
+  """
+  @type reorder_recovery_plan_steps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reorder_recovery_plan_steps_response() :: %{
+        "recoveryPlanSteps" => list(recovery_plan_step())
+      }
+
+  """
+  @type reorder_recovery_plan_steps_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1539,6 +2078,28 @@ defmodule AWS.Drs do
 
   ## Example:
 
+      retry_recovery_plan_execution_step_request() :: %{
+        required("recoveryPlanExecutionStepArn") => String.t() | atom()
+      }
+
+  """
+  @type retry_recovery_plan_execution_step_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_recovery_plan_execution_step_response() :: %{
+        "recoveryPlanExecutionStep" => recovery_plan_execution_step()
+      }
+
+  """
+  @type retry_recovery_plan_execution_step_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reverse_replication_request() :: %{
         required("recoveryInstanceID") => String.t() | atom()
       }
@@ -1556,6 +2117,17 @@ defmodule AWS.Drs do
 
   """
   @type reverse_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_step_configuration() :: %{
+        "servers" => list(recovery_plan_server())
+      }
+
+  """
+  @type server_step_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1714,6 +2286,32 @@ defmodule AWS.Drs do
 
   """
   @type start_failback_launch_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_recovery_plan_execution_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("sourceServers") => list(recovery_plan_execution_source_server()),
+        optional("tags") => map(),
+        required("mode") => String.t() | atom(),
+        required("recoveryPlanArn") => String.t() | atom()
+      }
+
+  """
+  @type start_recovery_plan_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_recovery_plan_execution_response() :: %{
+        "recoveryPlanExecution" => recovery_plan_execution()
+      }
+
+  """
+  @type start_recovery_plan_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2026,6 +2624,79 @@ defmodule AWS.Drs do
 
   ## Example:
 
+      update_recovery_plan_execution_step_request() :: %{
+        optional("servers") => list(recovery_plan_server()),
+        optional("status") => String.t() | atom(),
+        optional("waitDurationMinutes") => integer(),
+        required("recoveryPlanExecutionStepArn") => String.t() | atom()
+      }
+
+  """
+  @type update_recovery_plan_execution_step_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recovery_plan_execution_step_response() :: %{
+        "recoveryPlanExecutionStep" => recovery_plan_execution_step()
+      }
+
+  """
+  @type update_recovery_plan_execution_step_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recovery_plan_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        required("recoveryPlanArn") => String.t() | atom()
+      }
+
+  """
+  @type update_recovery_plan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recovery_plan_response() :: %{
+        "recoveryPlan" => recovery_plan()
+      }
+
+  """
+  @type update_recovery_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recovery_plan_step_request() :: %{
+        optional("configuration") => list(),
+        optional("stepName") => String.t() | atom(),
+        required("recoveryPlanStepArn") => String.t() | atom()
+      }
+
+  """
+  @type update_recovery_plan_step_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recovery_plan_step_response() :: %{
+        "recoveryPlanStep" => recovery_plan_step()
+      }
+
+  """
+  @type update_recovery_plan_step_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_replication_configuration_request() :: %{
         optional("associateDefaultSecurityGroup") => [boolean()],
         optional("autoReplicateNewDisks") => [boolean()],
@@ -2103,6 +2774,17 @@ defmodule AWS.Drs do
   """
   @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      wait_step_configuration() :: %{
+        "waitDurationMinutes" => integer()
+      }
+
+  """
+  @type wait_step_configuration() :: %{(String.t() | atom()) => any()}
+
   @type associate_source_network_stack_errors() ::
           validation_exception()
           | uninitialized_account_exception()
@@ -2111,6 +2793,15 @@ defmodule AWS.Drs do
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
+
+  @type cancel_recovery_plan_execution_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type create_extended_source_server_errors() ::
           validation_exception()
@@ -2127,6 +2818,25 @@ defmodule AWS.Drs do
           | throttling_exception()
           | service_quota_exceeded_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type create_recovery_plan_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_recovery_plan_step_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_replication_configuration_template_errors() ::
@@ -2170,6 +2880,33 @@ defmodule AWS.Drs do
   @type delete_recovery_instance_errors() ::
           uninitialized_account_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_recovery_plan_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_recovery_plan_execution_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_recovery_plan_step_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -2281,6 +3018,38 @@ defmodule AWS.Drs do
           | resource_not_found_exception()
           | internal_server_exception()
 
+  @type get_recovery_plan_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_recovery_plan_execution_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_recovery_plan_execution_step_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_recovery_plan_step_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_replication_configuration_errors() ::
           uninitialized_account_exception()
           | throttling_exception()
@@ -2308,6 +3077,36 @@ defmodule AWS.Drs do
           | resource_not_found_exception()
           | internal_server_exception()
 
+  @type list_recovery_plan_execution_steps_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_recovery_plan_executions_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_recovery_plan_steps_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_recovery_plans_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_staging_accounts_errors() ::
           validation_exception()
           | uninitialized_account_exception()
@@ -2330,12 +3129,30 @@ defmodule AWS.Drs do
           | internal_server_exception()
           | conflict_exception()
 
+  @type reorder_recovery_plan_steps_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type retry_data_replication_errors() ::
           validation_exception()
           | uninitialized_account_exception()
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+
+  @type retry_recovery_plan_execution_step_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type reverse_replication_errors() ::
           validation_exception()
@@ -2360,6 +3177,16 @@ defmodule AWS.Drs do
           | service_quota_exceeded_exception()
           | internal_server_exception()
           | conflict_exception()
+
+  @type start_recovery_plan_execution_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type start_replication_errors() ::
           uninitialized_account_exception()
@@ -2448,6 +3275,33 @@ defmodule AWS.Drs do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type update_recovery_plan_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_recovery_plan_execution_step_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_recovery_plan_step_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_replication_configuration_errors() ::
           validation_exception()
           | uninitialized_account_exception()
@@ -2514,6 +3368,37 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Cancels an in-progress Recovery Plan execution.
+
+  Remaining steps are skipped.
+  """
+  @spec cancel_recovery_plan_execution(map(), cancel_recovery_plan_execution_request(), list()) ::
+          {:ok, cancel_recovery_plan_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_recovery_plan_execution_errors()}
+  def cancel_recovery_plan_execution(%Client{} = client, input, options \\ []) do
+    url_path = "/CancelRecoveryPlanExecution"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Create an extended source server in the target Account based on the source
   server in staging account.
   """
@@ -2557,6 +3442,67 @@ defmodule AWS.Drs do
           | {:error, create_launch_configuration_template_errors()}
   def create_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLaunchConfigurationTemplate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a Recovery Plan to orchestrate multi-server disaster recovery.
+  """
+  @spec create_recovery_plan(map(), create_recovery_plan_request(), list()) ::
+          {:ok, create_recovery_plan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_recovery_plan_errors()}
+  def create_recovery_plan(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateRecoveryPlan"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a step in a Recovery Plan.
+
+  A step is either `SERVER` type (servers to recover in parallel) or `WAIT` type
+  (timed pause between steps).
+  """
+  @spec create_recovery_plan_step(map(), create_recovery_plan_step_request(), list()) ::
+          {:ok, create_recovery_plan_step_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_recovery_plan_step_errors()}
+  def create_recovery_plan_step(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateRecoveryPlanStep"
     headers = []
     custom_headers = []
     query_params = []
@@ -2742,6 +3688,98 @@ defmodule AWS.Drs do
           | {:error, delete_recovery_instance_errors()}
   def delete_recovery_instance(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteRecoveryInstance"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a Recovery Plan.
+
+  Cannot delete a plan that has an execution in a non-terminal status (`CREATED`,
+  `IN_PROGRESS`).
+  """
+  @spec delete_recovery_plan(map(), delete_recovery_plan_request(), list()) ::
+          {:ok, delete_recovery_plan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_recovery_plan_errors()}
+  def delete_recovery_plan(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteRecoveryPlan"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a Recovery Plan execution record.
+
+  Must be in a terminal status.
+  """
+  @spec delete_recovery_plan_execution(map(), delete_recovery_plan_execution_request(), list()) ::
+          {:ok, delete_recovery_plan_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_recovery_plan_execution_errors()}
+  def delete_recovery_plan_execution(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteRecoveryPlanExecution"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a step from a Recovery Plan.
+  """
+  @spec delete_recovery_plan_step(map(), delete_recovery_plan_step_request(), list()) ::
+          {:ok, delete_recovery_plan_step_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_recovery_plan_step_errors()}
+  def delete_recovery_plan_step(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteRecoveryPlanStep"
     headers = []
     custom_headers = []
     query_params = []
@@ -3280,6 +4318,126 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Gets a Recovery Plan by ARN.
+  """
+  @spec get_recovery_plan(map(), get_recovery_plan_request(), list()) ::
+          {:ok, get_recovery_plan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_recovery_plan_errors()}
+  def get_recovery_plan(%Client{} = client, input, options \\ []) do
+    url_path = "/GetRecoveryPlan"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets the details of a Recovery Plan execution.
+  """
+  @spec get_recovery_plan_execution(map(), get_recovery_plan_execution_request(), list()) ::
+          {:ok, get_recovery_plan_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_recovery_plan_execution_errors()}
+  def get_recovery_plan_execution(%Client{} = client, input, options \\ []) do
+    url_path = "/GetRecoveryPlanExecution"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets the details of a step within a Recovery Plan execution.
+  """
+  @spec get_recovery_plan_execution_step(
+          map(),
+          get_recovery_plan_execution_step_request(),
+          list()
+        ) ::
+          {:ok, get_recovery_plan_execution_step_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_recovery_plan_execution_step_errors()}
+  def get_recovery_plan_execution_step(%Client{} = client, input, options \\ []) do
+    url_path = "/GetRecoveryPlanExecutionStep"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets a Recovery Plan step by ARN.
+  """
+  @spec get_recovery_plan_step(map(), get_recovery_plan_step_request(), list()) ::
+          {:ok, get_recovery_plan_step_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_recovery_plan_step_errors()}
+  def get_recovery_plan_step(%Client{} = client, input, options \\ []) do
+    url_path = "/GetRecoveryPlanStep"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets a ReplicationConfiguration, filtered by Source Server ID.
   """
   @spec get_replication_configuration(map(), get_replication_configuration_request(), list()) ::
@@ -3401,6 +4559,126 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Lists all steps within a Recovery Plan execution.
+  """
+  @spec list_recovery_plan_execution_steps(
+          map(),
+          list_recovery_plan_execution_steps_request(),
+          list()
+        ) ::
+          {:ok, list_recovery_plan_execution_steps_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_recovery_plan_execution_steps_errors()}
+  def list_recovery_plan_execution_steps(%Client{} = client, input, options \\ []) do
+    url_path = "/ListRecoveryPlanExecutionSteps"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists executions of Recovery Plans, optionally filtered by plan or status.
+  """
+  @spec list_recovery_plan_executions(map(), list_recovery_plan_executions_request(), list()) ::
+          {:ok, list_recovery_plan_executions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_recovery_plan_executions_errors()}
+  def list_recovery_plan_executions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListRecoveryPlanExecutions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all steps in a Recovery Plan.
+  """
+  @spec list_recovery_plan_steps(map(), list_recovery_plan_steps_request(), list()) ::
+          {:ok, list_recovery_plan_steps_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_recovery_plan_steps_errors()}
+  def list_recovery_plan_steps(%Client{} = client, input, options \\ []) do
+    url_path = "/ListRecoveryPlanSteps"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all Recovery Plans in the account.
+  """
+  @spec list_recovery_plans(map(), list_recovery_plans_request(), list()) ::
+          {:ok, list_recovery_plans_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_recovery_plans_errors()}
+  def list_recovery_plans(%Client{} = client, input, options \\ []) do
+    url_path = "/ListRecoveryPlans"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns an array of staging accounts for existing extended source servers.
   """
   @spec list_staging_accounts(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
@@ -3485,6 +4763,37 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Reorders steps in a Recovery Plan.
+
+  Accepts a complete ordered list of step ARNs.
+  """
+  @spec reorder_recovery_plan_steps(map(), reorder_recovery_plan_steps_request(), list()) ::
+          {:ok, reorder_recovery_plan_steps_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, reorder_recovery_plan_steps_errors()}
+  def reorder_recovery_plan_steps(%Client{} = client, input, options \\ []) do
+    url_path = "/ReorderRecoveryPlanSteps"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   WARNING: RetryDataReplication is deprecated.
 
   Causes the data replication initiation sequence to begin immediately upon next
@@ -3499,6 +4808,39 @@ defmodule AWS.Drs do
           | {:error, retry_data_replication_errors()}
   def retry_data_replication(%Client{} = client, input, options \\ []) do
     url_path = "/RetryDataReplication"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retries a failed `SERVER` type execution step.
+  """
+  @spec retry_recovery_plan_execution_step(
+          map(),
+          retry_recovery_plan_execution_step_request(),
+          list()
+        ) ::
+          {:ok, retry_recovery_plan_execution_step_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, retry_recovery_plan_execution_step_errors()}
+  def retry_recovery_plan_execution_step(%Client{} = client, input, options \\ []) do
+    url_path = "/RetryRecoveryPlanExecutionStep"
     headers = []
     custom_headers = []
     query_params = []
@@ -3614,6 +4956,37 @@ defmodule AWS.Drs do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Starts executing a Recovery Plan in `DRILL` or `RECOVERY` mode.
+
+  A plan cannot have more than one execution in a non-terminal status at a time.
+  """
+  @spec start_recovery_plan_execution(map(), start_recovery_plan_execution_request(), list()) ::
+          {:ok, start_recovery_plan_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_recovery_plan_execution_errors()}
+  def start_recovery_plan_execution(%Client{} = client, input, options \\ []) do
+    url_path = "/StartRecoveryPlanExecution"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -3988,6 +5361,103 @@ defmodule AWS.Drs do
           | {:error, update_launch_configuration_template_errors()}
   def update_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfigurationTemplate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a Recovery Plan's name or description.
+  """
+  @spec update_recovery_plan(map(), update_recovery_plan_request(), list()) ::
+          {:ok, update_recovery_plan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_recovery_plan_errors()}
+  def update_recovery_plan(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateRecoveryPlan"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an execution step.
+
+  Supports two actions: (1) skip a step that is in `NOT_STARTED` or `FAILED`
+  status; (2) update the wait duration of a `WAIT` type step that is in
+  `NOT_STARTED` status.
+  """
+  @spec update_recovery_plan_execution_step(
+          map(),
+          update_recovery_plan_execution_step_request(),
+          list()
+        ) ::
+          {:ok, update_recovery_plan_execution_step_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_recovery_plan_execution_step_errors()}
+  def update_recovery_plan_execution_step(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateRecoveryPlanExecutionStep"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a Recovery Plan step's name or configuration.
+
+  Step type is immutable.
+  """
+  @spec update_recovery_plan_step(map(), update_recovery_plan_step_request(), list()) ::
+          {:ok, update_recovery_plan_step_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_recovery_plan_step_errors()}
+  def update_recovery_plan_step(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateRecoveryPlanStep"
     headers = []
     custom_headers = []
     query_params = []

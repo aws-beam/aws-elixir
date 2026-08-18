@@ -2707,6 +2707,33 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_extraction_definition_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Display") => extraction_definition_display(),
+        optional("Tags") => map(),
+        required("ExtractionConfiguration") => extraction_configuration(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_extraction_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_extraction_definition_response() :: %{
+        "ExtractionDefinitionArn" => String.t() | atom(),
+        "ExtractionDefinitionId" => String.t() | atom()
+      }
+
+  """
+  @type create_extraction_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_hours_of_operation_override_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("OverrideType") => list(any()),
@@ -4051,6 +4078,24 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_extraction_definition_request() :: %{}
+
+  """
+  @type delete_extraction_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_extraction_definition_response() :: %{}
+
+  """
+  @type delete_extraction_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_hours_of_operation_override_request() :: %{}
 
   """
@@ -4667,6 +4712,26 @@ defmodule AWS.Connect do
 
   """
   @type describe_evaluation_form_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_extraction_definition_request() :: %{}
+
+  """
+  @type describe_extraction_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_extraction_definition_response() :: %{
+        "ExtractionDefinition" => extraction_definition()
+      }
+
+  """
+  @type describe_extraction_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6695,6 +6760,87 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      extract_information_action_definition() :: %{
+        "RulesExtractionDefinitions" => list(rules_extraction_definition_identifier())
+      }
+
+  """
+  @type extract_information_action_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extraction_configuration() :: %{
+        "NotFoundBehavior" => extraction_definition_not_found_behavior(),
+        "PromptHint" => String.t() | atom()
+      }
+
+  """
+  @type extraction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extraction_definition() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "Display" => extraction_definition_display(),
+        "ExtractionConfiguration" => extraction_configuration(),
+        "ExtractionDefinitionArn" => String.t() | atom(),
+        "ExtractionDefinitionId" => String.t() | atom(),
+        "LastUpdatedBy" => String.t() | atom(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type extraction_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extraction_definition_display() :: %{
+        "Label" => String.t() | atom()
+      }
+
+  """
+  @type extraction_definition_display() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extraction_definition_not_found_behavior() :: %{
+        "Behavior" => list(any()),
+        "DefaultValue" => String.t() | atom()
+      }
+
+  """
+  @type extraction_definition_not_found_behavior() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extraction_definition_summary() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "ExtractionDefinitionArn" => String.t() | atom(),
+        "ExtractionDefinitionId" => String.t() | atom(),
+        "LastUpdatedBy" => String.t() | atom(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type extraction_definition_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       failed_batch_association_summary() :: %{
         "ErrorCode" => String.t() | atom(),
         "ErrorMessage" => String.t() | atom(),
@@ -8594,6 +8740,30 @@ defmodule AWS.Connect do
 
   """
   @type list_evaluation_forms_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_extraction_definitions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_extraction_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_extraction_definitions_response() :: %{
+        "ExtractionDefinitionSummaryList" => list(extraction_definition_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_extraction_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11846,6 +12016,7 @@ defmodule AWS.Connect do
         "CreateCaseAction" => create_case_action_definition(),
         "EndAssociatedTasksAction" => end_associated_tasks_action_definition(),
         "EventBridgeAction" => event_bridge_action_definition(),
+        "ExtractInformationAction" => extract_information_action_definition(),
         "SendNotificationAction" => send_notification_action_definition(),
         "SubmitAutoEvaluationAction" => submit_auto_evaluation_action_definition(),
         "TaskAction" => task_action_definition(),
@@ -11941,6 +12112,17 @@ defmodule AWS.Connect do
 
   """
   @type rules_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rules_extraction_definition_identifier() :: %{
+        "Identifier" => String.t() | atom()
+      }
+
+  """
+  @type rules_extraction_definition_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14932,6 +15114,29 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_extraction_definition_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Display") => extraction_definition_display(),
+        required("ExtractionConfiguration") => extraction_configuration(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_extraction_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_extraction_definition_response() :: %{}
+
+  """
+  @type update_extraction_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_hours_of_operation_override_request() :: %{
         optional("Config") => list(hours_of_operation_override_config()),
         optional("Description") => String.t() | atom(),
@@ -16858,6 +17063,15 @@ defmodule AWS.Connect do
           | invalid_parameter_exception()
           | internal_service_exception()
 
+  @type create_extraction_definition_errors() ::
+          throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | resource_conflict_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
   @type create_hours_of_operation_errors() ::
           throttling_exception()
           | service_quota_exceeded_exception()
@@ -17208,6 +17422,13 @@ defmodule AWS.Connect do
           | invalid_parameter_exception()
           | internal_service_exception()
 
+  @type delete_extraction_definition_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
   @type delete_hours_of_operation_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -17499,6 +17720,13 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | invalid_parameter_exception()
           | internal_service_exception()
+
+  @type describe_extraction_definition_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | access_denied_exception()
 
   @type describe_hours_of_operation_errors() ::
           throttling_exception()
@@ -18106,6 +18334,13 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | invalid_parameter_exception()
           | internal_service_exception()
+
+  @type list_extraction_definitions_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | access_denied_exception()
 
   @type list_flow_associations_errors() ::
           throttling_exception()
@@ -18723,7 +18958,8 @@ defmodule AWS.Connect do
           | access_denied_exception()
 
   @type start_assistant_contact_errors() ::
-          resource_not_found_exception()
+          throttling_exception()
+          | resource_not_found_exception()
           | limit_exceeded_exception()
           | invalid_request_exception()
           | invalid_parameter_exception()
@@ -19119,6 +19355,14 @@ defmodule AWS.Connect do
           | resource_conflict_exception()
           | invalid_parameter_exception()
           | internal_service_exception()
+
+  @type update_extraction_definition_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | resource_conflict_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | access_denied_exception()
 
   @type update_hours_of_operation_errors() ::
           throttling_exception()
@@ -21560,6 +21804,47 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates an extraction definition in the specified Connect Customer instance.
+
+  An extraction
+  definition specifies how structured data is extracted from customer interactions
+  using generative
+  AI, including the prompt hint that guides extraction and the behavior when a
+  value cannot be
+  found.
+  """
+  @spec create_extraction_definition(
+          map(),
+          String.t() | atom(),
+          create_extraction_definition_request(),
+          list()
+        ) ::
+          {:ok, create_extraction_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_extraction_definition_errors()}
+  def create_extraction_definition(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/extraction-definitions/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates hours of operation.
   """
   @spec create_hours_of_operation(
@@ -23229,6 +23514,49 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Deletes an extraction definition from the specified Connect Customer instance.
+  """
+  @spec delete_extraction_definition(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_extraction_definition_request(),
+          list()
+        ) ::
+          {:ok, delete_extraction_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_extraction_definition_errors()}
+  def delete_extraction_definition(
+        %Client{} = client,
+        extraction_definition_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/extraction-definitions/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(extraction_definition_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes an hours of operation.
   """
   @spec delete_hours_of_operation(
@@ -24764,6 +25092,31 @@ defmodule AWS.Connect do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes an extraction definition in the specified Connect Customer instance.
+  """
+  @spec describe_extraction_definition(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_extraction_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_extraction_definition_errors()}
+  def describe_extraction_definition(
+        %Client{} = client,
+        extraction_definition_id,
+        instance_id,
+        options \\ []
+      ) do
+    url_path =
+      "/extraction-definitions/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(extraction_definition_id)}"
+
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -28242,6 +28595,50 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists extraction definitions in the specified Connect Customer instance.
+  """
+  @spec list_extraction_definitions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_extraction_definitions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_extraction_definitions_errors()}
+  def list_extraction_definitions(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/extraction-definitions/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -31986,8 +32383,8 @@ defmodule AWS.Connect do
   @doc """
   Starts a chat contact with an AI agent.
 
-  Use the returned `ParticipantToken` to call the
-  [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) API.
+  Use the returned `ParticipantToken` with the
+  [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) operation.
 
   For more information about chat, see the following topics in the *Connect
   Customer
@@ -34261,6 +34658,49 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an extraction definition in the specified Connect Customer instance.
+  """
+  @spec update_extraction_definition(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_extraction_definition_request(),
+          list()
+        ) ::
+          {:ok, update_extraction_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_extraction_definition_errors()}
+  def update_extraction_definition(
+        %Client{} = client,
+        extraction_definition_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/extraction-definitions/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(extraction_definition_id)}"
 
     headers = []
     custom_headers = []

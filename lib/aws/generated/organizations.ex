@@ -3046,6 +3046,16 @@ defmodule AWS.Organizations do
   and `departureTime` and an `AccountJoinedOrganization` event with
   `joinedMethod:INVITED` and `joinedTime` are logged in their
   respective management accounts.
+
+  When a billing transfer (`TRANSFER_RESPONSIBILITY`) handshake is accepted,
+  Organizations publishes a `ResponsibilityTransferAccepted` service event to
+  CloudTrail.
+  Each affected account receives this event, including upstream participants such
+  as
+  distributors in a chained transfer. For an example log entry, see [Example log entries:
+  AcceptResponsibilityTransfer](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_cloudtrail-integration.html#Log-entries-accept-responsibility-transfer)
+  in the
+  *Organizations User Guide*.
   """
   @spec accept_handshake(map(), accept_handshake_request(), list()) ::
           {:ok, accept_handshake_response(), any()}
@@ -3420,7 +3430,7 @@ defmodule AWS.Organizations do
   the following:
 
     *
-  Use the `OperationId` response element from this operation to
+  Use the `Id` response element from this operation to
   provide as a parameter to the `DescribeCreateAccountStatus`
   operation.
 
@@ -5148,6 +5158,14 @@ defmodule AWS.Organizations do
   A *transfer* is an arrangement between two
   management accounts where one account designates the other with specified
   responsibilities for their organization.
+
+  When a transfer ends, Organizations publishes a
+  `ResponsibilityTransferTerminated` service event to CloudTrail. Each affected
+  account receives this event, including upstream participants such as
+  distributors in a
+  chained transfer. For an example log entry, see [Example log entries: TerminateResponsibilityTransfer](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_cloudtrail-integration.html#Log-entries-terminate-responsibility-transfer)
+  in the
+  *Organizations User Guide*.
   """
   @spec terminate_responsibility_transfer(
           map(),

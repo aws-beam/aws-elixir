@@ -24,6 +24,28 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      a_m_i_security_filters() :: %{
+        "DeliveryOptionId" => String.t() | atom()
+      }
+
+  """
+  @type a_m_i_security_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_m_i_security_summary() :: %{
+        "DeliveryOptionId" => String.t() | atom()
+      }
+
+  """
+  @type a_m_i_security_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -125,6 +147,48 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type ami_product_visibility_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_summary() :: %{
+        "AssessmentArn" => String.t() | atom(),
+        "AssessmentId" => String.t() | atom(),
+        "AssessmentResult" => list(any()),
+        "AssessmentTargetSummary" => assessment_target_summary(),
+        "CreatedAt" => String.t() | atom(),
+        "ExpiresAt" => String.t() | atom(),
+        "FrameworkId" => String.t() | atom(),
+        "FrameworkSummary" => list()
+      }
+
+  """
+  @type assessment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_target_filter() :: %{
+        "ChangeSetId" => String.t() | atom(),
+        "EntityId" => String.t() | atom()
+      }
+
+  """
+  @type assessment_target_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_target_summary() :: %{
+        "ChangeSetId" => String.t() | atom(),
+        "EntityId" => String.t() | atom()
+      }
+
+  """
+  @type assessment_target_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -336,6 +400,54 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      container_security_filters() :: %{
+        "DeliveryOptionId" => String.t() | atom()
+      }
+
+  """
+  @type container_security_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container_security_summary() :: %{
+        "DeliveryOptionId" => String.t() | atom()
+      }
+
+  """
+  @type container_security_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_assessment() :: %{
+        "ControlAssessmentResult" => list(any()),
+        "ControlId" => String.t() | atom(),
+        "Errors" => list(control_error())
+      }
+
+  """
+  @type control_assessment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_error() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Scope" => list(error_scope())
+      }
+
+  """
+  @type control_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_product_entity_id_filter() :: %{
         "ValueList" => list(String.t() | atom())
       }
@@ -446,6 +558,40 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type delete_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_assessment_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AssessmentIdentifier") => String.t() | atom(),
+        required("Catalog") => String.t() | atom()
+      }
+
+  """
+  @type describe_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_assessment_response() :: %{
+        "AssessmentArn" => String.t() | atom(),
+        "AssessmentId" => String.t() | atom(),
+        "AssessmentResult" => list(any()),
+        "AssessmentTargetSummary" => assessment_target_summary(),
+        "ControlAssessments" => list(control_assessment()),
+        "CreatedAt" => String.t() | atom(),
+        "ExpiresAt" => String.t() | atom(),
+        "FrameworkId" => String.t() | atom(),
+        "FrameworkSummary" => list(),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_assessment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -586,6 +732,18 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      error_scope() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type error_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       filter() :: %{
         "Name" => String.t() | atom(),
         "ValueList" => list(String.t() | atom())
@@ -626,6 +784,34 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type internal_service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessments_request() :: %{
+        optional("AssessmentTargetFilter") => assessment_target_filter(),
+        optional("FrameworkFilters") => list(),
+        optional("FrameworkId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Catalog") => String.t() | atom()
+      }
+
+  """
+  @type list_assessments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessments_response() :: %{
+        "AssessmentSummaryList" => list(assessment_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_assessments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1730,11 +1916,28 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "ValidationExceptionFieldList" => list(validation_exception_field())
       }
 
   """
   @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "ChangeType" => String.t() | atom(),
+        "EntityId" => String.t() | atom(),
+        "EntityType" => String.t() | atom(),
+        "Field" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type batch_describe_entities_errors() ::
           validation_exception()
@@ -1751,6 +1954,13 @@ defmodule AWS.MarketplaceCatalog do
           | access_denied_exception()
 
   @type delete_resource_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
+  @type describe_assessment_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -1776,6 +1986,12 @@ defmodule AWS.MarketplaceCatalog do
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
+  @type list_assessments_errors() ::
+          validation_exception()
+          | throttling_exception()
           | internal_service_exception()
           | access_denied_exception()
 
@@ -1953,6 +2169,41 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
+  Returns the metadata and detailed results of a single assessment, including the
+  framework that was evaluated, the overall assessment result, and a paginated
+  list of
+  individual control evaluation results.
+
+  To list available assessments before describing one, use the
+  `ListAssessments` action.
+  """
+  @spec describe_assessment(map(), describe_assessment_request(), list()) ::
+          {:ok, describe_assessment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_assessment_errors()}
+  def describe_assessment(%Client{} = client, input, options \\ []) do
+    url_path = "/DescribeAssessment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Provides information about a given change set.
   """
   @spec describe_change_set(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -2040,6 +2291,49 @@ defmodule AWS.MarketplaceCatalog do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a paginated list of assessments associated with an entity or change set
+  in
+  AWS Marketplace.
+
+  An *assessment* is the result of evaluating a
+  product or change set against a framework, such as AMI Security or Container
+  Security.
+
+  Use the `AssessmentTargetFilter` to scope results to a specific entity or
+  change set, and use `FrameworkFilters` to scope results to a single
+  framework. To retrieve detailed control-level results for an individual
+  assessment, use
+  the `DescribeAssessment` action.
+
+  Results are sorted by assessment creation time in descending order.
+  """
+  @spec list_assessments(map(), list_assessments_request(), list()) ::
+          {:ok, list_assessments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_assessments_errors()}
+  def list_assessments(%Client{} = client, input, options \\ []) do
+    url_path = "/ListAssessments"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

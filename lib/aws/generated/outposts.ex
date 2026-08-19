@@ -14,6 +14,10 @@ defmodule AWS.Outposts do
   in Amazon Web Services Regions, while using local compute and storage resources
   for lower latency and local
   data processing needs.
+
+  You can use certain Amazon EC2 API actions for Amazon Web Services Outposts. For
+  more information on these API actions, see [Amazon Web Services Outposts actions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/operation-list-outposts.html)
+  in the *Amazon EC2 API Reference*.
   """
 
   alias AWS.Client
@@ -311,6 +315,29 @@ defmodule AWS.Outposts do
 
   """
   @type create_outpost_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_private_connectivity_config_input() :: %{
+        required("VpcInformationList") => list(vpc_information())
+      }
+
+  """
+  @type create_private_connectivity_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_private_connectivity_config_output() :: %{
+        "OutpostId" => String.t() | atom(),
+        "PrivateConnectivityConfig" => private_connectivity_config()
+      }
+
+  """
+  @type create_private_connectivity_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -683,6 +710,26 @@ defmodule AWS.Outposts do
 
   """
   @type get_outpost_supported_instance_types_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_private_connectivity_config_input() :: %{}
+
+  """
+  @type get_private_connectivity_config_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_private_connectivity_config_output() :: %{
+        "PrivateConnectivityConfig" => private_connectivity_config()
+      }
+
+  """
+  @type get_private_connectivity_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1239,6 +1286,20 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      private_connectivity_config() :: %{
+        "PrivateConnectivityStatus" => list(any()),
+        "ProvisioningRoleArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "VpcInformationList" => list(vpc_information())
+      }
+
+  """
+  @type private_connectivity_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       quote() :: %{
         "AccountId" => String.t() | atom(),
         "CountryCode" => String.t() | atom(),
@@ -1742,6 +1803,19 @@ defmodule AWS.Outposts do
   """
   @type validation_exception() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      vpc_information() :: %{
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcEndpointId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_information() :: %{(String.t() | atom()) => any()}
+
   @type cancel_capacity_task_errors() ::
           validation_exception()
           | not_found_exception()
@@ -1767,6 +1841,13 @@ defmodule AWS.Outposts do
   @type create_outpost_errors() ::
           validation_exception()
           | service_quota_exceeded_exception()
+          | not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_private_connectivity_config_errors() ::
+          validation_exception()
           | not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -1848,6 +1929,12 @@ defmodule AWS.Outposts do
           | access_denied_exception()
 
   @type get_outpost_supported_instance_types_errors() ::
+          validation_exception()
+          | not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_private_connectivity_config_errors() ::
           validation_exception()
           | not_found_exception()
           | internal_server_exception()
@@ -2119,6 +2206,47 @@ defmodule AWS.Outposts do
           | {:error, create_outpost_errors()}
   def create_outpost(%Client{} = client, input, options \\ []) do
     url_path = "/outposts"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates the private connectivity configuration for the specified Outpost.
+
+  Private
+  connectivity establishes a service link VPN connection between the Outpost and
+  its home
+  Amazon Web Services Region using a VPC and subnet that you specify, which allows
+  the service link traffic
+  to flow through your VPC and minimizes public internet exposure.
+  """
+  @spec create_private_connectivity_config(
+          map(),
+          String.t() | atom(),
+          create_private_connectivity_config_input(),
+          list()
+        ) ::
+          {:ok, create_private_connectivity_config_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_private_connectivity_config_errors()}
+  def create_private_connectivity_config(%Client{} = client, outpost_id, input, options \\ []) do
+    url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}/privateConnectivity"
     headers = []
     custom_headers = []
     query_params = []
@@ -2572,6 +2700,24 @@ defmodule AWS.Outposts do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the private connectivity configuration for the specified Outpost.
+  """
+  @spec get_private_connectivity_config(map(), String.t() | atom(), list()) ::
+          {:ok, get_private_connectivity_config_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_private_connectivity_config_errors()}
+  def get_private_connectivity_config(%Client{} = client, outpost_id, options \\ []) do
+    url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}/privateConnectivity"
+    headers = []
+    query_params = []
 
     meta = metadata()
 

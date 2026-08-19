@@ -1746,6 +1746,7 @@ defmodule AWS.EntityResolution do
   @type delete_id_mapping_workflow_errors() ::
           validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -1753,12 +1754,14 @@ defmodule AWS.EntityResolution do
   @type delete_id_namespace_errors() ::
           validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
 
   @type delete_matching_workflow_errors() ::
           validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -1774,6 +1777,7 @@ defmodule AWS.EntityResolution do
   @type delete_schema_mapping_errors() ::
           validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -2184,8 +2188,8 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes the `IdMappingWorkflow` with a given name.
 
-  This operation will succeed even if a workflow with the given name does not
-  exist.
+  This operation returns a `ResourceNotFoundException` if a workflow with the
+  given name does not exist.
   """
   @spec delete_id_mapping_workflow(
           map(),
@@ -2220,6 +2224,9 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Deletes the `IdNamespace` with a given name.
+
+  This operation returns a `ResourceNotFoundException` if an ID namespace with the
+  given name does not exist.
   """
   @spec delete_id_namespace(map(), String.t() | atom(), delete_id_namespace_input(), list()) ::
           {:ok, delete_id_namespace_output(), any()}
@@ -2250,8 +2257,8 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes the `MatchingWorkflow` with a given name.
 
-  This operation will succeed even if a workflow with the given name does not
-  exist.
+  This operation returns a `ResourceNotFoundException` if a workflow with the
+  given name does not exist.
   """
   @spec delete_matching_workflow(
           map(),
@@ -2322,9 +2329,10 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes the `SchemaMapping` with a given name.
 
-  This operation will succeed even if a schema with the given name does not exist.
-  This operation will fail if there is a `MatchingWorkflow` object that references
-  the `SchemaMapping` in the workflow's `InputSourceConfig`.
+  This operation returns a `ResourceNotFoundException` if a schema with the given
+  name does not exist. This operation will fail if there is a `MatchingWorkflow`
+  object that references the `SchemaMapping` in the workflow's
+  `InputSourceConfig`.
   """
   @spec delete_schema_mapping(map(), String.t() | atom(), delete_schema_mapping_input(), list()) ::
           {:ok, delete_schema_mapping_output(), any()}

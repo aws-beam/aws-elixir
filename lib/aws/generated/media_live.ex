@@ -5972,10 +5972,24 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      nielsen_nw_only() :: %{
+        "CheckDigitString" => String.t() | atom(),
+        "Sid" => float(),
+        "Timezone" => list(any())
+      }
+
+  """
+  @type nielsen_nw_only() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       nielsen_watermarks_settings() :: %{
         "NielsenCbetSettings" => nielsen_c_b_e_t(),
         "NielsenDistributionType" => list(any()),
-        "NielsenNaesIiNwSettings" => nielsen_naes_ii_nw()
+        "NielsenNaesIiNwSettings" => nielsen_naes_ii_nw(),
+        "NielsenNwOnlySettings" => nielsen_nw_only()
       }
 
   """

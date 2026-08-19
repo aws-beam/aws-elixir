@@ -3430,6 +3430,7 @@ defmodule AWS.WorkSpaces do
       workspace_properties() :: %{
         "ComputeTypeName" => list(any()),
         "GlobalAccelerator" => global_accelerator_for_work_space(),
+        "NestedVirtualizationEnabled" => boolean(),
         "OperatingSystemName" => list(any()),
         "Protocols" => list(list(any())()),
         "RootVolumeSizeGib" => integer(),
@@ -5355,6 +5356,10 @@ defmodule AWS.WorkSpaces do
   For available migration scenarios, details about what happens during migration,
   and best
   practices, see [Migrate a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/migrate-workspaces.html).
+
+  If the source WorkSpace has nested virtualization enabled and the target bundle
+  does
+  not support nested virtualization, the migration fails.
   """
   @spec migrate_workspace(map(), migrate_workspace_request(), list()) ::
           {:ok, migrate_workspace_result(), any()}

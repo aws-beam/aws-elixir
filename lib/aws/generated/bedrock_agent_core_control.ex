@@ -1340,6 +1340,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("indexedKeys") => list(indexed_key()),
         optional("memoryExecutionRoleArn") => String.t() | atom(),
         optional("memoryStrategies") => list(list()),
+        optional("namespaceKeys") => list(namespace_key_entry()),
         optional("streamDeliveryResources") => stream_delivery_resources(),
         optional("tags") => map(),
         required("eventExpiryDuration") => [integer()],
@@ -5930,6 +5931,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "managedByResourceArn" => String.t() | atom(),
         "memoryExecutionRoleArn" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "namespaceKeys" => list(namespace_key_entry()),
         "status" => list(any()),
         "strategies" => list(memory_strategy()),
         "streamDeliveryResources" => stream_delivery_resources(),
@@ -6152,6 +6154,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type modify_strategy_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      namespace_key_entry() :: %{
+        "key" => String.t() | atom(),
+        "validation" => namespace_key_validation()
+      }
+
+  """
+  @type namespace_key_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      namespace_key_validation() :: %{
+        "allowedValues" => list(String.t() | atom()),
+        "regexPattern" => String.t() | atom()
+      }
+
+  """
+  @type namespace_key_validation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8180,6 +8206,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("eventExpiryDuration") => [integer()],
         optional("memoryExecutionRoleArn") => String.t() | atom(),
         optional("memoryStrategies") => modify_memory_strategies(),
+        optional("namespaceKeys") => list(namespace_key_entry()),
         optional("streamDeliveryResources") => stream_delivery_resources()
       }
 

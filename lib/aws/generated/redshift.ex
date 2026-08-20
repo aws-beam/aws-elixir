@@ -501,6 +501,7 @@ defmodule AWS.Redshift do
         "IpAddressType" => String.t() | atom(),
         "KmsKeyId" => String.t() | atom(),
         "LakehouseRegistrationStatus" => String.t() | atom(),
+        "LoggingPublishStatus" => logging_publish_status(),
         "MaintenanceTrackName" => String.t() | atom(),
         "ManualSnapshotRetentionPeriod" => integer(),
         "MasterPasswordSecretArn" => String.t() | atom(),
@@ -2702,6 +2703,8 @@ defmodule AWS.Redshift do
   ## Example:
       
       disable_logging_message() :: %{
+        optional("LogDestinationType") => list(any()),
+        optional("LogExports") => list(String.t() | atom()),
         required("ClusterIdentifier") => String.t() | atom()
       }
       
@@ -2779,6 +2782,8 @@ defmodule AWS.Redshift do
         optional("LogDestinationType") => list(any()),
         optional("LogExports") => list(String.t() | atom()),
         optional("S3KeyPrefix") => String.t() | atom(),
+        optional("S3TableGranularity") => String.t() | atom(),
+        optional("S3TableKmsKeyId") => String.t() | atom(),
         required("ClusterIdentifier") => String.t() | atom()
       }
       
@@ -3986,6 +3991,17 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      logging_publish_status() :: %{
+        "S3Tables" => s3_table_publish_status()
+      }
+      
+  """
+  @type logging_publish_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       logging_status() :: %{
         "BucketName" => String.t() | atom(),
         "LastFailureMessage" => String.t() | atom(),
@@ -3994,7 +4010,8 @@ defmodule AWS.Redshift do
         "LogDestinationType" => list(any()),
         "LogExports" => list(String.t() | atom()),
         "LoggingEnabled" => boolean(),
-        "S3KeyPrefix" => String.t() | atom()
+        "S3KeyPrefix" => String.t() | atom(),
+        "S3Tables" => s3_table_publish_status()
       }
       
   """
@@ -5482,6 +5499,21 @@ defmodule AWS.Redshift do
       
   """
   @type rotate_encryption_key_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_table_publish_status() :: %{
+        "EnabledAll" => boolean(),
+        "LastIngestionTimes" => map(),
+        "S3TableGranularity" => String.t() | atom(),
+        "S3TableNamespace" => String.t() | atom(),
+        "S3Tables" => list(String.t() | atom())
+      }
+      
+  """
+  @type s3_table_publish_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

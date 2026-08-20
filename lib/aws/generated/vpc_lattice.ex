@@ -167,7 +167,7 @@ defmodule AWS.VPCLattice do
         optional("domainVerificationIdentifier") => String.t() | atom(),
         optional("groupDomain") => String.t() | atom(),
         optional("portRanges") => list(String.t() | atom()),
-        optional("protocol") => String.t() | atom(),
+        optional("protocol") => list(any()),
         optional("resourceConfigurationDefinition") => list(),
         optional("resourceConfigurationGroupIdentifier") => String.t() | atom(),
         optional("resourceGatewayIdentifier") => String.t() | atom(),
@@ -195,7 +195,7 @@ defmodule AWS.VPCLattice do
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "portRanges" => list(String.t() | atom()),
-        "protocol" => String.t() | atom(),
+        "protocol" => list(any()),
         "resourceConfigurationDefinition" => list(),
         "resourceConfigurationGroupId" => String.t() | atom(),
         "resourceGatewayId" => String.t() | atom(),
@@ -1007,7 +1007,7 @@ defmodule AWS.VPCLattice do
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "portRanges" => list(String.t() | atom()),
-        "protocol" => String.t() | atom(),
+        "protocol" => list(any()),
         "resourceConfigurationDefinition" => list(),
         "resourceConfigurationGroupId" => String.t() | atom(),
         "resourceGatewayId" => String.t() | atom(),
@@ -2402,7 +2402,7 @@ defmodule AWS.VPCLattice do
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "portRanges" => list(String.t() | atom()),
-        "protocol" => String.t() | atom(),
+        "protocol" => list(any()),
         "resourceConfigurationDefinition" => list(),
         "resourceConfigurationGroupId" => String.t() | atom(),
         "resourceGatewayId" => String.t() | atom(),
@@ -2502,7 +2502,9 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       update_service_network_vpc_association_request() :: %{
-        required("securityGroupIds") => list(String.t() | atom())
+        optional("dnsOptions") => dns_options(),
+        optional("privateDnsEnabled") => boolean(),
+        optional("securityGroupIds") => list(String.t() | atom())
       }
 
   """
@@ -2515,7 +2517,9 @@ defmodule AWS.VPCLattice do
       update_service_network_vpc_association_response() :: %{
         optional("arn") => String.t() | atom(),
         optional("createdBy") => String.t() | atom(),
+        optional("dnsOptions") => dns_options(),
         optional("id") => String.t() | atom(),
+        optional("privateDnsEnabled") => boolean(),
         optional("securityGroupIds") => list(String.t() | atom()),
         optional("status") => String.t() | atom()
       }

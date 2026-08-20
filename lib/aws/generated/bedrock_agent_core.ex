@@ -693,6 +693,7 @@ defmodule AWS.BedrockAgentCore do
       create_event_input() :: %{
         optional("branch") => branch(),
         optional("clientToken") => [String.t() | atom()],
+        optional("extractionConfig") => extraction_config(),
         optional("extractionMode") => list(any()),
         optional("metadata") => map(),
         optional("sessionId") => String.t() | atom(),
@@ -896,10 +897,12 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      delete_memory_record_input() :: %{}
+      delete_memory_record_input() :: %{
+        optional("namespace") => String.t() | atom()
+      }
 
   """
-  @type delete_memory_record_input() :: %{}
+  @type delete_memory_record_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1257,6 +1260,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      extraction_config() :: %{
+        "namespaceVariables" => map()
+      }
+
+  """
+  @type extraction_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       extraction_job() :: %{
         "jobId" => [String.t() | atom()]
       }
@@ -1561,10 +1575,12 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      get_memory_record_input() :: %{}
+      get_memory_record_input() :: %{
+        optional("namespace") => String.t() | atom()
+      }
 
   """
-  @type get_memory_record_input() :: %{}
+  @type get_memory_record_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2924,6 +2940,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      memory_json_data() :: %{
+        "content" => any()
+      }
+
+  """
+  @type memory_json_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       memory_metadata_filter_expression() :: %{
         "left" => list(),
         "operator" => list(any()),
@@ -2970,7 +2997,8 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       memory_record_delete_input() :: %{
-        "memoryRecordId" => String.t() | atom()
+        "memoryRecordId" => String.t() | atom(),
+        "namespace" => String.t() | atom()
       }
 
   """
@@ -3018,6 +3046,7 @@ defmodule AWS.BedrockAgentCore do
         "memoryStrategyId" => String.t() | atom(),
         "metadata" => map(),
         "namespaces" => list(String.t() | atom()),
+        "sourceNamespaces" => list(String.t() | atom()),
         "timestamp" => [non_neg_integer()]
       }
 
@@ -5554,7 +5583,12 @@ defmodule AWS.BedrockAgentCore do
 
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"namespace", "namespace"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -5926,17 +5960,36 @@ defmodule AWS.BedrockAgentCore do
   To use this operation, you must have the `bedrock-agentcore:GetMemoryRecord`
   permission.
   """
-  @spec get_memory_record(map(), String.t() | atom(), String.t() | atom(), list()) ::
+  @spec get_memory_record(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_memory_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_memory_record_errors()}
-  def get_memory_record(%Client{} = client, memory_id, memory_record_id, options \\ []) do
+  def get_memory_record(
+        %Client{} = client,
+        memory_id,
+        memory_record_id,
+        namespace \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/memories/#{AWS.Util.encode_uri(memory_id)}/memoryRecord/#{AWS.Util.encode_uri(memory_record_id)}"
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

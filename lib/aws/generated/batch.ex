@@ -184,6 +184,7 @@ defmodule AWS.Batch do
         "containerOrchestrationType" => list(any()),
         "context" => String.t() | atom(),
         "ecsClusterArn" => String.t() | atom(),
+        "ecsSettings" => ecs_settings(),
         "eksConfiguration" => eks_configuration(),
         "serviceRole" => String.t() | atom(),
         "state" => list(any()),
@@ -425,6 +426,7 @@ defmodule AWS.Batch do
       create_compute_environment_request() :: %{
         optional("computeResources") => compute_resource(),
         optional("context") => String.t() | atom(),
+        optional("ecsSettings") => ecs_settings(),
         optional("eksConfiguration") => eks_configuration(),
         optional("serviceRole") => String.t() | atom(),
         optional("state") => list(any()),
@@ -1064,6 +1066,17 @@ defmodule AWS.Batch do
 
   """
   @type ecs_properties_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ecs_settings() :: %{
+        "containerInsights" => list(any())
+      }
+
+  """
+  @type ecs_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2938,6 +2951,7 @@ defmodule AWS.Batch do
       update_compute_environment_request() :: %{
         optional("computeResources") => compute_resource_update(),
         optional("context") => String.t() | atom(),
+        optional("ecsSettings") => ecs_settings(),
         optional("serviceRole") => String.t() | atom(),
         optional("state") => list(any()),
         optional("unmanagedvCpus") => integer(),

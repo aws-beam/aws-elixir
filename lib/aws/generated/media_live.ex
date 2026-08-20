@@ -8394,8 +8394,10 @@ defmodule AWS.MediaLive do
 
       video_description() :: %{
         "CodecSettings" => video_codec_settings(),
+        "CropRectangle" => video_position_rectangle(),
         "Height" => integer(),
         "Name" => String.t() | atom(),
+        "OutputPositionRectangle" => video_position_rectangle(),
         "RespondToAfd" => list(any()),
         "ScalingBehavior" => list(any()),
         "Sharpness" => integer(),
@@ -8404,6 +8406,20 @@ defmodule AWS.MediaLive do
 
   """
   @type video_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_position_rectangle() :: %{
+        "Height" => integer(),
+        "Width" => integer(),
+        "X" => integer(),
+        "Y" => integer()
+      }
+
+  """
+  @type video_position_rectangle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

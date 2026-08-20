@@ -1403,6 +1403,7 @@ defmodule AWS.RedshiftServerless do
         "namespaceArn" => [String.t() | atom()],
         "namespaceId" => [String.t() | atom()],
         "namespaceName" => String.t() | atom(),
+        "s3TablePublishStatus" => s3_table_publish_status(),
         "status" => String.t() | atom()
       }
       
@@ -1650,6 +1651,21 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type restore_table_from_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_table_publish_status() :: %{
+        "enabledAll" => [boolean()],
+        "lastIngestionTimes" => map(),
+        "s3TableGranularity" => String.t() | atom(),
+        "s3TableNamespace" => [String.t() | atom()],
+        "s3Tables" => list(String.t() | atom())
+      }
+      
+  """
+  @type s3_table_publish_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1951,8 +1967,13 @@ defmodule AWS.RedshiftServerless do
         optional("defaultIamRoleArn") => [String.t() | atom()],
         optional("iamRoles") => list(String.t() | atom()),
         optional("kmsKeyId") => [String.t() | atom()],
+        optional("logDestinationType") => String.t() | atom(),
         optional("logExports") => list(String.t() | atom()),
         optional("manageAdminPassword") => [boolean()],
+        optional("s3TableAction") => String.t() | atom(),
+        optional("s3TableGranularity") => String.t() | atom(),
+        optional("s3TableKmsKeyId") => String.t() | atom(),
+        optional("s3TableNames") => list(String.t() | atom()),
         required("namespaceName") => String.t() | atom()
       }
       
@@ -3597,6 +3618,10 @@ defmodule AWS.RedshiftServerless do
   example, you must specify both `adminUsername` and `adminUserPassword` to update
   either field, but you can't update both `kmsKeyId` and `logExports` in a single
   request.
+
+  Similarly, an S3 Tables log-publishing update (a request where
+  `logDestinationType` is `s3table`) cannot be combined with any other namespace
+  configuration change and must be submitted as its own request.
   """
   @spec update_namespace(map(), update_namespace_request(), list()) ::
           {:ok, update_namespace_response(), any()}

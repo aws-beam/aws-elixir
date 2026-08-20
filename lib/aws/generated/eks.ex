@@ -98,6 +98,41 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      activate_certificate_authority_request() :: %{
+        optional("clientRequestToken") => String.t() | atom()
+      }
+
+  """
+  @type activate_certificate_authority_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activate_certificate_authority_response() :: %{
+        "certificateAuthority" => certificate_authority_summary(),
+        "update" => update()
+      }
+
+  """
+  @type activate_certificate_authority_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      active_certificate_authority() :: %{
+        "activatedBy" => list(any()),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type active_certificate_authority() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       addon() :: %{
         "addonArn" => String.t() | atom(),
         "addonName" => String.t() | atom(),
@@ -578,11 +613,74 @@ defmodule AWS.EKS do
   ## Example:
 
       certificate() :: %{
+        "active" => active_certificate_authority(),
         "data" => String.t() | atom()
       }
 
   """
   @type certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_authority() :: %{
+        "activatedAt" => non_neg_integer(),
+        "activatedBy" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => list(any()),
+        "data" => String.t() | atom(),
+        "distributionStatus" => list(any()),
+        "id" => String.t() | atom(),
+        "rollbackAvailable" => boolean(),
+        "scheduledEvents" => certificate_authority_scheduled_events(),
+        "signingStatus" => list(any()),
+        "validity" => certificate_authority_validity()
+      }
+
+  """
+  @type certificate_authority() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_authority_scheduled_events() :: %{
+        "finalAutoActivation" => non_neg_integer(),
+        "firstAutoActivation" => non_neg_integer()
+      }
+
+  """
+  @type certificate_authority_scheduled_events() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_authority_summary() :: %{
+        "activatedAt" => non_neg_integer(),
+        "activatedBy" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => list(any()),
+        "distributionStatus" => list(any()),
+        "id" => String.t() | atom(),
+        "signingStatus" => list(any())
+      }
+
+  """
+  @type certificate_authority_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_authority_validity() :: %{
+        "notAfter" => non_neg_integer(),
+        "notBefore" => non_neg_integer()
+      }
+
+  """
+  @type certificate_authority_validity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -929,6 +1027,29 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      create_certificate_authority_request() :: %{
+        optional("clientRequestToken") => String.t() | atom()
+      }
+
+  """
+  @type create_certificate_authority_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_certificate_authority_response() :: %{
+        "certificateAuthority" => certificate_authority_summary(),
+        "update" => update()
+      }
+
+  """
+  @type create_certificate_authority_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_cluster_request() :: %{
         optional("accessConfig") => create_access_config_request(),
         optional("bootstrapSelfManagedAddons") => boolean(),
@@ -1151,6 +1272,29 @@ defmodule AWS.EKS do
 
   """
   @type delete_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_certificate_authority_request() :: %{
+        optional("clientRequestToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_certificate_authority_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_certificate_authority_response() :: %{
+        "certificateAuthority" => certificate_authority_summary(),
+        "update" => update()
+      }
+
+  """
+  @type delete_certificate_authority_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1401,6 +1545,26 @@ defmodule AWS.EKS do
 
   """
   @type describe_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_certificate_authority_request() :: %{}
+
+  """
+  @type describe_certificate_authority_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_certificate_authority_response() :: %{
+        "certificateAuthority" => certificate_authority()
+      }
+
+  """
+  @type describe_certificate_authority_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2338,6 +2502,30 @@ defmodule AWS.EKS do
 
   """
   @type list_capabilities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_certificate_authorities_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_certificate_authorities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_certificate_authorities_response() :: %{
+        "certificateAuthorities" => list(certificate_authority_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_certificate_authorities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3710,6 +3898,12 @@ defmodule AWS.EKS do
   """
   @type zonal_shift_config_response() :: %{(String.t() | atom()) => any()}
 
+  @type activate_certificate_authority_errors() ::
+          service_unavailable_exception()
+          | server_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
+
   @type associate_access_policy_errors() ::
           server_exception()
           | resource_not_found_exception()
@@ -3769,6 +3963,14 @@ defmodule AWS.EKS do
           | invalid_parameter_exception()
           | access_denied_exception()
 
+  @type create_certificate_authority_errors() ::
+          service_unavailable_exception()
+          | server_exception()
+          | resource_not_found_exception()
+          | resource_limit_exceeded_exception()
+          | resource_in_use_exception()
+          | invalid_parameter_exception()
+
   @type create_cluster_errors() ::
           unsupported_availability_zone_exception()
           | service_unavailable_exception()
@@ -3826,6 +4028,13 @@ defmodule AWS.EKS do
           | resource_in_use_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
+
+  @type delete_certificate_authority_errors() ::
+          service_unavailable_exception()
+          | server_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_parameter_exception()
 
   @type delete_cluster_errors() ::
           service_unavailable_exception()
@@ -3890,6 +4099,9 @@ defmodule AWS.EKS do
           | resource_not_found_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
+
+  @type describe_certificate_authority_errors() ::
+          service_unavailable_exception() | server_exception() | resource_not_found_exception()
 
   @type describe_cluster_errors() ::
           service_unavailable_exception()
@@ -3981,6 +4193,12 @@ defmodule AWS.EKS do
           server_exception() | resource_not_found_exception() | invalid_request_exception()
 
   @type list_capabilities_errors() :: server_exception() | invalid_parameter_exception()
+
+  @type list_certificate_authorities_errors() ::
+          service_unavailable_exception()
+          | server_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
 
   @type list_clusters_errors() ::
           service_unavailable_exception()
@@ -4137,6 +4355,77 @@ defmodule AWS.EKS do
       signing_name: "eks",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Activates a successor certificate authority (CA) as the signing certificate
+  authority
+  for your cluster, completing a CA rotation.
+
+  When you activate a successor CA, Amazon EKS promotes it to be the cluster's
+  signer (its
+  `signingStatus` becomes `IN_USE`) and the outgoing CA is
+  retired (`NOT_USED`). The outgoing CA remains in the cluster's trust bundle but
+  no longer signs certificates. The successor CA you activate must already be
+  present on
+  the cluster and fully distributed (its `distributionStatus` must be
+  `COMPLETE`). This is an asynchronous operation that returns an
+  `update` object you can track with [
+  `DescribeUpdate`
+  ](https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html).
+
+  Before you activate the successor CA, make sure the worker nodes you manage and
+  your
+  external clients have been updated to trust it, so they maintain connectivity to
+  the API
+  server after activation. For a limited period after activation, CA rollback is
+  available
+  to revert to the outgoing CA if needed. If you don't activate the successor CA
+  yourself,
+  Amazon EKS activates it automatically as the expiration deadline approaches. For
+  more
+  information, see [Rotate the Amazon EKS cluster certificate
+  authority](https://docs.aws.amazon.com/eks/latest/userguide/certificate-authority-rotation.html)
+  in the *Amazon EKS User Guide*.
+  """
+  @spec activate_certificate_authority(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          activate_certificate_authority_request(),
+          list()
+        ) ::
+          {:ok, activate_certificate_authority_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, activate_certificate_authority_errors()}
+  def activate_certificate_authority(
+        %Client{} = client,
+        certificate_authority_id,
+        cluster_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/certificate-authorities/#{AWS.Util.encode_uri(certificate_authority_id)}/activate"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4426,6 +4715,76 @@ defmodule AWS.EKS do
           | {:error, create_capability_errors()}
   def create_capability(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/capabilities"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Appends a successor certificate authority (CA) to your cluster, beginning the CA
+  rotation process.
+
+  A cluster certificate authority is the root of trust for your cluster's control
+  plane.
+  It signs the certificates that secure communication between the Kubernetes API
+  server and its
+  clients, and its public certificate is distributed to your cluster's trust
+  bundle so that
+  worker nodes and clients can verify the API server's identity. Each cluster can
+  have at
+  most two certificate authorities at a time: the outgoing CA that's currently
+  signing (its
+  `signingStatus` is `IN_USE`) and one successor CA
+  (`signingStatus` of `NOT_USED`) that you can later activate to
+  complete the rotation.
+
+  Appending a successor CA adds its public certificate to the cluster's trust
+  bundle so
+  that the cluster trusts both CAs simultaneously (the dual trust period), but it
+  doesn't
+  begin signing certificates. Amazon EKS then distributes the successor CA to the
+  Amazon Web Services managed
+  components in your cluster; you can track this through the CA's
+  `distributionStatus`. The successor CA can't be activated until its
+  `distributionStatus` is `COMPLETE`. To activate it as the
+  cluster's signer, use [
+  `ActivateCertificateAuthority`
+  ](https://docs.aws.amazon.com/eks/latest/APIReference/API_ActivateCertificateAuthority.html).
+  This is an asynchronous operation
+  that returns an `update` object. If you don't append a successor CA yourself,
+  Amazon EKS appends one automatically before the outgoing CA approaches
+  expiration.
+
+  For more information, see [Rotate the Amazon EKS cluster certificate
+  authority](https://docs.aws.amazon.com/eks/latest/userguide/certificate-authority-rotation.html)
+  in the *Amazon EKS User Guide*.
+  """
+  @spec create_certificate_authority(
+          map(),
+          String.t() | atom(),
+          create_certificate_authority_request(),
+          list()
+        ) ::
+          {:ok, create_certificate_authority_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_certificate_authority_errors()}
+  def create_certificate_authority(%Client{} = client, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/certificate-authorities"
     headers = []
     custom_headers = []
     query_params = []
@@ -4921,6 +5280,69 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Deletes a certificate authority (CA) from your cluster.
+
+  Deleting a certificate authority removes its public certificate from the
+  cluster's
+  trust bundle. You can't delete the certificate authority that's currently
+  signing
+  certificates for the cluster (its `signingStatus` is `IN_USE`) — to
+  remove the outgoing CA, first activate the successor CA with [
+  `ActivateCertificateAuthority`
+  ](https://docs.aws.amazon.com/eks/latest/APIReference/API_ActivateCertificateAuthority.html).
+  Amazon EKS also protects a successor CA
+  from deletion in certain cases to keep a valid rotation path — for example, a
+  successor
+  that Amazon EKS appended can't be deleted while it's the only successor on the
+  cluster. This is
+  an asynchronous operation that returns an `update` object.
+  """
+  @spec delete_certificate_authority(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_certificate_authority_request(),
+          list()
+        ) ::
+          {:ok, delete_certificate_authority_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_certificate_authority_errors()}
+  def delete_certificate_authority(
+        %Client{} = client,
+        certificate_authority_id,
+        cluster_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/certificate-authorities/#{AWS.Util.encode_uri(certificate_authority_id)}"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientRequestToken", "clientRequestToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes an Amazon EKS cluster control plane.
 
   If you have active services and ingress resources in your cluster that are
@@ -5354,6 +5776,34 @@ defmodule AWS.EKS do
   def describe_capability(%Client{} = client, capability_name, cluster_name, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/capabilities/#{AWS.Util.encode_uri(capability_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns detailed information about a certificate authority (CA) in your cluster,
+  including its validity period, signing and distribution status, provenance,
+  scheduled
+  auto-activation events, and public certificate data.
+  """
+  @spec describe_certificate_authority(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_certificate_authority_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_certificate_authority_errors()}
+  def describe_certificate_authority(
+        %Client{} = client,
+        certificate_authority_id,
+        cluster_name,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/certificate-authorities/#{AWS.Util.encode_uri(certificate_authority_id)}"
 
     headers = []
     query_params = []
@@ -6011,6 +6461,55 @@ defmodule AWS.EKS do
         options \\ []
       ) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/capabilities"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the certificate authorities (CAs) for your cluster.
+
+  A cluster has at most two
+  certificate authorities: the outgoing CA that's currently signing and, during a
+  rotation,
+  one successor CA.
+  """
+  @spec list_certificate_authorities(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_certificate_authorities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_certificate_authorities_errors()}
+  def list_certificate_authorities(
+        %Client{} = client,
+        cluster_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/certificate-authorities"
     headers = []
     query_params = []
 

@@ -1,3 +1,12 @@
+defmodule AWS.ClientTest.CredentialProvider do
+  @behaviour AWS.Credentials.Provider
+
+  def resolve(_opts) do
+    {:ok,
+     AWS.Credentials.from_static("PROVIDER_AK", "PROVIDER_SK", "PROVIDER_TOKEN", "eu-central-1")}
+  end
+end
+
 defmodule AWS.ClientTest do
   use ExUnit.Case, async: true
 
@@ -266,6 +275,36 @@ defmodule AWS.ClientTest do
       c3 = AWS.Client.create("AK", "SK", "us-east-1")
       c5 = AWS.Client.create("AK", "SK", nil, "us-east-1", nil)
       assert c3 == c5
+    end
+
+    test "put_credentials/2 applies static credentials" do
+      client =
+        %AWS.Client{}
+        |> AWS.Client.put_credentials(
+          AWS.Credentials.from_static("AK", "SK", "TOKEN", "us-west-2")
+        )
+
+      assert %AWS.Client{
+               access_key_id: "AK",
+               secret_access_key: "SK",
+               session_token: "TOKEN",
+               region: "us-west-2"
+             } = client
+    end
+
+    test "resolve_credentials/1 resolves provider-backed credentials" do
+      client =
+        %AWS.Client{region: "us-east-1"}
+        |> AWS.Client.put_credentials({:provider, AWS.ClientTest.CredentialProvider, []})
+
+      resolved = AWS.Client.resolve_credentials(client)
+
+      assert %AWS.Client{
+               access_key_id: "PROVIDER_AK",
+               secret_access_key: "PROVIDER_SK",
+               session_token: "PROVIDER_TOKEN",
+               region: "eu-central-1"
+             } = resolved
     end
   end
 

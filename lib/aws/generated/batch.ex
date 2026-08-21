@@ -166,6 +166,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      capacity_reservation_request() :: %{
+        "reservationGroupArn" => String.t() | atom(),
+        "reservationPreference" => String.t() | atom()
+      }
+
+  """
+  @type capacity_reservation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       client_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -219,6 +231,7 @@ defmodule AWS.Batch do
       compute_resource() :: %{
         "allocationStrategy" => list(any()),
         "bidPercentage" => integer(),
+        "capacityTags" => map(),
         "desiredvCpus" => integer(),
         "ec2Configuration" => list(ec2_configuration()),
         "ec2KeyPair" => String.t() | atom(),
@@ -226,6 +239,7 @@ defmodule AWS.Batch do
         "instanceRole" => String.t() | atom(),
         "instanceTypes" => list(String.t() | atom()),
         "launchTemplate" => launch_template_specification(),
+        "managedInstancesProvider" => managed_instances_provider(),
         "maxvCpus" => integer(),
         "minvCpus" => integer(),
         "placementGroup" => String.t() | atom(),
@@ -247,6 +261,7 @@ defmodule AWS.Batch do
       compute_resource_update() :: %{
         "allocationStrategy" => list(any()),
         "bidPercentage" => integer(),
+        "capacityTags" => map(),
         "desiredvCpus" => integer(),
         "ec2Configuration" => list(ec2_configuration()),
         "ec2KeyPair" => String.t() | atom(),
@@ -254,6 +269,7 @@ defmodule AWS.Batch do
         "instanceRole" => String.t() | atom(),
         "instanceTypes" => list(String.t() | atom()),
         "launchTemplate" => launch_template_specification(),
+        "managedInstancesProvider" => update_managed_instances_provider_configuration(),
         "maxvCpus" => integer(),
         "minvCpus" => integer(),
         "placementGroup" => String.t() | atom(),
@@ -1090,6 +1106,7 @@ defmodule AWS.Batch do
         "executionRoleArn" => String.t() | atom(),
         "ipcMode" => String.t() | atom(),
         "networkConfiguration" => network_configuration(),
+        "networkMode" => String.t() | atom(),
         "pidMode" => String.t() | atom(),
         "platformVersion" => String.t() | atom(),
         "runtimePlatform" => runtime_platform(),
@@ -1112,6 +1129,7 @@ defmodule AWS.Batch do
         "executionRoleArn" => String.t() | atom(),
         "ipcMode" => String.t() | atom(),
         "networkConfiguration" => network_configuration(),
+        "networkMode" => String.t() | atom(),
         "pidMode" => String.t() | atom(),
         "platformVersion" => String.t() | atom(),
         "runtimePlatform" => runtime_platform(),
@@ -1633,6 +1651,66 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      infrastructure_optimization() :: %{
+        "scaleInAfter" => integer()
+      }
+
+  """
+  @type infrastructure_optimization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_launch_template() :: %{
+        "capacityOptionType" => String.t() | atom(),
+        "capacityReservations" => capacity_reservation_request(),
+        "ec2InstanceProfileArn" => String.t() | atom(),
+        "fipsEnabled" => boolean(),
+        "instanceMetadataTagsPropagation" => boolean(),
+        "instanceRequirements" => instance_requirements_request(),
+        "localStorageConfiguration" => managed_instances_local_storage_configuration(),
+        "monitoring" => String.t() | atom(),
+        "networkConfiguration" => managed_instances_network_configuration(),
+        "storageConfiguration" => managed_instances_storage_configuration()
+      }
+
+  """
+  @type instance_launch_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_launch_template_update() :: %{
+        "capacityReservations" => capacity_reservation_request(),
+        "ec2InstanceProfileArn" => String.t() | atom(),
+        "instanceMetadataTagsPropagation" => boolean(),
+        "instanceRequirements" => instance_requirements_request(),
+        "localStorageConfiguration" => managed_instances_local_storage_configuration(),
+        "monitoring" => String.t() | atom(),
+        "networkConfiguration" => managed_instances_network_configuration(),
+        "storageConfiguration" => managed_instances_storage_configuration()
+      }
+
+  """
+  @type instance_launch_template_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_requirements_request() :: %{
+        "allowedInstanceTypes" => list(String.t() | atom())
+      }
+
+  """
+  @type instance_requirements_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       job_capacity_usage_summary() :: %{
         "capacityUnit" => String.t() | atom(),
         "quantity" => float()
@@ -2083,6 +2161,54 @@ defmodule AWS.Batch do
 
   """
   @type log_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_instances_local_storage_configuration() :: %{
+        "useLocalStorage" => boolean()
+      }
+
+  """
+  @type managed_instances_local_storage_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_instances_network_configuration() :: %{
+        "securityGroups" => list(String.t() | atom()),
+        "subnets" => list(String.t() | atom())
+      }
+
+  """
+  @type managed_instances_network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_instances_provider() :: %{
+        "infrastructureOptimization" => infrastructure_optimization(),
+        "infrastructureRoleArn" => String.t() | atom(),
+        "instanceLaunchTemplate" => instance_launch_template(),
+        "propagateTags" => String.t() | atom()
+      }
+
+  """
+  @type managed_instances_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_instances_storage_configuration() :: %{
+        "storageSizeGiB" => integer()
+      }
+
+  """
+  @type managed_instances_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3029,6 +3155,20 @@ defmodule AWS.Batch do
 
   """
   @type update_job_queue_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_managed_instances_provider_configuration() :: %{
+        "infrastructureOptimization" => infrastructure_optimization(),
+        "infrastructureRoleArn" => String.t() | atom(),
+        "instanceLaunchTemplate" => instance_launch_template_update(),
+        "propagateTags" => String.t() | atom()
+      }
+
+  """
+  @type update_managed_instances_provider_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

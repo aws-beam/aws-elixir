@@ -1039,6 +1039,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      delete_resource_policy_request() :: %{
+        optional("RevisionId") => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       destination_config() :: %{
         "OnFailure" => on_failure(),
         "OnSuccess" => on_success()
@@ -2126,6 +2137,27 @@ defmodule AWS.Lambda do
 
   """
   @type get_provisioned_concurrency_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_response() :: %{
+        "Policy" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3326,6 +3358,30 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      put_resource_policy_request() :: %{
+        optional("RevisionId") => String.t() | atom(),
+        required("Policy") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_response() :: %{
+        "Policy" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_runtime_management_config_request() :: %{
         optional("Qualifier") => String.t() | atom(),
         optional("RuntimeVersionArn") => String.t() | atom(),
@@ -4369,6 +4425,14 @@ defmodule AWS.Lambda do
           | resource_conflict_exception()
           | invalid_parameter_value_exception()
 
+  @type delete_resource_policy_errors() ::
+          too_many_requests_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | resource_conflict_exception()
+          | precondition_failed_exception()
+          | invalid_parameter_value_exception()
+
   @type get_account_settings_errors() :: too_many_requests_exception() | service_exception()
 
   @type get_alias_errors() ::
@@ -4501,6 +4565,12 @@ defmodule AWS.Lambda do
           | service_exception()
           | resource_not_found_exception()
           | provisioned_concurrency_config_not_found_exception()
+          | invalid_parameter_value_exception()
+
+  @type get_resource_policy_errors() ::
+          too_many_requests_exception()
+          | service_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
 
   @type get_runtime_management_config_errors() ::
@@ -4765,6 +4835,16 @@ defmodule AWS.Lambda do
           | service_exception()
           | resource_not_found_exception()
           | resource_conflict_exception()
+          | invalid_parameter_value_exception()
+
+  @type put_resource_policy_errors() ::
+          too_many_requests_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | resource_conflict_exception()
+          | public_policy_exception()
+          | precondition_failed_exception()
+          | policy_length_exceeded_exception()
           | invalid_parameter_value_exception()
 
   @type put_runtime_management_config_errors() ::
@@ -5843,6 +5923,46 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Deletes a [resource-based policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
+  from a Lambda resource.
+  """
+  @spec delete_resource_policy(
+          map(),
+          String.t() | atom(),
+          delete_resource_policy_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resource_policy_errors()}
+  def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/2026-07-09/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"RevisionId", "RevisionId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Retrieves details about your account's
   [limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) and usage in
   an Amazon Web Services Region.
@@ -6449,6 +6569,25 @@ defmodule AWS.Lambda do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the [resource-based policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
+  attached to a Lambda resource.
+  """
+  @spec get_resource_policy(map(), String.t() | atom(), list()) ::
+          {:ok, get_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/2026-07-09/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -7878,6 +8017,46 @@ defmodule AWS.Lambda do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Adds a [resource-based policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
+  to a Lambda resource.
+
+  Resource-based policies grant access to other [Amazon Web Services accounts](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-cross-account.html),
+  [organizations](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-organization.html), or
+  [services](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-services.html).
+  Resource-based policies apply to a single Lambda resource (for example, a
+  function, function version, or function alias).
+
+  This operation replaces any existing policy on the Lambda resource. If you
+  previously added permissions using the `AddPermission` operation, the new policy
+  overwrites those permissions.
+  """
+  @spec put_resource_policy(map(), String.t() | atom(), put_resource_policy_request(), list()) ::
+          {:ok, put_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_resource_policy_errors()}
+  def put_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/2026-07-09/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

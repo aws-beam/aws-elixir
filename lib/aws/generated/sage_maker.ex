@@ -4141,6 +4141,7 @@ defmodule AWS.SageMaker do
       create_mlflow_app_request() :: %{
         optional("AccountDefaultStatus") => list(any()),
         optional("DefaultDomainIdList") => list(String.t() | atom()),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("ModelRegistrationMode") => list(any()),
         optional("Tags") => list(tag()),
         optional("WeeklyMaintenanceWindowStart") => String.t() | atom(),
@@ -4591,6 +4592,7 @@ defmodule AWS.SageMaker do
         optional("ClientToken") => String.t() | atom(),
         optional("EnableAutoMinorVersionUpgrade") => boolean(),
         optional("EnableIamSessionBasedIdentity") => boolean(),
+        optional("IdcConfig") => idc_config_input(),
         optional("KmsKeyId") => String.t() | atom(),
         optional("MaintenanceConfig") => partner_app_maintenance_config(),
         optional("Tags") => list(tag()),
@@ -7916,6 +7918,7 @@ defmodule AWS.SageMaker do
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
         "DefaultDomainIdList" => list(String.t() | atom()),
+        "KmsKeyId" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "MaintenanceStatus" => list(any()),
@@ -8417,6 +8420,7 @@ defmodule AWS.SageMaker do
         "EnableIamSessionBasedIdentity" => boolean(),
         "Error" => error_info(),
         "ExecutionRoleArn" => String.t() | atom(),
+        "IdcConfig" => idc_config_output(),
         "KmsKeyId" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "MaintenanceConfig" => partner_app_maintenance_config(),
@@ -10863,6 +10867,29 @@ defmodule AWS.SageMaker do
       
   """
   @type iam_policy_constraints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idc_config_input() :: %{
+        "InstanceArn" => String.t() | atom()
+      }
+      
+  """
+  @type idc_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idc_config_output() :: %{
+        "ApplicationArn" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom()
+      }
+      
+  """
+  @type idc_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -21109,9 +21136,11 @@ defmodule AWS.SageMaker do
       update_partner_app_request() :: %{
         optional("AppVersion") => String.t() | atom(),
         optional("ApplicationConfig") => partner_app_config(),
+        optional("AuthType") => list(any()),
         optional("ClientToken") => String.t() | atom(),
         optional("EnableAutoMinorVersionUpgrade") => boolean(),
         optional("EnableIamSessionBasedIdentity") => boolean(),
+        optional("IdcConfig") => idc_config_input(),
         optional("MaintenanceConfig") => partner_app_maintenance_config(),
         optional("Tags") => list(tag()),
         optional("Tier") => String.t() | atom(),

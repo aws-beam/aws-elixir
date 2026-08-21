@@ -1013,6 +1013,32 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      rds_switchover_read_replica_configuration() :: %{
+        "crossAccountRole" => String.t() | atom(),
+        "dbInstanceArnMap" => map(),
+        "externalId" => [String.t() | atom()],
+        "timeoutMinutes" => [integer()],
+        "ungraceful" => rds_ungraceful()
+      }
+      
+  """
+  @type rds_switchover_read_replica_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_ungraceful() :: %{
+        "ungraceful" => list(any())
+      }
+      
+  """
+  @type rds_ungraceful() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       region_switch_plan_configuration() :: %{
         "arn" => String.t() | atom(),
         "crossAccountRole" => String.t() | atom(),

@@ -390,6 +390,10 @@ defmodule AWS.DirectConnect do
         "partnerInterconnectMacSecCapable" => boolean(),
         "partnerName" => String.t() | atom(),
         "portEncryptionStatus" => String.t() | atom(),
+        "prefixPoolSizeIpv4" => integer(),
+        "prefixPoolSizeIpv6" => integer(),
+        "prefixPoolUnallocatedCountIpv4" => integer(),
+        "prefixPoolUnallocatedCountIpv6" => integer(),
         "providerName" => String.t() | atom(),
         "rateLimiterStatus" => rate_limiter_status(),
         "region" => String.t() | atom(),
@@ -1122,7 +1126,8 @@ defmodule AWS.DirectConnect do
         "directConnectGatewayState" => list(any()),
         "ownerAccount" => String.t() | atom(),
         "stateChangeError" => String.t() | atom(),
-        "tags" => list(tag())
+        "tags" => list(tag()),
+        "totalPrefixPoolAllocations" => integer()
       }
       
   """
@@ -1305,6 +1310,10 @@ defmodule AWS.DirectConnect do
         "minimumLinks" => integer(),
         "numberOfConnections" => integer(),
         "ownerAccount" => String.t() | atom(),
+        "prefixPoolSizeIpv4" => integer(),
+        "prefixPoolSizeIpv6" => integer(),
+        "prefixPoolUnallocatedCountIpv4" => integer(),
+        "prefixPoolUnallocatedCountIpv6" => integer(),
         "providerName" => String.t() | atom(),
         "rateLimiterStatus" => rate_limiter_status(),
         "region" => String.t() | atom(),
@@ -1475,6 +1484,8 @@ defmodule AWS.DirectConnect do
         "directConnectGatewayId" => String.t() | atom(),
         "enableSiteLink" => boolean(),
         "mtu" => integer(),
+        "prefixPoolAllocatedCountIpv4" => integer(),
+        "prefixPoolAllocatedCountIpv6" => integer(),
         "rateLimit" => String.t() | atom(),
         "tags" => list(tag()),
         "virtualGatewayId" => String.t() | atom(),
@@ -1562,6 +1573,8 @@ defmodule AWS.DirectConnect do
         "directConnectGatewayId" => String.t() | atom(),
         "enableSiteLink" => boolean(),
         "mtu" => integer(),
+        "prefixPoolAllocatedCountIpv4" => integer(),
+        "prefixPoolAllocatedCountIpv6" => integer(),
         "rateLimit" => String.t() | atom(),
         "tags" => list(tag()),
         "virtualInterfaceName" => String.t() | atom(),
@@ -1869,6 +1882,8 @@ defmodule AWS.DirectConnect do
       update_virtual_interface_attributes_request() :: %{
         optional("enableSiteLink") => boolean(),
         optional("mtu") => integer(),
+        optional("prefixPoolAllocatedCountIpv4") => integer(),
+        optional("prefixPoolAllocatedCountIpv6") => integer(),
         optional("rateLimit") => String.t() | atom(),
         optional("virtualInterfaceName") => String.t() | atom(),
         required("virtualInterfaceId") => String.t() | atom()
@@ -1922,6 +1937,8 @@ defmodule AWS.DirectConnect do
         "location" => String.t() | atom(),
         "mtu" => integer(),
         "ownerAccount" => String.t() | atom(),
+        "prefixPoolAllocatedCountIpv4" => integer(),
+        "prefixPoolAllocatedCountIpv6" => integer(),
         "rateLimit" => String.t() | atom(),
         "region" => String.t() | atom(),
         "routeFilterPrefixes" => list(route_filter_prefix()),

@@ -279,6 +279,17 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      configuration_overrides() :: %{
+        "Tracking" => tracking_configuration_overrides()
+      }
+
+  """
+  @type configuration_overrides() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -3494,6 +3505,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       send_bulk_email_request() :: %{
+        optional("ConfigurationOverrides") => configuration_overrides(),
         optional("ConfigurationSetName") => String.t() | atom(),
         optional("DefaultEmailTags") => list(message_tag()),
         optional("EndpointId") => String.t() | atom(),
@@ -3550,6 +3562,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       send_email_request() :: %{
+        optional("ConfigurationOverrides") => configuration_overrides(),
         optional("ConfigurationSetName") => String.t() | atom(),
         optional("Destination") => destination(),
         optional("EmailTags") => list(message_tag()),
@@ -3932,6 +3945,18 @@ defmodule AWS.SESv2 do
 
   """
   @type topic_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tracking_configuration_overrides() :: %{
+        "ClickTrackingEnabled" => list(any()),
+        "OpenTrackingEnabled" => list(any())
+      }
+
+  """
+  @type tracking_configuration_overrides() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7378,9 +7403,6 @@ defmodule AWS.SESv2 do
 
   @doc """
   Set the pricing plan for your Amazon SES account.
-
-  Use this operation to choose a billing plan
-  that packages multiple Amazon SES features at a single rate.
   """
   @spec put_account_pricing_attributes(map(), put_account_pricing_attributes_request(), list()) ::
           {:ok, put_account_pricing_attributes_response(), any()}

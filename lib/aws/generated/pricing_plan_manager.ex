@@ -3,7 +3,7 @@
 
 defmodule AWS.PricingPlanManager do
   @moduledoc """
-  Manages flat-rate pricing subscriptions for supported AWS services.
+  Manages flat-rate pricing subscriptions for supported services.
 
   Use this API to create, approve, update, and cancel subscriptions; associate and
   disassociate resources; and retrieve subscription details. With a flat-rate
@@ -517,9 +517,9 @@ defmodule AWS.PricingPlanManager do
   The subscription must be in an active state that is not pending other changes.
 
   For subscriptions in the CloudFront plan family, the associated resources must
-  include exactly one Amazon CloudFront distribution and one AWS WAF web ACL. You
-  can also include other supported resources, such as Amazon Route 53 hosted
-  zones, and CloudFront KeyValueStores.
+  include exactly one Amazon CloudFront distribution and one WAF web ACL. You can
+  also include other supported resources, such as Amazon Route 53 hosted zones,
+  and CloudFront KeyValueStores.
   """
   @spec associate_resources_to_subscription(
           map(),
@@ -709,8 +709,8 @@ defmodule AWS.PricingPlanManager do
   Removes one or more resources from an existing subscription.
 
   For subscriptions in the CloudFront plan family, the associated resources must
-  always include exactly one Amazon CloudFront distribution and exactly one AWS
-  WAF web ACL. You cannot remove these required resources.
+  always include exactly one Amazon CloudFront distribution and exactly one WAF
+  web ACL. You cannot remove these required resources.
   """
   @spec disassociate_resources_from_subscription(
           map(),

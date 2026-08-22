@@ -6821,7 +6821,7 @@ defmodule AWS.Backup do
 
   @doc """
   This is a request for a summary of backup jobs created
-  or running within the most recent 30 days.
+  or running within the most recent 14 days.
 
   You can
   include parameters AccountID, State, ResourceType, MessageCategory,
@@ -7309,7 +7309,7 @@ defmodule AWS.Backup do
 
   @doc """
   This request obtains a list of copy jobs created
-  or running within the the most recent 30 days.
+  or running within the the most recent 14 days.
 
   You can
   include parameters AccountID, State, ResourceType, MessageCategory,
@@ -8182,7 +8182,7 @@ defmodule AWS.Backup do
 
   @doc """
   This request obtains a summary of restore jobs created
-  or running within the the most recent 30 days.
+  or running within the the most recent 14 days.
 
   You can
   include parameters AccountID, State, ResourceType,
@@ -8564,7 +8564,7 @@ defmodule AWS.Backup do
 
   @doc """
   This is a request for a summary of scan jobs created or running within the most
-  recent 30 days.
+  recent 14 days.
   """
   @spec list_scan_job_summaries(
           map(),

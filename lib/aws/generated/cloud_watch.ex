@@ -1314,7 +1314,8 @@ defmodule AWS.CloudWatch do
         "StateUpdatedTimestamp" => non_neg_integer(),
         "StateValue" => list(any()),
         "Threshold" => float(),
-        "TreatMissingData" => String.t() | atom()
+        "TreatMissingData" => String.t() | atom(),
+        "WarmUpConfiguration" => warm_up_configuration()
       }
       
   """
@@ -1419,7 +1420,8 @@ defmodule AWS.CloudWatch do
         "Threshold" => float(),
         "ThresholdMetricId" => String.t() | atom(),
         "TreatMissingData" => String.t() | atom(),
-        "Unit" => list(any())
+        "Unit" => list(any()),
+        "WarmUpConfiguration" => warm_up_configuration()
       }
       
   """
@@ -1731,6 +1733,7 @@ defmodule AWS.CloudWatch do
         optional("OKActions") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
         optional("TreatMissingData") => String.t() | atom(),
+        optional("WarmUpConfiguration") => warm_up_configuration(),
         required("AlarmName") => String.t() | atom(),
         required("ComparisonOperator") => list(any()),
         required("QueryResultsToAlarm") => integer(),
@@ -1793,6 +1796,7 @@ defmodule AWS.CloudWatch do
         optional("ThresholdMetricId") => String.t() | atom(),
         optional("TreatMissingData") => String.t() | atom(),
         optional("Unit") => list(any()),
+        optional("WarmUpConfiguration") => warm_up_configuration(),
         required("AlarmName") => String.t() | atom()
       }
       
@@ -2137,6 +2141,18 @@ defmodule AWS.CloudWatch do
   """
   @type wall_clock_window() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      warm_up_configuration() :: %{
+        "OnlyStartEvaluatingAfterWarmUpPeriodEnds" => boolean(),
+        "WarmUpPeriodDurationInMinutes" => integer()
+      }
+      
+  """
+  @type warm_up_configuration() :: %{(String.t() | atom()) => any()}
+
   @type associate_dataset_kms_key_errors() ::
           resource_not_found_exception()
           | kms_key_not_found_exception()
@@ -2338,10 +2354,16 @@ defmodule AWS.CloudWatch do
   calling this operation.
 
   You can call `AssociateDatasetKmsKey` on a dataset that is already
-  associated with a KMS key to replace the existing key with a different one. To
-  replace
-  a key, the caller must have `kms:Decrypt` permission on both the current
-  key and the new key.
+  associated with a KMS key to replace the existing key with a different one. The
+  caller must have `kms:Decrypt` permission on both the current key and
+  the new key.
+
+  If the currently associated key has been deleted, is scheduled for deletion,
+  is pending import, is unavailable, or has been disabled, Amazon CloudWatch
+  does not require `kms:Decrypt` permission on the current key and
+  the rotation proceeds. If the key was only disabled, consider re-enabling it
+  instead of rotating, because re-enabling allows Amazon CloudWatch to
+  resume decrypting your existing metric data encrypted with that key.
 
   The KMS key that you specify must meet all of the following requirements:
 
@@ -2381,16 +2403,18 @@ defmodule AWS.CloudWatch do
   checks include `kms:DescribeKey`, `kms:GenerateDataKey`,
   `kms:Encrypt`, `kms:Decrypt`, and `kms:ReEncrypt*`.
   After those succeed, a `kms:Decrypt` dry-run is run with the caller's
-  credentials to verify that the calling principal can use the key. When you are
-  replacing an existing key, the caller's `kms:Decrypt` dry-run is run on
-  the current key first, and only then on the new key.
+  credentials to verify that the calling principal can use the new key. When you
+  are
+  replacing an existing key, the caller's `kms:Decrypt` dry-run is also run
+  on the current key.
 
-  If any of these checks fails, the operation fails and the existing key
-  association
-  (if any) remains unchanged. Common failure causes include the key being
-  disabled, the
-  key policy not granting the required permissions to Amazon CloudWatch, or the
-  caller lacking `kms:Decrypt` permission on the key.
+  If any of these checks on the new key fails, the operation fails and the
+  existing
+  key association (if any) remains unchanged. Common failure causes include the
+  new key
+  being disabled, the key policy not granting the required permissions to
+  Amazon CloudWatch, or the caller lacking `kms:Decrypt` permission on
+  the new key.
 
   For more information about using customer managed keys with Amazon CloudWatch,
   see [Encryption at rest with customer managed
@@ -2743,21 +2767,25 @@ defmodule AWS.CloudWatch do
   dataset has no associated KMS key, the operation fails with
   `ResourceNotFoundException`.
 
-  Amazon CloudWatch performs a dry-run `kms:Decrypt` call on the key
-  as part of this operation. This verifies that the caller is authorized to use
-  the
-  currently associated key. The caller must have `kms:Decrypt` permission on
-  the currently associated key, and the key must be enabled and accessible. If the
-  key
-  has been disabled or scheduled for deletion, you must first re-enable or restore
-  it
-  before you can disassociate it from the dataset.
+  Amazon CloudWatch performs a dry-run `kms:Decrypt` call on the
+  currently associated key as part of this operation. The caller must have
+  `kms:Decrypt` permission on the currently associated key. If the key is
+  accessible but the caller lacks `kms:Decrypt` permission, the operation
+  fails with `AccessDeniedException`.
+
+  If the currently associated key has been deleted, is scheduled for deletion,
+  is pending import, is unavailable, or has been disabled, Amazon CloudWatch
+  does not require `kms:Decrypt` permission on that key and the
+  disassociation proceeds. If the key was only disabled, consider re-enabling it
+  instead of disassociating, because re-enabling allows Amazon CloudWatch to
+  resume decrypting your existing metric data.
 
   Disassociating a KMS key from a dataset does not immediately remove the
   `kms:Decrypt` requirement on data plane operations. For up to three
   hours after disassociation, callers must continue to have
   `kms:Decrypt` permission on the previously associated key. Some data
-  may still be encrypted with that key during this window. After this enforcement
+  might still be encrypted with that key during this window. After this
+  enforcement
   window elapses, the `kms:Decrypt` requirement is lifted.
 
   For more information about using customer managed keys with Amazon CloudWatch,

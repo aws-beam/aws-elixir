@@ -231,6 +231,7 @@ defmodule AWS.DeviceFarm do
         "auxiliaryApps" => list(String.t() | atom()),
         "billingMethod" => list(any()),
         "deviceProxy" => device_proxy(),
+        "parameters" => map(),
         "vpceConfigurationArns" => list(String.t() | atom())
       }
       
@@ -3908,16 +3909,22 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   A session is an instance of a browser created through a `RemoteWebDriver` with
-  the URL from `CreateTestGridUrlResult$url`.
+  the URL from
+
+  ```
+
+  CreateTestGridUrlResult
+  ```
+
+  .
 
   You can use the following to look up sessions:
 
     *
-  The session ARN (`GetTestGridSessionRequest$sessionArn`).
+  The session ARN.
 
     *
-  The project ARN and a session ID (`GetTestGridSessionRequest$projectArn` and
-  `GetTestGridSessionRequest$sessionId`).
+  The project ARN and a session ID.
   """
   @spec get_test_grid_session(map(), get_test_grid_session_request(), list()) ::
           {:ok, get_test_grid_session_result(), any()}
@@ -4211,6 +4218,8 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Gets information about samples, given an AWS Device Farm job ARN.
+
+  Device Farm does not support performance data samples during test executions.
   """
   @spec list_samples(map(), list_samples_request(), list()) ::
           {:ok, list_samples_result(), any()}

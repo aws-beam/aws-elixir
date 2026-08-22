@@ -6340,6 +6340,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "endpoint" => String.t() | atom(),
         "protocolType" => list(any()),
         "schema" => http_api_schema_configuration(),
+        "staticQueryParameterConflictResolution" => list(any()),
+        "staticQueryParameters" => map(),
         "stickinessConfiguration" => stickiness_configuration()
       }
 
@@ -7290,6 +7292,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       stickiness_configuration() :: %{
+        "compositeIdentifier" => list(String.t() | atom()),
         "identifier" => [String.t() | atom()],
         "timeout" => integer()
       }
@@ -12011,6 +12014,8 @@ defmodule AWS.BedrockAgentCoreControl do
 
   @doc """
   Deletes an Amazon Bedrock AgentCore Memory resource.
+
+  When you delete a memory resource, it is permanently removed.
   """
   @spec delete_memory(map(), String.t() | atom(), delete_memory_input(), list()) ::
           {:ok, delete_memory_output(), any()}

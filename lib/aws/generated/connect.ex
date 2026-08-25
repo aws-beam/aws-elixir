@@ -11379,6 +11379,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      real_time_contact_analysis_extracted_information_value() :: %{
+        "Content" => String.t() | atom(),
+        "PointsOfInterest" => list(real_time_contact_analysis_transcript_item_with_character_offsets())
+      }
+
+  """
+  @type real_time_contact_analysis_extracted_information_value() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       real_time_contact_analysis_issue_detected() :: %{
         "TranscriptItems" => list(real_time_contact_analysis_transcript_item_with_content())
       }
@@ -11439,6 +11453,23 @@ defmodule AWS.Connect do
 
   """
   @type real_time_contact_analysis_segment_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      real_time_contact_analysis_segment_extracted_information() :: %{
+        "ExtractedValues" => list(real_time_contact_analysis_extracted_information_value()),
+        "ExtractionDefinitionDisplayLabel" => String.t() | atom(),
+        "ExtractionDefinitionId" => String.t() | atom(),
+        "ExtractionDefinitionName" => String.t() | atom(),
+        "FailureCode" => list(any())
+      }
+
+  """
+  @type real_time_contact_analysis_segment_extracted_information() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 

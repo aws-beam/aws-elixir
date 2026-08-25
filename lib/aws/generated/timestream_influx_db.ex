@@ -573,6 +573,7 @@ defmodule AWS.TimestreamInfluxDB do
         "dbParameterGroupIdentifier" => String.t() | atom(),
         "dbStorageType" => list(any()),
         "deploymentType" => list(any()),
+        "effectiveDbParameterGroupIdentifier" => String.t() | atom(),
         "endpoint" => [String.t() | atom()],
         "engineType" => list(any()),
         "failoverMode" => list(any()),

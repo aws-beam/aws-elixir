@@ -1522,6 +1522,7 @@ defmodule AWS.Kafka do
 
       kafka_cluster_client_authentication() :: %{
         "MTLS" => kafka_cluster_m_t_l_s_authentication(),
+        "SaslOAuthBearer" => kafka_cluster_sasl_o_auth_bearer_authentication(),
         "SaslScram" => kafka_cluster_sasl_scram_authentication()
       }
 
@@ -1578,6 +1579,60 @@ defmodule AWS.Kafka do
 
   """
   @type kafka_cluster_m_t_l_s_authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_cluster_o_auth_client_credentials() :: %{
+        "TokenRequestSecretArn" => String.t() | atom()
+      }
+
+  """
+  @type kafka_cluster_o_auth_client_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_cluster_o_auth_client_credentials_assertion() :: %{
+        "Audience" => String.t() | atom(),
+        "SigningAlgorithm" => list(any()),
+        "TokenRequestSecretArn" => String.t() | atom()
+      }
+
+  """
+  @type kafka_cluster_o_auth_client_credentials_assertion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_cluster_o_auth_iam_jwt_bearer() :: %{
+        "Audience" => String.t() | atom(),
+        "SigningAlgorithm" => list(any()),
+        "TokenRequestSecretArn" => String.t() | atom()
+      }
+
+  """
+  @type kafka_cluster_o_auth_iam_jwt_bearer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_cluster_sasl_o_auth_bearer_authentication() :: %{
+        "ClientCredentials" => kafka_cluster_o_auth_client_credentials(),
+        "ClientCredentialsAssertion" => kafka_cluster_o_auth_client_credentials_assertion(),
+        "IamJwtBearer" => kafka_cluster_o_auth_iam_jwt_bearer(),
+        "Scope" => String.t() | atom(),
+        "TokenEndpointAuthenticationMethod" => list(any()),
+        "TokenEndpointTlsCertificateArn" => String.t() | atom(),
+        "TokenEndpointUrl" => String.t() | atom()
+      }
+
+  """
+  @type kafka_cluster_sasl_o_auth_bearer_authentication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

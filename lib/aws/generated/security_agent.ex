@@ -167,7 +167,8 @@ defmodule AWS.SecurityAgent do
         "documents" => list(document_info()),
         "endpoints" => list(endpoint()),
         "integratedRepositories" => list(integrated_repository()),
-        "sourceCode" => list(source_code_repository())
+        "sourceCode" => list(source_code_repository()),
+        "trustedCaCertificates" => list(trusted_ca_certificate())
       }
 
   """
@@ -2935,6 +2936,7 @@ defmodule AWS.SecurityAgent do
         "status" => list(any()),
         "steps" => list(step()),
         "title" => [String.t() | atom()],
+        "trustedCaCertificates" => list(trusted_ca_certificate()),
         "updatedAt" => [non_neg_integer()],
         "vpcConfig" => vpc_config()
       }
@@ -3606,6 +3608,17 @@ defmodule AWS.SecurityAgent do
 
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trusted_ca_certificate() :: %{
+        "source" => list()
+      }
+
+  """
+  @type trusted_ca_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

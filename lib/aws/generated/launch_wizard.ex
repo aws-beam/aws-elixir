@@ -43,6 +43,17 @@ defmodule AWS.LaunchWizard do
 
   ## Example:
 
+      delegated_admin_constraint() :: %{
+        "servicePrincipal" => String.t() | atom()
+      }
+
+  """
+  @type delegated_admin_constraint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_deployment_input() :: %{
         required("deploymentId") => String.t() | atom()
       }
@@ -120,6 +131,7 @@ defmodule AWS.LaunchWizard do
 
       deployment_event_data_summary() :: %{
         "description" => [String.t() | atom()],
+        "metadata" => map(),
         "name" => [String.t() | atom()],
         "status" => list(any()),
         "statusReason" => [String.t() | atom()],
@@ -435,6 +447,15 @@ defmodule AWS.LaunchWizard do
 
   ## Example:
 
+      management_account_constraint() :: %{}
+
+  """
+  @type management_account_constraint() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       resource_limit_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -536,6 +557,7 @@ defmodule AWS.LaunchWizard do
   ## Example:
 
       workload_data() :: %{
+        "accountConstraints" => list(list()),
         "description" => [String.t() | atom()],
         "displayName" => [String.t() | atom()],
         "documentationUrl" => [String.t() | atom()],
@@ -553,6 +575,7 @@ defmodule AWS.LaunchWizard do
   ## Example:
 
       workload_data_summary() :: %{
+        "accountConstraints" => list(list()),
         "displayName" => [String.t() | atom()],
         "status" => list(any()),
         "workloadName" => String.t() | atom()
@@ -566,6 +589,7 @@ defmodule AWS.LaunchWizard do
   ## Example:
 
       workload_deployment_pattern_data() :: %{
+        "accountConstraints" => list(list()),
         "deploymentPatternName" => String.t() | atom(),
         "deploymentPatternVersionName" => String.t() | atom(),
         "description" => [String.t() | atom()],
@@ -585,6 +609,7 @@ defmodule AWS.LaunchWizard do
   ## Example:
 
       workload_deployment_pattern_data_summary() :: %{
+        "accountConstraints" => list(list()),
         "deploymentPatternName" => String.t() | atom(),
         "deploymentPatternVersionName" => String.t() | atom(),
         "description" => [String.t() | atom()],

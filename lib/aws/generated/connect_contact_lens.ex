@@ -81,6 +81,33 @@ defmodule AWS.ConnectContactLens do
 
   ## Example:
 
+      extracted_information() :: %{
+        "ExtractedValues" => list(extracted_information_value()),
+        "ExtractionDefinitionDisplayLabel" => String.t() | atom(),
+        "ExtractionDefinitionId" => String.t() | atom(),
+        "ExtractionDefinitionName" => String.t() | atom(),
+        "FailureCode" => list(any())
+      }
+
+  """
+  @type extracted_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extracted_information_value() :: %{
+        "Content" => String.t() | atom(),
+        "PointsOfInterest" => list(point_of_interest())
+      }
+
+  """
+  @type extracted_information_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_service_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -167,6 +194,7 @@ defmodule AWS.ConnectContactLens do
 
       realtime_contact_analysis_segment() :: %{
         "Categories" => categories(),
+        "ExtractedInformation" => extracted_information(),
         "PostContactSummary" => post_contact_summary(),
         "Transcript" => transcript()
       }
@@ -238,7 +266,11 @@ defmodule AWS.ConnectContactLens do
   end
 
   @doc """
-  Provides a list of analysis segments for a real-time analysis session.
+  Provides a list of analysis segments for a real-time analysis session for
+  voice.
+
+  Voice data is retained for 24 hours. You must invoke this API during that
+  time.
   """
   @spec list_realtime_contact_analysis_segments(
           map(),

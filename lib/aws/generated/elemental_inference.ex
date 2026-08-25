@@ -150,6 +150,7 @@ defmodule AWS.ElementalInference do
   ## Example:
 
       create_feed_response() :: %{
+        "accessRoleArn" => String.t() | atom(),
         "arn" => String.t() | atom(),
         "association" => feed_association(),
         "dataEndpoints" => list([String.t() | atom()]()),
@@ -395,6 +396,7 @@ defmodule AWS.ElementalInference do
   ## Example:
 
       get_feed_response() :: %{
+        "accessRoleArn" => String.t() | atom(),
         "arn" => String.t() | atom(),
         "association" => feed_association(),
         "dataEndpoints" => list([String.t() | atom()]()),
@@ -407,6 +409,31 @@ defmodule AWS.ElementalInference do
 
   """
   @type get_feed_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_fixture_request() :: %{}
+
+  """
+  @type get_fixture_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_fixture_response() :: %{
+        "competitors" => list(competitor()),
+        "fixtureGroup" => [String.t() | atom()],
+        "fixtureId" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "scheduledStart" => [non_neg_integer()],
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type get_fixture_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -682,6 +709,7 @@ defmodule AWS.ElementalInference do
   ## Example:
 
       update_feed_response() :: %{
+        "accessRoleArn" => String.t() | atom(),
         "arn" => String.t() | atom(),
         "association" => feed_association(),
         "dataEndpoints" => list([String.t() | atom()]()),
@@ -788,6 +816,15 @@ defmodule AWS.ElementalInference do
           too_many_request_exception()
           | resource_not_found_exception()
           | internal_server_error_exception()
+          | access_denied_exception()
+
+  @type get_fixture_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timed_out_exception()
           | access_denied_exception()
 
   @type list_dictionaries_errors() ::
@@ -1133,6 +1170,28 @@ defmodule AWS.ElementalInference do
           | {:error, get_feed_errors()}
   def get_feed(%Client{} = client, id, options \\ []) do
     url_path = "/v1/feed/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about the specified fixture (a sports event, such as a
+  specific basketball game).
+
+  You obtain a fixtureId from SearchFixtures, or from the clipping output of a
+  feed.
+  """
+  @spec get_fixture(map(), String.t() | atom(), list()) ::
+          {:ok, get_fixture_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_fixture_errors()}
+  def get_fixture(%Client{} = client, fixture_id, options \\ []) do
+    url_path = "/v1/fixtures/#{AWS.Util.encode_uri(fixture_id)}"
     headers = []
     query_params = []
 

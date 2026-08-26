@@ -2162,6 +2162,30 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      integer_constraints() :: %{
+        "max" => integer(),
+        "min" => integer()
+      }
+
+  """
+  @type integer_constraints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      integer_parameter_config() :: %{
+        "constraints" => integer_constraints(),
+        "defaultValue" => integer()
+      }
+
+  """
+  @type integer_parameter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       integer_range_constraint() :: %{
         "max" => integer(),
         "min" => integer()
@@ -2267,7 +2291,8 @@ defmodule AWS.EKS do
   ## Example:
 
       kube_controller_manager_config_request() :: %{
-        "horizontalPodAutoscalerControllerConfig" => horizontal_pod_autoscaler_controller_config_request()
+        "horizontalPodAutoscalerControllerConfig" => horizontal_pod_autoscaler_controller_config_request(),
+        "podGcControllerConfig" => pod_gc_controller_config_request()
       }
 
   """
@@ -2278,7 +2303,8 @@ defmodule AWS.EKS do
   ## Example:
 
       kube_controller_manager_config_response() :: %{
-        "horizontalPodAutoscalerControllerConfig" => horizontal_pod_autoscaler_controller_config_response()
+        "horizontalPodAutoscalerControllerConfig" => horizontal_pod_autoscaler_controller_config_response(),
+        "podGcControllerConfig" => pod_gc_controller_config_response()
       }
 
   """
@@ -2289,7 +2315,8 @@ defmodule AWS.EKS do
   ## Example:
 
       kube_controller_manager_version_config() :: %{
-        "horizontalPodAutoscalerControllerConfig" => horizontal_pod_autoscaler_controller_version_config()
+        "horizontalPodAutoscalerControllerConfig" => horizontal_pod_autoscaler_controller_version_config(),
+        "podGcControllerConfig" => pod_gc_controller_version_config()
       }
 
   """
@@ -3009,6 +3036,39 @@ defmodule AWS.EKS do
 
   """
   @type outpost_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pod_gc_controller_config_request() :: %{
+        "terminatedPodGcThreshold" => integer()
+      }
+
+  """
+  @type pod_gc_controller_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pod_gc_controller_config_response() :: %{
+        "terminatedPodGcThreshold" => integer()
+      }
+
+  """
+  @type pod_gc_controller_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pod_gc_controller_version_config() :: %{
+        "terminatedPodGcThreshold" => integer_parameter_config()
+      }
+
+  """
+  @type pod_gc_controller_version_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

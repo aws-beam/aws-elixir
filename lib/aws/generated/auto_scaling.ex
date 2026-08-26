@@ -1178,6 +1178,17 @@ defmodule AWS.AutoScaling do
 
   ## Example:
       
+      distribution_segment() :: %{
+        "TargetCapacityTypes" => list(list(any())())
+      }
+      
+  """
+  @type distribution_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ebs() :: %{
         "DeleteOnTermination" => boolean(),
         "Encrypted" => boolean(),
@@ -1557,6 +1568,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       instances_distribution() :: %{
+        "DistributionSegments" => list(distribution_segment()),
         "OnDemandAllocationStrategy" => String.t() | atom(),
         "OnDemandBaseCapacity" => integer(),
         "OnDemandPercentageAboveBaseCapacity" => integer(),

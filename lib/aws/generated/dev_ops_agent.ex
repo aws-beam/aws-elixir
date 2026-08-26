@@ -39,11 +39,39 @@ defmodule AWS.DevOpsAgent do
         "kmsKeyArn" => String.t() | atom(),
         "locale" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "preferences" => map(),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
   @type agent_space() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      approval_action() :: %{
+        "action" => list(any()),
+        "approvalId" => String.t() | atom(),
+        "buttonText" => String.t() | atom(),
+        "interruptId" => String.t() | atom(),
+        "toolUseId" => String.t() | atom()
+      }
+
+  """
+  @type approval_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      approval_pattern() :: %{
+        "argumentPins" => map(),
+        "tool" => String.t() | atom()
+      }
+
+  """
+  @type approval_pattern() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -202,6 +230,8 @@ defmodule AWS.DevOpsAgent do
       aws_configuration() :: %{
         "accountId" => [String.t() | atom()],
         "accountType" => list(any()),
+        "agentElevatedRoleArn" => String.t() | atom(),
+        "agentElevatedRoleArnStatus" => list(any()),
         "assumableRoleArn" => String.t() | atom()
       }
 
@@ -288,6 +318,7 @@ defmodule AWS.DevOpsAgent do
         optional("description") => String.t() | atom(),
         optional("kmsKeyArn") => String.t() | atom(),
         optional("locale") => String.t() | atom(),
+        optional("preferences") => map(),
         optional("tags") => map(),
         required("name") => String.t() | atom()
       }
@@ -1709,6 +1740,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       m_c_p_server_configuration() :: %{
+        "toolDetails" => list(m_c_p_tool_detail()),
         "tools" => list([String.t() | atom()]())
       }
 
@@ -1719,10 +1751,12 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
-      m_c_p_server_datadog_configuration() :: %{}
+      m_c_p_server_datadog_configuration() :: %{
+        "enabledElevatedTools" => list(m_c_p_tool_detail())
+      }
 
   """
-  @type m_c_p_server_datadog_configuration() :: %{}
+  @type m_c_p_server_datadog_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1743,6 +1777,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       m_c_p_server_grafana_configuration() :: %{
+        "enabledElevatedTools" => list(m_c_p_tool_detail()),
         "endpoint" => [String.t() | atom()],
         "organizationId" => [String.t() | atom()],
         "tools" => list([String.t() | atom()]())
@@ -1818,6 +1853,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       m_c_p_server_sig_v4_configuration() :: %{
+        "toolDetails" => list(m_c_p_tool_detail()),
         "tools" => list([String.t() | atom()]())
       }
 
@@ -1846,6 +1882,18 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type m_c_p_server_splunk_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      m_c_p_tool_detail() :: %{
+        "name" => [String.t() | atom()],
+        "toolClassification" => list(any())
+      }
+
+  """
+  @type m_c_p_tool_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2211,11 +2259,13 @@ defmodule AWS.DevOpsAgent do
       registered_service() :: %{
         "accessibleResources" => list([any()]()),
         "additionalServiceDetails" => list(),
+        "createdAt" => [non_neg_integer()],
         "kmsKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "privateConnectionName" => String.t() | atom(),
         "serviceId" => String.t() | atom(),
-        "serviceType" => list(any())
+        "serviceType" => list(any()),
+        "updatedAt" => [non_neg_integer()]
       }
 
   """
@@ -2427,6 +2477,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       send_message_context() :: %{
+        "approvalAction" => approval_action(),
         "currentPage" => [String.t() | atom()],
         "lastMessage" => [String.t() | atom()],
         "userActionResponse" => [String.t() | atom()]
@@ -2462,6 +2513,7 @@ defmodule AWS.DevOpsAgent do
       send_message_request() :: %{
         optional("assetIds") => list([String.t() | atom()]()),
         optional("context") => send_message_context(),
+        optional("modelTier") => [String.t() | atom()],
         optional("userId") => String.t() | atom(),
         required("content") => String.t() | atom(),
         required("executionId") => String.t() | atom()
@@ -2680,6 +2732,8 @@ defmodule AWS.DevOpsAgent do
       source_aws_configuration() :: %{
         "accountId" => [String.t() | atom()],
         "accountType" => list(any()),
+        "agentElevatedRoleArn" => String.t() | atom(),
+        "agentElevatedRoleArnStatus" => list(any()),
         "assumableRoleArn" => String.t() | atom(),
         "externalId" => [String.t() | atom()]
       }
@@ -2806,7 +2860,8 @@ defmodule AWS.DevOpsAgent do
       update_agent_space_input() :: %{
         optional("description") => String.t() | atom(),
         optional("locale") => String.t() | atom(),
-        optional("name") => String.t() | atom()
+        optional("name") => String.t() | atom(),
+        optional("preferences") => map()
       }
 
   """
@@ -2822,6 +2877,34 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type update_agent_space_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_approval_action_request() :: %{
+        optional("finalPattern") => approval_pattern(),
+        optional("reason") => String.t() | atom(),
+        optional("singleUse") => [boolean()],
+        optional("ttlSeconds") => [integer()],
+        required("action") => list(any())
+      }
+
+  """
+  @type update_approval_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_approval_action_response() :: %{
+        "approvalId" => String.t() | atom(),
+        "expiresAt" => [non_neg_integer()],
+        "status" => list(any())
+      }
+
+  """
+  @type update_approval_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3170,6 +3253,7 @@ defmodule AWS.DevOpsAgent do
   @type create_private_connection_errors() ::
           validation_exception()
           | throttling_exception()
+          | invalid_parameter_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -3461,6 +3545,15 @@ defmodule AWS.DevOpsAgent do
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
+
+  @type update_approval_action_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_asset_errors() ::
           validation_exception()
@@ -5233,6 +5326,51 @@ defmodule AWS.DevOpsAgent do
       client,
       meta,
       :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an approval request with the terminal decision (APPROVED or REJECTED).
+
+  A single operation handles both verbs via the action enum.
+  """
+  @spec update_approval_action(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_approval_action_request(),
+          list()
+        ) ::
+          {:ok, update_approval_action_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_approval_action_errors()}
+  def update_approval_action(
+        %Client{} = client,
+        agent_space_id,
+        approval_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/agents/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/approvals/#{AWS.Util.encode_uri(approval_id)}/update-action"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

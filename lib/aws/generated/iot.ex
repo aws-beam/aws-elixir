@@ -84,6 +84,7 @@ defmodule AWS.IoT do
         "elasticsearch" => elasticsearch_action(),
         "firehose" => firehose_action(),
         "http" => http_action(),
+        "influxDB" => influx_db_action(),
         "iotAnalytics" => iot_analytics_action(),
         "iotEvents" => iot_events_action(),
         "iotSiteWise" => iot_site_wise_action(),
@@ -4811,6 +4812,83 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      influx_db_action() :: %{
+        "batchConfig" => influx_db_batch_config(),
+        "databaseName" => String.t() | atom(),
+        "destinationArn" => String.t() | atom(),
+        "organization" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "tableName" => String.t() | atom(),
+        "tags" => map(),
+        "timestampUnit" => list(any())
+      }
+
+  """
+  @type influx_db_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      influx_db_batch_config() :: %{
+        "batchAcrossTopics" => boolean(),
+        "maxBatchOpenMs" => integer(),
+        "maxBatchSize" => integer(),
+        "maxBatchSizeBytes" => integer()
+      }
+
+  """
+  @type influx_db_batch_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      influx_db_destination_configuration() :: %{
+        "endpoint" => String.t() | atom(),
+        "influxDBVersion" => list(any()),
+        "secretId" => String.t() | atom(),
+        "secretKey" => String.t() | atom(),
+        "secretType" => list(any())
+      }
+
+  """
+  @type influx_db_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      influx_db_destination_properties() :: %{
+        "endpoint" => String.t() | atom(),
+        "influxDBVersion" => list(any()),
+        "secretId" => String.t() | atom(),
+        "secretKey" => String.t() | atom(),
+        "secretType" => list(any())
+      }
+
+  """
+  @type influx_db_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      influx_db_destination_summary() :: %{
+        "endpoint" => String.t() | atom(),
+        "influxDBVersion" => list(any()),
+        "secretId" => String.t() | atom(),
+        "secretKey" => String.t() | atom(),
+        "secretType" => list(any())
+      }
+
+  """
+  @type influx_db_destination_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -8846,6 +8924,7 @@ defmodule AWS.IoT do
         "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "httpUrlProperties" => http_url_destination_properties(),
+        "influxDBProperties" => influx_db_destination_properties(),
         "lastUpdatedAt" => non_neg_integer(),
         "status" => list(any()),
         "statusReason" => String.t() | atom(),
@@ -8861,6 +8940,7 @@ defmodule AWS.IoT do
 
       topic_rule_destination_configuration() :: %{
         "httpUrlConfiguration" => http_url_destination_configuration(),
+        "influxDBConfiguration" => influx_db_destination_configuration(),
         "vpcConfiguration" => vpc_destination_configuration()
       }
 
@@ -8875,6 +8955,7 @@ defmodule AWS.IoT do
         "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "httpUrlSummary" => http_url_destination_summary(),
+        "influxDBSummary" => influx_db_destination_summary(),
         "lastUpdatedAt" => non_neg_integer(),
         "status" => list(any()),
         "statusReason" => String.t() | atom(),
@@ -12126,10 +12207,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Associates a Device Defender security profile with a thing group or this
-  account.
 
-  Each
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
+  Associates a Device Defender security profile with a thing group or this
+  account. Each
   thing group or account can have up to five security profiles associated with it.
 
   Requires permission to access the
@@ -12352,6 +12440,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
 
   Cancels a Device Defender ML Detect mitigation action.
 
@@ -12830,6 +12926,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Use this API to define a
   Custom
   Metric
@@ -12866,9 +12971,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Create a dimension that you can use to limit the scope of a metric used in a
   security profile for IoT Device Defender.
-
   For example, using a `TOPIC_FILTER` dimension, you can narrow down the scope of
   the metric only to MQTT topics whose name match the pattern specified in the
   dimension.
@@ -13579,6 +13692,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Creates a Device Defender security profile.
 
   Requires permission to access the
@@ -14202,6 +14324,14 @@ defmodule AWS.IoT do
 
   @doc """
 
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Deletes a Device Defender detect custom metric.
 
   Requires permission to access the
@@ -14243,6 +14373,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Removes the specified dimension from your Amazon Web Services accounts.
 
   Requires permission to access the
@@ -14992,6 +15131,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Deletes a Device Defender security profile.
 
   Requires permission to access the
@@ -15570,6 +15718,14 @@ defmodule AWS.IoT do
 
   @doc """
 
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Gets information about a Device Defender detect custom metric.
 
   Requires permission to access the
@@ -15615,6 +15771,14 @@ defmodule AWS.IoT do
 
   @doc """
 
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Gets information about a Device Defender ML Detect mitigation action.
 
   Requires permission to access the
@@ -15637,6 +15801,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Provides details about a dimension that is defined in your Amazon Web Services
   accounts.
 
@@ -16051,6 +16224,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Gets information about a Device Defender security profile.
 
   Requires permission to access the
@@ -16268,6 +16450,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Disassociates a Device Defender security profile from a thing group or from this
   account.
 
@@ -16483,6 +16674,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
 
   Returns a Device Defender's ML Detect Security Profile training model's status.
 
@@ -17145,6 +17344,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Lists the active violations for a given Device Defender security profile.
 
   Requires permission to access the
@@ -18070,6 +18278,14 @@ defmodule AWS.IoT do
 
   @doc """
 
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Lists your Device Defender detect custom metrics.
 
   Requires permission to access the
@@ -18111,6 +18327,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
 
   Lists mitigation actions executions for a Device Defender ML Detect Security
   Profile.
@@ -18205,6 +18429,14 @@ defmodule AWS.IoT do
 
   @doc """
 
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   List of Device Defender ML Detect mitigation actions tasks.
 
   Requires permission to access the
@@ -18269,6 +18501,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   List the set of dimensions that are defined for your Amazon Web Services
   accounts.
 
@@ -19791,11 +20032,18 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Lists the Device Defender security profiles
   you've
-  created.
-
-  You can filter security profiles by dimension or custom metric.
+  created. You can filter security profiles by dimension or custom metric.
 
   Requires permission to access the
   [ListSecurityProfiles](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -19861,6 +20109,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Lists the Device Defender security profiles attached to a target (thing group).
 
   Requires permission to access the
@@ -20060,6 +20317,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Lists the targets (thing groups) associated with a given Device Defender
   security profile.
 
@@ -20871,9 +21137,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Lists the Device Defender security profile violations discovered during the
   given time period.
-
   You can use filters to limit the results to those alerts issued for a particular
   security profile,
   behavior, or thing (device).
@@ -20985,6 +21259,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Set a verification state and provide a description of that verification state on
   a violation (detect alarm).
   """
@@ -21609,6 +21892,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
 
   Starts a Device Defender ML Detect mitigation actions task.
 
@@ -22280,6 +22571,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Updates a
   Device Defender detect custom metric.
 
@@ -22314,9 +22614,16 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates the definition for a dimension.
 
-  You
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
+  Updates the definition for a dimension. You
   cannot
   change the type of a dimension after
   it is created (you can delete it and
@@ -22898,6 +23205,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Updates a Device Defender security profile.
 
   Requires permission to access the
@@ -23140,6 +23456,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+
+  The IoT Device Defender detect feature will no longer be available to new
+  customers starting August 31, 2026.
+
+  If you would like to use the detect feature, sign up prior to August 31, 2026.
+  To learn about alternatives to IoT Device Defender detect, see IoT Device
+  Defender detect feature availability change in the IoT Device Defender Developer
+  Guide. There is no change to IoT Device Defender audit availability.
+
   Validates a Device Defender security profile behaviors specification.
 
   Requires permission to access the

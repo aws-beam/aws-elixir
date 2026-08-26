@@ -17932,6 +17932,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      fleet_capacity_reservation_target_request() :: %{
+        "CapacityReservationIds" => list(String.t() | atom()),
+        "CapacityReservationResourceGroupArns" => list(String.t() | atom())
+      }
+      
+  """
+  @type fleet_capacity_reservation_target_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       fleet_data() :: %{
         "ActivityStatus" => list(any()),
         "ClientToken" => String.t() | atom(),
@@ -29909,8 +29921,32 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      reserved_capacity_fallback_options() :: %{
+        "MarketTypes" => list(list(any())())
+      }
+      
+  """
+  @type reserved_capacity_fallback_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_capacity_fallback_options_request() :: %{
+        "MarketTypes" => list(list(any())())
+      }
+      
+  """
+  @type reserved_capacity_fallback_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reserved_capacity_options() :: %{
-        "ReservationTypes" => list(list(any())())
+        "AllocationStrategy" => list(any()),
+        "ReservationTypes" => list(list(any())()),
+        "ReservedCapacityFallbackOptions" => reserved_capacity_fallback_options()
       }
       
   """
@@ -29921,7 +29957,10 @@ defmodule AWS.EC2 do
   ## Example:
       
       reserved_capacity_options_request() :: %{
-        "ReservationTypes" => list(list(any())())
+        "AllocationStrategy" => list(any()),
+        "CapacityReservationTarget" => fleet_capacity_reservation_target_request(),
+        "ReservationTypes" => list(list(any())()),
+        "ReservedCapacityFallbackOptions" => reserved_capacity_fallback_options_request()
       }
       
   """

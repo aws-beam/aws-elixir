@@ -474,6 +474,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       product_user_summary() :: %{
         "Domain" => [String.t() | atom()],
         "IdentityProvider" => list(),
+        "LicenseExpirationDate" => [String.t() | atom()],
         "Product" => [String.t() | atom()],
         "ProductUserArn" => String.t() | atom(),
         "Status" => [String.t() | atom()],

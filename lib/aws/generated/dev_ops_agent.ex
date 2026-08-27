@@ -267,7 +267,8 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       capability_configuration() :: %{
-        "enabled" => [boolean()]
+        "enabled" => [boolean()],
+        "triggerFilterGroups" => list(trigger_filter_group())
       }
 
   """
@@ -1975,6 +1976,17 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      pattern_filter() :: %{
+        "patterns" => list(String.t() | atom())
+      }
+
+  """
+  @type pattern_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       pending_message() :: %{
         "message" => list(),
         "messageId" => [String.t() | atom()]
@@ -2832,6 +2844,18 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type trigger() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trigger_filter_group() :: %{
+        "events" => list(list(any())()),
+        "targetBranches" => pattern_filter()
+      }
+
+  """
+  @type trigger_filter_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

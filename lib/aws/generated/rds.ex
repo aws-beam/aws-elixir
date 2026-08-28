@@ -2850,6 +2850,7 @@ defmodule AWS.RDS do
         "Encrypted" => boolean(),
         "Engine" => String.t() | atom(),
         "EngineVersion" => String.t() | atom(),
+        "FullSnapshotSizeInBytes" => float(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
         "InstanceCreateTime" => non_neg_integer(),
         "Iops" => integer(),

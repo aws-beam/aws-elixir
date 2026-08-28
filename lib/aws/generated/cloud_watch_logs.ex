@@ -3713,7 +3713,8 @@ defmodule AWS.CloudWatchLogs do
         "estimatedRecordsSkipped" => float(),
         "logGroupsScanned" => float(),
         "recordsMatched" => float(),
-        "recordsScanned" => float()
+        "recordsScanned" => float(),
+        "resultCount" => float()
       }
       
   """

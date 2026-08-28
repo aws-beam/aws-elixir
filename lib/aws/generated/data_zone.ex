@@ -2618,6 +2618,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       delete_domain_input() :: %{
+        optional("cascadeDelete") => [boolean()],
         optional("clientToken") => [String.t() | atom()],
         optional("skipDeletionCheck") => [boolean()]
       }
@@ -2819,6 +2820,17 @@ defmodule AWS.DataZone do
 
   """
   @type delete_notebook_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_progress() :: %{
+        "successfullyDeletedProjectCount" => [integer()]
+      }
+
+  """
+  @type delete_progress() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3409,6 +3421,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      failure_reason() :: %{
+        "id" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type failure_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       filter() :: %{
         "attribute" => String.t() | atom(),
         "intValue" => [float()],
@@ -3826,9 +3850,11 @@ defmodule AWS.DataZone do
       get_domain_output() :: %{
         "arn" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
+        "deleteProgress" => delete_progress(),
         "description" => [String.t() | atom()],
         "domainExecutionRole" => String.t() | atom(),
         "domainVersion" => list(any()),
+        "failureReasons" => list(failure_reason()),
         "id" => String.t() | atom(),
         "kmsKeyIdentifier" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
@@ -13252,6 +13278,7 @@ defmodule AWS.DataZone do
 
     {query_params, input} =
       [
+        {"cascadeDelete", "cascadeDelete"},
         {"clientToken", "clientToken"},
         {"skipDeletionCheck", "skipDeletionCheck"}
       ]

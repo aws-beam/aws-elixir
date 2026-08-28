@@ -358,6 +358,17 @@ defmodule AWS.LambdaMicrovms do
 
   ## Example:
 
+      insufficient_capacity_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "message" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()]
@@ -578,6 +589,7 @@ defmodule AWS.LambdaMicrovms do
         "createdAt" => [non_neg_integer()],
         "imageArn" => String.t() | atom(),
         "imageVersion" => String.t() | atom(),
+        "status" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
@@ -775,7 +787,7 @@ defmodule AWS.LambdaMicrovms do
         optional("ingressNetworkConnectors") => list(String.t() | atom()),
         optional("logging") => list(),
         optional("maximumDurationInSeconds") => [integer()],
-        optional("runHookPayload") => [String.t() | atom()],
+        optional("runHookPayload") => String.t() | atom(),
         required("imageIdentifier") => String.t() | atom()
       }
 
@@ -1039,6 +1051,7 @@ defmodule AWS.LambdaMicrovms do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_microvm_image_errors() ::
@@ -1055,6 +1068,7 @@ defmodule AWS.LambdaMicrovms do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_microvm_image_errors() ::
@@ -1161,6 +1175,7 @@ defmodule AWS.LambdaMicrovms do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | insufficient_capacity_exception()
           | conflict_exception()
           | access_denied_exception()
 

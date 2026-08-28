@@ -244,6 +244,27 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      admin_delete_software_token_request() :: %{
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_delete_software_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_delete_software_token_response() :: %{}
+      
+  """
+  @type admin_delete_software_token_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       admin_delete_user_attributes_request() :: %{
         required("UserAttributeNames") => list(String.t() | atom()),
         required("UserPoolId") => String.t() | atom(),
@@ -5155,6 +5176,16 @@ defmodule AWS.CognitoIdentityProvider do
           | internal_error_exception()
           | code_delivery_failure_exception()
 
+  @type admin_delete_software_token_errors() ::
+          user_not_found_exception()
+          | user_not_confirmed_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+
   @type admin_delete_user_errors() ::
           user_not_found_exception()
           | too_many_requests_exception()
@@ -6701,6 +6732,45 @@ defmodule AWS.CognitoIdentityProvider do
       metadata()
 
     Request.request_post(client, meta, "AdminCreateUser", input, options)
+  end
+
+  @doc """
+  Deletes a user's registered time-based one-time password (TOTP) multi-factor
+  authentication (MFA) factor, also known as a software token.
+
+  After this operation, the
+  user can no longer sign in with TOTP MFA, and can register a new TOTP factor
+  with
+  `AssociateSoftwareToken`. Use this operation when a user loses access to
+  their TOTP-generating device, for example, a lost or reset phone, and needs to
+  register
+  a new one.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec admin_delete_software_token(map(), admin_delete_software_token_request(), list()) ::
+          {:ok, admin_delete_software_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, admin_delete_software_token_errors()}
+  def admin_delete_software_token(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AdminDeleteSoftwareToken", input, options)
   end
 
   @doc """
@@ -9010,6 +9080,13 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Given a user pool domain name, returns information about the domain
   configuration.
+
+  This operation doesn't return results when you query a prefix domain in a
+  secondary Region. Prefix domains are Region-specific and can only be described
+  in
+  the Region where they were created. To describe a prefix domain for a replica
+  user
+  pool, make the request to the primary Region's endpoint.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For

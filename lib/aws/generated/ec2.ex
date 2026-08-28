@@ -20758,6 +20758,7 @@ defmodule AWS.EC2 do
         "ImageType" => list(any()),
         "ImageWatermarks" => list(image_watermark()),
         "ImdsSupport" => list(any()),
+        "InstanceTypeSpecification" => instance_type_specification(),
         "KernelId" => String.t() | atom(),
         "LastLaunchedTime" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -22431,6 +22432,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      instance_type_item() :: %{
+        "InstanceType" => String.t() | atom()
+      }
+      
+  """
+  @type instance_type_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_type_offering() :: %{
         "InstanceType" => list(any()),
         "Location" => String.t() | atom(),
@@ -22439,6 +22451,30 @@ defmodule AWS.EC2 do
       
   """
   @type instance_type_offering() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_type_specification() :: %{
+        "SupportedInstanceTypes" => list(instance_type_item()),
+        "UnsupportedInstanceTypes" => list(instance_type_item())
+      }
+      
+  """
+  @type instance_type_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_type_specification_request() :: %{
+        "SupportedInstanceTypes" => list(String.t() | atom()),
+        "UnsupportedInstanceTypes" => list(String.t() | atom())
+      }
+      
+  """
+  @type instance_type_specification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -29536,6 +29572,30 @@ defmodule AWS.EC2 do
   @type replace_image_criteria_in_allowed_images_settings_result() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      replace_image_instance_type_specification_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("InstanceTypeSpecification") => instance_type_specification_request(),
+        required("ImageId") => String.t() | atom()
+      }
+      
+  """
+  @type replace_image_instance_type_specification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replace_image_instance_type_specification_result() :: %{
+        "ReturnValue" => boolean()
+      }
+      
+  """
+  @type replace_image_instance_type_specification_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -53732,6 +53792,62 @@ defmodule AWS.EC2 do
       input,
       options
     )
+  end
+
+  @doc """
+  Replaces or removes the instance type specification for an AMI.
+
+  The instance type
+  specification defines which instance types are compatible with the AMI.
+
+  When you launch an instance using
+  [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html),
+  Amazon EC2 validates the requested instance type against the AMI's
+  instance type specification. If the instance type is not compatible, the request
+  fails with an
+  `InvalidParameterCombination` error.
+
+  You can specify supported instance types, unsupported instance types, or both.
+  The
+  evaluation logic is as follows:
+
+    *
+  No specification set – all instance types are allowed.
+
+    *
+  Only `UnsupportedInstanceTypes` set – All instance types are allowed
+  except those that match the unsupported list.
+
+    *
+
+  `SupportedInstanceTypes` set – The instance type must match the
+  supported list and must not match the unsupported list.
+
+  Instance type entries support wildcard patterns using `*` (for example,
+  `t3.*` matches all t3 sizes).
+
+  To remove an existing instance type specification, omit the
+  `InstanceTypeSpecification` parameter or set it to `null`.
+
+  To set the instance type specification, you must be the AMI owner. You cannot
+  set an instance
+  type specification on an AMI that is listed in Amazon Web Services Marketplace,
+  and you cannot list an AMI
+  in Amazon Web Services Marketplace if it has an instance type specification set.
+  """
+  @spec replace_image_instance_type_specification(
+          map(),
+          replace_image_instance_type_specification_request(),
+          list()
+        ) ::
+          {:ok, replace_image_instance_type_specification_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def replace_image_instance_type_specification(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ReplaceImageInstanceTypeSpecification", input, options)
   end
 
   @doc """

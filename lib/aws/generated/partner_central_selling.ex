@@ -268,6 +268,7 @@ defmodule AWS.PartnerCentralSelling do
         "Project" => aws_opportunity_project(),
         "RelatedEntityIds" => aws_opportunity_related_entities(),
         "RelatedOpportunityId" => String.t() | atom(),
+        "SoftwareRevenue" => aws_software_revenue(),
         "Visibility" => list(any())
       }
       
@@ -331,6 +332,20 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type aws_products_spend_insights_by_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_software_revenue() :: %{
+        "Discount" => [String.t() | atom()],
+        "EffectiveDate" => [String.t() | atom()],
+        "ExpirationDate" => [String.t() | atom()],
+        "Value" => monetary_value()
+      }
+      
+  """
+  @type aws_software_revenue() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -851,6 +866,7 @@ defmodule AWS.PartnerCentralSelling do
         "Project" => aws_opportunity_project(),
         "RelatedEntityIds" => aws_opportunity_related_entities(),
         "RelatedOpportunityId" => String.t() | atom(),
+        "SoftwareRevenue" => aws_software_revenue(),
         "Visibility" => list(any())
       }
       

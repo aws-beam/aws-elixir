@@ -1033,6 +1033,15 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      daily_schedule() :: %{}
+
+  """
+  @type daily_schedule() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       data_source() :: %{
         "createdAt" => non_neg_integer(),
         "dataDeletionPolicy" => list(any()),
@@ -2466,6 +2475,15 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      last_day_of_month() :: %{}
+
+  """
+  @type last_day_of_month() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       lex_flow_node_configuration() :: %{
         "botAliasArn" => String.t() | atom(),
         "localeId" => String.t() | atom()
@@ -2929,7 +2947,8 @@ defmodule AWS.BedrockAgent do
       managed_knowledge_base_connector_configuration() :: %{
         "connectorParameters" => [any()],
         "deletionProtectionConfiguration" => deletion_protection_configuration(),
-        "mediaExtractionConfiguration" => media_extraction_configuration()
+        "mediaExtractionConfiguration" => media_extraction_configuration(),
+        "syncSchedule" => list()
       }
 
   """
@@ -3169,6 +3188,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type mongo_db_atlas_field_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      monthly_schedule() :: %{
+        "dayOfMonth" => list()
+      }
+
+  """
+  @type monthly_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4950,6 +4980,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type web_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      weekly_schedule() :: %{
+        "dayOfWeek" => list(any())
+      }
+
+  """
+  @type weekly_schedule() :: %{(String.t() | atom()) => any()}
 
   @type associate_agent_collaborator_errors() ::
           validation_exception()

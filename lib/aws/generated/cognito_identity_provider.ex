@@ -983,6 +983,19 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      client_authentication_result_type() :: %{
+        "AccessToken" => String.t() | atom(),
+        "ExpiresIn" => integer(),
+        "TokenType" => String.t() | atom()
+      }
+      
+  """
+  @type client_authentication_result_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       client_secret_descriptor_type() :: %{
         "ClientSecretCreateDate" => non_neg_integer(),
         "ClientSecretId" => String.t() | atom(),
@@ -1849,6 +1862,30 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      describe_terms_by_client_request() :: %{
+        required("ClientId") => String.t() | atom(),
+        required("TermsName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_terms_by_client_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_terms_by_client_response() :: %{
+        "Terms" => terms_type()
+      }
+      
+  """
+  @type describe_terms_by_client_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_terms_request() :: %{
         required("TermsId") => String.t() | atom(),
         required("UserPoolId") => String.t() | atom()
@@ -2241,6 +2278,31 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type forgot_password_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_client_token_request() :: %{
+        optional("ClientMetadata") => map(),
+        optional("Scopes") => list(String.t() | atom()),
+        required("ClientId") => String.t() | atom(),
+        required("Secret") => String.t() | atom()
+      }
+      
+  """
+  @type get_client_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_client_token_response() :: %{
+        "ClientAuthenticationResult" => client_authentication_result_type()
+      }
+      
+  """
+  @type get_client_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5821,6 +5883,14 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_parameter_exception()
           | internal_error_exception()
 
+  @type describe_terms_by_client_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+
   @type describe_user_import_job_errors() ::
           too_many_requests_exception()
           | resource_not_found_exception()
@@ -5883,6 +5953,15 @@ defmodule AWS.CognitoIdentityProvider do
           | internal_error_exception()
           | forbidden_exception()
           | code_delivery_failure_exception()
+
+  @type get_client_token_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | forbidden_exception()
 
   @type get_csv_header_errors() ::
           too_many_requests_exception()
@@ -8991,6 +9070,49 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Returns details for the terms documents that are associated with an app client,
+  identified by the app client ID, user pool ID, and terms name.
+
+  For
+  more information, see [Terms documents](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-terms-documents).
+
+  To call `DescribeTermsByClient`, you must have the
+  `cognito-idp:DescribeTermsByClient` Identity and Access Management (IAM)
+  permission. This
+  operation additionally validates your permission for
+  `cognito-idp:DescribeTerms`, the action for . As a result, an IAM policy that
+  denies
+  `cognito-idp:DescribeTerms` also denies requests to
+  `DescribeTermsByClient`.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec describe_terms_by_client(map(), describe_terms_by_client_request(), list()) ::
+          {:ok, describe_terms_by_client_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_terms_by_client_errors()}
+  def describe_terms_by_client(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeTermsByClient", input, options)
+  end
+
+  @doc """
   Describes a user import job.
 
   For more information about user CSV import, see [Importing users from a CSV file](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html).
@@ -9207,6 +9329,44 @@ defmodule AWS.CognitoIdentityProvider do
       metadata()
 
     Request.request_post(client, meta, "ForgotPassword", input, options)
+  end
+
+  @doc """
+  Issues an access token for machine-to-machine (M2M) authorization.
+
+  Your app client
+  provides its client ID and secret, and receives an access token that authorizes
+  requests
+  to your resource servers. `GetClientToken` provides the same functionality as
+  the OAuth2 client-credentials grant; both authorize an application rather than a
+  user.
+
+  To use this operation, you must configure the app client with a client secret
+  and
+  enable the `ALLOW_CLIENT_TOKEN_AUTH` authentication flow. The
+  `ALLOW_CLIENT_TOKEN_AUTH` flow is mutually exclusive with user authentication
+  flows. It must be the only authentication flow that you configure for the app
+  client. For
+  more information, see [Scopes, M2M, and resource servers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html).
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you can't use IAM credentials to authorize requests, and you
+  can't
+  grant IAM permissions in policies. For more information about authorization
+  models in
+  Amazon Cognito, see [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
+  """
+  @spec get_client_token(map(), get_client_token_request(), list()) ::
+          {:ok, get_client_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_client_token_errors()}
+  def get_client_token(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetClientToken", input, options)
   end
 
   @doc """

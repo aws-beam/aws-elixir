@@ -1508,6 +1508,7 @@ defmodule AWS.ECS do
         "bakeTimeInMinutes" => integer(),
         "canaryConfiguration" => canary_configuration(),
         "deploymentCircuitBreaker" => deployment_circuit_breaker(),
+        "earlySuccessCriteria" => deployment_early_success_criteria(),
         "lifecycleHooks" => list(deployment_lifecycle_hook()),
         "linearConfiguration" => linear_configuration(),
         "maximumPercent" => integer(),
@@ -1528,6 +1529,19 @@ defmodule AWS.ECS do
       
   """
   @type deployment_controller() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deployment_early_success_criteria() :: %{
+        "enable" => boolean(),
+        "healthyPercent" => integer(),
+        "sourceServiceRevisionCleanup" => list(any())
+      }
+      
+  """
+  @type deployment_early_success_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

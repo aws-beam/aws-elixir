@@ -2250,6 +2250,34 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      ingest_data_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("extractionConfig") => extraction_config(),
+        optional("metadata") => map(),
+        optional("sessionId") => String.t() | atom(),
+        required("actorId") => String.t() | atom(),
+        required("contentTimestamp") => [non_neg_integer()],
+        required("source") => list()
+      }
+
+  """
+  @type ingest_data_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingest_data_output() :: %{
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type ingest_data_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       inline_ground_truth() :: %{
         "assertions" => list(list()),
         "expectedTrajectory" => evaluation_expected_trajectory(),
@@ -2258,6 +2286,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type inline_ground_truth() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_memory_content() :: %{
+        "payload" => list(list())
+      }
+
+  """
+  @type inline_memory_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4830,6 +4869,14 @@ defmodule AWS.BedrockAgentCore do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type ingest_data_errors() ::
+          validation_exception()
+          | throttled_exception()
+          | service_quota_exceeded_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+
   @type invoke_agent_runtime_errors() ::
           validation_exception()
           | throttling_exception()
@@ -6306,6 +6353,39 @@ defmodule AWS.BedrockAgentCore do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Submits content directly for ingestion to generate long-term memory records in a
+  AgentCore Memory resource.
+
+  To use this operation, you must have the `bedrock-agentcore:IngestData`
+  permission.
+  """
+  @spec ingest_data(map(), String.t() | atom(), ingest_data_input(), list()) ::
+          {:ok, ingest_data_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, ingest_data_errors()}
+  def ingest_data(%Client{} = client, memory_id, input, options \\ []) do
+    url_path = "/memories/#{AWS.Util.encode_uri(memory_id)}/ingest"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

@@ -195,6 +195,7 @@ defmodule AWS.Connect do
 
       agent_info() :: %{
         "AcceptedByAgentTimestamp" => non_neg_integer(),
+        "ActiveRegion" => String.t() | atom(),
         "AfterContactWorkDuration" => integer(),
         "AfterContactWorkEndTimestamp" => non_neg_integer(),
         "AfterContactWorkStartTimestamp" => non_neg_integer(),
@@ -7055,6 +7056,26 @@ defmodule AWS.Connect do
 
   """
   @type get_contact_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cross_region_routing_request() :: %{}
+
+  """
+  @type get_cross_region_routing_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cross_region_routing_response() :: %{
+        "IsolatedRegions" => list(String.t() | atom())
+      }
+
+  """
+  @type get_cross_region_routing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15009,6 +15030,26 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_cross_region_routing_request() :: %{
+        required("IsolatedAll") => boolean()
+      }
+
+  """
+  @type update_cross_region_routing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cross_region_routing_response() :: %{}
+
+  """
+  @type update_cross_region_routing_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_data_table_attribute_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("Primary") => boolean(),
@@ -18093,6 +18134,13 @@ defmodule AWS.Connect do
           | internal_service_exception()
           | access_denied_exception()
 
+  @type get_cross_region_routing_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
   @type get_current_metric_data_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -19336,6 +19384,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | property_validation_exception()
           | limit_exceeded_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
+  @type update_cross_region_routing_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | resource_conflict_exception()
           | invalid_request_exception()
           | internal_service_exception()
           | access_denied_exception()
@@ -26868,6 +26924,33 @@ defmodule AWS.Connect do
       options,
       200
     )
+  end
+
+  @doc """
+  Retrieves the current cross-region routing configuration for an Amazon Connect
+  Global Resiliency instance
+  enabled for global routing.
+
+  This operation returns whether cross-region routing is currently enabled or
+  disabled
+  (isolated) for the instance.
+
+  This operation is available only for Amazon Connect Global Resiliency instances
+  enabled for global routing.
+  """
+  @spec get_cross_region_routing(map(), String.t() | atom(), list()) ::
+          {:ok, get_cross_region_routing_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_cross_region_routing_errors()}
+  def get_cross_region_routing(%Client{} = client, instance_id, options \\ []) do
+    url_path = "/cross-region-routing/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -34451,6 +34534,51 @@ defmodule AWS.Connect do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the cross-region routing configuration for an Amazon Connect Global
+  Resiliency instance enabled
+  for global routing.
+
+  When invoked with `IsolatedAll` set to `true`, this operation disables
+  cross-region routing, meaning contacts originating in one Region will no longer
+  be routed to agents in
+  another Region.
+
+  This operation is available only for Amazon Connect Global Resiliency instances
+  enabled for global routing. Reporting and contact
+  search continue to operate globally after you use this operation.
+  """
+  @spec update_cross_region_routing(
+          map(),
+          String.t() | atom(),
+          update_cross_region_routing_request(),
+          list()
+        ) ::
+          {:ok, update_cross_region_routing_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_cross_region_routing_errors()}
+  def update_cross_region_routing(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/cross-region-routing/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

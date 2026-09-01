@@ -194,6 +194,45 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      conditional_behavior() :: %{
+        "DefaultBehavior" => String.t() | atom(),
+        "Rules" => list(conditional_rule())
+      }
+      
+  """
+  @type conditional_behavior() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conditional_rule() :: %{
+        "ConditionalValidation" => conditional_validation(),
+        "Conditions" => list(field_condition()),
+        "RuleBehavior" => String.t() | atom()
+      }
+      
+  """
+  @type conditional_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conditional_validation() :: %{
+        "AllowedValues" => list(String.t() | atom()),
+        "MaxLength" => [integer()],
+        "MinLength" => [integer()],
+        "Pattern" => [String.t() | atom()]
+      }
+      
+  """
+  @type conditional_validation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       configuration_set_filter() :: %{
         "Name" => String.t() | atom(),
         "Values" => list(String.t() | atom())
@@ -1953,6 +1992,19 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      field_condition() :: %{
+        "DependsOnFieldPath" => String.t() | atom(),
+        "Operator" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type field_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_protect_configuration_country_rule_set_request() :: %{
         required("NumberCapability") => String.t() | atom(),
         required("ProtectConfigurationId") => String.t() | atom()
@@ -2977,6 +3029,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       registration_field_definition() :: %{
+        "ConditionalBehavior" => conditional_behavior(),
         "DisplayHints" => registration_field_display_hints(),
         "FieldPath" => String.t() | atom(),
         "FieldRequirement" => String.t() | atom(),
@@ -5478,7 +5531,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   Create a new registration attachment to use for uploading a file or a URL to a
   file.
 
-  The maximum file size is 500KB and valid file extensions are PDF, JPEG and PNG.
+  The maximum file size is 5MB and valid file extensions are PDF, JPEG and PNG.
   For example, many sender ID registrations require a signed “letter of
   authorization” (LOA) to be submitted.
 

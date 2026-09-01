@@ -126,6 +126,7 @@ defmodule AWS.WorkspacesInstances do
       cpu_options_request() :: %{
         "AmdSevSnp" => list(any()),
         "CoreCount" => integer(),
+        "NestedVirtualization" => list(any()),
         "ThreadsPerCore" => integer()
       }
       

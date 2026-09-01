@@ -42,6 +42,117 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      channel_description() :: %{
+        "ChannelARN" => String.t() | atom(),
+        "ChannelCreationTimestamp" => non_neg_integer(),
+        "ChannelId" => String.t() | atom(),
+        "ChannelName" => String.t() | atom(),
+        "ChannelStatus" => list(any()),
+        "ChannelStatusReason" => String.t() | atom(),
+        "EncryptionConfiguration" => channel_encryption_configuration(),
+        "LoggingConfiguration" => channel_logging_configuration(),
+        "S3DestinationConfiguration" => s3_destination_description(),
+        "S3TablesDestinationConfiguration" => s3_tables_destination_description(),
+        "ServiceExecutionRoleARN" => String.t() | atom(),
+        "StreamConfigurationList" => list(channel_stream_description())
+      }
+      
+  """
+  @type channel_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_encryption_configuration() :: %{
+        "EncryptionType" => list(any()),
+        "KeyId" => String.t() | atom()
+      }
+      
+  """
+  @type channel_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_logging_configuration() :: %{
+        "CloudWatchLogs" => cloud_watch_logs()
+      }
+      
+  """
+  @type channel_logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_logging_update_input() :: %{
+        "CloudWatchLogs" => cloud_watch_logs_update_input()
+      }
+      
+  """
+  @type channel_logging_update_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_stream_configuration() :: %{
+        "RecordConfiguration" => record_configuration(),
+        "StreamARN" => String.t() | atom()
+      }
+      
+  """
+  @type channel_stream_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_stream_description() :: %{
+        "RecordConfiguration" => record_configuration(),
+        "StreamARN" => String.t() | atom(),
+        "StreamCreationTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type channel_stream_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_stream_identifier() :: %{
+        "StreamARN" => String.t() | atom(),
+        "StreamCreationTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type channel_stream_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_summary() :: %{
+        "ChannelARN" => String.t() | atom(),
+        "ChannelCreationTimestamp" => non_neg_integer(),
+        "ChannelDestinationType" => list(any()),
+        "ChannelId" => String.t() | atom(),
+        "ChannelName" => String.t() | atom(),
+        "ChannelStatus" => list(any()),
+        "ChannelStatusReason" => String.t() | atom(),
+        "Streams" => list(channel_stream_identifier())
+      }
+      
+  """
+  @type channel_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       child_shard() :: %{
         "HashKeyRange" => hash_key_range(),
         "ParentShards" => list(String.t() | atom()),
@@ -50,6 +161,32 @@ defmodule AWS.Kinesis do
       
   """
   @type child_shard() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_logs() :: %{
+        "Enabled" => boolean(),
+        "LogGroupName" => String.t() | atom(),
+        "LogStreamName" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_watch_logs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_logs_update_input() :: %{
+        "Enabled" => boolean(),
+        "LogGroupName" => String.t() | atom(),
+        "LogStreamName" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_watch_logs_update_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -84,6 +221,35 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      create_channel_input() :: %{
+        optional("EncryptionConfiguration") => channel_encryption_configuration(),
+        optional("LoggingConfiguration") => channel_logging_configuration(),
+        optional("S3DestinationConfiguration") => s3_destination_configuration(),
+        optional("S3TablesDestinationConfiguration") => s3_tables_destination_configuration(),
+        optional("Tags") => map(),
+        required("ChannelName") => String.t() | atom(),
+        required("ServiceExecutionRoleARN") => String.t() | atom(),
+        required("StreamConfigurationList") => list(channel_stream_configuration())
+      }
+      
+  """
+  @type create_channel_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_channel_output() :: %{
+        "ChannelDescription" => channel_description()
+      }
+      
+  """
+  @type create_channel_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_stream_input() :: %{
         optional("MaxRecordSizeInKiB") => integer(),
         optional("ShardCount") => integer(),
@@ -100,6 +266,19 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      dead_letter_queue_s3_configuration() :: %{
+        "BucketARN" => String.t() | atom(),
+        "ErrorOutputPrefix" => String.t() | atom(),
+        "ExpectedBucketOwner" => String.t() | atom()
+      }
+      
+  """
+  @type dead_letter_queue_s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       decrease_stream_retention_period_input() :: %{
         optional("StreamARN") => String.t() | atom(),
         optional("StreamId") => String.t() | atom(),
@@ -109,6 +288,17 @@ defmodule AWS.Kinesis do
       
   """
   @type decrease_stream_retention_period_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_channel_input() :: %{
+        required("ChannelARN") => String.t() | atom()
+      }
+      
+  """
+  @type delete_channel_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -174,6 +364,28 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      describe_channel_input() :: %{
+        required("ChannelARN") => String.t() | atom()
+      }
+      
+  """
+  @type describe_channel_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_channel_output() :: %{
+        "ChannelDescription" => channel_description()
+      }
+      
+  """
+  @type describe_channel_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_limits_input() :: %{}
       
   """
@@ -184,6 +396,8 @@ defmodule AWS.Kinesis do
   ## Example:
       
       describe_limits_output() :: %{
+        "ChannelCount" => integer(),
+        "ChannelCountLimit" => integer(),
         "OnDemandStreamCount" => integer(),
         "OnDemandStreamCountLimit" => integer(),
         "OpenShardCount" => integer(),
@@ -566,6 +780,31 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      list_channels_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StreamFilter") => list(stream_filter())
+      }
+      
+  """
+  @type list_channels_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_channels_output() :: %{
+        "ChannelSummaries" => list(channel_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_channels_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_shards_input() :: %{
         optional("ExclusiveStartShardId") => String.t() | atom(),
         optional("MaxResults") => integer(),
@@ -740,6 +979,29 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      partition_field() :: %{
+        "SourceName" => String.t() | atom(),
+        "Transform" => list(any())
+      }
+      
+  """
+  @type partition_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partition_spec() :: %{
+        "PartitionFields" => list(partition_field())
+      }
+      
+  """
+  @type partition_spec() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       provisioned_throughput_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -848,6 +1110,18 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      record_configuration() :: %{
+        "GSRSchemaARN" => String.t() | atom(),
+        "RecordFormatType" => list(any())
+      }
+      
+  """
+  @type record_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       register_stream_consumer_input() :: %{
         optional("StreamId") => String.t() | atom(),
         optional("Tags") => map(),
@@ -904,6 +1178,110 @@ defmodule AWS.Kinesis do
       
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_destination_configuration() :: %{
+        "DataFreshnessInSeconds" => integer(),
+        "DeadLetterQueueS3Configuration" => dead_letter_queue_s3_configuration(),
+        "StorageConfiguration" => s3_storage_configuration()
+      }
+      
+  """
+  @type s3_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_destination_description() :: %{
+        "DataFreshnessInSeconds" => integer(),
+        "DeadLetterQueueS3Configuration" => dead_letter_queue_s3_configuration(),
+        "StorageConfiguration" => s3_storage_configuration()
+      }
+      
+  """
+  @type s3_destination_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_destination_update_input() :: %{
+        "DataFreshnessInSeconds" => integer()
+      }
+      
+  """
+  @type s3_destination_update_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_storage_configuration() :: %{
+        "BucketARN" => String.t() | atom(),
+        "CompressionType" => list(any()),
+        "ExpectedBucketOwner" => String.t() | atom(),
+        "OutputKeyTemplate" => String.t() | atom(),
+        "StorageClass" => list(any())
+      }
+      
+  """
+  @type s3_storage_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_tables_configuration() :: %{
+        "CompressionType" => list(any()),
+        "Namespace" => String.t() | atom(),
+        "PartitionSpec" => partition_spec(),
+        "TableBucketARN" => String.t() | atom(),
+        "TableName" => String.t() | atom()
+      }
+      
+  """
+  @type s3_tables_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_tables_destination_configuration() :: %{
+        "DataFreshnessInSeconds" => integer(),
+        "DeadLetterQueueS3Configuration" => dead_letter_queue_s3_configuration(),
+        "S3TablesConfigurationList" => list(s3_tables_configuration())
+      }
+      
+  """
+  @type s3_tables_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_tables_destination_description() :: %{
+        "DataFreshnessInSeconds" => integer(),
+        "DeadLetterQueueS3Configuration" => dead_letter_queue_s3_configuration(),
+        "S3TablesConfigurationList" => list(s3_tables_configuration())
+      }
+      
+  """
+  @type s3_tables_destination_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_tables_destination_update_input() :: %{
+        "DataFreshnessInSeconds" => integer()
+      }
+      
+  """
+  @type s3_tables_destination_update_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1029,6 +1407,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       stream_description_summary() :: %{
+        "ChannelCount" => integer(),
         "ConsumerCount" => integer(),
         "EncryptionType" => list(any()),
         "EnhancedMonitoring" => list(enhanced_metrics()),
@@ -1047,6 +1426,18 @@ defmodule AWS.Kinesis do
       
   """
   @type stream_description_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stream_filter() :: %{
+        "StreamARN" => String.t() | atom(),
+        "StreamCreationTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type stream_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1177,6 +1568,31 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      update_channel_input() :: %{
+        optional("LoggingConfiguration") => channel_logging_update_input(),
+        optional("S3DestinationConfiguration") => s3_destination_update_input(),
+        optional("S3TablesDestinationConfiguration") => s3_tables_destination_update_input(),
+        required("ChannelARN") => String.t() | atom()
+      }
+      
+  """
+  @type update_channel_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_channel_output() :: %{
+        "ChannelDescription" => channel_description()
+      }
+      
+  """
+  @type update_channel_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_max_record_size_input() :: %{
         optional("StreamARN") => String.t() | atom(),
         optional("StreamId") => String.t() | atom(),
@@ -1286,6 +1702,20 @@ defmodule AWS.Kinesis do
           | invalid_argument_exception()
           | access_denied_exception()
 
+  @type create_channel_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | kms_throttling_exception()
+          | kms_opt_in_required()
+          | kms_not_found_exception()
+          | kms_invalid_state_exception()
+          | kms_disabled_exception()
+          | kms_access_denied_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+
   @type create_stream_errors() ::
           validation_exception()
           | resource_in_use_exception()
@@ -1295,6 +1725,13 @@ defmodule AWS.Kinesis do
   @type decrease_stream_retention_period_errors() ::
           resource_not_found_exception()
           | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+
+  @type delete_channel_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
           | limit_exceeded_exception()
           | invalid_argument_exception()
           | access_denied_exception()
@@ -1319,6 +1756,13 @@ defmodule AWS.Kinesis do
           | invalid_argument_exception()
 
   @type describe_account_settings_errors() :: limit_exceeded_exception()
+
+  @type describe_channel_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
 
   @type describe_limits_errors() :: limit_exceeded_exception()
 
@@ -1386,6 +1830,13 @@ defmodule AWS.Kinesis do
           | resource_in_use_exception()
           | limit_exceeded_exception()
           | invalid_argument_exception()
+          | access_denied_exception()
+
+  @type list_channels_errors() ::
+          validation_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | expired_next_token_exception()
           | access_denied_exception()
 
   @type list_shards_errors() ::
@@ -1527,6 +1978,14 @@ defmodule AWS.Kinesis do
   @type update_account_settings_errors() ::
           validation_exception() | limit_exceeded_exception() | invalid_argument_exception()
 
+  @type update_channel_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+
   @type update_max_record_size_errors() ::
           validation_exception()
           | resource_not_found_exception()
@@ -1600,6 +2059,41 @@ defmodule AWS.Kinesis do
       metadata()
 
     Request.request_post(client, meta, "AddTagsToStream", input, options)
+  end
+
+  @doc """
+  Creates a channel that delivers records from a Kinesis data stream to a
+  destination.
+
+  A channel reads records from the specified stream and writes them to streaming
+  tables on Apache Iceberg (Amazon S3 Tables) or to a general purpose Amazon S3
+  bucket.
+
+  You must specify either `S3DestinationConfiguration` or
+  `S3TablesDestinationConfiguration`, but not both.
+
+  Creating a channel is an asynchronous operation. Upon receiving the request,
+  Amazon Kinesis Data Streams returns immediately with the channel in the
+  `CREATING` state. After provisioning is complete, Amazon Kinesis Data Streams
+  sets the state to `ACTIVE`. You can use `DescribeChannel` to check the current
+  state.
+
+  This operation is only supported for data streams with the on-demand capacity
+  mode.
+
+  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
+  Services account. Exceeding 5 TPS results in a `LimitExceededException`.
+  """
+  @spec create_channel(map(), create_channel_input(), list()) ::
+          {:ok, create_channel_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_channel_errors()}
+  def create_channel(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateChannel", input, options)
   end
 
   @doc """
@@ -1713,6 +2207,31 @@ defmodule AWS.Kinesis do
       metadata()
 
     Request.request_post(client, meta, "DecreaseStreamRetentionPeriod", input, options)
+  end
+
+  @doc """
+  Deletes the specified channel.
+
+  Deleting a channel stops delivery from the source stream to the destination.
+  Data already delivered to the destination is not deleted.
+
+  A stream cannot be deleted while it has active channels. To delete the stream,
+  first delete all channels attached to it. To find them, use `ListChannels` with
+  a stream filter.
+
+  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
+  Services account. Exceeding 5 TPS results in a `LimitExceededException`.
+  """
+  @spec delete_channel(map(), delete_channel_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_channel_errors()}
+  def delete_channel(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteChannel", input, options)
   end
 
   @doc """
@@ -1831,6 +2350,28 @@ defmodule AWS.Kinesis do
       metadata()
 
     Request.request_post(client, meta, "DescribeAccountSettings", input, options)
+  end
+
+  @doc """
+  Describes the specified channel, including its configuration and current status.
+
+  Use this operation to verify that a channel reached the `ACTIVE` state after
+  creation, or to diagnose a channel in the `FAILED` state by reading the
+  `ChannelStatusReason`.
+
+  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
+  Services account. Exceeding 5 TPS results in a `LimitExceededException`.
+  """
+  @spec describe_channel(map(), describe_channel_input(), list()) ::
+          {:ok, describe_channel_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_channel_errors()}
+  def describe_channel(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeChannel", input, options)
   end
 
   @doc """
@@ -2230,6 +2771,30 @@ defmodule AWS.Kinesis do
       metadata()
 
     Request.request_post(client, meta, "IncreaseStreamRetentionPeriod", input, options)
+  end
+
+  @doc """
+  Lists the channels in your account.
+
+  You can filter the results by source stream. The results are paginated. Use the
+  `NextToken` value returned in the response to retrieve additional results.
+
+  Use this operation to find channels before deleting a stream, or to audit the
+  channels configured in an Amazon Web Services Region.
+
+  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
+  Services account. Exceeding 5 TPS results in a `LimitExceededException`.
+  """
+  @spec list_channels(map(), list_channels_input(), list()) ::
+          {:ok, list_channels_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_channels_errors()}
+  def list_channels(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListChannels", input, options)
   end
 
   @doc """
@@ -2993,6 +3558,34 @@ defmodule AWS.Kinesis do
       metadata()
 
     Request.request_post(client, meta, "UpdateAccountSettings", input, options)
+  end
+
+  @doc """
+  Updates the data freshness interval or the Amazon CloudWatch Logs configuration
+  of an existing channel.
+
+  You cannot change the destination, source stream, record format, schema,
+  encryption configuration, or service execution role of an existing channel. To
+  change any other setting, delete the channel and create a new one.
+
+  Updating a channel is an asynchronous operation. Upon receiving the request,
+  Amazon Kinesis Data Streams sets the channel to the `UPDATING` state and returns
+  immediately. After the change is applied, Amazon Kinesis Data Streams sets the
+  channel back to the `ACTIVE` state.
+
+  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
+  Services account. Exceeding 5 TPS results in a `LimitExceededException`.
+  """
+  @spec update_channel(map(), update_channel_input(), list()) ::
+          {:ok, update_channel_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_channel_errors()}
+  def update_channel(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateChannel", input, options)
   end
 
   @doc """

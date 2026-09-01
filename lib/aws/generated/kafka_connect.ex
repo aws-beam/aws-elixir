@@ -907,6 +907,29 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
+      restart_connector_request() :: %{
+        optional("onlyFailedTasks") => boolean()
+      }
+
+  """
+  @type restart_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restart_connector_response() :: %{
+        "connectorArn" => String.t() | atom(),
+        "connectorOperationArn" => String.t() | atom()
+      }
+
+  """
+  @type restart_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_location() :: %{
         "bucketArn" => String.t() | atom(),
         "fileKey" => String.t() | atom(),
@@ -1390,6 +1413,15 @@ defmodule AWS.KafkaConnect do
           | bad_request_exception()
 
   @type list_worker_configurations_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
+
+  @type restart_connector_errors() ::
           unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
@@ -1919,6 +1951,44 @@ defmodule AWS.KafkaConnect do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Restarts the specified connector.
+
+  By default, this operation restarts the connector and all of its tasks. This
+  operation is asynchronous and returns a connector operation ARN that you can
+  pass to `DescribeConnectorOperation` to track the state of the restart.
+  """
+  @spec restart_connector(map(), String.t() | atom(), restart_connector_request(), list()) ::
+          {:ok, restart_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, restart_connector_errors()}
+  def restart_connector(%Client{} = client, connector_arn, input, options \\ []) do
+    url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}/restart"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"onlyFailedTasks", "onlyFailedTasks"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

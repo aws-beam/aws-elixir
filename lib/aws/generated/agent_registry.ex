@@ -38,6 +38,17 @@ defmodule AWS.AgentRegistry do
 
   ## Example:
 
+      ag_ui_descriptor() :: %{
+        "source" => descriptor_source()
+      }
+
+  """
+  @type ag_ui_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_skills_additional_data() :: %{
         "skillMd" => agent_skills_md_descriptor()
       }
@@ -148,7 +159,9 @@ defmodule AWS.AgentRegistry do
       descriptors() :: %{
         "a2aAgentCard" => a2a_agent_card_descriptor(),
         "agentSkillsDefinition" => agent_skills_definition_descriptor(),
+        "agui" => ag_ui_descriptor(),
         "custom" => custom_descriptor(),
+        "http" => http_descriptor(),
         "mcpServer" => mcp_server_descriptor()
       }
 
@@ -162,6 +175,7 @@ defmodule AWS.AgentRegistry do
       discoverable_registry_record_summary() :: %{
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
+        "descriptorTypes" => list([String.t() | atom()]()),
         "displayName" => String.t() | atom(),
         "name" => String.t() | atom(),
         "recordArn" => String.t() | atom(),
@@ -175,6 +189,17 @@ defmodule AWS.AgentRegistry do
 
   """
   @type discoverable_registry_record_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_descriptor() :: %{
+        "source" => descriptor_source()
+      }
+
+  """
+  @type http_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

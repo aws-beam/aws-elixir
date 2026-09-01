@@ -625,6 +625,22 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      app_summary() :: %{
+        "AppId" => String.t() | atom(),
+        "Arn" => [String.t() | atom()],
+        "CreatedTime" => non_neg_integer(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Visibility" => list(any())
+      }
+
+  """
+  @type app_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       append_operation() :: %{
         "Alias" => String.t() | atom(),
         "AppendedColumns" => list(appended_column()),
@@ -6559,6 +6575,26 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_app_request() :: %{}
+
+  """
+  @type delete_app_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_app_response() :: %{
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_app_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_approval_policy_request() :: %{}
 
   """
@@ -7608,6 +7644,50 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_permissions_request() :: %{}
+
+  """
+  @type describe_app_permissions_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_permissions_response() :: %{
+        "AppId" => String.t() | atom(),
+        "Arn" => [String.t() | atom()],
+        "Permissions" => list(resource_permission()),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type describe_app_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_request() :: %{}
+
+  """
+  @type describe_app_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_response() :: %{
+        "App" => app_summary(),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type describe_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12868,6 +12948,31 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_apps_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_apps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_apps_response() :: %{
+        "AppSummaryList" => list(app_summary()),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type list_apps_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_asset_bundle_export_jobs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -17105,6 +17210,45 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      search_apps_filter() :: %{
+        "Name" => list(any()),
+        "Operator" => list(any()),
+        "Value" => [String.t() | atom()]
+      }
+
+  """
+  @type search_apps_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_apps_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Filters") => list(search_apps_filter())
+      }
+
+  """
+  @type search_apps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_apps_response() :: %{
+        "AppSummaryList" => list(app_summary()),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type search_apps_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_dashboards_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -21016,6 +21160,34 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_app_permissions_request() :: %{
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission()),
+        optional("Visibility") => list(any())
+      }
+
+  """
+  @type update_app_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_permissions_response() :: %{
+        "AppId" => String.t() | atom(),
+        "Arn" => [String.t() | atom()],
+        "Permissions" => list(resource_permission()),
+        "RequestId" => [String.t() | atom()],
+        "Visibility" => list(any())
+      }
+
+  """
+  @type update_app_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_application_with_token_exchange_grant_request() :: %{
         required("Namespace") => String.t() | atom()
       }
@@ -23590,6 +23762,13 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | conflict_exception()
 
+  @type delete_app_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type delete_approval_policy_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -23979,6 +24158,20 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | internal_failure_exception()
+
+  @type describe_app_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type describe_app_permissions_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
 
   @type describe_approval_policy_errors() ::
           throttling_exception()
@@ -24543,6 +24736,12 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | access_denied_exception()
 
+  @type list_apps_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type list_asset_bundle_export_jobs_errors() ::
           unsupported_user_edition_exception()
           | throttling_exception()
@@ -24950,6 +25149,12 @@ defmodule AWS.QuickSight do
           | invalid_next_token_exception()
           | internal_failure_exception()
 
+  @type search_apps_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type search_dashboards_errors() ::
           unsupported_user_edition_exception()
           | throttling_exception()
@@ -25174,6 +25379,14 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | internal_failure_exception()
           | conflict_exception()
+
+  @type update_app_permissions_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_application_with_token_exchange_grant_errors() ::
           throttling_exception()
@@ -26295,9 +26508,6 @@ defmodule AWS.QuickSight do
 
   @doc """
   Creates a dataset.
-
-  This operation doesn't support datasets that include uploaded files
-  as a source.
   """
   @spec create_data_set(map(), String.t() | atom(), create_data_set_request(), list()) ::
           {:ok, create_data_set_response(), any()}
@@ -27616,6 +27826,37 @@ defmodule AWS.QuickSight do
         {"RecoveryWindowInDays", "recovery-window-in-days"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an app.
+  """
+  @spec delete_app(map(), String.t() | atom(), String.t() | atom(), delete_app_request(), list()) ::
+          {:ok, delete_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_app_errors()}
+  def delete_app(%Client{} = client, app_id, aws_account_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/apps/#{AWS.Util.encode_uri(app_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -29499,6 +29740,46 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes an app.
+  """
+  @spec describe_app(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_app_errors()}
+  def describe_app(%Client{} = client, app_id, aws_account_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/apps/#{AWS.Util.encode_uri(app_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the resource permissions for an app.
+  """
+  @spec describe_app_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_app_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_app_permissions_errors()}
+  def describe_app_permissions(%Client{} = client, app_id, aws_account_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/apps/#{AWS.Util.encode_uri(app_id)}/permissions"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Describes an approval policy in Quick Sight.
   """
   @spec describe_approval_policy(map(), String.t() | atom(), list()) ::
@@ -30035,9 +30316,6 @@ defmodule AWS.QuickSight do
 
   @doc """
   Describes a dataset.
-
-  This operation doesn't support datasets that include uploaded
-  files as a source.
   """
   @spec describe_data_set(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_data_set_response(), any()}
@@ -32083,6 +32361,53 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path = "/governance/approvalworkflows/policies"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the apps in an Amazon Web Services account.
+
+  Results are paginated; use the `NextToken` parameter to retrieve additional
+  results.
+  """
+  @spec list_apps(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_apps_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_apps_errors()}
+  def list_apps(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/apps"
     headers = []
     query_params = []
 
@@ -34296,6 +34621,39 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Searches for apps in an Amazon Web Services account using the specified filters.
+
+  This operation is eventually consistent; the results might not reflect very
+  recent updates. Results are paginated; use the `NextToken` parameter to retrieve
+  additional results.
+  """
+  @spec search_apps(map(), String.t() | atom(), search_apps_request(), list()) ::
+          {:ok, search_apps_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_apps_errors()}
+  def search_apps(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/apps"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Searches for dashboards that belong to a user.
 
   This operation is eventually consistent. The results are best effort and may not
@@ -35482,6 +35840,46 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Updates the resource permissions for an app.
+
+  You can grant or revoke permissions and, optionally, change the app's
+  visibility.
+  """
+  @spec update_app_permissions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_app_permissions_request(),
+          list()
+        ) ::
+          {:ok, update_app_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_app_permissions_errors()}
+  def update_app_permissions(%Client{} = client, app_id, aws_account_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/apps/#{AWS.Util.encode_uri(app_id)}/permissions"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates an Quick application with a token exchange grant.
 
   This operation only supports Quick applications that are registered with IAM
@@ -35943,8 +36341,7 @@ defmodule AWS.QuickSight do
   @doc """
   Updates a dataset.
 
-  This operation doesn't support datasets that include uploaded files
-  as a source. Partial updates are not supported by this operation.
+  Partial updates are not supported by this operation.
   """
   @spec update_data_set(
           map(),

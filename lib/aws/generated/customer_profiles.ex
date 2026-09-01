@@ -174,6 +174,40 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      associate_stream_for_segments_request() :: %{
+        required("DestinationArn") => String.t() | atom(),
+        required("DestinationRoleArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_stream_for_segments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_stream_for_segments_response() :: %{}
+
+  """
+  @type associate_stream_for_segments_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associated_segment() :: %{
+        "Message" => String.t() | atom(),
+        "SegmentName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type associated_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       attribute_details() :: %{
         "Attributes" => list(attribute_item()),
         "Expression" => String.t() | atom()
@@ -1305,6 +1339,26 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      delete_segment_subscription_request() :: %{}
+
+  """
+  @type delete_segment_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_segment_subscription_response() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type delete_segment_subscription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_workflow_request() :: %{}
 
   """
@@ -1366,6 +1420,26 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type detected_profile_object_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_stream_for_segments_request() :: %{}
+
+  """
+  @type disassociate_stream_for_segments_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_stream_for_segments_response() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type disassociate_stream_for_segments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2365,6 +2439,31 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_segment_subscription_request() :: %{}
+
+  """
+  @type get_segment_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_subscription_response() :: %{
+        "LastUpdatedAt" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "ScheduleConfiguration" => schedule_configuration(),
+        "ScheduledExecutions" => scheduled_executions(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_segment_subscription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_similar_profiles_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -2391,6 +2490,33 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_similar_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stream_for_segments_request() :: %{}
+
+  """
+  @type get_stream_for_segments_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stream_for_segments_response() :: %{
+        "AssociatedAt" => non_neg_integer(),
+        "AssociatedSegments" => list(associated_segment()),
+        "DestinationArn" => String.t() | atom(),
+        "DestinationRoleArn" => String.t() | atom(),
+        "DisassociatedAt" => non_neg_integer(),
+        "DomainName" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "State" => list(any())
+      }
+
+  """
+  @type get_stream_for_segments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3294,6 +3420,30 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      list_segment_subscription_events_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_segment_subscription_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_segment_subscription_events_response() :: %{
+        "Events" => list(subscription_event_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_segment_subscription_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_request() :: %{}
 
   """
@@ -3844,6 +3994,30 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      put_segment_subscription_request() :: %{
+        optional("ScheduleConfiguration") => schedule_configuration()
+      }
+
+  """
+  @type put_segment_subscription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_segment_subscription_response() :: %{
+        "ScheduleConfiguration" => schedule_configuration(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type put_segment_subscription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       range() :: %{
         "TimestampFormat" => String.t() | atom(),
         "TimestampSource" => String.t() | atom(),
@@ -4152,6 +4326,30 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      schedule_configuration() :: %{
+        "Interval" => integer(),
+        "Unit" => list(any())
+      }
+
+  """
+  @type schedule_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduled_executions() :: %{
+        "LastExecutedAt" => non_neg_integer(),
+        "NextExecutedAt" => non_neg_integer()
+      }
+
+  """
+  @type scheduled_executions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scheduled_trigger_properties() :: %{
         "DataPullMode" => list(any()),
         "FirstExecutionFrom" => non_neg_integer(),
@@ -4381,6 +4579,20 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type stop_upload_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription_event_item() :: %{
+        "Event" => list(any()),
+        "EventType" => list(any()),
+        "ProfileId" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type subscription_event_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4808,6 +5020,13 @@ defmodule AWS.CustomerProfiles do
           | bad_request_exception()
           | access_denied_exception()
 
+  @type associate_stream_for_segments_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
   @type batch_get_calculated_attribute_for_profile_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -5032,6 +5251,13 @@ defmodule AWS.CustomerProfiles do
           | bad_request_exception()
           | access_denied_exception()
 
+  @type delete_segment_subscription_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
   @type delete_workflow_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -5040,6 +5266,13 @@ defmodule AWS.CustomerProfiles do
           | access_denied_exception()
 
   @type detect_profile_object_type_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
+  @type disassociate_stream_for_segments_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -5207,7 +5440,21 @@ defmodule AWS.CustomerProfiles do
           | bad_request_exception()
           | access_denied_exception()
 
+  @type get_segment_subscription_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
   @type get_similar_profiles_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
+  @type get_stream_for_segments_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -5402,6 +5649,13 @@ defmodule AWS.CustomerProfiles do
           | bad_request_exception()
           | access_denied_exception()
 
+  @type list_segment_subscription_events_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
   @type list_tags_for_resource_errors() ::
           resource_not_found_exception() | internal_server_exception() | bad_request_exception()
 
@@ -5447,6 +5701,13 @@ defmodule AWS.CustomerProfiles do
           | access_denied_exception()
 
   @type put_profile_object_type_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
+  @type put_segment_subscription_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -5567,6 +5828,46 @@ defmodule AWS.CustomerProfiles do
           | {:error, add_profile_key_errors()}
   def add_profile_key(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/keys"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates an Amazon Kinesis data stream to receive segment membership events
+  for a given
+  domain.
+
+  This is a domain-level configuration that applies to all segment
+  subscriptions within the domain. A domain can have only one associated stream at
+  a time.
+  """
+  @spec associate_stream_for_segments(
+          map(),
+          String.t() | atom(),
+          associate_stream_for_segments_request(),
+          list()
+        ) ::
+          {:ok, associate_stream_for_segments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_stream_for_segments_errors()}
+  def associate_stream_for_segments(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-streams"
     headers = []
     custom_headers = []
     query_params = []
@@ -6907,6 +7208,52 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Deletes a segment subscription for membership events.
+
+  All active event notifications for
+  this segment are stopped.
+  """
+  @spec delete_segment_subscription(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_segment_subscription_request(),
+          list()
+        ) ::
+          {:ok, delete_segment_subscription_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_segment_subscription_errors()}
+  def delete_segment_subscription(
+        %Client{} = client,
+        domain_name,
+        segment_definition_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-definitions/#{AWS.Util.encode_uri(segment_definition_name)}/subscriptions"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the specified workflow and all its corresponding resources.
 
   This is an async
@@ -6971,6 +7318,45 @@ defmodule AWS.CustomerProfiles do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociates the Amazon Kinesis data stream configured for segment membership
+  events.
+
+  All
+  active segment subscriptions delivering events to this stream are eventually
+  stopped.
+  """
+  @spec disassociate_stream_for_segments(
+          map(),
+          String.t() | atom(),
+          disassociate_stream_for_segments_request(),
+          list()
+        ) ::
+          {:ok, disassociate_stream_for_segments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_stream_for_segments_errors()}
+  def disassociate_stream_for_segments(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-streams"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -7735,6 +8121,33 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Returns the current subscription configuration, execution schedule, and status
+  for
+  segment membership events.
+  """
+  @spec get_segment_subscription(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_segment_subscription_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_segment_subscription_errors()}
+  def get_segment_subscription(
+        %Client{} = client,
+        domain_name,
+        segment_definition_name,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-definitions/#{AWS.Util.encode_uri(segment_definition_name)}/subscriptions"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a set of profiles that belong to the same matching group using the
   `matchId` or `profileId`.
 
@@ -7772,6 +8185,26 @@ defmodule AWS.CustomerProfiles do
       options,
       200
     )
+  end
+
+  @doc """
+  Returns information about the segment membership event stream configured for a
+  specific
+  domain, including the stream state and associated segments.
+  """
+  @spec get_stream_for_segments(map(), String.t() | atom(), list()) ::
+          {:ok, get_stream_for_segments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_stream_for_segments_errors()}
+  def get_stream_for_segments(%Client{} = client, domain_name, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-streams"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -8878,6 +9311,59 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Returns the most recent membership events for a segment.
+
+  Each event represents a profile
+  that entered or exited the segment.
+
+  This operation is paginated.
+  """
+  @spec list_segment_subscription_events(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_segment_subscription_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_segment_subscription_events_errors()}
+  def list_segment_subscription_events(
+        %Client{} = client,
+        domain_name,
+        segment_definition_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-definitions/#{AWS.Util.encode_uri(segment_definition_name)}/subscription-events"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Displays the tags associated with an Amazon Connect Customer Profiles resource.
 
   In Connect
@@ -9202,6 +9688,72 @@ defmodule AWS.CustomerProfiles do
       ) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates or updates a segment subscription for membership events.
+
+  When a subscription is
+  created, an initial snapshot is taken and the system begins monitoring for
+  membership
+  changes.
+
+  You can optionally set a schedule configuration interval to control how often
+  membership
+  snapshots are run. The interval can be from 1 to 24 hours. If not set, the
+  interval defaults
+  to 24 hours. Scheduled snapshots run on
+  a best-effort basis. If a scheduled snapshot takes longer than the configured
+  interval, the
+  next scheduled run does not start until the in-progress snapshot completes, so a
+  run might
+  be delayed or skipped and is not guaranteed to occur at exactly the requested
+  time.
+
+  For Classic segments, membership events are generated from these scheduled
+  snapshots and
+  also in near real-time as profile attribute changes occur. For SQL segments,
+  membership
+  events are generated only from the scheduled snapshots.
+  """
+  @spec put_segment_subscription(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          put_segment_subscription_request(),
+          list()
+        ) ::
+          {:ok, put_segment_subscription_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_segment_subscription_errors()}
+  def put_segment_subscription(
+        %Client{} = client,
+        domain_name,
+        segment_definition_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-definitions/#{AWS.Util.encode_uri(segment_definition_name)}/subscriptions"
 
     headers = []
     custom_headers = []

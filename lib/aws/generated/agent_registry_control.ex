@@ -3,8 +3,8 @@
 
 defmodule AWS.AgentRegistryControl do
   @moduledoc """
-  AWS Agent Registry is a managed catalog for publishing and discovering resources
-  such as MCP servers, agents, and agent skills.
+  Amazon Web Services Agent Registry is a managed catalog for publishing and
+  discovering resources such as MCP servers, agents, and agent skills.
 
   Agent Registry Control is its control-plane API: use it to create and manage
   registries and the records they contain, configure discovery and authorization,
@@ -39,6 +39,55 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ag_ui_descriptor() :: %{
+        "source" => descriptor_source()
+      }
+
+  """
+  @type ag_ui_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_core_gateway_source_details() :: %{
+        "authorizerConfiguration" => list(),
+        "authorizerType" => [String.t() | atom()],
+        "protocolType" => list(any()),
+        "workloadIdentityDetails" => workload_identity_details()
+      }
+
+  """
+  @type agent_core_gateway_source_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_core_runtime_protocol_configuration() :: %{
+        "serverProtocol" => list(any())
+      }
+
+  """
+  @type agent_core_runtime_protocol_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_core_runtime_source_details() :: %{
+        "authorizerConfiguration" => list(),
+        "protocolConfiguration" => agent_core_runtime_protocol_configuration(),
+        "workloadIdentityDetails" => workload_identity_details()
+      }
+
+  """
+  @type agent_core_runtime_source_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -104,6 +153,31 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      auto_detection() :: %{
+        "configuration" => auto_detection_configuration(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type auto_detection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_detection_configuration() :: %{
+        "enabled" => [boolean()],
+        "scope" => list(any())
+      }
+
+  """
+  @type auto_detection_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -119,6 +193,7 @@ defmodule AWS.AgentRegistryControl do
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("displayName") => String.t() | atom(),
+        optional("provenance") => list(provenance()),
         optional("recordVersion") => String.t() | atom(),
         optional("tags") => map(),
         required("descriptors") => descriptors(),
@@ -147,9 +222,11 @@ defmodule AWS.AgentRegistryControl do
 
       create_registry_request() :: %{
         optional("approvalConfiguration") => approval_configuration(),
+        optional("autoDetectionConfiguration") => auto_detection_configuration(),
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("discoveryConfiguration") => discovery_configuration(),
+        optional("encryptionConfiguration") => encryption_configuration(),
         optional("tags") => map(),
         required("name") => String.t() | atom()
       }
@@ -277,7 +354,9 @@ defmodule AWS.AgentRegistryControl do
       descriptors() :: %{
         "a2aAgentCard" => a2a_agent_card_descriptor(),
         "agentSkillsDefinition" => agent_skills_definition_descriptor(),
+        "agui" => ag_ui_descriptor(),
         "custom" => custom_descriptor(),
+        "http" => http_descriptor(),
         "mcpServer" => mcp_server_descriptor()
       }
 
@@ -300,6 +379,17 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      encryption_configuration() :: %{
+        "kmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_registry_record_request() :: %{}
 
   """
@@ -311,10 +401,13 @@ defmodule AWS.AgentRegistryControl do
 
       get_registry_record_response() :: %{
         "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "createdByAutoDetection" => [boolean()],
         "description" => String.t() | atom(),
         "descriptors" => descriptors(),
         "displayName" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "provenance" => list(provenance()),
         "recordArn" => String.t() | atom(),
         "recordId" => String.t() | atom(),
         "recordType" => list(any()),
@@ -343,9 +436,11 @@ defmodule AWS.AgentRegistryControl do
 
       get_registry_response() :: %{
         "approvalConfiguration" => approval_configuration(),
+        "autoDetection" => auto_detection(),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
         "discoveryConfiguration" => discovery_configuration(),
+        "encryptionConfiguration" => encryption_configuration(),
         "name" => String.t() | atom(),
         "registryArn" => String.t() | atom(),
         "registryId" => String.t() | atom(),
@@ -356,6 +451,17 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type get_registry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_descriptor() :: %{
+        "source" => descriptor_source()
+      }
+
+  """
+  @type http_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -507,6 +613,33 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      provenance() :: %{
+        "relation" => list(any()),
+        "sourceDetails" => list(),
+        "sourceId" => String.t() | atom(),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type provenance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provenance_summary() :: %{
+        "relation" => list(any()),
+        "sourceId" => String.t() | atom(),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type provenance_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       registry_filter() :: %{
         "name" => list(any()),
         "values" => list(String.t() | atom())
@@ -572,9 +705,12 @@ defmodule AWS.AgentRegistryControl do
 
       registry_record_summary() :: %{
         "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "createdByAutoDetection" => [boolean()],
         "description" => String.t() | atom(),
         "displayName" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "provenanceSummaryList" => list(provenance_summary()),
         "recordArn" => String.t() | atom(),
         "recordId" => String.t() | atom(),
         "recordType" => list(any()),
@@ -592,6 +728,7 @@ defmodule AWS.AgentRegistryControl do
   ## Example:
 
       registry_summary() :: %{
+        "autoDetection" => auto_detection(),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
         "discoveryConfiguration" => discovery_configuration(),
@@ -712,6 +849,7 @@ defmodule AWS.AgentRegistryControl do
         optional("descriptors") => updated_descriptors(),
         optional("displayName") => updated_display_name(),
         optional("name") => String.t() | atom(),
+        optional("provenance") => list(provenance()),
         optional("recordType") => list(any()),
         optional("recordVersion") => String.t() | atom(),
         optional("triggerSynchronization") => [boolean()]
@@ -726,10 +864,13 @@ defmodule AWS.AgentRegistryControl do
 
       update_registry_record_response() :: %{
         "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "createdByAutoDetection" => [boolean()],
         "description" => String.t() | atom(),
         "descriptors" => descriptors(),
         "displayName" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "provenance" => list(provenance()),
         "recordArn" => String.t() | atom(),
         "recordId" => String.t() | atom(),
         "recordType" => list(any()),
@@ -777,6 +918,7 @@ defmodule AWS.AgentRegistryControl do
 
       update_registry_request() :: %{
         optional("approvalConfiguration") => updated_approval_configuration(),
+        optional("autoDetectionConfiguration") => updated_auto_detection_configuration(),
         optional("description") => updated_description(),
         optional("discoveryConfiguration") => updated_discovery_configuration(),
         optional("name") => String.t() | atom()
@@ -791,9 +933,11 @@ defmodule AWS.AgentRegistryControl do
 
       update_registry_response() :: %{
         "approvalConfiguration" => approval_configuration(),
+        "autoDetection" => auto_detection(),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
         "discoveryConfiguration" => discovery_configuration(),
+        "encryptionConfiguration" => encryption_configuration(),
         "name" => String.t() | atom(),
         "registryArn" => String.t() | atom(),
         "registryId" => String.t() | atom(),
@@ -828,6 +972,28 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type updated_a2a_agent_card_descriptor_fields() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_ag_ui_descriptor() :: %{
+        "optionalValue" => updated_ag_ui_descriptor_fields()
+      }
+
+  """
+  @type updated_ag_ui_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_ag_ui_descriptor_fields() :: %{
+        "source" => updated_descriptor_source()
+      }
+
+  """
+  @type updated_ag_ui_descriptor_fields() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -925,6 +1091,17 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      updated_auto_detection_configuration() :: %{
+        "optionalValue" => auto_detection_configuration()
+      }
+
+  """
+  @type updated_auto_detection_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       updated_custom_descriptor() :: %{
         "optionalValue" => updated_custom_descriptor_fields()
       }
@@ -1005,7 +1182,9 @@ defmodule AWS.AgentRegistryControl do
       updated_descriptors_fields() :: %{
         "a2aAgentCard" => updated_a2a_agent_card_descriptor(),
         "agentSkillsDefinition" => updated_agent_skills_definition_descriptor(),
+        "agui" => updated_ag_ui_descriptor(),
         "custom" => updated_custom_descriptor(),
+        "http" => updated_http_descriptor(),
         "mcpServer" => updated_mcp_server_descriptor()
       }
 
@@ -1033,6 +1212,28 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type updated_display_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_http_descriptor() :: %{
+        "optionalValue" => updated_http_descriptor_fields()
+      }
+
+  """
+  @type updated_http_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_http_descriptor_fields() :: %{
+        "source" => updated_descriptor_source()
+      }
+
+  """
+  @type updated_http_descriptor_fields() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1128,6 +1329,17 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workload_identity_details() :: %{
+        "workloadIdentityArn" => [String.t() | atom()]
+      }
+
+  """
+  @type workload_identity_details() :: %{(String.t() | atom()) => any()}
 
   @type create_registry_errors() ::
           validation_exception()
@@ -1501,7 +1713,10 @@ defmodule AWS.AgentRegistryControl do
   end
 
   @doc """
-  List the tags on a resource
+  Lists the tags associated with the specified Amazon Web Services Agent Registry
+  resource.
+
+  Returns the current tag key-value pairs on the resource.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1566,7 +1781,12 @@ defmodule AWS.AgentRegistryControl do
   end
 
   @doc """
-  Tag a resource with key-value pairs
+  Adds or overwrites one or more tags for the specified Amazon Web Services Agent
+  Registry resource.
+
+  Tags are key-value pairs that you can use to categorize and manage Amazon Web
+  Services resources. If a tag with the same key already exists on the resource,
+  the service replaces its value with the value you specify.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -1595,7 +1815,11 @@ defmodule AWS.AgentRegistryControl do
   end
 
   @doc """
-  Remove tags from a resource by key
+  Removes one or more tags from the specified Amazon Web Services Agent Registry
+  resource.
+
+  The operation removes only the tags whose keys you supply; other tags on the
+  resource remain unchanged.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}

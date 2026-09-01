@@ -2704,6 +2704,18 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      slack_bidirectional_configuration() :: %{
+        "enabled" => [boolean()],
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type slack_bidirectional_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       slack_channel() :: %{
         "channelId" => [String.t() | atom()],
         "channelName" => [String.t() | atom()]
@@ -2717,6 +2729,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       slack_configuration() :: %{
+        "bidirectional" => slack_bidirectional_configuration(),
         "transmissionTarget" => slack_transmission_target(),
         "workspaceId" => [String.t() | atom()],
         "workspaceName" => [String.t() | atom()]

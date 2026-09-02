@@ -500,6 +500,17 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      dry_run_operation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type dry_run_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       enable_enhanced_monitoring_input() :: %{
         optional("StreamARN") => String.t() | atom(),
         optional("StreamId") => String.t() | atom(),
@@ -562,6 +573,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       get_records_input() :: %{
+        optional("DryRun") => boolean(),
         optional("Limit") => integer(),
         optional("StreamARN") => String.t() | atom(),
         optional("StreamId") => String.t() | atom(),
@@ -613,6 +625,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       get_shard_iterator_input() :: %{
+        optional("DryRun") => boolean(),
         optional("StartingSequenceNumber") => String.t() | atom(),
         optional("StreamARN") => String.t() | atom(),
         optional("StreamId") => String.t() | atom(),
@@ -1014,6 +1027,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       put_record_input() :: %{
+        optional("DryRun") => boolean(),
         optional("ExplicitHashKey") => String.t() | atom(),
         optional("SequenceNumberForOrdering") => String.t() | atom(),
         optional("StreamARN") => String.t() | atom(),
@@ -1044,6 +1058,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       put_records_input() :: %{
+        optional("DryRun") => boolean(),
         optional("StreamARN") => String.t() | atom(),
         optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
@@ -1484,6 +1499,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       subscribe_to_shard_input() :: %{
+        optional("DryRun") => boolean(),
         optional("StreamId") => String.t() | atom(),
         required("ConsumerARN") => String.t() | atom(),
         required("ShardId") => String.t() | atom(),
@@ -1809,6 +1825,7 @@ defmodule AWS.Kinesis do
           | invalid_argument_exception()
           | internal_failure_exception()
           | expired_iterator_exception()
+          | dry_run_operation_exception()
           | access_denied_exception()
 
   @type get_resource_policy_errors() ::
@@ -1823,6 +1840,7 @@ defmodule AWS.Kinesis do
           | provisioned_throughput_exceeded_exception()
           | invalid_argument_exception()
           | internal_failure_exception()
+          | dry_run_operation_exception()
           | access_denied_exception()
 
   @type increase_stream_retention_period_errors() ::
@@ -1891,6 +1909,7 @@ defmodule AWS.Kinesis do
           | kms_access_denied_exception()
           | invalid_argument_exception()
           | internal_failure_exception()
+          | dry_run_operation_exception()
           | access_denied_exception()
 
   @type put_records_errors() ::
@@ -1904,6 +1923,7 @@ defmodule AWS.Kinesis do
           | kms_access_denied_exception()
           | invalid_argument_exception()
           | internal_failure_exception()
+          | dry_run_operation_exception()
           | access_denied_exception()
 
   @type put_resource_policy_errors() ::
@@ -1959,6 +1979,7 @@ defmodule AWS.Kinesis do
           | resource_in_use_exception()
           | limit_exceeded_exception()
           | invalid_argument_exception()
+          | dry_run_operation_exception()
           | access_denied_exception()
 
   @type tag_resource_errors() ::
@@ -2072,6 +2093,10 @@ defmodule AWS.Kinesis do
   You must specify either `S3DestinationConfiguration` or
   `S3TablesDestinationConfiguration`, but not both.
 
+  To use this operation, you must have permission to pass the specified service
+  execution IAM role to Amazon Kinesis Data Streams (the `iam:PassRole` permission
+  on that role).
+
   Creating a channel is an asynchronous operation. Upon receiving the request,
   Amazon Kinesis Data Streams returns immediately with the channel in the
   `CREATING` state. After provisioning is complete, Amazon Kinesis Data Streams
@@ -2081,8 +2106,9 @@ defmodule AWS.Kinesis do
   This operation is only supported for data streams with the on-demand capacity
   mode.
 
-  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
-  Services account. Exceeding 5 TPS results in a `LimitExceededException`.
+  This operation has a call limit of 5 transactions per second (TPS) for each
+  Amazon Web Services account. Exceeding 5 TPS results in a
+  `LimitExceededException`.
   """
   @spec create_channel(map(), create_channel_input(), list()) ::
           {:ok, create_channel_output(), any()}
@@ -2219,8 +2245,9 @@ defmodule AWS.Kinesis do
   first delete all channels attached to it. To find them, use `ListChannels` with
   a stream filter.
 
-  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
-  Services account. Exceeding 5 TPS results in a `LimitExceededException`.
+  This operation has a call limit of 5 transactions per second (TPS) for each
+  Amazon Web Services account. Exceeding 5 TPS results in a
+  `LimitExceededException`.
   """
   @spec delete_channel(map(), delete_channel_input(), list()) ::
           {:ok, nil, any()}
@@ -2359,8 +2386,9 @@ defmodule AWS.Kinesis do
   creation, or to diagnose a channel in the `FAILED` state by reading the
   `ChannelStatusReason`.
 
-  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
-  Services account. Exceeding 5 TPS results in a `LimitExceededException`.
+  This operation has a call limit of 5 transactions per second (TPS) for each
+  Amazon Web Services account. Exceeding 5 TPS results in a
+  `LimitExceededException`.
   """
   @spec describe_channel(map(), describe_channel_input(), list()) ::
           {:ok, describe_channel_output(), any()}
@@ -2782,8 +2810,9 @@ defmodule AWS.Kinesis do
   Use this operation to find channels before deleting a stream, or to audit the
   channels configured in an Amazon Web Services Region.
 
-  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
-  Services account. Exceeding 5 TPS results in a `LimitExceededException`.
+  This operation has a call limit of 5 transactions per second (TPS) for each
+  Amazon Web Services account. Exceeding 5 TPS results in a
+  `LimitExceededException`.
   """
   @spec list_channels(map(), list_channels_input(), list()) ::
           {:ok, list_channels_output(), any()}
@@ -3573,8 +3602,9 @@ defmodule AWS.Kinesis do
   immediately. After the change is applied, Amazon Kinesis Data Streams sets the
   channel back to the `ACTIVE` state.
 
-  This API has a call limit of 5 transactions per second (TPS) for each Amazon Web
-  Services account. Exceeding 5 TPS results in a `LimitExceededException`.
+  This operation has a call limit of 5 transactions per second (TPS) for each
+  Amazon Web Services account. Exceeding 5 TPS results in a
+  `LimitExceededException`.
   """
   @spec update_channel(map(), update_channel_input(), list()) ::
           {:ok, update_channel_output(), any()}

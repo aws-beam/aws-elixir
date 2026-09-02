@@ -19,6 +19,7 @@ defmodule AWS.MediaConvert do
         "CodecProfile" => list(any()),
         "CodingMode" => list(any()),
         "LoudnessMeasurementMode" => list(any()),
+        "PassthroughControl" => list(any()),
         "RapInterval" => integer(),
         "RateControlMode" => list(any()),
         "RawFormat" => list(any()),
@@ -140,6 +141,18 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      aspect_ratio() :: %{
+        "Denominator" => integer(),
+        "Numerator" => integer()
+      }
+
+  """
+  @type aspect_ratio() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_certificate_request() :: %{
         required("Arn") => String.t() | atom()
       }
@@ -248,6 +261,7 @@ defmodule AWS.MediaConvert do
       audio_properties() :: %{
         "BitDepth" => integer(),
         "BitRate" => float(),
+        "ChannelLayout" => String.t() | atom(),
         "Channels" => integer(),
         "FrameRate" => frame_rate(),
         "LanguageCode" => String.t() | atom(),
@@ -745,6 +759,7 @@ defmodule AWS.MediaConvert do
         "ColorPrimaries" => list(any()),
         "ContentLightLevel" => content_light_level(),
         "FieldOrder" => String.t() | atom(),
+        "Hdr10PlusPresence" => list(any()),
         "Height" => integer(),
         "Level" => String.t() | atom(),
         "MatrixCoefficients" => list(any()),
@@ -3904,7 +3919,15 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       ttml_destination_settings() :: %{
-        "StylePassthrough" => list(any())
+        "BackgroundColor" => list(any()),
+        "BackgroundOpacity" => integer(),
+        "FontColor" => list(any()),
+        "FontOpacity" => integer(),
+        "FontSize" => integer(),
+        "FontStyle" => list(any()),
+        "FontWeight" => list(any()),
+        "StylePassthrough" => list(any()),
+        "TextDecoration" => list(any())
       }
 
   """
@@ -4227,11 +4250,13 @@ defmodule AWS.MediaConvert do
         "BitRate" => float(),
         "CodecMetadata" => codec_metadata(),
         "ColorPrimaries" => list(any()),
+        "DisplayAspectRatio" => aspect_ratio(),
         "FrameRate" => frame_rate(),
         "HdrMetadata" => hdr_metadata(),
         "Height" => integer(),
         "MatrixCoefficients" => list(any()),
         "Rotation" => integer(),
+        "SampleAspectRatio" => aspect_ratio(),
         "TransferCharacteristics" => list(any()),
         "Width" => integer()
       }
@@ -4417,6 +4442,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       xavc_hd_intra_cbg_profile_settings() :: %{
+        "InterlaceMode" => list(any()),
         "XavcClass" => list(any())
       }
 

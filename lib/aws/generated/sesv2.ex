@@ -71,6 +71,28 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      associate_email_identity_certificate_request() :: %{
+        optional("FromAddress") => String.t() | atom(),
+        required("CertificateArn") => String.t() | atom(),
+        required("EmailIdentity") => String.t() | atom()
+      }
+
+  """
+  @type associate_email_identity_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_email_identity_certificate_response() :: %{}
+
+  """
+  @type associate_email_identity_certificate_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       attachment() :: %{
         "ContentDescription" => String.t() | atom(),
         "ContentDisposition" => list(any()),
@@ -376,6 +398,7 @@ defmodule AWS.SESv2 do
       create_configuration_set_request() :: %{
         optional("ArchivingOptions") => archiving_options(),
         optional("DeliveryOptions") => delivery_options(),
+        optional("MessageSecurityOptions") => message_security_options(),
         optional("ReputationOptions") => reputation_options(),
         optional("SendingOptions") => sending_options(),
         optional("SuppressionOptions") => suppression_options(),
@@ -788,6 +811,15 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      default_signing_scheme() :: %{}
+
+  """
+  @type default_signing_scheme() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_configuration_set_event_destination_request() :: %{}
 
   """
@@ -1079,6 +1111,27 @@ defmodule AWS.SESv2 do
 
   """
   @type details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_email_identity_certificate_request() :: %{
+        optional("FromAddress") => String.t() | atom(),
+        required("EmailIdentity") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_email_identity_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_email_identity_certificate_response() :: %{}
+
+  """
+  @type disassociate_email_identity_certificate_response() :: %{}
 
   @typedoc """
 
@@ -1462,6 +1515,7 @@ defmodule AWS.SESv2 do
         "ArchivingOptions" => archiving_options(),
         "ConfigurationSetName" => String.t() | atom(),
         "DeliveryOptions" => delivery_options(),
+        "MessageSecurityOptions" => message_security_options(),
         "ReputationOptions" => reputation_options(),
         "SendingOptions" => sending_options(),
         "SuppressionOptions" => suppression_options(),
@@ -1996,6 +2050,20 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      identity_certificate() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "CertificateExpiryTime" => non_neg_integer(),
+        "FromAddress" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type identity_certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       identity_info() :: %{
         "IdentityName" => String.t() | atom(),
         "IdentityType" => list(any()),
@@ -2334,6 +2402,31 @@ defmodule AWS.SESv2 do
 
   """
   @type list_email_identities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_email_identity_certificates_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        required("EmailIdentity") => String.t() | atom()
+      }
+
+  """
+  @type list_email_identity_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_email_identity_certificates_response() :: %{
+        "Certificates" => list(identity_certificate()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_email_identity_certificates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2724,6 +2817,17 @@ defmodule AWS.SESv2 do
 
   """
   @type message_rejected() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_security_options() :: %{
+        "SigningScheme" => list()
+      }
+
+  """
+  @type message_security_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3630,6 +3734,17 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      smime_signing_scheme() :: %{
+        "SignatureFormat" => list(any())
+      }
+
+  """
+  @type smime_signing_scheme() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sns_destination() :: %{
         "TopicArn" => String.t() | atom()
       }
@@ -4015,6 +4130,27 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      update_configuration_set_request() :: %{
+        optional("MessageSecurityOptions") => message_security_options(),
+        required("ConfigurationSetName") => String.t() | atom()
+      }
+
+  """
+  @type update_configuration_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configuration_set_response() :: %{}
+
+  """
+  @type update_configuration_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_contact_list_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("Topics") => list(topic())
@@ -4213,6 +4349,12 @@ defmodule AWS.SESv2 do
   """
   @type volume_statistics() :: %{(String.t() | atom()) => any()}
 
+  @type associate_email_identity_certificate_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | already_exists_exception()
+
   @type batch_get_metric_data_errors() ::
           too_many_requests_exception()
           | not_found_exception()
@@ -4376,6 +4518,9 @@ defmodule AWS.SESv2 do
   @type delete_tenant_resource_association_errors() ::
           too_many_requests_exception() | not_found_exception() | bad_request_exception()
 
+  @type disassociate_email_identity_certificate_errors() ::
+          too_many_requests_exception() | not_found_exception() | bad_request_exception()
+
   @type get_account_errors() :: too_many_requests_exception() | bad_request_exception()
 
   @type get_blacklist_reports_errors() ::
@@ -4471,6 +4616,9 @@ defmodule AWS.SESv2 do
           too_many_requests_exception() | not_found_exception() | bad_request_exception()
 
   @type list_email_identities_errors() :: too_many_requests_exception() | bad_request_exception()
+
+  @type list_email_identity_certificates_errors() ::
+          too_many_requests_exception() | not_found_exception() | bad_request_exception()
 
   @type list_email_templates_errors() :: too_many_requests_exception() | bad_request_exception()
 
@@ -4627,6 +4775,9 @@ defmodule AWS.SESv2 do
           | concurrent_modification_exception()
           | bad_request_exception()
 
+  @type update_configuration_set_errors() ::
+          too_many_requests_exception() | not_found_exception() | bad_request_exception()
+
   @type update_configuration_set_event_destination_errors() ::
           too_many_requests_exception() | not_found_exception() | bad_request_exception()
 
@@ -4671,6 +4822,65 @@ defmodule AWS.SESv2 do
       signing_name: "ses",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Associates an S/MIME certificate with an email identity.
+
+  After the certificate is
+  active, Amazon SES API v2 can add an S/MIME signature to messages that you send
+  from the associated
+  address when signing is enabled on the configuration set used to send the
+  message.
+
+  The certificate is an X.509 certificate that you manage in Certificate Manager
+  (ACM). You identify it by its Amazon Resource Name (ARN).
+
+    *
+  If the email identity is a domain, you must specify a `FromAddress`
+  that belongs to that domain or one of its subdomains. The certificate applies to
+  messages sent from that address.
+
+    *
+  If the email identity is an email address, `FromAddress` is
+  optional. If you specify it, it must exactly match the email identity.
+
+  When the association is created, the certificate begins provisioning and its
+  status is
+  `PROVISIONING`. The status changes to `ACTIVE` when the certificate
+  is ready to use for signing. Each email address can have only one certificate
+  association. If an association already exists for the address, this operation
+  returns an
+  error, unless the existing association is in the `DEPROVISIONING` state.
+  """
+  @spec associate_email_identity_certificate(
+          map(),
+          associate_email_identity_certificate_request(),
+          list()
+        ) ::
+          {:ok, associate_email_identity_certificate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_email_identity_certificate_errors()}
+  def associate_email_identity_certificate(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/identity/certificates"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5864,6 +6074,55 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
+  Removes the association between an S/MIME certificate and an email identity.
+
+  After the
+  association is removed, Amazon SES API v2 stops adding an S/MIME signature to
+  messages sent from
+  that address.
+
+  If the email identity is a domain, specify the `FromAddress` whose
+  certificate association you want to remove.
+
+  This operation is idempotent. If the specified email identity exists but there's
+  no
+  matching certificate association, the operation succeeds without making any
+  changes.
+  Amazon SES API v2 returns a `NotFoundException` only when the specified email
+  identity
+  doesn't exist.
+  """
+  @spec disassociate_email_identity_certificate(
+          map(),
+          disassociate_email_identity_certificate_request(),
+          list()
+        ) ::
+          {:ok, disassociate_email_identity_certificate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_email_identity_certificate_errors()}
+  def disassociate_email_identity_certificate(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/identity/certificates/delete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Obtain information about the email-sending status and capabilities of your
   Amazon SES
   account in the current Amazon Web Services Region.
@@ -6909,6 +7168,53 @@ defmodule AWS.SESv2 do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the S/MIME certificates that are associated with the specified email
+  identity.
+
+  The results include certificates in all states, such as `PROVISIONING`,
+  `ACTIVE`, `INACTIVE`, `DEPROVISIONING`, and
+  `FAILED`.
+
+  If a certificate has passed its expiration time, it's returned with a status of
+  `FAILED`.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully. When there are more results than fit in a single response, the
+  response
+  includes a `NextToken` value that you use in a subsequent call to retrieve
+  the next set of results.
+  """
+  @spec list_email_identity_certificates(
+          map(),
+          list_email_identity_certificates_request(),
+          list()
+        ) ::
+          {:ok, list_email_identity_certificates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_email_identity_certificates_errors()}
+  def list_email_identity_certificates(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/identity/certificates/list"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8531,6 +8837,39 @@ defmodule AWS.SESv2 do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing configuration set.
+
+  This operation performs a partial update. Only the attributes that you include
+  in the
+  request are updated; any omitted attribute is left unchanged.
+  """
+  @spec update_configuration_set(map(), update_configuration_set_request(), list()) ::
+          {:ok, update_configuration_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_configuration_set_errors()}
+  def update_configuration_set(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/update-configuration-sets"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

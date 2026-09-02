@@ -7875,7 +7875,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("createdBy") => version_created_by_source(),
         optional("description") => String.t() | atom(),
         optional("kmsKeyArn") => String.t() | atom(),
-        optional("parentVersionIds") => list(String.t() | atom())
+        required("parentVersionIds") => list(String.t() | atom())
       }
 
   """
@@ -11182,13 +11182,13 @@ defmodule AWS.BedrockAgentCoreControl do
   Creates a policy within the AgentCore Policy system.
 
   Policies provide real-time, deterministic control over agentic interactions with
-  AgentCore Gateway. Using the Cedar policy language, you can define fine-grained
-  policies that specify which interactions with Gateway tools are permitted based
-  on input parameters and OAuth claims, ensuring agents operate within defined
-  boundaries and business rules. The policy is validated during creation against
-  the Cedar schema generated from the Gateway's tools' input schemas, which
-  defines the available tools, their parameters, and expected data types. This is
-  an asynchronous operation. Use the
+  AgentCore Gateway. Using Cedar or Dogwood, you can define fine-grained policies
+  that specify which interactions with Gateway tools are permitted based on input
+  parameters and OAuth claims, ensuring agents operate within defined boundaries
+  and business rules. The policy is validated during creation against the Cedar
+  schema generated from the Gateway's tools' input schemas, which defines the
+  available tools, their parameters, and expected data types. This is an
+  asynchronous operation. Use the
   [GetPolicy](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetPolicy.html) operation to poll the `status` field to track completion.
 
   If the new policy is a temporal policy, creating it invalidates the policy
@@ -13063,7 +13063,7 @@ defmodule AWS.BedrockAgentCoreControl do
   Retrieves information about a policy generation request within the AgentCore
   Policy system.
 
-  Policy generation converts natural language descriptions into Cedar policy
+  Policy generation converts natural language descriptions into Dogwood policy
   statements using AI-powered translation, enabling non-technical users to create
   policies.
   """
@@ -14501,9 +14501,9 @@ defmodule AWS.BedrockAgentCoreControl do
   Retrieves a list of generated policy assets from a policy generation request
   within the AgentCore Policy system.
 
-  This operation returns the actual Cedar policies and related artifacts produced
-  by the AI-powered policy generation process, allowing users to review and select
-  from multiple generated policy options.
+  This operation returns the actual Dogwood policies and related artifacts
+  produced by the AI-powered policy generation process, allowing users to review
+  and select from multiple generated policy options.
   """
   @spec list_policy_generation_assets(
           map(),
@@ -14961,19 +14961,19 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Initiates the AI-powered generation of Cedar policies from natural language
+  Initiates the AI-powered generation of Dogwood policies from natural language
   descriptions within the AgentCore Policy system.
 
   This feature enables both technical and non-technical users to create policies
   by describing their authorization requirements in plain English, which is then
-  automatically translated into formal Cedar policy statements. The generation
+  automatically translated into formal Dogwood policy statements. The generation
   process analyzes the natural language input along with the Gateway's tool
   context to produce validated policy options. Generated policy assets are
   automatically deleted after 7 days, so you should review and create policies
   from the generated assets within this timeframe. Once created, policies are
   permanent and not subject to this expiration. Generated policies should be
   reviewed and tested in log-only mode before deploying to production. Use this
-  when you want to describe policy intent naturally rather than learning Cedar
+  when you want to describe policy intent naturally rather than learning Dogwood
   syntax, though generated policies may require refinement for complex scenarios.
   """
   @spec start_policy_generation(

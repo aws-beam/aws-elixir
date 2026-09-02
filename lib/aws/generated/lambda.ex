@@ -1497,7 +1497,8 @@ defmodule AWS.Lambda do
 
       file_system_config() :: %{
         "Arn" => String.t() | atom(),
-        "LocalMountPath" => String.t() | atom()
+        "LocalMountPath" => String.t() | atom(),
+        "S3FilesConfig" => s3_files_config()
       }
 
   """
@@ -3547,6 +3548,17 @@ defmodule AWS.Lambda do
 
   """
   @type runtime_version_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_files_config() :: %{
+        "DirectS3Read" => list(any())
+      }
+
+  """
+  @type s3_files_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

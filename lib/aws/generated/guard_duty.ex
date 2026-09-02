@@ -356,6 +356,41 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      association_detail() :: %{
+        "AccountId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "AssociationId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "ExpiresAt" => non_neg_integer(),
+        "Mode" => list(any()),
+        "RuleId" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type association_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      association_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociationId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "ExpiresAt" => non_neg_integer(),
+        "Mode" => list(any()),
+        "RuleId" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       autonomous_system() :: %{
         "Name" => String.t() | atom(),
         "Number" => integer()
@@ -765,6 +800,57 @@ defmodule AWS.GuardDuty do
 
   """
   @type coverage_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_detection_rule_association_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Mode") => list(any()),
+        required("RuleId") => String.t() | atom()
+      }
+
+  """
+  @type create_custom_detection_rule_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_detection_rule_association_response() :: %{
+        "RuleAssociation" => association_detail()
+      }
+
+  """
+  @type create_custom_detection_rule_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_detection_rule_org_configuration_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ExcludeAccountIds") => list(String.t() | atom()),
+        optional("IncludeAccountIds") => list(String.t() | atom()),
+        required("Mode") => list(any()),
+        required("RuleId") => String.t() | atom()
+      }
+
+  """
+  @type create_custom_detection_rule_org_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_detection_rule_org_configuration_response() :: %{}
+
+  """
+  @type create_custom_detection_rule_org_configuration_response() :: %{}
 
   @typedoc """
 
@@ -1181,6 +1267,46 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      delete_custom_detection_rule_association_request() :: %{}
+
+  """
+  @type delete_custom_detection_rule_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_detection_rule_association_response() :: %{}
+
+  """
+  @type delete_custom_detection_rule_association_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_detection_rule_org_configuration_request() :: %{
+        required("Mode") => list(any())
+      }
+
+  """
+  @type delete_custom_detection_rule_org_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_detection_rule_org_configuration_response() :: %{}
+
+  """
+  @type delete_custom_detection_rule_org_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_detector_request() :: %{}
 
   """
@@ -1471,6 +1597,55 @@ defmodule AWS.GuardDuty do
 
   """
   @type detection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detection_rule_filter() :: %{
+        "Condition" => list(any()),
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type detection_rule_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detection_rule_org_configuration() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ExcludeAccountIds" => list(String.t() | atom()),
+        "ExpiresAt" => non_neg_integer(),
+        "IncludeAccountIds" => list(String.t() | atom()),
+        "Mode" => list(any()),
+        "RuleId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type detection_rule_org_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detection_rule_org_configuration_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ExpiresAt" => non_neg_integer(),
+        "Mode" => list(any()),
+        "RuleId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type detection_rule_org_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2100,6 +2275,71 @@ defmodule AWS.GuardDuty do
 
   """
   @type get_coverage_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_detection_rule_association_request() :: %{}
+
+  """
+  @type get_custom_detection_rule_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_detection_rule_association_response() :: %{
+        "RuleAssociation" => association_detail(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_custom_detection_rule_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_detection_rule_org_configuration_request() :: %{
+        required("Mode") => list(any())
+      }
+
+  """
+  @type get_custom_detection_rule_org_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_detection_rule_org_configuration_response() :: %{
+        "Configuration" => detection_rule_org_configuration()
+      }
+
+  """
+  @type get_custom_detection_rule_org_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_detection_rule_request() :: %{}
+
+  """
+  @type get_custom_detection_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_detection_rule_response() :: %{
+        "Rule" => rule_detail()
+      }
+
+  """
+  @type get_custom_detection_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3070,6 +3310,86 @@ defmodule AWS.GuardDuty do
 
   """
   @type list_coverage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_detection_rule_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("Mode") => list(any()),
+        optional("NextToken") => String.t() | atom(),
+        optional("RuleId") => String.t() | atom()
+      }
+
+  """
+  @type list_custom_detection_rule_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_detection_rule_associations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RuleAssociations" => list(association_summary())
+      }
+
+  """
+  @type list_custom_detection_rule_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_detection_rule_org_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type list_custom_detection_rule_org_configurations_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_detection_rule_org_configurations_response() :: %{
+        "Configurations" => list(detection_rule_org_configuration_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_custom_detection_rule_org_configurations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_detection_rules_request() :: %{
+        optional("Filters") => list(detection_rule_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_custom_detection_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_detection_rules_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Rules" => list(rule_summary())
+      }
+
+  """
+  @type list_custom_detection_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4472,6 +4792,64 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      rule_definition() :: %{
+        "Expression" => String.t() | atom()
+      }
+
+  """
+  @type rule_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_detail() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "DataSource" => list(any()),
+        "Definition" => rule_definition(),
+        "Description" => String.t() | atom(),
+        "Language" => list(any()),
+        "Name" => String.t() | atom(),
+        "RuleId" => String.t() | atom(),
+        "Schema" => list(any()),
+        "Service" => String.t() | atom(),
+        "Severity" => list(any()),
+        "Tactic" => String.t() | atom(),
+        "Technique" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type rule_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "DataSource" => list(any()),
+        "Description" => String.t() | atom(),
+        "Language" => list(any()),
+        "Name" => String.t() | atom(),
+        "RuleId" => String.t() | atom(),
+        "Schema" => list(any()),
+        "Service" => String.t() | atom(),
+        "Severity" => list(any()),
+        "Tactic" => String.t() | atom(),
+        "Technique" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type rule_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       runtime_context() :: %{
         "AddressFamily" => String.t() | atom(),
         "CommandLineExample" => String.t() | atom(),
@@ -5270,6 +5648,50 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      update_custom_detection_rule_association_request() :: %{
+        required("Mode") => list(any())
+      }
+
+  """
+  @type update_custom_detection_rule_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_detection_rule_association_response() :: %{}
+
+  """
+  @type update_custom_detection_rule_association_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_detection_rule_org_configuration_request() :: %{
+        optional("ExcludeAccountIds") => list(String.t() | atom()),
+        optional("IncludeAccountIds") => list(String.t() | atom()),
+        required("Mode") => list(any())
+      }
+
+  """
+  @type update_custom_detection_rule_org_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_detection_rule_org_configuration_response() :: %{}
+
+  """
+  @type update_custom_detection_rule_org_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_detector_request() :: %{
         optional("DataSources") => data_source_configurations(),
         optional("Enable") => boolean(),
@@ -5729,6 +6151,20 @@ defmodule AWS.GuardDuty do
 
   @type archive_findings_errors() :: internal_server_error_exception() | bad_request_exception()
 
+  @type create_custom_detection_rule_association_errors() ::
+          resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
+  @type create_custom_detection_rule_org_configuration_errors() ::
+          resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
   @type create_detector_errors() :: internal_server_error_exception() | bad_request_exception()
 
   @type create_filter_errors() :: internal_server_error_exception() | bad_request_exception()
@@ -5764,6 +6200,19 @@ defmodule AWS.GuardDuty do
 
   @type decline_invitations_errors() ::
           internal_server_error_exception() | bad_request_exception()
+
+  @type delete_custom_detection_rule_association_errors() ::
+          resource_not_found_exception()
+          | internal_server_error_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
+  @type delete_custom_detection_rule_org_configuration_errors() ::
+          resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   @type delete_detector_errors() :: internal_server_error_exception() | bad_request_exception()
 
@@ -5822,6 +6271,24 @@ defmodule AWS.GuardDuty do
 
   @type get_coverage_statistics_errors() ::
           internal_server_error_exception() | bad_request_exception()
+
+  @type get_custom_detection_rule_errors() ::
+          resource_not_found_exception()
+          | internal_server_error_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
+  @type get_custom_detection_rule_association_errors() ::
+          resource_not_found_exception()
+          | internal_server_error_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
+  @type get_custom_detection_rule_org_configuration_errors() ::
+          resource_not_found_exception()
+          | internal_server_error_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   @type get_detector_errors() :: internal_server_error_exception() | bad_request_exception()
 
@@ -5886,6 +6353,15 @@ defmodule AWS.GuardDuty do
 
   @type list_coverage_errors() :: internal_server_error_exception() | bad_request_exception()
 
+  @type list_custom_detection_rule_associations_errors() ::
+          internal_server_error_exception() | bad_request_exception() | access_denied_exception()
+
+  @type list_custom_detection_rule_org_configurations_errors() ::
+          internal_server_error_exception() | bad_request_exception() | access_denied_exception()
+
+  @type list_custom_detection_rules_errors() ::
+          internal_server_error_exception() | bad_request_exception() | access_denied_exception()
+
   @type list_detectors_errors() :: internal_server_error_exception() | bad_request_exception()
 
   @type list_filters_errors() :: internal_server_error_exception() | bad_request_exception()
@@ -5943,6 +6419,20 @@ defmodule AWS.GuardDuty do
 
   @type untag_resource_errors() ::
           internal_server_error_exception() | bad_request_exception() | access_denied_exception()
+
+  @type update_custom_detection_rule_association_errors() ::
+          resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
+  @type update_custom_detection_rule_org_configuration_errors() ::
+          resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   @type update_detector_errors() :: internal_server_error_exception() | bad_request_exception()
 
@@ -6074,6 +6564,77 @@ defmodule AWS.GuardDuty do
           | {:error, archive_findings_errors()}
   def archive_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/archive"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Enables a custom detection rule for your account by creating an association.
+
+  You specify the rule and the mode in which it operates.
+  """
+  @spec create_custom_detection_rule_association(
+          map(),
+          create_custom_detection_rule_association_request(),
+          list()
+        ) ::
+          {:ok, create_custom_detection_rule_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_custom_detection_rule_association_errors()}
+  def create_custom_detection_rule_association(%Client{} = client, input, options \\ []) do
+    url_path = "/custom-detection-rule/association"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an organization-level configuration that enables a custom detection rule
+  across your organization.
+
+  This operation is available only to the delegated administrator account.
+  """
+  @spec create_custom_detection_rule_org_configuration(
+          map(),
+          create_custom_detection_rule_org_configuration_request(),
+          list()
+        ) ::
+          {:ok, create_custom_detection_rule_org_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_custom_detection_rule_org_configuration_errors()}
+  def create_custom_detection_rule_org_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/custom-detection-rule/org-configuration"
     headers = []
     custom_headers = []
     query_params = []
@@ -6571,6 +7132,97 @@ defmodule AWS.GuardDuty do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disables a custom detection rule by deleting its association.
+
+  This operation is idempotent.
+  """
+  @spec delete_custom_detection_rule_association(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_custom_detection_rule_association_request(),
+          list()
+        ) ::
+          {:ok, delete_custom_detection_rule_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_custom_detection_rule_association_errors()}
+  def delete_custom_detection_rule_association(
+        %Client{} = client,
+        association_id,
+        rule_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/custom-detection-rule/rule/#{AWS.Util.encode_uri(rule_id)}/association/#{AWS.Util.encode_uri(association_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the organization-level configuration for a custom detection rule.
+
+  This operation is available only to the delegated administrator account.
+  """
+  @spec delete_custom_detection_rule_org_configuration(
+          map(),
+          String.t() | atom(),
+          delete_custom_detection_rule_org_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_custom_detection_rule_org_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_custom_detection_rule_org_configuration_errors()}
+  def delete_custom_detection_rule_org_configuration(
+        %Client{} = client,
+        rule_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/custom-detection-rule/org-configuration/#{AWS.Util.encode_uri(rule_id)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"Mode", "mode"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -7386,6 +8038,90 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Returns details for a custom detection rule in GuardDuty, including its
+  detection logic.
+  """
+  @spec get_custom_detection_rule(map(), String.t() | atom(), list()) ::
+          {:ok, get_custom_detection_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_custom_detection_rule_errors()}
+  def get_custom_detection_rule(%Client{} = client, rule_id, options \\ []) do
+    url_path = "/custom-detection-rule/rule/#{AWS.Util.encode_uri(rule_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns details for a custom detection rule association.
+  """
+  @spec get_custom_detection_rule_association(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_custom_detection_rule_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_custom_detection_rule_association_errors()}
+  def get_custom_detection_rule_association(
+        %Client{} = client,
+        association_id,
+        rule_id,
+        options \\ []
+      ) do
+    url_path =
+      "/custom-detection-rule/rule/#{AWS.Util.encode_uri(rule_id)}/association/#{AWS.Util.encode_uri(association_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the organization-level configuration for a custom detection rule.
+  """
+  @spec get_custom_detection_rule_org_configuration(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_custom_detection_rule_org_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_custom_detection_rule_org_configuration_errors()}
+  def get_custom_detection_rule_org_configuration(
+        %Client{} = client,
+        rule_id,
+        mode,
+        options \\ []
+      ) do
+    url_path = "/custom-detection-rule/org-configuration/#{AWS.Util.encode_uri(rule_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(mode) do
+        [{"mode", mode} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a GuardDuty detector specified by the detectorId.
 
   There might be regional differences because some data sources might not be
@@ -7959,6 +8695,153 @@ defmodule AWS.GuardDuty do
           | {:error, list_coverage_errors()}
   def list_coverage(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns all custom detection rule associations for your account.
+
+  You can filter by rule ID and mode.
+  """
+  @spec list_custom_detection_rule_associations(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_custom_detection_rule_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_custom_detection_rule_associations_errors()}
+  def list_custom_detection_rule_associations(
+        %Client{} = client,
+        max_results \\ nil,
+        mode \\ nil,
+        next_token \\ nil,
+        rule_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/custom-detection-rule/association"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(mode) do
+        [{"mode", mode} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(rule_id) do
+        [{"ruleId", rule_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns all organization-level configurations for custom detection rules.
+
+  You can filter the results by status.
+  """
+  @spec list_custom_detection_rule_org_configurations(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_custom_detection_rule_org_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_custom_detection_rule_org_configurations_errors()}
+  def list_custom_detection_rule_org_configurations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/custom-detection-rule/org-configuration"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns all available custom detection rules in GuardDuty.
+
+  You can filter the results by data source, severity, tactic, technique, and
+  service.
+  """
+  @spec list_custom_detection_rules(map(), list_custom_detection_rules_request(), list()) ::
+          {:ok, list_custom_detection_rules_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_custom_detection_rules_errors()}
+  def list_custom_detection_rules(%Client{} = client, input, options \\ []) do
+    url_path = "/custom-detection-rule/rule"
     headers = []
     custom_headers = []
     query_params = []
@@ -8825,6 +9708,89 @@ defmodule AWS.GuardDuty do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Updates the mode of an existing custom detection rule association.
+  """
+  @spec update_custom_detection_rule_association(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_custom_detection_rule_association_request(),
+          list()
+        ) ::
+          {:ok, update_custom_detection_rule_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_custom_detection_rule_association_errors()}
+  def update_custom_detection_rule_association(
+        %Client{} = client,
+        association_id,
+        rule_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/custom-detection-rule/rule/#{AWS.Util.encode_uri(rule_id)}/association/#{AWS.Util.encode_uri(association_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the organization-level configuration for a custom detection rule,
+  including the mode and include/exclude account lists.
+  """
+  @spec update_custom_detection_rule_org_configuration(
+          map(),
+          String.t() | atom(),
+          update_custom_detection_rule_org_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_custom_detection_rule_org_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_custom_detection_rule_org_configuration_errors()}
+  def update_custom_detection_rule_org_configuration(
+        %Client{} = client,
+        rule_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/custom-detection-rule/org-configuration/#{AWS.Util.encode_uri(rule_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

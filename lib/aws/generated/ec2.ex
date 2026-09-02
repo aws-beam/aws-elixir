@@ -2153,17 +2153,6 @@ defmodule AWS.EC2 do
 
   ## Example:
       
-      blob_attribute_value() :: %{
-        optional("Value") => binary()
-      }
-      
-  """
-  @type blob_attribute_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       block_device_mapping() :: %{
         "DeviceName" => String.t() | atom(),
         "Ebs" => ebs_block_device(),
@@ -25291,7 +25280,7 @@ defmodule AWS.EC2 do
         optional("Ramdisk") => attribute_value(),
         optional("SourceDestCheck") => attribute_boolean_value(),
         optional("SriovNetSupport") => attribute_value(),
-        optional("UserData") => blob_attribute_value(),
+        optional("UserData") => secure_blob_attribute_value(),
         optional("Value") => String.t() | atom(),
         required("InstanceId") => String.t() | atom()
       }
@@ -31511,6 +31500,17 @@ defmodule AWS.EC2 do
       
   """
   @type secondary_subnet_ipv4_cidr_block_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      secure_blob_attribute_value() :: %{
+        "Value" => binary()
+      }
+      
+  """
+  @type secure_blob_attribute_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

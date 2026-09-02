@@ -1401,6 +1401,7 @@ defmodule AWS.IoTSiteWise do
         "dependsOn" => list(String.t() | atom()),
         "endTime" => non_neg_integer(),
         "executionEnvironmentVariables" => map(),
+        "executionMounts" => list(mount()),
         "startTime" => non_neg_integer(),
         "status" => compute_node_execution_status(),
         "taskArn" => String.t() | atom(),
@@ -1481,6 +1482,8 @@ defmodule AWS.IoTSiteWise do
         "command" => list([String.t() | atom()]()),
         "ecrUri" => String.t() | atom(),
         "environmentVariables" => map(),
+        "ephemeralStorageConfiguration" => ephemeral_storage_configuration(),
+        "mounts" => list(mount()),
         "processingType" => list(any()),
         "processingUnit" => list(any()),
         "taskExecutionRole" => String.t() | atom(),
@@ -3204,6 +3207,7 @@ defmodule AWS.IoTSiteWise do
         "pipelineName" => String.t() | atom(),
         "pipelineVersion" => String.t() | atom(),
         "requestEnvironmentVariables" => execution_environment_variables(),
+        "requestMountOverrides" => mount_overrides(),
         "startTime" => [non_neg_integer()],
         "status" => pipeline_execution_status(),
         "workspaceName" => String.t() | atom()
@@ -3572,6 +3576,18 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type enrichment_trim_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ephemeral_storage_configuration() :: %{
+        "storageClass" => list(any()),
+        "storageSizeInGiB" => integer()
+      }
+
+  """
+  @type ephemeral_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5392,6 +5408,31 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      mount() :: %{
+        "name" => String.t() | atom(),
+        "relativePath" => String.t() | atom(),
+        "source" => list(),
+        "storageType" => list(any())
+      }
+
+  """
+  @type mount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mount_overrides() :: %{
+        "computeNodes" => map()
+      }
+
+  """
+  @type mount_overrides() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       mp4() :: %{}
 
   """
@@ -5906,6 +5947,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      s3_access_point_source() :: %{
+        "accessPointArn" => String.t() | atom(),
+        "prefix" => String.t() | atom()
+      }
+
+  """
+  @type s3_access_point_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_filters() :: %{
         "datasetIds" => list(String.t() | atom()),
         "timeIntervals" => list(time_interval()),
@@ -6015,6 +6068,7 @@ defmodule AWS.IoTSiteWise do
       start_pipeline_execution_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("executionEnvironmentVariableOverrides") => execution_environment_variables(),
+        optional("executionMountOverrides") => mount_overrides(),
         optional("executionPriority") => integer()
       }
 

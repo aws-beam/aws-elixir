@@ -3576,6 +3576,27 @@ defmodule AWS.Lightsail do
 
   ## Example:
       
+      get_profile_request() :: %{}
+      
+  """
+  @type get_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_profile_result() :: %{
+        "partner" => partner_info(),
+        "profileType" => list(any())
+      }
+      
+  """
+  @type get_profile_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_regions_request() :: %{
         optional("includeAvailabilityZones") => boolean(),
         optional("includeRelationalDatabaseAvailabilityZones") => boolean()
@@ -4617,6 +4638,19 @@ defmodule AWS.Lightsail do
       
   """
   @type origin() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partner_info() :: %{
+        "enrolledAt" => non_neg_integer(),
+        "status" => list(any()),
+        "tierName" => list(any())
+      }
+      
+  """
+  @type partner_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6917,6 +6951,13 @@ defmodule AWS.Lightsail do
           | region_setup_in_progress_exception()
           | operation_failure_exception()
           | not_found_exception()
+          | invalid_input_exception()
+          | account_setup_in_progress_exception()
+          | access_denied_exception()
+
+  @type get_profile_errors() ::
+          unauthenticated_exception()
+          | service_exception()
           | invalid_input_exception()
           | account_setup_in_progress_exception()
           | access_denied_exception()
@@ -9955,6 +9996,27 @@ defmodule AWS.Lightsail do
       metadata()
 
     Request.request_post(client, meta, "GetOperationsForResource", input, options)
+  end
+
+  @doc """
+  Returns information about the profile of the Amazon Lightsail account that makes
+  the
+  request.
+
+  The response includes the profile type and, for accounts enrolled in the
+  Lightsail
+  partner program, the partner membership details.
+  """
+  @spec get_profile(map(), get_profile_request(), list()) ::
+          {:ok, get_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_profile_errors()}
+  def get_profile(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetProfile", input, options)
   end
 
   @doc """

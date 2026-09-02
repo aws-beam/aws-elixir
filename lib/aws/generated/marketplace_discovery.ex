@@ -313,6 +313,17 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
+      fixed_percentage() :: %{
+        "percentageValue" => String.t() | atom()
+      }
+
+  """
+  @type fixed_percentage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       fixed_upfront_pricing_term() :: %{
         "currencyCode" => String.t() | atom(),
         "duration" => String.t() | atom(),
@@ -773,6 +784,19 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
+      payment_schedule_entry() :: %{
+        "chargeDateOffset" => String.t() | atom(),
+        "chargePercentage" => String.t() | atom(),
+        "dayOfMonth" => [integer()]
+      }
+
+  """
+  @type payment_schedule_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       payment_schedule_term() :: %{
         "currencyCode" => String.t() | atom(),
         "id" => String.t() | atom(),
@@ -782,6 +806,30 @@ defmodule AWS.MarketplaceDiscovery do
 
   """
   @type payment_schedule_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_schedule_term_template() :: %{
+        "schedule" => list(payment_schedule_entry())
+      }
+
+  """
+  @type payment_schedule_term_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      percentage_range() :: %{
+        "defaultValue" => String.t() | atom(),
+        "maximumValue" => String.t() | atom(),
+        "minimumValue" => String.t() | atom()
+      }
+
+  """
+  @type percentage_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -953,7 +1001,12 @@ defmodule AWS.MarketplaceDiscovery do
   ## Example:
 
       renewal_term() :: %{
+        "adjustmentDeadline" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "lockoutPeriod" => String.t() | atom(),
+        "maxRenewals" => [integer()],
+        "priceIncrease" => list(),
+        "termTemplates" => list(list()),
         "type" => list(any())
       }
 

@@ -184,7 +184,11 @@ defmodule AWS.MarketplaceAgreement do
         "agreementId" => String.t() | atom(),
         "agreementType" => String.t() | atom(),
         "endTime" => non_neg_integer(),
+        "endTimeBehaviorReasonCode" => list(any()),
+        "endTimeBehaviorType" => list(any()),
         "entitlements" => list(entitlement()),
+        "initialAgreementId" => String.t() | atom(),
+        "lastUpdateTime" => non_neg_integer(),
         "proposalSummary" => proposal_summary(),
         "proposer" => proposer(),
         "startTime" => non_neg_integer(),
@@ -523,7 +527,9 @@ defmodule AWS.MarketplaceAgreement do
         "agreementId" => String.t() | atom(),
         "agreementType" => String.t() | atom(),
         "endTime" => non_neg_integer(),
+        "endTimeBehavior" => end_time_behavior(),
         "estimatedCharges" => estimated_charges(),
+        "initialAgreementId" => String.t() | atom(),
         "proposalSummary" => proposal_summary(),
         "proposer" => proposer(),
         "startTime" => non_neg_integer(),
@@ -557,6 +563,19 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type document_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      end_time_behavior() :: %{
+        "reasonCode" => list(any()),
+        "renewalSummary" => renewal_summary(),
+        "type" => list(any())
+      }
+      
+  """
+  @type end_time_behavior() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -620,6 +639,17 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fixed_percentage() :: %{
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type fixed_percentage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1055,6 +1085,19 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      payment_schedule_entry() :: %{
+        "chargeDateOffset" => String.t() | atom(),
+        "chargePercentage" => String.t() | atom(),
+        "dayOfMonth" => [integer()]
+      }
+      
+  """
+  @type payment_schedule_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       payment_schedule_term() :: %{
         "currencyCode" => String.t() | atom(),
         "id" => String.t() | atom(),
@@ -1064,6 +1107,30 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type payment_schedule_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      payment_schedule_term_template() :: %{
+        "schedule" => list(payment_schedule_entry())
+      }
+      
+  """
+  @type payment_schedule_term_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      percentage_range() :: %{
+        "defaultValue" => String.t() | atom(),
+        "maxValue" => String.t() | atom(),
+        "minValue" => String.t() | atom()
+      }
+      
+  """
+  @type percentage_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1211,9 +1278,25 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      renewal_summary() :: %{
+        "offerId" => String.t() | atom()
+      }
+      
+  """
+  @type renewal_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       renewal_term() :: %{
+        "adjustmentDeadline" => String.t() | atom(),
         "configuration" => renewal_term_configuration(),
         "id" => String.t() | atom(),
+        "lockoutPeriod" => String.t() | atom(),
+        "maxRenewals" => [integer()],
+        "priceIncrease" => list(),
+        "termTemplates" => list(list()),
         "type" => String.t() | atom()
       }
       
@@ -2248,128 +2331,6 @@ defmodule AWS.MarketplaceAgreement do
   Marketplace.
 
   The search returns a list of agreements with basic agreement information.
-
-  The following filter combinations are supported when the `PartyType` is
-  `Proposer`:
-
-    * `AgreementType`
-
-    * `AgreementType` + `EndTime`
-
-    * `AgreementType` + `ResourceType`
-
-    * `AgreementType` + `ResourceType` + `EndTime`
-
-    * `AgreementType` + `ResourceType` + `Status`
-
-    * `AgreementType` + `ResourceType` + `Status` + `EndTime`
-
-    * `AgreementType` + `ResourceIdentifier`
-
-    * `AgreementType` + `ResourceIdentifier` + `EndTime`
-
-    * `AgreementType` + `ResourceIdentifier` + `Status`
-
-    * `AgreementType` + `ResourceIdentifier` + `Status` + `EndTime`
-
-    * `AgreementType` + `AcceptorAccountId`
-
-    * `AgreementType` + `AcceptorAccountId` + `EndTime`
-
-    * `AgreementType` + `AcceptorAccountId` + `Status`
-
-    * `AgreementType` + `AcceptorAccountId` + `Status` + `EndTime`
-
-    * `AgreementType` + `AcceptorAccountId` + `OfferId`
-
-    * `AgreementType` + `AcceptorAccountId` + `OfferId` + `Status`
-
-    * `AgreementType` + `AcceptorAccountId` + `OfferId` + `EndTime`
-
-    * `AgreementType` + `AcceptorAccountId` + `OfferId` + `Status` +
-  `EndTime`
-
-    * `AgreementType` + `AcceptorAccountId` + `ResourceIdentifier`
-
-    * `AgreementType` + `AcceptorAccountId` + `ResourceIdentifier` +
-  `Status`
-
-    * `AgreementType` + `AcceptorAccountId` + `ResourceIdentifier` +
-  `EndTime`
-
-    * `AgreementType` + `AcceptorAccountId` + `ResourceIdentifier` +
-  `Status` + `EndTime`
-
-    * `AgreementType` + `AcceptorAccountId` + `ResourceType`
-
-    * `AgreementType` + `AcceptorAccountId` + `ResourceType` + `EndTime`
-
-    * `AgreementType` + `AcceptorAccountId` + `ResourceType` + `Status`
-
-    * `AgreementType` + `AcceptorAccountId` + `ResourceType` + `Status`
-  + `EndTime`
-
-    * `AgreementType` + `Status`
-
-    * `AgreementType` + `Status` + `EndTime`
-
-    * `AgreementType` + `OfferId`
-
-    * `AgreementType` + `OfferId` + `EndTime`
-
-    * `AgreementType` + `OfferId` + `Status`
-
-    * `AgreementType` + `OfferId` + `Status` + `EndTime`
-
-    * `AgreementType` + `OfferSetId`
-
-    * `AgreementType` + `OfferSetId` + `EndTime`
-
-    * `AgreementType` + `OfferSetId` + `Status`
-
-    * `AgreementType` + `OfferSetId` + `Status` + `EndTime`
-
-  To filter by `EndTime`, you can use `BeforeEndTime` and/or `AfterEndTime`. Only
-  `EndTime` is supported for sorting.
-
-  The following filter combinations are supported when the `PartyType` is
-  `Acceptor`:
-
-    * `AgreementType`
-
-    * `AgreementType` + `Status`
-
-    * `AgreementType` + `EndTime`
-
-    * `AgreementType` + `Status` + `EndTime`
-
-    * `AgreementType` + `ResourceIdentifier`
-
-    * `AgreementType` + `ResourceIdentifier` + `EndTime`
-
-    * `AgreementType` + `ResourceIdentifier` + `Status`
-
-    * `AgreementType` + `ResourceIdentifier` + `Status` + `EndTime`
-
-    * `AgreementType` + `ResourceType`
-
-    * `AgreementType` + `ResourceType` + `EndTime`
-
-    * `AgreementType` + `OfferId`
-
-    * `AgreementType` + `OfferId` + `EndTime`
-
-    * `AgreementType` + `OfferId` + `Status`
-
-    * `AgreementType` + `OfferId` + `Status` + `EndTime`
-
-    * `AgreementType` + `OfferSetId`
-
-    * `AgreementType` + `OfferSetId` + `EndTime`
-
-    * `AgreementType` + `OfferSetId` + `Status`
-
-    * `AgreementType` + `OfferSetId` + `Status` + `EndTime`
   """
   @spec search_agreements(map(), search_agreements_input(), list()) ::
           {:ok, search_agreements_output(), any()}

@@ -79,6 +79,7 @@ defmodule AWS.TaxSettings do
         "italyAdditionalInfo" => italy_additional_info(),
         "kenyaAdditionalInfo" => kenya_additional_info(),
         "malaysiaAdditionalInfo" => malaysia_additional_info(),
+        "monacoAdditionalInfo" => monaco_additional_info(),
         "philippinesAdditionalInfo" => philippines_additional_info(),
         "polandAdditionalInfo" => poland_additional_info(),
         "romaniaAdditionalInfo" => romania_additional_info(),
@@ -114,6 +115,7 @@ defmodule AWS.TaxSettings do
         "italyAdditionalInfo" => italy_additional_info(),
         "kenyaAdditionalInfo" => kenya_additional_info(),
         "malaysiaAdditionalInfo" => malaysia_additional_info(),
+        "monacoAdditionalInfo" => monaco_additional_info(),
         "philippinesAdditionalInfo" => philippines_additional_info(),
         "polandAdditionalInfo" => poland_additional_info(),
         "romaniaAdditionalInfo" => romania_additional_info(),
@@ -430,6 +432,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       france_additional_info() :: %{
+        "eInvoiceRoutingCode" => [String.t() | atom()],
         "sirenNumber" => String.t() | atom()
       }
 
@@ -714,6 +717,17 @@ defmodule AWS.TaxSettings do
 
   """
   @type malaysia_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      monaco_additional_info() :: %{
+        "businessNumber" => String.t() | atom()
+      }
+
+  """
+  @type monaco_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1511,6 +1525,14 @@ defmodule AWS.TaxSettings do
     * You must specify the `sirenNumber` in the `franceAdditionalInfo`
   field of the `additionalTaxInformation` object.
 
+    * You can optionally specify the `eInvoiceRoutingCode` in the
+  `franceAdditionalInfo` field of the `additionalTaxInformation` object.
+
+  ## Monaco
+
+    * You must specify the `businessNumber` in the
+  `monacoAdditionalInfo` field of the `additionalTaxInformation` object.
+
   ## Poland
 
     * You can optionally specify the `taxRegistrationNumberType` in the
@@ -2120,6 +2142,14 @@ defmodule AWS.TaxSettings do
 
     * You must specify the `sirenNumber` in the `franceAdditionalInfo`
   field of the `additionalTaxInformation` object.
+
+    * You can optionally specify the `eInvoiceRoutingCode` in the
+  `franceAdditionalInfo` field of the `additionalTaxInformation` object.
+
+  ## Monaco
+
+    * You must specify the `businessNumber` in the
+  `monacoAdditionalInfo` field of the `additionalTaxInformation` object.
 
   ## Poland
 

@@ -104,6 +104,17 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_handling() :: %{
         "Scope" => list(any())
       }
@@ -275,10 +286,12 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
-      delete_application_request() :: %{}
+      delete_application_request() :: %{
+        optional("Force") => boolean()
+      }
 
   """
-  @type delete_application_request() :: %{}
+  @type delete_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1080,6 +1093,7 @@ defmodule AWS.AppIntegrations do
           | resource_not_found_exception()
           | invalid_request_exception()
           | internal_service_error()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_data_integration_errors() ::
@@ -1262,10 +1276,11 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  Deletes the Application.
+  Deletes an application.
 
-  Only Applications that don't have any Application Associations
-  can be deleted.
+  If the application has associations, you must delete them first.
+  Alternatively, use the `force` option to delete the application and remove its
+  associations.
   """
   @spec delete_application(map(), String.t() | atom(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
@@ -1276,7 +1291,12 @@ defmodule AWS.AppIntegrations do
     url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"Force", "force"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

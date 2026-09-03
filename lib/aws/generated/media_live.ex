@@ -32,6 +32,19 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      ab_watermarking_custom_profile() :: %{
+        "EmbeddingFrequency" => float(),
+        "SceneCut" => float(),
+        "TargetPsnr" => float()
+      }
+
+  """
+  @type ab_watermarking_custom_profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ac3_settings() :: %{
         "AttenuationControl" => list(any()),
         "Bitrate" => float(),
@@ -1140,6 +1153,24 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      cmaf_ingest_ab_watermarker_irdeto_settings() :: %{
+        "AdditionalDestinationsAlternateDestinations" => list(output_location_ref()),
+        "AlternateDestination" => output_location_ref(),
+        "CustomProfile" => ab_watermarking_custom_profile(),
+        "License" => String.t() | atom(),
+        "OperatorId" => integer(),
+        "PolyPeriod" => integer(),
+        "Profile" => list(any()),
+        "WatermarkIdLength" => list(any())
+      }
+
+  """
+  @type cmaf_ingest_ab_watermarker_irdeto_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cmaf_ingest_caption_language_mapping() :: %{
         "CaptionChannel" => integer(),
         "LanguageCode" => String.t() | atom()
@@ -1169,7 +1200,8 @@ defmodule AWS.MediaLive do
         "SendDelayMs" => integer(),
         "TimedMetadataId3Frame" => list(any()),
         "TimedMetadataId3Period" => integer(),
-        "TimedMetadataPassthrough" => list(any())
+        "TimedMetadataPassthrough" => list(any()),
+        "WatermarkingSettings" => cmaf_ingest_watermarking_settings()
       }
 
   """
@@ -1185,6 +1217,17 @@ defmodule AWS.MediaLive do
 
   """
   @type cmaf_ingest_output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cmaf_ingest_watermarking_settings() :: %{
+        "CmafIngestAbWatermarkerIrdetoSettings" => cmaf_ingest_ab_watermarker_irdeto_settings()
+      }
+
+  """
+  @type cmaf_ingest_watermarking_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5342,6 +5385,24 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      media_package_v2_ab_watermarker_irdeto_settings() :: %{
+        "AdditionalDestinationsAlternateDestinations" => list(output_location_ref()),
+        "AlternateDestination" => output_location_ref(),
+        "CustomProfile" => ab_watermarking_custom_profile(),
+        "License" => String.t() | atom(),
+        "OperatorId" => integer(),
+        "PolyPeriod" => integer(),
+        "Profile" => list(any()),
+        "WatermarkIdLength" => list(any())
+      }
+
+  """
+  @type media_package_v2_ab_watermarker_irdeto_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       media_package_v2_destination_settings() :: %{
         "AudioGroupId" => String.t() | atom(),
         "AudioRenditionSets" => String.t() | atom(),
@@ -5367,11 +5428,23 @@ defmodule AWS.MediaLive do
         "SegmentLengthUnits" => list(any()),
         "TimedMetadataId3Frame" => list(any()),
         "TimedMetadataId3Period" => integer(),
-        "TimedMetadataPassthrough" => list(any())
+        "TimedMetadataPassthrough" => list(any()),
+        "WatermarkingSettings" => media_package_v2_watermarking_settings()
       }
 
   """
   @type media_package_v2_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_package_v2_watermarking_settings() :: %{
+        "MediaPackageV2AbWatermarkerIrdetoSettings" => media_package_v2_ab_watermarker_irdeto_settings()
+      }
+
+  """
+  @type media_package_v2_watermarking_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

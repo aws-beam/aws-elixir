@@ -2844,7 +2844,8 @@ defmodule AWS.EC2 do
         "Tags" => list(tag()),
         "Tenancy" => list(any()),
         "TotalInstanceCount" => integer(),
-        "UnusedReservationBillingOwnerId" => String.t() | atom()
+        "UnusedReservationBillingOwnerId" => String.t() | atom(),
+        "ZeroSizePreference" => list(any())
       }
       
   """
@@ -4641,6 +4642,7 @@ defmodule AWS.EC2 do
         optional("ClientToken") => String.t() | atom(),
         optional("DryRun") => boolean(),
         optional("TagSpecifications") => list(tag_specification()),
+        optional("ZeroSizePreference") => list(any()),
         required("CapacityReservationId") => String.t() | atom(),
         required("InstanceCount") => integer()
       }
@@ -22523,7 +22525,8 @@ defmodule AWS.EC2 do
         "InterruptibleCapacityReservationId" => String.t() | atom(),
         "InterruptionType" => list(any()),
         "Status" => list(any()),
-        "TargetInstanceCount" => integer()
+        "TargetInstanceCount" => integer(),
+        "ZeroSizePreference" => list(any())
       }
       
   """
@@ -22769,6 +22772,7 @@ defmodule AWS.EC2 do
         "OwnerId" => String.t() | atom(),
         "Rir" => list(any()),
         "State" => list(any()),
+        "StateMessage" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
@@ -34083,8 +34087,9 @@ defmodule AWS.EC2 do
       
       update_interruptible_capacity_reservation_allocation_request() :: %{
         optional("DryRun") => boolean(),
-        required("CapacityReservationId") => String.t() | atom(),
-        required("TargetInstanceCount") => integer()
+        optional("TargetInstanceCount") => integer(),
+        optional("ZeroSizePreference") => list(any()),
+        required("CapacityReservationId") => String.t() | atom()
       }
       
   """

@@ -165,6 +165,17 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
   ## Example:
 
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_record_request() :: %{
         optional("DeletionMode") => list(any()),
         optional("TargetStores") => list(list(any())()),
@@ -300,6 +311,20 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
   ## Example:
 
+      update_record_request() :: %{
+        optional("TargetStores") => list(list(any())()),
+        optional("TtlDuration") => ttl_duration(),
+        required("Features") => list(feature_value()),
+        required("RecordIdentifierValueAsString") => String.t() | atom()
+      }
+
+  """
+  @type update_record_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_error() :: %{
         "Message" => String.t() | atom()
       }
@@ -336,6 +361,14 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
   @type put_record_errors() ::
           validation_error() | service_unavailable() | internal_failure() | access_forbidden()
+
+  @type update_record_errors() ::
+          validation_error()
+          | service_unavailable()
+          | resource_not_found()
+          | internal_failure()
+          | conflict_exception()
+          | access_forbidden()
 
   def metadata do
     %{
@@ -628,6 +661,57 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates one or more feature values for an existing record in the specified
+  feature group.
+
+  Features that you do not include in the request remain unchanged.
+  You can update up to 100 features per call.
+
+  This operation is available only for feature groups that use the
+  `Standard_V2` or `InMemory` online store type.
+
+  The record must already exist. If the record does not exist or has been
+  soft-deleted, the operation returns a `ResourceNotFound` error. To create
+  a record, use `PutRecord`.
+
+  If you provide an `EventTime` that is older than the record's current
+  `EventTime`, the service rejects the update with a
+  `ConflictException`. If the `EventTime` is equal to or newer
+  than the current value, the service applies the update. If you omit
+  `EventTime`, the service keeps the record's existing
+  `EventTime` and applies the update.
+
+  If you specify a `TtlDuration`, you must also provide an
+  `EventTime` in the request. Otherwise, the operation returns a
+  `ValidationError`.
+  """
+  @spec update_record(map(), String.t() | atom(), update_record_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_record_errors()}
+  def update_record(%Client{} = client, feature_group_name, input, options \\ []) do
+    url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}/Record"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

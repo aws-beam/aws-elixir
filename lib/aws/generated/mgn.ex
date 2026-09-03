@@ -3,7 +3,7 @@
 
 defmodule AWS.Mgn do
   @moduledoc """
-  The Application Migration Service service.
+  Application Migration Service.
   """
 
   alias AWS.Client
@@ -177,6 +177,18 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      cidr_mapping() :: %{
+        "originalCidr" => String.t() | atom(),
+        "updatedCidr" => String.t() | atom()
+      }
+
+  """
+  @type cidr_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       code_generation_output_format_status_details() :: %{
         "status" => String.t() | atom(),
         "statusDetailList" => String.t() | atom()
@@ -289,11 +301,13 @@ defmodule AWS.Mgn do
   ## Example:
 
       create_network_migration_definition_request() :: %{
+        optional("cidrMappings") => list(cidr_mapping()),
         optional("description") => String.t() | atom(),
         optional("scopeTags") => map(),
         optional("sourceConfigurations") => list(source_configuration()),
         optional("tags") => map(),
         optional("targetDeployment") => String.t() | atom(),
+        optional("vpcProvisioningStrategy") => String.t() | atom(),
         required("name") => String.t() | atom(),
         required("targetNetwork") => target_network(),
         required("targetS3Configuration") => target_s3_configuration()
@@ -2467,6 +2481,7 @@ defmodule AWS.Mgn do
 
       network_migration_definition() :: %{
         "arn" => String.t() | atom(),
+        "cidrMappings" => list(cidr_mapping()),
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -2477,7 +2492,8 @@ defmodule AWS.Mgn do
         "targetDeployment" => String.t() | atom(),
         "targetNetwork" => target_network(),
         "targetS3Configuration" => target_s3_configuration(),
-        "updatedAt" => [non_neg_integer()]
+        "updatedAt" => [non_neg_integer()],
+        "vpcProvisioningStrategy" => String.t() | atom()
       }
 
   """
@@ -3678,6 +3694,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       update_network_migration_definition_request() :: %{
+        optional("cidrMappings") => list(cidr_mapping()),
         optional("description") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("scopeTags") => map(),
@@ -3685,6 +3702,7 @@ defmodule AWS.Mgn do
         optional("targetDeployment") => String.t() | atom(),
         optional("targetNetwork") => target_network_update(),
         optional("targetS3Configuration") => target_s3_configuration_update(),
+        optional("vpcProvisioningStrategy") => String.t() | atom(),
         required("networkMigrationDefinitionID") => String.t() | atom()
       }
 
@@ -5014,8 +5032,8 @@ defmodule AWS.Mgn do
   @doc """
   Returns a list of Jobs.
 
-  Use the JobsID and fromDate and toData filters to limit which jobs are returned.
-  The response is sorted by creationDataTime - latest date first. Jobs are
+  Use the jobIDs and fromDate and toDate filters to limit which jobs are returned.
+  The response is sorted by creationDateTime - latest date first. Jobs are
   normally created by the StartTest, StartCutover, and TerminateTargetInstances
   APIs. Jobs are also created by DiagnosticLaunch and
   TerminateDiagnosticInstances, which are APIs available only to *Support* and
@@ -5082,7 +5100,8 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.
+  Lists all ReplicationConfigurationTemplates, filtered by replication
+  configuration template IDs.
   """
   @spec describe_replication_configuration_templates(
           map(),
@@ -5250,14 +5269,13 @@ defmodule AWS.Mgn do
   Application Migration Service for enabling the replication of these source
   servers will be terminated / deleted within 90 minutes. Launched Test or Cutover
   instances will NOT be terminated. If the agent on the source server has not been
-  prevented from communicating with the Application Migration Service service,
-  then it will receive a command to uninstall itself (within approximately 10
-  minutes). The following properties of the SourceServer will be changed
-  immediately: dataReplicationInfo.dataReplicationState will be set to
-  DISCONNECTED; The totalStorageBytes property for each of
-  dataReplicationInfo.replicatedDisks will be set to zero;
-  dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
-  nullified.
+  prevented from communicating with Application Migration Service, then it will
+  receive a command to uninstall itself (within approximately 10 minutes). The
+  following properties of the SourceServer will be changed immediately:
+  dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The
+  totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will
+  be set to zero; dataReplicationInfo.lagDuration and
+  dataReplicationInfo.lagDuration will be nullified.
   """
   @spec disconnect_from_service(map(), disconnect_from_service_request(), list()) ::
           {:ok, source_server(), any()}
@@ -5295,7 +5313,7 @@ defmodule AWS.Mgn do
   minutes). The following properties of the SourceServer will be changed
   immediately: dataReplicationInfo.dataReplicationState will be changed to
   DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The
-  totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will
+  totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will
   be set to zero; dataReplicationInfo.lagDuration and
   dataReplicationInfo.lagDuration will be nullified.
   """
@@ -6220,7 +6238,7 @@ defmodule AWS.Mgn do
   Archives specific Source Servers by setting the SourceServer.isArchived property
   to true for specified SourceServers by ID.
 
-  This command only works for SourceServers with a lifecycle. state which equals
+  This command only works for SourceServers with a lifecycle state that equals
   DISCONNECTED or CUTOVER.
   """
   @spec mark_as_archived(map(), mark_as_archived_request(), list()) ::
@@ -7053,7 +7071,7 @@ defmodule AWS.Mgn do
   @doc """
   Updates multiple LaunchConfigurations by Source Server ID.
 
-  bootMode valid values are `LEGACY_BIOS | UEFI`
+  bootMode valid values are `LEGACY_BIOS | UEFI | USE_SOURCE`
   """
   @spec update_launch_configuration(map(), update_launch_configuration_request(), list()) ::
           {:ok, launch_configuration(), any()}
@@ -7215,7 +7233,7 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Updates multiple ReplicationConfigurationTemplates by ID.
+  Updates a ReplicationConfigurationTemplate by ID.
   """
   @spec update_replication_configuration_template(
           map(),

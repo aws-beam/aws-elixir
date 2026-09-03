@@ -2179,6 +2179,27 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      flex_component_summary() :: %{
+        "availableCoreCount" => [integer()],
+        "availableDbStorageInGBs" => [integer()],
+        "availableLocalStorageInGBs" => [integer()],
+        "availableMemoryInGBs" => [integer()],
+        "computeModel" => list(any()),
+        "descriptionSummary" => [String.t() | atom()],
+        "hardwareType" => list(any()),
+        "minimumCoreCount" => [integer()],
+        "name" => [String.t() | atom()],
+        "runtimeMinimumCoreCount" => [integer()],
+        "shape" => [String.t() | atom()]
+      }
+      
+  """
+  @type flex_component_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_autonomous_database_backup_input() :: %{}
       
   """
@@ -2932,6 +2953,31 @@ defmodule AWS.Odb do
       
   """
   @type list_exascale_db_storage_vaults_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_flex_components_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("shape") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_flex_components_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_flex_components_output() :: %{
+        "flexComponents" => list(flex_component_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_flex_components_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4474,6 +4520,12 @@ defmodule AWS.Odb do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_flex_components_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_gi_minor_versions_errors() ::
           validation_exception()
           | throttling_exception()
@@ -5585,6 +5637,22 @@ defmodule AWS.Odb do
       metadata()
 
     Request.request_post(client, meta, "ListExascaleDbStorageVaults", input, options)
+  end
+
+  @doc """
+  Returns information about the flex components that are available for an Exadata
+  infrastructure.
+  """
+  @spec list_flex_components(map(), list_flex_components_input(), list()) ::
+          {:ok, list_flex_components_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_flex_components_errors()}
+  def list_flex_components(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListFlexComponents", input, options)
   end
 
   @doc """

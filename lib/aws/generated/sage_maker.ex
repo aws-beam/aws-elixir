@@ -16296,6 +16296,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       online_store_config_update() :: %{
+        "StorageType" => list(any()),
         "TtlDuration" => ttl_duration()
       }
       

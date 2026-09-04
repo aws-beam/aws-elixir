@@ -3112,6 +3112,8 @@ defmodule AWS.Connect do
 
       create_rule_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("PreEvaluationFilters") => pre_evaluation_filters(),
+        optional("Tags") => map(),
         required("Actions") => list(rule_action()),
         required("Function") => String.t() | atom(),
         required("Name") => String.t() | atom(),
@@ -10866,6 +10868,32 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      pre_evaluation_filter() :: %{
+        "FilterKey" => String.t() | atom(),
+        "FilterType" => list(any()),
+        "FilterValue" => String.t() | atom(),
+        "Operator" => list(any()),
+        "ResourceType" => list(any())
+      }
+
+  """
+  @type pre_evaluation_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pre_evaluation_filters() :: %{
+        "AndConditions" => list(pre_evaluation_filter())
+      }
+
+  """
+  @type pre_evaluation_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       predefined_attribute() :: %{
         "AttributeConfiguration" => predefined_attribute_configuration(),
         "LastModifiedRegion" => String.t() | atom(),
@@ -12046,6 +12074,7 @@ defmodule AWS.Connect do
         "LastUpdatedBy" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
+        "PreEvaluationFilters" => pre_evaluation_filters(),
         "PublishStatus" => list(any()),
         "RuleArn" => String.t() | atom(),
         "RuleCapabilityTiers" => list(list(any())()),
@@ -12112,6 +12141,7 @@ defmodule AWS.Connect do
         "LastUpdatedBy" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
+        "PreEvaluationFilters" => pre_evaluation_filters(),
         "PublishStatus" => list(any()),
         "RuleArn" => String.t() | atom(),
         "RuleCapabilityTiers" => list(list(any())()),
@@ -15598,6 +15628,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_rule_request() :: %{
+        optional("PreEvaluationFilters") => pre_evaluation_filters(),
         required("Actions") => list(rule_action()),
         required("Function") => String.t() | atom(),
         required("Name") => String.t() | atom(),

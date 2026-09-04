@@ -687,6 +687,7 @@ defmodule AWS.ECS do
       create_daemon_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("clusterArn") => String.t() | atom(),
+        optional("critical") => boolean(),
         optional("deploymentConfiguration") => daemon_deployment_configuration(),
         optional("enableECSManagedTags") => boolean(),
         optional("enableExecuteCommand") => boolean(),
@@ -875,7 +876,8 @@ defmodule AWS.ECS do
       
       daemon_capacity_provider() :: %{
         "arn" => String.t() | atom(),
-        "runningCount" => integer()
+        "runningCount" => integer(),
+        "withoutDaemonCount" => integer()
       }
       
   """
@@ -990,7 +992,8 @@ defmodule AWS.ECS do
       daemon_deployment_capacity_provider() :: %{
         "arn" => String.t() | atom(),
         "drainingInstanceCount" => integer(),
-        "runningInstanceCount" => integer()
+        "runningInstanceCount" => integer(),
+        "withoutDaemonInstanceCount" => integer()
       }
       
   """
@@ -1017,7 +1020,8 @@ defmodule AWS.ECS do
         "arn" => String.t() | atom(),
         "capacityProviders" => list(daemon_deployment_capacity_provider()),
         "totalDrainingInstanceCount" => integer(),
-        "totalRunningInstanceCount" => integer()
+        "totalRunningInstanceCount" => integer(),
+        "totalWithoutDaemonInstanceCount" => integer()
       }
       
   """
@@ -1104,6 +1108,7 @@ defmodule AWS.ECS do
         "clusterArn" => String.t() | atom(),
         "containerImages" => list(daemon_container_image()),
         "createdAt" => non_neg_integer(),
+        "critical" => boolean(),
         "daemonArn" => String.t() | atom(),
         "daemonRevisionArn" => String.t() | atom(),
         "daemonTaskDefinitionArn" => String.t() | atom(),
@@ -1122,7 +1127,8 @@ defmodule AWS.ECS do
       daemon_revision_detail() :: %{
         "arn" => String.t() | atom(),
         "capacityProviders" => list(daemon_capacity_provider()),
-        "totalRunningCount" => integer()
+        "totalRunningCount" => integer(),
+        "totalWithoutDaemonCount" => integer()
       }
       
   """
@@ -5069,6 +5075,7 @@ defmodule AWS.ECS do
   ## Example:
       
       update_daemon_request() :: %{
+        optional("critical") => boolean(),
         optional("deploymentConfiguration") => daemon_deployment_configuration(),
         optional("enableECSManagedTags") => boolean(),
         optional("enableExecuteCommand") => boolean(),

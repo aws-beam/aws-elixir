@@ -496,6 +496,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       cloud_watch_logs_input_config() :: %{
+        "logGroupNamePrefixes" => list(String.t() | atom()),
         "logGroupNames" => list(String.t() | atom()),
         "serviceNames" => list(String.t() | atom())
       }
@@ -508,7 +509,9 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       cloud_watch_output_config() :: %{
-        "logGroupName" => String.t() | atom()
+        "logGroupName" => String.t() | atom(),
+        "metricsNamespace" => String.t() | atom(),
+        "resultDestination" => list(any())
       }
 
   """
@@ -727,6 +730,50 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type connector_target_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      consent_portal_idp_config() :: %{
+        "audience" => String.t() | atom(),
+        "credentialProviderArn" => String.t() | atom(),
+        "scopes" => list(String.t() | atom())
+      }
+
+  """
+  @type consent_portal_idp_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      consent_portal_source() :: %{
+        "identifier" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type consent_portal_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      consent_portal_summary() :: %{
+        "consentPortalArn" => String.t() | atom(),
+        "consentPortalId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "portalUrl" => String.t() | atom(),
+        "sources" => list(consent_portal_source()),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type consent_portal_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1010,6 +1057,44 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_configuration_bundle_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_consent_portal_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("executionRoleArn") => String.t() | atom(),
+        required("idpConfig") => consent_portal_idp_config(),
+        required("name") => String.t() | atom(),
+        required("sources") => list(consent_portal_source())
+      }
+
+  """
+  @type create_consent_portal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_consent_portal_response() :: %{
+        "consentPortalArn" => String.t() | atom(),
+        "consentPortalId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "idpConfig" => consent_portal_idp_config(),
+        "name" => String.t() | atom(),
+        "portalUrl" => String.t() | atom(),
+        "sources" => list(consent_portal_source()),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type create_consent_portal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1403,6 +1488,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("description") => String.t() | atom(),
         optional("evaluators") => list(list()),
         optional("insights") => list(insight()),
+        optional("outputConfig") => output_config(),
         optional("tags") => map(),
         required("dataSourceConfig") => list(),
         required("enableOnCreate") => [boolean()],
@@ -2035,6 +2121,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_configuration_bundle_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_consent_portal_request() :: %{
+        required("consentPortalIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type delete_consent_portal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_consent_portal_response() :: %{}
+
+  """
+  @type delete_consent_portal_response() :: %{}
 
   @typedoc """
 
@@ -3242,6 +3348,39 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_configuration_bundle_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_consent_portal_request() :: %{
+        required("consentPortalIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_consent_portal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_consent_portal_response() :: %{
+        "consentPortalArn" => String.t() | atom(),
+        "consentPortalId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "idpConfig" => consent_portal_idp_config(),
+        "name" => String.t() | atom(),
+        "portalUrl" => String.t() | atom(),
+        "sources" => list(consent_portal_source()),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_consent_portal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5105,6 +5244,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_configuration_bundles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_consent_portals_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_consent_portals_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_consent_portals_response() :: %{
+        "consentPortals" => list(consent_portal_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_consent_portals_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7899,6 +8062,42 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_consent_portal_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("executionRoleArn") => String.t() | atom(),
+        optional("idpConfig") => consent_portal_idp_config(),
+        required("consentPortalIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type update_consent_portal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_consent_portal_response() :: %{
+        "consentPortalArn" => String.t() | atom(),
+        "consentPortalId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "idpConfig" => consent_portal_idp_config(),
+        "name" => String.t() | atom(),
+        "portalUrl" => String.t() | atom(),
+        "sources" => list(consent_portal_source()),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_consent_portal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_dataset_examples_request() :: %{
         optional("clientToken") => String.t() | atom(),
         required("examples") => list(any())
@@ -8274,6 +8473,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("evaluators") => list(list()),
         optional("executionStatus") => list(any()),
         optional("insights") => list(insight()),
+        optional("outputConfig") => output_config(),
         optional("rule") => rule()
       }
 
@@ -9117,6 +9317,16 @@ defmodule AWS.BedrockAgentCoreControl do
           | conflict_exception()
           | access_denied_exception()
 
+  @type create_consent_portal_errors() ::
+          validation_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_dataset_errors() ::
           validation_exception()
           | throttling_exception()
@@ -9362,6 +9572,15 @@ defmodule AWS.BedrockAgentCoreControl do
           | conflict_exception()
           | access_denied_exception()
 
+  @type delete_consent_portal_errors() ::
+          validation_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type delete_dataset_errors() ::
           validation_exception()
           | throttling_exception()
@@ -9588,6 +9807,14 @@ defmodule AWS.BedrockAgentCoreControl do
 
   @type get_configuration_bundle_version_errors() ::
           validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_consent_portal_errors() ::
+          validation_exception()
+          | unauthorized_exception()
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -9842,6 +10069,13 @@ defmodule AWS.BedrockAgentCoreControl do
 
   @type list_configuration_bundles_errors() ::
           validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_consent_portals_errors() ::
+          validation_exception()
+          | unauthorized_exception()
           | throttling_exception()
           | internal_server_exception()
           | access_denied_exception()
@@ -10135,6 +10369,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   @type update_configuration_bundle_errors() ::
           validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_consent_portal_errors() ::
+          validation_exception()
+          | unauthorized_exception()
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -10670,6 +10913,35 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Creates a new consent portal.
+  """
+  @spec create_consent_portal(map(), create_consent_portal_request(), list()) ::
+          {:ok, create_consent_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_consent_portal_errors()}
+  def create_consent_portal(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/CreateConsentPortal"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -11674,6 +11946,35 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Deletes a consent portal.
+  """
+  @spec delete_consent_portal(map(), delete_consent_portal_request(), list()) ::
+          {:ok, delete_consent_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_consent_portal_errors()}
+  def delete_consent_portal(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/DeleteConsentPortal"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a dataset version or an entire dataset asynchronously.
 
   If `datasetVersion` is absent, deletes all versions and the dataset record
@@ -12660,6 +12961,35 @@ defmodule AWS.BedrockAgentCoreControl do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a consent portal.
+  """
+  @spec get_consent_portal(map(), get_consent_portal_request(), list()) ::
+          {:ok, get_consent_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_consent_portal_errors()}
+  def get_consent_portal(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/GetConsentPortal"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13668,6 +13998,35 @@ defmodule AWS.BedrockAgentCoreControl do
         {"nextToken", "nextToken"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all of the consent portals in your account.
+  """
+  @spec list_consent_portals(map(), list_consent_portals_request(), list()) ::
+          {:ok, list_consent_portals_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_consent_portals_errors()}
+  def list_consent_portals(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/ListConsentPortals"
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -15345,6 +15704,35 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Updates an existing consent portal.
+  """
+  @spec update_consent_portal(map(), update_consent_portal_request(), list()) ::
+          {:ok, update_consent_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_consent_portal_errors()}
+  def update_consent_portal(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/UpdateConsentPortal"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

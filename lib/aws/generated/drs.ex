@@ -2199,6 +2199,7 @@ defmodule AWS.Drs do
   ## Example:
 
       source_properties() :: %{
+        "architecture" => String.t() | atom(),
         "cpus" => list(c_p_u()),
         "disks" => list(disk()),
         "identificationHints" => identification_hints(),

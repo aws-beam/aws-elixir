@@ -212,6 +212,18 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      activity() :: %{
+        "Api" => api_call(),
+        "Type" => list(any())
+      }
+
+  """
+  @type activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       actor() :: %{
         "Id" => String.t() | atom(),
         "Process" => actor_process(),
@@ -331,6 +343,20 @@ defmodule AWS.GuardDuty do
 
   """
   @type anomaly_unusual() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_call() :: %{
+        "Error" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Service" => String.t() | atom(),
+        "UserAgent" => String.t() | atom()
+      }
+
+  """
+  @type api_call() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5358,6 +5384,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       signal() :: %{
+        "Activities" => list(activity()),
         "ActorIds" => list(String.t() | atom()),
         "Count" => integer(),
         "CreatedAt" => non_neg_integer(),

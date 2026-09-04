@@ -133,6 +133,7 @@ defmodule AWS.SocialMessaging do
 
       create_whats_app_flow_input() :: %{
         optional("cloneFlowId") => String.t() | atom(),
+        optional("endpointUri") => String.t() | atom(),
         optional("flowJson") => binary(),
         optional("publish") => [boolean()],
         required("categories") => list(list(any())()),
@@ -399,6 +400,29 @@ defmodule AWS.SocialMessaging do
   @type get_linked_whats_app_business_account_phone_number_output() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_business_public_key_input() :: %{
+        required("originationPhoneNumberId") => String.t() | atom()
+      }
+
+  """
+  @type get_whats_app_business_public_key_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_business_public_key_output() :: %{
+        "businessPublicKey" => String.t() | atom(),
+        "businessPublicKeySignatureStatus" => String.t() | atom()
+      }
+
+  """
+  @type get_whats_app_business_public_key_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -996,6 +1020,28 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      put_whats_app_business_public_key_input() :: %{
+        optional("businessPublicKey") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        required("originationPhoneNumberId") => String.t() | atom()
+      }
+
+  """
+  @type put_whats_app_business_public_key_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_whats_app_business_public_key_output() :: %{}
+
+  """
+  @type put_whats_app_business_public_key_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -1190,7 +1236,9 @@ defmodule AWS.SocialMessaging do
 
       update_whats_app_flow_input() :: %{
         optional("categories") => list(list(any())()),
+        optional("endpointUri") => String.t() | atom(),
         optional("flowName") => String.t() | atom(),
+        optional("metaAppId") => String.t() | atom(),
         required("flowId") => String.t() | atom(),
         required("id") => String.t() | atom()
       }
@@ -1456,6 +1504,15 @@ defmodule AWS.SocialMessaging do
           | internal_service_exception()
           | dependency_exception()
 
+  @type get_whats_app_business_public_key_errors() ::
+          throttled_request_exception()
+          | resource_not_found_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+          | dependency_exception()
+          | access_denied_exception()
+          | access_denied_by_meta_exception()
+
   @type get_whats_app_flow_errors() ::
           throttled_request_exception()
           | resource_not_found_exception()
@@ -1551,6 +1608,15 @@ defmodule AWS.SocialMessaging do
           throttled_request_exception()
           | invalid_parameters_exception()
           | internal_service_exception()
+
+  @type put_whats_app_business_public_key_errors() ::
+          throttled_request_exception()
+          | resource_not_found_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+          | dependency_exception()
+          | access_denied_exception()
+          | access_denied_by_meta_exception()
 
   @type send_whats_app_conversion_event_errors() ::
           throttled_request_exception()
@@ -2048,6 +2114,35 @@ defmodule AWS.SocialMessaging do
     query_params =
       if !is_nil(id) do
         [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the business public key for a phone number and its signature status.
+  """
+  @spec get_whats_app_business_public_key(map(), String.t() | atom(), list()) ::
+          {:ok, get_whats_app_business_public_key_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_whats_app_business_public_key_errors()}
+  def get_whats_app_business_public_key(
+        %Client{} = client,
+        origination_phone_number_id,
+        options \\ []
+      ) do
+    url_path = "/v1/whatsapp/business-public-key"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(origination_phone_number_id) do
+        [{"originationPhoneNumberId", origination_phone_number_id} | query_params]
       else
         query_params
       end
@@ -2594,6 +2689,40 @@ defmodule AWS.SocialMessaging do
           | {:error, put_whats_app_business_account_event_destinations_errors()}
   def put_whats_app_business_account_event_destinations(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/waba/eventdestinations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sets the business public key used to encrypt the data exchanged with the
+  endpoint of a data exchange Flow.
+  """
+  @spec put_whats_app_business_public_key(
+          map(),
+          put_whats_app_business_public_key_input(),
+          list()
+        ) ::
+          {:ok, put_whats_app_business_public_key_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_whats_app_business_public_key_errors()}
+  def put_whats_app_business_public_key(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/business-public-key"
     headers = []
     custom_headers = []
     query_params = []

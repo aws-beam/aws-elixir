@@ -415,7 +415,8 @@ defmodule AWS.BedrockAgentCore do
 
       cloud_watch_logs_source() :: %{
         "filterConfig" => cloud_watch_filter_config(),
-        "logGroupNames" => list([String.t() | atom()]()),
+        "logGroupNamePrefixes" => list(String.t() | atom()),
+        "logGroupNames" => list(String.t() | atom()),
         "serviceNames" => list([String.t() | atom()]())
       }
 
@@ -442,8 +443,10 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       cloud_watch_output_config() :: %{
-        "logGroupName" => [String.t() | atom()],
-        "logStreamName" => [String.t() | atom()]
+        "logGroupName" => String.t() | atom(),
+        "logStreamName" => String.t() | atom(),
+        "metricsNamespace" => String.t() | atom(),
+        "resultDestination" => list(any())
       }
 
   """
@@ -3878,6 +3881,7 @@ defmodule AWS.BedrockAgentCore do
         optional("evaluators") => list(evaluator()),
         optional("insights") => list(insight()),
         optional("kmsKeyArn") => String.t() | atom(),
+        optional("outputConfig") => list(),
         optional("tags") => map(),
         required("batchEvaluationName") => String.t() | atom(),
         required("dataSourceConfig") => list()

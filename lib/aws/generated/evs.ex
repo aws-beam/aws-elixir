@@ -19,6 +19,18 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      account_setting() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type account_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_eip_to_vlan_request() :: %{
         optional("clientToken") => String.t() | atom(),
         required("allocationId") => String.t() | atom(),
@@ -411,6 +423,26 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      get_account_settings_request() :: %{}
+      
+  """
+  @type get_account_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_settings_response() :: %{
+        "settings" => list(account_setting())
+      }
+      
+  """
+  @type get_account_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_depot_url_request() :: %{
         optional("rotate") => [boolean()]
       }
@@ -737,6 +769,28 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      put_account_settings_request() :: %{
+        required("settings") => list(account_setting())
+      }
+      
+  """
+  @type put_account_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_account_settings_response() :: %{
+        "settings" => list(account_setting())
+      }
+      
+  """
+  @type put_account_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "message" => [String.t() | atom()],
         "resourceId" => [String.t() | atom()],
@@ -1006,6 +1060,9 @@ defmodule AWS.Evs do
   @type disassociate_eip_from_vlan_errors() ::
           validation_exception() | throttling_exception() | resource_not_found_exception()
 
+  @type get_account_settings_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
+
   @type get_depot_url_errors() ::
           validation_exception() | throttling_exception() | resource_not_found_exception()
 
@@ -1025,6 +1082,9 @@ defmodule AWS.Evs do
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
   @type list_vm_entitlements_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type put_account_settings_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
 
   @type tag_resource_errors() ::
           too_many_tags_exception()
@@ -1276,6 +1336,24 @@ defmodule AWS.Evs do
   end
 
   @doc """
+  Returns the configured EVS settings for your Amazon Web Services account in the
+  specified Amazon Web Services Region.
+
+  If no settings have been set, an empty list is returned.
+  """
+  @spec get_account_settings(map(), get_account_settings_request(), list()) ::
+          {:ok, get_account_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_account_settings_errors()}
+  def get_account_settings(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetAccountSettings", input, options)
+  end
+
+  @doc """
   Returns a URL and authentication token for accessing the Amazon EVS Custom Addon
   depot.
 
@@ -1427,6 +1505,25 @@ defmodule AWS.Evs do
       metadata()
 
     Request.request_post(client, meta, "ListVmEntitlements", input, options)
+  end
+
+  @doc """
+  Creates or updates account-level EVS settings for your Amazon Web Services
+  account in the specified Amazon Web Services Region.
+
+  EVS settings included in the request are created or overwritten. Settings
+  omitted from the request retain their current values.
+  """
+  @spec put_account_settings(map(), put_account_settings_request(), list()) ::
+          {:ok, put_account_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_account_settings_errors()}
+  def put_account_settings(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutAccountSettings", input, options)
   end
 
   @doc """

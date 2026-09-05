@@ -625,6 +625,7 @@ defmodule AWS.ServiceQuotas do
   ## Example:
       
       quota_context_info() :: %{
+        "AdjustableAtLevel" => list(any()),
         "ContextId" => String.t() | atom(),
         "ContextScope" => list(any()),
         "ContextScopeType" => String.t() | atom()
@@ -1080,6 +1081,7 @@ defmodule AWS.ServiceQuotas do
           too_many_requests_exception()
           | service_exception()
           | no_such_resource_exception()
+          | invalid_pagination_token_exception()
           | illegal_argument_exception()
           | access_denied_exception()
 

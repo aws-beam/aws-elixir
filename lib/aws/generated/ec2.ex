@@ -34270,6 +34270,31 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      validate_security_group_quotas_for_interface_request() :: %{
+        optional("DryRun") => boolean(),
+        required("SecurityGroupIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type validate_security_group_quotas_for_interface_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      validate_security_group_quotas_for_interface_result() :: %{
+        "Valid" => boolean()
+      }
+      
+  """
+  @type validate_security_group_quotas_for_interface_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_error() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom()
@@ -55241,6 +55266,33 @@ defmodule AWS.EC2 do
       input,
       options
     )
+  end
+
+  @doc """
+  Validates whether the specified security groups can be associated with a single
+  network interface.
+
+  The operation checks Amazon Virtual Private Cloud (Amazon VPC)
+  quotas for inbound or outbound rules per security group and security groups per
+  network interface. Only authorized AWS services can call this operation.
+
+  For more information about security group quotas, see [Amazon VPC
+  quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-security-groups)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec validate_security_group_quotas_for_interface(
+          map(),
+          validate_security_group_quotas_for_interface_request(),
+          list()
+        ) ::
+          {:ok, validate_security_group_quotas_for_interface_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def validate_security_group_quotas_for_interface(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ValidateSecurityGroupQuotasForInterface", input, options)
   end
 
   @doc """

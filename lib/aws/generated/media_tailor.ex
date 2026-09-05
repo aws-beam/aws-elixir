@@ -998,7 +998,8 @@ defmodule AWS.MediaTailor do
         "FunctionType" => list(any()),
         "HttpRequestConfiguration" => http_request_configuration(),
         "SequentialExecutorConfiguration" => sequential_executor_configuration(),
-        "Tags" => map()
+        "Tags" => map(),
+        "VastRequestConfiguration" => vast_request_configuration()
       }
 
   """
@@ -1044,7 +1045,8 @@ defmodule AWS.MediaTailor do
         optional("SlateAdUrl") => String.t() | atom(),
         optional("Tags") => map(),
         optional("TranscodeProfileName") => String.t() | atom(),
-        optional("VideoContentSourceUrl") => String.t() | atom()
+        optional("VideoContentSourceUrl") => String.t() | atom(),
+        optional("YieldOptimizationConfiguration") => yield_optimization_configuration()
       }
 
   """
@@ -1475,7 +1477,8 @@ defmodule AWS.MediaTailor do
         "FunctionType" => list(any()),
         "HttpRequestConfiguration" => http_request_configuration(),
         "SequentialExecutorConfiguration" => sequential_executor_configuration(),
-        "Tags" => map()
+        "Tags" => map(),
+        "VastRequestConfiguration" => vast_request_configuration()
       }
 
   """
@@ -1512,7 +1515,8 @@ defmodule AWS.MediaTailor do
         "SlateAdUrl" => String.t() | atom(),
         "Tags" => map(),
         "TranscodeProfileName" => String.t() | atom(),
-        "VideoContentSourceUrl" => String.t() | atom()
+        "VideoContentSourceUrl" => String.t() | atom(),
+        "YieldOptimizationConfiguration" => yield_optimization_configuration()
       }
 
   """
@@ -1619,6 +1623,7 @@ defmodule AWS.MediaTailor do
         optional("HttpRequestConfiguration") => http_request_configuration(),
         optional("SequentialExecutorConfiguration") => sequential_executor_configuration(),
         optional("Tags") => map(),
+        optional("VastRequestConfiguration") => vast_request_configuration(),
         required("FunctionType") => list(any())
       }
 
@@ -1638,7 +1643,8 @@ defmodule AWS.MediaTailor do
         "FunctionType" => list(any()),
         "HttpRequestConfiguration" => http_request_configuration(),
         "SequentialExecutorConfiguration" => sequential_executor_configuration(),
-        "Tags" => map()
+        "Tags" => map(),
+        "VastRequestConfiguration" => vast_request_configuration()
       }
 
   """
@@ -1668,6 +1674,7 @@ defmodule AWS.MediaTailor do
         optional("Tags") => map(),
         optional("TranscodeProfileName") => String.t() | atom(),
         optional("VideoContentSourceUrl") => String.t() | atom(),
+        optional("YieldOptimizationConfiguration") => yield_optimization_configuration(),
         required("Name") => String.t() | atom()
       }
 
@@ -1705,7 +1712,8 @@ defmodule AWS.MediaTailor do
         optional("SlateAdUrl") => String.t() | atom(),
         optional("Tags") => map(),
         optional("TranscodeProfileName") => String.t() | atom(),
-        optional("VideoContentSourceUrl") => String.t() | atom()
+        optional("VideoContentSourceUrl") => String.t() | atom(),
+        optional("YieldOptimizationConfiguration") => yield_optimization_configuration()
       }
 
   """
@@ -2238,6 +2246,23 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      vast_request_configuration() :: %{
+        "Body" => String.t() | atom(),
+        "Headers" => map(),
+        "MethodType" => list(any()),
+        "Output" => map(),
+        "RequestTimeoutMilliseconds" => integer(),
+        "Runtime" => list(any()),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type vast_request_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       vast_response() :: %{
         "AdSequencingMode" => list(any())
       }
@@ -2261,6 +2286,20 @@ defmodule AWS.MediaTailor do
 
   """
   @type vod_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      yield_optimization_configuration() :: %{
+        "MinimumUnfilledDuration" => integer(),
+        "OpenRtbTemplate" => String.t() | atom(),
+        "PublisherId" => String.t() | atom(),
+        "Region" => list(any())
+      }
+
+  """
+  @type yield_optimization_configuration() :: %{(String.t() | atom()) => any()}
 
   @type list_tags_for_resource_errors() :: bad_request_exception()
 

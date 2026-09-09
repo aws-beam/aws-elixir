@@ -11546,6 +11546,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      instance_preference() :: %{
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "TrainingPlanArns" => list(String.t() | atom())
+      }
+      
+  """
+  @type instance_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_requirements_eni_configuration() :: %{
         "AdditionalEnis" => additional_enis(),
         "CustomerEni" => [String.t() | atom()]
@@ -16906,7 +16919,10 @@ defmodule AWS.SageMaker do
       
       processing_cluster_config() :: %{
         "InstanceCount" => integer(),
+        "InstancePreferences" => list(processing_instance_preference()),
         "InstanceType" => list(any()),
+        "SelectedInstanceCount" => integer(),
+        "SelectedInstanceType" => list(any()),
         "VolumeKmsKeyId" => String.t() | atom(),
         "VolumeSizeInGB" => integer()
       }
@@ -16938,6 +16954,18 @@ defmodule AWS.SageMaker do
       
   """
   @type processing_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      processing_instance_preference() :: %{
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any())
+      }
+      
+  """
+  @type processing_instance_preference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17909,8 +17937,11 @@ defmodule AWS.SageMaker do
         "InstanceCount" => integer(),
         "InstanceGroups" => list(instance_group()),
         "InstancePlacementConfig" => instance_placement_config(),
+        "InstancePreferences" => list(instance_preference()),
         "InstanceType" => list(any()),
         "KeepAlivePeriodInSeconds" => integer(),
+        "SelectedInstanceCount" => integer(),
+        "SelectedInstanceType" => list(any()),
         "TrainingPlanArn" => String.t() | atom(),
         "VolumeKmsKeyId" => String.t() | atom(),
         "VolumeSizeInGB" => integer()

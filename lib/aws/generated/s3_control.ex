@@ -3150,6 +3150,7 @@ defmodule AWS.S3Control do
 
       s3_copy_object_operation() :: %{
         "AccessControlGrants" => list(s3_grant()),
+        "AnnotationDirective" => list(any()),
         "BucketKeyEnabled" => boolean(),
         "CannedAccessControlList" => list(any()),
         "ChecksumAlgorithm" => list(any()),
@@ -3157,6 +3158,8 @@ defmodule AWS.S3Control do
         "ModifiedSinceConstraint" => non_neg_integer(),
         "NewObjectMetadata" => s3_object_metadata(),
         "NewObjectTagging" => list(s3_tag()),
+        "ObjectLockEventHold" => list(any()),
+        "ObjectLockEventHoldDuration" => s3_object_lock_event_hold_duration(),
         "ObjectLockLegalHoldStatus" => list(any()),
         "ObjectLockMode" => list(any()),
         "ObjectLockRetainUntilDate" => non_neg_integer(),
@@ -3264,12 +3267,36 @@ defmodule AWS.S3Control do
 
   ## Example:
 
+      s3_object_lock_event_hold_duration() :: %{
+        "Days" => integer(),
+        "Years" => integer()
+      }
+
+  """
+  @type s3_object_lock_event_hold_duration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_object_lock_legal_hold() :: %{
         "Status" => list(any())
       }
 
   """
   @type s3_object_lock_legal_hold() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_object_lock_retention_event_hold_duration() :: %{
+        "Days" => integer(),
+        "Years" => integer()
+      }
+
+  """
+  @type s3_object_lock_retention_event_hold_duration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3318,6 +3345,8 @@ defmodule AWS.S3Control do
   ## Example:
 
       s3_retention() :: %{
+        "EventHold" => list(any()),
+        "EventHoldDuration" => s3_object_lock_retention_event_hold_duration(),
         "Mode" => list(any()),
         "RetainUntilDate" => non_neg_integer()
       }

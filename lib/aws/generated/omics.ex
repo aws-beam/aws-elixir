@@ -823,6 +823,7 @@ defmodule AWS.Omics do
         "runGroupId" => String.t() | atom(),
         "runTags" => map(),
         "scratchStorageMode" => String.t() | atom(),
+        "sessionPolicy" => String.t() | atom(),
         "storageCapacity" => [integer()],
         "storageType" => String.t() | atom(),
         "workflowId" => String.t() | atom(),
@@ -1703,6 +1704,7 @@ defmodule AWS.Omics do
         "runId" => String.t() | atom(),
         "runOutputUri" => String.t() | atom(),
         "scratchStorageMode" => String.t() | atom(),
+        "sessionPolicy" => String.t() | atom(),
         "startTime" => non_neg_integer(),
         "startedBy" => String.t() | atom(),
         "status" => String.t() | atom(),
@@ -3664,6 +3666,7 @@ defmodule AWS.Omics do
         optional("runGroupId") => String.t() | atom(),
         optional("runId") => String.t() | atom(),
         optional("scratchStorageMode") => String.t() | atom(),
+        optional("sessionPolicy") => String.t() | atom(),
         optional("storageCapacity") => [integer()],
         optional("storageType") => String.t() | atom(),
         optional("tags") => map(),
@@ -5844,7 +5847,8 @@ defmodule AWS.Omics do
   Creates a cross-account shared resource.
 
   The resource owner makes an offer to share the resource with the principal
-  subscriber (an AWS user with a different account than the resource owner).
+  subscriber (an Amazon Web Services user with a different account than the
+  resource owner).
 
   The following resources support cross-account sharing:
 
@@ -6118,9 +6122,10 @@ defmodule AWS.Omics do
   call `DeleteRunBatch` before calling `DeleteBatch`.
 
   `DeleteBatch` requires the batch to be in a terminal state: `PROCESSED`,
-  `FAILED`, `CANCELLED`, or `RUNS_DELETED`. After `DeleteBatch` completes, the
-  batch metadata is no longer accessible. You cannot call `GetBatch`,
-  `ListRunsInBatch`, `DeleteRunBatch`, or `CancelRunBatch` on a deleted batch.
+  `FAILED`, `CANCELLED`, `RUNS_DELETE_FAILED`, or `RUNS_DELETED`. After
+  `DeleteBatch` completes, the batch metadata is no longer accessible. You cannot
+  call `GetBatch`, `ListRunsInBatch`, `DeleteRunBatch`, or `CancelRunBatch` on a
+  deleted batch.
   """
   @spec delete_batch(map(), String.t() | atom(), delete_batch_request(), list()) ::
           {:ok, nil, any()}
@@ -8622,8 +8627,8 @@ defmodule AWS.Omics do
   Activates an archived read set and returns its metadata in a JSON formatted
   output.
 
-  AWS HealthOmics automatically archives unused read sets after 30 days. To
-  monitor the status of your read set activation job, use the
+  Amazon Web Services HealthOmics automatically archives unused read sets after 30
+  days. To monitor the status of your read set activation job, use the
   `GetReadSetActivationJob` operation.
 
   To learn more, see [Activating read sets](https://docs.aws.amazon.com/omics/latest/dev/activating-read-sets.html) in

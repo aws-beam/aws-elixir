@@ -27552,6 +27552,7 @@ defmodule AWS.EC2 do
         "AdditionalFlexibleNetworkInterfaces" => integer(),
         "BaselineBandwidthInGbps" => float(),
         "DefaultEnaQueueCountPerInterface" => integer(),
+        "InterfaceTypes" => list(list(any())()),
         "MaximumEnaQueueCount" => integer(),
         "MaximumEnaQueueCountPerInterface" => integer(),
         "MaximumNetworkInterfaces" => integer(),
@@ -43914,8 +43915,9 @@ defmodule AWS.EC2 do
 
   If you specify one or more instance IDs, Amazon EC2 returns the credit option
   (`standard` or `unlimited`) of those instances. If you specify
-  an instance ID that is not valid, such as an instance that is not a burstable
-  performance instance, an error is returned.
+  an instance ID that is not a burstable performance instance, Amazon EC2 returns
+  the
+  `standard` credit option.
 
   Recently terminated instances might appear in the returned results. This
   interval is

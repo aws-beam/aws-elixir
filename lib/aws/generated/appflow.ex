@@ -355,6 +355,7 @@ defmodule AWS.Appflow do
 
       connector_o_auth_request() :: %{
         "authCode" => String.t() | atom(),
+        "codeVerifier" => String.t() | atom(),
         "redirectUri" => String.t() | atom()
       }
 
@@ -2226,6 +2227,7 @@ defmodule AWS.Appflow do
 
       snowflake_connector_profile_credentials() :: %{
         "password" => String.t() | atom(),
+        "privateKey" => String.t() | atom(),
         "username" => String.t() | atom()
       }
 

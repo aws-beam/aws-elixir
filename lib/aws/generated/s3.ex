@@ -559,6 +559,9 @@ defmodule AWS.S3 do
         optional("IfNoneMatch") => String.t() | atom(),
         optional("Metadata") => map(),
         optional("MetadataDirective") => list(any()),
+        optional("ObjectLockEventHold") => list(any()),
+        optional("ObjectLockEventHoldDurationDays") => integer(),
+        optional("ObjectLockEventHoldDurationYears") => integer(),
         optional("ObjectLockLegalHoldStatus") => list(any()),
         optional("ObjectLockMode") => list(any()),
         optional("ObjectLockRetainUntilDate") => non_neg_integer(),
@@ -743,6 +746,9 @@ defmodule AWS.S3 do
         optional("GrantReadACP") => String.t() | atom(),
         optional("GrantWriteACP") => String.t() | atom(),
         optional("Metadata") => map(),
+        optional("ObjectLockEventHold") => list(any()),
+        optional("ObjectLockEventHoldDurationDays") => integer(),
+        optional("ObjectLockEventHoldDurationYears") => integer(),
         optional("ObjectLockLegalHoldStatus") => list(any()),
         optional("ObjectLockMode") => list(any()),
         optional("ObjectLockRetainUntilDate") => non_neg_integer(),
@@ -829,6 +835,7 @@ defmodule AWS.S3 do
 
       default_retention() :: %{
         "Days" => integer(),
+        "DefaultEventHold" => event_hold_duration(),
         "Mode" => list(any()),
         "Years" => integer()
       }
@@ -1297,6 +1304,18 @@ defmodule AWS.S3 do
 
   """
   @type event_bridge_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      event_hold_duration() :: %{
+        "Days" => integer(),
+        "Years" => integer()
+      }
+
+  """
+  @type event_hold_duration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2057,6 +2076,9 @@ defmodule AWS.S3 do
         "LastModified" => non_neg_integer(),
         "Metadata" => map(),
         "MissingMeta" => integer(),
+        "ObjectLockEventHold" => list(any()),
+        "ObjectLockEventHoldDurationDays" => integer(),
+        "ObjectLockEventHoldDurationYears" => integer(),
         "ObjectLockLegalHoldStatus" => list(any()),
         "ObjectLockMode" => list(any()),
         "ObjectLockRetainUntilDate" => non_neg_integer(),
@@ -2298,6 +2320,9 @@ defmodule AWS.S3 do
         "LastModified" => non_neg_integer(),
         "Metadata" => map(),
         "MissingMeta" => integer(),
+        "ObjectLockEventHold" => list(any()),
+        "ObjectLockEventHoldDurationDays" => integer(),
+        "ObjectLockEventHoldDurationYears" => integer(),
         "ObjectLockLegalHoldStatus" => list(any()),
         "ObjectLockMode" => list(any()),
         "ObjectLockRetainUntilDate" => non_neg_integer(),
@@ -3457,6 +3482,8 @@ defmodule AWS.S3 do
   ## Example:
 
       object_lock_retention() :: %{
+        "EventHold" => list(any()),
+        "EventHoldDuration" => event_hold_duration(),
         "Mode" => list(any()),
         "RetainUntilDate" => non_neg_integer()
       }
@@ -4168,6 +4195,9 @@ defmodule AWS.S3 do
         optional("IfMatch") => String.t() | atom(),
         optional("IfNoneMatch") => String.t() | atom(),
         optional("Metadata") => map(),
+        optional("ObjectLockEventHold") => list(any()),
+        optional("ObjectLockEventHoldDurationDays") => integer(),
+        optional("ObjectLockEventHoldDurationYears") => integer(),
         optional("ObjectLockLegalHoldStatus") => list(any()),
         optional("ObjectLockMode") => list(any()),
         optional("ObjectLockRetainUntilDate") => non_neg_integer(),
@@ -5994,6 +6024,9 @@ defmodule AWS.S3 do
         {"IfMatch", "If-Match"},
         {"IfNoneMatch", "If-None-Match"},
         {"MetadataDirective", "x-amz-metadata-directive"},
+        {"ObjectLockEventHold", "x-amz-object-lock-event-hold"},
+        {"ObjectLockEventHoldDurationDays", "x-amz-object-lock-event-hold-duration-days"},
+        {"ObjectLockEventHoldDurationYears", "x-amz-object-lock-event-hold-duration-years"},
         {"ObjectLockLegalHoldStatus", "x-amz-object-lock-legal-hold"},
         {"ObjectLockMode", "x-amz-object-lock-mode"},
         {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
@@ -6930,6 +6963,9 @@ defmodule AWS.S3 do
         {"GrantRead", "x-amz-grant-read"},
         {"GrantReadACP", "x-amz-grant-read-acp"},
         {"GrantWriteACP", "x-amz-grant-write-acp"},
+        {"ObjectLockEventHold", "x-amz-object-lock-event-hold"},
+        {"ObjectLockEventHoldDurationDays", "x-amz-object-lock-event-hold-duration-days"},
+        {"ObjectLockEventHoldDurationYears", "x-amz-object-lock-event-hold-duration-years"},
         {"ObjectLockLegalHoldStatus", "x-amz-object-lock-legal-hold"},
         {"ObjectLockMode", "x-amz-object-lock-mode"},
         {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
@@ -11560,6 +11596,9 @@ defmodule AWS.S3 do
           {"Expires", "Expires"},
           {"Last-Modified", "LastModified"},
           {"x-amz-missing-meta", "MissingMeta"},
+          {"x-amz-object-lock-event-hold", "ObjectLockEventHold"},
+          {"x-amz-object-lock-event-hold-duration-days", "ObjectLockEventHoldDurationDays"},
+          {"x-amz-object-lock-event-hold-duration-years", "ObjectLockEventHoldDurationYears"},
           {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
           {"x-amz-object-lock-mode", "ObjectLockMode"},
           {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
@@ -13068,6 +13107,9 @@ defmodule AWS.S3 do
           {"Expires", "Expires"},
           {"Last-Modified", "LastModified"},
           {"x-amz-missing-meta", "MissingMeta"},
+          {"x-amz-object-lock-event-hold", "ObjectLockEventHold"},
+          {"x-amz-object-lock-event-hold-duration-days", "ObjectLockEventHoldDurationDays"},
+          {"x-amz-object-lock-event-hold-duration-years", "ObjectLockEventHoldDurationYears"},
           {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
           {"x-amz-object-lock-mode", "ObjectLockMode"},
           {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
@@ -17666,6 +17708,9 @@ defmodule AWS.S3 do
         {"GrantWriteACP", "x-amz-grant-write-acp"},
         {"IfMatch", "If-Match"},
         {"IfNoneMatch", "If-None-Match"},
+        {"ObjectLockEventHold", "x-amz-object-lock-event-hold"},
+        {"ObjectLockEventHoldDurationDays", "x-amz-object-lock-event-hold-duration-days"},
+        {"ObjectLockEventHoldDurationYears", "x-amz-object-lock-event-hold-duration-years"},
         {"ObjectLockLegalHoldStatus", "x-amz-object-lock-legal-hold"},
         {"ObjectLockMode", "x-amz-object-lock-mode"},
         {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},

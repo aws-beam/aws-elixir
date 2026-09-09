@@ -2104,6 +2104,35 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      list_available_phone_numbers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("NumberPreference") => list(number_preference_item()),
+        optional("RegistrationId") => String.t() | atom(),
+        required("IsoCountryCode") => String.t() | atom(),
+        required("NumberCapabilities") => list(String.t() | atom()),
+        required("NumberType") => String.t() | atom()
+      }
+      
+  """
+  @type list_available_phone_numbers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_available_phone_numbers_result() :: %{
+        "AvailablePhoneNumbers" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_available_phone_numbers_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_notify_countries_request() :: %{
         optional("Channels") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
@@ -2243,6 +2272,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      messaging_limits() :: %{
+        "DailyMessageCaps" => map(),
+        "RateLimits" => map()
+      }
+      
+  """
+  @type messaging_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       notify_configuration_filter() :: %{
         "Name" => String.t() | atom(),
         "Values" => list(String.t() | atom())
@@ -2329,6 +2370,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      number_preference_item() :: %{
+        "Filter" => list(String.t() | atom()),
+        "PreferenceType" => list(String.t() | atom())
+      }
+      
+  """
+  @type number_preference_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       opt_out_list_information() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "OptOutListArn" => [String.t() | atom()],
@@ -2400,6 +2453,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "InternationalSendingEnabled" => [boolean()],
         "IsoCountryCode" => String.t() | atom(),
         "MessageType" => String.t() | atom(),
+        "MessagingLimits" => messaging_limits(),
         "MonthlyLeasingPrice" => [String.t() | atom()],
         "NumberCapabilities" => list(String.t() | atom()),
         "NumberType" => String.t() | atom(),
@@ -2724,6 +2778,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       rcs_agent_information() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
+        "MessagingLimits" => messaging_limits(),
         "OptOutListName" => String.t() | atom(),
         "PoolId" => [String.t() | atom()],
         "RcsAgentArn" => [String.t() | atom()],
@@ -3295,6 +3350,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("ClientToken") => String.t() | atom(),
         optional("DeletionProtectionEnabled") => [boolean()],
         optional("InternationalSendingEnabled") => [boolean()],
+        optional("NumberPreference") => list(number_preference_item()),
         optional("OptOutListName") => String.t() | atom(),
         optional("PoolId") => String.t() | atom(),
         optional("RegistrationId") => String.t() | atom(),
@@ -3668,6 +3724,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "DeletionProtectionEnabled" => [boolean()],
         "IsoCountryCode" => String.t() | atom(),
         "MessageTypes" => list(String.t() | atom()),
+        "MessagingLimits" => messaging_limits(),
         "MonthlyLeasingPrice" => [String.t() | atom()],
         "Registered" => [boolean()],
         "RegistrationId" => [String.t() | atom()],
@@ -4931,6 +4988,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_available_phone_numbers_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type list_notify_countries_errors() ::
@@ -6655,6 +6720,27 @@ defmodule AWS.PinpointSMSVoiceV2 do
       metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
+  end
+
+  @doc """
+  Search available phone numbers from aggregator inventory, optionally filtered by
+  pattern.
+
+  If NumberPreference is omitted, returns unfiltered available numbers.
+  Returns empty list (not an exception) when no numbers match.
+  ResourceNotFoundException is thrown only for invalid RegistrationId (campaign
+  not found).
+  """
+  @spec list_available_phone_numbers(map(), list_available_phone_numbers_request(), list()) ::
+          {:ok, list_available_phone_numbers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_available_phone_numbers_errors()}
+  def list_available_phone_numbers(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListAvailablePhoneNumbers", input, options)
   end
 
   @doc """

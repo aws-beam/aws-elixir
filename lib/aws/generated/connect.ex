@@ -3501,6 +3501,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      cross_channel_workload_behavior() :: %{
+        "ChannelWorkloadBehaviorType" => list(any())
+      }
+
+  """
+  @type cross_channel_workload_behavior() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       current_metric() :: %{
         "MetricId" => String.t() | atom(),
         "Name" => list(any()),
@@ -9984,7 +9995,8 @@ defmodule AWS.Connect do
       media_concurrency() :: %{
         "Channel" => list(any()),
         "Concurrency" => integer(),
-        "CrossChannelBehavior" => cross_channel_behavior()
+        "CrossChannelBehavior" => cross_channel_behavior(),
+        "WorkloadTypeConcurrencies" => list(workload_type_concurrency())
       }
 
   """
@@ -16583,6 +16595,19 @@ defmodule AWS.Connect do
 
   """
   @type wisdom_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workload_type_concurrency() :: %{
+        "Concurrency" => integer(),
+        "CrossChannelWorkloadBehavior" => cross_channel_workload_behavior(),
+        "WorkloadType" => String.t() | atom()
+      }
+
+  """
+  @type workload_type_concurrency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

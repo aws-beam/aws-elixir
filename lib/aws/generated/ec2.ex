@@ -3762,7 +3762,9 @@ defmodule AWS.EC2 do
       copy_volumes_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("DryRun") => boolean(),
+        optional("Encrypted") => boolean(),
         optional("Iops") => integer(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("MultiAttachEnabled") => boolean(),
         optional("Size") => integer(),
         optional("TagSpecifications") => list(tag_specification()),
@@ -34775,6 +34777,7 @@ defmodule AWS.EC2 do
         "MultiAttachEnabled" => boolean(),
         "Operator" => operator_response(),
         "OutpostArn" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
         "Size" => integer(),
         "SnapshotId" => String.t() | atom(),
         "SourceVolumeId" => String.t() | atom(),
@@ -34782,6 +34785,7 @@ defmodule AWS.EC2 do
         "State" => list(any()),
         "Tags" => list(tag()),
         "Throughput" => integer(),
+        "VolumeArn" => String.t() | atom(),
         "VolumeId" => String.t() | atom(),
         "VolumeInitializationRate" => integer(),
         "VolumeType" => list(any())

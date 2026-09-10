@@ -97,12 +97,14 @@ defmodule AWS.MediaPackageV2 do
 
       channel_list_configuration() :: %{
         "Arn" => [String.t() | atom()],
+        "AttachedMultiviewChannels" => list(String.t() | atom()),
         "ChannelGroupName" => [String.t() | atom()],
         "ChannelName" => [String.t() | atom()],
         "CreatedAt" => [non_neg_integer()],
         "Description" => String.t() | atom(),
         "InputType" => list(any()),
         "ModifiedAt" => [non_neg_integer()],
+        "MultiviewConfiguration" => multiview_configuration(),
         "OutputLockingMode" => list(any())
       }
 
@@ -162,6 +164,7 @@ defmodule AWS.MediaPackageV2 do
         optional("Description") => String.t() | atom(),
         optional("InputSwitchConfiguration") => input_switch_configuration(),
         optional("InputType") => list(any()),
+        optional("MultiviewConfiguration") => multiview_configuration(),
         optional("OutputHeaderConfiguration") => output_header_configuration(),
         optional("OutputLockingMode") => list(any()),
         optional("Tags") => map(),
@@ -177,6 +180,7 @@ defmodule AWS.MediaPackageV2 do
 
       create_channel_response() :: %{
         "Arn" => [String.t() | atom()],
+        "AttachedMultiviewChannels" => list(String.t() | atom()),
         "ChannelGroupName" => [String.t() | atom()],
         "ChannelName" => [String.t() | atom()],
         "CreatedAt" => [non_neg_integer()],
@@ -186,6 +190,7 @@ defmodule AWS.MediaPackageV2 do
         "InputSwitchConfiguration" => input_switch_configuration(),
         "InputType" => list(any()),
         "ModifiedAt" => [non_neg_integer()],
+        "MultiviewConfiguration" => multiview_configuration(),
         "OutputHeaderConfiguration" => output_header_configuration(),
         "OutputLockingMode" => list(any()),
         "Tags" => map()
@@ -703,6 +708,7 @@ defmodule AWS.MediaPackageV2 do
 
       get_channel_response() :: %{
         "Arn" => [String.t() | atom()],
+        "AttachedMultiviewChannels" => list(String.t() | atom()),
         "ChannelGroupName" => [String.t() | atom()],
         "ChannelName" => [String.t() | atom()],
         "CreatedAt" => [non_neg_integer()],
@@ -712,6 +718,7 @@ defmodule AWS.MediaPackageV2 do
         "InputSwitchConfiguration" => input_switch_configuration(),
         "InputType" => list(any()),
         "ModifiedAt" => [non_neg_integer()],
+        "MultiviewConfiguration" => multiview_configuration(),
         "OutputHeaderConfiguration" => output_header_configuration(),
         "OutputLockingMode" => list(any()),
         "ResetAt" => [non_neg_integer()],
@@ -1194,6 +1201,18 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      multiview_configuration() :: %{
+        "AvailableLayouts" => list(list(any())()),
+        "AvailableSources" => list(String.t() | atom())
+      }
+
+  """
+  @type multiview_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       origin_endpoint_list_configuration() :: %{
         "Arn" => [String.t() | atom()],
         "ChannelGroupName" => String.t() | atom(),
@@ -1503,6 +1522,7 @@ defmodule AWS.MediaPackageV2 do
         optional("Description") => String.t() | atom(),
         optional("ETag") => String.t() | atom(),
         optional("InputSwitchConfiguration") => input_switch_configuration(),
+        optional("MultiviewConfiguration") => multiview_configuration(),
         optional("OutputHeaderConfiguration") => output_header_configuration()
       }
 
@@ -1515,6 +1535,7 @@ defmodule AWS.MediaPackageV2 do
 
       update_channel_response() :: %{
         "Arn" => [String.t() | atom()],
+        "AttachedMultiviewChannels" => list(String.t() | atom()),
         "ChannelGroupName" => [String.t() | atom()],
         "ChannelName" => [String.t() | atom()],
         "CreatedAt" => [non_neg_integer()],
@@ -1524,6 +1545,7 @@ defmodule AWS.MediaPackageV2 do
         "InputSwitchConfiguration" => input_switch_configuration(),
         "InputType" => list(any()),
         "ModifiedAt" => [non_neg_integer()],
+        "MultiviewConfiguration" => multiview_configuration(),
         "OutputHeaderConfiguration" => output_header_configuration(),
         "OutputLockingMode" => list(any()),
         "Tags" => map()

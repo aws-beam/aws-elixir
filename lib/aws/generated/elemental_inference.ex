@@ -104,6 +104,17 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      contextual_metadata_config() :: %{
+        "summaryGeneration" => list(any())
+      }
+
+  """
+  @type contextual_metadata_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_dictionary_request() :: %{
         optional("entries") => String.t() | atom(),
         optional("tags") => map(),
@@ -221,6 +232,15 @@ defmodule AWS.ElementalInference do
 
   """
   @type delete_dictionary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_feed_policy_request() :: %{}
+
+  """
+  @type delete_feed_policy_request() :: %{}
 
   @typedoc """
 
@@ -386,6 +406,26 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      get_feed_policy_request() :: %{}
+
+  """
+  @type get_feed_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_feed_policy_response() :: %{
+        "policy" => String.t() | atom()
+      }
+
+  """
+  @type get_feed_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_feed_request() :: %{}
 
   """
@@ -528,6 +568,26 @@ defmodule AWS.ElementalInference do
 
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_feed_policy_request() :: %{
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_feed_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_feed_policy_response() :: %{}
+
+  """
+  @type put_feed_policy_response() :: %{}
 
   @typedoc """
 
@@ -790,6 +850,13 @@ defmodule AWS.ElementalInference do
           | conflict_exception()
           | access_denied_exception()
 
+  @type delete_feed_policy_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+
   @type disassociate_feed_errors() ::
           validation_exception()
           | too_many_request_exception()
@@ -814,6 +881,13 @@ defmodule AWS.ElementalInference do
 
   @type get_feed_errors() ::
           too_many_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+
+  @type get_feed_policy_errors() ::
+          validation_exception()
+          | too_many_request_exception()
           | resource_not_found_exception()
           | internal_server_error_exception()
           | access_denied_exception()
@@ -845,6 +919,14 @@ defmodule AWS.ElementalInference do
           | too_many_request_exception()
           | resource_not_found_exception()
           | internal_server_error_exception()
+          | access_denied_exception()
+
+  @type put_feed_policy_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type search_fixtures_errors() ::
@@ -1094,6 +1176,38 @@ defmodule AWS.ElementalInference do
   end
 
   @doc """
+  Deletes the resource-based policy attached to the specified feed.
+
+  After you delete the policy, the operation revokes the cross-account access that
+  the policy granted.
+  """
+  @spec delete_feed_policy(map(), String.t() | atom(), delete_feed_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_feed_policy_errors()}
+  def delete_feed_policy(%Client{} = client, id, input, options \\ []) do
+    url_path = "/v1/feed/#{AWS.Util.encode_uri(id)}/policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Releases the resource (the source media) that is associated with this feed.
 
   The outputs in the feed become DISABLED.
@@ -1170,6 +1284,24 @@ defmodule AWS.ElementalInference do
           | {:error, get_feed_errors()}
   def get_feed(%Client{} = client, id, options \\ []) do
     url_path = "/v1/feed/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the resource-based policy attached to the specified feed.
+  """
+  @spec get_feed_policy(map(), String.t() | atom(), list()) ::
+          {:ok, get_feed_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_feed_policy_errors()}
+  def get_feed_policy(%Client{} = client, id, options \\ []) do
+    url_path = "/v1/feed/#{AWS.Util.encode_uri(id)}/policy"
     headers = []
     query_params = []
 
@@ -1280,6 +1412,37 @@ defmodule AWS.ElementalInference do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Attaches or replaces a resource-based policy on the specified feed.
+
+  A resource-based policy grants cross-account access to the feed.
+  """
+  @spec put_feed_policy(map(), String.t() | atom(), put_feed_policy_request(), list()) ::
+          {:ok, put_feed_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_feed_policy_errors()}
+  def put_feed_policy(%Client{} = client, id, input, options \\ []) do
+    url_path = "/v1/feed/#{AWS.Util.encode_uri(id)}/policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

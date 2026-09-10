@@ -2676,6 +2676,7 @@ defmodule AWS.Connect do
   ## Example:
 
       create_evaluation_form_request() :: %{
+        optional("AIVersion") => String.t() | atom(),
         optional("AsDraft") => boolean(),
         optional("AutoEvaluationConfiguration") => evaluation_form_auto_evaluation_configuration(),
         optional("ClientToken") => String.t() | atom(),
@@ -5934,6 +5935,7 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_form() :: %{
+        "AIVersion" => String.t() | atom(),
         "AutoEvaluationConfiguration" => evaluation_form_auto_evaluation_configuration(),
         "CreatedBy" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
@@ -5963,6 +5965,31 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_form_a_i_version_lifecycle() :: %{
+        "EndOfLifeTime" => non_neg_integer(),
+        "StartOfLifeTime" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type evaluation_form_a_i_version_lifecycle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_form_a_i_version_summary() :: %{
+        "AIVersionLifecycle" => evaluation_form_a_i_version_lifecycle(),
+        "AIVersionName" => String.t() | atom()
+      }
+
+  """
+  @type evaluation_form_a_i_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_form_auto_evaluation_configuration() :: %{
         "Enabled" => boolean()
       }
@@ -5975,6 +6002,7 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_form_content() :: %{
+        "AIVersion" => String.t() | atom(),
         "AutoEvaluationConfiguration" => evaluation_form_auto_evaluation_configuration(),
         "Description" => String.t() | atom(),
         "EvaluationFormArn" => String.t() | atom(),
@@ -6068,6 +6096,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_form_metric_configuration() :: %{
+        "MetricName" => String.t() | atom(),
+        "MetricType" => list(any())
+      }
+
+  """
+  @type evaluation_form_metric_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_form_multi_select_question_automation() :: %{
         "AnswerSource" => evaluation_form_question_automation_answer_source(),
         "DefaultOptionRefIds" => list(String.t() | atom()),
@@ -6143,6 +6183,7 @@ defmodule AWS.Connect do
       evaluation_form_question() :: %{
         "Enablement" => evaluation_form_item_enablement_configuration(),
         "Instructions" => String.t() | atom(),
+        "MetricConfiguration" => evaluation_form_metric_configuration(),
         "NotApplicableEnabled" => boolean(),
         "QuestionType" => list(any()),
         "QuestionTypeProperties" => list(),
@@ -6237,6 +6278,7 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_form_search_summary() :: %{
+        "AIVersion" => String.t() | atom(),
         "ActiveVersion" => integer(),
         "AutoEvaluationEnabled" => boolean(),
         "ContactInteractionType" => list(any()),
@@ -8726,6 +8768,31 @@ defmodule AWS.Connect do
 
   """
   @type list_entity_security_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_evaluation_form_a_i_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ContactInteractionType") => list(any())
+      }
+
+  """
+  @type list_evaluation_form_a_i_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_evaluation_form_a_i_versions_response() :: %{
+        "AIVersionSummaries" => list(evaluation_form_a_i_version_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_evaluation_form_a_i_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15194,6 +15261,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_evaluation_form_request() :: %{
+        optional("AIVersion") => String.t() | atom(),
         optional("AsDraft") => boolean(),
         optional("AutoEvaluationConfiguration") => evaluation_form_auto_evaluation_configuration(),
         optional("ClientToken") => String.t() | atom(),
@@ -18455,6 +18523,12 @@ defmodule AWS.Connect do
           throttling_exception()
           | resource_not_found_exception()
           | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+
+  @type list_evaluation_form_a_i_versions_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
           | invalid_parameter_exception()
           | internal_service_exception()
 
@@ -28696,6 +28770,60 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Lists the available AI versions for evaluation forms in the specified Connect
+  Customer instance.
+  """
+  @spec list_evaluation_form_a_i_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_evaluation_form_a_i_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_evaluation_form_a_i_versions_errors()}
+  def list_evaluation_form_a_i_versions(
+        %Client{} = client,
+        instance_id,
+        contact_interaction_type,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/instances/#{AWS.Util.encode_uri(instance_id)}/evaluation-form-ai-versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(contact_interaction_type) do
+        [{"contactInteractionType", contact_interaction_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists versions of an evaluation form in the specified Connect Customer instance.
   """
   @spec list_evaluation_form_versions(
@@ -32774,9 +32902,6 @@ defmodule AWS.Connect do
   currently
   activated version. If no version is activated for the evaluation form, the
   contact evaluation cannot be started.
-
-  Evaluations created through the public API do not contain answer values
-  suggested from automation.
   """
   @spec start_contact_evaluation(
           map(),

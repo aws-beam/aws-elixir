@@ -2391,6 +2391,7 @@ defmodule AWS.MediaLive do
 
       describe_inference_settings() :: %{
         "AudioFeedInputs" => list(audio_feed_input()),
+        "EnrichmentMethods" => list(list(any())()),
         "FeedArn" => String.t() | atom()
       }
 
@@ -2997,10 +2998,24 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      embedded_destination_settings() :: %{}
+      embedded_caption_position_settings() :: %{
+        "YPositionLine" => integer()
+      }
 
   """
-  @type embedded_destination_settings() :: %{}
+  @type embedded_caption_position_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      embedded_destination_settings() :: %{
+        "Position" => embedded_caption_position_settings(),
+        "StyleControl" => list(any())
+      }
+
+  """
+  @type embedded_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3905,6 +3920,7 @@ defmodule AWS.MediaLive do
 
       inference_settings() :: %{
         "AudioFeedInputs" => list(audio_feed_input()),
+        "EnrichmentMethods" => list(list(any())()),
         "FeedArn" => String.t() | atom()
       }
 
@@ -5407,7 +5423,8 @@ defmodule AWS.MediaLive do
         "AudioGroupId" => String.t() | atom(),
         "AudioRenditionSets" => String.t() | atom(),
         "HlsAutoSelect" => list(any()),
-        "HlsDefault" => list(any())
+        "HlsDefault" => list(any()),
+        "OutputUsage" => list(list(any())())
       }
 
   """
@@ -7680,6 +7697,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      text_caption_position_settings() :: %{
+        "YPositionPercentage" => integer()
+      }
+
+  """
+  @type text_caption_position_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       thumbnail() :: %{
         "Body" => String.t() | atom(),
         "ContentType" => String.t() | atom(),
@@ -7801,6 +7829,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       ttml_destination_settings() :: %{
+        "Position" => text_caption_position_settings(),
         "StyleControl" => list(any())
       }
 
@@ -8466,6 +8495,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       video_description() :: %{
+        "Border" => integer(),
         "CodecSettings" => video_codec_settings(),
         "CropRectangle" => video_position_rectangle(),
         "Height" => integer(),
@@ -8598,6 +8628,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       webvtt_destination_settings() :: %{
+        "Position" => text_caption_position_settings(),
         "StyleControl" => list(any())
       }
 

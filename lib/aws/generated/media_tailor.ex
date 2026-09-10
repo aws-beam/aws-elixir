@@ -207,6 +207,25 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      aws_service_request_configuration() :: %{
+        "Body" => String.t() | atom(),
+        "Headers" => map(),
+        "MethodType" => list(any()),
+        "Output" => map(),
+        "RequestTimeoutMilliseconds" => integer(),
+        "Runtime" => list(any()),
+        "TargetRegion" => String.t() | atom(),
+        "TargetService" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type aws_service_request_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bad_request_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -991,6 +1010,7 @@ defmodule AWS.MediaTailor do
 
       get_function_response() :: %{
         "Arn" => String.t() | atom(),
+        "AwsServiceRequestConfiguration" => aws_service_request_configuration(),
         "ConcurrentExecutorConfiguration" => concurrent_executor_configuration(),
         "CustomOutputConfiguration" => custom_output_configuration(),
         "Description" => String.t() | atom(),
@@ -1470,6 +1490,7 @@ defmodule AWS.MediaTailor do
 
       mediatailor_function() :: %{
         "Arn" => String.t() | atom(),
+        "AwsServiceRequestConfiguration" => aws_service_request_configuration(),
         "ConcurrentExecutorConfiguration" => concurrent_executor_configuration(),
         "CustomOutputConfiguration" => custom_output_configuration(),
         "Description" => String.t() | atom(),
@@ -1617,6 +1638,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       put_function_request() :: %{
+        optional("AwsServiceRequestConfiguration") => aws_service_request_configuration(),
         optional("ConcurrentExecutorConfiguration") => concurrent_executor_configuration(),
         optional("CustomOutputConfiguration") => custom_output_configuration(),
         optional("Description") => String.t() | atom(),
@@ -1636,6 +1658,7 @@ defmodule AWS.MediaTailor do
 
       put_function_response() :: %{
         "Arn" => String.t() | atom(),
+        "AwsServiceRequestConfiguration" => aws_service_request_configuration(),
         "ConcurrentExecutorConfiguration" => concurrent_executor_configuration(),
         "CustomOutputConfiguration" => custom_output_configuration(),
         "Description" => String.t() | atom(),

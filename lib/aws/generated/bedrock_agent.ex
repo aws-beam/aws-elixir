@@ -3,6 +3,13 @@
 
 defmodule AWS.BedrockAgent do
   @moduledoc """
+  Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to
+  new customers.
+
+  For capabilities similar to Bedrock Agents Classic, explore Amazon Bedrock
+  AgentCore. Existing customers can continue to use the service as normal. For
+  more information, see [Amazon Bedrock Agents Classic availability change](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html).
+
   Describes the API operations for creating and managing Amazon Bedrock agents.
   """
 
@@ -433,6 +440,7 @@ defmodule AWS.BedrockAgent do
         "audio" => list(audio_configuration()),
         "dimensions" => integer(),
         "embeddingDataType" => list(any()),
+        "modelConfiguration" => [any()],
         "video" => list(video_configuration())
       }
 
@@ -2934,7 +2942,8 @@ defmodule AWS.BedrockAgent do
         "embeddingModelArn" => String.t() | atom(),
         "embeddingModelConfiguration" => embedding_model_configuration(),
         "embeddingModelType" => list(any()),
-        "serverSideEncryptionConfiguration" => server_side_encryption_configuration()
+        "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
+        "supplementalDataStorageConfiguration" => supplemental_data_storage_configuration()
       }
 
   """
@@ -5682,6 +5691,13 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to
+  new customers.
+
+  For capabilities similar to Bedrock Agents Classic, explore Amazon Bedrock
+  AgentCore. Existing customers can continue to use the service as normal. For
+  more information, see [Amazon Bedrock Agents Classic availability change](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html).
+
   Creates an agent that orchestrates interactions between foundation models, data
   sources, software applications, user conversations, and APIs to carry out tasks
   to help customers.

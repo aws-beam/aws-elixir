@@ -941,6 +941,33 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      attach_cluster_node_network_interface_request() :: %{
+        required("ClusterName") => String.t() | atom(),
+        required("NetworkInterfaceId") => String.t() | atom(),
+        required("NodeId") => String.t() | atom()
+      }
+      
+  """
+  @type attach_cluster_node_network_interface_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_cluster_node_network_interface_response() :: %{
+        "AttachmentId" => String.t() | atom(),
+        "ClusterArn" => String.t() | atom(),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "NodeId" => String.t() | atom()
+      }
+      
+  """
+  @type attach_cluster_node_network_interface_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       attach_cluster_node_volume_request() :: %{
         required("ClusterArn") => String.t() | atom(),
         required("NodeId") => String.t() | atom(),
@@ -21718,6 +21745,9 @@ defmodule AWS.SageMaker do
 
   @type associate_trial_component_errors() :: resource_not_found() | resource_limit_exceeded()
 
+  @type attach_cluster_node_network_interface_errors() ::
+          resource_not_found() | resource_limit_exceeded()
+
   @type attach_cluster_node_volume_errors() :: resource_not_found()
 
   @type batch_add_cluster_nodes_errors() :: resource_not_found() | resource_limit_exceeded()
@@ -22426,6 +22456,28 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "AssociateTrialComponent", input, options)
+  end
+
+  @doc """
+  Attaches an elastic network interface (ENI) to a node in a HyperPod cluster.
+
+  To use this operation, you must have the
+  `sagemaker:AttachClusterNodeNetworkInterface` permission.
+  """
+  @spec attach_cluster_node_network_interface(
+          map(),
+          attach_cluster_node_network_interface_request(),
+          list()
+        ) ::
+          {:ok, attach_cluster_node_network_interface_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, attach_cluster_node_network_interface_errors()}
+  def attach_cluster_node_network_interface(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AttachClusterNodeNetworkInterface", input, options)
   end
 
   @doc """

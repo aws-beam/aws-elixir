@@ -4482,6 +4482,7 @@ defmodule AWS.EC2 do
       
       create_image_request() :: %{
         optional("BlockDeviceMappings") => list(block_device_mapping()),
+        optional("BootModeOverride") => list(any()),
         optional("Description") => String.t() | atom(),
         optional("DryRun") => boolean(),
         optional("NoReboot") => boolean(),

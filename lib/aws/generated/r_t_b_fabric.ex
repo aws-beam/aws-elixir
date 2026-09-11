@@ -286,6 +286,7 @@ defmodule AWS.RTBFabric do
   ## Example:
 
       create_responder_gateway_request() :: %{
+        optional("clientRoutingPolicy") => list(any()),
         optional("description") => [String.t() | atom()],
         optional("domainName") => String.t() | atom(),
         optional("gatewayType") => list(any()),
@@ -309,6 +310,7 @@ defmodule AWS.RTBFabric do
   ## Example:
 
       create_responder_gateway_response() :: %{
+        "clientRoutingPolicy" => list(any()),
         "externalInboundEndpoint" => String.t() | atom(),
         "gatewayId" => String.t() | atom(),
         "listenerConfig" => listener_config(),
@@ -703,6 +705,7 @@ defmodule AWS.RTBFabric do
 
       get_responder_gateway_response() :: %{
         "activeLinksCount" => [integer()],
+        "clientRoutingPolicy" => list(any()),
         "createdAt" => [non_neg_integer()],
         "description" => [String.t() | atom()],
         "domainName" => String.t() | atom(),
@@ -1328,6 +1331,7 @@ defmodule AWS.RTBFabric do
   ## Example:
 
       update_responder_gateway_request() :: %{
+        optional("clientRoutingPolicy") => list(any()),
         optional("description") => [String.t() | atom()],
         optional("domainName") => String.t() | atom(),
         optional("listenerConfig") => listener_config(),
@@ -1346,6 +1350,7 @@ defmodule AWS.RTBFabric do
   ## Example:
 
       update_responder_gateway_response() :: %{
+        "clientRoutingPolicy" => list(any()),
         "gatewayId" => String.t() | atom(),
         "status" => list(any())
       }
@@ -2837,7 +2842,14 @@ defmodule AWS.RTBFabric do
   end
 
   @doc """
-  Updates a responder gateway.
+  Updates the description, Auto Scaling group managed endpoint configuration,
+  trust store configuration, and client routing policy of a responder gateway.
+
+  This operation also updates the `protocols` list in the listener configuration.
+
+  You cannot change the `domainName`, `port`, and `protocol` values that you set
+  when you create a responder gateway. To change any of them, delete the gateway
+  and create a new one.
   """
   @spec update_responder_gateway(
           map(),

@@ -43,6 +43,19 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
+      alarm_state_change_detail() :: %{
+        "previousState" => list(any()),
+        "reason" => [String.t() | atom()],
+        "state" => list(any())
+      }
+
+  """
+  @type alarm_state_change_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       assertion() :: %{
         "assertionId" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
@@ -762,8 +775,34 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
+      eks_label_selector() :: %{
+        "matchExpressions" => list(eks_label_selector_requirement()),
+        "matchLabels" => map()
+      }
+
+  """
+  @type eks_label_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      eks_label_selector_requirement() :: %{
+        "key" => String.t() | atom(),
+        "operator" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type eks_label_selector_requirement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       eks_source() :: %{
         "clusterArn" => String.t() | atom(),
+        "labelSelector" => eks_label_selector(),
         "namespaces" => list(String.t() | atom())
       }
 
@@ -1568,6 +1607,31 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
+      list_test_run_dependencies_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_test_run_dependencies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_run_dependencies_response() :: %{
+        "dependencies" => list(test_run_dependency_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_test_run_dependencies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_test_run_events_request() :: %{
         optional("endedAt") => [non_neg_integer()],
         optional("maxResults") => integer(),
@@ -1590,6 +1654,32 @@ defmodule AWS.Resiliencehubv2 do
 
   """
   @type list_test_run_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_run_source_events_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom(),
+        required("sourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_test_run_source_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_run_source_events_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "testRunSourceEvents" => list(test_run_source_event())
+      }
+
+  """
+  @type list_test_run_source_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2812,6 +2902,24 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
+      test_run_dependency_summary() :: %{
+        "criticality" => list(any()),
+        "dependencyId" => String.t() | atom(),
+        "dependencyName" => [String.t() | atom()],
+        "dnsName" => [String.t() | atom()],
+        "location" => [String.t() | atom()],
+        "provider" => [String.t() | atom()],
+        "source" => list(any()),
+        "sourceRegions" => list(String.t() | atom())
+      }
+
+  """
+  @type test_run_dependency_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       test_run_event() :: %{
         "attributes" => map(),
         "eventId" => [String.t() | atom()],
@@ -2863,6 +2971,32 @@ defmodule AWS.Resiliencehubv2 do
 
   """
   @type test_run_report_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_run_source_event() :: %{
+        "detail" => list(),
+        "eventType" => list(any()),
+        "sourceArn" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type test_run_source_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_run_source_event_error() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type test_run_source_event_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3601,7 +3735,19 @@ defmodule AWS.Resiliencehubv2 do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_test_run_dependencies_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_test_run_events_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_test_run_source_events_errors() ::
           validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -5688,6 +5834,62 @@ defmodule AWS.Resiliencehubv2 do
   end
 
   @doc """
+  Lists the dependencies that a test run blocked.
+
+  Each dependency reflects the discovered classification captured when the run
+  started, so results do not change if a dependency is reclassified after the run.
+  """
+  @spec list_test_run_dependencies(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_test_run_dependencies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_test_run_dependencies_errors()}
+  def list_test_run_dependencies(
+        %Client{} = client,
+        test_run_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        service_arn,
+        options \\ []
+      ) do
+    url_path = "/v2/test-runs/#{AWS.Util.encode_uri(test_run_id)}/dependencies"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the events in a test run's timeline.
   """
   @spec list_test_run_events(
@@ -5749,6 +5951,70 @@ defmodule AWS.Resiliencehubv2 do
     query_params =
       if !is_nil(started_at) do
         [{"startedAt", started_at} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the state-change events observed for a test run monitoring source.
+
+  Events are returned for one source per call, in chronological order.
+  """
+  @spec list_test_run_source_events(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_test_run_source_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_test_run_source_events_errors()}
+  def list_test_run_source_events(
+        %Client{} = client,
+        test_run_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        service_arn,
+        source_arn,
+        options \\ []
+      ) do
+    url_path = "/v2/test-runs/#{AWS.Util.encode_uri(test_run_id)}/source-events"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(source_arn) do
+        [{"sourceArn", source_arn} | query_params]
       else
         query_params
       end

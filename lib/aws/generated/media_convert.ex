@@ -758,6 +758,8 @@ defmodule AWS.MediaConvert do
         "CodedFrameRate" => frame_rate(),
         "ColorPrimaries" => list(any()),
         "ContentLightLevel" => content_light_level(),
+        "DisplayAspectRatio" => aspect_ratio(),
+        "DolbyVision" => dolby_vision_metadata(),
         "FieldOrder" => String.t() | atom(),
         "Hdr10PlusPresence" => list(any()),
         "Height" => integer(),
@@ -765,6 +767,7 @@ defmodule AWS.MediaConvert do
         "MatrixCoefficients" => list(any()),
         "Profile" => String.t() | atom(),
         "Rotation" => integer(),
+        "SampleAspectRatio" => aspect_ratio(),
         "ScanType" => String.t() | atom(),
         "TransferCharacteristics" => list(any()),
         "Width" => integer()
@@ -1273,6 +1276,21 @@ defmodule AWS.MediaConvert do
 
   """
   @type dolby_vision_level6_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dolby_vision_metadata() :: %{
+        "BaseLayer" => list(any()),
+        "EnhancementLayer" => list(any()),
+        "Level" => integer(),
+        "Profile" => integer(),
+        "Rpu" => list(any())
+      }
+
+  """
+  @type dolby_vision_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3956,6 +3974,17 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      unprocessable_entity_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_request() :: %{
         optional("TagKeys") => list(String.t() | atom())
       }
@@ -4721,7 +4750,8 @@ defmodule AWS.MediaConvert do
           | bad_request_exception()
 
   @type probe_errors() ::
-          too_many_requests_exception()
+          unprocessable_entity_exception()
+          | too_many_requests_exception()
           | service_quota_exceeded_exception()
           | not_found_exception()
           | internal_server_error_exception()

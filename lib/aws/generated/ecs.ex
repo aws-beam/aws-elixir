@@ -722,6 +722,7 @@ defmodule AWS.ECS do
       create_express_gateway_service_request() :: %{
         optional("cluster") => String.t() | atom(),
         optional("cpu") => String.t() | atom(),
+        optional("cpuArchitecture") => list(any()),
         optional("executionRoleArn") => String.t() | atom(),
         optional("healthCheckPath") => String.t() | atom(),
         optional("memory") => String.t() | atom(),
@@ -2256,6 +2257,7 @@ defmodule AWS.ECS do
       
       express_gateway_service_configuration() :: %{
         "cpu" => String.t() | atom(),
+        "cpuArchitecture" => list(any()),
         "createdAt" => non_neg_integer(),
         "executionRoleArn" => String.t() | atom(),
         "healthCheckPath" => String.t() | atom(),
@@ -5109,6 +5111,7 @@ defmodule AWS.ECS do
       
       update_express_gateway_service_request() :: %{
         optional("cpu") => String.t() | atom(),
+        optional("cpuArchitecture") => list(any()),
         optional("executionRoleArn") => String.t() | atom(),
         optional("healthCheckPath") => String.t() | atom(),
         optional("memory") => String.t() | atom(),

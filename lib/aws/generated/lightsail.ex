@@ -1199,6 +1199,9 @@ defmodule AWS.Lightsail do
         optional("cacheBehaviorSettings") => cache_settings(),
         optional("cacheBehaviors") => list(cache_behavior_per_path()),
         optional("certificateName") => String.t() | atom(),
+        optional("customErrorResponses") => list(distribution_custom_error_response()),
+        optional("defaultRootObject") => String.t() | atom(),
+        optional("enablePrivateOriginAccess") => boolean(),
         optional("ipAddressType") => list(any()),
         optional("tags") => list(tag()),
         optional("viewerMinimumTlsProtocolVersion") => list(any()),
@@ -2243,6 +2246,20 @@ defmodule AWS.Lightsail do
       
   """
   @type distribution_bundle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      distribution_custom_error_response() :: %{
+        "errorCachingMinTTL" => float(),
+        "errorCode" => integer(),
+        "responseCode" => String.t() | atom(),
+        "responsePagePath" => String.t() | atom()
+      }
+      
+  """
+  @type distribution_custom_error_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4318,7 +4335,9 @@ defmodule AWS.Lightsail do
         "cacheBehaviors" => list(cache_behavior_per_path()),
         "certificateName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
+        "customErrorResponses" => list(distribution_custom_error_response()),
         "defaultCacheBehavior" => cache_behavior(),
+        "defaultRootObject" => String.t() | atom(),
         "domainName" => String.t() | atom(),
         "ipAddressType" => list(any()),
         "isEnabled" => boolean(),
@@ -4629,6 +4648,7 @@ defmodule AWS.Lightsail do
       
       origin() :: %{
         "ipAddressType" => list(any()),
+        "isPrivateOriginAccessEnabled" => boolean(),
         "name" => String.t() | atom(),
         "protocolPolicy" => list(any()),
         "regionName" => list(any()),
@@ -5786,7 +5806,10 @@ defmodule AWS.Lightsail do
         optional("cacheBehaviorSettings") => cache_settings(),
         optional("cacheBehaviors") => list(cache_behavior_per_path()),
         optional("certificateName") => String.t() | atom(),
+        optional("customErrorResponses") => list(distribution_custom_error_response()),
         optional("defaultCacheBehavior") => cache_behavior(),
+        optional("defaultRootObject") => String.t() | atom(),
+        optional("enablePrivateOriginAccess") => boolean(),
         optional("isEnabled") => boolean(),
         optional("origin") => input_origin(),
         optional("useDefaultCertificate") => boolean(),

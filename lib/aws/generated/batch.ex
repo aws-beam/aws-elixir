@@ -154,6 +154,43 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      cancel_jobs_error_detail() :: %{
+        "code" => String.t() | atom(),
+        "job" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type cancel_jobs_error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_jobs_request() :: %{
+        required("jobs") => list(String.t() | atom()),
+        required("reason") => String.t() | atom()
+      }
+
+  """
+  @type cancel_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_jobs_response() :: %{
+        "errors" => list(cancel_jobs_error_detail()),
+        "successful" => list(String.t() | atom())
+      }
+
+  """
+  @type cancel_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       capacity_limit() :: %{
         "capacityUnit" => String.t() | atom(),
         "maxCapacity" => integer()
@@ -1844,6 +1881,8 @@ defmodule AWS.Batch do
         "capacityUsage" => list(job_capacity_usage_summary()),
         "container" => container_summary(),
         "createdAt" => float(),
+        "isCancelled" => boolean(),
+        "isTerminated" => boolean(),
         "jobArn" => String.t() | atom(),
         "jobDefinition" => String.t() | atom(),
         "jobId" => String.t() | atom(),
@@ -2736,6 +2775,7 @@ defmodule AWS.Batch do
       service_job_summary() :: %{
         "capacityUsage" => list(service_job_capacity_usage_summary()),
         "createdAt" => float(),
+        "isTerminated" => boolean(),
         "jobArn" => String.t() | atom(),
         "jobId" => String.t() | atom(),
         "jobName" => String.t() | atom(),
@@ -3007,6 +3047,43 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      terminate_jobs_error_detail() :: %{
+        "code" => String.t() | atom(),
+        "job" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type terminate_jobs_error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_jobs_request() :: %{
+        required("jobs") => list(String.t() | atom()),
+        required("reason") => String.t() | atom()
+      }
+
+  """
+  @type terminate_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_jobs_response() :: %{
+        "errors" => list(terminate_jobs_error_detail()),
+        "successful" => list(String.t() | atom())
+      }
+
+  """
+  @type terminate_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       terminate_service_job_request() :: %{
         required("jobId") => String.t() | atom(),
         required("reason") => String.t() | atom()
@@ -3023,6 +3100,43 @@ defmodule AWS.Batch do
 
   """
   @type terminate_service_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_service_jobs_error_detail() :: %{
+        "code" => String.t() | atom(),
+        "job" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type terminate_service_jobs_error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_service_jobs_request() :: %{
+        required("jobs") => list(String.t() | atom()),
+        required("reason") => String.t() | atom()
+      }
+
+  """
+  @type terminate_service_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_service_jobs_response() :: %{
+        "errors" => list(terminate_service_jobs_error_detail()),
+        "successful" => list(String.t() | atom())
+      }
+
+  """
+  @type terminate_service_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3297,6 +3411,8 @@ defmodule AWS.Batch do
 
   @type cancel_job_errors() :: server_exception() | client_exception()
 
+  @type cancel_jobs_errors() :: server_exception() | client_exception()
+
   @type create_compute_environment_errors() :: server_exception() | client_exception()
 
   @type create_consumable_resource_errors() :: server_exception() | client_exception()
@@ -3367,7 +3483,11 @@ defmodule AWS.Batch do
 
   @type terminate_job_errors() :: server_exception() | client_exception()
 
+  @type terminate_jobs_errors() :: server_exception() | client_exception()
+
   @type terminate_service_job_errors() :: server_exception() | client_exception()
+
+  @type terminate_service_jobs_errors() :: server_exception() | client_exception()
 
   @type untag_resource_errors() :: server_exception() | client_exception()
 
@@ -3407,18 +3527,19 @@ defmodule AWS.Batch do
   Jobs that are in a `SUBMITTED`, `PENDING`, or `RUNNABLE` state are cancelled and
   the job status is updated to `FAILED`.
 
-  A `PENDING` job is canceled after all dependency jobs are completed.
-  Therefore, it may take longer than expected to cancel a job in `PENDING`
+  A `PENDING` job is cancelled after all dependency jobs are completed.
+  Therefore, it might take longer than expected to cancel a job in `PENDING`
   status.
 
   When you try to cancel an array parent job in `PENDING`, Batch attempts to
-  cancel all child jobs. The array parent job is canceled when all child jobs are
+  cancel all child jobs. The array parent job is cancelled when all child jobs are
   completed.
 
   Jobs that progressed to the `STARTING` or
-  `RUNNING` state aren't canceled. However, the API operation still succeeds, even
-  if no job is canceled. These jobs must be terminated with the `TerminateJob`
-  operation.
+  `RUNNING` state aren't cancelled. However, the API operation still succeeds,
+  even
+  if no job is cancelled. These jobs must be terminated with the `TerminateJob` or
+  `TerminateJobs` operation.
   """
   @spec cancel_job(map(), cancel_job_request(), list()) ::
           {:ok, cancel_job_response(), any()}
@@ -3427,6 +3548,58 @@ defmodule AWS.Batch do
           | {:error, cancel_job_errors()}
   def cancel_job(%Client{} = client, input, options \\ []) do
     url_path = "/v1/canceljob"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Cancels up to 50 jobs in an Batch job queue.
+
+  This is a bulk version of `CancelJob`. Jobs that are in a
+  `SUBMITTED`, `PENDING`, or `RUNNABLE` state are cancelled
+  and the job status is updated to `FAILED`.
+
+  A `PENDING` job is cancelled after all dependency jobs are completed.
+  Therefore, it might take longer than expected to cancel a job in `PENDING`
+  status.
+
+  When you try to cancel an array parent job in `PENDING`, Batch attempts to
+  cancel all child jobs. The array parent job is cancelled when all child jobs are
+  completed.
+
+  Jobs that progressed to the `STARTING` or `RUNNING` state aren't
+  cancelled. These jobs must be terminated with the `TerminateJob` or
+  `TerminateJobs` operation.
+
+  Batch reports the result for each job individually in the response. Jobs that
+  were processed successfully are reported in the `successful` list. Jobs that
+  encountered errors are reported in the `errors` list. The response returns an
+  HTTP status code of `200` even when some jobs encountered errors, so check the
+  `errors` list. Jobs that can't be found are treated as successfully
+  processed.
+  """
+  @spec cancel_jobs(map(), cancel_jobs_request(), list()) ::
+          {:ok, cancel_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_jobs_errors()}
+  def cancel_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/canceljobs"
     headers = []
     custom_headers = []
     query_params = []
@@ -4614,6 +4787,47 @@ defmodule AWS.Batch do
   end
 
   @doc """
+  Terminates up to 50 jobs in a job queue.
+
+  This is a bulk version of `TerminateJob`. Jobs that are in the `STARTING` or
+  `RUNNING` state are terminated, which causes them to transition to
+  `FAILED`. Jobs that have not progressed to the `STARTING` state are
+  cancelled.
+
+  Batch reports the result for each job individually in the response. Jobs that
+  were processed successfully are reported in the `successful` list. Jobs that
+  encountered errors are reported in the `errors` list. The response returns an
+  HTTP status code of `200` even when some jobs encountered errors, so check the
+  `errors` list. Jobs that can't be found are treated as successfully
+  processed.
+  """
+  @spec terminate_jobs(map(), terminate_jobs_request(), list()) ::
+          {:ok, terminate_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, terminate_jobs_errors()}
+  def terminate_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/terminatejobs"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Terminates a service job in a job queue.
   """
   @spec terminate_service_job(map(), terminate_service_job_request(), list()) ::
@@ -4623,6 +4837,44 @@ defmodule AWS.Batch do
           | {:error, terminate_service_job_errors()}
   def terminate_service_job(%Client{} = client, input, options \\ []) do
     url_path = "/v1/terminateservicejob"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Terminates up to 50 service jobs in a job queue.
+
+  This is a bulk version of `TerminateServiceJob`.
+
+  Batch reports the result for each service job individually in the response.
+  Service jobs that were processed successfully are reported in the `successful`
+  list. Service jobs that encountered errors are reported in the `errors` list.
+  The response returns an HTTP status code of `200` even when some service jobs
+  encountered errors, so check the `errors` list. Service jobs that can't be found
+  are treated as successfully processed.
+  """
+  @spec terminate_service_jobs(map(), terminate_service_jobs_request(), list()) ::
+          {:ok, terminate_service_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, terminate_service_jobs_errors()}
+  def terminate_service_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/terminateservicejobs"
     headers = []
     custom_headers = []
     query_params = []

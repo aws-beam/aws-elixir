@@ -348,6 +348,17 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      feature_configurations() :: %{
+        "InvoiceConfiguration" => invoice_configuration()
+      }
+      
+  """
+  @type feature_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       fees_breakdown() :: %{
         "Breakdown" => list(fees_breakdown_amount()),
         "TotalAmount" => String.t() | atom()
@@ -467,6 +478,18 @@ defmodule AWS.Invoicing do
       
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoice_configuration() :: %{
+        "AttachmentTypes" => list(list(any())()),
+        "DocumentTypes" => list(list(any())())
+      }
+      
+  """
+  @type invoice_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -678,6 +701,55 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      list_procurement_portal_suppliers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("PortalIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type list_procurement_portal_suppliers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_procurement_portal_suppliers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProcurementPortalSuppliers" => list(procurement_portal_supplier())
+      }
+      
+  """
+  @type list_procurement_portal_suppliers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_procurement_portals_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_procurement_portals_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_procurement_portals_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProcurementPortals" => list(procurement_portal())
+      }
+      
+  """
+  @type list_procurement_portals_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_request() :: %{
         required("ResourceArn") => String.t() | atom()
       }
@@ -695,6 +767,20 @@ defmodule AWS.Invoicing do
       
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      procurement_portal() :: %{
+        "DefaultFeatureConfigurations" => feature_configurations(),
+        "PortalDisplayName" => String.t() | atom(),
+        "PortalIdentifier" => String.t() | atom(),
+        "PortalName" => list(any())
+      }
+      
+  """
+  @type procurement_portal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -767,6 +853,20 @@ defmodule AWS.Invoicing do
       
   """
   @type procurement_portal_preference_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      procurement_portal_supplier() :: %{
+        "CountryCode" => String.t() | atom(),
+        "Environment" => list(any()),
+        "SellerOfRecord" => String.t() | atom(),
+        "SupplierIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type procurement_portal_supplier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1198,6 +1298,19 @@ defmodule AWS.Invoicing do
           | conflict_exception()
           | access_denied_exception()
 
+  @type list_procurement_portal_suppliers_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_procurement_portals_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_tags_for_resource_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1485,6 +1598,48 @@ defmodule AWS.Invoicing do
       metadata()
 
     Request.request_post(client, meta, "ListProcurementPortalPreferences", input, options)
+  end
+
+  @doc """
+  Returns the suppliers configured for a specified procurement portal, including
+  supplier identifiers and associated metadata.
+
+  For faster, more reliable responses, use pagination.
+  """
+  @spec list_procurement_portal_suppliers(
+          map(),
+          list_procurement_portal_suppliers_request(),
+          list()
+        ) ::
+          {:ok, list_procurement_portal_suppliers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_procurement_portal_suppliers_errors()}
+  def list_procurement_portal_suppliers(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListProcurementPortalSuppliers", input, options)
+  end
+
+  @doc """
+  Returns the Amazon Web Services-supported procurement portals for e-invoice
+  delivery and purchase order retrieval.
+
+  Each entry includes the portal identifier, name, and default feature
+  configurations, which define the supported document and attachment types. For
+  faster, more reliable responses, use pagination.
+  """
+  @spec list_procurement_portals(map(), list_procurement_portals_request(), list()) ::
+          {:ok, list_procurement_portals_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_procurement_portals_errors()}
+  def list_procurement_portals(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListProcurementPortals", input, options)
   end
 
   @doc """

@@ -8608,6 +8608,32 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      integration_table_properties() :: %{
+        "ResourceArn" => String.t() | atom(),
+        "SourceTableConfig" => source_table_config(),
+        "TableName" => String.t() | atom(),
+        "TargetTableConfig" => target_table_config()
+      }
+      
+  """
+  @type integration_table_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      integration_table_properties_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type integration_table_properties_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       internal_server_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -9628,6 +9654,31 @@ defmodule AWS.Glue do
       
   """
   @type list_integration_resource_properties_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_integration_table_properties_request() :: %{
+        optional("Filters") => list(integration_table_properties_filter()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type list_integration_table_properties_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_integration_table_properties_response() :: %{
+        "IntegrationTablePropertiesList" => list(integration_table_properties()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type list_integration_table_properties_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13591,6 +13642,7 @@ defmodule AWS.Glue do
   ## Example:
       
       target_table_config() :: %{
+        "IntegrationArn" => String.t() | atom(),
         "PartitionSpec" => list(integration_partition()),
         "TargetTableName" => String.t() | atom(),
         "UnnestSpec" => list(any())
@@ -16384,6 +16436,15 @@ defmodule AWS.Glue do
           | access_denied_exception()
 
   @type list_integration_resource_properties_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | internal_server_exception()
+          | entity_not_found_exception()
+          | access_denied_exception()
+
+  @type list_integration_table_properties_errors() ::
           validation_exception()
           | resource_not_found_exception()
           | invalid_input_exception()
@@ -20740,6 +20801,27 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "ListIntegrationResourceProperties", input, options)
+  end
+
+  @doc """
+  Lists the integration table properties in your account.
+
+  This operation supports filtering and pagination.
+  """
+  @spec list_integration_table_properties(
+          map(),
+          list_integration_table_properties_request(),
+          list()
+        ) ::
+          {:ok, list_integration_table_properties_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_integration_table_properties_errors()}
+  def list_integration_table_properties(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListIntegrationTableProperties", input, options)
   end
 
   @doc """

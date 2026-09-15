@@ -5,11 +5,43 @@ defmodule AWS.STS do
   @moduledoc """
   Security Token Service
 
-  Security Token Service (STS) enables you to request temporary, limited-privilege
-  credentials for users.
+  Amazon Web Services provides Security Token Service (STS) as a web service that
+  enables you to request temporary,
+  limited-privilege credentials for users.
 
-  This guide provides descriptions of the STS API. For
-  more information about using this service, see [Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).
+  This guide describes the STS API. For more
+  information, see [Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)
+  in the *IAM User Guide*.
+
+  As an alternative to using the API, you can use one of the Amazon Web Services
+  SDKs, which consist of
+  libraries and sample code for various programming languages and platforms such
+  as Java,
+  Ruby, .NET, iOS, Android, and others. The SDKs provide a convenient way to
+  create
+  programmatic access to STS. For example, the SDKs can cryptographically sign
+  requests,
+  manage errors, and retry requests automatically. For information about the
+  Amazon Web Services SDKs, see
+  [Tools to Build on Amazon Web Services](http://aws.amazon.com/tools/). 
+
+  For information about setting up signatures and authorization through the API,
+  see [Signing Amazon Web Services
+  API
+  Requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)
+  in the *Amazon Web Services General Reference*. For general information
+  about the Query API, see [Making Query Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
+  in the
+  *IAM User Guide*. For information about using security tokens with
+  other Amazon Web Services products, see [Amazon Web Services Services That Work with
+  IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html)
+  in the *IAM User Guide*.
+
+  For information about STS endpoints, see [STS Regions and endpoints](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_region-endpoints.html)
+  in the *IAM User Guide*. For information about
+  logging STS API calls, see [Logging IAM and STS API calls with
+  CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
+  in the *IAM User Guide*.
   """
 
   alias AWS.Client
@@ -22,6 +54,7 @@ defmodule AWS.STS do
       assume_role_request() :: %{
         optional("DurationSeconds") => integer(),
         optional("ExternalId") => String.t() | atom(),
+        optional("MinimumSessionTokenSize") => integer(),
         optional("Policy") => String.t() | atom(),
         optional("PolicyArns") => list(policy_descriptor_type()),
         optional("ProvidedContexts") => list(provided_context()),
@@ -45,6 +78,8 @@ defmodule AWS.STS do
         "AssumedRoleUser" => assumed_role_user(),
         "Credentials" => credentials(),
         "PackedPolicySize" => integer(),
+        "SessionTokenSize" => integer(),
+        "SessionTokenUtilization" => integer(),
         "SourceIdentity" => String.t() | atom()
       }
       
@@ -57,6 +92,7 @@ defmodule AWS.STS do
       
       assume_role_with_saml_request() :: %{
         optional("DurationSeconds") => integer(),
+        optional("MinimumSessionTokenSize") => integer(),
         optional("Policy") => String.t() | atom(),
         optional("PolicyArns") => list(policy_descriptor_type()),
         required("PrincipalArn") => String.t() | atom(),
@@ -78,6 +114,8 @@ defmodule AWS.STS do
         "Issuer" => String.t() | atom(),
         "NameQualifier" => String.t() | atom(),
         "PackedPolicySize" => integer(),
+        "SessionTokenSize" => integer(),
+        "SessionTokenUtilization" => integer(),
         "SourceIdentity" => String.t() | atom(),
         "Subject" => String.t() | atom(),
         "SubjectType" => String.t() | atom()
@@ -92,6 +130,7 @@ defmodule AWS.STS do
       
       assume_role_with_web_identity_request() :: %{
         optional("DurationSeconds") => integer(),
+        optional("MinimumSessionTokenSize") => integer(),
         optional("Policy") => String.t() | atom(),
         optional("PolicyArns") => list(policy_descriptor_type()),
         optional("ProviderId") => String.t() | atom(),
@@ -113,6 +152,8 @@ defmodule AWS.STS do
         "Credentials" => credentials(),
         "PackedPolicySize" => integer(),
         "Provider" => String.t() | atom(),
+        "SessionTokenSize" => integer(),
+        "SessionTokenUtilization" => integer(),
         "SourceIdentity" => String.t() | atom(),
         "SubjectFromWebIdentityToken" => String.t() | atom()
       }
@@ -126,6 +167,7 @@ defmodule AWS.STS do
       
       assume_root_request() :: %{
         optional("DurationSeconds") => integer(),
+        optional("MinimumSessionTokenSize") => integer(),
         required("TargetPrincipal") => String.t() | atom(),
         required("TaskPolicyArn") => policy_descriptor_type()
       }
@@ -139,6 +181,8 @@ defmodule AWS.STS do
       
       assume_root_response() :: %{
         "Credentials" => credentials(),
+        "SessionTokenSize" => integer(),
+        "SessionTokenUtilization" => integer(),
         "SourceIdentity" => String.t() | atom()
       }
       
@@ -301,6 +345,7 @@ defmodule AWS.STS do
       
       get_federation_token_request() :: %{
         optional("DurationSeconds") => integer(),
+        optional("MinimumSessionTokenSize") => integer(),
         optional("Policy") => String.t() | atom(),
         optional("PolicyArns") => list(policy_descriptor_type()),
         optional("Tags") => list(tag()),
@@ -317,7 +362,9 @@ defmodule AWS.STS do
       get_federation_token_response() :: %{
         "Credentials" => credentials(),
         "FederatedUser" => federated_user(),
-        "PackedPolicySize" => integer()
+        "PackedPolicySize" => integer(),
+        "SessionTokenSize" => integer(),
+        "SessionTokenUtilization" => integer()
       }
       
   """
@@ -329,6 +376,7 @@ defmodule AWS.STS do
       
       get_session_token_request() :: %{
         optional("DurationSeconds") => integer(),
+        optional("MinimumSessionTokenSize") => integer(),
         optional("SerialNumber") => String.t() | atom(),
         optional("TokenCode") => String.t() | atom()
       }
@@ -341,7 +389,9 @@ defmodule AWS.STS do
   ## Example:
       
       get_session_token_response() :: %{
-        "Credentials" => credentials()
+        "Credentials" => credentials(),
+        "SessionTokenSize" => integer(),
+        "SessionTokenUtilization" => integer()
       }
       
   """
@@ -1543,6 +1593,8 @@ defmodule AWS.STS do
   OIDC discovery.
   The token is signed by Amazon Web Services STS and can be publicly verified
   using the verification keys published at the issuer's JWKS endpoint.
+
+  The `GetWebIdentityToken` API is not available on the STS Global endpoint.
   """
   @spec get_web_identity_token(map(), get_web_identity_token_request(), list()) ::
           {:ok, get_web_identity_token_response(), any()}

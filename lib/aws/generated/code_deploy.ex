@@ -910,6 +910,7 @@ defmodule AWS.CodeDeploy do
         "deploymentConfigName" => String.t() | atom(),
         "deploymentGroupName" => String.t() | atom(),
         "deploymentId" => String.t() | atom(),
+        "deploymentMode" => list(any()),
         "deploymentOverview" => deployment_overview(),
         "deploymentStatusMessages" => list(String.t() | atom()),
         "deploymentStyle" => deployment_style(),

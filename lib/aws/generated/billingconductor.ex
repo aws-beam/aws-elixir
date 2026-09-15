@@ -427,6 +427,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       create_tiering_input() :: %{
+        "CustomTiers" => list(custom_tier()),
         "FreeTier" => create_free_tier_config()
       }
 
@@ -530,6 +531,19 @@ defmodule AWS.Billingconductor do
 
   """
   @type custom_line_item_version_list_element() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_tier() :: %{
+        "BeginRangeInclusive" => float(),
+        "EndRangeExclusive" => float(),
+        "RateValue" => float()
+      }
+
+  """
+  @type custom_tier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1344,6 +1358,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       tiering() :: %{
+        "CustomTiers" => list(custom_tier()),
         "FreeTier" => free_tier_config()
       }
 
@@ -1568,6 +1583,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       update_tiering_input() :: %{
+        "CustomTiers" => list(custom_tier()),
         "FreeTier" => update_free_tier_config()
       }
 

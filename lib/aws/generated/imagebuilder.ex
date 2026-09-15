@@ -3,8 +3,7 @@
 
 defmodule AWS.Imagebuilder do
   @moduledoc """
-  EC2 Image Builder is a fully managed Amazon Web Services service that makes it
-  easier to automate the
+  EC2 Image Builder automates the
   creation, management, and deployment of customized, secure, and up-to-date
   "golden" server images that are pre-installed and pre-configured with software
   and settings to meet specific IT standards.
@@ -206,6 +205,21 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      component_failure_context() :: %{
+        "action" => String.t() | atom(),
+        "componentArn" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "phaseName" => String.t() | atom(),
+        "stepName" => String.t() | atom()
+      }
+
+  """
+  @type component_failure_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       component_parameter() :: %{
         "name" => String.t() | atom(),
         "value" => list(String.t() | atom())
@@ -401,6 +415,7 @@ defmodule AWS.Imagebuilder do
         optional("description") => String.t() | atom(),
         optional("dockerfileTemplateData") => String.t() | atom(),
         optional("dockerfileTemplateUri") => String.t() | atom(),
+        optional("dryRun") => boolean(),
         optional("imageOsVersionOverride") => String.t() | atom(),
         optional("instanceConfiguration") => instance_configuration(),
         optional("kmsKeyId") => String.t() | atom(),
@@ -438,6 +453,7 @@ defmodule AWS.Imagebuilder do
 
       create_distribution_configuration_request() :: %{
         optional("description") => String.t() | atom(),
+        optional("dryRun") => boolean(),
         optional("tags") => map(),
         required("clientToken") => String.t() | atom(),
         required("distributions") => list(distribution()),
@@ -468,6 +484,7 @@ defmodule AWS.Imagebuilder do
         optional("containerRecipeArn") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("distributionConfigurationArn") => String.t() | atom(),
+        optional("dryRun") => boolean(),
         optional("enhancedImageMetadataEnabled") => boolean(),
         optional("executionRole") => String.t() | atom(),
         optional("imageRecipeArn") => String.t() | atom(),
@@ -511,6 +528,7 @@ defmodule AWS.Imagebuilder do
         optional("blockDeviceMappings") => list(instance_block_device_mapping()),
         optional("components") => list(component_configuration()),
         optional("description") => String.t() | atom(),
+        optional("dryRun") => boolean(),
         optional("tags") => map(),
         optional("workingDirectory") => String.t() | atom(),
         required("clientToken") => String.t() | atom(),
@@ -578,6 +596,7 @@ defmodule AWS.Imagebuilder do
 
       create_infrastructure_configuration_request() :: %{
         optional("description") => String.t() | atom(),
+        optional("dryRun") => boolean(),
         optional("instanceMetadataOptions") => instance_metadata_options(),
         optional("instanceTypes") => list(String.t() | atom()),
         optional("keyPair") => String.t() | atom(),
@@ -616,6 +635,7 @@ defmodule AWS.Imagebuilder do
 
       create_lifecycle_policy_request() :: %{
         optional("description") => String.t() | atom(),
+        optional("dryRun") => boolean(),
         optional("status") => list(any()),
         optional("tags") => map(),
         required("clientToken") => String.t() | atom(),
@@ -1002,6 +1022,18 @@ defmodule AWS.Imagebuilder do
 
   """
   @type distribution_configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      distribution_failure_context() :: %{
+        "errorMessage" => String.t() | atom(),
+        "regionFailures" => list(region_failure())
+      }
+
+  """
+  @type distribution_failure_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1508,10 +1540,12 @@ defmodule AWS.Imagebuilder do
 
       get_workflow_step_execution_response() :: %{
         "action" => String.t() | atom(),
+        "attemptNumber" => integer(),
         "description" => String.t() | atom(),
         "endTime" => String.t() | atom(),
         "imageBuildVersionArn" => String.t() | atom(),
         "inputs" => String.t() | atom(),
+        "maxAttempts" => integer(),
         "message" => String.t() | atom(),
         "name" => String.t() | atom(),
         "onFailure" => String.t() | atom(),
@@ -1588,6 +1622,23 @@ defmodule AWS.Imagebuilder do
 
   """
   @type image_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_failure_context() :: %{
+        "componentFailure" => component_failure_context(),
+        "distributionFailure" => distribution_failure_context(),
+        "failedStep" => String.t() | atom(),
+        "imageStatus" => list(any()),
+        "stepExecutionId" => String.t() | atom(),
+        "workflowArn" => String.t() | atom(),
+        "workflowExecutionId" => String.t() | atom()
+      }
+
+  """
+  @type image_failure_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1780,6 +1831,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       image_state() :: %{
+        "failureContext" => image_failure_context(),
         "reason" => String.t() | atom(),
         "status" => list(any())
       }
@@ -3163,6 +3215,21 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      region_failure() :: %{
+        "errorMessage" => String.t() | atom(),
+        "imageConfigurationStep" => list(any()),
+        "region" => String.t() | atom(),
+        "status" => list(any()),
+        "targetAccountId" => String.t() | atom()
+      }
+
+  """
+  @type region_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       register_image_options() :: %{
         "secureBootEnabled" => boolean(),
         "uefiData" => String.t() | atom()
@@ -3850,9 +3917,11 @@ defmodule AWS.Imagebuilder do
 
       workflow_step_metadata() :: %{
         "action" => String.t() | atom(),
+        "attemptNumber" => integer(),
         "description" => String.t() | atom(),
         "endTime" => String.t() | atom(),
         "inputs" => String.t() | atom(),
+        "maxAttempts" => integer(),
         "message" => String.t() | atom(),
         "name" => String.t() | atom(),
         "outputs" => String.t() | atom(),
@@ -3946,6 +4015,7 @@ defmodule AWS.Imagebuilder do
           | invalid_request_exception()
           | idempotent_parameter_mismatch_exception()
           | forbidden_exception()
+          | dry_run_operation_exception()
           | client_exception()
           | call_rate_limit_exceeded_exception()
 
@@ -3959,6 +4029,7 @@ defmodule AWS.Imagebuilder do
           | invalid_parameter_combination_exception()
           | idempotent_parameter_mismatch_exception()
           | forbidden_exception()
+          | dry_run_operation_exception()
           | client_exception()
           | call_rate_limit_exceeded_exception()
 
@@ -3982,6 +4053,7 @@ defmodule AWS.Imagebuilder do
           | invalid_request_exception()
           | idempotent_parameter_mismatch_exception()
           | forbidden_exception()
+          | dry_run_operation_exception()
           | client_exception()
           | call_rate_limit_exceeded_exception()
 
@@ -3995,6 +4067,7 @@ defmodule AWS.Imagebuilder do
           | invalid_request_exception()
           | idempotent_parameter_mismatch_exception()
           | forbidden_exception()
+          | dry_run_operation_exception()
           | client_exception()
           | call_rate_limit_exceeded_exception()
 
@@ -4007,6 +4080,7 @@ defmodule AWS.Imagebuilder do
           | invalid_request_exception()
           | idempotent_parameter_mismatch_exception()
           | forbidden_exception()
+          | dry_run_operation_exception()
           | client_exception()
           | call_rate_limit_exceeded_exception()
 
@@ -4019,6 +4093,7 @@ defmodule AWS.Imagebuilder do
           | invalid_request_exception()
           | idempotent_parameter_mismatch_exception()
           | forbidden_exception()
+          | dry_run_operation_exception()
           | client_exception()
           | call_rate_limit_exceeded_exception()
 
@@ -4632,7 +4707,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  CancelImageCreation cancels the creation of Image.
+  Cancels the creation of an image.
 
   This operation can only be used on
   images in a non-terminal state.
@@ -4664,7 +4739,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Cancel a specific image lifecycle policy runtime instance.
+  Cancels a specific image lifecycle policy runtime instance.
   """
   @spec cancel_lifecycle_execution(map(), cancel_lifecycle_execution_request(), list()) ::
           {:ok, cancel_lifecycle_execution_response(), any()}
@@ -4802,13 +4877,11 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new image.
+  Creates a new image along with all configured output resources defined in the
+  distribution configuration.
 
-  This request will create a new image along with all of the
-  configured output resources defined in the distribution configuration. You must
-  specify
-  exactly one recipe for your image, using either a ContainerRecipeArn or an
-  ImageRecipeArn.
+  You must specify exactly one recipe for your image, using
+  either a ContainerRecipeArn or an ImageRecipeArn.
   """
   @spec create_image(map(), create_image_request(), list()) ::
           {:ok, create_image_response(), any()}
@@ -4839,7 +4912,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Creates a new image pipeline.
 
-  Image pipelines enable you to automate the creation and
+  Use image pipelines to automate the creation and
   distribution of images.
   """
   @spec create_image_pipeline(map(), create_image_pipeline_request(), list()) ::
@@ -4937,7 +5010,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Create a lifecycle policy resource.
+  Creates a lifecycle policy resource.
   """
   @spec create_lifecycle_policy(map(), create_lifecycle_policy_request(), list()) ::
           {:ok, create_lifecycle_policy_response(), any()}
@@ -4966,7 +5039,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Create a new workflow or a new version of an existing workflow.
+  Creates a new workflow or a new version of an existing workflow.
   """
   @spec create_workflow(map(), create_workflow_request(), list()) ::
           {:ok, create_workflow_response(), any()}
@@ -5266,7 +5339,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Delete the specified lifecycle policy resource.
+  Deletes the specified lifecycle policy resource.
   """
   @spec delete_lifecycle_policy(map(), delete_lifecycle_policy_request(), list()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
@@ -5367,7 +5440,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Gets a component object.
+  Retrieves a component object.
   """
   @spec get_component(map(), String.t() | atom(), list()) ::
           {:ok, get_component_response(), any()}
@@ -5392,7 +5465,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Gets a component policy.
+  Retrieves a component policy.
   """
   @spec get_component_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_component_policy_response(), any()}
@@ -5467,7 +5540,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Gets a distribution configuration.
+  Retrieves a distribution configuration.
   """
   @spec get_distribution_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_distribution_configuration_response(), any()}
@@ -5496,7 +5569,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Gets an image.
+  Retrieves an image.
   """
   @spec get_image(map(), String.t() | atom(), list()) ::
           {:ok, get_image_response(), any()}
@@ -5521,7 +5594,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Gets an image pipeline.
+  Retrieves an image pipeline.
   """
   @spec get_image_pipeline(map(), String.t() | atom(), list()) ::
           {:ok, get_image_pipeline_response(), any()}
@@ -5546,7 +5619,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Gets an image policy.
+  Retrieves an image policy.
   """
   @spec get_image_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_image_policy_response(), any()}
@@ -5571,7 +5644,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Gets an image recipe.
+  Retrieves an image recipe.
   """
   @spec get_image_recipe(map(), String.t() | atom(), list()) ::
           {:ok, get_image_recipe_response(), any()}
@@ -5596,7 +5669,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Gets an image recipe policy.
+  Retrieves an image recipe policy.
   """
   @spec get_image_recipe_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_image_recipe_policy_response(), any()}
@@ -5621,7 +5694,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Gets an infrastructure configuration.
+  Retrieves an infrastructure configuration.
   """
   @spec get_infrastructure_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_infrastructure_configuration_response(), any()}
@@ -5650,8 +5723,8 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Get the runtime information that was logged for a specific runtime instance of
-  the lifecycle policy.
+  Retrieves the runtime information for a specific runtime instance of the
+  lifecycle policy.
   """
   @spec get_lifecycle_execution(map(), String.t() | atom(), list()) ::
           {:ok, get_lifecycle_execution_response(), any()}
@@ -5676,7 +5749,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Get details for the specified image lifecycle policy.
+  Retrieves details for the specified image lifecycle policy.
   """
   @spec get_lifecycle_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_lifecycle_policy_response(), any()}
@@ -5701,7 +5774,8 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Verify the subscription and perform resource dependency checks on the requested
+  Verifies the subscription and performs resource dependency checks on the
+  requested
   Amazon Web Services Marketplace resource.
 
   For Amazon Web Services Marketplace components, the response contains fields to
@@ -5735,7 +5809,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Get a workflow resource object.
+  Retrieves a workflow resource object.
   """
   @spec get_workflow(map(), String.t() | atom(), list()) ::
           {:ok, get_workflow_response(), any()}
@@ -5760,7 +5834,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Get the runtime information that was logged for a specific runtime instance
+  Retrieves runtime information for a specific runtime instance
   of the workflow.
   """
   @spec get_workflow_execution(map(), String.t() | atom(), list()) ::
@@ -5786,7 +5860,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Get the runtime information that was logged for a specific runtime instance of
+  Retrieves runtime information for a specific runtime instance of
   the workflow step.
   """
   @spec get_workflow_step_execution(map(), String.t() | atom(), list()) ::
@@ -5841,7 +5915,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Import a Windows operating system image from a verified Microsoft ISO disk
+  Imports a Windows operating system image from a verified Microsoft ISO disk
   file.
 
   The following disk images are supported:
@@ -5959,13 +6033,11 @@ defmodule AWS.Imagebuilder do
   The semantic version has four nodes: ../.
   You can assign values for the first three, and can filter on all of them.
 
-  **Filtering:** With semantic versioning, you have the flexibility to use
-  wildcards (x)
-  to specify the most recent versions or nodes when selecting the base image or
-  components for your
-  recipe. When you use a wildcard in any node, all nodes to the right of the first
-  wildcard must also be
-  wildcards.
+  **Filtering:** You can use wildcards (x) to specify the most recent versions or
+  nodes when
+  selecting the base image or components for your recipe. When you use a wildcard
+  in any node, all nodes
+  to the right of the first wildcard must also be wildcards.
   """
   @spec list_components(map(), list_components_request(), list()) ::
           {:ok, list_components_response(), any()}
@@ -6085,8 +6157,8 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  List the Packages that are associated with an Image Build Version, as determined
-  by
+  Lists the packages that are associated with an image build version, as
+  determined by
   Amazon Web Services Systems Manager Inventory at build time.
   """
   @spec list_image_packages(map(), list_image_packages_request(), list()) ::
@@ -6356,7 +6428,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  List resources that the runtime instance of the image lifecycle identified for
+  Lists resources that the runtime instance of the image lifecycle identified for
   lifecycle actions.
   """
   @spec list_lifecycle_execution_resources(
@@ -6390,7 +6462,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Get the lifecycle runtime history for the specified resource.
+  Retrieves the lifecycle runtime history for the specified resource.
   """
   @spec list_lifecycle_executions(map(), list_lifecycle_executions_request(), list()) ::
           {:ok, list_lifecycle_executions_response(), any()}
@@ -6419,7 +6491,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Get a list of lifecycle policies in your Amazon Web Services account.
+  Retrieves a list of lifecycle policies in your Amazon Web Services account.
   """
   @spec list_lifecycle_policies(map(), list_lifecycle_policies_request(), list()) ::
           {:ok, list_lifecycle_policies_response(), any()}
@@ -6466,7 +6538,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Get a list of workflow steps that are waiting for action for workflows
+  Retrieves a list of workflow steps that are waiting for action for workflows
   in your Amazon Web Services account.
   """
   @spec list_waiting_workflow_steps(map(), list_waiting_workflow_steps_request(), list()) ::
@@ -6617,11 +6689,10 @@ defmodule AWS.Imagebuilder do
   @doc """
   Applies a policy to a component.
 
-  We recommend that you call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API
-  `PutComponentPolicy`, you must also call the RAM API
+  To share resources, call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html). If you call this API, you must also call the RAM API
   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  in order for the resource to be
+  so that the resource is
   visible to all principals with whom the resource is shared.
   """
   @spec put_component_policy(map(), put_component_policy_request(), list()) ::
@@ -6653,17 +6724,11 @@ defmodule AWS.Imagebuilder do
   @doc """
   Applies a policy to a container image.
 
-  We recommend that you call the RAM API
-  CreateResourceShare
-  (https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html)
-  to share
-  resources. If you call the Image Builder API `PutContainerImagePolicy`, you must
-  also
-  call the RAM API PromoteResourceShareCreatedFromPolicy
-  (https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-
-  in order for the resource to be visible to all principals with whom the resource
-  is
+  To share resources, call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html). If you call this API, you must also
+  call the RAM API
+  [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
+  so that the resource is visible to all principals with whom the resource is
   shared.
   """
   @spec put_container_recipe_policy(map(), put_container_recipe_policy_request(), list()) ::
@@ -6695,11 +6760,10 @@ defmodule AWS.Imagebuilder do
   @doc """
   Applies a policy to an image.
 
-  We recommend that you call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API
-  `PutImagePolicy`, you must also call the RAM API
+  To share resources, call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html). If you call this API, you must also call the RAM API
   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  in order for the resource to be
+  so that the resource is
   visible to all principals with whom the resource is shared.
   """
   @spec put_image_policy(map(), put_image_policy_request(), list()) ::
@@ -6731,11 +6795,10 @@ defmodule AWS.Imagebuilder do
   @doc """
   Applies a policy to an image recipe.
 
-  We recommend that you call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API
-  `PutImageRecipePolicy`, you must also call the RAM API
+  To share resources, call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html). If you call this API, you must also call the RAM API
   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  in order for the resource to be
+  so that the resource is
   visible to all principals with whom the resource is shared.
   """
   @spec put_image_recipe_policy(map(), put_image_recipe_policy_request(), list()) ::
@@ -6765,7 +6828,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  RetryImage retries an image distribution without rebuilding the image.
+  Retries an image distribution or test without rebuilding the image.
   """
   @spec retry_image(map(), retry_image_request(), list()) ::
           {:ok, retry_image_response(), any()}
@@ -6853,7 +6916,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Begin asynchronous resource state update for lifecycle changes to the
+  Begins an asynchronous resource state update for lifecycle changes to the
   specified image resources.
   """
   @spec start_resource_state_update(map(), start_resource_state_update_request(), list()) ::
@@ -6946,7 +7009,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Updates a new distribution configuration.
+  Updates a distribution configuration.
 
   Distribution configurations define and
   configure the outputs of your pipeline.
@@ -6984,7 +7047,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Updates an image pipeline.
 
-  Image pipelines enable you to automate the creation and
+  Use image pipelines to automate the creation and
   distribution of images. You must specify exactly one recipe for your image,
   using either
   a `containerRecipeArn` or an `imageRecipeArn`.
@@ -7021,10 +7084,10 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Updates a new infrastructure configuration.
+  Updates an infrastructure configuration.
 
   An infrastructure configuration defines
-  the environment in which your image will be built and tested.
+  the environment in which Image Builder builds and tests your image.
   """
   @spec update_infrastructure_configuration(
           map(),
@@ -7057,7 +7120,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Update the specified lifecycle policy.
+  Updates the specified lifecycle policy.
   """
   @spec update_lifecycle_policy(map(), update_lifecycle_policy_request(), list()) ::
           {:ok, update_lifecycle_policy_response(), any()}

@@ -1993,12 +1993,24 @@ defmodule AWS.Transfer do
       protocol_details() :: %{
         "As2Transports" => list(list(any())()),
         "PassiveIp" => String.t() | atom(),
+        "ProxyConfig" => proxy_config(),
         "SetStatOption" => list(any()),
         "TlsSessionResumptionMode" => list(any())
       }
       
   """
   @type protocol_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proxy_config() :: %{
+        "SftpMode" => list(any())
+      }
+      
+  """
+  @type proxy_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

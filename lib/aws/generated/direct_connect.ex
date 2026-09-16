@@ -159,6 +159,30 @@ defmodule AWS.DirectConnect do
 
   ## Example:
       
+      associate_connections_to_resiliency_group_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("connectionIdentifiers") => list(String.t() | atom()),
+        required("resiliencyGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type associate_connections_to_resiliency_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_connections_to_resiliency_group_result() :: %{
+        "resiliencyGroupAssociations" => list(resiliency_group_association())
+      }
+      
+  """
+  @type associate_connections_to_resiliency_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_hosted_connection_request() :: %{
         required("connectionId") => String.t() | atom(),
         required("parentConnectionId") => String.t() | atom()
@@ -231,6 +255,19 @@ defmodule AWS.DirectConnect do
       
   """
   @type associated_gateway() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      available_billing_mode() :: %{
+        "availablePortSpeeds" => list(String.t() | atom()),
+        "billingMode" => list(any()),
+        "includedRegions" => list(String.t() | atom())
+      }
+      
+  """
+  @type available_billing_mode() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -375,6 +412,7 @@ defmodule AWS.DirectConnect do
         "awsDeviceV2" => String.t() | atom(),
         "awsLogicalDeviceId" => String.t() | atom(),
         "bandwidth" => String.t() | atom(),
+        "billingMode" => list(any()),
         "connectionId" => String.t() | atom(),
         "connectionName" => String.t() | atom(),
         "connectionState" => list(any()),
@@ -444,6 +482,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       create_connection_request() :: %{
+        optional("billingMode") => list(any()),
         optional("lagId") => String.t() | atom(),
         optional("providerName") => String.t() | atom(),
         optional("requestMACSec") => boolean(),
@@ -557,6 +596,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       create_lag_request() :: %{
+        optional("billingMode") => list(any()),
         optional("childConnectionTags") => list(tag()),
         optional("connectionId") => String.t() | atom(),
         optional("providerName") => String.t() | atom(),
@@ -594,6 +634,31 @@ defmodule AWS.DirectConnect do
       
   """
   @type create_public_virtual_interface_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_resiliency_group_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("intendedResiliencyModel") => list(any()),
+        required("resiliencyGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type create_resiliency_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_resiliency_group_result() :: %{
+        "resiliencyGroup" => resiliency_group()
+      }
+      
+  """
+  @type create_resiliency_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -771,6 +836,28 @@ defmodule AWS.DirectConnect do
       
   """
   @type delete_lag_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resiliency_group_request() :: %{
+        required("resiliencyGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resiliency_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resiliency_group_result() :: %{
+        "resiliencyGroup" => resiliency_group()
+      }
+      
+  """
+  @type delete_resiliency_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1215,6 +1302,34 @@ defmodule AWS.DirectConnect do
 
   ## Example:
       
+      disassociate_connections_from_resiliency_group_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("connectionIdentifiers") => list(String.t() | atom()),
+        required("resiliencyGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_connections_from_resiliency_group_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_connections_from_resiliency_group_result() :: %{
+        "resiliencyGroupAssociations" => list(resiliency_group_association())
+      }
+      
+  """
+  @type disassociate_connections_from_resiliency_group_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       disassociate_mac_sec_key_request() :: %{
         required("connectionId") => String.t() | atom(),
         required("secretARN") => String.t() | atom()
@@ -1245,6 +1360,28 @@ defmodule AWS.DirectConnect do
       
   """
   @type duplicate_tag_keys_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resiliency_group_request() :: %{
+        required("resiliencyGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type get_resiliency_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resiliency_group_result() :: %{
+        "resiliencyGroup" => resiliency_group()
+      }
+      
+  """
+  @type get_resiliency_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1296,6 +1433,7 @@ defmodule AWS.DirectConnect do
         "awsDevice" => String.t() | atom(),
         "awsDeviceV2" => String.t() | atom(),
         "awsLogicalDeviceId" => String.t() | atom(),
+        "billingMode" => list(any()),
         "connections" => list(connection()),
         "connectionsBandwidth" => String.t() | atom(),
         "encryptionMode" => String.t() | atom(),
@@ -1345,6 +1483,55 @@ defmodule AWS.DirectConnect do
       
   """
   @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resiliency_group_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("resiliencyGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type list_resiliency_group_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resiliency_group_associations_result() :: %{
+        "items" => list(resiliency_group_association()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_resiliency_group_associations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resiliency_groups_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_resiliency_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resiliency_groups_result() :: %{
+        "items" => list(resiliency_group_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_resiliency_groups_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1418,6 +1605,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       location() :: %{
+        "availableBillingModes" => list(available_billing_mode()),
         "availableMacSecPortSpeeds" => list(String.t() | atom()),
         "availablePortSpeeds" => list(String.t() | atom()),
         "availableProviders" => list(String.t() | atom()),
@@ -1623,6 +1811,52 @@ defmodule AWS.DirectConnect do
 
   ## Example:
       
+      resiliency_group() :: %{
+        "ownerAccount" => String.t() | atom(),
+        "resiliencyGroupArn" => String.t() | atom(),
+        "resiliencyGroupId" => String.t() | atom(),
+        "resiliencyGroupName" => String.t() | atom(),
+        "resiliencyGroupType" => list(any()),
+        "state" => list(any()),
+        "tags" => list(tag())
+      }
+      
+  """
+  @type resiliency_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resiliency_group_association() :: %{
+        "connectionArn" => String.t() | atom(),
+        "resiliencyGroupId" => String.t() | atom(),
+        "state" => list(any())
+      }
+      
+  """
+  @type resiliency_group_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resiliency_group_summary() :: %{
+        "ownerAccount" => String.t() | atom(),
+        "resiliencyGroupArn" => String.t() | atom(),
+        "resiliencyGroupId" => String.t() | atom(),
+        "resiliencyGroupName" => String.t() | atom(),
+        "resiliencyGroupType" => list(any()),
+        "state" => list(any())
+      }
+      
+  """
+  @type resiliency_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_tag() :: %{
         "resourceArn" => String.t() | atom(),
         "tags" => list(tag())
@@ -1818,6 +2052,30 @@ defmodule AWS.DirectConnect do
 
   ## Example:
       
+      update_connections_billing_mode_request() :: %{
+        required("billingMode") => list(any()),
+        required("connectionIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type update_connections_billing_mode_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connections_billing_mode_response() :: %{
+        "billingMode" => list(any()),
+        "connections" => list(connection())
+      }
+      
+  """
+  @type update_connections_billing_mode_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_direct_connect_gateway_association_request() :: %{
         optional("addAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()),
         optional("associationId") => String.t() | atom(),
@@ -1874,6 +2132,30 @@ defmodule AWS.DirectConnect do
       
   """
   @type update_lag_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resiliency_group_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("resiliencyGroupId") => String.t() | atom(),
+        required("resiliencyGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type update_resiliency_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resiliency_group_result() :: %{
+        "resiliencyGroup" => resiliency_group()
+      }
+      
+  """
+  @type update_resiliency_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2023,6 +2305,11 @@ defmodule AWS.DirectConnect do
           | direct_connect_server_exception()
           | direct_connect_client_exception()
 
+  @type associate_connections_to_resiliency_group_errors() ::
+          limit_exceeded_exception()
+          | direct_connect_server_exception()
+          | direct_connect_client_exception()
+
   @type associate_hosted_connection_errors() ::
           direct_connect_server_exception() | direct_connect_client_exception()
 
@@ -2091,6 +2378,13 @@ defmodule AWS.DirectConnect do
           | direct_connect_server_exception()
           | direct_connect_client_exception()
 
+  @type create_resiliency_group_errors() ::
+          too_many_tags_exception()
+          | limit_exceeded_exception()
+          | duplicate_tag_keys_exception()
+          | direct_connect_server_exception()
+          | direct_connect_client_exception()
+
   @type create_transit_virtual_interface_errors() ::
           too_many_tags_exception()
           | limit_exceeded_exception()
@@ -2117,6 +2411,9 @@ defmodule AWS.DirectConnect do
           direct_connect_server_exception() | direct_connect_client_exception()
 
   @type delete_lag_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type delete_resiliency_group_errors() ::
           direct_connect_server_exception() | direct_connect_client_exception()
 
   @type delete_virtual_interface_errors() ::
@@ -2179,7 +2476,19 @@ defmodule AWS.DirectConnect do
   @type disassociate_connection_from_lag_errors() ::
           direct_connect_server_exception() | direct_connect_client_exception()
 
+  @type disassociate_connections_from_resiliency_group_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
   @type disassociate_mac_sec_key_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type get_resiliency_group_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type list_resiliency_group_associations_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type list_resiliency_groups_errors() ::
           direct_connect_server_exception() | direct_connect_client_exception()
 
   @type list_virtual_interface_routes_errors() ::
@@ -2206,6 +2515,9 @@ defmodule AWS.DirectConnect do
   @type update_connection_errors() ::
           direct_connect_server_exception() | direct_connect_client_exception()
 
+  @type update_connections_billing_mode_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
   @type update_direct_connect_gateway_errors() ::
           direct_connect_server_exception() | direct_connect_client_exception()
 
@@ -2213,6 +2525,9 @@ defmodule AWS.DirectConnect do
           direct_connect_server_exception() | direct_connect_client_exception()
 
   @type update_lag_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type update_resiliency_group_errors() ::
           direct_connect_server_exception() | direct_connect_client_exception()
 
   @type update_virtual_interface_attributes_errors() ::
@@ -2439,6 +2754,30 @@ defmodule AWS.DirectConnect do
       metadata()
 
     Request.request_post(client, meta, "AssociateConnectionWithLag", input, options)
+  end
+
+  @doc """
+  Associates one or more connections with the specified resiliency group.
+
+  This operation is
+  atomic: either all of the specified connections are associated, or the operation
+  fails and no
+  changes are made.
+  """
+  @spec associate_connections_to_resiliency_group(
+          map(),
+          associate_connections_to_resiliency_group_request(),
+          list()
+        ) ::
+          {:ok, associate_connections_to_resiliency_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_connections_to_resiliency_group_errors()}
+  def associate_connections_to_resiliency_group(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AssociateConnectionsToResiliencyGroup", input, options)
   end
 
   @doc """
@@ -2940,6 +3279,24 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+  Creates a resiliency group.
+
+  A resiliency group lets you group Direct Connect connections together
+  and manage them as a single unit to meet a target resiliency model.
+  """
+  @spec create_resiliency_group(map(), create_resiliency_group_request(), list()) ::
+          {:ok, create_resiliency_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_resiliency_group_errors()}
+  def create_resiliency_group(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateResiliencyGroup", input, options)
+  end
+
+  @doc """
   Creates a transit virtual interface.
 
   A transit virtual interface should be used to access one or more transit
@@ -3125,6 +3482,27 @@ defmodule AWS.DirectConnect do
       metadata()
 
     Request.request_post(client, meta, "DeleteLag", input, options)
+  end
+
+  @doc """
+  Deletes the specified resiliency group.
+
+  Deletion is asynchronous: the resiliency group
+  transitions through the `deleting` state before it reaches the
+  `deleted` state. The response returns the resiliency group so you can observe
+  its
+  current state without a subsequent `GetResiliencyGroup` call.
+  """
+  @spec delete_resiliency_group(map(), delete_resiliency_group_request(), list()) ::
+          {:ok, delete_resiliency_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resiliency_group_errors()}
+  def delete_resiliency_group(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteResiliencyGroup", input, options)
   end
 
   @doc """
@@ -3612,6 +3990,36 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+  Disassociates one or more connections from the specified resiliency group.
+
+  This operation
+  is atomic: either all of the specified connections are disassociated, or the
+  operation fails
+  and no changes are made.
+  """
+  @spec disassociate_connections_from_resiliency_group(
+          map(),
+          disassociate_connections_from_resiliency_group_request(),
+          list()
+        ) ::
+          {:ok, disassociate_connections_from_resiliency_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_connections_from_resiliency_group_errors()}
+  def disassociate_connections_from_resiliency_group(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DisassociateConnectionsFromResiliencyGroup",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Removes the association between a MAC Security (MACsec) security key and a
   Direct Connect connection.
   """
@@ -3625,6 +4033,57 @@ defmodule AWS.DirectConnect do
       metadata()
 
     Request.request_post(client, meta, "DisassociateMacSecKey", input, options)
+  end
+
+  @doc """
+  Gets information about the specified resiliency group.
+  """
+  @spec get_resiliency_group(map(), get_resiliency_group_request(), list()) ::
+          {:ok, get_resiliency_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resiliency_group_errors()}
+  def get_resiliency_group(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetResiliencyGroup", input, options)
+  end
+
+  @doc """
+  Lists the connection associations for the specified resiliency group.
+  """
+  @spec list_resiliency_group_associations(
+          map(),
+          list_resiliency_group_associations_request(),
+          list()
+        ) ::
+          {:ok, list_resiliency_group_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_resiliency_group_associations_errors()}
+  def list_resiliency_group_associations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListResiliencyGroupAssociations", input, options)
+  end
+
+  @doc """
+  Lists the resiliency groups owned by your Amazon Web Services account in the
+  current
+  Amazon Web Services Region.
+  """
+  @spec list_resiliency_groups(map(), list_resiliency_groups_request(), list()) ::
+          {:ok, list_resiliency_groups_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_resiliency_groups_errors()}
+  def list_resiliency_groups(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListResiliencyGroups", input, options)
   end
 
   @doc """
@@ -3774,6 +4233,24 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+  Updates the billing mode for the specified Direct Connect connections.
+
+  You can update the billing
+  mode for up to 200 connections in a single request.
+  """
+  @spec update_connections_billing_mode(map(), update_connections_billing_mode_request(), list()) ::
+          {:ok, update_connections_billing_mode_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_connections_billing_mode_errors()}
+  def update_connections_billing_mode(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateConnectionsBillingMode", input, options)
+  end
+
+  @doc """
   Updates the name of a current Direct Connect gateway.
   """
   @spec update_direct_connect_gateway(map(), update_direct_connect_gateway_request(), list()) ::
@@ -3845,6 +4322,21 @@ defmodule AWS.DirectConnect do
       metadata()
 
     Request.request_post(client, meta, "UpdateLag", input, options)
+  end
+
+  @doc """
+  Updates the name of the specified resiliency group.
+  """
+  @spec update_resiliency_group(map(), update_resiliency_group_request(), list()) ::
+          {:ok, update_resiliency_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_resiliency_group_errors()}
+  def update_resiliency_group(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateResiliencyGroup", input, options)
   end
 
   @doc """

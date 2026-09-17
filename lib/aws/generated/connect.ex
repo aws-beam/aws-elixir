@@ -1795,6 +1795,22 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      contact_analysis_reference() :: %{
+        "AnalyticsMode" => list(any()),
+        "Arn" => String.t() | atom(),
+        "IsRedacted" => boolean(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type contact_analysis_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_configuration() :: %{
         "ContactId" => String.t() | atom(),
         "IncludeRawMessage" => boolean(),

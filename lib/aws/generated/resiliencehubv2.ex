@@ -234,6 +234,7 @@ defmodule AWS.Resiliencehubv2 do
         optional("kmsKeyId") => String.t() | atom(),
         optional("multiAz") => multi_az_targets(),
         optional("multiRegion") => multi_region_targets(),
+        optional("sharingEnabled") => [boolean()],
         optional("tags") => map(),
         required("name") => String.t() | atom()
       }
@@ -711,6 +712,18 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
+      dependency_insight() :: %{
+        "category" => list(any()),
+        "description" => [String.t() | atom()]
+      }
+
+  """
+  @type dependency_insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dependency_summary() :: %{
         "comment" => [String.t() | atom()],
         "criticality" => list(any()),
@@ -889,6 +902,33 @@ defmodule AWS.Resiliencehubv2 do
 
   """
   @type finding_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dependency_insights_request() :: %{
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type get_dependency_insights_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dependency_insights_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "errorCode" => list(any()),
+        "errorMessage" => [String.t() | atom()],
+        "insights" => list(dependency_insight()),
+        "overview" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type get_dependency_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1321,6 +1361,7 @@ defmodule AWS.Resiliencehubv2 do
   ## Example:
 
       list_policies_request() :: %{
+        optional("accountId") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
@@ -1339,6 +1380,34 @@ defmodule AWS.Resiliencehubv2 do
 
   """
   @type list_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_events_request() :: %{
+        optional("endTime") => [non_neg_integer()],
+        optional("eventTypes") => list(list(any())()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("startTime") => [non_neg_integer()],
+        required("policyArn") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_events_response() :: %{
+        "events" => list(policy_event()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_policy_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1931,13 +2000,90 @@ defmodule AWS.Resiliencehubv2 do
         "multiAz" => multi_az_targets(),
         "multiRegion" => multi_region_targets(),
         "name" => String.t() | atom(),
+        "organizationId" => String.t() | atom(),
         "policyArn" => String.t() | atom(),
+        "sharingEnabled" => [boolean()],
         "tags" => map(),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
   @type policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_attached_to_service_metadata() :: %{
+        "accountId" => String.t() | atom(),
+        "serviceArn" => String.t() | atom()
+      }
+
+  """
+  @type policy_attached_to_service_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_deleted_metadata() :: %{
+        "affectedServiceCount" => [integer()]
+      }
+
+  """
+  @type policy_deleted_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_detached_from_service_metadata() :: %{
+        "accountId" => String.t() | atom(),
+        "serviceArn" => String.t() | atom()
+      }
+
+  """
+  @type policy_detached_from_service_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_event() :: %{
+        "actor" => event_actor(),
+        "eventDetails" => policy_event_details(),
+        "eventId" => String.t() | atom(),
+        "eventType" => list(any()),
+        "policyArn" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type policy_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_event_details() :: %{
+        "description" => [String.t() | atom()],
+        "eventMetadata" => list(),
+        "title" => [String.t() | atom()]
+      }
+
+  """
+  @type policy_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_sharing_revoked_metadata() :: %{
+        "affectedServiceCount" => [integer()]
+      }
+
+  """
+  @type policy_sharing_revoked_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1951,7 +2097,9 @@ defmodule AWS.Resiliencehubv2 do
         "multiAz" => multi_az_targets(),
         "multiRegion" => multi_region_targets(),
         "name" => String.t() | atom(),
+        "organizationId" => String.t() | atom(),
         "policyArn" => String.t() | atom(),
+        "sharingEnabled" => [boolean()],
         "updatedAt" => [non_neg_integer()]
       }
 
@@ -2306,7 +2454,9 @@ defmodule AWS.Resiliencehubv2 do
 
       service_policy_associated_metadata() :: %{
         "policyArn" => String.t() | atom(),
-        "policyName" => [String.t() | atom()]
+        "policyName" => [String.t() | atom()],
+        "policyOwnerAccountId" => [String.t() | atom()],
+        "policySource" => list(any())
       }
 
   """
@@ -2318,7 +2468,10 @@ defmodule AWS.Resiliencehubv2 do
 
       service_policy_disassociated_metadata() :: %{
         "policyArn" => String.t() | atom(),
-        "policyName" => [String.t() | atom()]
+        "policyName" => [String.t() | atom()],
+        "policyOwnerAccountId" => [String.t() | atom()],
+        "policySource" => list(any()),
+        "reason" => list(any())
       }
 
   """
@@ -2498,6 +2651,29 @@ defmodule AWS.Resiliencehubv2 do
 
   """
   @type slo_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_dependency_insights_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+
+  """
+  @type start_dependency_insights_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_dependency_insights_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type start_dependency_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3225,6 +3401,7 @@ defmodule AWS.Resiliencehubv2 do
         optional("description") => String.t() | atom(),
         optional("multiAz") => multi_az_targets(),
         optional("multiRegion") => multi_region_targets(),
+        optional("sharingEnabled") => [boolean()],
         required("policyArn") => String.t() | atom()
       }
 
@@ -3587,6 +3764,13 @@ defmodule AWS.Resiliencehubv2 do
           | conflict_exception()
           | access_denied_exception()
 
+  @type get_dependency_insights_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_failure_mode_finding_errors() ::
           validation_exception()
           | resource_not_found_exception()
@@ -3681,6 +3865,12 @@ defmodule AWS.Resiliencehubv2 do
 
   @type list_policies_errors() ::
           validation_exception() | internal_server_exception() | access_denied_exception()
+
+  @type list_policy_events_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_reports_errors() ::
           validation_exception()
@@ -3789,6 +3979,14 @@ defmodule AWS.Resiliencehubv2 do
   @type put_test_sources_errors() ::
           validation_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type start_dependency_insights_errors() ::
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -4507,6 +4705,37 @@ defmodule AWS.Resiliencehubv2 do
   end
 
   @doc """
+  Retrieves the dependency insights generated for a service.
+
+  The response reports the current generation status; insights are populated once
+  generation has completed. If generation failed, the response includes an error
+  code, whose possible values are listed under the response's errorCode field, and
+  a message describing the cause. To use this operation, you must have the
+  `resiliencehub:GetDependencyInsights` permission on the service.
+  """
+  @spec get_dependency_insights(map(), String.t() | atom(), list()) ::
+          {:ok, get_dependency_insights_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_dependency_insights_errors()}
+  def get_dependency_insights(%Client{} = client, service_arn, options \\ []) do
+    url_path = "/v2/get-dependency-insights"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(service_arn) do
+        [{"serviceArn", service_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a finding by findingId.
   """
   @spec get_failure_mode_finding(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -5170,15 +5399,34 @@ defmodule AWS.Resiliencehubv2 do
   @doc """
   Lists resilience policies.
   """
-  @spec list_policies(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+  @spec list_policies(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_policies_errors()}
-  def list_policies(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_policies(
+        %Client{} = client,
+        account_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/v2/list-policies"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(account_id) do
+        [{"accountId", account_id} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(max_results) do
@@ -5190,6 +5438,85 @@ defmodule AWS.Resiliencehubv2 do
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists events for a resilience policy, including services that started or stopped
+  using it, changes to cross-account sharing, and deletion of the policy.
+  """
+  @spec list_policy_events(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_policy_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_policy_events_errors()}
+  def list_policy_events(
+        %Client{} = client,
+        end_time \\ nil,
+        event_types \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        policy_arn,
+        start_time \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/list-policy-events"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(event_types) do
+        [{"eventTypes", event_types} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(policy_arn) do
+        [{"policyArn", policy_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
       else
         query_params
       end
@@ -6361,6 +6688,39 @@ defmodule AWS.Resiliencehubv2 do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Starts generating dependency insights for a service.
+
+  Generation runs asynchronously; the response returns the initial status, and you
+  retrieve the results with GetDependencyInsights. To use this operation, you must
+  have the `resiliencehub:StartDependencyInsights` permission on the service.
+  """
+  @spec start_dependency_insights(map(), start_dependency_insights_request(), list()) ::
+          {:ok, start_dependency_insights_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_dependency_insights_errors()}
+  def start_dependency_insights(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/start-dependency-insights"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

@@ -1475,6 +1475,7 @@ defmodule AWS.MarketplaceCatalog do
         "AvailabilityEndDate" => resale_authorization_availability_end_date_filter(),
         "CreatedDate" => resale_authorization_created_date_filter(),
         "EntityId" => resale_authorization_entity_id_filter(),
+        "IssuerAccountId" => resale_authorization_issuer_account_id_filter(),
         "LastModifiedDate" => resale_authorization_last_modified_date_filter(),
         "ManufacturerAccountId" => resale_authorization_manufacturer_account_id_filter(),
         "ManufacturerLegalName" => resale_authorization_manufacturer_legal_name_filter(),
@@ -1485,11 +1486,23 @@ defmodule AWS.MarketplaceCatalog do
         "ResellerAccountID" => resale_authorization_reseller_account_id_filter(),
         "ResellerLegalName" => resale_authorization_reseller_legal_name_filter(),
         "ResellerRole" => resale_authorization_reseller_role_filter(),
+        "SourceAuthorization" => resale_authorization_source_authorization_filter(),
         "Status" => resale_authorization_status_filter()
       }
 
   """
   @type resale_authorization_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resale_authorization_issuer_account_id_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type resale_authorization_issuer_account_id_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1638,6 +1651,17 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      resale_authorization_source_authorization_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type resale_authorization_source_authorization_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resale_authorization_status_filter() :: %{
         "ValueList" => list(list(any())())
       }
@@ -1652,6 +1676,7 @@ defmodule AWS.MarketplaceCatalog do
       resale_authorization_summary() :: %{
         "AvailabilityEndDate" => String.t() | atom(),
         "CreatedDate" => String.t() | atom(),
+        "IssuerAccountId" => String.t() | atom(),
         "ManufacturerAccountId" => String.t() | atom(),
         "ManufacturerLegalName" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -1661,6 +1686,7 @@ defmodule AWS.MarketplaceCatalog do
         "ResellerAccountID" => String.t() | atom(),
         "ResellerLegalName" => String.t() | atom(),
         "ResellerRole" => list(any()),
+        "SourceAuthorization" => String.t() | atom(),
         "Status" => list(any())
       }
 

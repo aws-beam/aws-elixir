@@ -4082,6 +4082,30 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      recommendation_metadata() :: %{
+        "Columns" => list(String.t() | atom())
+      }
+
+  """
+  @type recommendation_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommender() :: %{
+        "Filters" => list(recommender_filter()),
+        "Name" => String.t() | atom(),
+        "PromotionalFilters" => list(recommender_promotional_filter())
+      }
+
+  """
+  @type recommender() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       recommender_config() :: %{
         "DiversityConfig" => diversity_config(),
         "EventsConfig" => events_config(),
@@ -4390,6 +4414,36 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type search_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_recommendations_request() :: %{
+        optional("CandidateIds") => list(String.t() | atom()),
+        optional("Context") => map(),
+        optional("Diversity") => recommendation_diversity_config(),
+        optional("MaxRecommendations") => integer(),
+        optional("Metadata") => recommendation_metadata(),
+        required("KeyName") => String.t() | atom(),
+        required("KeyValues") => list(String.t() | atom()),
+        required("Recommender") => recommender()
+      }
+
+  """
+  @type search_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_recommendations_response() :: %{
+        "ProfileId" => String.t() | atom(),
+        "Recommendations" => list(recommendation())
+      }
+
+  """
+  @type search_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5715,6 +5769,13 @@ defmodule AWS.CustomerProfiles do
           | access_denied_exception()
 
   @type search_profiles_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
+  @type search_recommendations_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -9804,6 +9865,52 @@ defmodule AWS.CustomerProfiles do
         {"NextToken", "next-token"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves recommendations for a profile in a specific domain.
+
+  The profile is identified
+  using a search key, which consists of a `KeyName` and a `KeyValues` list.
+  The `KeyName` can be a predefined key (for example, `_profileId`,
+  `_phone`, `_email`) or a custom-defined key.
+
+  The search key must match exactly one profile. If no profile matches the search
+  key, the
+  operation returns a `ResourceNotFoundException`. If more than one profile
+  matches
+  the search key, the operation returns a `BadRequestException`. You can use the
+  SearchProfiles API to review the matching profiles.
+  """
+  @spec search_recommendations(
+          map(),
+          String.t() | atom(),
+          search_recommendations_request(),
+          list()
+        ) ::
+          {:ok, search_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_recommendations_errors()}
+  def search_recommendations(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/recommendations"
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 

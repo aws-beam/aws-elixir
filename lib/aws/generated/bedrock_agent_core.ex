@@ -379,6 +379,7 @@ defmodule AWS.BedrockAgentCore do
 
       cloud_watch_filter_config() :: %{
         "sessionIds" => list([String.t() | atom()]()),
+        "sessionTraceIds" => list(session_trace_ids()),
         "timeRange" => session_filter_config()
       }
 
@@ -3833,6 +3834,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_trace_ids() :: %{
+        "sessionId" => [String.t() | atom()],
+        "traceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type session_trace_ids() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

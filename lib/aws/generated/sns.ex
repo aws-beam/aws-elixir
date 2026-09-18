@@ -2046,6 +2046,12 @@ defmodule AWS.SNS do
   end
 
   @doc """
+
+  Amazon SNS message data protection is no longer available to new customers.
+
+  For more information and guidance on alternatives, see
+  [Amazon SNS message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html).
+
   Retrieves the specified inline `DataProtectionPolicy` document that is
   stored in the specified Amazon SNS topic.
   """
@@ -2484,11 +2490,20 @@ defmodule AWS.SNS do
   status
   code of 200.
 
-  The maximum allowed individual message size and the maximum total payload size
-  (the sum
-  of the individual lengths of all of the batched messages) are both 256 KB
-  (262,144
-  bytes).
+  By default, the maximum allowed individual message size and the maximum total
+  payload
+  size (the sum of the individual lengths of all of the batched messages) are both
+  256 KiB
+  (262,144 bytes). To publish larger batches, set the topic's
+  `MaximumMessageSize` attribute, which supports values up to 1 MiB
+  (1,048,576 bytes). The combined size of all messages in the batch, including
+  each
+  message's body and attributes, must not exceed the topic's
+  `MaximumMessageSize`.
+
+  For more information, see [Large message payloads](https://docs.aws.amazon.com/sns/latest/dg/large-message-payloads.html)
+  in
+  the *Amazon SNS Developer Guide.*
 
   The `PublishBatch` API can send up to 10 messages at a time. If you
   attempt to send more than 10 messages in one request, you will encounter a
@@ -2526,6 +2541,12 @@ defmodule AWS.SNS do
   end
 
   @doc """
+
+  Amazon SNS message data protection is no longer available to new customers.
+
+  For more information and guidance on alternatives, see
+  [Amazon SNS message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html).
+
   Adds or updates an inline policy document that is stored in the specified Amazon
   SNS
   topic.

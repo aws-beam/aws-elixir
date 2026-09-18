@@ -499,6 +499,19 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      bedrock_guardrail_resource() :: %{
+        "GuardrailAction" => list(any()),
+        "GuardrailSource" => list(any()),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type bedrock_guardrail_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       block_public_access() :: %{
         "BlockPublicAcls" => boolean(),
         "BlockPublicPolicy" => boolean(),
@@ -4738,6 +4751,7 @@ defmodule AWS.GuardDuty do
       resource_data() :: %{
         "AccessKey" => access_key(),
         "AutoscalingAutoScalingGroup" => autoscaling_auto_scaling_group(),
+        "BedrockGuardrail" => bedrock_guardrail_resource(),
         "CloudformationStack" => cloudformation_stack(),
         "Container" => container_finding_resource(),
         "Ec2Image" => ec2_image(),

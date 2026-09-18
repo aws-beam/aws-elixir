@@ -109,6 +109,17 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_whats_app_dataset_input() :: %{
         required("id") => String.t() | atom()
       }
@@ -392,6 +403,7 @@ defmodule AWS.SocialMessaging do
   ## Example:
 
       get_linked_whats_app_business_account_phone_number_output() :: %{
+        "callSettings" => whats_app_call_settings(),
         "linkedWhatsAppBusinessAccountId" => String.t() | atom(),
         "phoneNumber" => whats_app_phone_number_detail()
       }
@@ -423,6 +435,31 @@ defmodule AWS.SocialMessaging do
 
   """
   @type get_whats_app_business_public_key_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_call_permission_input() :: %{
+        optional("destinationPhoneNumber") => String.t() | atom(),
+        optional("endUserBsuid") => String.t() | atom(),
+        required("originationPhoneNumberId") => String.t() | atom()
+      }
+
+  """
+  @type get_whats_app_call_permission_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_call_permission_output() :: %{
+        "actions" => list(whats_app_call_permission_action()),
+        "permission" => whats_app_call_permission()
+      }
+
+  """
+  @type get_whats_app_call_permission_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1077,6 +1114,30 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      send_whats_app_call_event_input() :: %{
+        required("callEvent") => binary(),
+        required("metaApiVersion") => [String.t() | atom()],
+        required("originationPhoneNumberId") => String.t() | atom()
+      }
+
+  """
+  @type send_whats_app_call_event_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_whats_app_call_event_output() :: %{
+        "callId" => [String.t() | atom()]
+      }
+
+  """
+  @type send_whats_app_call_event_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       send_whats_app_conversion_event_input() :: %{
         required("datasetId") => String.t() | atom(),
         required("eventData") => binary(),
@@ -1210,6 +1271,33 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      update_linked_whats_app_business_account_phone_number_input() :: %{
+        required("callSettings") => whats_app_call_settings(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type update_linked_whats_app_business_account_phone_number_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_linked_whats_app_business_account_phone_number_output() :: %{
+        "phoneNumberId" => String.t() | atom()
+      }
+
+  """
+  @type update_linked_whats_app_business_account_phone_number_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       update_whats_app_flow_assets_input() :: %{
         required("flowId") => String.t() | atom(),
         required("flowJson") => binary(),
@@ -1336,6 +1424,86 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      whats_app_call_hours() :: %{
+        "enabled" => [boolean()],
+        "holidaySchedule" => list(whats_app_holiday_schedule_entry()),
+        "timezone" => String.t() | atom(),
+        "weeklyOperatingHours" => list(whats_app_weekly_operating_hours_entry())
+      }
+
+  """
+  @type whats_app_call_hours() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_call_permission() :: %{
+        "expirationTime" => [non_neg_integer()],
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type whats_app_call_permission() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_call_permission_action() :: %{
+        "actionName" => String.t() | atom(),
+        "canPerformAction" => [boolean()],
+        "limits" => list(whats_app_call_permission_limit())
+      }
+
+  """
+  @type whats_app_call_permission_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_call_permission_limit() :: %{
+        "currentUsage" => [integer()],
+        "limitExpirationTime" => [non_neg_integer()],
+        "maxAllowed" => [integer()],
+        "timePeriod" => String.t() | atom()
+      }
+
+  """
+  @type whats_app_call_permission_limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_call_settings() :: %{
+        "callEnabled" => [boolean()],
+        "callHours" => whats_app_call_hours(),
+        "callIconVisibility" => String.t() | atom(),
+        "callbackPermissionStatus" => String.t() | atom()
+      }
+
+  """
+  @type whats_app_call_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_holiday_schedule_entry() :: %{
+        "date" => String.t() | atom(),
+        "endTime" => whats_app_time_of_day(),
+        "startTime" => whats_app_time_of_day()
+      }
+
+  """
+  @type whats_app_holiday_schedule_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       whats_app_phone_number_detail() :: %{
         "arn" => String.t() | atom(),
         "dataLocalizationRegion" => String.t() | atom(),
@@ -1405,6 +1573,31 @@ defmodule AWS.SocialMessaging do
 
   """
   @type whats_app_signup_callback_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_time_of_day() :: %{
+        "hours" => [integer()],
+        "minutes" => [integer()]
+      }
+
+  """
+  @type whats_app_time_of_day() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_weekly_operating_hours_entry() :: %{
+        "closeTime" => whats_app_time_of_day(),
+        "dayOfWeek" => list(any()),
+        "openTime" => whats_app_time_of_day()
+      }
+
+  """
+  @type whats_app_weekly_operating_hours_entry() :: %{(String.t() | atom()) => any()}
 
   @type associate_whats_app_business_account_errors() ::
           throttled_request_exception()
@@ -1513,6 +1706,14 @@ defmodule AWS.SocialMessaging do
           | access_denied_exception()
           | access_denied_by_meta_exception()
 
+  @type get_whats_app_call_permission_errors() ::
+          throttled_request_exception()
+          | resource_not_found_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+          | dependency_exception()
+          | access_denied_by_meta_exception()
+
   @type get_whats_app_flow_errors() ::
           throttled_request_exception()
           | resource_not_found_exception()
@@ -1618,6 +1819,15 @@ defmodule AWS.SocialMessaging do
           | access_denied_exception()
           | access_denied_by_meta_exception()
 
+  @type send_whats_app_call_event_errors() ::
+          throttled_request_exception()
+          | resource_not_found_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+          | dependency_exception()
+          | conflict_exception()
+          | access_denied_by_meta_exception()
+
   @type send_whats_app_conversion_event_errors() ::
           throttled_request_exception()
           | resource_not_found_exception()
@@ -1642,6 +1852,14 @@ defmodule AWS.SocialMessaging do
           throttled_request_exception()
           | invalid_parameters_exception()
           | internal_service_exception()
+
+  @type update_linked_whats_app_business_account_phone_number_errors() ::
+          throttled_request_exception()
+          | resource_not_found_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+          | dependency_exception()
+          | access_denied_by_meta_exception()
 
   @type update_whats_app_flow_errors() ::
           throttled_request_exception()
@@ -2150,6 +2368,39 @@ defmodule AWS.SocialMessaging do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the current calling permission for a WhatsApp end user, along with the
+  calling actions the business is allowed to take with that user.
+
+  Provide the destination phone number or the business-scoped user ID to identify
+  the end user.
+  """
+  @spec get_whats_app_call_permission(map(), get_whats_app_call_permission_input(), list()) ::
+          {:ok, get_whats_app_call_permission_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_whats_app_call_permission_errors()}
+  def get_whats_app_call_permission(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/call/permission/get"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2743,6 +2994,40 @@ defmodule AWS.SocialMessaging do
   end
 
   @doc """
+  Sends a WhatsApp calling event, such as connecting or terminating a call, for a
+  business phone number.
+
+  This operation passes the event through to Meta. To use this operation, the
+  origination phone number must belong to a WhatsApp Business Account that is
+  linked to your Amazon Web Services account.
+  """
+  @spec send_whats_app_call_event(map(), send_whats_app_call_event_input(), list()) ::
+          {:ok, send_whats_app_call_event_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_whats_app_call_event_errors()}
+  def send_whats_app_call_event(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/call/event"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Sends a conversion event to Meta's Conversions API for the specified WhatsApp
   Business Account dataset.
   """
@@ -2860,6 +3145,50 @@ defmodule AWS.SocialMessaging do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the calling settings for a linked WhatsApp business phone number, such
+  as whether calling is enabled and the hours during which the business accepts
+  calls.
+  """
+  @spec update_linked_whats_app_business_account_phone_number(
+          map(),
+          update_linked_whats_app_business_account_phone_number_input(),
+          list()
+        ) ::
+          {:ok, update_linked_whats_app_business_account_phone_number_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_linked_whats_app_business_account_phone_number_errors()}
+  def update_linked_whats_app_business_account_phone_number(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v1/whatsapp/waba/phone"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"id", "id"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

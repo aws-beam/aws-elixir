@@ -2801,7 +2801,8 @@ defmodule AWS.SESv2 do
         "Isp" => list(String.t() | atom()),
         "LastDeliveryEvent" => list(list(any())()),
         "LastEngagementEvent" => list(list(any())()),
-        "Subject" => list(String.t() | atom())
+        "Subject" => list(String.t() | atom()),
+        "TenantName" => list(String.t() | atom())
       }
 
   """

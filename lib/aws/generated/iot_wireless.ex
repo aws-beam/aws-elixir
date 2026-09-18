@@ -1552,6 +1552,7 @@ defmodule AWS.IoTWireless do
         optional("AdvancedConfiguration") => advanced_configuration(),
         optional("CellTowers") => cell_towers(),
         optional("Gnss") => gnss(),
+        optional("GnssMultiFrame") => gnss_multi_frame(),
         optional("Ip") => ip(),
         optional("Timestamp") => non_neg_integer(),
         optional("WiFiAccessPoints") => list(wi_fi_access_point())
@@ -1967,6 +1968,33 @@ defmodule AWS.IoTWireless do
 
   """
   @type gnss() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gnss_capture() :: %{
+        "CaptureTime" => float(),
+        "Payload" => String.t() | atom()
+      }
+
+  """
+  @type gnss_capture() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gnss_multi_frame() :: %{
+        "AssistAltitude" => float(),
+        "AssistPosition" => list(float()),
+        "CaptureTimeAccuracy" => float(),
+        "Captures" => list(gnss_capture()),
+        "Use2DSolver" => boolean()
+      }
+
+  """
+  @type gnss_multi_frame() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

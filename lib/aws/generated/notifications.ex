@@ -102,6 +102,7 @@ defmodule AWS.Notifications do
   ## Example:
 
       associate_managed_notification_account_contact_request() :: %{
+        optional("isSensitiveEventsSubscribed") => [boolean()],
         required("managedNotificationConfigurationArn") => String.t() | atom()
       }
 
@@ -124,6 +125,7 @@ defmodule AWS.Notifications do
   ## Example:
 
       associate_managed_notification_additional_channel_request() :: %{
+        optional("isSensitiveEventsSubscribed") => [boolean()],
         required("managedNotificationConfigurationArn") => String.t() | atom()
       }
 
@@ -770,6 +772,7 @@ defmodule AWS.Notifications do
 
       list_managed_notification_events_request() :: %{
         optional("endTime") => [non_neg_integer()],
+        optional("includeSensitiveEvents") => [boolean()],
         optional("locale") => String.t() | atom(),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom(),
@@ -956,7 +959,8 @@ defmodule AWS.Notifications do
 
       managed_notification_channel_association_summary() :: %{
         "channelIdentifier" => [String.t() | atom()],
-        "channelType" => String.t() | atom(),
+        "channelType" => list(any()),
+        "isSensitiveEventsSubscribed" => [boolean()],
         "overrideOption" => String.t() | atom()
       }
 
@@ -1039,6 +1043,7 @@ defmodule AWS.Notifications do
       managed_notification_event() :: %{
         "aggregationEventType" => String.t() | atom(),
         "aggregationSummary" => aggregation_summary(),
+        "attachments" => list(notification_event_attachment()),
         "endTime" => [non_neg_integer()],
         "eventStatus" => String.t() | atom(),
         "id" => String.t() | atom(),
@@ -1139,6 +1144,7 @@ defmodule AWS.Notifications do
         "completeDescription" => String.t() | atom(),
         "dimensions" => list(dimension()),
         "headline" => String.t() | atom(),
+        "markupDescription" => String.t() | atom(),
         "paragraphSummary" => String.t() | atom()
       }
 
@@ -1172,6 +1178,19 @@ defmodule AWS.Notifications do
 
   """
   @type notification_configuration_structure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_event_attachment() :: %{
+        "attachmentDownloadUrl" => String.t() | atom(),
+        "contentType" => String.t() | atom(),
+        "displayName" => String.t() | atom()
+      }
+
+  """
+  @type notification_event_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1484,6 +1503,30 @@ defmodule AWS.Notifications do
 
   """
   @type update_event_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_managed_notification_channel_association_request() :: %{
+        optional("isSensitiveEventsSubscribed") => [boolean()],
+        required("channelIdentifier") => String.t() | atom(),
+        required("managedNotificationConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type update_managed_notification_channel_association_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_managed_notification_channel_association_response() :: %{}
+
+  """
+  @type update_managed_notification_channel_association_response() :: %{}
 
   @typedoc """
 
@@ -1814,6 +1857,14 @@ defmodule AWS.Notifications do
           | conflict_exception()
           | access_denied_exception()
 
+  @type update_managed_notification_channel_association_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_notification_configuration_errors() ::
           validation_exception()
           | throttling_exception()
@@ -2124,12 +2175,12 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Deregisters a `NotificationConfiguration` in the specified Region.
+  Deregisters a `NotificationHub` in the specified Region.
 
   You can't deregister the last `NotificationHub` in the account.
-  `NotificationEvents` stored in the deregistered `NotificationConfiguration` are
-  no longer be visible. Recreating a new `NotificationConfiguration` in the same
-  Region restores access to those `NotificationEvents`.
+  `NotificationEvents` stored in the deregistered `NotificationHub` are no longer
+  visible. Recreating a new `NotificationHub` in the same Region restores access
+  to those `NotificationEvents`.
   """
   @spec deregister_notification_hub(
           map(),
@@ -2876,6 +2927,7 @@ defmodule AWS.Notifications do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_managed_notification_events_response(), any()}
@@ -2885,6 +2937,7 @@ defmodule AWS.Notifications do
   def list_managed_notification_events(
         %Client{} = client,
         end_time \\ nil,
+        include_sensitive_events \\ nil,
         locale \\ nil,
         max_results \\ nil,
         next_token \\ nil,
@@ -2901,6 +2954,13 @@ defmodule AWS.Notifications do
     query_params =
       if !is_nil(end_time) do
         [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_sensitive_events) do
+        [{"includeSensitiveEvents", include_sensitive_events} | query_params]
       else
         query_params
       end
@@ -3349,10 +3409,10 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Registers a `NotificationConfiguration` in the specified Region.
+  Registers a `NotificationHub` in the specified Region.
 
-  There is a maximum of one `NotificationConfiguration` per Region. You can have a
-  maximum of 3 `NotificationHub` resources at a time.
+  There is a maximum of one `NotificationHub` per Region. You can have a maximum
+  of 3 `NotificationHub` resources at a time.
   """
   @spec register_notification_hub(map(), register_notification_hub_request(), list()) ::
           {:ok, register_notification_hub_response(), any()}
@@ -3461,6 +3521,40 @@ defmodule AWS.Notifications do
           | {:error, update_event_rule_errors()}
   def update_event_rule(%Client{} = client, arn, input, options \\ []) do
     url_path = "/event-rules/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the `isSensitiveEventsSubscribed` property of a particular
+  ManagedNotification channel association.
+  """
+  @spec update_managed_notification_channel_association(
+          map(),
+          update_managed_notification_channel_association_request(),
+          list()
+        ) ::
+          {:ok, update_managed_notification_channel_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_managed_notification_channel_association_errors()}
+  def update_managed_notification_channel_association(%Client{} = client, input, options \\ []) do
+    url_path = "/channels/update-managed-notification-channel-association"
     headers = []
     custom_headers = []
     query_params = []

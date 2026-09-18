@@ -82,6 +82,17 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      cidr_resource() :: %{
+        "cidrRanges" => list(String.t() | atom())
+      }
+
+  """
+  @type cidr_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => [String.t() | atom()],
         "resourceId" => [String.t() | atom()],
@@ -1800,6 +1811,18 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      payer_responsibility_entry() :: %{
+        "payerResponsibilityType" => list(any()),
+        "scope" => list(any())
+      }
+
+  """
+  @type payer_responsibility_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_auth_policy_request() :: %{
         required("policy") => String.t() | atom()
       }
@@ -1894,6 +1917,7 @@ defmodule AWS.VPCLattice do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "payerResponsibility" => list(payer_responsibility_entry()),
         "resourceConfigurationArn" => String.t() | atom(),
         "resourceConfigurationId" => String.t() | atom(),
         "resourceConfigurationName" => String.t() | atom(),

@@ -11807,7 +11807,7 @@ defmodule AWS.Connect do
 
       replicate_instance_request() :: %{
         optional("ClientToken") => String.t() | atom(),
-        required("ReplicaAlias") => String.t() | atom(),
+        optional("ReplicaAlias") => String.t() | atom(),
         required("ReplicaRegion") => String.t() | atom()
       }
 

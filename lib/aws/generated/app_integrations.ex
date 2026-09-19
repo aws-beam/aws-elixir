@@ -104,6 +104,18 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
+      auth_config() :: %{
+        "AuthType" => list(any()),
+        "CredentialProviderIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type auth_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -129,6 +141,7 @@ defmodule AWS.AppIntegrations do
       create_application_request() :: %{
         optional("ApplicationConfig") => application_config(),
         optional("ApplicationType") => list(any()),
+        optional("AuthConfig") => auth_config(),
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("IframeConfig") => iframe_config(),
@@ -447,6 +460,7 @@ defmodule AWS.AppIntegrations do
         "ApplicationSourceConfig" => application_source_config(),
         "ApplicationType" => list(any()),
         "Arn" => String.t() | atom(),
+        "AuthConfig" => auth_config(),
         "CreatedTime" => non_neg_integer(),
         "Description" => String.t() | atom(),
         "Id" => String.t() | atom(),
@@ -872,6 +886,7 @@ defmodule AWS.AppIntegrations do
         optional("ApplicationConfig") => application_config(),
         optional("ApplicationSourceConfig") => application_source_config(),
         optional("ApplicationType") => list(any()),
+        optional("AuthConfig") => auth_config(),
         optional("Description") => String.t() | atom(),
         optional("IframeConfig") => iframe_config(),
         optional("InitializationTimeout") => integer(),

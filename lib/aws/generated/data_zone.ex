@@ -1856,6 +1856,7 @@ defmodule AWS.DataZone do
         optional("description") => String.t() | atom(),
         optional("metadata") => map(),
         optional("parameters") => map(),
+        optional("type") => list(any()),
         required("name") => String.t() | atom(),
         required("owningProjectIdentifier") => String.t() | atom()
       }
@@ -1886,6 +1887,7 @@ defmodule AWS.DataZone do
         "owningProjectId" => String.t() | atom(),
         "parameters" => map(),
         "status" => list(any()),
+        "type" => list(any()),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t() | atom()
       }
@@ -4439,6 +4441,7 @@ defmodule AWS.DataZone do
         "owningProjectId" => String.t() | atom(),
         "parameters" => map(),
         "status" => list(any()),
+        "type" => list(any()),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t() | atom()
       }
@@ -6128,6 +6131,7 @@ defmodule AWS.DataZone do
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
         optional("status") => list(any()),
+        optional("type") => list(any()),
         required("owningProjectIdentifier") => String.t() | atom()
       }
 
@@ -6804,6 +6808,7 @@ defmodule AWS.DataZone do
         "name" => String.t() | atom(),
         "owningProjectId" => String.t() | atom(),
         "status" => list(any()),
+        "type" => list(any()),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t() | atom()
       }
@@ -9404,7 +9409,8 @@ defmodule AWS.DataZone do
         optional("metadata") => map(),
         optional("name") => String.t() | atom(),
         optional("parameters") => map(),
-        optional("status") => list(any())
+        optional("status") => list(any()),
+        optional("type") => list(any())
       }
 
   """
@@ -9433,6 +9439,7 @@ defmodule AWS.DataZone do
         "owningProjectId" => String.t() | atom(),
         "parameters" => map(),
         "status" => list(any()),
+        "type" => list(any()),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t() | atom()
       }
@@ -17011,6 +17018,7 @@ defmodule AWS.DataZone do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_notebooks_output(), any()}
@@ -17026,6 +17034,7 @@ defmodule AWS.DataZone do
         sort_by \\ nil,
         sort_order \\ nil,
         status \\ nil,
+        type \\ nil,
         options \\ []
       ) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/notebooks"
@@ -17070,6 +17079,13 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(status) do
         [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
       else
         query_params
       end

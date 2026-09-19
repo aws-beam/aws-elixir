@@ -233,6 +233,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       create_language_model_request() :: %{
+        optional("EncryptionConfiguration") => encryption_configuration(),
         optional("Tags") => list(tag()),
         required("BaseModelName") => list(any()),
         required("InputDataConfig") => input_data_config(),
@@ -291,6 +292,7 @@ defmodule AWS.Transcribe do
       
       create_vocabulary_filter_request() :: %{
         optional("DataAccessRoleArn") => String.t() | atom(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
         optional("Tags") => list(tag()),
         optional("VocabularyFilterFileUri") => String.t() | atom(),
         optional("Words") => list(String.t() | atom()),
@@ -319,6 +321,7 @@ defmodule AWS.Transcribe do
       
       create_vocabulary_request() :: %{
         optional("DataAccessRoleArn") => String.t() | atom(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
         optional("Phrases") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
         optional("VocabularyFileUri") => String.t() | atom(),
@@ -466,6 +469,18 @@ defmodule AWS.Transcribe do
 
   ## Example:
       
+      encryption_configuration() :: %{
+        "KMSEncryptionContext" => map(),
+        "KMSKey" => String.t() | atom()
+      }
+      
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_call_analytics_category_request() :: %{}
       
   """
@@ -601,7 +616,9 @@ defmodule AWS.Transcribe do
   ## Example:
       
       get_vocabulary_filter_response() :: %{
+        "DataAccessRoleArn" => String.t() | atom(),
         "DownloadUri" => String.t() | atom(),
+        "EncryptionConfiguration" => encryption_configuration(),
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "VocabularyFilterName" => String.t() | atom()
@@ -624,7 +641,9 @@ defmodule AWS.Transcribe do
   ## Example:
       
       get_vocabulary_response() :: %{
+        "DataAccessRoleArn" => String.t() | atom(),
         "DownloadUri" => String.t() | atom(),
+        "EncryptionConfiguration" => encryption_configuration(),
         "FailureReason" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
@@ -718,6 +737,7 @@ defmodule AWS.Transcribe do
       language_model() :: %{
         "BaseModelName" => list(any()),
         "CreateTime" => non_neg_integer(),
+        "EncryptionConfiguration" => encryption_configuration(),
         "FailureReason" => String.t() | atom(),
         "InputDataConfig" => input_data_config(),
         "LanguageCode" => list(any()),
@@ -1617,6 +1637,31 @@ defmodule AWS.Transcribe do
 
   ## Example:
       
+      update_language_model_request() :: %{
+        optional("DataAccessRoleArn") => String.t() | atom(),
+        optional("EncryptionConfiguration") => encryption_configuration()
+      }
+      
+  """
+  @type update_language_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_language_model_response() :: %{
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelName" => String.t() | atom(),
+        "ModelStatus" => list(any())
+      }
+      
+  """
+  @type update_language_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_medical_vocabulary_request() :: %{
         required("LanguageCode") => list(any()),
         required("VocabularyFileUri") => String.t() | atom()
@@ -1645,6 +1690,7 @@ defmodule AWS.Transcribe do
       
       update_vocabulary_filter_request() :: %{
         optional("DataAccessRoleArn") => String.t() | atom(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
         optional("VocabularyFilterFileUri") => String.t() | atom(),
         optional("Words") => list(String.t() | atom())
       }
@@ -1671,6 +1717,7 @@ defmodule AWS.Transcribe do
       
       update_vocabulary_request() :: %{
         optional("DataAccessRoleArn") => String.t() | atom(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
         optional("Phrases") => list(String.t() | atom()),
         optional("VocabularyFileUri") => String.t() | atom(),
         required("LanguageCode") => list(any())
@@ -1921,6 +1968,13 @@ defmodule AWS.Transcribe do
           | conflict_exception()
           | bad_request_exception()
 
+  @type update_language_model_errors() ::
+          not_found_exception()
+          | limit_exceeded_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
   @type update_medical_vocabulary_errors() ::
           not_found_exception()
           | limit_exceeded_exception()
@@ -1939,6 +1993,7 @@ defmodule AWS.Transcribe do
           not_found_exception()
           | limit_exceeded_exception()
           | internal_failure_exception()
+          | conflict_exception()
           | bad_request_exception()
 
   def metadata do
@@ -3030,6 +3085,36 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
+  Updates the encryption configuration for an existing custom language model.
+
+  You can
+  use this operation to change the KMS key used to encrypt your model artifacts.
+  The model
+  artifacts are re-encrypted in place. No model training is required.
+
+  Your custom language model must not be in the `IN_PROGRESS` state when you
+  call this operation. You cannot submit another update while a previous update is
+  in
+  progress. Use to check the current state of
+  your model.
+
+  Your custom language model remains available for transcription jobs while the
+  update
+  is being processed.
+  """
+  @spec update_language_model(map(), update_language_model_request(), list()) ::
+          {:ok, update_language_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_language_model_errors()}
+  def update_language_model(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateLanguageModel", input, options)
+  end
+
+  @doc """
   Updates an existing custom medical vocabulary with new values.
 
   This operation
@@ -3056,6 +3141,10 @@ defmodule AWS.Transcribe do
   existing information with your new values; you cannot append new terms onto an
   existing
   custom vocabulary.
+
+  Your custom vocabulary must be in a terminal state (`READY` or
+  `FAILED`) before you can update it. You must include either
+  `Phrases` or `VocabularyFileUri` in your request.
   """
   @spec update_vocabulary(map(), update_vocabulary_request(), list()) ::
           {:ok, update_vocabulary_response(), any()}
@@ -3075,6 +3164,9 @@ defmodule AWS.Transcribe do
   The new list
   you provide overwrites all previous entries; you cannot append new terms onto an
   existing custom vocabulary filter.
+
+  You must include either `Words` or `VocabularyFilterFileUri`
+  in your request.
   """
   @spec update_vocabulary_filter(map(), update_vocabulary_filter_request(), list()) ::
           {:ok, update_vocabulary_filter_response(), any()}

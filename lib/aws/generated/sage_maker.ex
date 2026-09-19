@@ -10477,6 +10477,37 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      hub_content() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DocumentSchemaVersion" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "HubArn" => String.t() | atom(),
+        "HubContentArn" => String.t() | atom(),
+        "HubContentDependencies" => list(hub_content_dependency()),
+        "HubContentDescription" => String.t() | atom(),
+        "HubContentDisplayName" => String.t() | atom(),
+        "HubContentDocument" => String.t() | atom(),
+        "HubContentMarkdown" => String.t() | atom(),
+        "HubContentName" => String.t() | atom(),
+        "HubContentSearchKeywords" => list(String.t() | atom()),
+        "HubContentStatus" => list(any()),
+        "HubContentType" => list(any()),
+        "HubContentVersion" => String.t() | atom(),
+        "HubName" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ReferenceMinVersion" => String.t() | atom(),
+        "SageMakerPublicHubContentArn" => String.t() | atom(),
+        "SupportStatus" => list(any()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type hub_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       hub_content_dependency() :: %{
         "DependencyCopyPath" => String.t() | atom(),
         "DependencyOriginPath" => String.t() | atom()
@@ -18314,6 +18345,7 @@ defmodule AWS.SageMaker do
         "Experiment" => experiment(),
         "FeatureGroup" => feature_group(),
         "FeatureMetadata" => feature_metadata(),
+        "HubContent" => hub_content(),
         "HyperParameterTuningJob" => hyper_parameter_tuning_job_search_entity(),
         "Job" => job(),
         "Model" => model_dashboard_model(),

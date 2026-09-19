@@ -14,7 +14,7 @@ defmodule AWS.QConnect do
   security, and the responsible use of artificial intelligence (AI).
 
   Amazon Q in Connect is a generative AI customer service assistant. It is an
-  LLM-enhanced evolution of Amazon Connect Wisdom that delivers real-time
+  LLM-enhanced evolution of Connect Customer Wisdom that delivers real-time
   recommendations to help contact center agents resolve customer issues quickly
   and accurately.
 
@@ -30,7 +30,7 @@ defmodule AWS.QConnect do
 
   For more information, see [Use Amazon Q in Connect for generative AI powered agent assistance in
   real-time](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-q-connect.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
 
   alias AWS.Client
@@ -1316,6 +1316,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      delegate_agent_configuration() :: %{
+        "agentTarget" => list(),
+        "instruction" => multi_agent_instruction()
+      }
+
+  """
+  @type delegate_agent_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_a_i_agent_request() :: %{}
 
   """
@@ -2307,6 +2319,20 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      handoff_agent_configuration() :: %{
+        "agentTarget" => list(),
+        "audioStreamingEnabled" => [boolean()],
+        "immediateHandoff" => [boolean()],
+        "instruction" => multi_agent_instruction()
+      }
+
+  """
+  @type handoff_agent_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       hierarchical_chunking_configuration() :: %{
         "levelConfigurations" => list(hierarchical_chunking_level_configuration()),
         "overlapTokens" => [integer()]
@@ -3190,6 +3216,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      multi_agent_instruction() :: %{
+        "examples" => list([String.t() | atom()]()),
+        "instruction" => [String.t() | atom()]
+      }
+
+  """
+  @type multi_agent_instruction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       note_taking_a_i_agent_configuration() :: %{
         "locale" => String.t() | atom(),
         "noteTakingAIGuardrailId" => String.t() | atom(),
@@ -3263,9 +3301,12 @@ defmodule AWS.QConnect do
 
       orchestration_a_i_agent_configuration() :: %{
         "connectInstanceArn" => String.t() | atom(),
+        "inputSchemas" => list(any()),
         "locale" => String.t() | atom(),
+        "multiAgentConfigurations" => list(list()),
         "orchestrationAIGuardrailId" => String.t() | atom(),
         "orchestrationAIPromptId" => String.t() | atom(),
+        "outputSchemas" => list(any()),
         "toolConfigurations" => list(tool_configuration())
       }
 
@@ -4209,6 +4250,7 @@ defmodule AWS.QConnect do
         "initialContactId" => String.t() | atom(),
         "inputMessages" => list(span_message()),
         "instanceArn" => String.t() | atom(),
+        "interactionMode" => String.t() | atom(),
         "operationName" => String.t() | atom(),
         "outputMessages" => list(span_message()),
         "promptArn" => String.t() | atom(),
@@ -4221,8 +4263,10 @@ defmodule AWS.QConnect do
         "requestModel" => String.t() | atom(),
         "responseFinishReasons" => list(String.t() | atom()),
         "responseModel" => String.t() | atom(),
+        "returnReason" => String.t() | atom(),
         "sessionName" => String.t() | atom(),
         "systemInstructions" => list(list()),
+        "targetAgentId" => String.t() | atom(),
         "temperature" => [float()],
         "timeToFirstTokenMs" => [integer()],
         "topP" => [float()],
@@ -6057,7 +6101,7 @@ defmodule AWS.QConnect do
   resources.
 
   For more information, see [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
   @spec create_content_association(
           map(),
@@ -6320,8 +6364,8 @@ defmodule AWS.QConnect do
   @doc """
   Creates a session.
 
-  A session is a contextual container used for generating recommendations. Amazon
-  Connect creates a new Amazon Q in Connect session for each contact on which
+  A session is a contextual container used for generating recommendations. Connect
+  Customer creates a new Amazon Q in Connect session for each contact on which
   Amazon Q in Connect is enabled.
   """
   @spec create_session(map(), String.t() | atom(), create_session_request(), list()) ::
@@ -6762,7 +6806,7 @@ defmodule AWS.QConnect do
 
   For more information about content associations--what they are and when they are
   used--see [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
   @spec delete_content_association(
           map(),
@@ -7155,7 +7199,7 @@ defmodule AWS.QConnect do
 
   For more information about content associations--what they are and when they are
   used--see [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
   @spec get_content_association(
           map(),
@@ -7337,7 +7381,7 @@ defmodule AWS.QConnect do
   This API will be discontinued starting June 1, 2024.
 
   To receive generative responses after March 1, 2024, you will need to create a
-  new Assistant in the Amazon Connect console and integrate the Amazon Q in
+  new Assistant in the Connect Customer console and integrate the Amazon Q in
   Connect JavaScript library (amazon-q-connectjs) into your applications.
 
   Retrieves recommendations for the specified session. To avoid retrieving the
@@ -7823,7 +7867,7 @@ defmodule AWS.QConnect do
 
   For more information about content associations--what they are and when they are
   used--see [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
   @spec list_content_associations(
           map(),
@@ -8406,7 +8450,7 @@ defmodule AWS.QConnect do
   This API will be discontinued starting June 1, 2024.
 
   To receive generative responses after March 1, 2024, you will need to create a
-  new Assistant in the Amazon Connect console and integrate the Amazon Q in
+  new Assistant in the Connect Customer console and integrate the Amazon Q in
   Connect JavaScript library (amazon-q-connectjs) into your applications.
 
   Performs a manual search against the specified assistant. To retrieve
@@ -9302,8 +9346,8 @@ defmodule AWS.QConnect do
   @doc """
   Updates a session.
 
-  A session is a contextual container used for generating recommendations. Amazon
-  Connect updates the existing Amazon Q in Connect session for each contact on
+  A session is a contextual container used for generating recommendations. Connect
+  Customer updates the existing Amazon Q in Connect session for each contact on
   which Amazon Q in Connect is enabled.
   """
   @spec update_session(

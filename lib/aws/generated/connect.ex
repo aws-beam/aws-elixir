@@ -46,6 +46,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      a_i_agent() :: %{
+        "Arn" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type a_i_agent() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -3158,6 +3170,7 @@ defmodule AWS.Connect do
   ## Example:
 
       create_security_profile_request() :: %{
+        optional("AllowedAIAgents") => list(a_i_agent()),
         optional("AllowedAccessControlHierarchyGroupId") => String.t() | atom(),
         optional("AllowedAccessControlTags") => map(),
         optional("AllowedFlowModules") => list(flow_module()),
@@ -9539,6 +9552,32 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_security_profile_a_i_agents_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_security_profile_a_i_agents_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_security_profile_a_i_agents_response() :: %{
+        "AllowedAIAgents" => list(a_i_agent()),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_security_profile_a_i_agents_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_security_profile_applications_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -15739,6 +15778,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_security_profile_request() :: %{
+        optional("AllowedAIAgents") => list(a_i_agent()),
         optional("AllowedAccessControlHierarchyGroupId") => String.t() | atom(),
         optional("AllowedAccessControlTags") => map(),
         optional("AllowedFlowModules") => list(flow_module()),
@@ -18735,6 +18775,13 @@ defmodule AWS.Connect do
           | access_denied_exception()
 
   @type list_security_keys_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+
+  @type list_security_profile_a_i_agents_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | invalid_request_exception()
@@ -30307,6 +30354,54 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/security-keys"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of the allowed AI agents in a specific security profile.
+  """
+  @spec list_security_profile_a_i_agents(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_security_profile_a_i_agents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_security_profile_a_i_agents_errors()}
+  def list_security_profile_a_i_agents(
+        %Client{} = client,
+        instance_id,
+        security_profile_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/security-profiles-ai-agents/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
+
     headers = []
     query_params = []
 

@@ -3610,6 +3610,7 @@ defmodule AWS.Glue do
       data_quality_rule_recommendation_run_description() :: %{
         "CreatedRulesetName" => String.t() | atom(),
         "DataSource" => data_source(),
+        "RecommendationMode" => list(any()),
         "RunId" => String.t() | atom(),
         "StartedOn" => non_neg_integer(),
         "Status" => list(any())
@@ -6349,6 +6350,7 @@ defmodule AWS.Glue do
         "ExecutionTime" => integer(),
         "LastModifiedOn" => non_neg_integer(),
         "NumberOfWorkers" => integer(),
+        "RecommendationMode" => list(any()),
         "RecommendedRuleset" => String.t() | atom(),
         "Role" => String.t() | atom(),
         "RunId" => String.t() | atom(),
@@ -12794,6 +12796,7 @@ defmodule AWS.Glue do
         optional("CreatedRulesetName") => String.t() | atom(),
         optional("DataQualitySecurityConfiguration") => String.t() | atom(),
         optional("NumberOfWorkers") => integer(),
+        optional("RecommendationMode") => list(any()),
         optional("Timeout") => integer(),
         required("DataSource") => data_source(),
         required("Role") => String.t() | atom()

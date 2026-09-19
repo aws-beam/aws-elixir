@@ -4,93 +4,66 @@
 defmodule AWS.IVSRealTime do
   @moduledoc """
   The Amazon Interactive Video Service (IVS) real-time API is REST compatible,
-  using a standard HTTP
-  API and an AWS EventBridge event stream for responses.
+  using a standard HTTP API and an AWS EventBridge event stream for responses.
 
-  JSON is used for both requests and responses,
-  including errors.
+  JSON is used for both requests and responses, including errors.
 
   ## Key Concepts
 
-    *
+    * **Stage** — A virtual space where participants can exchange video
+  in real time.
 
-  **Stage** — A virtual space where participants can exchange video in real time.
+    * **Participant token** — A token that authenticates a participant
+  when they join a stage.
 
-    *
-
-  **Participant token** — A token that authenticates a participant when they join
-  a stage.
-
-    *
-
-  **Participant object** — Represents participants (people) in the stage and
-  contains information about them. When a token is created, it includes a
-  participant ID;
-  when a participant uses that token to join a stage, the participant is
-  associated with
-  that participant ID. There is a 1:1 mapping between participant tokens and
-  participants.
+    * **Participant object** — Represents participants (people) in the
+  stage and contains information about them. When a token is created, it includes
+  a participant ID; when a participant uses that token to join a stage, the
+  participant is associated with that participant ID. There is a 1:1 mapping
+  between participant tokens and participants.
 
   For server-side composition:
 
-    *
-
-  **Composition process** — Composites participants
-  of a stage into a single video and forwards it to a set of outputs (e.g., IVS
-  channels).
+    * **Composition process** — Composites participants of a stage into
+  a single video and forwards it to a set of outputs (e.g., IVS channels).
   Composition operations support this process.
 
-    *
-
-  **Composition** — Controls the look of the outputs,
-  including how participants are positioned in the video.
+    * **Composition** — Controls the look of the outputs, including how
+  participants are positioned in the video.
 
   For participant replication:
 
-    *
+    * **Source stage** — The stage where the participant originally
+  joined, which is used as the source for replication.
 
-  **Source stage** — The stage where the participant originally joined, which is
-  used as the source for
-  replication.
+    * **Destination stage** — The stage to which the participant is
+  replicated.
 
-    *
+    * **Replicated participant** — A participant in a stage that is
+  replicated to one or more destination stages.
 
-  **Destination stage** — The stage to which the participant is replicated.
-
-    *
-
-  **Replicated participant** — A participant in a stage that is replicated to one
-  or more destination stages.
-
-    *
-
-  **Replica participant** — A participant in a destination stage that is
-  replicated from another stage
-  (the source stage).
+    * **Replica participant** — A participant in a destination stage
+  that is replicated from another stage (the source stage).
 
   For more information about your IVS live stream, also see [Getting Started with Amazon IVS Real-Time
   Streaming](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html).
 
   ## Tagging
 
-  A *tag* is a metadata label that you assign to an AWS resource. A tag
-  comprises a *key* and a *value*, both set by you. For
-  example, you might set a tag as `topic:nature` to label a particular video
-  category. See [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html)
+  A *tag* is a metadata label that you assign to an AWS resource. A tag comprises
+  a *key* and a *value*, both set by you. For example, you might set a tag as
+  `topic:nature` to label a particular video category. See [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html)
   in *Tagging AWS Resources and Tag Editor* for details, including restrictions
-  that apply to tags and "Tag naming
-  limits and requirements"; Amazon IVS stages has no service-specific constraints
-  beyond what is documented there.
+  that apply to tags and "Tag naming limits and requirements"; Amazon IVS stages
+  has no service-specific constraints beyond what is documented there.
 
   Tags can help you identify and organize your AWS resources. For example, you can
-  use the
-  same tag for different resources to indicate that they are related. You can also
-  use tags to
-  manage access (see [Access Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html)).
+  use the same tag for different resources to indicate that they are related. You
+  can also use tags to manage access (see [Access Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html)).
 
   The Amazon IVS real-time API has these tag-related operations: `TagResource`,
-  `UntagResource`, and
-  `ListTagsForResource`. The following resource supports tagging: Stage.
+  `UntagResource`, and `ListTagsForResource`. The following resource supports
+  tagging: Stage.
 
   At most 50 tags can be applied to a resource.
   """
@@ -269,7 +242,14 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       create_ingest_configuration_response() :: %{
-        "ingestConfiguration" => ingest_configuration()
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "ingestConfiguration" => ingest_configuration(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
@@ -1710,7 +1690,14 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       update_ingest_configuration_response() :: %{
-        "ingestConfiguration" => ingest_configuration()
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "ingestConfiguration" => ingest_configuration(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
@@ -2051,6 +2038,21 @@ defmodule AWS.IVSRealTime do
     custom_headers = []
     query_params = []
 
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"Access-Control-Allow-Origin", "accessControlAllowOrigin"},
+          {"Access-Control-Expose-Headers", "accessControlExposeHeaders"},
+          {"Cache-Control", "cacheControl"},
+          {"Content-Security-Policy", "contentSecurityPolicy"},
+          {"Strict-Transport-Security", "strictTransportSecurity"},
+          {"X-Content-Type-Options", "xContentTypeOptions"},
+          {"X-Frame-Options", "xFrameOptions"}
+        ]
+      )
+
     meta = metadata()
 
     Request.request_rest(
@@ -2069,9 +2071,8 @@ defmodule AWS.IVSRealTime do
   @doc """
   Creates an additional token for a specified stage.
 
-  This can be done after stage creation
-  or when tokens expire. Tokens always are scoped to the stage for which they are
-  created.
+  This can be done after stage creation or when tokens expire. Tokens always are
+  scoped to the stage for which they are created.
 
   Encryption keys are owned by Amazon IVS and never used directly by your
   application.
@@ -2135,9 +2136,8 @@ defmodule AWS.IVSRealTime do
   Creates a new storage configuration, used to enable recording to Amazon S3.
 
   When a StorageConfiguration is created, IVS will modify the S3 bucketPolicy of
-  the provided bucket.
-  This will ensure that IVS has sufficient permissions to write content to the
-  provided bucket.
+  the provided bucket. This will ensure that IVS has sufficient permissions to
+  write content to the provided bucket.
   """
   @spec create_storage_configuration(map(), create_storage_configuration_request(), list()) ::
           {:ok, create_storage_configuration_response(), any()}
@@ -2168,8 +2168,8 @@ defmodule AWS.IVSRealTime do
   @doc """
   Deletes an EncoderConfiguration resource.
 
-  Ensures that no Compositions are using this
-  template; otherwise, returns an error.
+  Ensures that no Compositions are using this template; otherwise, returns an
+  error.
   """
   @spec delete_encoder_configuration(map(), delete_encoder_configuration_request(), list()) ::
           {:ok, delete_encoder_configuration_response(), any()}
@@ -2265,10 +2265,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Shuts down and deletes the specified stage (disconnecting all participants).
 
-  This operation also
-  removes the `stageArn` from the associated `IngestConfiguration`, if there are
-  participants
-  using the IngestConfiguration to publish to the stage.
+  This operation also removes the `stageArn` from the associated
+  `IngestConfiguration`, if there are participants using the IngestConfiguration
+  to publish to the stage.
   """
   @spec delete_stage(map(), delete_stage_request(), list()) ::
           {:ok, delete_stage_response(), any()}
@@ -2300,10 +2299,9 @@ defmodule AWS.IVSRealTime do
   Deletes the storage configuration for the specified ARN.
 
   If you try to delete a storage configuration that is used by a Composition, you
-  will get an error (409 ConflictException).
-  To avoid this, for all Compositions that reference the storage configuration,
-  first use `StopComposition` and wait for it to complete,
-  then use DeleteStorageConfiguration.
+  will get an error (409 ConflictException). To avoid this, for all Compositions
+  that reference the storage configuration, first use `StopComposition` and wait
+  for it to complete, then use DeleteStorageConfiguration.
   """
   @spec delete_storage_configuration(map(), delete_storage_configuration_request(), list()) ::
           {:ok, delete_storage_configuration_response(), any()}
@@ -2334,9 +2332,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Disconnects a specified participant from a specified stage.
 
-  If the participant is publishing using
-  an `IngestConfiguration`, DisconnectParticipant also updates the `stageArn`
-  in the IngestConfiguration to be an empty string.
+  If the participant is publishing using an `IngestConfiguration`,
+  DisconnectParticipant also updates the `stageArn` in the IngestConfiguration to
+  be an empty string.
   """
   @spec disconnect_participant(map(), disconnect_participant_request(), list()) ::
           {:ok, disconnect_participant_response(), any()}
@@ -2627,8 +2625,7 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets summary information about all Compositions in your account, in the AWS
-  region
-  where the API request is processed.
+  region where the API request is processed.
   """
   @spec list_compositions(map(), list_compositions_request(), list()) ::
           {:ok, list_compositions_response(), any()}
@@ -2658,8 +2655,7 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets summary information about all EncoderConfigurations in your account, in the
-  AWS
-  region where the API request is processed.
+  AWS region where the API request is processed.
   """
   @spec list_encoder_configurations(map(), list_encoder_configurations_request(), list()) ::
           {:ok, list_encoder_configurations_response(), any()}
@@ -2866,8 +2862,7 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets summary information about all stages in your account, in the AWS region
-  where the
-  API request is processed.
+  where the API request is processed.
   """
   @spec list_stages(map(), list_stages_request(), list()) ::
           {:ok, list_stages_response(), any()}
@@ -2896,8 +2891,8 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Gets summary information about all storage configurations in your account,
-  in the AWS region where the API request is processed.
+  Gets summary information about all storage configurations in your account, in
+  the AWS region where the API request is processed.
   """
   @spec list_storage_configurations(map(), list_storage_configurations_request(), list()) ::
           {:ok, list_storage_configurations_response(), any()}
@@ -2950,23 +2945,19 @@ defmodule AWS.IVSRealTime do
   A Composition is an ephemeral resource that exists after this operation returns
   successfully. Composition stops and the resource is deleted:
 
-    *
-  When `StopComposition` is called.
+    * When `StopComposition` is called.
 
-    *
-  After a 1-minute timeout, when all participants are disconnected from the
-  stage.
+    * After a 1-minute timeout, when all participants are disconnected
+  from the stage.
 
-    *
-  After a 1-minute timeout, if there are no participants in the stage when
-  StartComposition is called.
+    * After a 1-minute timeout, if there are no participants in the
+  stage when StartComposition is called.
 
-    *
-  When broadcasting to the IVS channel fails and all retries are exhausted.
-
-    *
-  When broadcasting is disconnected and all attempts to reconnect are
+    * When broadcasting to the IVS channel fails and all retries are
   exhausted.
+
+    * When broadcasting is disconnected and all attempts to reconnect
+  are exhausted.
   """
   @spec start_composition(map(), start_composition_request(), list()) ::
           {:ok, start_composition_response(), any()}
@@ -3042,8 +3033,7 @@ defmodule AWS.IVSRealTime do
   @doc """
   Stops and deletes a Composition resource.
 
-  Any broadcast from the Composition resource
-  is stopped.
+  Any broadcast from the Composition resource is stopped.
   """
   @spec stop_composition(map(), stop_composition_request(), list()) ::
           {:ok, stop_composition_response(), any()}
@@ -3194,6 +3184,21 @@ defmodule AWS.IVSRealTime do
     headers = []
     custom_headers = []
     query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"Access-Control-Allow-Origin", "accessControlAllowOrigin"},
+          {"Access-Control-Expose-Headers", "accessControlExposeHeaders"},
+          {"Cache-Control", "cacheControl"},
+          {"Content-Security-Policy", "contentSecurityPolicy"},
+          {"Strict-Transport-Security", "strictTransportSecurity"},
+          {"X-Content-Type-Options", "xContentTypeOptions"},
+          {"X-Frame-Options", "xFrameOptions"}
+        ]
+      )
 
     meta = metadata()
 

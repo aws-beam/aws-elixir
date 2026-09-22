@@ -1975,6 +1975,21 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      harness_hook_event() :: %{
+        "decision" => list(any()),
+        "hookEventId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "reason" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type harness_hook_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       harness_inline_function_config() :: %{
         "description" => String.t() | atom(),
         "inputSchema" => any()
@@ -2052,6 +2067,7 @@ defmodule AWS.BedrockAgentCore do
 
       harness_open_ai_model_config() :: %{
         "additionalParams" => [any()],
+        "apiBase" => String.t() | atom(),
         "apiFormat" => list(any()),
         "apiKeyArn" => String.t() | atom(),
         "maxTokens" => integer(),

@@ -149,6 +149,18 @@ defmodule AWS.Billingconductor do
 
   ## Example:
 
+      auto_transfer_billing_group_creation_preference() :: %{
+        "Enabled" => [boolean()],
+        "PricingPlanArn" => String.t() | atom()
+      }
+
+  """
+  @type auto_transfer_billing_group_creation_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_associate_resources_to_custom_line_item_input() :: %{
         optional("BillingPeriodRange") => custom_line_item_billing_period_range(),
         required("ResourceArns") => list(String.t() | atom()),
@@ -729,6 +741,30 @@ defmodule AWS.Billingconductor do
 
   """
   @type get_billing_group_cost_report_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_billing_transfer_preference_input() :: %{
+        required("ResponsibilityTransferArn") => String.t() | atom()
+      }
+
+  """
+  @type get_billing_transfer_preference_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_billing_transfer_preference_output() :: %{
+        "AutoBillingTransferBillingGroupCreation" => auto_transfer_billing_group_creation_preference(),
+        "LastModifiedTime" => float(),
+        "ResponsibilityTransferArn" => String.t() | atom()
+      }
+
+  """
+  @type get_billing_transfer_preference_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1437,6 +1473,32 @@ defmodule AWS.Billingconductor do
 
   ## Example:
 
+      update_billing_transfer_preference_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("AutoBillingTransferBillingGroupCreation") => auto_transfer_billing_group_creation_preference(),
+        required("ResponsibilityTransferArn") => String.t() | atom()
+      }
+
+  """
+  @type update_billing_transfer_preference_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_billing_transfer_preference_output() :: %{
+        "AutoBillingTransferBillingGroupCreation" => auto_transfer_billing_group_creation_preference(),
+        "LastModifiedTime" => float(),
+        "ResponsibilityTransferArn" => String.t() | atom()
+      }
+
+  """
+  @type update_billing_transfer_preference_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_custom_line_item_charge_details() :: %{
         "Flat" => update_custom_line_item_flat_charge_details(),
         "LineItemFilters" => list(line_item_filter()),
@@ -1733,6 +1795,13 @@ defmodule AWS.Billingconductor do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_billing_transfer_preference_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_account_associations_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1822,6 +1891,14 @@ defmodule AWS.Billingconductor do
           | access_denied_exception()
 
   @type update_billing_group_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_billing_transfer_preference_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -2358,6 +2435,35 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+  Retrieves the auto billing group creation preference for a billing transfer.
+  """
+  @spec get_billing_transfer_preference(map(), get_billing_transfer_preference_input(), list()) ::
+          {:ok, get_billing_transfer_preference_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_billing_transfer_preference_errors()}
+  def get_billing_transfer_preference(%Client{} = client, input, options \\ []) do
+    url_path = "/get-billing-transfer-preference"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This is a paginated call to list linked accounts that are linked to the payer
   account for the specified time period.
 
@@ -2779,6 +2885,55 @@ defmodule AWS.Billingconductor do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sets the auto billing group creation preference for a billing transfer.
+
+  When the preference is enabled, Billing Conductor automatically creates an
+  indirect billing transfer billing group in your account, with the pricing plan
+  that you specify, for each account that transfers its bill to the bill source
+  account of this billing transfer. The preference applies only to billing groups
+  that are created after you enable it.
+
+  Enabling the preference requires the `iam:CreateServiceLinkedRole` permission.
+  While a pricing plan is specified in an enabled preference, you can't delete
+  that pricing plan.
+  """
+  @spec update_billing_transfer_preference(
+          map(),
+          update_billing_transfer_preference_input(),
+          list()
+        ) ::
+          {:ok, update_billing_transfer_preference_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_billing_transfer_preference_errors()}
+  def update_billing_transfer_preference(%Client{} = client, input, options \\ []) do
+    url_path = "/update-billing-transfer-preference"
+
+    {headers, input} =
+      [
+        {"ClientToken", "X-Amzn-Client-Token"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

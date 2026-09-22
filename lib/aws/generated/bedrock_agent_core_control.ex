@@ -1387,6 +1387,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("environment") => list(),
         optional("environmentArtifact") => list(),
         optional("environmentVariables") => map(),
+        optional("hooks") => list(list()),
         optional("maxIterations") => [integer()],
         optional("maxTokens") => [integer()],
         optional("memory") => list(),
@@ -4177,6 +4178,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "harnessId" => String.t() | atom(),
         "harnessName" => String.t() | atom(),
         "harnessVersion" => String.t() | atom(),
+        "hooks" => list(list()),
         "maxIterations" => [integer()],
         "maxTokens" => [integer()],
         "memory" => list(),
@@ -4192,6 +4194,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type harness() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_after_invocation_hook() :: %{
+        "name" => String.t() | atom(),
+        "target" => list()
+      }
+
+  """
+  @type harness_after_invocation_hook() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_after_tool_call_hook() :: %{
+        "name" => String.t() | atom(),
+        "target" => list()
+      }
+
+  """
+  @type harness_after_tool_call_hook() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4303,6 +4329,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      harness_before_invocation_hook() :: %{
+        "name" => String.t() | atom(),
+        "target" => list()
+      }
+
+  """
+  @type harness_before_invocation_hook() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_before_tool_call_hook() :: %{
+        "name" => String.t() | atom(),
+        "target" => list()
+      }
+
+  """
+  @type harness_before_tool_call_hook() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       harness_disabled_memory_configuration() :: %{}
 
   """
@@ -4345,6 +4395,41 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type harness_gemini_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_hook_event_bridge_target() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type harness_hook_event_bridge_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_hook_lambda_target() :: %{
+        "arn" => String.t() | atom(),
+        "failureMode" => list(any()),
+        "timeoutSeconds" => [integer()]
+      }
+
+  """
+  @type harness_hook_lambda_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_hook_sns_target() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type harness_hook_sns_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4395,6 +4480,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       harness_open_ai_model_config() :: %{
         "additionalParams" => [any()],
+        "apiBase" => String.t() | atom(),
         "apiFormat" => list(any()),
         "apiKeyArn" => String.t() | atom(),
         "maxTokens" => integer(),
@@ -8375,6 +8461,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("environmentArtifact") => updated_harness_environment_artifact(),
         optional("environmentVariables") => map(),
         optional("executionRoleArn") => String.t() | atom(),
+        optional("hooks") => list(list()),
         optional("maxIterations") => [integer()],
         optional("maxTokens") => [integer()],
         optional("memory") => updated_harness_memory_configuration(),
@@ -10450,6 +10537,7 @@ defmodule AWS.BedrockAgentCoreControl do
   @type update_harness_errors() ::
           validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()

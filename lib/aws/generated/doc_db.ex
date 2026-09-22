@@ -230,6 +230,7 @@ defmodule AWS.DocDB do
       create_db_cluster_message() :: %{
         optional("AvailabilityZones") => list(String.t() | atom()),
         optional("BackupRetentionPeriod") => integer(),
+        optional("CopyTagsToSnapshot") => boolean(),
         optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("DBSubnetGroupName") => String.t() | atom(),
         optional("DeletionProtection") => boolean(),
@@ -443,6 +444,7 @@ defmodule AWS.DocDB do
         "BackupRetentionPeriod" => integer(),
         "CloneGroupId" => String.t() | atom(),
         "ClusterCreateTime" => non_neg_integer(),
+        "CopyTagsToSnapshot" => boolean(),
         "DBClusterArn" => String.t() | atom(),
         "DBClusterIdentifier" => String.t() | atom(),
         "DBClusterMembers" => list(db_cluster_member()),
@@ -1867,6 +1869,7 @@ defmodule AWS.DocDB do
         optional("ApplyImmediately") => boolean(),
         optional("BackupRetentionPeriod") => integer(),
         optional("CloudwatchLogsExportConfiguration") => cloudwatch_logs_export_configuration(),
+        optional("CopyTagsToSnapshot") => boolean(),
         optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("DeletionProtection") => boolean(),
         optional("EngineVersion") => String.t() | atom(),
@@ -2290,6 +2293,7 @@ defmodule AWS.DocDB do
       
       restore_db_cluster_from_snapshot_message() :: %{
         optional("AvailabilityZones") => list(String.t() | atom()),
+        optional("CopyTagsToSnapshot") => boolean(),
         optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("DBSubnetGroupName") => String.t() | atom(),
         optional("DeletionProtection") => boolean(),
@@ -2326,6 +2330,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       restore_db_cluster_to_point_in_time_message() :: %{
+        optional("CopyTagsToSnapshot") => boolean(),
         optional("DBSubnetGroupName") => String.t() | atom(),
         optional("DeletionProtection") => boolean(),
         optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
@@ -3089,17 +3094,17 @@ defmodule AWS.DocDB do
   Amazon DocumentDB cluster is using the default cluster parameter group and you
   want to modify a value in it, you must first [
   create a new parameter
-  group](https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-create.html)
+  group](https://docs.aws.amazon.com/documentdb/latest/devguide/cluster_parameter_group-create.html)
   or [
   copy an existing parameter
-  group](https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-copy.html),
+  group](https://docs.aws.amazon.com/documentdb/latest/devguide/cluster_parameter_group-copy.html),
   modify it, and then apply the modified parameter group to your
   cluster. For the new cluster parameter group and associated settings
   to take effect, you must then reboot the instances in the cluster
   without failover. For more information,
   see [
   Modifying Amazon DocumentDB Cluster Parameter
-  Groups](https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-modify.html).
+  Groups](https://docs.aws.amazon.com/documentdb/latest/devguide/cluster_parameter_group-modify.html).
   """
   @spec create_db_cluster_parameter_group(
           map(),
@@ -4052,7 +4057,7 @@ defmodule AWS.DocDB do
   Restarts the stopped cluster that is specified by `DBClusterIdentifier`.
 
   For more information, see [Stopping and Starting an Amazon DocumentDB
-  Cluster](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html).
+  Cluster](https://docs.aws.amazon.com/documentdb/latest/devguide/db-cluster-stop-start.html).
   """
   @spec start_db_cluster(map(), start_db_cluster_message(), list()) ::
           {:ok, start_db_cluster_result(), any()}
@@ -4072,7 +4077,7 @@ defmodule AWS.DocDB do
   The
   cluster must be in the *available* state. For more information, see
   [Stopping and Starting an Amazon DocumentDB
-  Cluster](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html).
+  Cluster](https://docs.aws.amazon.com/documentdb/latest/devguide/db-cluster-stop-start.html).
   """
   @spec stop_db_cluster(map(), stop_db_cluster_message(), list()) ::
           {:ok, stop_db_cluster_result(), any()}

@@ -13385,6 +13385,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      sub_object_statistics() :: %{
+        "FileCount" => float(),
+        "GlueVersionId" => String.t() | atom(),
+        "PartitionCount" => float(),
+        "SourceType" => list(any()),
+        "TotalFileBytes" => float()
+      }
+      
+  """
+  @type sub_object_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       supported_dialect() :: %{
         "Dialect" => list(any()),
         "DialectVersion" => String.t() | atom()
@@ -14925,8 +14940,10 @@ defmodule AWS.Glue do
         "LastRefreshType" => list(any()),
         "RefreshSeconds" => float(),
         "Representations" => list(view_representation()),
+        "SparkPipelineInfo" => map(),
         "SubObjectVersionIds" => list(float()),
         "SubObjects" => list(String.t() | atom()),
+        "SubObjectsStatistics" => list(sub_object_statistics()),
         "ViewVersionId" => float(),
         "ViewVersionToken" => String.t() | atom()
       }
@@ -14944,8 +14961,10 @@ defmodule AWS.Glue do
         "LastRefreshType" => list(any()),
         "RefreshSeconds" => float(),
         "Representations" => list(view_representation_input()),
+        "SparkPipelineInfo" => map(),
         "SubObjectVersionIds" => list(float()),
         "SubObjects" => list(String.t() | atom()),
+        "SubObjectsStatistics" => list(sub_object_statistics()),
         "ViewVersionId" => float(),
         "ViewVersionToken" => String.t() | atom()
       }

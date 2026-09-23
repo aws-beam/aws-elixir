@@ -108,6 +108,7 @@ defmodule AWS.ObservabilityAdmin do
       centralization_rule_source() :: %{
         "Regions" => list(String.t() | atom()),
         "Scope" => String.t() | atom(),
+        "SourceContextGraphConfiguration" => source_context_graph_configuration(),
         "SourceLogsConfiguration" => source_logs_configuration(),
         "SourceMetricsConfiguration" => source_metrics_configuration()
       }
@@ -120,6 +121,7 @@ defmodule AWS.ObservabilityAdmin do
   ## Example:
 
       centralization_rule_summary() :: %{
+        "ContextGraphStatus" => list(any()),
         "CreatedRegion" => String.t() | atom(),
         "CreatedTimeStamp" => [float()],
         "CreatorAccountId" => [String.t() | atom()],
@@ -211,6 +213,32 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type create_centralization_rule_for_organization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_integration_input() :: %{
+        optional("Tags") => map(),
+        required("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_dataset_integration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_integration_output() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "RoleArn" => String.t() | atom(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type create_dataset_integration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -324,12 +352,37 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      dataset_integration_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "RoleArn" => String.t() | atom(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type dataset_integration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_centralization_rule_for_organization_input() :: %{
         required("RuleIdentifier") => String.t() | atom()
       }
 
   """
   @type delete_centralization_rule_for_organization_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_integration_input() :: %{
+        required("Arn") => String.t() | atom()
+      }
+
+  """
+  @type delete_dataset_integration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -477,6 +530,7 @@ defmodule AWS.ObservabilityAdmin do
 
       get_centralization_rule_for_organization_output() :: %{
         "CentralizationRule" => centralization_rule(),
+        "ContextGraphStatus" => list(any()),
         "CreatedRegion" => String.t() | atom(),
         "CreatedTimeStamp" => [float()],
         "CreatorAccountId" => [String.t() | atom()],
@@ -491,6 +545,31 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type get_centralization_rule_for_organization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dataset_integration_input() :: %{
+        required("Arn") => String.t() | atom()
+      }
+
+  """
+  @type get_dataset_integration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dataset_integration_output() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "RoleArn" => String.t() | atom(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_dataset_integration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -713,6 +792,30 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type list_centralization_rules_for_organization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dataset_integrations_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_dataset_integrations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dataset_integrations_output() :: %{
+        "DatasetIntegrationSummaries" => list(dataset_integration_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_dataset_integrations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1079,6 +1182,15 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      source_context_graph_configuration() :: %{}
+
+  """
+  @type source_context_graph_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       source_logs_configuration() :: %{
         "DataSourceSelectionCriteria" => String.t() | atom(),
         "EncryptedLogGroupStrategy" => list(any()),
@@ -1374,6 +1486,32 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      update_dataset_integration_input() :: %{
+        required("Arn") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_dataset_integration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dataset_integration_output() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "RoleArn" => String.t() | atom(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_dataset_integration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_telemetry_pipeline_input() :: %{
         required("Configuration") => telemetry_pipeline_configuration(),
         required("PipelineIdentifier") => String.t() | atom()
@@ -1518,6 +1656,13 @@ defmodule AWS.ObservabilityAdmin do
           | conflict_exception()
           | access_denied_exception()
 
+  @type create_dataset_integration_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_s3_table_integration_errors() ::
           validation_exception()
           | too_many_requests_exception()
@@ -1557,6 +1702,13 @@ defmodule AWS.ObservabilityAdmin do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type delete_dataset_integration_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type delete_s3_table_integration_errors() ::
           validation_exception()
           | too_many_requests_exception()
@@ -1588,6 +1740,13 @@ defmodule AWS.ObservabilityAdmin do
           | access_denied_exception()
 
   @type get_centralization_rule_for_organization_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_dataset_integration_errors() ::
           validation_exception()
           | too_many_requests_exception()
           | resource_not_found_exception()
@@ -1638,6 +1797,12 @@ defmodule AWS.ObservabilityAdmin do
           | access_denied_exception()
 
   @type list_centralization_rules_for_organization_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_dataset_integrations_errors() ::
           validation_exception()
           | too_many_requests_exception()
           | internal_server_exception()
@@ -1751,6 +1916,13 @@ defmodule AWS.ObservabilityAdmin do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type update_dataset_integration_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type update_telemetry_pipeline_errors() ::
           validation_exception()
           | too_many_requests_exception()
@@ -1831,6 +2003,42 @@ defmodule AWS.ObservabilityAdmin do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Creates a dataset integration for the caller's account in the current region and
+  returns its ARN.
+
+  To use this operation, you must have permission to access the dataset
+  integration resources through the IAM role specified in the `RoleArn` parameter.
+
+  If a dataset integration already exists for the account, this operation fails
+  with a `ConflictException`.
+  """
+  @spec create_dataset_integration(map(), create_dataset_integration_input(), list()) ::
+          {:ok, create_dataset_integration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_dataset_integration_errors()}
+  def create_dataset_integration(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateDatasetIntegration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -2006,6 +2214,38 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Deletes a dataset integration for the caller's account in the current region.
+
+  This operation is idempotent; if you submit the same delete more than once, each
+  call succeeds.
+  """
+  @spec delete_dataset_integration(map(), delete_dataset_integration_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_dataset_integration_errors()}
+  def delete_dataset_integration(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteDatasetIntegration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes an S3 Table integration and its associated data.
 
   This operation removes the connection between CloudWatch Observability Admin and
@@ -2153,6 +2393,35 @@ defmodule AWS.ObservabilityAdmin do
           | {:error, get_centralization_rule_for_organization_errors()}
   def get_centralization_rule_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/GetCentralizationRuleForOrganization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the dataset integration for the caller's account in the current region.
+  """
+  @spec get_dataset_integration(map(), get_dataset_integration_input(), list()) ::
+          {:ok, get_dataset_integration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_dataset_integration_errors()}
+  def get_dataset_integration(%Client{} = client, input, options \\ []) do
+    url_path = "/GetDatasetIntegration"
     headers = []
     custom_headers = []
     query_params = []
@@ -2409,6 +2678,35 @@ defmodule AWS.ObservabilityAdmin do
           | {:error, list_centralization_rules_for_organization_errors()}
   def list_centralization_rules_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/ListCentralizationRulesForOrganization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the dataset integrations in your account.
+  """
+  @spec list_dataset_integrations(map(), list_dataset_integrations_input(), list()) ::
+          {:ok, list_dataset_integrations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_dataset_integrations_errors()}
+  def list_dataset_integrations(%Client{} = client, input, options \\ []) do
+    url_path = "/ListDatasetIntegrations"
     headers = []
     custom_headers = []
     query_params = []
@@ -2953,6 +3251,38 @@ defmodule AWS.ObservabilityAdmin do
           | {:error, update_centralization_rule_for_organization_errors()}
   def update_centralization_rule_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateCentralizationRuleForOrganization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a dataset integration for the caller's account in the current region.
+
+  This operation is idempotent; if you submit the same update more than once, each
+  call succeeds.
+  """
+  @spec update_dataset_integration(map(), update_dataset_integration_input(), list()) ::
+          {:ok, update_dataset_integration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_dataset_integration_errors()}
+  def update_dataset_integration(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateDatasetIntegration"
     headers = []
     custom_headers = []
     query_params = []

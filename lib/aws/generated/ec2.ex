@@ -2814,6 +2814,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       capacity_reservation() :: %{
+        "AdjustmentDetails" => capacity_reservation_adjustment_details(),
+        "AdjustmentStatus" => list(any()),
         "AvailabilityZone" => String.t() | atom(),
         "AvailabilityZoneId" => String.t() | atom(),
         "AvailableInstanceCount" => integer(),
@@ -2835,6 +2837,7 @@ defmodule AWS.EC2 do
         "Interruptible" => boolean(),
         "InterruptibleCapacityAllocation" => interruptible_capacity_allocation(),
         "InterruptionInfo" => interruption_info(),
+        "OriginalStartDate" => non_neg_integer(),
         "OutpostArn" => String.t() | atom(),
         "OwnerId" => String.t() | atom(),
         "PlacementGroupArn" => String.t() | atom(),
@@ -2850,6 +2853,21 @@ defmodule AWS.EC2 do
       
   """
   @type capacity_reservation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_adjustment_details() :: %{
+        "CommitmentDuration" => float(),
+        "CommitmentEndDate" => non_neg_integer(),
+        "EndDate" => non_neg_integer(),
+        "EndDateType" => String.t() | atom(),
+        "StartDate" => non_neg_integer()
+      }
+      
+  """
+  @type capacity_reservation_adjustment_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2891,6 +2909,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       capacity_reservation_commitment_info() :: %{
+        "CommitmentDuration" => float(),
         "CommitmentEndDate" => non_neg_integer(),
         "CommittedInstanceCount" => integer()
       }
@@ -2970,6 +2989,24 @@ defmodule AWS.EC2 do
       
   """
   @type capacity_reservation_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_modification_quote() :: %{
+        "CapacityReservationId" => String.t() | atom(),
+        "CapacityReservationModificationQuoteId" => String.t() | atom(),
+        "CreateTime" => non_neg_integer(),
+        "CurrentConfiguration" => modification_quote_current_configuration(),
+        "ExpirationTime" => non_neg_integer(),
+        "ModificationTerms" => modification_terms(),
+        "QuoteState" => list(any()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type capacity_reservation_modification_quote() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3957,6 +3994,36 @@ defmodule AWS.EC2 do
       
   """
   @type create_capacity_reservation_cancellation_quote_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      create_capacity_reservation_date_change_quote_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("CapacityReservationId") => String.t() | atom(),
+        required("NewStartDate") => non_neg_integer()
+      }
+      
+  """
+  @type create_capacity_reservation_date_change_quote_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      create_capacity_reservation_date_change_quote_result() :: %{
+        "CapacityReservationModificationQuote" => capacity_reservation_modification_quote()
+      }
+      
+  """
+  @type create_capacity_reservation_date_change_quote_result() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -10307,6 +10374,37 @@ defmodule AWS.EC2 do
       
   """
   @type describe_capacity_reservation_cancellation_quotes_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_reservation_date_change_quotes_request() :: %{
+        optional("CapacityReservationModificationQuoteIds") => list(String.t() | atom()),
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_capacity_reservation_date_change_quotes_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_reservation_date_change_quotes_result() :: %{
+        "CapacityReservationModificationQuotes" => list(capacity_reservation_modification_quote()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_capacity_reservation_date_change_quotes_result() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -24880,6 +24978,44 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modification_quote_current_configuration() :: %{
+        "InstanceCount" => integer(),
+        "OriginalStartDate" => non_neg_integer(),
+        "ReservationState" => String.t() | atom(),
+        "StartDate" => non_neg_integer()
+      }
+      
+  """
+  @type modification_quote_current_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modification_reservation_update() :: %{
+        "NewCommitmentDuration" => integer(),
+        "NewCommitmentEndDate" => non_neg_integer(),
+        "NewStartDate" => non_neg_integer()
+      }
+      
+  """
+  @type modification_reservation_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modification_terms() :: %{
+        "ReservationUpdate" => modification_reservation_update()
+      }
+      
+  """
+  @type modification_terms() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_account_vpc_encryption_control_request() :: %{
         optional("DryRun") => boolean(),
         optional("EgressOnlyInternetGateway") => list(any()),
@@ -25025,12 +25161,15 @@ defmodule AWS.EC2 do
       
       modify_capacity_reservation_request() :: %{
         optional("Accept") => boolean(),
+        optional("AcceptModificationTerms") => boolean(),
         optional("AdditionalInfo") => String.t() | atom(),
         optional("DryRun") => boolean(),
         optional("EndDate") => non_neg_integer(),
         optional("EndDateType") => list(any()),
         optional("InstanceCount") => integer(),
         optional("InstanceMatchCriteria") => list(any()),
+        optional("QuoteId") => String.t() | atom(),
+        optional("StartDate") => non_neg_integer(),
         required("CapacityReservationId") => String.t() | atom()
       }
       
@@ -25042,6 +25181,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_capacity_reservation_result() :: %{
+        "AdjustmentDetails" => capacity_reservation_adjustment_details(),
+        "AdjustmentStatus" => list(any()),
         "Return" => boolean()
       }
       
@@ -37525,6 +37666,36 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Generates a quote for changing the start date of a future-dated Capacity
+  Reservation
+  that has not yet been delivered.
+
+  The quote includes the new start date, the resulting
+  commitment end date, and a quote ID. Pass the quote ID to
+  `ModifyCapacityReservation` to apply the change.
+
+  The cumulative pushout across all changes is limited to 30 days from the
+  Capacity
+  Reservation's original start date. Quotes are valid for 24 hours, and always
+  expire at
+  least one hour before the start date.
+  """
+  @spec create_capacity_reservation_date_change_quote(
+          map(),
+          create_capacity_reservation_date_change_quote_request(),
+          list()
+        ) ::
+          {:ok, create_capacity_reservation_date_change_quote_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_capacity_reservation_date_change_quote(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateCapacityReservationDateChangeQuote", input, options)
+  end
+
+  @doc """
   Creates a Capacity Reservation Fleet.
 
   For more information, see [Create a Capacity Reservation
@@ -43004,6 +43175,32 @@ defmodule AWS.EC2 do
       client,
       meta,
       "DescribeCapacityReservationCancellationQuotes",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Describes one or more Capacity Reservation date change quotes that you generated
+  by using
+  the `CreateCapacityReservationDateChangeQuote` operation.
+  """
+  @spec describe_capacity_reservation_date_change_quotes(
+          map(),
+          describe_capacity_reservation_date_change_quotes_request(),
+          list()
+        ) ::
+          {:ok, describe_capacity_reservation_date_change_quotes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_capacity_reservation_date_change_quotes(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DescribeCapacityReservationDateChangeQuotes",
       input,
       options
     )
@@ -51000,6 +51197,14 @@ defmodule AWS.EC2 do
   `expired`, `cancelled`, `unsupported`, or
   `failed` state - You can't modify the Capacity Reservation in any
   way.
+
+  For a future-dated Capacity Reservation that has not yet been delivered, pushing
+  out the
+  start date requires a quote generated by
+  `CreateCapacityReservationDateChangeQuote`. For more information, see [Modify an active
+  Capacity
+  Reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html)
+  in the *Amazon EC2 User Guide*.
   """
   @spec modify_capacity_reservation(map(), modify_capacity_reservation_request(), list()) ::
           {:ok, modify_capacity_reservation_result(), any()}

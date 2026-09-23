@@ -924,11 +924,14 @@ defmodule AWS.SSOAdmin do
       describe_instance_response() :: %{
         "CreatedDate" => non_neg_integer(),
         "EncryptionConfigurationDetails" => encryption_configuration_details(),
+        "IdentityStoreArn" => String.t() | atom(),
         "IdentityStoreId" => String.t() | atom(),
         "InstanceArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "OwnerAccountId" => String.t() | atom(),
         "PermissionSetsEnabled" => [boolean()],
+        "PrimaryRegion" => String.t() | atom(),
+        "Regions" => list(region_metadata()),
         "Status" => list(any()),
         "StatusReason" => String.t() | atom()
       }
@@ -1322,6 +1325,7 @@ defmodule AWS.SSOAdmin do
       
       instance_metadata() :: %{
         "CreatedDate" => non_neg_integer(),
+        "IdentityStoreArn" => String.t() | atom(),
         "IdentityStoreId" => String.t() | atom(),
         "InstanceArn" => String.t() | atom(),
         "Name" => String.t() | atom(),

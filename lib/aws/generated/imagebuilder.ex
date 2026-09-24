@@ -5,8 +5,15 @@ defmodule AWS.Imagebuilder do
   @moduledoc """
   EC2 Image Builder automates the
   creation, management, and deployment of customized, secure, and up-to-date
-  "golden" server images that are pre-installed and pre-configured with software
-  and settings to meet specific IT standards.
+  server images.
+
+  You can build Amazon Machine Images (AMIs) and container images
+  that are pre-installed and pre-configured with software and settings to meet
+  specific IT standards.
+
+  For an introduction to the service concepts that these API operations work with,
+  see [How Image Builder works](https://docs.aws.amazon.com/imagebuilder/latest/userguide/how-image-builder-works.html)
+  in the *EC2 Image Builder User Guide*.
   """
 
   alias AWS.Client
@@ -4710,7 +4717,11 @@ defmodule AWS.Imagebuilder do
   Cancels the creation of an image.
 
   This operation can only be used on
-  images in a non-terminal state.
+  images in a non-terminal state. Cancellation is asynchronous: the request
+  returns immediately, then Image Builder stops the running build and moves the
+  image
+  to the `CANCELLED` state. Output resources that the build already
+  created, such as AMIs and snapshots, aren't removed.
   """
   @spec cancel_image_creation(map(), cancel_image_creation_request(), list()) ::
           {:ok, cancel_image_creation_response(), any()}
@@ -4739,7 +4750,13 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Cancels a specific image lifecycle policy runtime instance.
+  Cancels a lifecycle execution – a single run of lifecycle actions that a
+  lifecycle policy or a `StartResourceStateUpdate` request
+  started.
+
+  You can only cancel an execution that hasn't reached a
+  terminal state. Cancellation is asynchronous and doesn't undo
+  completed lifecycle actions.
   """
   @spec cancel_lifecycle_execution(map(), cancel_lifecycle_execution_request(), list()) ::
           {:ok, cancel_lifecycle_execution_response(), any()}
@@ -4781,6 +4798,10 @@ defmodule AWS.Imagebuilder do
     *
   A URL that points to a YAML document file stored in Amazon S3, using the
   `uri` property in the request body.
+
+  Image Builder determines the component type from the document. If the document
+  contains a single phase named `test`, the component type is
+  `TEST`. Otherwise, the component type is `BUILD`.
   """
   @spec create_component(map(), create_component_request(), list()) ::
           {:ok, create_component_response(), any()}
@@ -4843,8 +4864,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Creates a new distribution configuration.
 
-  Distribution configurations define and
-  configure the outputs of your pipeline.
+  Distribution configurations define
+  and configure the outputs for your images, including the target Regions,
+  accounts, and settings for each Region.
   """
   @spec create_distribution_configuration(
           map(),
@@ -4881,7 +4903,12 @@ defmodule AWS.Imagebuilder do
   distribution configuration.
 
   You must specify exactly one recipe for your image, using
-  either a ContainerRecipeArn or an ImageRecipeArn.
+  either a `containerRecipeArn` or an `imageRecipeArn`.
+
+  The response returns as soon as Image Builder creates the new image resource.
+  The image build process runs asynchronously. To check its progress, call
+  [GetImage](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetImage.html)
+  and check the image status.
   """
   @spec create_image(map(), create_image_request(), list()) ::
           {:ok, create_image_response(), any()}
@@ -4913,7 +4940,9 @@ defmodule AWS.Imagebuilder do
   Creates a new image pipeline.
 
   Use image pipelines to automate the creation and
-  distribution of images.
+  distribution of images. You must specify exactly one recipe for the pipeline,
+  using either a `containerRecipeArn` or an
+  `imageRecipeArn`.
   """
   @spec create_image_pipeline(map(), create_image_pipeline_request(), list()) ::
           {:ok, create_image_pipeline_response(), any()}
@@ -5040,6 +5069,12 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Creates a new workflow or a new version of an existing workflow.
+
+  If a workflow
+  with the same name and semantic version already exists, and your request changes
+  its configuration, Image Builder creates a new build version.
+  If the configuration is identical to the latest build version, the request
+  fails because that workflow configuration already exists.
   """
   @spec create_workflow(map(), create_workflow_request(), list()) ::
           {:ok, create_workflow_response(), any()}
@@ -5069,6 +5104,11 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes a component build version.
+
+  The request fails with
+  `ResourceDependencyException` if an image recipe or container
+  recipe references this component version. It also fails if the component
+  build version is shared with other accounts.
   """
   @spec delete_component(map(), delete_component_request(), list()) ::
           {:ok, delete_component_response(), any()}
@@ -5103,6 +5143,10 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes a container recipe.
+
+  The request fails with
+  `ResourceDependencyException` if the recipe is shared with other
+  accounts, or if an image pipeline references it.
   """
   @spec delete_container_recipe(map(), delete_container_recipe_request(), list()) ::
           {:ok, delete_container_recipe_response(), any()}
@@ -5137,6 +5181,11 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes a distribution configuration.
+
+  You can't delete a configuration
+  that an image pipeline still references. The request fails with
+  `ResourceDependencyException`. Update or delete the referencing
+  pipelines first.
   """
   @spec delete_distribution_configuration(
           map(),
@@ -5181,6 +5230,11 @@ defmodule AWS.Imagebuilder do
   separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or
   API or CLI
   commands.
+
+  The request fails with `ResourceDependencyException` if the image
+  is shared with other accounts, or if other resources depend on it. It also
+  fails while the image build is still running. Cancel an in-progress build
+  with `CancelImageCreation` before you delete the image.
 
     *
   To deregister an EC2 Linux AMI, see [Deregister your Linux
@@ -5234,6 +5288,11 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes an image pipeline.
+
+  Images that the pipeline created aren't
+  deleted - remove those separately with `DeleteImage`. You
+  can delete a pipeline while a build that it started is still running. The
+  build continues independently.
   """
   @spec delete_image_pipeline(map(), delete_image_pipeline_request(), list()) ::
           {:ok, delete_image_pipeline_response(), any()}
@@ -5302,6 +5361,11 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes an infrastructure configuration.
+
+  You can't delete a configuration
+  that an image pipeline still references. The request fails with
+  `ResourceDependencyException`. Update or delete the referencing
+  pipelines first.
   """
   @spec delete_infrastructure_configuration(
           map(),
@@ -5340,6 +5404,13 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes the specified lifecycle policy resource.
+
+  Deleting the policy removes
+  its schedule, so no further lifecycle runs occur for that policy. If a
+  lifecycle execution is in progress for the policy, Image Builder cancels it.
+  Deletion
+  doesn't revert actions that the policy already applied to your
+  resources.
   """
   @spec delete_lifecycle_policy(map(), delete_lifecycle_policy_request(), list()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
@@ -5374,6 +5445,10 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Deletes a specific workflow resource.
+
+  You can't delete a workflow build
+  version while an image pipeline references it. The request fails with
+  `ResourceDependencyException`.
   """
   @spec delete_workflow(map(), delete_workflow_request(), list()) ::
           {:ok, delete_workflow_response(), any()}
@@ -5723,8 +5798,9 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Retrieves the runtime information for a specific runtime instance of the
-  lifecycle policy.
+  Retrieves runtime information for a lifecycle execution – a single run of
+  lifecycle actions that a lifecycle policy or a
+  `StartResourceStateUpdate` request started.
   """
   @spec get_lifecycle_execution(map(), String.t() | atom(), list()) ::
           {:ok, get_lifecycle_execution_response(), any()}
@@ -5775,12 +5851,12 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Verifies the subscription and performs resource dependency checks on the
-  requested
-  Amazon Web Services Marketplace resource.
+  requested Amazon Web Services Marketplace resource.
 
-  For Amazon Web Services Marketplace components, the response contains fields to
-  download the
-  components and their artifacts.
+  The caller must be entitled to the resource. For
+  Amazon Web Services Marketplace components, the response contains fields to
+  download the components
+  and their artifacts.
   """
   @spec get_marketplace_resource(map(), get_marketplace_resource_request(), list()) ::
           {:ok, get_marketplace_resource_response(), any()}
@@ -5887,6 +5963,10 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Imports a component and transforms its data into a component document.
+
+  For
+  the `SHELL` format, Image Builder wraps your script in a component
+  document with a single step that runs the script.
   """
   @spec import_component(map(), import_component_request(), list()) ::
           {:ok, import_component_response(), any()}
@@ -5922,6 +6002,12 @@ defmodule AWS.Imagebuilder do
 
     *
   Windows 11 Enterprise
+
+  The response returns as soon as Image Builder creates the new image resource in
+  the
+  `PENDING` state. The conversion from ISO file to AMI then runs
+  asynchronously on an EC2 instance that Image Builder launches with the specified
+  infrastructure configuration.
   """
   @spec import_disk_image(map(), import_disk_image_request(), list()) ::
           {:ok, import_disk_image_response(), any()}
@@ -5950,21 +6036,20 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  When you export your virtual machine (VM) from its virtualization environment,
-  that
-  process creates a set of one or more disk container files that act as snapshots
-  of your
-  VM’s environment, settings, and data.
+  Creates an Image Builder image resource from an Amazon EC2 VM import task.
 
-  The Amazon EC2 API
-  [ImportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html) action uses those files to import your VM and create an AMI. To import using the
-  CLI
-  command, see
+  The response
+  returns as soon as Image Builder creates the image resource in the
+  `PENDING` state. Image Builder then monitors the import task
+  asynchronously. When the task completes, Image Builder records the AMI that it
+  produced as the new image's output resource and marks the image
+  `AVAILABLE`. You can then use the imported image as the base
+  image for your recipes.
+
+  To create the VM import task, use the Amazon EC2 API
+  [ImportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html) operation, or the
   [import-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html)
-
-  You can reference the task ID from the VM import to pull in the AMI that the
-  import
-  created as the base image for your Image Builder recipe.
+  CLI command.
   """
   @spec import_vm_image(map(), import_vm_image_request(), list()) ::
           {:ok, import_vm_image_response(), any()}
@@ -5993,8 +6078,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Returns the list of component build versions for the specified component
-  version Amazon Resource Name (ARN).
+  Returns a list of component build versions for the specified component
+  version ARN.
+
+  You can only list build versions for components that your
+  account owns. Deprecated build versions aren't included in the
+  results.
   """
   @spec list_component_build_versions(map(), list_component_build_versions_request(), list()) ::
           {:ok, list_component_build_versions_response(), any()}
@@ -6023,12 +6112,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Returns the list of components that can be filtered by name, or by using the
-  listed
-  `filters` to streamline results.
+  Returns the list of components that you have access to.
 
-  Newly created components can take up to
-  two minutes to appear in the ListComponents API Results.
+  By default, the
+  response doesn't include components in the
+  `DEPRECATED` state. To list deprecated components, use the
+  `status` filter with the value `DEPRECATED`.
 
   The semantic version has four nodes: ../.
   You can assign values for the first three, and can filter on all of them.
@@ -6289,10 +6378,6 @@ defmodule AWS.Imagebuilder do
 
     *
 
-  `accountId`
-
-    *
-
   `imageBuildVersionArn`
 
     *
@@ -6335,6 +6420,9 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns a list of image scan findings for your account.
+
+  Amazon Inspector generates the
+  findings when it scans images that have scanning enabled.
   """
   @spec list_image_scan_findings(map(), list_image_scan_findings_request(), list()) ::
           {:ok, list_image_scan_findings_response(), any()}
@@ -6364,9 +6452,6 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns the list of images that you have access to.
-
-  Newly created images can take up
-  to two minutes to appear in the ListImages API Results.
   """
   @spec list_images(map(), list_images_request(), list()) ::
           {:ok, list_images_response(), any()}
@@ -6538,8 +6623,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Retrieves a list of workflow steps that are waiting for action for workflows
-  in your Amazon Web Services account.
+  Lists the workflow steps in your Amazon Web Services account that have paused at
+  a
+  `WaitForAction` step, and are waiting for you to respond.
+
+  To send
+  a response, call `SendWorkflowStepAction`.
   """
   @spec list_waiting_workflow_steps(map(), list_waiting_workflow_steps_request(), list()) ::
           {:ok, list_waiting_workflow_steps_response(), any()}
@@ -6658,7 +6747,11 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Lists workflow build versions based on filtering parameters.
+  Lists workflow versions based on filtering parameters.
+
+  To list the build
+  versions of a specific workflow version, call
+  `ListWorkflowBuildVersions`.
   """
   @spec list_workflows(map(), list_workflows_request(), list()) ::
           {:ok, list_workflows_response(), any()}
@@ -6689,11 +6782,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Applies a policy to a component.
 
-  To share resources, call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html). If you call this API, you must also call the RAM API
-  [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  so that the resource is
-  visible to all principals with whom the resource is shared.
+  The preferred way to share resources is with
+  the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html). If you use the PutComponentPolicy operation instead, you
+  must also call the RAM API
+  [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html).
+  Otherwise, the resource
+  isn't visible to the principals that it's shared with.
   """
   @spec put_component_policy(map(), put_component_policy_request(), list()) ::
           {:ok, put_component_policy_response(), any()}
@@ -6722,14 +6817,15 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Applies a policy to a container image.
+  Applies a policy to a container recipe.
 
-  To share resources, call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html). If you call this API, you must also
-  call the RAM API
-  [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  so that the resource is visible to all principals with whom the resource is
-  shared.
+  The preferred way to share resources is with
+  the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html). If you use the PutContainerRecipePolicy operation instead, you
+  must also call the RAM API
+  [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html).
+  Otherwise, the resource
+  isn't visible to the principals that it's shared with.
   """
   @spec put_container_recipe_policy(map(), put_container_recipe_policy_request(), list()) ::
           {:ok, put_container_recipe_policy_response(), any()}
@@ -6760,11 +6856,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Applies a policy to an image.
 
-  To share resources, call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html). If you call this API, you must also call the RAM API
-  [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  so that the resource is
-  visible to all principals with whom the resource is shared.
+  The preferred way to share resources is with
+  the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html). If you use the PutImagePolicy operation instead, you
+  must also call the RAM API
+  [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html).
+  Otherwise, the resource
+  isn't visible to the principals that it's shared with.
   """
   @spec put_image_policy(map(), put_image_policy_request(), list()) ::
           {:ok, put_image_policy_response(), any()}
@@ -6795,11 +6893,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Applies a policy to an image recipe.
 
-  To share resources, call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html). If you call this API, you must also call the RAM API
-  [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  so that the resource is
-  visible to all principals with whom the resource is shared.
+  The preferred way to share resources is with
+  the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html). If you use the PutImageRecipePolicy operation instead, you
+  must also call the RAM API
+  [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html).
+  Otherwise, the resource
+  isn't visible to the principals that it's shared with.
   """
   @spec put_image_recipe_policy(map(), put_image_recipe_policy_request(), list()) ::
           {:ok, put_image_recipe_policy_response(), any()}
@@ -6828,7 +6928,13 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Retries an image distribution or test without rebuilding the image.
+  Retries a failed or canceled image build without rebuilding the phases
+  that already completed.
+
+  The image re-runs asynchronously in place: the same
+  build version returns to the test or distribution phase where it failed and
+  continues from there. No new image build version is created. Retry is only
+  supported for AMI-based images.
   """
   @spec retry_image(map(), retry_image_request(), list()) ::
           {:ok, retry_image_response(), any()}
@@ -6857,8 +6963,11 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Pauses or resumes image creation when the associated workflow runs a
-  `WaitForAction` step.
+  Sends an action to a workflow step that has paused at a
+  `WaitForAction` step, so that image creation can continue.
+
+  To find the steps that are waiting for an action, call
+  `ListWaitingWorkflowSteps`.
   """
   @spec send_workflow_step_action(map(), send_workflow_step_action_request(), list()) ::
           {:ok, send_workflow_step_action_response(), any()}
@@ -6888,6 +6997,13 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Manually triggers a pipeline to create an image.
+
+  You can start a build
+  this way whether the pipeline is enabled or disabled. The response returns
+  as soon as Image Builder creates the new image resource and queues the build.
+  Use
+  the returned `imageBuildVersionArn` with
+  `GetImage` to track build progress.
   """
   @spec start_image_pipeline_execution(map(), start_image_pipeline_execution_request(), list()) ::
           {:ok, start_image_pipeline_execution_response(), any()}
@@ -6916,8 +7032,17 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Begins an asynchronous resource state update for lifecycle changes to the
-  specified image resources.
+  Begins an ad-hoc state change for the specified image build version.
+
+  This is a one-time operation - if you schedule the update, it runs only
+  once. If the
+  request includes underlying resources, or schedules the update far enough in
+  the future, Image Builder runs the update as an asynchronous lifecycle execution
+  and
+  returns its identifier. Otherwise, for target states other than
+  `DELETED`, the state change applies immediately. If a request
+  that starts a lifecycle execution arrives while the image already has one in
+  progress, Image Builder rejects it.
   """
   @spec start_resource_state_update(map(), start_resource_state_update_request(), list()) ::
           {:ok, start_resource_state_update_response(), any()}
@@ -7012,7 +7137,12 @@ defmodule AWS.Imagebuilder do
   Updates a distribution configuration.
 
   Distribution configurations define and
-  configure the outputs of your pipeline.
+  configure the outputs for your images, including the target Regions,
+  accounts, and settings for each Region.
+
+  This operation doesn't support selective updates. The request
+  replaces the stored configuration, so include every setting that you
+  want to keep.
   """
   @spec update_distribution_configuration(
           map(),
@@ -7050,12 +7180,14 @@ defmodule AWS.Imagebuilder do
   Use image pipelines to automate the creation and
   distribution of images. You must specify exactly one recipe for your image,
   using either
-  a `containerRecipeArn` or an `imageRecipeArn`.
+  a `containerRecipeArn` or an `imageRecipeArn`. The
+  recipe must be the same type, image or container, as the pipeline's current
+  recipe.
 
-  UpdateImagePipeline does not support selective updates for the pipeline. You
-  must
-  specify all of the required properties in the update request, not just the
-  properties that have changed.
+  UpdateImagePipeline does not support selective updates. The request
+  replaces the pipeline's entire configuration, so include every setting
+  that you want to keep. Any optional property that you omit is removed
+  or reset to its default.
   """
   @spec update_image_pipeline(map(), update_image_pipeline_request(), list()) ::
           {:ok, update_image_pipeline_response(), any()}
@@ -7088,6 +7220,10 @@ defmodule AWS.Imagebuilder do
 
   An infrastructure configuration defines
   the environment in which Image Builder builds and tests your image.
+
+  This operation doesn't support selective updates.
+  The request replaces the configuration, so include every setting that
+  you want to keep. Omitted optional properties are cleared.
   """
   @spec update_infrastructure_configuration(
           map(),
@@ -7121,6 +7257,11 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Updates the specified lifecycle policy.
+
+  The request replaces the existing
+  policy configuration rather than merging changes, so re-specify every setting
+  that you want to keep. The `resourceType` must match the existing
+  policy's value.
   """
   @spec update_lifecycle_policy(map(), update_lifecycle_policy_request(), list()) ::
           {:ok, update_lifecycle_policy_response(), any()}

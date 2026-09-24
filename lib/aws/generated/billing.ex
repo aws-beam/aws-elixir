@@ -206,6 +206,33 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      billing_view_segment_time_range() :: %{
+        "beginDateInclusive" => [non_neg_integer()],
+        "endDateExclusive" => [non_neg_integer()]
+      }
+      
+  """
+  @type billing_view_segment_time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_view_segments_list_element() :: %{
+        "billingGroupPrimaryAccountId" => String.t() | atom(),
+        "billingTransferAccountId" => String.t() | atom(),
+        "domain" => list(any()),
+        "managementAccountId" => String.t() | atom(),
+        "timeRange" => billing_view_segment_time_range()
+      }
+      
+  """
+  @type billing_view_segments_list_element() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       charge_account() :: %{
         "accountId" => String.t() | atom(),
         "chargePercentage" => [String.t() | atom()]
@@ -637,6 +664,32 @@ defmodule AWS.Billing do
       
   """
   @type linked_account_charge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_billing_view_segments_request() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("timeRange") => billing_view_segment_time_range()
+      }
+      
+  """
+  @type list_billing_view_segments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_billing_view_segments_response() :: %{
+        "items" => list(billing_view_segments_list_element()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_billing_view_segments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1098,6 +1151,14 @@ defmodule AWS.Billing do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_billing_view_segments_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | billing_view_health_status_exception()
+          | access_denied_exception()
+
   @type list_billing_views_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1373,6 +1434,31 @@ defmodule AWS.Billing do
       metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
+  end
+
+  @doc """
+  Lists the segments of a billing view over a given time period.
+
+  Each segment identifies the billing domain (`PRO_FORMA` or `BILLABLE`) and the
+  account relationships that apply during its time range.
+
+  If you don't provide an `arn`, the response includes segments for the caller's
+  `PRIMARY` billing view.
+
+  If a mid-period change occurs, the response includes multiple segments, each
+  with its own time range. The response omits hidden segments, so the segments it
+  returns might not cover the entire requested time period.
+  """
+  @spec list_billing_view_segments(map(), list_billing_view_segments_request(), list()) ::
+          {:ok, list_billing_view_segments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_billing_view_segments_errors()}
+  def list_billing_view_segments(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListBillingViewSegments", input, options)
   end
 
   @doc """

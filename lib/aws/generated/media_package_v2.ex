@@ -127,6 +127,17 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      content_key_period_configuration() :: %{
+        "ContentKeyPeriodTiming" => list(any())
+      }
+
+  """
+  @type content_key_period_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_channel_group_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
@@ -1429,10 +1440,12 @@ defmodule AWS.MediaPackageV2 do
 
       speke_key_provider() :: %{
         "CertificateArn" => [String.t() | atom()],
+        "ContentKeyPeriodConfiguration" => content_key_period_configuration(),
         "DrmSystems" => list(list(any())()),
         "EncryptionContractConfiguration" => encryption_contract_configuration(),
         "ResourceId" => [String.t() | atom()],
         "RoleArn" => [String.t() | atom()],
+        "SpekeVersion" => list(any()),
         "Url" => [String.t() | atom()]
       }
 

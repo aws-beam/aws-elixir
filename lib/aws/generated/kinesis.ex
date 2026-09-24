@@ -252,6 +252,7 @@ defmodule AWS.Kinesis do
       
       create_stream_input() :: %{
         optional("MaxRecordSizeInKiB") => integer(),
+        optional("RecordDistributionStrategy") => list(any()),
         optional("ShardCount") => integer(),
         optional("StreamModeDetails") => stream_mode_details(),
         optional("Tags") => map(),
@@ -1029,12 +1030,12 @@ defmodule AWS.Kinesis do
       put_record_input() :: %{
         optional("DryRun") => boolean(),
         optional("ExplicitHashKey") => String.t() | atom(),
+        optional("PartitionKey") => String.t() | atom(),
         optional("SequenceNumberForOrdering") => String.t() | atom(),
         optional("StreamARN") => String.t() | atom(),
         optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
-        required("Data") => binary(),
-        required("PartitionKey") => String.t() | atom()
+        required("Data") => binary()
       }
       
   """
@@ -1429,6 +1430,7 @@ defmodule AWS.Kinesis do
         "KeyId" => String.t() | atom(),
         "MaxRecordSizeInKiB" => integer(),
         "OpenShardCount" => integer(),
+        "RecordDistributionStrategy" => list(any()),
         "RetentionPeriodHours" => integer(),
         "StreamARN" => String.t() | atom(),
         "StreamCreationTimestamp" => non_neg_integer(),
@@ -1660,6 +1662,19 @@ defmodule AWS.Kinesis do
       
   """
   @type update_stream_mode_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_stream_record_distribution_strategy_input() :: %{
+        optional("StreamId") => String.t() | atom(),
+        required("RecordDistributionStrategy") => list(any()),
+        required("StreamARN") => String.t() | atom()
+      }
+      
+  """
+  @type update_stream_record_distribution_strategy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2030,6 +2045,14 @@ defmodule AWS.Kinesis do
           | limit_exceeded_exception()
           | invalid_argument_exception()
 
+  @type update_stream_record_distribution_strategy_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+
   @type update_stream_warm_throughput_errors() ::
           validation_exception()
           | resource_not_found_exception()
@@ -2241,9 +2264,8 @@ defmodule AWS.Kinesis do
   Deleting a channel stops delivery from the source stream to the destination.
   Data already delivered to the destination is not deleted.
 
-  A stream cannot be deleted while it has active channels. To delete the stream,
-  first delete all channels attached to it. To find them, use `ListChannels` with
-  a stream filter.
+  A stream cannot be deleted while it has active channels. Use `ListChannels` with
+  a stream filter to find the channels attached to a stream before deleting it.
 
   This operation has a call limit of 5 transactions per second (TPS) for each
   Amazon Web Services account. Exceeding 5 TPS results in a
@@ -3736,6 +3758,64 @@ defmodule AWS.Kinesis do
       metadata()
 
     Request.request_post(client, meta, "UpdateStreamMode", input, options)
+  end
+
+  @doc """
+  Updates the record distribution strategy for the specified Amazon Kinesis Data
+  Streams
+  on-demand data stream.
+
+  The record distribution strategy determines how Amazon Kinesis
+  Data Streams distributes records across the shards in a stream.
+
+  You must specify the stream using the `StreamARN` parameter.
+
+  The record distribution strategy is a stream-level setting. You can switch
+  between the
+  following strategies at any time, and the change takes effect immediately
+  without
+  downtime, data loss, or disruption to producer or consumer applications:
+
+    *
+
+  `AUTO` – Amazon Kinesis Data Streams distributes records evenly
+  across shards using service-managed algorithms, and ignores any partition key
+  and `ExplicitHashKey` that a producer provides. Use this strategy for
+  stateless workloads that do not require partition-key ordering.
+
+    *
+
+  `USER_PARTITION_KEY` – Producers must provide a partition key, and
+  Amazon Kinesis Data Streams uses the partition key to determine shard placement.
+  Records that share a partition key are sent to the same shard. This is the
+  default strategy.
+
+  This operation is only supported for data streams that use the on-demand
+  capacity
+  mode. Provisioned capacity mode streams do not support the record distribution
+  strategy
+  setting. Attempting to set `AUTO` on a provisioned stream results in an
+  `InvalidArgumentException`.
+
+  New records that arrive after the change are distributed according to the new
+  strategy. Records already in the stream keep their original shard assignments
+  and are
+  not redistributed.
+  """
+  @spec update_stream_record_distribution_strategy(
+          map(),
+          update_stream_record_distribution_strategy_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_stream_record_distribution_strategy_errors()}
+  def update_stream_record_distribution_strategy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateStreamRecordDistributionStrategy", input, options)
   end
 
   @doc """

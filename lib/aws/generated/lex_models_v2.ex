@@ -3,8 +3,56 @@
 
 defmodule AWS.LexModelsV2 do
   @moduledoc """
-  Amazon Lex Model Building Service provides APIs for creating, managing, and
-  deploying conversational bots and their components.
+  This document provides detailed information about the Amazon Lex V2 API actions
+  and their parameters.
+
+  For information about the IAM access control permissions you need to use this
+  API, see
+  [Identity-based policies for Amazon Lex V2](https://docs.aws.amazon.com/lexv2/latest/dg/security_iam_service-with-iam.html).
+
+  Amazon Lex V2 Model Building V2 operations let you build and manage bots.
+
+  If you use a custom HTTP client to call Amazon Lex Model Building
+  V2 operations, you must set the "Content-Type" HTTP header to
+  "application/x-amz-json-1.1". Otherwise, you receive an HTTP 404 -
+  UnknownOperationException in the response.
+
+  Amazon Lex Model Building V2 operations return the responses with
+  the "application/x-amz-json-1.1" content type.
+
+  You can use [Amazon Web Services SDKs](http://aws.amazon.com/tools/#sdk) to access Amazon Lex V2 APIs using your favorite programming language.
+  The SDKs automatically perform useful tasks for you, such as:
+
+    *
+  Cryptographically sign your service requests
+
+    *
+  Retry requests
+
+    *
+  Handle error responses
+
+  The following resources provide additional information about the Amazon Lex V2
+  Model Building API.
+
+    *
+
+  *Amazon Web Services General Reference*
+
+      *
+
+  [Amazon Lex V2 Endpoints for each
+  region](https://docs.aws.amazon.com/general/latest/gr/lex.html).
+
+    *
+
+  *Command Line Interface*
+
+      *
+
+  [
+  Amazon Lex Model Building V2 CLI
+  commands](https://docs.aws.amazon.com/cli/latest/reference/lexv2-models/index.html).
   """
 
   alias AWS.Client
@@ -890,6 +938,7 @@ defmodule AWS.LexModelsV2 do
         "botVersion" => String.t() | atom(),
         "localeId" => String.t() | atom(),
         "nluIntentConfidenceThreshold" => float(),
+        "speakerDiarizationSettings" => speaker_diarization_settings(),
         "speechDetectionSensitivity" => list(any()),
         "speechRecognitionSettings" => speech_recognition_settings(),
         "unifiedSpeechSettings" => unified_speech_settings(),
@@ -1428,6 +1477,7 @@ defmodule AWS.LexModelsV2 do
         optional("audioFillerSettings") => audio_filler_settings(),
         optional("description") => String.t() | atom(),
         optional("generativeAISettings") => generative_a_i_settings(),
+        optional("speakerDiarizationSettings") => speaker_diarization_settings(),
         optional("speechDetectionSensitivity") => list(any()),
         optional("speechRecognitionSettings") => speech_recognition_settings(),
         optional("unifiedSpeechSettings") => unified_speech_settings(),
@@ -1454,6 +1504,7 @@ defmodule AWS.LexModelsV2 do
         "localeId" => String.t() | atom(),
         "localeName" => String.t() | atom(),
         "nluIntentConfidenceThreshold" => float(),
+        "speakerDiarizationSettings" => speaker_diarization_settings(),
         "speechDetectionSensitivity" => list(any()),
         "speechRecognitionSettings" => speech_recognition_settings(),
         "unifiedSpeechSettings" => unified_speech_settings(),
@@ -2351,6 +2402,7 @@ defmodule AWS.LexModelsV2 do
         "nluIntentConfidenceThreshold" => float(),
         "recommendedActions" => list(String.t() | atom()),
         "slotTypesCount" => integer(),
+        "speakerDiarizationSettings" => speaker_diarization_settings(),
         "speechDetectionSensitivity" => list(any()),
         "speechRecognitionSettings" => speech_recognition_settings(),
         "unifiedSpeechSettings" => unified_speech_settings(),
@@ -5274,6 +5326,17 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
 
+      speaker_diarization_settings() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type speaker_diarization_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       specifications() :: %{
         "slotTypeId" => String.t() | atom(),
         "valueElicitationSetting" => sub_slot_value_elicitation_setting()
@@ -6026,6 +6089,7 @@ defmodule AWS.LexModelsV2 do
         optional("audioFillerSettings") => audio_filler_settings(),
         optional("description") => String.t() | atom(),
         optional("generativeAISettings") => generative_a_i_settings(),
+        optional("speakerDiarizationSettings") => speaker_diarization_settings(),
         optional("speechDetectionSensitivity") => list(any()),
         optional("speechRecognitionSettings") => speech_recognition_settings(),
         optional("unifiedSpeechSettings") => unified_speech_settings(),
@@ -6054,6 +6118,7 @@ defmodule AWS.LexModelsV2 do
         "localeName" => String.t() | atom(),
         "nluIntentConfidenceThreshold" => float(),
         "recommendedActions" => list(String.t() | atom()),
+        "speakerDiarizationSettings" => speaker_diarization_settings(),
         "speechDetectionSensitivity" => list(any()),
         "speechRecognitionSettings" => speech_recognition_settings(),
         "unifiedSpeechSettings" => unified_speech_settings(),

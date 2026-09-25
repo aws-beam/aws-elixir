@@ -880,6 +880,8 @@ defmodule AWS.SecurityAgent do
         "createdAt" => [non_neg_integer()],
         "logConfig" => cloud_watch_log(),
         "maxTaskHours" => [float()],
+        "reportDestination" => report_destination(),
+        "reportFilters" => report_filters(),
         "serviceRole" => String.t() | atom(),
         "title" => [String.t() | atom()],
         "updatedAt" => [non_neg_integer()],
@@ -905,6 +907,7 @@ defmodule AWS.SecurityAgent do
         "logConfig" => cloud_watch_log(),
         "maxTaskHours" => [float()],
         "overview" => [String.t() | atom()],
+        "reportDestination" => report_destination(),
         "serviceRole" => String.t() | atom(),
         "sourceCode" => list(source_code_repository()),
         "status" => list(any()),
@@ -1138,6 +1141,8 @@ defmodule AWS.SecurityAgent do
         optional("codeRemediationStrategy") => list(any()),
         optional("logConfig") => cloud_watch_log(),
         optional("maxTaskHours") => [float()],
+        optional("reportDestination") => report_destination(),
+        optional("reportFilters") => report_filters(),
         optional("serviceRole") => String.t() | atom(),
         optional("validationMode") => list(any()),
         required("agentSpaceId") => [String.t() | atom()],
@@ -1160,6 +1165,8 @@ defmodule AWS.SecurityAgent do
         "createdAt" => [non_neg_integer()],
         "logConfig" => cloud_watch_log(),
         "maxTaskHours" => [float()],
+        "reportDestination" => report_destination(),
+        "reportFilters" => report_filters(),
         "serviceRole" => String.t() | atom(),
         "title" => [String.t() | atom()],
         "updatedAt" => [non_neg_integer()],
@@ -1232,6 +1239,8 @@ defmodule AWS.SecurityAgent do
         optional("logConfig") => cloud_watch_log(),
         optional("maxTaskHours") => [float()],
         optional("networkTrafficConfig") => network_traffic_config(),
+        optional("reportDestination") => report_destination(),
+        optional("reportFilters") => report_filters(),
         optional("serviceRole") => String.t() | atom(),
         optional("vpcConfig") => vpc_config(),
         required("agentSpaceId") => [String.t() | atom()],
@@ -1252,6 +1261,8 @@ defmodule AWS.SecurityAgent do
         "excludeRiskTypes" => list(list(any())()),
         "logConfig" => cloud_watch_log(),
         "pentestId" => [String.t() | atom()],
+        "reportDestination" => report_destination(),
+        "reportFilters" => report_filters(),
         "serviceRole" => String.t() | atom(),
         "title" => [String.t() | atom()],
         "updatedAt" => [non_neg_integer()]
@@ -1421,6 +1432,7 @@ defmodule AWS.SecurityAgent do
         "createdAt" => [non_neg_integer()],
         "description" => [String.t() | atom()],
         "logConfig" => cloud_watch_log(),
+        "reportDestination" => report_destination(),
         "scopeDocs" => list(document_info()),
         "serviceRole" => String.t() | atom(),
         "threatModelId" => [String.t() | atom()],
@@ -2896,6 +2908,8 @@ defmodule AWS.SecurityAgent do
         "maxTaskHours" => [float()],
         "networkTrafficConfig" => network_traffic_config(),
         "pentestId" => [String.t() | atom()],
+        "reportDestination" => report_destination(),
+        "reportFilters" => report_filters(),
         "serviceRole" => String.t() | atom(),
         "title" => [String.t() | atom()],
         "updatedAt" => [non_neg_integer()],
@@ -2930,6 +2944,7 @@ defmodule AWS.SecurityAgent do
         "overview" => [String.t() | atom()],
         "pentestId" => [String.t() | atom()],
         "pentestJobId" => [String.t() | atom()],
+        "reportDestination" => report_destination(),
         "selectedFindingIds" => list([String.t() | atom()]()),
         "serviceRole" => String.t() | atom(),
         "sourceCode" => list(source_code_repository()),
@@ -3009,6 +3024,24 @@ defmodule AWS.SecurityAgent do
 
   """
   @type report_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      report_filters() :: %{
+        "annotationNotes" => [boolean()],
+        "complianceReport" => [boolean()],
+        "confidenceLevels" => list(list(any())()),
+        "findingTypes" => list(String.t() | atom()),
+        "riskLevels" => list(list(any())()),
+        "riskTypes" => list(list(any())()),
+        "statuses" => list(list(any())()),
+        "taskStatuses" => list(list(any())())
+      }
+
+  """
+  @type report_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3470,6 +3503,7 @@ defmodule AWS.SecurityAgent do
         "createdAt" => [non_neg_integer()],
         "description" => [String.t() | atom()],
         "logConfig" => cloud_watch_log(),
+        "reportDestination" => report_destination(),
         "scopeDocs" => list(document_info()),
         "serviceRole" => String.t() | atom(),
         "threatModelId" => [String.t() | atom()],
@@ -3492,6 +3526,7 @@ defmodule AWS.SecurityAgent do
         "executionEndTime" => [non_neg_integer()],
         "executionStartTime" => [non_neg_integer()],
         "integratedRepositories" => list(integrated_repository()),
+        "reportDestination" => report_destination(),
         "scopeDocs" => list(document_info()),
         "sourceCode" => list(source_code_repository()),
         "status" => list(any()),
@@ -3707,6 +3742,8 @@ defmodule AWS.SecurityAgent do
         optional("codeRemediationStrategy") => list(any()),
         optional("logConfig") => cloud_watch_log(),
         optional("maxTaskHours") => [float()],
+        optional("reportDestination") => report_destination(),
+        optional("reportFilters") => report_filters(),
         optional("serviceRole") => String.t() | atom(),
         optional("title") => [String.t() | atom()],
         optional("validationMode") => list(any()),
@@ -3729,6 +3766,8 @@ defmodule AWS.SecurityAgent do
         "createdAt" => [non_neg_integer()],
         "logConfig" => cloud_watch_log(),
         "maxTaskHours" => [float()],
+        "reportDestination" => report_destination(),
+        "reportFilters" => report_filters(),
         "serviceRole" => String.t() | atom(),
         "title" => [String.t() | atom()],
         "updatedAt" => [non_neg_integer()],
@@ -3802,6 +3841,8 @@ defmodule AWS.SecurityAgent do
         optional("logConfig") => cloud_watch_log(),
         optional("maxTaskHours") => [float()],
         optional("networkTrafficConfig") => network_traffic_config(),
+        optional("reportDestination") => report_destination(),
+        optional("reportFilters") => report_filters(),
         optional("serviceRole") => String.t() | atom(),
         optional("title") => [String.t() | atom()],
         optional("vpcConfig") => vpc_config(),
@@ -3823,6 +3864,8 @@ defmodule AWS.SecurityAgent do
         "excludeRiskTypes" => list(list(any())()),
         "logConfig" => cloud_watch_log(),
         "pentestId" => [String.t() | atom()],
+        "reportDestination" => report_destination(),
+        "reportFilters" => report_filters(),
         "serviceRole" => String.t() | atom(),
         "title" => [String.t() | atom()],
         "updatedAt" => [non_neg_integer()]
@@ -3970,6 +4013,7 @@ defmodule AWS.SecurityAgent do
         optional("assets") => assets(),
         optional("description") => [String.t() | atom()],
         optional("logConfig") => cloud_watch_log(),
+        optional("reportDestination") => report_destination(),
         optional("scopeDocs") => list(document_info()),
         optional("serviceRole") => String.t() | atom(),
         optional("title") => [String.t() | atom()],
@@ -3990,6 +4034,7 @@ defmodule AWS.SecurityAgent do
         "createdAt" => [non_neg_integer()],
         "description" => [String.t() | atom()],
         "logConfig" => cloud_watch_log(),
+        "reportDestination" => report_destination(),
         "scopeDocs" => list(document_info()),
         "serviceRole" => String.t() | atom(),
         "threatModelId" => [String.t() | atom()],

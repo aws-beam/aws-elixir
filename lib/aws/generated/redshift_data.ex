@@ -371,12 +371,12 @@ defmodule AWS.RedshiftData do
       
       list_databases_request() :: %{
         optional("ClusterIdentifier") => String.t() | atom(),
+        optional("Database") => String.t() | atom(),
         optional("DbUser") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("SecretArn") => String.t() | atom(),
-        optional("WorkgroupName") => String.t() | atom(),
-        required("Database") => String.t() | atom()
+        optional("WorkgroupName") => String.t() | atom()
       }
       
   """
@@ -1087,9 +1087,9 @@ defmodule AWS.RedshiftData do
 
   Returns only the sessions that the caller created. When identity-enhanced role
   sessions are used, you must provide either the `ClusterIdentifier` or
-  `WorkgroupName` parameter to ensure that the AWS IAM Identity Center user can
-  only access the Amazon Redshift IAM Identity Center applications they are
-  assigned. For more information, see [ Trusted identity propagation overview](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html).
+  `WorkgroupName` parameter to ensure that the IAM Identity Center user can only
+  access the Amazon Redshift IAM Identity Center applications they are assigned.
+  For more information, see [ Trusted identity propagation overview](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html).
   """
   @spec list_sessions(map(), list_sessions_request(), list()) ::
           {:ok, list_sessions_response(), any()}

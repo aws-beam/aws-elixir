@@ -844,6 +844,7 @@ defmodule AWS.ElastiCache do
       
       create_global_replication_group_message() :: %{
         optional("GlobalReplicationGroupDescription") => String.t() | atom(),
+        optional("Tags") => list(tag()),
         required("GlobalReplicationGroupIdSuffix") => String.t() | atom(),
         required("PrimaryReplicationGroupId") => String.t() | atom()
       }
@@ -3870,7 +3871,9 @@ defmodule AWS.ElastiCache do
           | invalid_serverless_cache_state_fault()
           | invalid_serverless_cache_snapshot_state_fault()
           | invalid_replication_group_state_fault()
+          | invalid_parameter_value_exception()
           | invalid_arn_fault()
+          | global_replication_group_not_found_fault()
           | cache_subnet_group_not_found_fault()
           | cache_security_group_not_found_fault()
           | cache_parameter_group_not_found_fault()
@@ -3953,7 +3956,8 @@ defmodule AWS.ElastiCache do
           | cache_subnet_group_already_exists_fault()
 
   @type create_global_replication_group_errors() ::
-          service_linked_role_not_found_fault()
+          tag_quota_per_resource_exceeded()
+          | service_linked_role_not_found_fault()
           | replication_group_not_found_fault()
           | invalid_replication_group_state_fault()
           | invalid_parameter_value_exception()
@@ -4263,7 +4267,9 @@ defmodule AWS.ElastiCache do
           | invalid_serverless_cache_state_fault()
           | invalid_serverless_cache_snapshot_state_fault()
           | invalid_replication_group_state_fault()
+          | invalid_parameter_value_exception()
           | invalid_arn_fault()
+          | global_replication_group_not_found_fault()
           | cache_subnet_group_not_found_fault()
           | cache_security_group_not_found_fault()
           | cache_parameter_group_not_found_fault()
@@ -4386,7 +4392,9 @@ defmodule AWS.ElastiCache do
           | invalid_serverless_cache_state_fault()
           | invalid_serverless_cache_snapshot_state_fault()
           | invalid_replication_group_state_fault()
+          | invalid_parameter_value_exception()
           | invalid_arn_fault()
+          | global_replication_group_not_found_fault()
           | cache_subnet_group_not_found_fault()
           | cache_security_group_not_found_fault()
           | cache_parameter_group_not_found_fault()
@@ -4449,10 +4457,8 @@ defmodule AWS.ElastiCache do
   A tag is a key-value pair where the key and value are case-sensitive.
 
   You can use tags
-  to categorize and track all your ElastiCache resources, with the exception of
-  global
-  replication group. When you add or remove tags on replication groups, those
-  actions will
+  to categorize and track all your ElastiCache resources.
+  When you add or remove tags on replication groups, those actions will
   be replicated to all nodes in the replication group. For more information, see
   [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html).
 
@@ -5832,10 +5838,8 @@ defmodule AWS.ElastiCache do
 
   A tag is a key-value pair where the key and value are case-sensitive. You can
   use
-  tags to categorize and track all your ElastiCache resources, with the exception
-  of
-  global replication group. When you add or remove tags on replication groups,
-  those
+  tags to categorize and track all your ElastiCache resources.
+  When you add or remove tags on replication groups, those
   actions will be replicated to all nodes in the replication group. For more
   information,
   see [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html).
@@ -6106,10 +6110,8 @@ defmodule AWS.ElastiCache do
 
   A tag is a key-value pair where the key and value are case-sensitive. You can
   use tags
-  to categorize and track all your ElastiCache resources, with the exception of
-  global
-  replication group. When you add or remove tags on replication groups, those
-  actions will
+  to categorize and track all your ElastiCache resources.
+  When you add or remove tags on replication groups, those actions will
   be replicated to all nodes in the replication group. For more information, see
   [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html).
   """

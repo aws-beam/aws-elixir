@@ -1533,6 +1533,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_environment_blueprint_input() :: %{
+        optional("blueprintCategory") => list(any()),
         optional("description") => String.t() | atom(),
         optional("userParameters") => list(custom_parameter()),
         required("name") => String.t() | atom(),
@@ -1547,6 +1548,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_environment_blueprint_output() :: %{
+        "blueprintCategory" => list(any()),
         "createdAt" => [non_neg_integer()],
         "deploymentProperties" => deployment_properties(),
         "description" => String.t() | atom(),
@@ -3217,6 +3219,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       environment_blueprint_summary() :: %{
+        "blueprintCategory" => list(any()),
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
         "id" => String.t() | atom(),
@@ -3971,6 +3974,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       get_environment_blueprint_output() :: %{
+        "blueprintCategory" => list(any()),
         "createdAt" => [non_neg_integer()],
         "deploymentProperties" => deployment_properties(),
         "description" => String.t() | atom(),
@@ -5142,7 +5146,8 @@ defmodule AWS.DataZone do
   ## Example:
 
       iam_properties_input() :: %{
-        "glueLineageSyncEnabled" => [boolean()]
+        "glueLineageSyncEnabled" => [boolean()],
+        "roleArn" => String.t() | atom()
       }
 
   """
@@ -9190,6 +9195,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_environment_blueprint_input() :: %{
+        optional("blueprintCategory") => list(any()),
         optional("description") => [String.t() | atom()],
         optional("provisioningProperties") => list(),
         optional("userParameters") => list(custom_parameter())
@@ -9203,6 +9209,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_environment_blueprint_output() :: %{
+        "blueprintCategory" => list(any()),
         "createdAt" => [non_neg_integer()],
         "deploymentProperties" => deployment_properties(),
         "description" => String.t() | atom(),

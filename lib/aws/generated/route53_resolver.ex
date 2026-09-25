@@ -3174,9 +3174,9 @@ defmodule AWS.Route53Resolver do
   VPC.
 
   If the rule group contains any rule configured with the
-  `PartnerThreatProtection` rule type, the calling account must hold an active AWS
-  Marketplace subscription to the named partner. If the subscription is missing,
-  the association request is rejected.
+  `PartnerThreatProtection` rule type, the calling account must hold an active
+  Amazon Web Services Marketplace subscription to the named partner. If the
+  subscription is missing, the association request is rejected.
   """
   @spec associate_firewall_rule_group(map(), associate_firewall_rule_group_request(), list()) ::
           {:ok, associate_firewall_rule_group_response(), any()}
@@ -3340,7 +3340,8 @@ defmodule AWS.Route53Resolver do
 
     *
 
-  `FirewallDomainListId` — match a customer-managed or AWS-managed domain list.
+  `FirewallDomainListId` — match a customer-managed or Amazon Web Services-managed
+  domain list.
 
     *
 
@@ -3353,7 +3354,8 @@ defmodule AWS.Route53Resolver do
   `ListFirewallRuleTypes`: `FirewallAdvancedContentCategory`,
   `FirewallAdvancedThreatCategory`, `DnsThreatProtection`, or
   `PartnerThreatProtection`. The `PartnerThreatProtection` variant requires an
-  active AWS Marketplace subscription to the named partner product.
+  active Amazon Web Services Marketplace subscription to the named partner
+  product.
 
   For rules that require asynchronous provisioning (today, the
   `PartnerThreatProtection` rule type), the rule's `Status` begins at `CREATING`
@@ -3395,6 +3397,11 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Creates a Route 53 Resolver on an Outpost.
+
+  This operation applies to first-generation Outposts only. On second-generation
+  Outposts, Resolver
+  is enabled by default and managed automatically by Amazon Web Services, so you
+  don't need to create it.
   """
   @spec create_outpost_resolver(map(), create_outpost_resolver_request(), list()) ::
           {:ok, create_outpost_resolver_response(), any()}
@@ -3539,6 +3546,12 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Deletes a Resolver on the Outpost.
+
+  This operation applies to first-generation Outposts only. On second-generation
+  Outposts, Resolver
+  is managed automatically by Amazon Web Services and can't be deleted directly.
+  To opt out of Resolver on
+  second-generation Outposts, contact Amazon Web Services Support.
   """
   @spec delete_outpost_resolver(map(), delete_outpost_resolver_request(), list()) ::
           {:ok, delete_outpost_resolver_response(), any()}
@@ -4155,9 +4168,10 @@ defmodule AWS.Route53Resolver do
   `FirewallAdvancedThreatCategory`, `DnsThreatProtection`, and
   `PartnerThreatProtection`. When a returned definition's variant requires an
   external subscription (currently only `PartnerThreatProtection`), the response
-  also includes a `SubscriptionInfo` identifying the AWS Marketplace product that
-  backs it; absence of `SubscriptionInfo` means the variant is fully managed by
-  AWS and requires no separate subscription.
+  also includes a `SubscriptionInfo` identifying the Amazon Web Services
+  Marketplace product that backs it; absence of `SubscriptionInfo` means the
+  variant is fully managed by Amazon Web Services and requires no separate
+  subscription.
   """
   @spec list_firewall_rule_types(map(), list_firewall_rule_types_request(), list()) ::
           {:ok, list_firewall_rule_types_response(), any()}
@@ -4531,6 +4545,10 @@ defmodule AWS.Route53Resolver do
   @doc """
   You can use `UpdateOutpostResolver` to update the instance count, type, or name
   of a Resolver on an Outpost.
+
+  This operation applies to first-generation Outposts only. On second-generation
+  Outposts, Resolver
+  is managed automatically by Amazon Web Services and can't be updated directly.
   """
   @spec update_outpost_resolver(map(), update_outpost_resolver_request(), list()) ::
           {:ok, update_outpost_resolver_response(), any()}

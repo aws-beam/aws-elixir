@@ -959,6 +959,7 @@ defmodule AWS.EventBridge do
         "KmsKeyIdentifier" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "LogConfig" => log_config(),
+        "ManagedBy" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "Policy" => String.t() | atom()
       }
@@ -1172,6 +1173,7 @@ defmodule AWS.EventBridge do
         "CreationTime" => non_neg_integer(),
         "Description" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
+        "ManagedBy" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "Policy" => String.t() | atom()
       }
@@ -3703,8 +3705,8 @@ defmodule AWS.EventBridge do
   Sends custom events to Amazon EventBridge so that they can be matched to rules.
 
   You can batch multiple event entries into one request for efficiency.
-  However, the total entry size must be less than 256KB. You can calculate the
-  entry size before you send the events.
+  However, the total entry size must be less than 1MB. You can calculate the entry
+  size before you send the events.
   For more information, see [Calculating PutEvents event entry size](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevents.html#eb-putevent-size)
   in the *
   *Amazon EventBridge User Guide*

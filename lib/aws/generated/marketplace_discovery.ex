@@ -27,7 +27,24 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
+      amazon_machine_image_ebs_volume() :: %{
+        "iops" => [integer()],
+        "volumeTypes" => list([String.t() | atom()]())
+      }
+
+  """
+  @type amazon_machine_image_ebs_volume() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       amazon_machine_image_fulfillment_option() :: %{
+        "accessUrlTemplate" => [String.t() | atom()],
+        "amiAlias" => [String.t() | atom()],
+        "architecture" => [String.t() | atom()],
+        "availableFromTime" => [non_neg_integer()],
+        "ebsVolume" => amazon_machine_image_ebs_volume(),
         "fulfillmentOptionDisplayName" => [String.t() | atom()],
         "fulfillmentOptionId" => [String.t() | atom()],
         "fulfillmentOptionName" => [String.t() | atom()],
@@ -36,6 +53,7 @@ defmodule AWS.MarketplaceDiscovery do
         "operatingSystems" => list(amazon_machine_image_operating_system()),
         "recommendation" => amazon_machine_image_recommendation(),
         "releaseNotes" => [String.t() | atom()],
+        "shortDescription" => [String.t() | atom()],
         "usageInstructions" => [String.t() | atom()]
       }
 
@@ -60,11 +78,26 @@ defmodule AWS.MarketplaceDiscovery do
   ## Example:
 
       amazon_machine_image_recommendation() :: %{
-        "instanceType" => [String.t() | atom()]
+        "instanceType" => [String.t() | atom()],
+        "securityGroups" => list(amazon_machine_image_security_group())
       }
 
   """
   @type amazon_machine_image_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amazon_machine_image_security_group() :: %{
+        "cidrIpAddresses" => list([String.t() | atom()]()),
+        "fromPort" => [integer()],
+        "protocol" => [String.t() | atom()],
+        "toPort" => [integer()]
+      }
+
+  """
+  @type amazon_machine_image_security_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -123,12 +156,15 @@ defmodule AWS.MarketplaceDiscovery do
   ## Example:
 
       cloud_formation_fulfillment_option() :: %{
+        "availableFromTime" => [non_neg_integer()],
         "fulfillmentOptionDisplayName" => [String.t() | atom()],
         "fulfillmentOptionId" => [String.t() | atom()],
         "fulfillmentOptionName" => [String.t() | atom()],
         "fulfillmentOptionType" => list(any()),
         "fulfillmentOptionVersion" => [String.t() | atom()],
+        "longDescription" => [String.t() | atom()],
         "releaseNotes" => [String.t() | atom()],
+        "shortDescription" => [String.t() | atom()],
         "usageInstructions" => [String.t() | atom()]
       }
 
@@ -367,6 +403,7 @@ defmodule AWS.MarketplaceDiscovery do
   ## Example:
 
       get_listing_input() :: %{
+        optional("locale") => String.t() | atom(),
         required("listingId") => String.t() | atom()
       }
 
@@ -387,6 +424,7 @@ defmodule AWS.MarketplaceDiscovery do
         "integrationGuide" => String.t() | atom(),
         "listingId" => String.t() | atom(),
         "listingName" => String.t() | atom(),
+        "locale" => String.t() | atom(),
         "logoThumbnailUrl" => String.t() | atom(),
         "longDescription" => String.t() | atom(),
         "pricingModels" => list(pricing_model()),
@@ -408,6 +446,7 @@ defmodule AWS.MarketplaceDiscovery do
   ## Example:
 
       get_offer_input() :: %{
+        optional("locale") => String.t() | atom(),
         required("offerId") => String.t() | atom()
       }
 
@@ -425,6 +464,7 @@ defmodule AWS.MarketplaceDiscovery do
         "badges" => list(purchase_option_badge()),
         "catalog" => String.t() | atom(),
         "expirationTime" => [non_neg_integer()],
+        "locale" => String.t() | atom(),
         "offerId" => String.t() | atom(),
         "offerName" => String.t() | atom(),
         "pricingModel" => pricing_model(),
@@ -440,6 +480,7 @@ defmodule AWS.MarketplaceDiscovery do
   ## Example:
 
       get_offer_set_input() :: %{
+        optional("locale") => String.t() | atom(),
         required("offerSetId") => String.t() | atom()
       }
 
@@ -457,6 +498,7 @@ defmodule AWS.MarketplaceDiscovery do
         "buyerNotes" => String.t() | atom(),
         "catalog" => String.t() | atom(),
         "expirationTime" => [non_neg_integer()],
+        "locale" => String.t() | atom(),
         "offerSetId" => String.t() | atom(),
         "offerSetName" => String.t() | atom(),
         "sellerOfRecord" => seller_information()
@@ -470,6 +512,7 @@ defmodule AWS.MarketplaceDiscovery do
   ## Example:
 
       get_offer_terms_input() :: %{
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom(),
         required("offerId") => String.t() | atom()
@@ -483,6 +526,7 @@ defmodule AWS.MarketplaceDiscovery do
   ## Example:
 
       get_offer_terms_output() :: %{
+        "locale" => String.t() | atom(),
         "nextToken" => String.t() | atom(),
         "offerTerms" => list(list())
       }
@@ -495,6 +539,7 @@ defmodule AWS.MarketplaceDiscovery do
   ## Example:
 
       get_product_input() :: %{
+        optional("locale") => String.t() | atom(),
         required("productId") => String.t() | atom()
       }
 
@@ -511,6 +556,8 @@ defmodule AWS.MarketplaceDiscovery do
         "deployedOnAws" => list(any()),
         "fulfillmentOptionSummaries" => list(fulfillment_option_summary()),
         "highlights" => list(String.t() | atom()),
+        "listingId" => String.t() | atom(),
+        "locale" => String.t() | atom(),
         "logoThumbnailUrl" => String.t() | atom(),
         "longDescription" => String.t() | atom(),
         "manufacturer" => seller_information(),
@@ -601,6 +648,7 @@ defmodule AWS.MarketplaceDiscovery do
   ## Example:
 
       list_fulfillment_options_input() :: %{
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom(),
         required("productId") => String.t() | atom()
@@ -615,6 +663,7 @@ defmodule AWS.MarketplaceDiscovery do
 
       list_fulfillment_options_output() :: %{
         "fulfillmentOptions" => list(list()),
+        "locale" => String.t() | atom(),
         "nextToken" => String.t() | atom()
       }
 
@@ -627,6 +676,7 @@ defmodule AWS.MarketplaceDiscovery do
 
       list_purchase_options_input() :: %{
         optional("filters") => list(purchase_option_filter()),
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
@@ -1069,10 +1119,13 @@ defmodule AWS.MarketplaceDiscovery do
   ## Example:
 
       saas_fulfillment_option() :: %{
+        "availableFromTime" => [non_neg_integer()],
         "fulfillmentOptionDisplayName" => [String.t() | atom()],
         "fulfillmentOptionId" => [String.t() | atom()],
         "fulfillmentOptionType" => list(any()),
         "fulfillmentUrl" => [String.t() | atom()],
+        "launchUrl" => String.t() | atom(),
+        "quickLaunch" => list(any()),
         "usageInstructions" => [String.t() | atom()]
       }
 
@@ -1120,6 +1173,8 @@ defmodule AWS.MarketplaceDiscovery do
         "fulfillmentOptionVersion" => [String.t() | atom()],
         "recommendation" => sage_maker_model_recommendation(),
         "releaseNotes" => [String.t() | atom()],
+        "supportedContentTypes" => list([String.t() | atom()]()),
+        "supportedResponseMimeTypes" => list([String.t() | atom()]()),
         "usageInstructions" => [String.t() | atom()]
       }
 
@@ -1157,6 +1212,7 @@ defmodule AWS.MarketplaceDiscovery do
       search_facets_input() :: %{
         optional("facetTypes") => list(list(any())()),
         optional("filters") => list(search_filter()),
+        optional("locale") => String.t() | atom(),
         optional("nextToken") => String.t() | atom(),
         optional("searchText") => String.t() | atom()
       }
@@ -1195,6 +1251,7 @@ defmodule AWS.MarketplaceDiscovery do
 
       search_listings_input() :: %{
         optional("filters") => list(search_filter()),
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         optional("searchText") => String.t() | atom(),
@@ -1391,7 +1448,7 @@ defmodule AWS.MarketplaceDiscovery do
       hostname: nil,
       protocol: "rest-json",
       service_id: "Marketplace Discovery",
-      signature_version: "v4",
+      signature_version: "aws.auth#sigv4",
       signing_name: "aws-marketplace",
       target_prefix: nil
     }

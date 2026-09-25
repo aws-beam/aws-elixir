@@ -232,6 +232,29 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      create_resource_metrics_configuration_input() :: %{
+        optional("MetricSelections") => list(resource_metric_selection()),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_resource_metrics_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_resource_metrics_configuration_output() :: %{
+        "ResourceMetricsConfiguration" => resource_metrics_configuration()
+      }
+      
+  """
+  @type create_resource_metrics_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       dashboard_entry() :: %{
         "DashboardArn" => String.t() | atom(),
         "DashboardName" => String.t() | atom(),
@@ -404,6 +427,26 @@ defmodule AWS.CloudWatch do
       
   """
   @type delete_metric_stream_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_metrics_configuration_input() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resource_metrics_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_metrics_configuration_output() :: %{}
+      
+  """
+  @type delete_resource_metrics_configuration_output() :: %{}
 
   @typedoc """
 
@@ -951,11 +994,37 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       get_o_tel_enrichment_output() :: %{
-        "Status" => list(any())
+        "CreatedAt" => non_neg_integer(),
+        "ExcludeFilters" => list(o_tel_enrichment_metric_selector()),
+        "IncludeFilters" => list(o_tel_enrichment_metric_selector()),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
       }
       
   """
   @type get_o_tel_enrichment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_metrics_configuration_input() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_metrics_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_metrics_configuration_output() :: %{
+        "ResourceMetricsConfiguration" => resource_metrics_configuration()
+      }
+      
+  """
+  @type get_resource_metrics_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1594,6 +1663,18 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      o_tel_enrichment_metric_selector() :: %{
+        "MetricNames" => list(String.t() | atom()),
+        "Namespace" => String.t() | atom()
+      }
+      
+  """
+  @type o_tel_enrichment_metric_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       partial_failure() :: %{
         "ExceptionType" => String.t() | atom(),
         "FailureCode" => String.t() | atom(),
@@ -1874,6 +1955,31 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      resource_metric_selection() :: %{
+        "IncludeMetrics" => list(String.t() | atom())
+      }
+      
+  """
+  @type resource_metric_selection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_metrics_configuration() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "MetricSelections" => list(resource_metric_selection()),
+        "ResourceArn" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type resource_metrics_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found() :: %{
         "message" => String.t() | atom()
       }
@@ -2010,19 +2116,27 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
-      start_o_tel_enrichment_input() :: %{}
+      start_o_tel_enrichment_input() :: %{
+        optional("ExcludeFilters") => list(o_tel_enrichment_metric_selector()),
+        optional("IncludeFilters") => list(o_tel_enrichment_metric_selector())
+      }
       
   """
-  @type start_o_tel_enrichment_input() :: %{}
+  @type start_o_tel_enrichment_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_o_tel_enrichment_output() :: %{}
+      start_o_tel_enrichment_output() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ExcludeFilters" => list(o_tel_enrichment_metric_selector()),
+        "IncludeFilters" => list(o_tel_enrichment_metric_selector()),
+        "UpdatedAt" => non_neg_integer()
+      }
       
   """
-  @type start_o_tel_enrichment_output() :: %{}
+  @type start_o_tel_enrichment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2134,6 +2248,66 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      update_o_tel_enrichment_input() :: %{
+        optional("ExcludeFilters") => list(o_tel_enrichment_metric_selector()),
+        optional("IncludeFilters") => list(o_tel_enrichment_metric_selector())
+      }
+      
+  """
+  @type update_o_tel_enrichment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_o_tel_enrichment_output() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ExcludeFilters" => list(o_tel_enrichment_metric_selector()),
+        "IncludeFilters" => list(o_tel_enrichment_metric_selector()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type update_o_tel_enrichment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resource_metrics_configuration_input() :: %{
+        optional("MetricSelections") => list(resource_metric_selection()),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_resource_metrics_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resource_metrics_configuration_output() :: %{
+        "ResourceMetricsConfiguration" => resource_metrics_configuration()
+      }
+      
+  """
+  @type update_resource_metrics_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       wall_clock_window() :: %{
         "Timezone" => String.t() | atom()
       }
@@ -2160,6 +2334,9 @@ defmodule AWS.CloudWatch do
           | kms_access_denied_exception()
           | conflict_exception()
 
+  @type create_resource_metrics_configuration_errors() ::
+          resource_not_found_exception() | conflict_exception()
+
   @type delete_alarms_errors() :: resource_not_found() | resource_conflict()
 
   @type delete_anomaly_detector_errors() ::
@@ -2179,6 +2356,8 @@ defmodule AWS.CloudWatch do
           missing_required_parameter_exception()
           | invalid_parameter_value_exception()
           | internal_service_fault()
+
+  @type delete_resource_metrics_configuration_errors() :: resource_not_found_exception()
 
   @type describe_alarm_contributors_errors() ::
           resource_not_found_exception() | invalid_next_token()
@@ -2234,6 +2413,8 @@ defmodule AWS.CloudWatch do
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
           | internal_service_fault()
+
+  @type get_resource_metrics_configuration_errors() :: resource_not_found_exception()
 
   @type list_alarm_mute_rules_errors() :: resource_not_found_exception() | invalid_next_token()
 
@@ -2303,6 +2484,8 @@ defmodule AWS.CloudWatch do
           | invalid_parameter_value_exception()
           | internal_service_fault()
 
+  @type start_o_tel_enrichment_errors() :: validation_exception()
+
   @type stop_metric_streams_errors() ::
           missing_required_parameter_exception()
           | invalid_parameter_value_exception()
@@ -2321,6 +2504,11 @@ defmodule AWS.CloudWatch do
           | internal_service_fault()
           | conflict_exception()
           | concurrent_modification_exception()
+
+  @type update_o_tel_enrichment_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type update_resource_metrics_configuration_errors() :: resource_not_found_exception()
 
   def metadata do
     %{
@@ -2432,6 +2620,48 @@ defmodule AWS.CloudWatch do
       metadata()
 
     Request.request_post(client, meta, "AssociateDatasetKmsKey", input, options)
+  end
+
+  @doc """
+  Creates a resource metrics configuration for an Amazon Web Services resource.
+
+  After you
+  create a configuration, Amazon CloudWatch collects detailed metrics for that
+  resource.
+
+  Each Amazon Web Services resource can have only one resource metrics
+  configuration. If a
+  configuration already exists for the specified resource ARN, this operation
+  returns a
+  `ConflictException`. To modify an existing configuration, use
+  [UpdateResourceMetricsConfiguration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateResourceMetricsConfiguration.html).   If the Amazon Web Services resource that you specify in `ResourceArn` does
+  not exist, this operation returns a `ResourceNotFoundException`. Verify that
+  the resource ARN is correct and that the resource exists before you retry the
+  request.
+
+  To create a resource metrics configuration, you must have the
+  `cloudwatch:CreateResourceMetricsConfiguration` permission. For information
+  about scoping
+  this permission to specific resources, see [Condition keys for resource metrics
+  configuration
+  access](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-resource-arn.html)
+  in the
+  *Amazon CloudWatch User Guide*.
+  """
+  @spec create_resource_metrics_configuration(
+          map(),
+          create_resource_metrics_configuration_input(),
+          list()
+        ) ::
+          {:ok, create_resource_metrics_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_resource_metrics_configuration_errors()}
+  def create_resource_metrics_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateResourceMetricsConfiguration", input, options)
   end
 
   @doc """
@@ -2581,6 +2811,44 @@ defmodule AWS.CloudWatch do
       metadata()
 
     Request.request_post(client, meta, "DeleteMetricStream", input, options)
+  end
+
+  @doc """
+  Deletes the resource metrics configuration for an Amazon Web Services resource.
+
+  After
+  you delete the configuration, Amazon CloudWatch stops collecting detailed
+  metrics
+  for the resource. Metric data that Amazon CloudWatch already collected for the
+  resource is not deleted.
+
+  This operation returns a `ResourceNotFoundException` if no resource metrics
+  configuration exists for the specified resource ARN. Verify that the resource
+  ARN is
+  correct.
+
+  To delete a resource metrics configuration, you must have the
+  `cloudwatch:DeleteResourceMetricsConfiguration` permission. For information
+  about scoping
+  this permission to specific resources, see [Condition keys for resource metrics configuration
+  access](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-resource-arn.html)
+  in the
+  *Amazon CloudWatch User Guide*.
+  """
+  @spec delete_resource_metrics_configuration(
+          map(),
+          delete_resource_metrics_configuration_input(),
+          list()
+        ) ::
+          {:ok, delete_resource_metrics_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resource_metrics_configuration_errors()}
+  def delete_resource_metrics_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteResourceMetricsConfiguration", input, options)
   end
 
   @doc """
@@ -2885,6 +3153,17 @@ defmodule AWS.CloudWatch do
   To copy an existing dashboard, use `GetDashboard`, and then use the data
   returned within `DashboardBody` as the template for the new dashboard when
   you call `PutDashboard` to create the copy.
+
+  You might have recently enabled an [opt-in Region (Region that is disabled by default)](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#optinregion)
+  for your account. In
+  that Region, `GetDashboard` can return an access denied error for up to 24
+  hours after you enable the Region. This delay occurs while dashboard data
+  propagates.
+  The error does not
+  indicate a problem with your permissions. Because dashboards are global, you can
+  call
+  `GetDashboard` in any other enabled Region, or retry after propagation
+  completes.
   """
   @spec get_dashboard(map(), get_dashboard_input(), list()) ::
           {:ok, get_dashboard_output(), any()}
@@ -3018,10 +3297,13 @@ defmodule AWS.CloudWatch do
 
   If you include a Metrics Insights query, each `GetMetricData` operation can
   include only one query. But the same `GetMetricData` operation can also
-  retrieve other metrics. Metrics Insights queries can query only the most recent
-  three
-  hours of metric data. For more information about Metrics Insights, see [Query your metrics with CloudWatch Metrics
-  Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html).
+  retrieve other metrics. Metrics Insights queries can query the most recent two
+  weeks of
+  metric data. For alarm condition evaluations, Metrics Insights queries can query
+  only
+  the most recent three hours of metric data. For more information about Metrics
+  Insights,
+  see [Query your metrics with CloudWatch Metrics Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html).
 
   Calls to the `GetMetricData` API have a different pricing structure than
   calls to `GetMetricStatistics`. For more information about pricing, see
@@ -3258,6 +3540,40 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
+  Retrieves the current resource metrics configuration for an Amazon Web Services
+  resource.
+
+  The response includes the resource ARN, any metric selections, and the times
+  at which the configuration was created and last updated.
+
+  This operation returns a `ResourceNotFoundException` if no resource metrics
+  configuration exists for the specified resource ARN. To create a configuration,
+  use
+  [CreateResourceMetricsConfiguration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_CreateResourceMetricsConfiguration.html).   To retrieve a resource metrics configuration, you must have the
+  `cloudwatch:GetResourceMetricsConfiguration` permission. For information
+  about scoping this permission to specific resources, see [Condition keys for
+  resource metrics configuration
+  access](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-resource-arn.html)
+  in the
+  *Amazon CloudWatch User Guide*.
+  """
+  @spec get_resource_metrics_configuration(
+          map(),
+          get_resource_metrics_configuration_input(),
+          list()
+        ) ::
+          {:ok, get_resource_metrics_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_metrics_configuration_errors()}
+  def get_resource_metrics_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetResourceMetricsConfiguration", input, options)
+  end
+
+  @doc """
   Lists alarm mute rules in your Amazon Web Services account and region.
 
   You can filter the results by alarm name to find all mute rules targeting a
@@ -3296,6 +3612,17 @@ defmodule AWS.CloudWatch do
   more than 1000 dashboards, you can call `ListDashboards` again and include
   the value you received for `NextToken` in the first call, to receive the next
   1000 results.
+
+  You might have recently enabled an [opt-in Region (Region that is disabled by default)](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#optinregion)
+  for your account. In
+  that Region, `ListDashboards` can return an access denied error for up to 24
+  hours after you enable the Region. This delay occurs while dashboard data
+  propagates.
+  The error does not
+  indicate a problem with your permissions. Because dashboards are global, you can
+  call
+  `ListDashboards` in any other enabled Region, or retry after propagation
+  completes.
   """
   @spec list_dashboards(map(), list_dashboards_input(), list()) ::
           {:ok, list_dashboards_output(), any()}
@@ -3995,11 +4322,21 @@ defmodule AWS.CloudWatch do
   your
   account. For more information, see [Enable resource tags on
   telemetry](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/EnableResourceTagsOnTelemetry.html).
+
+  Optionally, `IncludeFilters` and `ExcludeFilters` limit
+  enrichment to a subset of the account's metrics. These filters are stored only
+  when this
+  operation starts enrichment. Calling `StartOTelEnrichment` for an account
+  where enrichment is already running has no effect and does not modify the
+  filters that
+  are applied. To change them, use
+  [UpdateOTelEnrichment](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateOTelEnrichment.html).
   """
   @spec start_o_tel_enrichment(map(), start_o_tel_enrichment_input(), list()) ::
           {:ok, start_o_tel_enrichment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
+          | {:error, start_o_tel_enrichment_errors()}
   def start_o_tel_enrichment(%Client{} = client, input, options \\ []) do
     meta =
       metadata()
@@ -4097,5 +4434,72 @@ defmodule AWS.CloudWatch do
       metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Replaces the filters that determine which CloudWatch vended metrics are enriched
+  with resource ARN and resource tag labels for the account.
+
+  Enrichment must already be
+  running for the account. If it is not, this operation returns a
+  `ResourceNotFoundException`. To start enrichment, use
+  [StartOTelEnrichment](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_StartOTelEnrichment.html).
+
+  The filters in the request completely replace the stored filters; they are not
+  merged with them. `IncludeFilters` and `ExcludeFilters` are
+  replaced as a pair, so a request that specifies only `IncludeFilters` also
+  clears the stored `ExcludeFilters`, and a request that specifies neither
+  clears both.
+  """
+  @spec update_o_tel_enrichment(map(), update_o_tel_enrichment_input(), list()) ::
+          {:ok, update_o_tel_enrichment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_o_tel_enrichment_errors()}
+  def update_o_tel_enrichment(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateOTelEnrichment", input, options)
+  end
+
+  @doc """
+  Updates the resource metrics configuration for an Amazon Web Services resource.
+
+  The
+  `MetricSelections` value that you provide replaces any existing metric
+  selections for the resource; it is not merged with them.
+
+  If you omit `MetricSelections`, Amazon CloudWatch removes any existing
+  metric selection filter and collects all available detailed metrics for the
+  resource.
+
+  This operation returns a `ResourceNotFoundException` if no resource metrics
+  configuration exists for the specified resource ARN. To create a configuration,
+  use
+  [CreateResourceMetricsConfiguration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_CreateResourceMetricsConfiguration.html). 
+  To update a resource metrics configuration, you must have the
+  `cloudwatch:UpdateResourceMetricsConfiguration` permission. For information
+  about scoping
+  this permission to specific resources, see [Condition keys for resource metrics
+  configuration
+  access](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-resource-arn.html)
+  in the
+  *Amazon CloudWatch User Guide*.
+  """
+  @spec update_resource_metrics_configuration(
+          map(),
+          update_resource_metrics_configuration_input(),
+          list()
+        ) ::
+          {:ok, update_resource_metrics_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_resource_metrics_configuration_errors()}
+  def update_resource_metrics_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateResourceMetricsConfiguration", input, options)
   end
 end

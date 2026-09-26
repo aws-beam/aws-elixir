@@ -2652,6 +2652,15 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      public_tls_encryption_configuration() :: %{}
+
+  """
+  @type public_tls_encryption_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       purchase_offering_request() :: %{
         required("ReservationName") => [String.t() | atom()],
         required("Start") => [String.t() | atom()]
@@ -3111,6 +3120,21 @@ defmodule AWS.MediaConnect do
 
   """
   @type router_output_service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rtmp_push_router_output_configuration() :: %{
+        "ApplicationName" => [String.t() | atom()],
+        "DestinationAddress" => [String.t() | atom()],
+        "DestinationPort" => [integer()],
+        "StreamName" => [String.t() | atom()],
+        "TlsEncryption" => tls_encryption()
+      }
+
+  """
+  @type rtmp_push_router_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3591,6 +3615,18 @@ defmodule AWS.MediaConnect do
 
   """
   @type thumbnail_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tls_encryption() :: %{
+        "EncryptionConfiguration" => list(),
+        "EncryptionType" => list(any())
+      }
+
+  """
+  @type tls_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

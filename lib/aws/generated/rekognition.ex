@@ -3,13 +3,16 @@
 
 defmodule AWS.Rekognition do
   @moduledoc """
-  This is the API Reference for [Amazon Rekognition Image](https://docs.aws.amazon.com/rekognition/latest/dg/images.html), [Amazon Rekognition Custom
-  Labels](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html),
-  [Amazon Rekognition Stored Video](https://docs.aws.amazon.com/rekognition/latest/dg/video.html), [Amazon Rekognition Streaming
-  Video](https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html).
+  This is the API Reference for
+  [Amazon Rekognition Image](https://docs.aws.amazon.com/rekognition/latest/dg/images.html),
+  [Amazon Rekognition Bulk Image Analysis](https://docs.aws.amazon.com/rekognition/latest/dg/bulk-analysis.html),
+  [Amazon Rekognition Custom Labels](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html),
+  [Amazon Rekognition Stored Video](https://docs.aws.amazon.com/rekognition/latest/dg/video.html),
+  [Amazon Rekognition Face Liveness](https://docs.aws.amazon.com/rekognition/latest/dg/face-liveness.html),
+  [Amazon Rekognition Streaming Video](https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html).
 
-  It provides descriptions of actions, data types, common
-  parameters, and common errors.
+  It provides descriptions of actions, data types, common parameters, and common
+  errors.
 
   ## Amazon Rekognition Image
 
@@ -75,19 +78,11 @@ defmodule AWS.Rekognition do
 
     *
 
-  [GetMediaAnalysisJob](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetMediaAnalysisJob.html)
+  [IndexFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html)
 
     *
 
-  [IndexFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html) 
-
-    *
-
-  [ListCollections](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListCollections.html)
-
-    *
-
-  [ListMediaAnalysisJob](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListMediaAnalysisJob.html) 
+  [ListCollections](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListCollections.html) 
 
     *
 
@@ -116,6 +111,16 @@ defmodule AWS.Rekognition do
     *
 
   [SearchUsersByImage](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html)
+
+  ## Amazon Rekognition Bulk Image Analysis
+
+    *
+
+  [GetMediaAnalysisJob](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetMediaAnalysisJob.html) 
+
+    *
+
+  [ListMediaAnalysisJob](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListMediaAnalysisJob.html)
 
     *
 
@@ -203,7 +208,7 @@ defmodule AWS.Rekognition do
 
   [UpdateDatasetEntries](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateDatasetEntries.html) 
 
-  ## Amazon Rekognition Video Stored Video
+  ## Amazon Rekognition Stored Video
 
     *
 
@@ -269,31 +274,45 @@ defmodule AWS.Rekognition do
 
   [StartTextDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartTextDetection.html) 
 
-  ## Amazon Rekognition Video Streaming Video
+  ## Amazon Rekognition Face Liveness
 
     *
 
-  [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html)
+  [CreateFaceLivenessSession](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateFaceLivenessSession.html)
 
     *
 
-  [DeleteStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteStreamProcessor.html) 
+  [GetFaceLivenessSessionResults](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceLivenessSessionResults.html) 
 
     *
 
-  [DescribeStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeStreamProcessor.html)
+  [StartFaceLivenessSession](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_rekognitionstreaming_StartFaceLivenessSession.html)
+
+  ## Amazon Rekognition Streaming Video
 
     *
 
-  [ListStreamProcessors](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListStreamProcessors.html) 
+  [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html) 
 
     *
 
-  [StartStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html)
+  [DeleteStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteStreamProcessor.html)
 
     *
 
-  [StopStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html) 
+  [DescribeStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeStreamProcessor.html) 
+
+    *
+
+  [ListStreamProcessors](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListStreamProcessors.html)
+
+    *
+
+  [StartStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html) 
+
+    *
+
+  [StopStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html)
 
     *
 
@@ -1843,6 +1862,18 @@ defmodule AWS.Rekognition do
 
   ## Example:
       
+      feedback_item() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type feedback_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       gender() :: %{
         "Confidence" => float(),
         "Value" => list(any())
@@ -2030,6 +2061,8 @@ defmodule AWS.Rekognition do
         "AuditImages" => list(audit_image()),
         "Challenge" => challenge(),
         "Confidence" => float(),
+        "Feedback" => list(feedback_item()),
+        "Metadata" => session_metadata(),
         "ReferenceImage" => audit_image(),
         "SessionId" => String.t() | atom(),
         "Status" => list(any())
@@ -3601,6 +3634,17 @@ defmodule AWS.Rekognition do
       
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_metadata() :: %{
+        "SDKType" => String.t() | atom()
+      }
+      
+  """
+  @type session_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5516,6 +5560,16 @@ defmodule AWS.Rekognition do
   default, it is set to 0. The limit is best effort and based on the duration of
   the
   selfie-video.
+
+  You can use the `ChallengePreferences` option in the `Settings` parameter to
+  choose between the
+  'FaceMovementAndLightChallenge' or FaceMovementChallenge' settings. See the
+  [Shared Responsibility](https://docs.aws.amazon.com/rekognition/latest/dg/face-liveness-shared-responsibility-model.html)
+  page for details on guidance for which setting to choose between these two
+  settings depending on
+  your use case and preferences. This parameter is optional and if no parameter is
+  provided, then
+  the 'FaceMovementAndLightChallenge' settings is applied by default.
   """
   @spec create_face_liveness_session(map(), create_face_liveness_session_request(), list()) ::
           {:ok, create_face_liveness_session_response(), any()}
@@ -5609,6 +5663,16 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+
+  Service availability notice: Streaming Video and Bulk Image Analysis is no
+  longer available to new customers.
+
+  For more information, see
+  [Rekognition feature availability changes](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html).
+
+  ## This change does not impact the availability of other Amazon Rekognition
+  features.
+
   Creates an Amazon Rekognition stream processor that you can use to detect and
   recognize faces or to detect labels in a streaming video.
 
@@ -5842,9 +5906,18 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
-  Deletes the stream processor identified by `Name`.
 
-  You assign the value for `Name` when you create the stream processor with
+  Service availability notice: Streaming Video and Bulk Image Analysis is no
+  longer available to new customers.
+
+  For more information, see
+  [Rekognition feature availability changes](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html).
+
+  ## This change does not impact the availability of other Amazon Rekognition
+  features.
+
+  Deletes the stream processor identified by `Name`. You assign the value for
+  `Name` when you create the stream processor with
   `CreateStreamProcessor`. You might not be able to use the same name for a stream
   processor for a few seconds after calling `DeleteStreamProcessor`.
   """
@@ -5970,11 +6043,19 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
-  Provides information about a stream processor created by
-  `CreateStreamProcessor`.
 
-  You can get information about the input and output streams, the input parameters
-  for the face recognition being performed,
+  Service availability notice: Streaming Video and Bulk Image Analysis is no
+  longer available to new customers.
+
+  For more information, see
+  [Rekognition feature availability changes](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html).
+
+  ## This change does not impact the availability of other Amazon Rekognition
+  features.
+
+  Provides information about a stream processor created by
+  `CreateStreamProcessor`. You can get information about the input and output
+  streams, the input parameters for the face recognition being performed,
   and the current status of the stream processor.
   """
   @spec describe_stream_processor(map(), describe_stream_processor_request(), list()) ::
@@ -6684,6 +6765,11 @@ defmodule AWS.Rekognition do
   defined by the `AuditImagesLimit` paramater when calling
   `CreateFaceLivenessSession`. Reference images are always returned when
   possible.
+
+  For a session that has completed, the response can also include a `Feedback`
+  list describing conditions that were detected in the selfie-video, such as low
+  lighting or an
+  obstructed face, and `Metadata` about the client that streamed the session.
   """
   @spec get_face_liveness_session_results(
           map(),
@@ -6864,8 +6950,17 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
-  Retrieves the results for a given media analysis job.
 
+  Service availability notice: Streaming Video and Bulk Image Analysis is no
+  longer available to new customers.
+
+  For more information, see
+  [Rekognition feature availability changes](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html).
+
+  ## This change does not impact the availability of other Amazon Rekognition
+  features.
+
+  Retrieves the results for a given media analysis job.
   Takes a `JobId` returned by StartMediaAnalysisJob.
   """
   @spec get_media_analysis_job(map(), get_media_analysis_job_request(), list()) ::
@@ -7291,9 +7386,18 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
-  Returns a list of media analysis jobs.
 
-  Results are sorted by `CreationTimestamp` in descending order.
+  Service availability notice: Streaming Video and Bulk Image Analysis is no
+  longer available to new customers.
+
+  For more information, see
+  [Rekognition feature availability changes](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html).
+
+  ## This change does not impact the availability of other Amazon Rekognition
+  features.
+
+  Returns a list of media analysis jobs. Results are sorted by `CreationTimestamp`
+  in descending order.
   """
   @spec list_media_analysis_jobs(map(), list_media_analysis_jobs_request(), list()) ::
           {:ok, list_media_analysis_jobs_response(), any()}
@@ -7332,6 +7436,16 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+
+  Service availability notice: Streaming Video and Bulk Image Analysis is no
+  longer available to new customers.
+
+  For more information, see
+  [Rekognition feature availability changes](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html).
+
+  ## This change does not impact the availability of other Amazon Rekognition
+  features.
+
   Gets a list of stream processors that you have created with
   `CreateStreamProcessor`.
   """
@@ -7836,9 +7950,18 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
-  Initiates a new media analysis job.
 
-  Accepts a manifest file in an Amazon S3 bucket. The
+  Service availability notice: Streaming Video and Bulk Image Analysis is no
+  longer available to new customers.
+
+  For more information, see
+  [Rekognition feature availability changes](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html).
+
+  ## This change does not impact the availability of other Amazon Rekognition
+  features.
+
+  Initiates a new media analysis job. Accepts a manifest file in an Amazon S3
+  bucket. The
   output is a manifest file and a summary of the manifest stored in the Amazon S3
   bucket.
   """
@@ -7967,9 +8090,18 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
-  Starts processing a stream processor.
 
-  You create a stream processor by calling `CreateStreamProcessor`.
+  Service availability notice: Streaming Video and Bulk Image Analysis is no
+  longer available to new customers.
+
+  For more information, see
+  [Rekognition feature availability changes](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html).
+
+  ## This change does not impact the availability of other Amazon Rekognition
+  features.
+
+  Starts processing a stream processor. You create a stream processor by calling
+  `CreateStreamProcessor`.
   To tell `StartStreamProcessor` which stream processor to start, use the value of
   the `Name` field specified in the call to
   `CreateStreamProcessor`.
@@ -8045,6 +8177,16 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+
+  Service availability notice: Streaming Video and Bulk Image Analysis is no
+  longer available to new customers.
+
+  For more information, see
+  [Rekognition feature availability changes](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html).
+
+  ## This change does not impact the availability of other Amazon Rekognition
+  features.
+
   Stops a running stream processor that was created by `CreateStreamProcessor`.
   """
   @spec stop_stream_processor(map(), stop_stream_processor_request(), list()) ::
@@ -8154,10 +8296,17 @@ defmodule AWS.Rekognition do
 
   @doc """
 
-  Allows you to update a stream processor.
+  Service availability notice: Streaming Video and Bulk Image Analysis is no
+  longer available to new customers.
 
-  You can change some settings and regions of interest and delete certain
-  parameters.
+  For more information, see
+  [Rekognition feature availability changes](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html).
+
+  ## This change does not impact the availability of other Amazon Rekognition
+  features.
+
+  Allows you to update a stream processor. You can change some settings and
+  regions of interest and delete certain parameters.
   """
   @spec update_stream_processor(map(), update_stream_processor_request(), list()) ::
           {:ok, update_stream_processor_response(), any()}

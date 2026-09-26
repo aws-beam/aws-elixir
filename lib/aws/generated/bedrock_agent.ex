@@ -958,6 +958,39 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      create_vpc_configuration_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("hostHeader") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("tlsServerName") => String.t() | atom(),
+        required("port") => integer(),
+        required("protocol") => list(any()),
+        required("resolutionMode") => list(any()),
+        required("resourceTarget") => String.t() | atom(),
+        required("subnetIds") => list(String.t() | atom()),
+        required("vpcId") => String.t() | atom()
+      }
+
+  """
+  @type create_vpc_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vpc_configuration_response() :: %{
+        "status" => list(any()),
+        "vpcConfigurationId" => String.t() | atom()
+      }
+
+  """
+  @type create_vpc_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       curated_query() :: %{
         "naturalLanguage" => String.t() | atom(),
         "sql" => String.t() | atom()
@@ -1367,6 +1400,27 @@ defmodule AWS.BedrockAgent do
 
   """
   @type delete_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vpc_configuration_request() :: %{}
+
+  """
+  @type delete_vpc_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vpc_configuration_response() :: %{
+        "status" => list(any()),
+        "vpcConfigurationId" => String.t() | atom()
+      }
+
+  """
+  @type delete_vpc_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2079,6 +2133,26 @@ defmodule AWS.BedrockAgent do
 
   """
   @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_configuration_request() :: %{}
+
+  """
+  @type get_vpc_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_configuration_response() :: %{
+        "vpcConfiguration" => vpc_configuration()
+      }
+
+  """
+  @type get_vpc_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2858,6 +2932,31 @@ defmodule AWS.BedrockAgent do
 
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vpc_configurations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("statusFilter") => list(any())
+      }
+
+  """
+  @type list_vpc_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vpc_configurations_response() :: %{
+        "items" => list(vpc_configuration_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_vpc_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4943,6 +5042,54 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      vpc_configuration() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "hostHeader" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "port" => integer(),
+        "protocol" => list(any()),
+        "resolutionMode" => list(any()),
+        "resourceTarget" => String.t() | atom(),
+        "status" => list(any()),
+        "statusMessage" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom()),
+        "tlsServerName" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "vpcConfigurationId" => String.t() | atom(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_configuration_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "hostHeader" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "port" => integer(),
+        "protocol" => list(any()),
+        "resolutionMode" => list(any()),
+        "resourceTarget" => String.t() | atom(),
+        "status" => list(any()),
+        "statusMessage" => String.t() | atom(),
+        "tlsServerName" => String.t() | atom(),
+        "vpcConfigurationId" => String.t() | atom(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       web_crawler_configuration() :: %{
         "crawlerLimits" => web_crawler_limits(),
         "exclusionFilters" => list(String.t() | atom()),
@@ -5105,6 +5252,15 @@ defmodule AWS.BedrockAgent do
           | conflict_exception()
           | access_denied_exception()
 
+  @type create_vpc_configuration_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type delete_agent_errors() ::
           validation_exception()
           | throttling_exception()
@@ -5193,6 +5349,14 @@ defmodule AWS.BedrockAgent do
           | access_denied_exception()
 
   @type delete_resource_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_vpc_configuration_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -5322,6 +5486,13 @@ defmodule AWS.BedrockAgent do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_vpc_configuration_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type ingest_knowledge_base_documents_errors() ::
           validation_exception()
           | throttling_exception()
@@ -5427,6 +5598,13 @@ defmodule AWS.BedrockAgent do
           | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_vpc_configurations_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -6115,6 +6293,45 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Creates a VPC configuration that lets a knowledge base connect to a resource in
+  your private VPC.
+
+  This operation is asynchronous: it returns a `vpcConfigurationId` with status
+  `CREATING`. Poll `GetVpcConfiguration` until the status becomes `CREATED` or
+  `CREATE_FAILED`.
+  """
+  @spec create_vpc_configuration(
+          map(),
+          String.t() | atom(),
+          create_vpc_configuration_request(),
+          list()
+        ) ::
+          {:ok, create_vpc_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_vpc_configuration_errors()}
+  def create_vpc_configuration(%Client{} = client, knowledge_base_id, input, options \\ []) do
+    url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/vpcconfigurations/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes an agent.
   """
   @spec delete_agent(map(), String.t() | atom(), delete_agent_request(), list()) ::
@@ -6598,6 +6815,53 @@ defmodule AWS.BedrockAgent do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes a VPC configuration.
+
+  This operation is asynchronous: it returns status `DELETING`. Poll
+  `GetVpcConfiguration` until it returns a `ResourceNotFoundException`, indicating
+  the configuration is deleted. Delete requests are idempotent and safe to retry.
+  """
+  @spec delete_vpc_configuration(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_vpc_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_vpc_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_vpc_configuration_errors()}
+  def delete_vpc_configuration(
+        %Client{} = client,
+        knowledge_base_id,
+        vpc_configuration_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/vpcconfigurations/#{AWS.Util.encode_uri(vpc_configuration_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -7118,6 +7382,33 @@ defmodule AWS.BedrockAgent do
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the details and current status of a single VPC configuration.
+
+  Use this operation to poll for the outcome of an asynchronous create or delete.
+  """
+  @spec get_vpc_configuration(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_vpc_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_vpc_configuration_errors()}
+  def get_vpc_configuration(
+        %Client{} = client,
+        knowledge_base_id,
+        vpc_configuration_id,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/vpcconfigurations/#{AWS.Util.encode_uri(vpc_configuration_id)}"
+
     headers = []
     query_params = []
 
@@ -7725,6 +8016,62 @@ defmodule AWS.BedrockAgent do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a paginated list of the VPC configurations for a knowledge base.
+
+  You can optionally filter by status. Use the `nextToken` parameter to retrieve
+  additional results.
+  """
+  @spec list_vpc_configurations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_vpc_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_vpc_configurations_errors()}
+  def list_vpc_configurations(
+        %Client{} = client,
+        knowledge_base_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        status_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/vpcconfigurations/"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status_filter) do
+        [{"status", status_filter} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

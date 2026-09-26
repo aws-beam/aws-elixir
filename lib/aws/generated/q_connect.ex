@@ -41,7 +41,8 @@ defmodule AWS.QConnect do
   ## Example:
 
       a_i_agent_configuration_data() :: %{
-        "aiAgentId" => String.t() | atom()
+        "aiAgentId" => String.t() | atom(),
+        "enabled" => [boolean()]
       }
 
   """
@@ -3363,6 +3364,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      proactive_recommendation_data_details() :: %{
+        "nextMessageToken" => String.t() | atom()
+      }
+
+  """
+  @type proactive_recommendation_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       push_a_p_n_s_message_template_content() :: %{
         "action" => String.t() | atom(),
         "body" => list(),
@@ -3861,6 +3873,19 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      retrieve_error() :: %{
+        "associationId" => String.t() | atom(),
+        "code" => String.t() | atom(),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type retrieve_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieve_request() :: %{
         required("retrievalConfiguration") => retrieval_configuration(),
         required("retrievalQuery") => String.t() | atom()
@@ -3874,6 +3899,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       retrieve_response() :: %{
+        "errors" => list(retrieve_error()),
         "results" => list(retrieve_result())
       }
 

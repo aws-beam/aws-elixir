@@ -231,6 +231,7 @@ defmodule AWS.ARCRegionswitch do
         optional("primaryRegion") => String.t() | atom(),
         optional("recoveryTimeObjectiveMinutes") => [integer()],
         optional("reportConfiguration") => report_configuration(),
+        optional("serviceQuotaChecksEnabled") => [boolean()],
         optional("tags") => map(),
         optional("triggers") => list(trigger()),
         required("executionRole") => String.t() | atom(),
@@ -326,7 +327,8 @@ defmodule AWS.ARCRegionswitch do
         "capacityMonitoringApproach" => list(any()),
         "targetPercent" => [integer()],
         "timeoutMinutes" => [integer()],
-        "ungraceful" => ec2_ungraceful()
+        "ungraceful" => ec2_ungraceful(),
+        "waitELBTargetGroupHealthy" => list(any())
       }
       
   """
@@ -352,7 +354,8 @@ defmodule AWS.ARCRegionswitch do
         "services" => list(service()),
         "targetPercent" => [integer()],
         "timeoutMinutes" => [integer()],
-        "ungraceful" => ecs_ungraceful()
+        "ungraceful" => ecs_ungraceful(),
+        "waitELBTargetGroupHealthy" => list(any())
       }
       
   """
@@ -887,6 +890,31 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      list_service_quota_warnings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("planArns") => list(String.t() | atom())
+      }
+      
+  """
+  @type list_service_quota_warnings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_service_quota_warnings_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "serviceQuotaWarningSummaries" => list(service_quota_warning_summary())
+      }
+      
+  """
+  @type list_service_quota_warnings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_request() :: %{
         required("arn") => String.t() | atom()
       }
@@ -972,6 +1000,7 @@ defmodule AWS.ARCRegionswitch do
         "recoveryTimeObjectiveMinutes" => [integer()],
         "regions" => list(String.t() | atom()),
         "reportConfiguration" => report_configuration(),
+        "serviceQuotaChecksEnabled" => [boolean()],
         "triggers" => list(trigger()),
         "updatedAt" => [non_neg_integer()],
         "version" => [String.t() | atom()],
@@ -1171,6 +1200,28 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      service_quota_warning_summary() :: %{
+        "accountId" => String.t() | atom(),
+        "caseId" => [String.t() | atom()],
+        "lastCheckedAt" => [non_neg_integer()],
+        "planArn" => String.t() | atom(),
+        "quotaCode" => [String.t() | atom()],
+        "quotaName" => [String.t() | atom()],
+        "quotaRegion" => String.t() | atom(),
+        "requestId" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()],
+        "status" => list(any()),
+        "warningCreatedAt" => [non_neg_integer()],
+        "warningMessage" => [String.t() | atom()]
+      }
+      
+  """
+  @type service_quota_warning_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_plan_execution_request() :: %{
         optional("clientToken") => [String.t() | atom()],
         optional("comment") => String.t() | atom(),
@@ -1354,6 +1405,7 @@ defmodule AWS.ARCRegionswitch do
         optional("description") => [String.t() | atom()],
         optional("recoveryTimeObjectiveMinutes") => [integer()],
         optional("reportConfiguration") => report_configuration(),
+        optional("serviceQuotaChecksEnabled") => [boolean()],
         optional("triggers") => list(trigger()),
         required("arn") => String.t() | atom(),
         required("executionRole") => String.t() | atom(),
@@ -1424,6 +1476,9 @@ defmodule AWS.ARCRegionswitch do
           | internal_server_exception()
           | illegal_argument_exception()
           | access_denied_exception()
+
+  @type list_service_quota_warnings_errors() ::
+          internal_server_exception() | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
           resource_not_found_exception() | internal_server_exception()
@@ -1713,6 +1768,32 @@ defmodule AWS.ARCRegionswitch do
       metadata()
 
     Request.request_post(client, meta, "ListRoute53HealthChecksInRegion", input, options)
+  end
+
+  @doc """
+  Lists the service quota warnings for the plans that you can access.
+
+  Region switch creates a warning when the applied quota value in one Region of a
+  plan is lower than the value required for the matching resource in another
+  Region or account in the plan.
+
+  Returns the warnings for the plans that you own and for plans that are shared
+  with your account through AWS Resource Access Manager (AWS RAM). To return
+  warnings for specific plans, provide a list of plan Amazon Resource Names
+  (ARNs). Region switch ignores any plan ARN that you can't access. If you don't
+  provide any plan ARNs, Region switch returns the warnings for all of your
+  accessible plans.
+  """
+  @spec list_service_quota_warnings(map(), list_service_quota_warnings_request(), list()) ::
+          {:ok, list_service_quota_warnings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_service_quota_warnings_errors()}
+  def list_service_quota_warnings(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListServiceQuotaWarnings", input, options)
   end
 
   @doc """

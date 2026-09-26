@@ -51,6 +51,20 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      actor_message() :: %{
+        "body" => String.t() | atom(),
+        "receivedAt" => [non_neg_integer()],
+        "sender" => String.t() | atom(),
+        "subject" => String.t() | atom()
+      }
+
+  """
+  @type actor_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       add_artifact_input() :: %{
         required("agentSpaceId") => String.t() | atom(),
         required("artifactContent") => [binary()],
@@ -2232,6 +2246,33 @@ defmodule AWS.SecurityAgent do
 
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_actor_messages_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("actorIdentifier") => [String.t() | atom()],
+        required("agentSpaceId") => [String.t() | atom()],
+        required("pentestId") => [String.t() | atom()]
+      }
+
+  """
+  @type list_actor_messages_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_actor_messages_output() :: %{
+        "messages" => list(actor_message()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_actor_messages_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5818,6 +5859,35 @@ defmodule AWS.SecurityAgent do
           | {:error, initiate_provider_registration_errors()}
   def initiate_provider_registration(%Client{} = client, input, options \\ []) do
     url_path = "/oauth2/provider/register"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a paginated list of the email MFA messages received for an actor at its
+  server-generated email address, most recent first.
+  """
+  @spec list_actor_messages(map(), list_actor_messages_input(), list()) ::
+          {:ok, list_actor_messages_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_actor_messages(%Client{} = client, input, options \\ []) do
+    url_path = "/ListActorMessages"
     headers = []
     custom_headers = []
     query_params = []

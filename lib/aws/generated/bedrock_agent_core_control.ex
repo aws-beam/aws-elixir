@@ -608,6 +608,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      coinbase_cdp_rotation_targets() :: %{
+        "secrets" => list(list(any())())
+      }
+
+  """
+  @type coinbase_cdp_rotation_targets() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       component_configuration() :: %{
         "configuration" => [any()]
       }
@@ -3737,10 +3748,12 @@ defmodule AWS.BedrockAgentCoreControl do
         "authorizationUrl" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(list()),
+        "credentialsUpdatedAt" => non_neg_integer(),
         "description" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "paymentConnectorId" => String.t() | atom(),
+        "provisionMode" => list(any()),
         "status" => list(any()),
         "type" => list(any())
       }
@@ -6607,6 +6620,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "paymentConnectorId" => String.t() | atom(),
+        "provisionMode" => list(any()),
         "status" => list(any()),
         "type" => list(any())
       }
@@ -7054,6 +7068,32 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type root_volume_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rotate_payment_connector_credentials_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("credentialsToRotate") => list()
+      }
+
+  """
+  @type rotate_payment_connector_credentials_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rotate_payment_connector_credentials_response() :: %{
+        "lastUpdatedAt" => non_neg_integer(),
+        "paymentConnectorId" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type rotate_payment_connector_credentials_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10366,6 +10406,14 @@ defmodule AWS.BedrockAgentCoreControl do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type rotate_payment_connector_credentials_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type set_token_vault_cm_k_errors() ::
@@ -15378,6 +15426,65 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Replaces the service-managed credentials of a payment connector with newly
+  issued credentials.
+
+  Use this operation only for payment connectors with a `provisionMode` of
+  `QUICK_CREATE`. For payment connectors with a `provisionMode` of `MANUAL`, call
+  `UpdatePaymentCredentialProvider` instead after rotating credentials with the
+  payment provider directly.
+
+  The rotation finishes before the response is returned, and only one rotation
+  runs at a time for a given payment connector. When it succeeds, the new
+  credential is in effect and the payment connector stays in the `READY` state.
+  When it fails, an error is returned, the payment connector and its existing
+  credential are left unchanged, and you can retry the request.
+
+  Rotation replaces the credential on the connector's credential provider, so
+  every payment connector that uses that provider is affected. Replace any copy of
+  the previous credential that you use outside AgentCore.
+  """
+  @spec rotate_payment_connector_credentials(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          rotate_payment_connector_credentials_request(),
+          list()
+        ) ::
+          {:ok, rotate_payment_connector_credentials_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, rotate_payment_connector_credentials_errors()}
+  def rotate_payment_connector_credentials(
+        %Client{} = client,
+        payment_connector_id,
+        payment_manager_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/payments/managers/#{AWS.Util.encode_uri(payment_manager_id)}/connectors/#{AWS.Util.encode_uri(payment_connector_id)}/rotate-credentials"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

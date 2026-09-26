@@ -819,6 +819,7 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       list_import_tasks_input() :: %{
+        optional("graphIdentifier") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
@@ -2240,15 +2241,34 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Lists import tasks.
   """
-  @spec list_import_tasks(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+  @spec list_import_tasks(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_import_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_import_tasks_errors()}
-  def list_import_tasks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_import_tasks(
+        %Client{} = client,
+        graph_identifier \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/importtasks"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(graph_identifier) do
+        [{"graphIdentifier", graph_identifier} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(max_results) do

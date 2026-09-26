@@ -7554,6 +7554,7 @@ defmodule AWS.Glue do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("QueryAsOfTime") => non_neg_integer(),
+        optional("ResourceShareType") => list(any()),
         optional("TransactionId") => String.t() | atom(),
         required("DatabaseName") => String.t() | atom()
       }
@@ -13476,6 +13477,7 @@ defmodule AWS.Glue do
       
       table_input() :: %{
         "Description" => String.t() | atom(),
+        "FederatedTable" => federated_table(),
         "LastAccessTime" => non_neg_integer(),
         "LastAnalyzedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),

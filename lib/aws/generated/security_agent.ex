@@ -834,6 +834,17 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      ci_cd_configuration() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type ci_cd_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cloud_watch_log() :: %{
         "logGroup" => [String.t() | atom()],
         "logStream" => [String.t() | atom()]
@@ -1247,6 +1258,7 @@ defmodule AWS.SecurityAgent do
 
       create_pentest_input() :: %{
         optional("assets") => assets(),
+        optional("cicdConfiguration") => ci_cd_configuration(),
         optional("codeRemediationStrategy") => list(any()),
         optional("disableManagedSkills") => list(list(any())()),
         optional("excludeRiskTypes") => list(list(any())()),
@@ -1271,6 +1283,7 @@ defmodule AWS.SecurityAgent do
       create_pentest_output() :: %{
         "agentSpaceId" => [String.t() | atom()],
         "assets" => assets(),
+        "cicdConfiguration" => ci_cd_configuration(),
         "createdAt" => [non_neg_integer()],
         "excludeRiskTypes" => list(list(any())()),
         "logConfig" => cloud_watch_log(),
@@ -2597,6 +2610,7 @@ defmodule AWS.SecurityAgent do
   ## Example:
 
       list_pentest_jobs_for_pentest_input() :: %{
+        optional("jobType") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         required("agentSpaceId") => [String.t() | atom()],
@@ -2940,6 +2954,7 @@ defmodule AWS.SecurityAgent do
       pentest() :: %{
         "agentSpaceId" => [String.t() | atom()],
         "assets" => assets(),
+        "cicdConfiguration" => ci_cd_configuration(),
         "cleanUpStrategy" => list(any()),
         "codeRemediationStrategy" => list(any()),
         "createdAt" => [non_neg_integer()],
@@ -2967,6 +2982,7 @@ defmodule AWS.SecurityAgent do
       pentest_job() :: %{
         "actors" => list(actor()),
         "allowedDomains" => list(endpoint()),
+        "cicdConfiguration" => ci_cd_configuration(),
         "cleanUpStrategy" => list(any()),
         "codeRemediationStrategy" => list(any()),
         "createdAt" => [non_neg_integer()],
@@ -2986,6 +3002,9 @@ defmodule AWS.SecurityAgent do
         "pentestId" => [String.t() | atom()],
         "pentestJobId" => [String.t() | atom()],
         "reportDestination" => report_destination(),
+        "reportUrl" => [String.t() | atom()],
+        "scopeChanges" => list(scope_change()),
+        "scopeResult" => scope_result(),
         "selectedFindingIds" => list([String.t() | atom()]()),
         "serviceRole" => String.t() | atom(),
         "sourceCode" => list(source_code_repository()),
@@ -3006,8 +3025,10 @@ defmodule AWS.SecurityAgent do
 
       pentest_job_summary() :: %{
         "createdAt" => [non_neg_integer()],
+        "jobType" => list(any()),
         "pentestId" => [String.t() | atom()],
         "pentestJobId" => [String.t() | atom()],
+        "reportUrl" => [String.t() | atom()],
         "status" => list(any()),
         "title" => [String.t() | atom()],
         "updatedAt" => [non_neg_integer()]
@@ -3094,6 +3115,33 @@ defmodule AWS.SecurityAgent do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scope_change() :: %{
+        "baseCommitSha" => [String.t() | atom()],
+        "headCommitSha" => [String.t() | atom()],
+        "integrationId" => [String.t() | atom()],
+        "providerResourceId" => [String.t() | atom()],
+        "triggerRunId" => [String.t() | atom()]
+      }
+
+  """
+  @type scope_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scope_result() :: %{
+        "decision" => list(any()),
+        "reason" => [String.t() | atom()]
+      }
+
+  """
+  @type scope_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3253,6 +3301,7 @@ defmodule AWS.SecurityAgent do
 
       start_pentest_job_input() :: %{
         optional("jobType") => list(any()),
+        optional("scopeChanges") => list(scope_change()),
         optional("selectedFindingIds") => list([String.t() | atom()]()),
         required("agentSpaceId") => [String.t() | atom()],
         required("pentestId") => [String.t() | atom()]
@@ -3876,6 +3925,7 @@ defmodule AWS.SecurityAgent do
 
       update_pentest_input() :: %{
         optional("assets") => assets(),
+        optional("cicdConfiguration") => ci_cd_configuration(),
         optional("codeRemediationStrategy") => list(any()),
         optional("disableManagedSkills") => list(list(any())()),
         optional("excludeRiskTypes") => list(list(any())()),
@@ -3901,6 +3951,7 @@ defmodule AWS.SecurityAgent do
       update_pentest_output() :: %{
         "agentSpaceId" => [String.t() | atom()],
         "assets" => assets(),
+        "cicdConfiguration" => ci_cd_configuration(),
         "createdAt" => [non_neg_integer()],
         "excludeRiskTypes" => list(list(any())()),
         "logConfig" => cloud_watch_log(),

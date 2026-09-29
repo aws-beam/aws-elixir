@@ -15122,6 +15122,7 @@ defmodule AWS.Glue do
           | internal_service_exception()
           | glue_encryption_exception()
           | entity_not_found_exception()
+          | concurrent_modification_exception()
           | already_exists_exception()
 
   @type batch_delete_connection_errors() ::
@@ -15132,6 +15133,7 @@ defmodule AWS.Glue do
           | invalid_input_exception()
           | internal_service_exception()
           | entity_not_found_exception()
+          | concurrent_modification_exception()
 
   @type batch_delete_table_errors() ::
           resource_not_ready_exception()
@@ -15140,6 +15142,7 @@ defmodule AWS.Glue do
           | internal_service_exception()
           | glue_encryption_exception()
           | entity_not_found_exception()
+          | concurrent_modification_exception()
 
   @type batch_delete_table_version_errors() ::
           operation_timeout_exception()
@@ -15215,6 +15218,7 @@ defmodule AWS.Glue do
           | internal_service_exception()
           | glue_encryption_exception()
           | entity_not_found_exception()
+          | concurrent_modification_exception()
 
   @type cancel_data_quality_rule_recommendation_run_errors() ::
           operation_timeout_exception()

@@ -1726,6 +1726,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      connection_credentials() :: %{
+        "ConnectionToken" => String.t() | atom(),
+        "Expiry" => String.t() | atom()
+      }
+
+  """
+  @type connection_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       connection_data() :: %{
         "Attendee" => attendee(),
         "Meeting" => meeting()
@@ -13683,7 +13695,9 @@ defmodule AWS.Connect do
       start_chat_contact_request() :: %{
         optional("Attributes") => map(),
         optional("ChatDurationInMinutes") => integer(),
+        optional("ChatStreamingConfiguration") => chat_streaming_configuration(),
         optional("ClientToken") => String.t() | atom(),
+        optional("ConnectionTypes") => list(list(any())()),
         optional("CustomerId") => String.t() | atom(),
         optional("DisconnectOnCustomerExit") => list(list(any())()),
         optional("InitialMessage") => chat_message(),
@@ -13705,10 +13719,13 @@ defmodule AWS.Connect do
   ## Example:
 
       start_chat_contact_response() :: %{
+        "ConnectionCredentials" => connection_credentials(),
         "ContactId" => String.t() | atom(),
         "ContinuedFromContactId" => String.t() | atom(),
         "ParticipantId" => String.t() | atom(),
-        "ParticipantToken" => String.t() | atom()
+        "ParticipantToken" => String.t() | atom(),
+        "StreamingId" => String.t() | atom(),
+        "Websocket" => websocket()
       }
 
   """
@@ -16695,6 +16712,18 @@ defmodule AWS.Connect do
 
   """
   @type web_notification_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      websocket() :: %{
+        "ConnectionExpiry" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type websocket() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -32890,6 +32919,12 @@ defmodule AWS.Connect do
   created chat within 5 minutes. This is achieved by invoking
   [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html)
   with WEBSOCKET and CONNECTION_CREDENTIALS.
+
+  To receive connection information directly in the response, set
+  `ConnectionTypes` on the request. To
+  initiate real-time message streaming when the chat is created, set
+  `ChatStreamingConfiguration` on the
+  request. Both parameters are optional.
 
   A 429 error occurs in the following situations:
 

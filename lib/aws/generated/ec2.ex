@@ -3360,6 +3360,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       client_vpn_connection() :: %{
+        "AuthorizationPolicyLastEvaluatedTime" => String.t() | atom(),
         "ClientIp" => String.t() | atom(),
         "ClientIpv6Address" => String.t() | atom(),
         "ClientVpnEndpointId" => String.t() | atom(),
@@ -3408,6 +3409,7 @@ defmodule AWS.EC2 do
         "CreationTime" => String.t() | atom(),
         "DeletionTime" => String.t() | atom(),
         "Description" => String.t() | atom(),
+        "DevicePostureOptions" => device_posture_response_options(),
         "DisconnectOnSessionTimeout" => boolean(),
         "DnsName" => String.t() | atom(),
         "DnsServers" => list(String.t() | atom()),
@@ -3483,6 +3485,32 @@ defmodule AWS.EC2 do
       
   """
   @type client_vpn_route_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      client_vpn_trust_provider() :: %{
+        "PublicSigningKeyUrl" => String.t() | atom(),
+        "TenantId" => String.t() | atom(),
+        "TrustProviderType" => list(any())
+      }
+      
+  """
+  @type client_vpn_trust_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      client_vpn_trust_provider_request() :: %{
+        "PublicSigningKeyUrl" => String.t() | atom(),
+        "TenantId" => String.t() | atom(),
+        "TrustProviderType" => list(any())
+      }
+      
+  """
+  @type client_vpn_trust_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3590,7 +3618,8 @@ defmodule AWS.EC2 do
       connection_log_options() :: %{
         "CloudwatchLogGroup" => String.t() | atom(),
         "CloudwatchLogStream" => String.t() | atom(),
-        "Enabled" => boolean()
+        "Enabled" => boolean(),
+        "IncludeAuthorizationPolicyContext" => boolean()
       }
       
   """
@@ -3603,7 +3632,8 @@ defmodule AWS.EC2 do
       connection_log_response_options() :: %{
         "CloudwatchLogGroup" => String.t() | atom(),
         "CloudwatchLogStream" => String.t() | atom(),
-        "Enabled" => boolean()
+        "Enabled" => boolean(),
+        "IncludeAuthorizationPolicyContext" => boolean()
       }
       
   """
@@ -4143,6 +4173,7 @@ defmodule AWS.EC2 do
         optional("ClientRouteEnforcementOptions") => client_route_enforcement_options(),
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
+        optional("DevicePostureOptions") => device_posture_options(),
         optional("DisconnectOnSessionTimeout") => boolean(),
         optional("DnsServers") => list(String.t() | atom()),
         optional("DryRun") => boolean(),
@@ -7442,6 +7473,33 @@ defmodule AWS.EC2 do
       
   """
   @type delete_carrier_gateway_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_client_vpn_endpoint_authorization_policy_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ClientVpnEndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_client_vpn_endpoint_authorization_policy_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_client_vpn_endpoint_authorization_policy_result() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type delete_client_vpn_endpoint_authorization_policy_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -15278,6 +15336,29 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      device_posture_options() :: %{
+        "Enabled" => boolean(),
+        "TrustProviders" => list(client_vpn_trust_provider_request())
+      }
+      
+  """
+  @type device_posture_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      device_posture_response_options() :: %{
+        "TrustProviders" => list(client_vpn_trust_provider())
+      }
+      
+  """
+  @type device_posture_response_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       dhcp_configuration() :: %{
         "Key" => String.t() | atom(),
         "Values" => list(attribute_value())
@@ -18640,6 +18721,35 @@ defmodule AWS.EC2 do
       
   """
   @type get_capacity_reservation_usage_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_client_vpn_endpoint_authorization_policy_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ClientVpnEndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type get_client_vpn_endpoint_authorization_policy_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_client_vpn_endpoint_authorization_policy_result() :: %{
+        "ClientVpnEndpointId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "PolicyDocument" => String.t() | atom(),
+        "ShadowMode" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type get_client_vpn_endpoint_authorization_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -25193,12 +25303,44 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_client_vpn_endpoint_authorization_policy_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("PolicyDocument") => String.t() | atom(),
+        optional("ShadowMode") => list(any()),
+        required("ClientVpnEndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_client_vpn_endpoint_authorization_policy_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_client_vpn_endpoint_authorization_policy_result() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type modify_client_vpn_endpoint_authorization_policy_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       modify_client_vpn_endpoint_request() :: %{
         optional("ClientConnectOptions") => client_connect_options(),
         optional("ClientLoginBannerOptions") => client_login_banner_options(),
         optional("ClientRouteEnforcementOptions") => client_route_enforcement_options(),
         optional("ConnectionLogOptions") => connection_log_options(),
         optional("Description") => String.t() | atom(),
+        optional("DevicePostureOptions") => device_posture_options(),
         optional("DisconnectOnSessionTimeout") => boolean(),
         optional("DnsServers") => dns_servers_options_modify_structure(),
         optional("DryRun") => boolean(),
@@ -40597,6 +40739,30 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Deletes the authorization policy for a Client VPN endpoint.
+  """
+  @spec delete_client_vpn_endpoint_authorization_policy(
+          map(),
+          delete_client_vpn_endpoint_authorization_policy_request(),
+          list()
+        ) ::
+          {:ok, delete_client_vpn_endpoint_authorization_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_client_vpn_endpoint_authorization_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DeleteClientVpnEndpointAuthorizationPolicy",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Deletes a route from a Client VPN endpoint.
 
   You can only delete routes that you manually added using
@@ -49283,6 +49449,24 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes the authorization policy for a Client VPN endpoint.
+  """
+  @spec get_client_vpn_endpoint_authorization_policy(
+          map(),
+          get_client_vpn_endpoint_authorization_policy_request(),
+          list()
+        ) ::
+          {:ok, get_client_vpn_endpoint_authorization_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_client_vpn_endpoint_authorization_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetClientVpnEndpointAuthorizationPolicy", input, options)
+  end
+
+  @doc """
   Describes the allocations from the specified customer-owned address pool.
   """
   @spec get_coip_pool_usage(map(), get_coip_pool_usage_request(), list()) ::
@@ -51258,6 +51442,35 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "ModifyClientVpnEndpoint", input, options)
+  end
+
+  @doc """
+  Creates or updates the authorization policy for a Client VPN endpoint.
+
+  A Client VPN endpoint can have one authorization policy. If a policy already
+  exists for the endpoint, the values that you specify replace the corresponding
+  values in the existing policy, and values that you do not specify remain
+  unchanged.
+  """
+  @spec modify_client_vpn_endpoint_authorization_policy(
+          map(),
+          modify_client_vpn_endpoint_authorization_policy_request(),
+          list()
+        ) ::
+          {:ok, modify_client_vpn_endpoint_authorization_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_client_vpn_endpoint_authorization_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "ModifyClientVpnEndpointAuthorizationPolicy",
+      input,
+      options
+    )
   end
 
   @doc """

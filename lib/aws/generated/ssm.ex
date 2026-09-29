@@ -1638,6 +1638,7 @@ defmodule AWS.SSM do
   ## Example:
       
       delete_resource_policy_request() :: %{
+        optional("DeletionMode") => list(any()),
         required("PolicyHash") => String.t() | atom(),
         required("PolicyId") => String.t() | atom(),
         required("ResourceArn") => String.t() | atom()
@@ -9876,6 +9877,13 @@ defmodule AWS.SSM do
   cross-account sharing of parameters, see [Working with shared
   parameters](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html)
   in the *Amazon Web Services Systems Manager User Guide*.
+
+    *
+
+  `Document` – Shares the document using Resource Access Manager (RAM). For more
+  information about sharing documents, see [Sharing Systems Manager
+  documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-ssm-sharing.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
   """
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
@@ -12036,6 +12044,25 @@ defmodule AWS.SSM do
 
   For more information, see [Sharing a parameter](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html#share)
   in the *Amazon Web Services Systems Manager User Guide*
+
+    *
+
+  `Document` – Shares the document using Resource Access Manager (RAM). For more
+  information about sharing documents, see [Sharing Systems Manager
+  documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-ssm-sharing.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
+
+  While you can share a document using the Systems Manager `PutResourcePolicy`
+  operation, we
+  recommend using Resource Access Manager (RAM) instead. Using
+  `PutResourcePolicy` requires an extra step. You must promote the document to a
+  standard RAM Resource Share using the RAM
+  [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html) API operation. Otherwise, the Systems Manager
+  [ListDocuments](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListDocuments.html)
+  API operation won't return the document when filtering for shared
+  documents. The Amazon Web Services Config
+  [PutRemediationConfigurations](https://docs.aws.amazon.com/config/latest/APIReference/API_PutRemediationConfigurations.html)
+  API operation also can't use the document.
   """
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}

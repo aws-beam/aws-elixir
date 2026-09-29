@@ -292,6 +292,7 @@ defmodule AWS.AgentRegistry do
 
       registry_record_summary() :: %{
         "createdAt" => non_neg_integer(),
+        "customMetadata" => any(),
         "description" => String.t() | atom(),
         "descriptors" => descriptors(),
         "displayName" => String.t() | atom(),

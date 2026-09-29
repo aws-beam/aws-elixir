@@ -233,6 +233,82 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      business_support_account_charge() :: %{
+        "accountId" => String.t() | atom(),
+        "supportDiscount" => business_support_discount(),
+        "supportEligibleSpendByService" => list(business_support_service_spend()),
+        "supportPlanName" => [String.t() | atom()],
+        "tierCharges" => list(business_support_tier_charge()),
+        "totalCharge" => [String.t() | atom()],
+        "totalUsageBasis" => [String.t() | atom()]
+      }
+      
+  """
+  @type business_support_account_charge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      business_support_discount() :: %{
+        "discountAmount" => [String.t() | atom()],
+        "discountPercentage" => [String.t() | atom()],
+        "discountSource" => [String.t() | atom()],
+        "discountType" => [String.t() | atom()]
+      }
+      
+  """
+  @type business_support_discount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      business_support_service_spend() :: %{
+        "chargeAmount" => [String.t() | atom()],
+        "contributingService" => [String.t() | atom()],
+        "currency" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "itemType" => [String.t() | atom()]
+      }
+      
+  """
+  @type business_support_service_spend() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      business_support_subscription_contract() :: %{
+        "accountId" => String.t() | atom(),
+        "contractEndDate" => [non_neg_integer()],
+        "contractStartDate" => [non_neg_integer()],
+        "planName" => [String.t() | atom()]
+      }
+      
+  """
+  @type business_support_subscription_contract() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      business_support_tier_charge() :: %{
+        "chargePeriodEndDate" => [non_neg_integer()],
+        "chargePeriodStartDate" => [non_neg_integer()],
+        "tierCharge" => [String.t() | atom()],
+        "tierDescription" => [String.t() | atom()],
+        "tierRate" => [String.t() | atom()],
+        "usageSlice" => [String.t() | atom()]
+      }
+      
+  """
+  @type business_support_tier_charge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       charge_account() :: %{
         "accountId" => String.t() | atom(),
         "chargePercentage" => [String.t() | atom()]
@@ -725,6 +801,65 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      list_business_support_account_charges_request() :: %{
+        optional("accountId") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("billingMonth") => String.t() | atom()
+      }
+      
+  """
+  @type list_business_support_account_charges_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_business_support_account_charges_response() :: %{
+        "accountCharges" => list(business_support_account_charge()),
+        "accountCount" => [integer()],
+        "billingMonth" => String.t() | atom(),
+        "isEstimated" => [boolean()],
+        "nextToken" => String.t() | atom(),
+        "totalSupportCharge" => [String.t() | atom()],
+        "totalSupportEligibleSpend" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_business_support_account_charges_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_business_support_subscription_history_request() :: %{
+        optional("accountId") => String.t() | atom(),
+        optional("billingMonth") => String.t() | atom(),
+        optional("endDate") => [non_neg_integer()],
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("startDate") => [non_neg_integer()]
+      }
+      
+  """
+  @type list_business_support_subscription_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_business_support_subscription_history_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "subscriptionContracts" => list(business_support_subscription_contract())
+      }
+      
+  """
+  @type list_business_support_subscription_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_enterprise_support_linked_account_charges_request() :: %{
         optional("accountId") => String.t() | atom(),
         optional("maxResults") => [integer()],
@@ -1165,6 +1300,20 @@ defmodule AWS.Billing do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_business_support_account_charges_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_business_support_subscription_history_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_enterprise_support_linked_account_charges_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1479,6 +1628,45 @@ defmodule AWS.Billing do
       metadata()
 
     Request.request_post(client, meta, "ListBillingViews", input, options)
+  end
+
+  @doc """
+  Returns Business Support charges broken down at the linked account level for a
+  given billing month.
+  """
+  @spec list_business_support_account_charges(
+          map(),
+          list_business_support_account_charges_request(),
+          list()
+        ) ::
+          {:ok, list_business_support_account_charges_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_business_support_account_charges_errors()}
+  def list_business_support_account_charges(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListBusinessSupportAccountCharges", input, options)
+  end
+
+  @doc """
+  Returns the history of Business Support subscription contracts across accounts.
+  """
+  @spec list_business_support_subscription_history(
+          map(),
+          list_business_support_subscription_history_request(),
+          list()
+        ) ::
+          {:ok, list_business_support_subscription_history_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_business_support_subscription_history_errors()}
+  def list_business_support_subscription_history(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListBusinessSupportSubscriptionHistory", input, options)
   end
 
   @doc """

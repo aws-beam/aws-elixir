@@ -312,6 +312,7 @@ defmodule AWS.EKS do
 
       argo_cd_config_request() :: %{
         "awsIdc" => argo_cd_aws_idc_config_request(),
+        "endpointPrefix" => String.t() | atom(),
         "namespace" => String.t() | atom(),
         "networkAccess" => argo_cd_network_access_config_request(),
         "rbacRoleMappings" => list(argo_cd_role_mapping())
@@ -326,6 +327,7 @@ defmodule AWS.EKS do
 
       argo_cd_config_response() :: %{
         "awsIdc" => argo_cd_aws_idc_config_response(),
+        "endpointPrefix" => String.t() | atom(),
         "namespace" => String.t() | atom(),
         "networkAccess" => argo_cd_network_access_config_response(),
         "rbacRoleMappings" => list(argo_cd_role_mapping()),

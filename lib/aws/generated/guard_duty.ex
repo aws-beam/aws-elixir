@@ -4682,7 +4682,8 @@ defmodule AWS.GuardDuty do
 
       remote_account_details() :: %{
         "AccountId" => String.t() | atom(),
-        "Affiliated" => boolean()
+        "Affiliated" => boolean(),
+        "AwsServiceName" => String.t() | atom()
       }
 
   """

@@ -191,6 +191,7 @@ defmodule AWS.AgentRegistryControl do
 
       create_registry_record_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("customMetadata") => any(),
         optional("description") => String.t() | atom(),
         optional("displayName") => String.t() | atom(),
         optional("provenance") => list(provenance()),
@@ -224,6 +225,7 @@ defmodule AWS.AgentRegistryControl do
         optional("approvalConfiguration") => approval_configuration(),
         optional("autoDetectionConfiguration") => auto_detection_configuration(),
         optional("clientToken") => String.t() | atom(),
+        optional("customMetadataSchemaConfiguration") => custom_metadata_schema_configuration(),
         optional("description") => String.t() | atom(),
         optional("discoveryConfiguration") => discovery_configuration(),
         optional("encryptionConfiguration") => encryption_configuration(),
@@ -285,6 +287,18 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type custom_j_w_t_authorizer_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_metadata_schema_configuration() :: %{
+        "defaultSchema" => String.t() | atom(),
+        "recordTypeSchemaOverrides" => list(record_type_schema_override())
+      }
+
+  """
+  @type custom_metadata_schema_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -403,6 +417,8 @@ defmodule AWS.AgentRegistryControl do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "createdByAutoDetection" => [boolean()],
+        "customMetadata" => any(),
+        "customMetadataSchemaComplianceStatus" => list(any()),
         "description" => String.t() | atom(),
         "descriptors" => descriptors(),
         "displayName" => String.t() | atom(),
@@ -438,6 +454,7 @@ defmodule AWS.AgentRegistryControl do
         "approvalConfiguration" => approval_configuration(),
         "autoDetection" => auto_detection(),
         "createdAt" => non_neg_integer(),
+        "customMetadataSchemaConfiguration" => custom_metadata_schema_configuration(),
         "description" => String.t() | atom(),
         "discoveryConfiguration" => discovery_configuration(),
         "encryptionConfiguration" => encryption_configuration(),
@@ -640,6 +657,18 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      record_type_schema_override() :: %{
+        "recordType" => list(any()),
+        "schema" => String.t() | atom()
+      }
+
+  """
+  @type record_type_schema_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       registry_filter() :: %{
         "name" => list(any()),
         "values" => list(String.t() | atom())
@@ -707,6 +736,7 @@ defmodule AWS.AgentRegistryControl do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "createdByAutoDetection" => [boolean()],
+        "customMetadataSchemaComplianceStatus" => list(any()),
         "description" => String.t() | atom(),
         "displayName" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -845,6 +875,7 @@ defmodule AWS.AgentRegistryControl do
   ## Example:
 
       update_registry_record_request() :: %{
+        optional("customMetadata") => updated_custom_metadata_map(),
         optional("description") => updated_description(),
         optional("descriptors") => updated_descriptors(),
         optional("displayName") => updated_display_name(),
@@ -866,6 +897,8 @@ defmodule AWS.AgentRegistryControl do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "createdByAutoDetection" => [boolean()],
+        "customMetadata" => any(),
+        "customMetadataSchemaComplianceStatus" => list(any()),
         "description" => String.t() | atom(),
         "descriptors" => descriptors(),
         "displayName" => String.t() | atom(),
@@ -919,6 +952,7 @@ defmodule AWS.AgentRegistryControl do
       update_registry_request() :: %{
         optional("approvalConfiguration") => updated_approval_configuration(),
         optional("autoDetectionConfiguration") => updated_auto_detection_configuration(),
+        optional("customMetadataSchemaConfiguration") => updated_custom_metadata_schema_configuration(),
         optional("description") => updated_description(),
         optional("discoveryConfiguration") => updated_discovery_configuration(),
         optional("name") => String.t() | atom()
@@ -935,6 +969,7 @@ defmodule AWS.AgentRegistryControl do
         "approvalConfiguration" => approval_configuration(),
         "autoDetection" => auto_detection(),
         "createdAt" => non_neg_integer(),
+        "customMetadataSchemaConfiguration" => custom_metadata_schema_configuration(),
         "description" => String.t() | atom(),
         "discoveryConfiguration" => discovery_configuration(),
         "encryptionConfiguration" => encryption_configuration(),
@@ -1119,6 +1154,28 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type updated_custom_descriptor_fields() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_custom_metadata_map() :: %{
+        "optionalValue" => any()
+      }
+
+  """
+  @type updated_custom_metadata_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_custom_metadata_schema_configuration() :: %{
+        "optionalValue" => custom_metadata_schema_configuration()
+      }
+
+  """
+  @type updated_custom_metadata_schema_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

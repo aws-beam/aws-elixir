@@ -6080,6 +6080,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       m_c_p_gateway_configuration() :: %{
+        "disableMcpListToolsPagination" => [boolean()],
         "instructions" => String.t() | atom(),
         "searchType" => list(any()),
         "sessionConfiguration" => session_configuration(),

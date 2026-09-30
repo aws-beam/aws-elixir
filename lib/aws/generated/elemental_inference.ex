@@ -105,6 +105,7 @@ defmodule AWS.ElementalInference do
   ## Example:
 
       contextual_metadata_config() :: %{
+        "extendedAnalysis" => list(any()),
         "summaryGeneration" => list(any())
       }
 

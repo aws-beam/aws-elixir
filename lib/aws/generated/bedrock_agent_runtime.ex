@@ -1536,6 +1536,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       foundation_model_configuration() :: %{
         "bedrockFoundationModelConfiguration" => bedrock_foundation_model_configuration(),
+        "mantleFoundationModelConfiguration" => mantle_foundation_model_configuration(),
         "type" => list(any())
       }
 
@@ -2686,6 +2687,29 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type managed_search_reranking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mantle_foundation_model_configuration() :: %{
+        "modelConfiguration" => mantle_foundation_model_model_configuration()
+      }
+
+  """
+  @type mantle_foundation_model_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mantle_foundation_model_model_configuration() :: %{
+        "modelArn" => String.t() | atom(),
+        "projectId" => String.t() | atom()
+      }
+
+  """
+  @type mantle_foundation_model_model_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

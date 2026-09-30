@@ -670,6 +670,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       change_progress_status_details() :: %{
+        "AcceptedWarnings" => list(String.t() | atom()),
         "ChangeId" => String.t() | atom(),
         "ChangeProgressStages" => list(change_progress_stage()),
         "CompletedProperties" => list(String.t() | atom()),
@@ -679,7 +680,8 @@ defmodule AWS.OpenSearch do
         "PendingProperties" => list(String.t() | atom()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "TotalNumberOfStages" => integer()
+        "TotalNumberOfStages" => integer(),
+        "ValidationFailures" => list(validation_failure())
       }
 
   """
@@ -1971,6 +1973,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       dry_run_progress_status() :: %{
+        "AcceptedWarnings" => list(String.t() | atom()),
         "CreationDate" => String.t() | atom(),
         "DryRunId" => String.t() | atom(),
         "DryRunStatus" => String.t() | atom(),
@@ -4271,6 +4274,7 @@ defmodule AWS.OpenSearch do
 
       update_domain_config_request() :: %{
         optional("AIMLOptions") => a_i_ml_options_input(),
+        optional("AcceptedWarnings") => list(String.t() | atom()),
         optional("AccessPolicies") => String.t() | atom(),
         optional("AdvancedOptions") => map(),
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
@@ -4522,7 +4526,8 @@ defmodule AWS.OpenSearch do
 
       validation_failure() :: %{
         "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "Severity" => list(any())
       }
 
   """

@@ -1995,6 +1995,7 @@ defmodule AWS.Transfer do
         "PassiveIp" => String.t() | atom(),
         "ProxyConfig" => proxy_config(),
         "SetStatOption" => list(any()),
+        "SftpPorts" => list(sftp_port_with_options()),
         "TlsSessionResumptionMode" => list(any())
       }
       
@@ -2156,6 +2157,18 @@ defmodule AWS.Transfer do
       
   """
   @type sftp_connector_connection_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sftp_port_with_options() :: %{
+        "CommunicationMode" => list(any()),
+        "SftpPort" => integer()
+      }
+      
+  """
+  @type sftp_port_with_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

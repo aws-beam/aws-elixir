@@ -930,6 +930,7 @@ defmodule AWS.ElastiCache do
       
       create_serverless_cache_request() :: %{
         optional("CacheUsageLimits") => cache_usage_limits(),
+        optional("ConnectionType") => list(any()),
         optional("DailySnapshotTime") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("KmsKeyId") => String.t() | atom(),
@@ -3211,6 +3212,7 @@ defmodule AWS.ElastiCache do
       serverless_cache() :: %{
         "ARN" => String.t() | atom(),
         "CacheUsageLimits" => cache_usage_limits(),
+        "ConnectionType" => list(any()),
         "CreateTime" => non_neg_integer(),
         "DailySnapshotTime" => String.t() | atom(),
         "Description" => String.t() | atom(),

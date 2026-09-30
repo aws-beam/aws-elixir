@@ -679,6 +679,7 @@ defmodule AWS.RDS do
         optional("TargetDBParameterGroupName") => String.t() | atom(),
         optional("TargetEngineVersion") => String.t() | atom(),
         optional("TargetIops") => integer(),
+        optional("TargetResourceConfigurations") => list(target_resource_configuration()),
         optional("TargetStorageThroughput") => integer(),
         optional("TargetStorageType") => String.t() | atom(),
         optional("UpgradeTargetStorageConfig") => boolean(),
@@ -8149,6 +8150,18 @@ defmodule AWS.RDS do
       
   """
   @type target_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_resource_configuration() :: %{
+        "SourceArn" => String.t() | atom(),
+        "TargetKmsKeyId" => String.t() | atom()
+      }
+      
+  """
+  @type target_resource_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

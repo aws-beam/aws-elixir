@@ -4366,7 +4366,10 @@ defmodule AWS.Inspector2 do
         "all" => [float()],
         "critical" => [float()],
         "high" => [float()],
-        "medium" => [float()]
+        "informational" => [float()],
+        "low" => [float()],
+        "medium" => [float()],
+        "untriaged" => [float()]
       }
 
   """

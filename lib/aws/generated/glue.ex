@@ -14938,6 +14938,7 @@ defmodule AWS.Glue do
       
       view_definition() :: %{
         "Definer" => String.t() | atom(),
+        "IsManaged" => boolean(),
         "IsProtected" => boolean(),
         "LastRefreshType" => list(any()),
         "RefreshSeconds" => float(),
@@ -14959,6 +14960,7 @@ defmodule AWS.Glue do
       
       view_definition_input() :: %{
         "Definer" => String.t() | atom(),
+        "IsManaged" => boolean(),
         "IsProtected" => boolean(),
         "LastRefreshType" => list(any()),
         "RefreshSeconds" => float(),

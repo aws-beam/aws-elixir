@@ -2201,6 +2201,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_configuration_sets_request() :: %{
+        optional("Filter") => map(),
         optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer()
       }
@@ -2384,6 +2385,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_email_identities_request() :: %{
+        optional("Filter") => map(),
         optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer()
       }
@@ -2695,6 +2697,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_tenants_request() :: %{
+        optional("Filter") => map(),
         optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer()
       }
@@ -3959,6 +3962,7 @@ defmodule AWS.SESv2 do
 
       tenant_info() :: %{
         "CreatedTimestamp" => non_neg_integer(),
+        "SendingStatus" => list(any()),
         "TenantArn" => String.t() | atom(),
         "TenantId" => String.t() | atom(),
         "TenantName" => String.t() | atom()
@@ -6811,43 +6815,30 @@ defmodule AWS.SESv2 do
   configuration set to
   an email, all of the rules in that configuration set are applied to the email.
   """
-  @spec list_configuration_sets(
-          map(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          list()
-        ) ::
+  @spec list_configuration_sets(map(), list_configuration_sets_request(), list()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_configuration_sets_errors()}
-  def list_configuration_sets(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
-    url_path = "/v2/email/configuration-sets"
+  def list_configuration_sets(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/list-configuration-sets"
     headers = []
+    custom_headers = []
     query_params = []
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
-      else
-        query_params
-      end
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7137,38 +7128,30 @@ defmodule AWS.SESv2 do
   returns
   identities that are associated with Amazon SES and Amazon Pinpoint.
   """
-  @spec list_email_identities(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+  @spec list_email_identities(map(), list_email_identities_request(), list()) ::
           {:ok, list_email_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_email_identities_errors()}
-  def list_email_identities(
-        %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
-    url_path = "/v2/email/identities"
+  def list_email_identities(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/list-identities"
     headers = []
+    custom_headers = []
     query_params = []
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
-      else
-        query_params
-      end
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

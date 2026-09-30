@@ -2837,6 +2837,7 @@ defmodule AWS.EC2 do
         "Interruptible" => boolean(),
         "InterruptibleCapacityAllocation" => interruptible_capacity_allocation(),
         "InterruptionInfo" => interruption_info(),
+        "LaunchStatus" => list(any()),
         "OriginalStartDate" => non_neg_integer(),
         "OutpostArn" => String.t() | atom(),
         "OwnerId" => String.t() | atom(),

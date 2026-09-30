@@ -122,6 +122,7 @@ defmodule AWS.Deadline do
       assigned_session() :: %{
         "jobId" => String.t() | atom(),
         "logConfiguration" => log_configuration(),
+        "metadata" => map(),
         "queueId" => String.t() | atom(),
         "sessionActions" => list(assigned_session_action())
       }
@@ -1867,7 +1868,9 @@ defmodule AWS.Deadline do
 
       environment_details_entity() :: %{
         "environmentId" => String.t() | atom(),
+        "extensions" => list(String.t() | atom()),
         "jobId" => String.t() | atom(),
+        "resolvedSymbolTable" => String.t() | atom(),
         "schemaVersion" => String.t() | atom(),
         "template" => any()
       }
@@ -2066,6 +2069,17 @@ defmodule AWS.Deadline do
 
   """
   @type fleet_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fleet_software_add_on() :: %{
+        "name" => list(any())
+      }
+
+  """
+  @type fleet_software_add_on() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2840,6 +2854,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       job_details_entity() :: %{
+        "extensions" => list(String.t() | atom()),
         "jobAttachmentSettings" => job_details_job_attachment_settings(),
         "jobId" => String.t() | atom(),
         "jobRunAsUser" => job_run_as_user(),
@@ -4257,6 +4272,7 @@ defmodule AWS.Deadline do
         "memoryMiB" => memory_mi_b_range(),
         "osFamily" => list(any()),
         "rootEbsVolume" => ec2_ebs_volume(),
+        "softwareAddOns" => list(fleet_software_add_on()),
         "vCpuCount" => v_cpu_count_range()
       }
 
@@ -4450,7 +4466,9 @@ defmodule AWS.Deadline do
 
       step_details_entity() :: %{
         "dependencies" => list(String.t() | atom()),
+        "extensions" => list(String.t() | atom()),
         "jobId" => String.t() | atom(),
+        "resolvedSymbolTable" => String.t() | atom(),
         "schemaVersion" => String.t() | atom(),
         "stepId" => String.t() | atom(),
         "template" => any()
@@ -10615,6 +10633,14 @@ defmodule AWS.Deadline do
 
   @doc """
   Updates a fleet.
+
+  Workers that are running when you call `UpdateFleet` keep the instance type and
+  capabilities that they launched with until they scale in. Deadline Cloud can
+  schedule jobs that you submit after the update on these existing workers, so the
+  new configuration might not take effect immediately. To make sure that all
+  workers use the new configuration, set `maxWorkerCount` to 0, use the
+  `ListWorkers` operation to confirm that the fleet has no workers, and then
+  restore `maxWorkerCount`.
   """
   @spec update_fleet(
           map(),

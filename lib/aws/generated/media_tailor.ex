@@ -237,6 +237,17 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      beaconing_configuration() :: %{
+        "ClientSide" => client_side_beaconing_configuration()
+      }
+
+  """
+  @type beaconing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bumper() :: %{
         "EndUrl" => String.t() | atom(),
         "StartUrl" => String.t() | atom()
@@ -278,6 +289,18 @@ defmodule AWS.MediaTailor do
 
   """
   @type channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_side_beaconing_configuration() :: %{
+        "AdditionalEventTypes" => list(list(any())()),
+        "ReportingMode" => list(any())
+      }
+
+  """
+  @type client_side_beaconing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1045,6 +1068,7 @@ defmodule AWS.MediaTailor do
         optional("AdsPersonalizationConcurrency") => ads_personalization_concurrency(),
         optional("AdsPersonalizationTimeouts") => ads_personalization_timeouts(),
         optional("AvailSuppression") => avail_suppression(),
+        optional("BeaconingConfiguration") => beaconing_configuration(),
         optional("Bumper") => bumper(),
         optional("CdnConfiguration") => cdn_configuration(),
         optional("ConfigurationAliases") => map(),
@@ -1516,6 +1540,7 @@ defmodule AWS.MediaTailor do
         "AdsPersonalizationConcurrency" => ads_personalization_concurrency(),
         "AdsPersonalizationTimeouts" => ads_personalization_timeouts(),
         "AvailSuppression" => avail_suppression(),
+        "BeaconingConfiguration" => beaconing_configuration(),
         "Bumper" => bumper(),
         "CdnConfiguration" => cdn_configuration(),
         "ConfigurationAliases" => map(),
@@ -1684,6 +1709,7 @@ defmodule AWS.MediaTailor do
         optional("AdsPersonalizationConcurrency") => ads_personalization_concurrency(),
         optional("AdsPersonalizationTimeouts") => ads_personalization_timeouts(),
         optional("AvailSuppression") => avail_suppression(),
+        optional("BeaconingConfiguration") => beaconing_configuration(),
         optional("Bumper") => bumper(),
         optional("CdnConfiguration") => cdn_configuration(),
         optional("ConfigurationAliases") => map(),
@@ -1715,6 +1741,7 @@ defmodule AWS.MediaTailor do
         optional("AdsPersonalizationConcurrency") => ads_personalization_concurrency(),
         optional("AdsPersonalizationTimeouts") => ads_personalization_timeouts(),
         optional("AvailSuppression") => avail_suppression(),
+        optional("BeaconingConfiguration") => beaconing_configuration(),
         optional("Bumper") => bumper(),
         optional("CdnConfiguration") => cdn_configuration(),
         optional("ConfigurationAliases") => map(),

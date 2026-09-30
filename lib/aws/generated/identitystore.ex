@@ -3,19 +3,34 @@
 
 defmodule AWS.Identitystore do
   @moduledoc """
-  The Identity Store service used by IAM Identity Center provides a single place
-  to retrieve all of your identities (users and groups).
-
-  For more information, see the [ IAM Identity Center User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
-
-  This reference guide describes the identity store operations that you can call
-  programmatically and includes detailed information about data types and errors.
-
   IAM Identity Center uses the `sso`, `sso-directory`, and `identitystore` API
-  namespaces. The `sso-directory` and `identitystore` namespaces authorize access
-  to data in the Identity Store. Make sure your policies with IAM actions from
-  these two namespaces are consistent to avoid conflicting authorization to the
-  same data.
+  namespaces.
+
+  The `sso-directory` and `identitystore` namespaces authorize access to data in
+  the Identity Store. Make sure your policies with IAM actions from these two
+  namespaces are consistent to avoid conflicting authorization to the same data.
+
+  The Identity Store service used by IAM Identity Center provides a single place
+  to retrieve all of your identities (users and groups). You can use the identity
+  store API operations in this guide to manage your identity data
+  programmatically. The scope of these APIs allows you to create, read, update,
+  delete, and list users, groups, and memberships.
+
+  This guide also describes identity store operations that you can call and
+  includes detailed information about data types and errors.
+
+  If you use an external identity provider or Active Directory as your identity
+  source, we recommend that you use the `Create`, `Update`, and `Delete` APIs with
+  caution. Because IAM Identity Center doesn't support outbound synchronization,
+  your identity source won't automatically update with the changes that you make
+  to users or groups using these APIs.
+
+  Amazon Web Services provides SDKs that consist of libraries and sample code for
+  various programming languages and platforms (Java, Ruby, .Net, iOS, Android, and
+  more). The SDKs provide a convenient way to programmatically access the identity
+  store and other Amazon Web Services services. For more information about the
+  Amazon Web Services SDKs, including how to download and install them, see
+  [Amazon Web Services Builder Center Toolbox](http://aws.amazon.com/tools/).
   """
 
   alias AWS.Client
@@ -95,8 +110,9 @@ defmodule AWS.Identitystore do
   ## Example:
       
       create_group_membership_response() :: %{
-        required("IdentityStoreId") => String.t() | atom(),
-        required("MembershipId") => String.t() | atom()
+        "IdentityStoreId" => String.t() | atom(),
+        "MembershipArn" => String.t() | atom(),
+        "MembershipId" => String.t() | atom()
       }
       
   """
@@ -120,8 +136,10 @@ defmodule AWS.Identitystore do
   ## Example:
       
       create_group_response() :: %{
-        required("GroupId") => String.t() | atom(),
-        required("IdentityStoreId") => String.t() | atom()
+        "GroupArn" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
+        "IdentityStoreId" => String.t() | atom(),
+        "Revision" => String.t() | atom()
       }
       
   """
@@ -161,8 +179,10 @@ defmodule AWS.Identitystore do
   ## Example:
       
       create_user_response() :: %{
-        required("IdentityStoreId") => String.t() | atom(),
-        required("UserId") => String.t() | atom()
+        "IdentityStoreId" => String.t() | atom(),
+        "Revision" => String.t() | atom(),
+        "UserArn" => String.t() | atom(),
+        "UserId" => String.t() | atom()
       }
       
   """
@@ -194,6 +214,7 @@ defmodule AWS.Identitystore do
   ## Example:
       
       delete_group_request() :: %{
+        optional("Revision") => String.t() | atom(),
         required("GroupId") => String.t() | atom(),
         required("IdentityStoreId") => String.t() | atom()
       }
@@ -215,6 +236,7 @@ defmodule AWS.Identitystore do
   ## Example:
       
       delete_user_request() :: %{
+        optional("Revision") => String.t() | atom(),
         required("IdentityStoreId") => String.t() | atom(),
         required("UserId") => String.t() | atom()
       }
@@ -248,14 +270,15 @@ defmodule AWS.Identitystore do
   ## Example:
       
       describe_group_membership_response() :: %{
-        optional("CreatedAt") => non_neg_integer(),
-        optional("CreatedBy") => String.t() | atom(),
-        optional("UpdatedAt") => non_neg_integer(),
-        optional("UpdatedBy") => String.t() | atom(),
-        required("GroupId") => String.t() | atom(),
-        required("IdentityStoreId") => String.t() | atom(),
-        required("MemberId") => list(),
-        required("MembershipId") => String.t() | atom()
+        "CreatedAt" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
+        "IdentityStoreId" => String.t() | atom(),
+        "MemberId" => list(),
+        "MembershipArn" => String.t() | atom(),
+        "MembershipId" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer(),
+        "UpdatedBy" => String.t() | atom()
       }
       
   """
@@ -278,19 +301,45 @@ defmodule AWS.Identitystore do
   ## Example:
       
       describe_group_response() :: %{
-        optional("CreatedAt") => non_neg_integer(),
-        optional("CreatedBy") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("DisplayName") => String.t() | atom(),
-        optional("ExternalIds") => list(external_id()),
-        optional("UpdatedAt") => non_neg_integer(),
-        optional("UpdatedBy") => String.t() | atom(),
-        required("GroupId") => String.t() | atom(),
-        required("IdentityStoreId") => String.t() | atom()
+        "CreatedAt" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "ExternalIds" => list(external_id()),
+        "GroupArn" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
+        "IdentityStoreId" => String.t() | atom(),
+        "Revision" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer(),
+        "UpdatedBy" => String.t() | atom()
       }
       
   """
   @type describe_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_identity_store_request() :: %{
+        required("IdentityStoreId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_identity_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_identity_store_response() :: %{
+        "IdentityStoreArn" => String.t() | atom(),
+        "IdentityStoreId" => String.t() | atom(),
+        "NetworkConfiguration" => network_configuration_details()
+      }
+      
+  """
+  @type describe_identity_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -310,32 +359,34 @@ defmodule AWS.Identitystore do
   ## Example:
       
       describe_user_response() :: %{
-        optional("Addresses") => list(address()),
-        optional("Birthdate") => String.t() | atom(),
-        optional("CreatedAt") => non_neg_integer(),
-        optional("CreatedBy") => String.t() | atom(),
-        optional("DisplayName") => String.t() | atom(),
-        optional("Emails") => list(email()),
-        optional("Extensions") => map(),
-        optional("ExternalIds") => list(external_id()),
-        optional("Locale") => String.t() | atom(),
-        optional("Name") => name(),
-        optional("NickName") => String.t() | atom(),
-        optional("PhoneNumbers") => list(phone_number()),
-        optional("Photos") => list(photo()),
-        optional("PreferredLanguage") => String.t() | atom(),
-        optional("ProfileUrl") => String.t() | atom(),
-        optional("Roles") => list(role()),
-        optional("Timezone") => String.t() | atom(),
-        optional("Title") => String.t() | atom(),
-        optional("UpdatedAt") => non_neg_integer(),
-        optional("UpdatedBy") => String.t() | atom(),
-        optional("UserName") => String.t() | atom(),
-        optional("UserStatus") => list(any()),
-        optional("UserType") => String.t() | atom(),
-        optional("Website") => String.t() | atom(),
-        required("IdentityStoreId") => String.t() | atom(),
-        required("UserId") => String.t() | atom()
+        "Addresses" => list(address()),
+        "Birthdate" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "Emails" => list(email()),
+        "Extensions" => map(),
+        "ExternalIds" => list(external_id()),
+        "IdentityStoreId" => String.t() | atom(),
+        "Locale" => String.t() | atom(),
+        "Name" => name(),
+        "NickName" => String.t() | atom(),
+        "PhoneNumbers" => list(phone_number()),
+        "Photos" => list(photo()),
+        "PreferredLanguage" => String.t() | atom(),
+        "ProfileUrl" => String.t() | atom(),
+        "Revision" => String.t() | atom(),
+        "Roles" => list(role()),
+        "Timezone" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer(),
+        "UpdatedBy" => String.t() | atom(),
+        "UserArn" => String.t() | atom(),
+        "UserId" => String.t() | atom(),
+        "UserName" => String.t() | atom(),
+        "UserStatus" => list(any()),
+        "UserType" => String.t() | atom(),
+        "Website" => String.t() | atom()
       }
       
   """
@@ -395,8 +446,9 @@ defmodule AWS.Identitystore do
   ## Example:
       
       get_group_id_response() :: %{
-        required("GroupId") => String.t() | atom(),
-        required("IdentityStoreId") => String.t() | atom()
+        "GroupArn" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
+        "IdentityStoreId" => String.t() | atom()
       }
       
   """
@@ -420,8 +472,9 @@ defmodule AWS.Identitystore do
   ## Example:
       
       get_group_membership_id_response() :: %{
-        required("IdentityStoreId") => String.t() | atom(),
-        required("MembershipId") => String.t() | atom()
+        "IdentityStoreId" => String.t() | atom(),
+        "MembershipArn" => String.t() | atom(),
+        "MembershipId" => String.t() | atom()
       }
       
   """
@@ -444,8 +497,9 @@ defmodule AWS.Identitystore do
   ## Example:
       
       get_user_id_response() :: %{
-        required("IdentityStoreId") => String.t() | atom(),
-        required("UserId") => String.t() | atom()
+        "IdentityStoreId" => String.t() | atom(),
+        "UserArn" => String.t() | atom(),
+        "UserId" => String.t() | atom()
       }
       
   """
@@ -461,8 +515,10 @@ defmodule AWS.Identitystore do
         "Description" => String.t() | atom(),
         "DisplayName" => String.t() | atom(),
         "ExternalIds" => list(external_id()),
+        "GroupArn" => String.t() | atom(),
         "GroupId" => String.t() | atom(),
         "IdentityStoreId" => String.t() | atom(),
+        "Revision" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer(),
         "UpdatedBy" => String.t() | atom()
       }
@@ -480,6 +536,7 @@ defmodule AWS.Identitystore do
         "GroupId" => String.t() | atom(),
         "IdentityStoreId" => String.t() | atom(),
         "MemberId" => list(),
+        "MembershipArn" => String.t() | atom(),
         "MembershipId" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer(),
         "UpdatedBy" => String.t() | atom()
@@ -500,6 +557,18 @@ defmodule AWS.Identitystore do
       
   """
   @type group_membership_existence_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      identity_store() :: %{
+        "IdentityStoreArn" => String.t() | atom(),
+        "IdentityStoreId" => String.t() | atom()
+      }
+      
+  """
+  @type identity_store() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -532,7 +601,7 @@ defmodule AWS.Identitystore do
   ## Example:
       
       is_member_in_groups_response() :: %{
-        required("Results") => list(group_membership_existence_result())
+        "Results" => list(group_membership_existence_result())
       }
       
   """
@@ -557,8 +626,8 @@ defmodule AWS.Identitystore do
   ## Example:
       
       list_group_memberships_for_member_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("GroupMemberships") => list(group_membership())
+        "GroupMemberships" => list(group_membership()),
+        "NextToken" => String.t() | atom()
       }
       
   """
@@ -583,8 +652,8 @@ defmodule AWS.Identitystore do
   ## Example:
       
       list_group_memberships_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("GroupMemberships") => list(group_membership())
+        "GroupMemberships" => list(group_membership()),
+        "NextToken" => String.t() | atom()
       }
       
   """
@@ -609,12 +678,36 @@ defmodule AWS.Identitystore do
   ## Example:
       
       list_groups_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Groups") => list(group())
+        "Groups" => list(group()),
+        "NextToken" => String.t() | atom()
       }
       
   """
   @type list_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_identity_stores_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_identity_stores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_identity_stores_response() :: %{
+        "IdentityStores" => list(identity_store()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_identity_stores_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -636,8 +729,8 @@ defmodule AWS.Identitystore do
   ## Example:
       
       list_users_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Users") => list(user())
+        "NextToken" => String.t() | atom(),
+        "Users" => list(user())
       }
       
   """
@@ -658,6 +751,34 @@ defmodule AWS.Identitystore do
       
   """
   @type name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_configuration() :: %{
+        "ApiAllowSourceIps" => list(String.t() | atom()),
+        "ApiRestrictSourceVpcs" => list(String.t() | atom()),
+        "ScimAllowSourceIps" => list(String.t() | atom()),
+        "VpceAccessRequired" => boolean()
+      }
+      
+  """
+  @type network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_configuration_details() :: %{
+        "ApiAllowSourceIps" => list(String.t() | atom()),
+        "ApiRestrictSourceVpcs" => list(String.t() | atom()),
+        "ScimAllowSourceIps" => list(String.t() | atom()),
+        "VpceAccessRequired" => boolean()
+      }
+      
+  """
+  @type network_configuration_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -757,6 +878,7 @@ defmodule AWS.Identitystore do
   ## Example:
       
       update_group_request() :: %{
+        optional("Revision") => String.t() | atom(),
         required("GroupId") => String.t() | atom(),
         required("IdentityStoreId") => String.t() | atom(),
         required("Operations") => list(attribute_operation())
@@ -769,16 +891,46 @@ defmodule AWS.Identitystore do
 
   ## Example:
       
-      update_group_response() :: %{}
+      update_group_response() :: %{
+        "GroupArn" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
+        "IdentityStoreId" => String.t() | atom(),
+        "Revision" => String.t() | atom()
+      }
       
   """
-  @type update_group_response() :: %{}
+  @type update_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_identity_store_request() :: %{
+        optional("NetworkConfiguration") => network_configuration(),
+        required("IdentityStoreId") => String.t() | atom()
+      }
+      
+  """
+  @type update_identity_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_identity_store_response() :: %{
+        "IdentityStoreArn" => String.t() | atom(),
+        "IdentityStoreId" => String.t() | atom()
+      }
+      
+  """
+  @type update_identity_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_user_request() :: %{
+        optional("Revision") => String.t() | atom(),
         required("IdentityStoreId") => String.t() | atom(),
         required("Operations") => list(attribute_operation()),
         required("UserId") => String.t() | atom()
@@ -791,10 +943,15 @@ defmodule AWS.Identitystore do
 
   ## Example:
       
-      update_user_response() :: %{}
+      update_user_response() :: %{
+        "IdentityStoreId" => String.t() | atom(),
+        "Revision" => String.t() | atom(),
+        "UserArn" => String.t() | atom(),
+        "UserId" => String.t() | atom()
+      }
       
   """
-  @type update_user_response() :: %{}
+  @type update_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -817,11 +974,13 @@ defmodule AWS.Identitystore do
         "Photos" => list(photo()),
         "PreferredLanguage" => String.t() | atom(),
         "ProfileUrl" => String.t() | atom(),
+        "Revision" => String.t() | atom(),
         "Roles" => list(role()),
         "Timezone" => String.t() | atom(),
         "Title" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer(),
         "UpdatedBy" => String.t() | atom(),
+        "UserArn" => String.t() | atom(),
         "UserId" => String.t() | atom(),
         "UserName" => String.t() | atom(),
         "UserStatus" => list(any()),
@@ -877,6 +1036,9 @@ defmodule AWS.Identitystore do
   @type describe_group_membership_errors() ::
           validation_exception() | resource_not_found_exception()
 
+  @type describe_identity_store_errors() ::
+          validation_exception() | resource_not_found_exception()
+
   @type describe_user_errors() :: validation_exception() | resource_not_found_exception()
 
   @type get_group_id_errors() :: validation_exception() | resource_not_found_exception()
@@ -895,6 +1057,8 @@ defmodule AWS.Identitystore do
 
   @type list_groups_errors() :: validation_exception() | resource_not_found_exception()
 
+  @type list_identity_stores_errors() :: validation_exception()
+
   @type list_users_errors() :: validation_exception() | resource_not_found_exception()
 
   @type update_group_errors() ::
@@ -902,6 +1066,9 @@ defmodule AWS.Identitystore do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type update_identity_store_errors() ::
+          validation_exception() | resource_not_found_exception() | conflict_exception()
 
   @type update_user_errors() ::
           validation_exception()
@@ -1057,6 +1224,22 @@ defmodule AWS.Identitystore do
       metadata()
 
     Request.request_post(client, meta, "DescribeGroupMembership", input, options)
+  end
+
+  @doc """
+  Retrieves details about the specified identity store, including its Amazon
+  Resource Name (ARN) and network configuration.
+  """
+  @spec describe_identity_store(map(), describe_identity_store_request(), list()) ::
+          {:ok, describe_identity_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_identity_store_errors()}
+  def describe_identity_store(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeIdentityStore", input, options)
   end
 
   @doc """
@@ -1232,6 +1415,28 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
+  Lists the identity stores that you have access to.
+
+  This operation returns only the identity store ID and Amazon Resource Name (ARN)
+  of each identity store. To obtain additional information about an identity
+  store, call `DescribeIdentityStore`.
+
+  This operation returns results in paginated form. Use the `NextToken` parameter
+  to retrieve additional pages of results.
+  """
+  @spec list_identity_stores(map(), list_identity_stores_request(), list()) ::
+          {:ok, list_identity_stores_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_identity_stores_errors()}
+  def list_identity_stores(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListIdentityStores", input, options)
+  end
+
+  @doc """
   Lists all users in the identity store.
 
   Returns a paginated list of complete `User` objects. Filtering for a `User` by
@@ -1268,6 +1473,22 @@ defmodule AWS.Identitystore do
       metadata()
 
     Request.request_post(client, meta, "UpdateGroup", input, options)
+  end
+
+  @doc """
+  Updates the configuration of the specified identity store, including its network
+  configuration.
+  """
+  @spec update_identity_store(map(), update_identity_store_request(), list()) ::
+          {:ok, update_identity_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_identity_store_errors()}
+  def update_identity_store(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateIdentityStore", input, options)
   end
 
   @doc """

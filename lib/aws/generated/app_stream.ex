@@ -2170,6 +2170,7 @@ defmodule AWS.AppStream do
         "ImageErrors" => list(resource_error()),
         "ImagePermissions" => image_permissions(),
         "ImageSharedWithOthers" => list(any()),
+        "ImageSoftwareMetadata" => image_software_metadata(),
         "ImageType" => list(any()),
         "LatestAppstreamAgentVersion" => list(any()),
         "ManagedSoftwareIncluded" => boolean(),
@@ -2239,6 +2240,17 @@ defmodule AWS.AppStream do
       
   """
   @type image_permissions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_software_metadata() :: %{
+        "nvidiaGridDriverVersion" => String.t() | atom()
+      }
+      
+  """
+  @type image_software_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -220,6 +220,60 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      azure_dev_ops_integration_input() :: %{
+        "code" => String.t() | atom(),
+        "organizationName" => [String.t() | atom()],
+        "state" => String.t() | atom()
+      }
+
+  """
+  @type azure_dev_ops_integration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_dev_ops_repository_metadata() :: %{
+        "accessType" => list(any()),
+        "name" => String.t() | atom(),
+        "organization" => String.t() | atom(),
+        "project" => [String.t() | atom()],
+        "projectId" => [String.t() | atom()],
+        "providerResourceId" => String.t() | atom()
+      }
+
+  """
+  @type azure_dev_ops_repository_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_dev_ops_repository_resource() :: %{
+        "name" => String.t() | atom(),
+        "organization" => String.t() | atom(),
+        "project" => [String.t() | atom()]
+      }
+
+  """
+  @type azure_dev_ops_repository_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_dev_ops_resource_capabilities() :: %{
+        "leaveComments" => [boolean()],
+        "remediateCode" => [boolean()]
+      }
+
+  """
+  @type azure_dev_ops_resource_capabilities() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_create_security_requirement_result() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => [String.t() | atom()],
@@ -765,6 +819,19 @@ defmodule AWS.SecurityAgent do
 
   """
   @type batch_update_security_requirements_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bitbucket_data_center_integration_input() :: %{
+        "code" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "targetUrl" => String.t() | atom()
+      }
+
+  """
+  @type bitbucket_data_center_integration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1969,7 +2036,8 @@ defmodule AWS.SecurityAgent do
         "privateConnectionName" => String.t() | atom(),
         "provider" => list(any()),
         "providerType" => list(any()),
-        "targetUrl" => String.t() | atom()
+        "targetUrl" => String.t() | atom(),
+        "webhookUrl" => [String.t() | atom()]
       }
 
   """
@@ -2164,6 +2232,10 @@ defmodule AWS.SecurityAgent do
   ## Example:
 
       initiate_provider_registration_input() :: %{
+        optional("clientId") => String.t() | atom(),
+        optional("clientSecret") => String.t() | atom(),
+        optional("organizationName") => [String.t() | atom()],
+        optional("targetUrl") => String.t() | atom(),
         required("provider") => list(any())
       }
 
@@ -2243,7 +2315,8 @@ defmodule AWS.SecurityAgent do
         "privateConnectionName" => String.t() | atom(),
         "provider" => list(any()),
         "providerType" => list(any()),
-        "targetUrl" => String.t() | atom()
+        "targetUrl" => String.t() | atom(),
+        "webhookUrl" => [String.t() | atom()]
       }
 
   """
@@ -3923,6 +3996,31 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      update_integration_input() :: %{
+        required("integrationId") => String.t() | atom(),
+        required("webhookAction") => list(any())
+      }
+
+  """
+  @type update_integration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_integration_output() :: %{
+        "integrationId" => String.t() | atom(),
+        "secret" => String.t() | atom(),
+        "webhookUrl" => [String.t() | atom()]
+      }
+
+  """
+  @type update_integration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_pentest_input() :: %{
         optional("assets") => assets(),
         optional("cicdConfiguration") => ci_cd_configuration(),
@@ -4482,6 +4580,14 @@ defmodule AWS.SecurityAgent do
           | access_denied_exception()
 
   @type update_integrated_resources_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_integration_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -7005,6 +7111,39 @@ defmodule AWS.SecurityAgent do
           | {:error, update_integrated_resources_errors()}
   def update_integrated_resources(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateIntegratedResources"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an integration's webhook, or rotates the HMAC signing secret of an
+  existing one.
+
+  The secret is returned only once, in this response, and cannot be retrieved
+  again.
+  """
+  @spec update_integration(map(), update_integration_input(), list()) ::
+          {:ok, update_integration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_integration_errors()}
+  def update_integration(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateIntegration"
     headers = []
     custom_headers = []
     query_params = []

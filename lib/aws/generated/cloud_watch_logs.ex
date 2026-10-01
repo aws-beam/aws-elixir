@@ -909,6 +909,7 @@ defmodule AWS.CloudWatchLogs do
         "deliveryDestinationType" => list(any()),
         "name" => String.t() | atom(),
         "outputFormat" => list(any()),
+        "roleArn" => String.t() | atom(),
         "tags" => map()
       }
       
@@ -3311,6 +3312,7 @@ defmodule AWS.CloudWatchLogs do
         optional("deliveryDestinationConfiguration") => delivery_destination_configuration(),
         optional("deliveryDestinationType") => list(any()),
         optional("outputFormat") => list(any()),
+        optional("roleArn") => String.t() | atom(),
         optional("tags") => map(),
         required("name") => String.t() | atom()
       }
@@ -7535,6 +7537,13 @@ defmodule AWS.CloudWatchLogs do
   policy, transformer policy, or metric extraction policy that applies to all log
   groups, a
   subset of log groups, or a data source name and type combination in the account.
+
+  Account-level
+  policies are Region-specific: a policy applies only to log groups in the Region
+  where you
+  create it. To apply a policy across multiple Regions, create the policy
+  separately in each
+  Region.
 
   `PutAccountPolicy` is an account-wide administrative operation intended for
   CloudWatch Logs administrators. Because it affects all log groups (or a broad

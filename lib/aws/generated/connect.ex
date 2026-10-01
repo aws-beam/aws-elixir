@@ -12244,6 +12244,7 @@ defmodule AWS.Connect do
         "EndAssociatedTasksAction" => end_associated_tasks_action_definition(),
         "EventBridgeAction" => event_bridge_action_definition(),
         "ExtractInformationAction" => extract_information_action_definition(),
+        "SendInAppNotificationAction" => send_in_app_notification_action_definition(),
         "SendNotificationAction" => send_notification_action_definition(),
         "SubmitAutoEvaluationAction" => submit_auto_evaluation_action_definition(),
         "TaskAction" => task_action_definition(),
@@ -13470,6 +13471,20 @@ defmodule AWS.Connect do
 
   """
   @type send_chat_integration_event_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_in_app_notification_action_definition() :: %{
+        "Content" => map(),
+        "Exclusion" => notification_recipient_type(),
+        "Priority" => list(any()),
+        "Recipient" => notification_recipient_type()
+      }
+
+  """
+  @type send_in_app_notification_action_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

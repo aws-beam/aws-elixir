@@ -3779,7 +3779,8 @@ defmodule AWS.ECS do
   ## Example:
       
       resolved_configuration() :: %{
-        "loadBalancers" => list(service_revision_load_balancer())
+        "loadBalancers" => list(service_revision_load_balancer()),
+        "vpcLatticeConfigurations" => list(service_revision_vpc_lattice_configuration())
       }
       
   """
@@ -4370,6 +4371,18 @@ defmodule AWS.ECS do
       
   """
   @type service_revision_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_revision_vpc_lattice_configuration() :: %{
+        "productionListenerRule" => String.t() | atom(),
+        "targetGroupArn" => String.t() | atom()
+      }
+      
+  """
+  @type service_revision_vpc_lattice_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5357,7 +5370,21 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      vpc_lattice_advanced_configuration() :: %{
+        "alternateTargetGroupArn" => String.t() | atom(),
+        "productionListenerRule" => String.t() | atom(),
+        "testListenerRule" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_lattice_advanced_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       vpc_lattice_configuration() :: %{
+        "advancedConfiguration" => vpc_lattice_advanced_configuration(),
         "portName" => String.t() | atom(),
         "roleArn" => String.t() | atom(),
         "targetGroupArn" => String.t() | atom()

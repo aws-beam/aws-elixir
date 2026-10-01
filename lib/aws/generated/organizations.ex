@@ -3126,7 +3126,11 @@ defmodule AWS.Organizations do
 
     *
 
-  [NETWORK_SECURITY_DIRECTOR_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html)
+  [NETWORK_SECURITY_DIRECTOR_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html) 
+
+    *
+
+  [GUARDDUTY_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html)
 
   You can only call this operation from the management account or a member account
   that is a delegated administrator.

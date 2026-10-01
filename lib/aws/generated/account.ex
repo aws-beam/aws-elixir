@@ -194,7 +194,8 @@ defmodule AWS.Account do
   ## Example:
 
       get_contact_information_response() :: %{
-        "ContactInformation" => contact_information()
+        "ContactInformation" => contact_information(),
+        "VerificationStatus" => String.t() | atom()
       }
 
   """
@@ -410,6 +411,28 @@ defmodule AWS.Account do
 
   ## Example:
 
+      send_phone_number_verification_request() :: %{
+        optional("AccountId") => String.t() | atom()
+      }
+
+  """
+  @type send_phone_number_verification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_phone_number_verification_response() :: %{
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type send_phone_number_verification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_primary_email_update_request() :: %{
         required("AccountId") => String.t() | atom(),
         required("PrimaryEmail") => String.t() | atom()
@@ -465,6 +488,29 @@ defmodule AWS.Account do
 
   """
   @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_phone_number_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        required("Otp") => String.t() | atom()
+      }
+
+  """
+  @type verify_phone_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_phone_number_response() :: %{
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type verify_phone_number_response() :: %{(String.t() | atom()) => any()}
 
   @type accept_primary_email_update_errors() ::
           validation_exception()
@@ -567,7 +613,23 @@ defmodule AWS.Account do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type send_phone_number_verification_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type start_primary_email_update_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type verify_phone_number_errors() ::
           validation_exception()
           | too_many_requests_exception()
           | resource_not_found_exception()
@@ -1086,6 +1148,41 @@ defmodule AWS.Account do
   end
 
   @doc """
+  Sends a one-time passcode to the phone number in the primary contact information
+  of an Amazon Web Services account.
+
+  Use `VerifyPhoneNumber` to submit the passcode and complete the verification.
+
+  For complete details about how to use the primary contact operations, see
+  [Update the primary contact for your Amazon Web Services account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-primary.html).
+  """
+  @spec send_phone_number_verification(map(), send_phone_number_verification_request(), list()) ::
+          {:ok, send_phone_number_verification_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_phone_number_verification_errors()}
+  def send_phone_number_verification(%Client{} = client, input, options \\ []) do
+    url_path = "/sendPhoneNumberVerification"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Starts the process to update the primary email address for the specified
   account.
   """
@@ -1096,6 +1193,40 @@ defmodule AWS.Account do
           | {:error, start_primary_email_update_errors()}
   def start_primary_email_update(%Client{} = client, input, options \\ []) do
     url_path = "/startPrimaryEmailUpdate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Verifies the phone number in the primary contact information of an Amazon Web
+  Services account by submitting the one-time passcode that
+  `SendPhoneNumberVerification` sent to that phone number.
+
+  For complete details about how to use the primary contact operations, see
+  [Update the primary contact for your Amazon Web Services account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-primary.html).
+  """
+  @spec verify_phone_number(map(), verify_phone_number_request(), list()) ::
+          {:ok, verify_phone_number_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, verify_phone_number_errors()}
+  def verify_phone_number(%Client{} = client, input, options \\ []) do
+    url_path = "/verifyPhoneNumber"
     headers = []
     custom_headers = []
     query_params = []

@@ -1256,6 +1256,7 @@ defmodule AWS.DynamoDB do
         "ExportType" => list(any()),
         "FailureCode" => String.t() | atom(),
         "FailureMessage" => String.t() | atom(),
+        "FilterSpecification" => filter_specification(),
         "IncrementalExportSpecification" => incremental_export_specification(),
         "ItemCount" => float(),
         "S3Bucket" => String.t() | atom(),
@@ -1304,6 +1305,7 @@ defmodule AWS.DynamoDB do
         optional("ExportFormat") => list(any()),
         optional("ExportTime") => non_neg_integer(),
         optional("ExportType") => list(any()),
+        optional("FilterSpecification") => filter_specification(),
         optional("IncrementalExportSpecification") => incremental_export_specification(),
         optional("S3BucketOwner") => String.t() | atom(),
         optional("S3Prefix") => String.t() | atom(),
@@ -1338,6 +1340,21 @@ defmodule AWS.DynamoDB do
       
   """
   @type failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter_specification() :: %{
+        "ExpressionAttributeNames" => map(),
+        "ExpressionAttributeValues" => map(),
+        "FilterExpression" => String.t() | atom(),
+        "KeyConditionExpression" => String.t() | atom(),
+        "ProjectionExpression" => String.t() | atom()
+      }
+      
+  """
+  @type filter_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

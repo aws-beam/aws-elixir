@@ -2143,6 +2143,7 @@ defmodule AWS.Glue do
   ## Example:
       
       crawler() :: %{
+        "CatalogId" => String.t() | atom(),
         "Classifiers" => list(String.t() | atom()),
         "Configuration" => String.t() | atom(),
         "CrawlElapsedTime" => float(),
@@ -2408,6 +2409,7 @@ defmodule AWS.Glue do
   ## Example:
       
       create_crawler_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
         optional("Classifiers") => list(String.t() | atom()),
         optional("Configuration") => String.t() | atom(),
         optional("CrawlerSecurityConfiguration") => String.t() | atom(),
@@ -4063,6 +4065,7 @@ defmodule AWS.Glue do
   ## Example:
       
       delete_column_statistics_task_settings_request() :: %{
+        optional("CatalogID") => String.t() | atom(),
         required("DatabaseName") => String.t() | atom(),
         required("TableName") => String.t() | atom()
       }
@@ -5964,6 +5967,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_column_statistics_task_runs_request() :: %{
+        optional("CatalogID") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         required("DatabaseName") => String.t() | atom(),
@@ -5990,6 +5994,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_column_statistics_task_settings_request() :: %{
+        optional("CatalogID") => String.t() | atom(),
         required("DatabaseName") => String.t() | atom(),
         required("TableName") => String.t() | atom()
       }
@@ -12731,6 +12736,7 @@ defmodule AWS.Glue do
   ## Example:
       
       start_column_statistics_task_run_schedule_request() :: %{
+        optional("CatalogID") => String.t() | atom(),
         required("DatabaseName") => String.t() | atom(),
         required("TableName") => String.t() | atom()
       }
@@ -13167,6 +13173,7 @@ defmodule AWS.Glue do
   ## Example:
       
       stop_column_statistics_task_run_request() :: %{
+        optional("CatalogID") => String.t() | atom(),
         required("DatabaseName") => String.t() | atom(),
         required("TableName") => String.t() | atom()
       }
@@ -13188,6 +13195,7 @@ defmodule AWS.Glue do
   ## Example:
       
       stop_column_statistics_task_run_schedule_request() :: %{
+        optional("CatalogID") => String.t() | atom(),
         required("DatabaseName") => String.t() | atom(),
         required("TableName") => String.t() | atom()
       }
@@ -14168,6 +14176,7 @@ defmodule AWS.Glue do
   ## Example:
       
       update_crawler_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
         optional("Classifiers") => list(String.t() | atom()),
         optional("Configuration") => String.t() | atom(),
         optional("CrawlerSecurityConfiguration") => String.t() | atom(),

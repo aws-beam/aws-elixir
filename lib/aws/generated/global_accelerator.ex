@@ -1162,7 +1162,20 @@ defmodule AWS.GlobalAccelerator do
 
   ## Example:
       
+      ip_address_detail() :: %{
+        "IpAddress" => String.t() | atom(),
+        "NetworkZone" => String.t() | atom()
+      }
+      
+  """
+  @type ip_address_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ip_set() :: %{
+        "IpAddressDetails" => list(ip_address_detail()),
         "IpAddressFamily" => list(any()),
         "IpAddresses" => list(String.t() | atom()),
         "IpFamily" => String.t() | atom()

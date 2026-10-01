@@ -4479,6 +4479,7 @@ defmodule AWS.DataZone do
         "metadata" => map(),
         "networkConfiguration" => network_config(),
         "notebookId" => String.t() | atom(),
+        "notificationConfiguration" => notification_config(),
         "owningProjectId" => String.t() | atom(),
         "parameters" => map(),
         "scheduleId" => String.t() | atom(),
@@ -6825,6 +6826,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      notification_config() :: %{
+        "notifyOn" => list(list(any())())
+      }
+
+  """
+  @type notification_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       notification_output() :: %{
         "actionLink" => String.t() | atom(),
         "creationTimestamp" => [non_neg_integer()],
@@ -8366,6 +8378,7 @@ defmodule AWS.DataZone do
         optional("computeConfiguration") => compute_config(),
         optional("metadata") => map(),
         optional("networkConfiguration") => network_config(),
+        optional("notificationConfiguration") => notification_config(),
         optional("parameters") => map(),
         optional("scheduleIdentifier") => String.t() | atom(),
         optional("timeoutConfiguration") => timeout_config(),
@@ -8394,6 +8407,7 @@ defmodule AWS.DataZone do
         "metadata" => map(),
         "networkConfiguration" => network_config(),
         "notebookId" => String.t() | atom(),
+        "notificationConfiguration" => notification_config(),
         "owningProjectId" => String.t() | atom(),
         "parameters" => map(),
         "scheduleId" => String.t() | atom(),

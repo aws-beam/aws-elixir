@@ -2114,6 +2114,20 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_accounting_database() :: %{
+        "Endpoint" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Port" => integer(),
+        "SecretArn" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_accounting_database() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cluster_auto_patch_config() :: %{
         "DeploymentConfig" => deployment_configuration(),
         "PatchSchedule" => cluster_patch_schedule(),
@@ -2576,6 +2590,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cluster_orchestrator_slurm_config() :: %{
+        "AccountingDatabase" => cluster_accounting_database(),
         "SlurmConfigStrategy" => list(any())
       }
       
@@ -5294,6 +5309,19 @@ defmodule AWS.SageMaker do
       
   """
   @type data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      database_configuration_metadata() :: %{
+        "Advisory" => [String.t() | atom()],
+        "FailureMessage" => [String.t() | atom()],
+        "RollbackStatus" => list(any())
+      }
+      
+  """
+  @type database_configuration_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18636,6 +18664,19 @@ defmodule AWS.SageMaker do
       
   """
   @type shuffle_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      slurm_health_metadata() :: %{
+        "Component" => list(any()),
+        "Reason" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type slurm_health_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

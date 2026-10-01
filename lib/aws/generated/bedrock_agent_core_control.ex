@@ -1323,6 +1323,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       create_gateway_target_request() :: %{
+        optional("certificateConfigurations") => list(list()),
         optional("clientToken") => String.t() | atom(),
         optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
         optional("description") => String.t() | atom(),
@@ -1341,6 +1342,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       create_gateway_target_response() :: %{
         "authorizationData" => list(),
+        "certificateConfigurations" => list(list()),
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
         "description" => String.t() | atom(),
@@ -2128,6 +2130,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       delete_configuration_bundle_response() :: %{
+        "bundleArn" => String.t() | atom(),
         "bundleId" => String.t() | atom(),
         "status" => list(any())
       }
@@ -3058,6 +3061,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       gateway_target() :: %{
         "authorizationData" => list(),
+        "certificateConfigurations" => list(list()),
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
         "description" => String.t() | atom(),
@@ -3579,6 +3583,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       get_gateway_target_response() :: %{
         "authorizationData" => list(),
+        "certificateConfigurations" => list(list()),
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
         "description" => String.t() | atom(),
@@ -7137,6 +7142,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      s3_certificate_configuration() :: %{
+        "bucketOwnerAccountId" => String.t() | atom(),
+        "uri" => String.t() | atom()
+      }
+
+  """
+  @type s3_certificate_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_configuration() :: %{
         "bucketOwnerAccountId" => String.t() | atom(),
         "uri" => String.t() | atom()
@@ -7268,6 +7285,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type secret_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secrets_manager_certificate_configuration() :: %{
+        "secretArn" => String.t() | atom()
+      }
+
+  """
+  @type secrets_manager_certificate_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8163,11 +8191,11 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("branchName") => String.t() | atom(),
         optional("bundleName") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
-        optional("commitMessage") => [String.t() | atom()],
         optional("components") => map(),
         optional("createdBy") => version_created_by_source(),
         optional("description") => String.t() | atom(),
         optional("kmsKeyArn") => String.t() | atom(),
+        required("commitMessage") => [String.t() | atom()],
         required("parentVersionIds") => list(String.t() | atom())
       }
 
@@ -8429,6 +8457,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       update_gateway_target_request() :: %{
+        optional("certificateConfigurations") => list(list()),
         optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
         optional("description") => String.t() | atom(),
         optional("metadataConfiguration") => metadata_configuration(),
@@ -8446,6 +8475,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       update_gateway_target_response() :: %{
         "authorizationData" => list(),
+        "certificateConfigurations" => list(list()),
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
         "description" => String.t() | atom(),

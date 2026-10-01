@@ -1181,6 +1181,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      eks_access_entry() :: %{
+        "desiredState" => list(any()),
+        "status" => list(any())
+      }
+
+  """
+  @type eks_access_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       eks_attempt_container_detail() :: %{
         "containerID" => String.t() | atom(),
         "exitCode" => integer(),
@@ -1215,12 +1227,24 @@ defmodule AWS.Batch do
   ## Example:
 
       eks_configuration() :: %{
+        "accessEntry" => eks_access_entry(),
         "eksClusterArn" => String.t() | atom(),
         "kubernetesNamespace" => String.t() | atom()
       }
 
   """
   @type eks_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      eks_configuration_update() :: %{
+        "accessEntry" => eks_access_entry()
+      }
+
+  """
+  @type eks_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3192,6 +3216,7 @@ defmodule AWS.Batch do
         optional("computeResources") => compute_resource_update(),
         optional("context") => String.t() | atom(),
         optional("ecsSettings") => ecs_settings(),
+        optional("eksConfiguration") => eks_configuration_update(),
         optional("serviceRole") => String.t() | atom(),
         optional("state") => list(any()),
         optional("unmanagedvCpus") => integer(),
@@ -3592,6 +3617,11 @@ defmodule AWS.Batch do
   HTTP status code of `200` even when some jobs encountered errors, so check the
   `errors` list. Jobs that can't be found are treated as successfully
   processed.
+
+  This operation requires `batch:CancelJob` permission for each job in the
+  request. There is no separate `batch:CancelJobs` IAM action. If a caller's IAM
+  policy grants `batch:CancelJob`, they can use both the singular
+  `CancelJob` and bulk `CancelJobs` operations.
   """
   @spec cancel_jobs(map(), cancel_jobs_request(), list()) ::
           {:ok, cancel_jobs_response(), any()}
@@ -4800,6 +4830,12 @@ defmodule AWS.Batch do
   HTTP status code of `200` even when some jobs encountered errors, so check the
   `errors` list. Jobs that can't be found are treated as successfully
   processed.
+
+  This operation requires `batch:TerminateJob` permission for each job in the
+  request. There is no separate `batch:TerminateJobs` IAM action. If a caller's
+  IAM
+  policy grants `batch:TerminateJob`, they can use both the singular
+  `TerminateJob` and bulk `TerminateJobs` operations.
   """
   @spec terminate_jobs(map(), terminate_jobs_request(), list()) ::
           {:ok, terminate_jobs_response(), any()}
@@ -4867,6 +4903,13 @@ defmodule AWS.Batch do
   The response returns an HTTP status code of `200` even when some service jobs
   encountered errors, so check the `errors` list. Service jobs that can't be found
   are treated as successfully processed.
+
+  This operation requires `batch:TerminateServiceJob` permission for each service
+  job in the
+  request. There is no separate `batch:TerminateServiceJobs` IAM action. If a
+  caller's IAM
+  policy grants `batch:TerminateServiceJob`, they can use both the singular
+  `TerminateServiceJob` and bulk `TerminateServiceJobs` operations.
   """
   @spec terminate_service_jobs(map(), terminate_service_jobs_request(), list()) ::
           {:ok, terminate_service_jobs_response(), any()}

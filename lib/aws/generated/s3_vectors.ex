@@ -314,6 +314,7 @@ defmodule AWS.S3Vectors do
         "distanceMetric" => list(any()),
         "encryptionConfiguration" => encryption_configuration(),
         "indexArn" => String.t() | atom(),
+        "indexMode" => list(any()),
         "indexName" => String.t() | atom(),
         "metadataConfiguration" => metadata_configuration(),
         "vectorBucketName" => String.t() | atom()
@@ -546,6 +547,28 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
+      put_vector_bucket_default_index_mode_input() :: %{
+        optional("vectorBucketArn") => String.t() | atom(),
+        optional("vectorBucketName") => String.t() | atom(),
+        required("defaultIndexMode") => list(any())
+      }
+
+  """
+  @type put_vector_bucket_default_index_mode_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_vector_bucket_default_index_mode_output() :: %{}
+
+  """
+  @type put_vector_bucket_default_index_mode_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       put_vector_bucket_policy_input() :: %{
         optional("vectorBucketArn") => String.t() | atom(),
         optional("vectorBucketName") => String.t() | atom(),
@@ -609,6 +632,7 @@ defmodule AWS.S3Vectors do
         optional("indexArn") => String.t() | atom(),
         optional("indexName") => String.t() | atom(),
         optional("nextToken") => String.t() | atom(),
+        optional("queryMode") => list(any()),
         optional("returnDistance") => [boolean()],
         optional("returnMetadata") => [boolean()],
         optional("vectorBucketName") => String.t() | atom(),
@@ -720,6 +744,29 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
+      update_index_mode_input() :: %{
+        optional("indexArn") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        optional("vectorBucketName") => String.t() | atom(),
+        required("indexMode") => list(any())
+      }
+
+  """
+  @type update_index_mode_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_index_mode_output() :: %{}
+
+  """
+  @type update_index_mode_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
         "message" => [String.t() | atom()]
@@ -746,6 +793,7 @@ defmodule AWS.S3Vectors do
 
       vector_bucket() :: %{
         "creationTime" => [non_neg_integer()],
+        "defaultIndexMode" => list(any()),
         "encryptionConfiguration" => encryption_configuration(),
         "vectorBucketArn" => String.t() | atom(),
         "vectorBucketName" => String.t() | atom()
@@ -819,6 +867,9 @@ defmodule AWS.S3Vectors do
   @type list_vectors_errors() ::
           service_unavailable_exception() | not_found_exception() | access_denied_exception()
 
+  @type put_vector_bucket_default_index_mode_errors() ::
+          service_unavailable_exception() | not_found_exception()
+
   @type put_vector_bucket_policy_errors() ::
           service_unavailable_exception() | not_found_exception()
 
@@ -845,6 +896,8 @@ defmodule AWS.S3Vectors do
 
   @type untag_resource_errors() ::
           service_unavailable_exception() | not_found_exception() | conflict_exception()
+
+  @type update_index_mode_errors() :: service_unavailable_exception() | not_found_exception()
 
   def metadata do
     %{
@@ -1411,6 +1464,51 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
+  Updates the default index mode for a vector bucket.
+
+  The updated default applies to vector indexes that you create after the request
+  succeeds. The operation doesn't change existing vector indexes. To specify the
+  vector bucket, you must use either the vector bucket name or the vector bucket
+  Amazon Resource Name (ARN).
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3vectors:PutVectorBucketDefaultIndexMode` permission to use
+  this operation.
+  """
+  @spec put_vector_bucket_default_index_mode(
+          map(),
+          put_vector_bucket_default_index_mode_input(),
+          list()
+        ) ::
+          {:ok, put_vector_bucket_default_index_mode_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_vector_bucket_default_index_mode_errors()}
+  def put_vector_bucket_default_index_mode(%Client{} = client, input, options \\ []) do
+    url_path = "/PutVectorBucketDefaultIndexMode"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a bucket policy for a vector bucket.
 
   To specify the bucket, you must use either the vector bucket name or the vector
@@ -1635,6 +1733,48 @@ defmodule AWS.S3Vectors do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the mode for an existing vector index.
+
+  You can set the mode to `ENHANCED` for any vector index. You can set the mode to
+  `CLASSIC` only for a vector index in a vector bucket created before September
+  30, 2026. This operation doesn't change the default index mode of the vector
+  bucket or the mode of other vector indexes. Specify the vector index by using
+  its Amazon Resource Name (ARN) or both the vector bucket name and vector index
+  name.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3vectors:UpdateIndexMode` permission to use this operation.
+  """
+  @spec update_index_mode(map(), update_index_mode_input(), list()) ::
+          {:ok, update_index_mode_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_index_mode_errors()}
+  def update_index_mode(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateIndexMode"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

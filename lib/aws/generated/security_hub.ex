@@ -10118,6 +10118,21 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      exposure_finding() :: %{
+        "Impact" => list(any()),
+        "MetadataUid" => String.t() | atom(),
+        "PreviousSeverity" => list(any()),
+        "ProjectedSeverity" => list(any()),
+        "Title" => String.t() | atom()
+      }
+
+  """
+  @type exposure_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       external_integration_configuration() :: %{
         "ConnectorArn" => String.t() | atom()
       }
@@ -10896,6 +10911,35 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      get_remediations_v2_request() :: %{
+        optional("Filters") => remediation_filters(),
+        optional("GuidanceFormat") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("MetadataUid") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ShowGuidance") => boolean(),
+        optional("TargetUid") => String.t() | atom()
+      }
+
+  """
+  @type get_remediations_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_remediations_v2_response() :: %{
+        "Items" => list(remediation_v2_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_remediations_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_resources_statistics_v2_request() :: %{
         optional("MaxStatisticResults") => integer(),
         optional("Scopes") => resource_scopes(),
@@ -11324,6 +11368,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      kb_article() :: %{
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type kb_article() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       keyword_filter() :: %{
         "Value" => String.t() | atom()
       }
@@ -11541,6 +11597,35 @@ defmodule AWS.SecurityHub do
 
   """
   @type list_enabled_products_for_import_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_exposures_by_remediation_v2_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("TargetUid") => String.t() | atom()
+      }
+
+  """
+  @type list_exposures_by_remediation_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_exposures_by_remediation_v2_response() :: %{
+        "Items" => list(exposure_finding()),
+        "NextToken" => String.t() | atom(),
+        "Resource" => remediation_resource(),
+        "TargetUid" => String.t() | atom(),
+        "TotalCount" => integer(),
+        "Trait" => remediation_trait()
+      }
+
+  """
+  @type list_exposures_by_remediation_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12381,6 +12466,244 @@ defmodule AWS.SecurityHub do
 
   """
   @type remediation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_composite_filter() :: %{
+        "StringFilters" => list(remediation_string_filter())
+      }
+
+  """
+  @type remediation_composite_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_filters() :: %{
+        "CompositeFilters" => list(remediation_composite_filter())
+      }
+
+  """
+  @type remediation_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_guidance() :: %{
+        "Context" => remediation_guidance_context(),
+        "Examples" => remediation_guidance_examples(),
+        "Metadata" => remediation_guidance_metadata(),
+        "Pattern" => String.t() | atom(),
+        "Specification" => remediation_guidance_specification(),
+        "TargetTypeName" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type remediation_guidance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_guidance_context() :: %{
+        "AffectedScope" => String.t() | atom(),
+        "Prerequisites" => list(String.t() | atom()),
+        "ProblemStatement" => String.t() | atom(),
+        "RiskAssessment" => String.t() | atom()
+      }
+
+  """
+  @type remediation_guidance_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_guidance_examples() :: %{
+        "AwsCli" => String.t() | atom(),
+        "Cdk" => String.t() | atom(),
+        "Cli" => String.t() | atom(),
+        "CloudFormation" => String.t() | atom(),
+        "IaC" => String.t() | atom(),
+        "Python" => String.t() | atom(),
+        "Template" => String.t() | atom(),
+        "Terraform" => String.t() | atom()
+      }
+
+  """
+  @type remediation_guidance_examples() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_guidance_metadata() :: %{
+        "AutomationLevel" => String.t() | atom(),
+        "ExposureType" => String.t() | atom(),
+        "FixEffect" => String.t() | atom(),
+        "GeneratedAt" => non_neg_integer(),
+        "HumanReviewRequired" => boolean(),
+        "ResourceType" => String.t() | atom(),
+        "Reversibility" => String.t() | atom(),
+        "RiskLevel" => String.t() | atom(),
+        "TraitTitles" => list(String.t() | atom()),
+        "VerificationStatus" => String.t() | atom()
+      }
+
+  """
+  @type remediation_guidance_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_guidance_specification() :: %{
+        "ExpectedEndState" => String.t() | atom(),
+        "Parameters" => list(remediation_parameter()),
+        "RequiredPermissions" => list(String.t() | atom()),
+        "Steps" => list(remediation_step())
+      }
+
+  """
+  @type remediation_guidance_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_outcome() :: %{
+        "ResolvedFindingsCount" => integer(),
+        "SeverityReductionFindingsCount" => integer(),
+        "SeverityUnchangedCount" => integer()
+      }
+
+  """
+  @type remediation_outcome() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_parameter() :: %{
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Required" => boolean(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type remediation_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_resource() :: %{
+        "AccountId" => String.t() | atom(),
+        "CloudProvider" => list(any()),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "ResourceGuid" => String.t() | atom(),
+        "ResourceOwnerAccountId" => String.t() | atom(),
+        "ResourceOwnerOrgId" => String.t() | atom(),
+        "ResourceRegion" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type remediation_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_step() :: %{
+        "Action" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Inverse" => String.t() | atom(),
+        "Logic" => String.t() | atom(),
+        "Phase" => String.t() | atom(),
+        "Service" => String.t() | atom(),
+        "VerifyAfter" => String.t() | atom()
+      }
+
+  """
+  @type remediation_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_string_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => remediation_string_filter_condition()
+      }
+
+  """
+  @type remediation_string_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_string_filter_condition() :: %{
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type remediation_string_filter_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_summary_detail() :: %{
+        "Action" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IsImmediate" => boolean(),
+        "KbArticles" => list(kb_article()),
+        "PostRemediationSteps" => list(String.t() | atom())
+      }
+
+  """
+  @type remediation_summary_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_trait() :: %{
+        "Title" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type remediation_trait() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation_v2_item() :: %{
+        "Guidance" => remediation_guidance(),
+        "Outcome" => remediation_outcome(),
+        "Priority" => list(any()),
+        "RemediationSummary" => remediation_summary_detail(),
+        "Resource" => remediation_resource(),
+        "Status" => list(any()),
+        "TargetUid" => String.t() | atom(),
+        "Trait" => remediation_trait(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type remediation_v2_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14954,6 +15277,13 @@ defmodule AWS.SecurityHub do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_remediations_v2_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_resources_statistics_v2_errors() ::
           validation_exception()
           | throttling_exception()
@@ -15049,6 +15379,13 @@ defmodule AWS.SecurityHub do
 
   @type list_enabled_products_for_import_errors() ::
           limit_exceeded_exception() | invalid_access_exception() | internal_exception()
+
+  @type list_exposures_by_remediation_v2_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_finding_aggregators_errors() ::
           limit_exceeded_exception()
@@ -18141,6 +18478,41 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Retrieves remediation targets for the account, or for all member accounts if the
+  caller is
+  the delegated administrator.
+
+  Results are sorted by priority, highest first, and are paginated.
+  Use `TargetUid` or `MetadataUid` to scope the request to a single target
+  or finding.
+  """
+  @spec get_remediations_v2(map(), get_remediations_v2_request(), list()) ::
+          {:ok, get_remediations_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_remediations_v2_errors()}
+  def get_remediations_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/GetRemediationsV2"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves statistical information about Amazon Web Services resources and their
   associated security findings.
 
@@ -18727,6 +19099,42 @@ defmodule AWS.SecurityHub do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the exposure findings tied to a specific remediation target.
+
+  Results are sorted by
+  previous severity, highest first, and are paginated.
+  """
+  @spec list_exposures_by_remediation_v2(
+          map(),
+          list_exposures_by_remediation_v2_request(),
+          list()
+        ) ::
+          {:ok, list_exposures_by_remediation_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_exposures_by_remediation_v2_errors()}
+  def list_exposures_by_remediation_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/ListExposuresByRemediationV2"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

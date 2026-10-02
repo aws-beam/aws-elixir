@@ -2264,6 +2264,7 @@ defmodule AWS.BedrockAgent do
         "startedAt" => non_neg_integer(),
         "statistics" => ingestion_job_statistics(),
         "status" => list(any()),
+        "textReadyAt" => non_neg_integer(),
         "updatedAt" => non_neg_integer()
       }
 
@@ -2325,6 +2326,7 @@ defmodule AWS.BedrockAgent do
         "startedAt" => non_neg_integer(),
         "statistics" => ingestion_job_statistics(),
         "status" => list(any()),
+        "textReadyAt" => non_neg_integer(),
         "updatedAt" => non_neg_integer()
       }
 

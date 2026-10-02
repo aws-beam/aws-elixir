@@ -382,6 +382,7 @@ defmodule AWS.Transfer do
       create_workflow_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("OnExceptionSteps") => list(workflow_step()),
+        optional("StructuredLogDestinations") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
         required("Steps") => list(workflow_step())
       }
@@ -1194,6 +1195,7 @@ defmodule AWS.Transfer do
         "Description" => String.t() | atom(),
         "OnExceptionSteps" => list(workflow_step()),
         "Steps" => list(workflow_step()),
+        "StructuredLogDestinations" => list(String.t() | atom()),
         "Tags" => list(tag()),
         "WorkflowId" => String.t() | atom()
       }

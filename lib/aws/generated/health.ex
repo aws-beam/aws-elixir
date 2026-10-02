@@ -427,6 +427,31 @@ defmodule AWS.Health do
 
   ## Example:
       
+      describe_service_lifecycle_request() :: %{
+        optional("filter") => service_lifecycle_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_service_lifecycle_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_lifecycle_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "serviceLifecycles" => list(service_lifecycle())
+      }
+      
+  """
+  @type describe_service_lifecycle_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       entity_account_filter() :: %{
         "awsAccountId" => String.t() | atom(),
         "eventArn" => String.t() | atom(),
@@ -619,6 +644,21 @@ defmodule AWS.Health do
 
   ## Example:
       
+      lifecycle_event() :: %{
+        "date" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "impactRisks" => list(String.t() | atom()),
+        "lifecycleEventType" => String.t() | atom(),
+        "regions" => list(String.t() | atom())
+      }
+      
+  """
+  @type lifecycle_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       organization_affected_entities_error_item() :: %{
         "awsAccountId" => String.t() | atom(),
         "errorMessage" => String.t() | atom(),
@@ -720,6 +760,32 @@ defmodule AWS.Health do
 
   ## Example:
       
+      service_lifecycle() :: %{
+        "lifecycleEvents" => list(lifecycle_event()),
+        "recommendedVersion" => String.t() | atom(),
+        "service" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+      
+  """
+  @type service_lifecycle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_lifecycle_filter() :: %{
+        "service" => String.t() | atom()
+      }
+      
+  """
+  @type service_lifecycle_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       unsupported_locale() :: %{
         "message" => String.t() | atom()
       }
@@ -746,6 +812,8 @@ defmodule AWS.Health do
 
   @type describe_events_for_organization_errors() ::
           unsupported_locale() | invalid_pagination_token()
+
+  @type describe_service_lifecycle_errors() :: invalid_pagination_token()
 
   @type disable_health_service_access_for_organization_errors() ::
           concurrent_modification_exception()
@@ -1180,6 +1248,22 @@ defmodule AWS.Health do
       input,
       options
     )
+  end
+
+  @doc """
+  Returns lifecycle information for Amazon Web Services services, including
+  end-of-life dates, version recommendations, and lifecycle events.
+  """
+  @spec describe_service_lifecycle(map(), describe_service_lifecycle_request(), list()) ::
+          {:ok, describe_service_lifecycle_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_service_lifecycle_errors()}
+  def describe_service_lifecycle(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeServiceLifecycle", input, options)
   end
 
   @doc """

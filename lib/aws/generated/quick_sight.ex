@@ -6034,7 +6034,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       databricks_parameters() :: %{
+        "AuthenticationType" => list(any()),
         "Host" => String.t() | atom(),
+        "OAuthParameters" => o_auth_parameters(),
         "Port" => integer(),
         "SqlEndpointPath" => String.t() | atom()
       }
@@ -6378,6 +6380,8 @@ defmodule AWS.QuickSight do
       default_filter_control_options() :: %{
         "DefaultDateTimePickerOptions" => default_date_time_picker_control_options(),
         "DefaultDropdownOptions" => default_filter_drop_down_control_options(),
+        "DefaultHierarchyDropdown" => default_hierarchy_filter_drop_down_control_options(),
+        "DefaultHierarchyList" => default_hierarchy_filter_list_control_options(),
         "DefaultListOptions" => default_filter_list_control_options(),
         "DefaultRelativeDateTimeOptions" => default_relative_date_time_control_options(),
         "DefaultSliderOptions" => default_slider_control_options(),
@@ -6450,6 +6454,36 @@ defmodule AWS.QuickSight do
 
   """
   @type default_grid_layout_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      default_hierarchy_filter_drop_down_control_options() :: %{
+        "CommitMode" => list(any()),
+        "ControlSortConfigurations" => list(control_sort_configuration()),
+        "ControlTitleFormatText" => control_title_format_text(),
+        "DisplayOptions" => hierarchy_filter_drop_down_control_display_options(),
+        "Type" => list(any())
+      }
+
+  """
+  @type default_hierarchy_filter_drop_down_control_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      default_hierarchy_filter_list_control_options() :: %{
+        "CommitMode" => list(any()),
+        "ControlSortConfigurations" => list(control_sort_configuration()),
+        "ControlTitleFormatText" => control_title_format_text(),
+        "DisplayOptions" => hierarchy_filter_list_control_display_options(),
+        "Type" => list(any())
+      }
+
+  """
+  @type default_hierarchy_filter_list_control_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9825,6 +9859,7 @@ defmodule AWS.QuickSight do
 
       filter() :: %{
         "CategoryFilter" => category_filter(),
+        "HierarchyFilter" => hierarchy_filter(),
         "NestedFilter" => nested_filter(),
         "NumericEqualityFilter" => numeric_equality_filter(),
         "NumericRangeFilter" => numeric_range_filter(),
@@ -9858,6 +9893,8 @@ defmodule AWS.QuickSight do
         "CrossSheet" => filter_cross_sheet_control(),
         "DateTimePicker" => filter_date_time_picker_control(),
         "Dropdown" => filter_drop_down_control(),
+        "HierarchyDropdown" => hierarchy_filter_drop_down_control(),
+        "HierarchyList" => hierarchy_filter_list_control(),
         "List" => filter_list_control(),
         "RelativeDateTime" => filter_relative_date_time_control(),
         "Slider" => filter_slider_control(),
@@ -11696,6 +11733,120 @@ defmodule AWS.QuickSight do
 
   """
   @type heat_map_visual() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchy_filter() :: %{
+        "Column" => column_identifier(),
+        "DefaultFilterControlConfiguration" => default_filter_control_configuration(),
+        "FilterId" => String.t() | atom(),
+        "HierarchyLevels" => list(hierarchy_filter_level()),
+        "HierarchyTree" => hierarchy_filter_node(),
+        "MatchOperator" => list(any()),
+        "NullOption" => list(any())
+      }
+
+  """
+  @type hierarchy_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchy_filter_drop_down_control() :: %{
+        "CommitMode" => list(any()),
+        "ControlSortConfigurations" => list(control_sort_configuration()),
+        "ControlTitleFormatText" => control_title_format_text(),
+        "DisplayOptions" => hierarchy_filter_drop_down_control_display_options(),
+        "FilterControlId" => String.t() | atom(),
+        "SourceFilterId" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type hierarchy_filter_drop_down_control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchy_filter_drop_down_control_display_options() :: %{
+        "InfoIconLabelOptions" => sheet_control_info_icon_label_options(),
+        "TitleOptions" => label_options()
+      }
+
+  """
+  @type hierarchy_filter_drop_down_control_display_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchy_filter_level() :: %{
+        "Column" => column_identifier()
+      }
+
+  """
+  @type hierarchy_filter_level() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchy_filter_list_control() :: %{
+        "CommitMode" => list(any()),
+        "ControlSortConfigurations" => list(control_sort_configuration()),
+        "ControlTitleFormatText" => control_title_format_text(),
+        "DisplayOptions" => hierarchy_filter_list_control_display_options(),
+        "FilterControlId" => String.t() | atom(),
+        "SourceFilterId" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type hierarchy_filter_list_control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchy_filter_list_control_display_options() :: %{
+        "InfoIconLabelOptions" => sheet_control_info_icon_label_options(),
+        "SearchOptions" => hierarchy_filter_list_control_search_options(),
+        "TitleOptions" => label_options()
+      }
+
+  """
+  @type hierarchy_filter_list_control_display_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchy_filter_list_control_search_options() :: %{
+        "Visibility" => list(any())
+      }
+
+  """
+  @type hierarchy_filter_list_control_search_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchy_filter_node() :: %{
+        "Children" => list(hierarchy_filter_node()),
+        "Column" => column_identifier(),
+        "HierarchyValues" => list(String.t() | atom()),
+        "ParentValue" => String.t() | atom()
+      }
+
+  """
+  @type hierarchy_filter_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

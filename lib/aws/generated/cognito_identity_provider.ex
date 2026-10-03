@@ -121,6 +121,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      acr_level_config_type() :: %{
+        "AcrValue" => String.t() | atom()
+      }
+      
+  """
+  @type acr_level_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       add_custom_attributes_request() :: %{
         required("CustomAttributes") => list(schema_attribute_type()),
         required("UserPoolId") => String.t() | atom()
@@ -644,6 +655,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_respond_to_auth_challenge_response() :: %{
         "AuthenticationResult" => authentication_result_type(),
+        "AvailableChallenges" => list(list(any())()),
         "ChallengeName" => list(any()),
         "ChallengeParameters" => map(),
         "Session" => String.t() | atom()
@@ -1234,6 +1246,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       create_identity_provider_request() :: %{
+        optional("AcrMapping") => map(),
         optional("AttributeMapping") => map(),
         optional("IdpIdentifiers") => list(String.t() | atom()),
         required("ProviderDetails") => map(),
@@ -1462,6 +1475,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       create_user_pool_request() :: %{
         optional("AccountRecoverySetting") => account_recovery_setting_type(),
+        optional("AcrConfiguration") => map(),
         optional("AdminCreateUserConfig") => admin_create_user_config_type(),
         optional("AliasAttributes") => list(list(any())()),
         optional("AutoVerifiedAttributes") => list(list(any())()),
@@ -2677,6 +2691,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       identity_provider_type() :: %{
+        "AcrMapping" => map(),
         "AttributeMapping" => map(),
         "CreationDate" => non_neg_integer(),
         "IdpIdentifiers" => list(String.t() | atom()),
@@ -3654,6 +3669,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       respond_to_auth_challenge_response() :: %{
         "AuthenticationResult" => authentication_result_type(),
+        "AvailableChallenges" => list(list(any())()),
         "ChallengeName" => list(any()),
         "ChallengeParameters" => map(),
         "Session" => String.t() | atom()
@@ -4412,6 +4428,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       update_identity_provider_request() :: %{
+        optional("AcrMapping") => map(),
         optional("AttributeMapping") => map(),
         optional("IdpIdentifiers") => list(String.t() | atom()),
         optional("ProviderDetails") => map(),
@@ -4660,6 +4677,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       update_user_pool_request() :: %{
         optional("AccountRecoverySetting") => account_recovery_setting_type(),
+        optional("AcrConfiguration") => map(),
         optional("AdminCreateUserConfig") => admin_create_user_config_type(),
         optional("AutoVerifiedAttributes") => list(list(any())()),
         optional("DeletionProtection") => list(any()),
@@ -4919,6 +4937,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       user_pool_type() :: %{
         "AccountRecoverySetting" => account_recovery_setting_type(),
+        "AcrConfiguration" => map(),
         "AdminCreateUserConfig" => admin_create_user_config_type(),
         "AliasAttributes" => list(list(any())()),
         "Arn" => String.t() | atom(),
@@ -5350,6 +5369,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_lambda_response_exception()
           | invalid_email_role_access_policy_exception()
           | internal_error_exception()
+          | feature_unavailable_in_tier_exception()
 
   @type admin_link_provider_for_user_errors() ::
           user_not_found_exception()
@@ -6122,6 +6142,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_email_role_access_policy_exception()
           | internal_error_exception()
           | forbidden_exception()
+          | feature_unavailable_in_tier_exception()
 
   @type list_devices_errors() ::
           user_not_found_exception()
@@ -9078,11 +9099,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   To call `DescribeTermsByClient`, you must have the
   `cognito-idp:DescribeTermsByClient` Identity and Access Management (IAM)
-  permission. This
-  operation additionally validates your permission for
-  `cognito-idp:DescribeTerms`, the action for . As a result, an IAM policy that
-  denies
-  `cognito-idp:DescribeTerms` also denies requests to
+  permission. An IAM
+  policy that denies `cognito-idp:DescribeTerms` also denies requests to
   `DescribeTermsByClient`.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
@@ -9337,9 +9355,7 @@ defmodule AWS.CognitoIdentityProvider do
   Your app client
   provides its client ID and secret, and receives an access token that authorizes
   requests
-  to your resource servers. `GetClientToken` provides the same functionality as
-  the OAuth2 client-credentials grant; both authorize an application rather than a
-  user.
+  to your resource servers.
 
   To use this operation, you must configure the app client with a client secret
   and

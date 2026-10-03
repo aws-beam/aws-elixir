@@ -3,11 +3,14 @@
 
 defmodule AWS.LambdaWeb do
   @moduledoc """
-  AWS Lambda Web Functions let you run web applications and APIs as HTTP servers
-  on Lambda.
+  The AWS Lambda Web Functions APIs (`LambdaWeb` namespace) are experimental and
+  for internal AWS use only.
 
-  A web function has one or more immutable revisions (code and configuration) and
-  one or more endpoints that expose it over HTTPS.
+  They are not yet available to external customers.
+
+  AWS Lambda Web Functions let you run web applications and APIs as HTTP servers
+  on Lambda. A web function has one or more immutable revisions (code and
+  configuration) and one or more endpoints that expose it over HTTPS.
   """
 
   alias AWS.Client
@@ -1033,6 +1036,9 @@ defmodule AWS.LambdaWeb do
   To use this operation, you must have the `CreateWebFunction` permission on the
   web function. You don't need separate permissions for the initial revision or
   endpoint.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec create_web_function(map(), create_web_function_request(), list()) ::
           {:ok, create_web_function_response(), any()}
@@ -1068,6 +1074,9 @@ defmodule AWS.LambdaWeb do
 
   To use this operation, you must have the `CreateWebFunctionEndpoint` permission
   on the web function, not on the endpoint being created.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec create_web_function_endpoint(
           map(),
@@ -1107,6 +1116,9 @@ defmodule AWS.LambdaWeb do
 
   To use this operation, you must have the `CreateWebFunctionRevision` permission
   on the web function, not on the revision being created.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec create_web_function_revision(
           map(),
@@ -1141,6 +1153,9 @@ defmodule AWS.LambdaWeb do
 
   @doc """
   Removes the resource-based policy from a web function.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec delete_resource_policy(
           map(),
@@ -1184,6 +1199,9 @@ defmodule AWS.LambdaWeb do
   To use this operation, you must have the `DeleteWebFunction` permission on the
   web function. You don't need the `DeleteWebFunctionRevision` or
   `DeleteWebFunctionEndpoint` permission.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec delete_web_function(map(), String.t() | atom(), delete_web_function_request(), list()) ::
           {:ok, nil, any()}
@@ -1213,6 +1231,9 @@ defmodule AWS.LambdaWeb do
 
   @doc """
   Deletes a web function endpoint.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec delete_web_function_endpoint(
           map(),
@@ -1258,6 +1279,9 @@ defmodule AWS.LambdaWeb do
   Deletes a web function revision.
 
   You cannot delete a revision that is currently serving traffic on an endpoint.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec delete_web_function_revision(
           map(),
@@ -1301,6 +1325,9 @@ defmodule AWS.LambdaWeb do
 
   @doc """
   Retrieves the resource-based policy attached to a web function.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec get_resource_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_resource_policy_response(), any()}
@@ -1321,6 +1348,9 @@ defmodule AWS.LambdaWeb do
   Retrieves details about your AWS Lambda Web Functions account settings for the
   current AWS Region, including the quotas that apply to web functions and your
   current usage.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec get_web_account_settings(map(), list()) ::
           {:ok, get_web_account_settings_response(), any()}
@@ -1340,6 +1370,9 @@ defmodule AWS.LambdaWeb do
   @doc """
   Retrieves details about a web function, including its current state and
   configuration.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec get_web_function(map(), String.t() | atom(), list()) ::
           {:ok, get_web_function_response(), any()}
@@ -1359,6 +1392,9 @@ defmodule AWS.LambdaWeb do
   @doc """
   Retrieves details about a web function endpoint, including its current state,
   configuration, and domain name.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec get_web_function_endpoint(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_web_function_endpoint_response(), any()}
@@ -1380,6 +1416,9 @@ defmodule AWS.LambdaWeb do
   @doc """
   Retrieves details about a web function revision, including its state and
   configuration.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec get_web_function_revision(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_web_function_revision_response(), any()}
@@ -1400,6 +1439,9 @@ defmodule AWS.LambdaWeb do
 
   @doc """
   Returns a list of tags applied to a web function.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec list_tags(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_response(), any()}
@@ -1421,6 +1463,9 @@ defmodule AWS.LambdaWeb do
 
   We recommend using pagination to ensure that the operation returns quickly and
   successfully.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec list_web_function_endpoints(
           map(),
@@ -1458,6 +1503,9 @@ defmodule AWS.LambdaWeb do
 
   We recommend using pagination to ensure that the operation returns quickly and
   successfully.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec list_web_function_revisions(
           map(),
@@ -1495,6 +1543,9 @@ defmodule AWS.LambdaWeb do
 
   We recommend using pagination to ensure that the operation returns quickly and
   successfully.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec list_web_functions(map(), list_web_functions_request(), list()) ::
           {:ok, list_web_functions_response(), any()}
@@ -1527,6 +1578,9 @@ defmodule AWS.LambdaWeb do
 
   A resource-based policy grants permissions to other AWS accounts or services to
   perform actions on the web function.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec put_resource_policy(map(), String.t() | atom(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
@@ -1559,6 +1613,9 @@ defmodule AWS.LambdaWeb do
 
   If a tag key already exists, the existing value is overwritten with the new
   value.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
@@ -1588,6 +1645,9 @@ defmodule AWS.LambdaWeb do
 
   @doc """
   Removes tags from a web function.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
@@ -1625,6 +1685,9 @@ defmodule AWS.LambdaWeb do
 
   You can modify the authorization type, auto-deployment mode, revision weights,
   scaling, and throttling settings.
+
+  This API is experimental and for internal AWS use only. It is not yet available
+  to external customers.
   """
   @spec update_web_function_endpoint(
           map(),

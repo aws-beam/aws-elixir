@@ -191,6 +191,8 @@ defmodule AWS.Invoicing do
       create_procurement_portal_preference_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("EinvoiceDeliveryPreference") => einvoice_delivery_preference(),
+        optional("MarketplacePunchOutEnabled") => [boolean()],
+        optional("MarketplacePunchOutPreference") => marketplace_punch_out_preference(),
         optional("ProcurementPortalInstanceEndpoint") => String.t() | atom(),
         optional("ProcurementPortalSharedSecret") => String.t() | atom(),
         optional("ResourceTags") => list(resource_tag()),
@@ -772,6 +774,17 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      marketplace_punch_out_preference() :: %{
+        "ApprovalRequestRedirectUrl" => String.t() | atom()
+      }
+      
+  """
+  @type marketplace_punch_out_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       procurement_portal() :: %{
         "DefaultFeatureConfigurations" => feature_configurations(),
         "PortalDisplayName" => String.t() | atom(),
@@ -797,6 +810,8 @@ defmodule AWS.Invoicing do
         "EinvoiceDeliveryPreferenceStatus" => list(any()),
         "EinvoiceDeliveryPreferenceStatusReason" => String.t() | atom(),
         "LastUpdateDate" => [non_neg_integer()],
+        "MarketplacePunchOutEnabled" => [boolean()],
+        "MarketplacePunchOutPreference" => marketplace_punch_out_preference(),
         "ProcurementPortalInstanceEndpoint" => String.t() | atom(),
         "ProcurementPortalName" => list(any()),
         "ProcurementPortalPreferenceArn" => String.t() | atom(),
@@ -840,6 +855,7 @@ defmodule AWS.Invoicing do
         "EinvoiceDeliveryPreferenceStatus" => list(any()),
         "EinvoiceDeliveryPreferenceStatusReason" => String.t() | atom(),
         "LastUpdateDate" => [non_neg_integer()],
+        "MarketplacePunchOutEnabled" => [boolean()],
         "ProcurementPortalName" => list(any()),
         "ProcurementPortalPreferenceArn" => String.t() | atom(),
         "PurchaseOrderRetrievalEnabled" => [boolean()],
@@ -887,6 +903,8 @@ defmodule AWS.Invoicing do
       put_procurement_portal_preference_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("EinvoiceDeliveryPreference") => einvoice_delivery_preference(),
+        optional("MarketplacePunchOutEnabled") => [boolean()],
+        optional("MarketplacePunchOutPreference") => marketplace_punch_out_preference(),
         optional("ProcurementPortalInstanceEndpoint") => String.t() | atom(),
         optional("ProcurementPortalSharedSecret") => String.t() | atom(),
         optional("Selector") => procurement_portal_preference_selector(),
@@ -1252,6 +1270,7 @@ defmodule AWS.Invoicing do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type get_invoice_p_d_f_errors() ::

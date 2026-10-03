@@ -637,6 +637,7 @@ defmodule AWS.MediaPackageV2 do
         "DrmSettings" => [String.t() | atom()],
         "End" => [non_neg_integer()],
         "ManifestFilter" => [String.t() | atom()],
+        "Multiview" => multiview_filter_configuration(),
         "Start" => [non_neg_integer()],
         "TimeDelaySeconds" => [integer()]
       }
@@ -1219,6 +1220,18 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type multiview_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiview_filter_configuration() :: %{
+        "Layout" => list(any()),
+        "Sources" => list(String.t() | atom())
+      }
+
+  """
+  @type multiview_filter_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

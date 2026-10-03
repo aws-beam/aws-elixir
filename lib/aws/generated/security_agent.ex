@@ -264,7 +264,8 @@ defmodule AWS.SecurityAgent do
 
       azure_dev_ops_resource_capabilities() :: %{
         "leaveComments" => [boolean()],
-        "remediateCode" => [boolean()]
+        "remediateCode" => [boolean()],
+        "triggerFilterGroups" => list(trigger_filter_group())
       }
 
   """
@@ -879,7 +880,8 @@ defmodule AWS.SecurityAgent do
 
       bitbucket_resource_capabilities() :: %{
         "leaveComments" => [boolean()],
-        "remediateCode" => [boolean()]
+        "remediateCode" => [boolean()],
+        "triggerFilterGroups" => list(trigger_filter_group())
       }
 
   """
@@ -2121,7 +2123,8 @@ defmodule AWS.SecurityAgent do
 
       git_hub_resource_capabilities() :: %{
         "leaveComments" => [boolean()],
-        "remediateCode" => [boolean()]
+        "remediateCode" => [boolean()],
+        "triggerFilterGroups" => list(trigger_filter_group())
       }
 
   """
@@ -2173,7 +2176,8 @@ defmodule AWS.SecurityAgent do
 
       git_lab_resource_capabilities() :: %{
         "leaveComments" => [boolean()],
-        "remediateCode" => [boolean()]
+        "remediateCode" => [boolean()],
+        "triggerFilterGroups" => list(trigger_filter_group())
       }
 
   """
@@ -3806,6 +3810,31 @@ defmodule AWS.SecurityAgent do
 
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trigger_filter() :: %{
+        "matchMode" => list(any()),
+        "patterns" => list(String.t() | atom()),
+        "type" => list(any())
+      }
+
+  """
+  @type trigger_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trigger_filter_group() :: %{
+        "events" => list(list(any())()),
+        "filters" => list(trigger_filter())
+      }
+
+  """
+  @type trigger_filter_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

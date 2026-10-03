@@ -142,6 +142,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       carrier_lookup_request() :: %{
+        optional("EnableCleansing") => [boolean()],
         required("PhoneNumber") => String.t() | atom()
       }
       
@@ -160,6 +161,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "IsoCountryCode" => String.t() | atom(),
         "MCC" => String.t() | atom(),
         "MNC" => String.t() | atom(),
+        "OriginalPhoneNumber" => String.t() | atom(),
         "PhoneNumberType" => String.t() | atom()
       }
       
@@ -6723,13 +6725,15 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
-  Search available phone numbers from aggregator inventory, optionally filtered by
-  pattern.
+  Retrieves a list of phone numbers that are available to request, based on the
+  country, capabilities, and number type that you specify.
 
-  If NumberPreference is omitted, returns unfiltered available numbers.
-  Returns empty list (not an exception) when no numbers match.
-  ResourceNotFoundException is thrown only for invalid RegistrationId (campaign
-  not found).
+  You can optionally provide a number preference to return only numbers that match
+  a specific digit pattern.
+
+  If no numbers match your search, this operation returns an empty list rather
+  than an error. This operation currently supports only `TEN_DLC` number types in
+  the `US`.
   """
   @spec list_available_phone_numbers(map(), list_available_phone_numbers_request(), list()) ::
           {:ok, list_available_phone_numbers_result(), any()}

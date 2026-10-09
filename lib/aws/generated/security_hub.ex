@@ -8721,6 +8721,27 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      cancel_export_job_v2_request() :: %{}
+
+  """
+  @type cancel_export_job_v2_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_export_job_v2_response() :: %{
+        "ExportJobId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type cancel_export_job_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cell() :: %{
         "CellReference" => String.t() | atom(),
         "Column" => float(),
@@ -10118,6 +10139,38 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      export_scopes() :: %{
+        "AwsOrganizations" => list(aws_organization_scope())
+      }
+
+  """
+  @type export_scopes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_summary() :: %{
+        "DataType" => list(any()),
+        "Destination" => list(),
+        "EndedAt" => non_neg_integer(),
+        "ExportJobId" => String.t() | atom(),
+        "FailureCode" => list(any()),
+        "FailureMessage" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OutputConfiguration" => list(),
+        "Scopes" => export_scopes(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type export_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       exposure_finding() :: %{
         "Impact" => list(any()),
         "MetadataUid" => String.t() | atom(),
@@ -10255,6 +10308,30 @@ defmodule AWS.SecurityHub do
 
   """
   @type finding_scopes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      findings_output() :: %{
+        "Filters" => ocsf_finding_filters(),
+        "Format" => list(any()),
+        "SelectedFields" => list(list(any())())
+      }
+
+  """
+  @type findings_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      findings_output_summary() :: %{
+        "Format" => list(any())
+      }
+
+  """
+  @type findings_output_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10614,6 +10691,36 @@ defmodule AWS.SecurityHub do
 
   """
   @type get_enabled_standards_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_job_v2_request() :: %{}
+
+  """
+  @type get_export_job_v2_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_job_v2_response() :: %{
+        "DataType" => list(any()),
+        "Destination" => list(),
+        "EndedAt" => non_neg_integer(),
+        "ExportJobId" => String.t() | atom(),
+        "FailureCode" => list(any()),
+        "FailureMessage" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OutputConfiguration" => list(),
+        "Scopes" => export_scopes(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_export_job_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11597,6 +11704,32 @@ defmodule AWS.SecurityHub do
 
   """
   @type list_enabled_products_for_import_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_export_jobs_v2_request() :: %{
+        optional("DataType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type list_export_jobs_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_export_jobs_v2_response() :: %{
+        "Items" => list(export_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_export_jobs_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13454,6 +13587,19 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      s3_export_destination() :: %{
+        "BucketArn" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom(),
+        "ObjectPrefix" => String.t() | atom()
+      }
+
+  """
+  @type s3_export_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       security_control() :: %{
         "Description" => String.t() | atom(),
         "LastUpdateReason" => String.t() | atom(),
@@ -13946,6 +14092,32 @@ defmodule AWS.SecurityHub do
 
   """
   @type start_configuration_policy_disassociation_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_export_job_v2_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Scopes") => export_scopes(),
+        required("Destination") => list(),
+        required("OutputConfiguration") => list()
+      }
+
+  """
+  @type start_export_job_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_export_job_v2_response() :: %{
+        "ExportJobId" => String.t() | atom()
+      }
+
+  """
+  @type start_export_job_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14813,6 +14985,14 @@ defmodule AWS.SecurityHub do
           | internal_exception()
           | access_denied_exception()
 
+  @type cancel_export_job_v2_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_action_target_errors() ::
           resource_conflict_exception()
           | limit_exceeded_exception()
@@ -15191,6 +15371,13 @@ defmodule AWS.SecurityHub do
           | invalid_access_exception()
           | internal_exception()
 
+  @type get_export_job_v2_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_finding_aggregator_errors() ::
           resource_not_found_exception()
           | limit_exceeded_exception()
@@ -15380,6 +15567,12 @@ defmodule AWS.SecurityHub do
   @type list_enabled_products_for_import_errors() ::
           limit_exceeded_exception() | invalid_access_exception() | internal_exception()
 
+  @type list_export_jobs_v2_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_exposures_by_remediation_v2_errors() ::
           validation_exception()
           | throttling_exception()
@@ -15456,6 +15649,16 @@ defmodule AWS.SecurityHub do
           | invalid_input_exception()
           | invalid_access_exception()
           | internal_exception()
+          | access_denied_exception()
+
+  @type start_export_job_v2_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | organizational_unit_not_found_exception()
+          | organization_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type tag_resource_errors() ::
@@ -16216,6 +16419,48 @@ defmodule AWS.SecurityHub do
       client,
       meta,
       :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Cancels a findings export job that is in progress.
+
+  Security Hub transitions a running job to the `CANCELLED` state and returns the
+  `ExportJobId` and its new `Status`. Canceling a job that is already in the
+  `CANCELLED` state succeeds and returns the same result, so you can safely retry
+  a cancel request.
+
+  You can't cancel an export job that has already reached a terminal `SUCCEEDED`
+  or `FAILED` state; in that case, this operation returns a `ConflictException`.
+  If no export job matches the `ExportJobId` that you provide, this operation
+  returns a `ResourceNotFoundException`.
+
+  The `Status` value returned by this operation reflects the cancellation
+  immediately, even though the job can take a short time to stop completely.
+  """
+  @spec cancel_export_job_v2(map(), String.t() | atom(), cancel_export_job_v2_request(), list()) ::
+          {:ok, cancel_export_job_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_export_job_v2_errors()}
+  def cancel_export_job_v2(%Client{} = client, export_job_id, input, options \\ []) do
+    url_path = "/exportjobsv2/#{AWS.Util.encode_uri(export_job_id)}/cancel"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -18068,6 +18313,36 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Returns the details of a single findings export job, including its current
+  `Status`, the `Destination` it writes to, the `OutputConfiguration` it was
+  started with, and its `StartedAt` and `EndedAt` timestamps.
+
+  Use this operation to poll an export job that you started with
+  `StartExportJobV2` until it reaches a terminal state (`SUCCEEDED`, `FAILED`, or
+  `CANCELLED`).
+
+  If the job failed, the response includes a `FailureCode` and `FailureMessage`
+  that describe the reason. Input values such as `Scopes` and `Filters` are echoed
+  back as they were submitted, with relative date ranges returned unresolved. If
+  no export job matches the `ExportJobId` that you provide, this operation returns
+  a `ResourceNotFoundException`.
+  """
+  @spec get_export_job_v2(map(), String.t() | atom(), list()) ::
+          {:ok, get_export_job_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_export_job_v2_errors()}
+  def get_export_job_v2(%Client{} = client, export_job_id, options \\ []) do
+    url_path = "/exportjobsv2/#{AWS.Util.encode_uri(export_job_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
 
   The *aggregation Region* is now called the *home Region*.
 
@@ -19102,6 +19377,77 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Returns the findings export jobs in your account as a paginated list of
+  `ExportSummary` objects.
+
+  You can filter the results by job `Status` or `DataType`.
+
+  To page through the results, use the `MaxResults` and `NextToken` parameters. If
+  the response includes a `NextToken` value, pass it in a subsequent request to
+  retrieve the next page of results.
+
+  Each `ExportSummary` reports the output `Format` of the job but not its full
+  `OutputConfiguration`. To retrieve the filters and selected fields that a job
+  was started with, call `GetExportJobV2`.
+  """
+  @spec list_export_jobs_v2(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_export_jobs_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_export_jobs_v2_errors()}
+  def list_export_jobs_v2(
+        %Client{} = client,
+        data_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/exportjobsv2"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(data_type) do
+        [{"DataType", data_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"Status", status} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the exposure findings tied to a specific remediation target.
 
   Results are sorted by
@@ -19617,6 +19963,69 @@ defmodule AWS.SecurityHub do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Starts an ad hoc export job that writes Security Hub findings to an Amazon
+  Simple Storage Service (Amazon S3) bucket that you own.
+
+  Because the export runs asynchronously, this operation returns only the
+  `ExportJobId` of the new job; it doesn't wait for the export to finish. Use
+  `GetExportJobV2` to poll the job, and `ListExportJobsV2` to view the export jobs
+  in your account.
+
+  Security Hub allows only one export job in the `RUNNING` state per account at a
+  time. If an export job is already running, this operation returns a
+  `ServiceQuotaExceededException`. Wait for the running job to finish, or cancel
+  it with `CancelExportJobV2`, before you start a new one.
+
+  Specify the destination bucket and Amazon Web Services Key Management Service
+  (Amazon Web Services KMS) key in the `Destination` parameter, and the output
+  format (`CSV` or `OCSF_JSON`), optional filters, and field selection in the
+  `OutputConfiguration` parameter. Before you call this operation, you must grant
+  Security Hub permission to write to your bucket and use your Amazon Web Services
+  KMS key by adding the bucket policy and key policy statements shown in the
+  Examples section.
+
+  Two identities use your Amazon Web Services KMS key, and each needs its own
+  permission. Security Hub uses the key when it writes the export objects to your
+  bucket. The IAM principal that calls `StartExportJobV2` must also have
+  `kms:GenerateDataKey` and `kms:Decrypt` permissions on the key. The Examples
+  section shows both grants.
+
+  A delegated administrator can use the optional `Scopes` parameter to export
+  findings for specific organizations or organizational units (OUs).
+
+  To make the request idempotent, provide a `ClientToken`. If you retry a
+  `StartExportJobV2` request with the same `ClientToken` and the same request
+  parameters, Security Hub returns the `ExportJobId` of the original job instead
+  of starting a new one. If you reuse a `ClientToken` with different request
+  parameters, this operation returns a `ConflictException`.
+  """
+  @spec start_export_job_v2(map(), start_export_job_v2_request(), list()) ::
+          {:ok, start_export_job_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_export_job_v2_errors()}
+  def start_export_job_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/exportjobsv2"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

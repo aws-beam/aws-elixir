@@ -313,6 +313,7 @@ defmodule AWS.CloudFormation do
       
       continue_update_rollback_input() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
+        optional("ForceRollback") => boolean(),
         optional("ResourcesToSkip") => list(String.t() | atom()),
         optional("RoleARN") => String.t() | atom(),
         required("StackName") => String.t() | atom()
@@ -4422,6 +4423,9 @@ defmodule AWS.CloudFormation do
   For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html)
   in the *CloudFormation User Guide*. For
   information for troubleshooting a failed update rollback, see [Update rollback failed](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed).
+
+  `ForceRollback` and `ResourcesToSkip` are mutually exclusive.
+  For details, see `ContinueUpdateRollbackInput$ForceRollback`.
   """
   @spec continue_update_rollback(map(), continue_update_rollback_input(), list()) ::
           {:ok, continue_update_rollback_output(), any()}

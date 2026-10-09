@@ -810,6 +810,7 @@ defmodule AWS.Budgets do
         "Dimensions" => expression_dimension_values(),
         "Not" => expression(),
         "Or" => list(expression()),
+        "ProductAttributes" => product_attribute_values(),
         "Tags" => tag_values()
       }
       
@@ -960,6 +961,19 @@ defmodule AWS.Budgets do
       
   """
   @type notification_with_subscribers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      product_attribute_values() :: %{
+        "Key" => String.t() | atom(),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type product_attribute_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

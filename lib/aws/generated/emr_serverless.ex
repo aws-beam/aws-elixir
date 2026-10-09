@@ -324,6 +324,7 @@ defmodule AWS.EMRServerless do
   ## Example:
 
       get_resource_dashboard_request() :: %{
+        optional("accessSystemProfileLogs") => [boolean()],
         required("resourceId") => String.t() | atom(),
         required("resourceType") => String.t() | atom()
       }
@@ -1506,6 +1507,7 @@ defmodule AWS.EMRServerless do
   @spec get_resource_dashboard(
           map(),
           String.t() | atom(),
+          String.t() | atom() | nil,
           String.t() | atom(),
           String.t() | atom(),
           list()
@@ -1517,6 +1519,7 @@ defmodule AWS.EMRServerless do
   def get_resource_dashboard(
         %Client{} = client,
         application_id,
+        access_system_profile_logs \\ nil,
         resource_id,
         resource_type,
         options \\ []
@@ -1524,6 +1527,13 @@ defmodule AWS.EMRServerless do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dashboard"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(access_system_profile_logs) do
+        [{"accessSystemProfileLogs", access_system_profile_logs} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(resource_id) do

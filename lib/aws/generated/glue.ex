@@ -7439,6 +7439,51 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_system_logs_for_job_run_request() :: %{
+        required("JobName") => String.t() | atom(),
+        required("RunId") => String.t() | atom()
+      }
+      
+  """
+  @type get_system_logs_for_job_run_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_system_logs_for_job_run_response() :: %{
+        "SystemLogsUrl" => String.t() | atom()
+      }
+      
+  """
+  @type get_system_logs_for_job_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_system_logs_for_session_request() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type get_system_logs_for_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_system_logs_for_session_response() :: %{
+        "SystemLogsUrl" => String.t() | atom()
+      }
+      
+  """
+  @type get_system_logs_for_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_table_optimizer_request() :: %{
         required("CatalogId") => String.t() | atom(),
         required("DatabaseName") => String.t() | atom(),
@@ -16263,6 +16308,19 @@ defmodule AWS.Glue do
           | entity_not_found_exception()
           | access_denied_exception()
 
+  @type get_system_logs_for_job_run_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | access_denied_exception()
+
+  @type get_system_logs_for_session_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | access_denied_exception()
+
   @type get_table_errors() ::
           resource_not_ready_exception()
           | operation_timeout_exception()
@@ -20173,6 +20231,36 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "GetStatement", input, options)
+  end
+
+  @doc """
+  Retrieves the system logs for a job run.
+  """
+  @spec get_system_logs_for_job_run(map(), get_system_logs_for_job_run_request(), list()) ::
+          {:ok, get_system_logs_for_job_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_system_logs_for_job_run_errors()}
+  def get_system_logs_for_job_run(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetSystemLogsForJobRun", input, options)
+  end
+
+  @doc """
+  Retrieves the system logs for an interactive session.
+  """
+  @spec get_system_logs_for_session(map(), get_system_logs_for_session_request(), list()) ::
+          {:ok, get_system_logs_for_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_system_logs_for_session_errors()}
+  def get_system_logs_for_session(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetSystemLogsForSession", input, options)
   end
 
   @doc """

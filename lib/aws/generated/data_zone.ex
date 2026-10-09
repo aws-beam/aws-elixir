@@ -7791,6 +7791,29 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      s3_file() :: %{
+        "key" => String.t() | atom()
+      }
+
+  """
+  @type s3_file() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_files_location() :: %{
+        "bucket" => String.t() | atom(),
+        "fileList" => list(s3_file())
+      }
+
+  """
+  @type s3_files_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_properties_input() :: %{
         "registerS3AccessGrantLocation" => [boolean()],
         "s3AccessGrantLocationId" => String.t() | atom(),
@@ -8342,6 +8365,7 @@ defmodule AWS.DataZone do
       start_notebook_import_input() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("type") => list(any()),
         required("name") => String.t() | atom(),
         required("owningProjectIdentifier") => String.t() | atom(),
         required("sourceLocation") => list()
@@ -8363,7 +8387,8 @@ defmodule AWS.DataZone do
         "notebookId" => String.t() | atom(),
         "owningProjectId" => String.t() | atom(),
         "sourceLocation" => list(),
-        "status" => list(any())
+        "status" => list(any()),
+        "type" => list(any())
       }
 
   """

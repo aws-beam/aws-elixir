@@ -308,6 +308,39 @@ defmodule AWS.SecurityIR do
 
   ## Example:
 
+      get_finding_metrics_request() :: %{
+        required("endDate") => [non_neg_integer()],
+        required("startDate") => [non_neg_integer()]
+      }
+
+  """
+  @type get_finding_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_finding_metrics_response() :: %{
+        "findingsEscalated" => [float()],
+        "findingsEscalatedFalsePositive" => [float()],
+        "findingsEscalatedInProgress" => [float()],
+        "findingsIngestedGuardDuty" => [float()],
+        "findingsIngestedSecurityHub" => [float()],
+        "findingsInvestigated" => [float()],
+        "findingsInvestigatedFalsePositive" => [float()],
+        "findingsInvestigatedInProgress" => [float()],
+        "findingsTriaged" => [float()],
+        "findingsTriagedFalsePositive" => [float()],
+        "findingsTruePositive" => [float()]
+      }
+
+  """
+  @type get_finding_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_membership_account_detail_error() :: %{
         "accountId" => String.t() | atom(),
         "error" => [String.t() | atom()],
@@ -1232,6 +1265,43 @@ defmodule AWS.SecurityIR do
       options,
       201
     )
+  end
+
+  @doc """
+  Returns finding-lifecycle metrics for a membership over a date range.
+  """
+  @spec get_finding_metrics(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_finding_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_finding_metrics(%Client{} = client, membership_id, end_date, start_date, options \\ []) do
+    url_path = "/v1/membership/#{AWS.Util.encode_uri(membership_id)}/finding-metrics"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(end_date) do
+        [{"endDate", end_date} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_date) do
+        [{"startDate", start_date} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """

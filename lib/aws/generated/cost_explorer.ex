@@ -853,6 +853,7 @@ defmodule AWS.CostExplorer do
         "Dimensions" => dimension_values(),
         "Not" => expression(),
         "Or" => list(expression()),
+        "ProductAttributes" => product_attribute_values(),
         "Tags" => tag_values()
       }
       
@@ -1224,6 +1225,7 @@ defmodule AWS.CostExplorer do
       get_dimension_values_request() :: %{
         optional("BillingViewArn") => String.t() | atom(),
         optional("Context") => list(any()),
+        optional("DimensionKey") => String.t() | atom(),
         optional("Filter") => expression(),
         optional("MaxResults") => integer(),
         optional("NextPageToken") => String.t() | atom(),
@@ -1886,6 +1888,19 @@ defmodule AWS.CostExplorer do
       
   """
   @type network_resource_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      product_attribute_values() :: %{
+        "Key" => String.t() | atom(),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type product_attribute_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

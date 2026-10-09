@@ -2041,6 +2041,7 @@ defmodule AWS.OpenSearch do
 
       encryption_at_rest_options() :: %{
         "Enabled" => boolean(),
+        "EncryptionMode" => list(any()),
         "KmsKeyId" => String.t() | atom()
       }
 

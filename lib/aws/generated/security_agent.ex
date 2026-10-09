@@ -1923,6 +1923,7 @@ defmodule AWS.SecurityAgent do
         "pentestId" => [String.t() | atom()],
         "pentestJobId" => [String.t() | atom()],
         "reasoning" => [String.t() | atom()],
+        "remediationCode" => [String.t() | atom()],
         "revalidationJobIds" => list([String.t() | atom()]()),
         "riskLevel" => list(any()),
         "riskScore" => [String.t() | atom()],

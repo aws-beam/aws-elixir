@@ -503,6 +503,26 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      cron_schedule() :: %{
+        "expression" => String.t() | atom()
+      }
+
+  """
+  @type cron_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      daily_recurrence() :: %{}
+
+  """
+  @type daily_recurrence() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       datadog_service_details() :: %{
         "authorizationConfig" => list(),
         "description" => String.t() | atom(),
@@ -1054,6 +1074,7 @@ defmodule AWS.DevOpsAgent do
         "instanceIdentifier" => [String.t() | atom()],
         "owner" => [String.t() | atom()],
         "ownerType" => list(any()),
+        "releaseManagementAssociationId" => String.t() | atom(),
         "repoId" => [String.t() | atom()],
         "repoName" => [String.t() | atom()],
         "runtimeRoleArn" => String.t() | atom()
@@ -1070,6 +1091,7 @@ defmodule AWS.DevOpsAgent do
         "instanceIdentifier" => [String.t() | atom()],
         "projectId" => [String.t() | atom()],
         "projectPath" => [String.t() | atom()],
+        "releaseManagementAssociationId" => String.t() | atom(),
         "runtimeRoleArn" => String.t() | atom()
       }
 
@@ -1900,6 +1922,17 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      monthly_recurrence() :: %{
+        "dayOfMonth" => [integer()]
+      }
+
+  """
+  @type monthly_recurrence() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       new_relic_api_key_config() :: %{
         "accountId" => [String.t() | atom()],
         "alertPolicyIds" => list([String.t() | atom()]()),
@@ -2014,6 +2047,18 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type private_connection_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      private_network_access() :: %{
+        "privateConnectionName" => String.t() | atom(),
+        "runtimeRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type private_network_access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2310,6 +2355,18 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      release_management_configuration() :: %{
+        "name" => String.t() | atom(),
+        "networkAccess" => list()
+      }
+
+  """
+  @type release_management_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remote_agent_api_key_config() :: %{
         "apiKeyHeader" => [String.t() | atom()],
         "apiKeyName" => [String.t() | atom()],
@@ -2423,7 +2480,8 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       schedule_condition() :: %{
-        "expression" => String.t() | atom()
+        "expression" => String.t() | atom(),
+        "spec" => list()
       }
 
   """
@@ -2844,6 +2902,19 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      time_range_schedule() :: %{
+        "recurrence" => list(),
+        "startAfter" => String.t() | atom(),
+        "startBefore" => String.t() | atom()
+      }
+
+  """
+  @type time_range_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       trigger() :: %{
         "action" => any(),
         "agentSpaceId" => String.t() | atom(),
@@ -3241,9 +3312,19 @@ defmodule AWS.DevOpsAgent do
   """
   @type webhook() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      weekly_recurrence() :: %{
+        "dayOfWeek" => list(any())
+      }
+
+  """
+  @type weekly_recurrence() :: %{(String.t() | atom()) => any()}
+
   @type associate_service_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
           | invalid_parameter_exception()
           | internal_server_exception()
@@ -3251,7 +3332,6 @@ defmodule AWS.DevOpsAgent do
 
   @type create_agent_space_errors() ::
           validation_exception()
-          | throttling_exception()
           | service_quota_exceeded_exception()
           | invalid_parameter_exception()
           | internal_server_exception()
@@ -3289,7 +3369,6 @@ defmodule AWS.DevOpsAgent do
 
   @type create_private_connection_errors() ::
           validation_exception()
-          | throttling_exception()
           | invalid_parameter_exception()
           | internal_server_exception()
           | access_denied_exception()
@@ -3304,7 +3383,6 @@ defmodule AWS.DevOpsAgent do
 
   @type delete_agent_space_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -3326,7 +3404,6 @@ defmodule AWS.DevOpsAgent do
 
   @type delete_private_connection_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
@@ -3341,33 +3418,26 @@ defmodule AWS.DevOpsAgent do
 
   @type deregister_service_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
 
   @type describe_private_connection_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
 
   @type disable_operator_app_errors() ::
           validation_exception()
-          | throttling_exception()
           | internal_server_exception()
           | identity_center_service_exception()
 
   @type disassociate_service_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type enable_operator_app_errors() ::
           validation_exception()
-          | throttling_exception()
           | internal_server_exception()
           | identity_center_service_exception()
 
@@ -3379,10 +3449,7 @@ defmodule AWS.DevOpsAgent do
           | access_denied_exception()
 
   @type get_agent_space_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_asset_errors() ::
           validation_exception()
@@ -3406,10 +3473,7 @@ defmodule AWS.DevOpsAgent do
           | access_denied_exception()
 
   @type get_association_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_backlog_task_errors() ::
           validation_exception()
@@ -3419,8 +3483,7 @@ defmodule AWS.DevOpsAgent do
           | conflict_exception()
           | access_denied_exception()
 
-  @type get_operator_app_errors() ::
-          validation_exception() | throttling_exception() | internal_server_exception()
+  @type get_operator_app_errors() :: validation_exception() | internal_server_exception()
 
   @type get_recommendation_errors() ::
           validation_exception()
@@ -3430,10 +3493,7 @@ defmodule AWS.DevOpsAgent do
           | access_denied_exception()
 
   @type get_service_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_trigger_errors() ::
           validation_exception()
@@ -3442,8 +3502,7 @@ defmodule AWS.DevOpsAgent do
           | internal_server_exception()
           | access_denied_exception()
 
-  @type list_agent_spaces_errors() ::
-          validation_exception() | throttling_exception() | internal_server_exception()
+  @type list_agent_spaces_errors() :: validation_exception() | internal_server_exception()
 
   @type list_asset_files_errors() ::
           validation_exception()
@@ -3472,10 +3531,7 @@ defmodule AWS.DevOpsAgent do
           | access_denied_exception()
 
   @type list_associations_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_backlog_tasks_errors() ::
           validation_exception()
@@ -3517,10 +3573,7 @@ defmodule AWS.DevOpsAgent do
           | access_denied_exception()
 
   @type list_private_connections_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | internal_server_exception()
-          | access_denied_exception()
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_recommendations_errors() ::
           validation_exception()
@@ -3528,8 +3581,7 @@ defmodule AWS.DevOpsAgent do
           | internal_server_exception()
           | access_denied_exception()
 
-  @type list_services_errors() ::
-          validation_exception() | throttling_exception() | internal_server_exception()
+  @type list_services_errors() :: validation_exception() | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
           validation_exception()
@@ -3545,10 +3597,7 @@ defmodule AWS.DevOpsAgent do
           | access_denied_exception()
 
   @type list_webhooks_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type register_service_errors() ::
           validation_exception()
@@ -3578,7 +3627,6 @@ defmodule AWS.DevOpsAgent do
 
   @type update_agent_space_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -3610,10 +3658,7 @@ defmodule AWS.DevOpsAgent do
           | access_denied_exception()
 
   @type update_association_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_backlog_task_errors() ::
           validation_exception()
@@ -3632,14 +3677,10 @@ defmodule AWS.DevOpsAgent do
           | access_denied_exception()
 
   @type update_operator_app_idp_config_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_private_connection_certificate_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
@@ -3660,10 +3701,7 @@ defmodule AWS.DevOpsAgent do
           | access_denied_exception()
 
   @type validate_aws_associations_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   def metadata do
     %{

@@ -98,6 +98,30 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      ack_config_request() :: %{
+        "disabledServices" => list(String.t() | atom()),
+        "enableCrossNamespace" => boolean()
+      }
+
+  """
+  @type ack_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ack_config_response() :: %{
+        "disabledServices" => list(String.t() | atom()),
+        "enableCrossNamespace" => boolean()
+      }
+
+  """
+  @type ack_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       activate_certificate_authority_request() :: %{
         optional("clientRequestToken") => String.t() | atom()
       }
@@ -553,6 +577,7 @@ defmodule AWS.EKS do
   ## Example:
 
       capability_configuration_request() :: %{
+        "ack" => ack_config_request(),
         "argoCd" => argo_cd_config_request()
       }
 
@@ -564,6 +589,7 @@ defmodule AWS.EKS do
   ## Example:
 
       capability_configuration_response() :: %{
+        "ack" => ack_config_response(),
         "argoCd" => argo_cd_config_response()
       }
 
@@ -3584,6 +3610,18 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      update_ack_config() :: %{
+        "disabledServices" => list(String.t() | atom()),
+        "enableCrossNamespace" => boolean()
+      }
+
+  """
+  @type update_ack_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_addon_request() :: %{
         optional("addonVersion") => String.t() | atom(),
         optional("clientRequestToken") => String.t() | atom(),
@@ -3624,6 +3662,7 @@ defmodule AWS.EKS do
   ## Example:
 
       update_capability_configuration() :: %{
+        "ack" => update_ack_config(),
         "argoCd" => update_argo_cd_config()
       }
 

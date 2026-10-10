@@ -3302,6 +3302,34 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      list_memberships_request() :: %{
+        optional("identityCenterRegion") => String.t() | atom(),
+        optional("identityStoreId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceTypes") => list(list(any())()),
+        required("principalId") => String.t() | atom()
+      }
+
+  """
+  @type list_memberships_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_memberships_response() :: %{
+        "memberships" => list(list()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_memberships_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_metered_products_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -5999,6 +6027,13 @@ defmodule AWS.Deadline do
           | access_denied_exception()
 
   @type list_limits_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+
+  @type list_memberships_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -9348,6 +9383,85 @@ defmodule AWS.Deadline do
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the Deadline Cloud resource memberships associated with a specified IAM
+  Identity Center principal, optionally filtered by the requested resource types.
+  """
+  @spec list_memberships(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_memberships_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_memberships_errors()}
+  def list_memberships(
+        %Client{} = client,
+        identity_center_region \\ nil,
+        identity_store_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        principal_id,
+        resource_types \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2023-10-12/memberships"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(identity_center_region) do
+        [{"identityCenterRegion", identity_center_region} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(identity_store_id) do
+        [{"identityStoreId", identity_store_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(principal_id) do
+        [{"principalId", principal_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_types) do
+        [{"resourceTypes", resource_types} | query_params]
       else
         query_params
       end

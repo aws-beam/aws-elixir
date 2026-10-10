@@ -1337,6 +1337,7 @@ defmodule AWS.SecurityAgent do
         optional("reportDestination") => report_destination(),
         optional("reportFilters") => report_filters(),
         optional("serviceRole") => String.t() | atom(),
+        optional("testScope") => test_scope(),
         optional("vpcConfig") => vpc_config(),
         required("agentSpaceId") => [String.t() | atom()],
         required("title") => [String.t() | atom()]
@@ -1360,6 +1361,7 @@ defmodule AWS.SecurityAgent do
         "reportDestination" => report_destination(),
         "reportFilters" => report_filters(),
         "serviceRole" => String.t() | atom(),
+        "testScope" => test_scope(),
         "title" => [String.t() | atom()],
         "updatedAt" => [non_neg_integer()]
       }
@@ -3045,6 +3047,7 @@ defmodule AWS.SecurityAgent do
         "reportDestination" => report_destination(),
         "reportFilters" => report_filters(),
         "serviceRole" => String.t() | atom(),
+        "testScope" => test_scope(),
         "title" => [String.t() | atom()],
         "updatedAt" => [non_neg_integer()],
         "vpcConfig" => vpc_config()
@@ -3088,6 +3091,7 @@ defmodule AWS.SecurityAgent do
         "sourceCode" => list(source_code_repository()),
         "status" => list(any()),
         "steps" => list(step()),
+        "testScope" => test_scope(),
         "title" => [String.t() | atom()],
         "trustedCaCertificates" => list(trusted_ca_certificate()),
         "updatedAt" => [non_neg_integer()],
@@ -3609,6 +3613,17 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      test_scope() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type test_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       threat() :: %{
         "anchor" => threat_anchor_shape(),
         "comments" => [String.t() | atom()],
@@ -4063,6 +4078,7 @@ defmodule AWS.SecurityAgent do
         optional("reportDestination") => report_destination(),
         optional("reportFilters") => report_filters(),
         optional("serviceRole") => String.t() | atom(),
+        optional("testScope") => test_scope(),
         optional("title") => [String.t() | atom()],
         optional("vpcConfig") => vpc_config(),
         required("agentSpaceId") => [String.t() | atom()],
@@ -4087,6 +4103,7 @@ defmodule AWS.SecurityAgent do
         "reportDestination" => report_destination(),
         "reportFilters" => report_filters(),
         "serviceRole" => String.t() | atom(),
+        "testScope" => test_scope(),
         "title" => [String.t() | atom()],
         "updatedAt" => [non_neg_integer()]
       }

@@ -209,6 +209,7 @@ defmodule AWS.MediaTailor do
 
       aws_service_request_configuration() :: %{
         "Body" => String.t() | atom(),
+        "Cache" => http_request_cache_configuration(),
         "Headers" => map(),
         "MethodType" => list(any()),
         "Output" => map(),
@@ -1190,8 +1191,22 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      http_request_cache_configuration() :: %{
+        "Key" => String.t() | atom(),
+        "TtlMaximumSeconds" => integer(),
+        "TtlMinimumSeconds" => integer()
+      }
+
+  """
+  @type http_request_cache_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       http_request_configuration() :: %{
         "Body" => String.t() | atom(),
+        "Cache" => http_request_cache_configuration(),
         "Headers" => map(),
         "MethodType" => list(any()),
         "Output" => map(),
@@ -2298,6 +2313,7 @@ defmodule AWS.MediaTailor do
 
       vast_request_configuration() :: %{
         "Body" => String.t() | atom(),
+        "Cache" => http_request_cache_configuration(),
         "Headers" => map(),
         "MethodType" => list(any()),
         "Output" => map(),

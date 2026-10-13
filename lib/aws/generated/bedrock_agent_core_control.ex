@@ -1852,7 +1852,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "memoryRecordSchema" => memory_record_schema(),
         "name" => String.t() | atom(),
         "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
+        "namespaces" => list(String.t() | atom()),
+        "recordExpirySpecification" => list()
       }
 
   """
@@ -2802,6 +2803,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "name" => String.t() | atom(),
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom()),
+        "recordExpirySpecification" => list(),
         "reflectionConfiguration" => episodic_reflection_configuration_input()
       }
 
@@ -6234,6 +6236,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "name" => String.t() | atom(),
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom()),
+        "recordExpiryDurationDays" => integer(),
         "status" => list(any()),
         "strategyId" => String.t() | atom(),
         "type" => list(any()),
@@ -6392,7 +6395,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "memoryRecordSchema" => memory_record_schema(),
         "memoryStrategyId" => [String.t() | atom()],
         "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
+        "namespaces" => list(String.t() | atom()),
+        "recordExpirySpecification" => list()
       }
 
   """
@@ -7367,7 +7371,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "memoryRecordSchema" => memory_record_schema(),
         "name" => String.t() | atom(),
         "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
+        "namespaces" => list(String.t() | atom()),
+        "recordExpirySpecification" => list()
       }
 
   """
@@ -7774,7 +7779,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "memoryRecordSchema" => memory_record_schema(),
         "name" => String.t() | atom(),
         "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
+        "namespaces" => list(String.t() | atom()),
+        "recordExpirySpecification" => list()
       }
 
   """
@@ -9197,7 +9203,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "memoryRecordSchema" => memory_record_schema(),
         "name" => String.t() | atom(),
         "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
+        "namespaces" => list(String.t() | atom()),
+        "recordExpirySpecification" => list()
       }
 
   """

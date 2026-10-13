@@ -3,18 +3,38 @@
 
 defmodule AWS.LambdaCore do
   @moduledoc """
+  Lambda
+
+  ## Overview
+
   AWS Lambda Core is a set of APIs for managing shared infrastructure resources
-  used by AWS Lambda.
+  used by Lambda.
 
   The Lambda Core API provides operations for creating and managing network
-  connectors that enable Lambda MicroVMs to access resources in your Amazon
-  Virtual Private Cloud (Amazon VPC).
+  connectors that enable Lambda compute resources to access resources in your
+  Amazon Virtual Private Cloud (Amazon VPC).
 
   Network connectors provision elastic network interfaces (ENIs) in your VPC
   subnets, providing a managed network path from Lambda compute environments to
   private resources such as Amazon RDS databases, Amazon ElastiCache clusters, and
   internal APIs. You create a network connector once and attach it to one or more
-  Lambda MicroVMs at run time.
+  Lambda compute resources at run time.
+
+  The *Lambda Core API Reference* provides information about each of the API
+  methods, including details about the parameters in each API request and
+  response.
+
+  You can use Software Development Kits (SDKs), Integrated Development Environment
+  (IDE) Toolkits, and command line tools to access the API. For installation
+  instructions, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).  For a list of Region-specific endpoints that Lambda supports, see [Lambda
+  endpoints and
+  quotas](https://docs.aws.amazon.com/general/latest/gr/lambda-service.html) in
+  the *Amazon Web Services General Reference.*
+
+  When making the API calls, you will need to authenticate your request by
+  providing a signature. Lambda supports signature version 4. For more
+  information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
+  in the *Amazon Web Services General Reference.*
   """
 
   alias AWS.Client
@@ -45,7 +65,9 @@ defmodule AWS.LambdaCore do
         "Id" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "OperatorRole" => String.t() | atom(),
-        "State" => list(any())
+        "State" => list(any()),
+        "Version" => float(),
+        "VersionArn" => String.t() | atom()
       }
 
   """
@@ -70,7 +92,9 @@ defmodule AWS.LambdaCore do
         "Id" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "OperatorRole" => String.t() | atom(),
-        "State" => list(any())
+        "State" => list(any()),
+        "Version" => float(),
+        "VersionArn" => String.t() | atom()
       }
 
   """
@@ -97,12 +121,15 @@ defmodule AWS.LambdaCore do
         "LastUpdateStatus" => list(any()),
         "LastUpdateStatusReason" => String.t() | atom(),
         "LastUpdateStatusReasonCode" => list(any()),
+        "LatestVersion" => float(),
+        "LatestVersionArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "OperatorRole" => String.t() | atom(),
         "State" => list(any()),
         "StateReason" => String.t() | atom(),
         "StateReasonCode" => list(any()),
-        "Version" => float()
+        "Version" => float(),
+        "VersionArn" => String.t() | atom()
       }
 
   """
@@ -119,6 +146,31 @@ defmodule AWS.LambdaCore do
 
   """
   @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_connector_versions_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("State") => list(any())
+      }
+
+  """
+  @type list_network_connector_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_connector_versions_response() :: %{
+        "NetworkConnectorVersions" => list(network_connector_version_summary()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_network_connector_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,6 +217,8 @@ defmodule AWS.LambdaCore do
         "Arn" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "LastModified" => non_neg_integer(),
+        "LatestVersion" => float(),
+        "LatestVersionArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "State" => list(any()),
         "Type" => list(any())
@@ -172,6 +226,25 @@ defmodule AWS.LambdaCore do
 
   """
   @type network_connector_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_connector_version_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom(),
+        "StateReasonCode" => list(any()),
+        "Version" => float(),
+        "VersionArn" => String.t() | atom()
+      }
+
+  """
+  @type network_connector_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -263,7 +336,9 @@ defmodule AWS.LambdaCore do
         "LastUpdateStatusReason" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "OperatorRole" => String.t() | atom(),
-        "State" => list(any())
+        "State" => list(any()),
+        "Version" => float(),
+        "VersionArn" => String.t() | atom()
       }
 
   """
@@ -289,6 +364,12 @@ defmodule AWS.LambdaCore do
           | resource_not_found_exception()
           | invalid_parameter_value_exception()
 
+  @type list_network_connector_versions_errors() ::
+          too_many_requests_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+
   @type list_network_connectors_errors() ::
           too_many_requests_exception()
           | service_exception()
@@ -299,6 +380,7 @@ defmodule AWS.LambdaCore do
           | service_exception()
           | resource_not_found_exception()
           | resource_conflict_exception()
+          | network_connector_limit_exceeded_exception()
           | invalid_parameter_value_exception()
 
   def metadata do
@@ -328,8 +410,9 @@ defmodule AWS.LambdaCore do
   This operation is asynchronous. The network connector starts in `PENDING` state
   while ENIs are provisioned in your VPC (provisioning typically takes up to 10
   minutes). Use `GetNetworkConnector` to poll the connector state until it reaches
-  `ACTIVE`. Once active, you can attach the connector to Lambda MicroVMs at run
-  time using the `egressNetworkConnectors` parameter on `RunMicroVm`.
+  `ACTIVE`. Once active, you can attach the connector to supported Lambda compute
+  resources — such as MicroVMs and WebFunctions — at run time. For how to attach a
+  connector, see the documentation for the specific compute type.
 
   This operation is idempotent when you provide a `ClientToken` — if you retry a
   request that completed successfully using the same client token, the operation
@@ -371,8 +454,13 @@ defmodule AWS.LambdaCore do
   This operation is idempotent — calling delete on a connector that is already
   deleting or has been deleted succeeds without error. You can delete connectors
   in `ACTIVE` or `FAILED` states. Before deleting a connector, ensure that no
-  Lambda MicroVMs are using it, as they will lose VPC egress connectivity
+  Lambda compute resources are using it, as they will lose VPC egress connectivity
   immediately.
+
+  Deleting with an unqualified identifier removes the connector and all of its
+  versions. To remove a single historical version, supply its version-qualified
+  ARN; the connector and its remaining versions are unaffected. You can't delete
+  the latest version on its own — delete the connector to remove it.
   """
   @spec delete_network_connector(
           map(),
@@ -426,6 +514,70 @@ defmodule AWS.LambdaCore do
     url_path = "/2026-04-04/network-connectors/#{AWS.Util.encode_uri(identifier)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a paginated list of the versions of a network connector.
+
+  Each configuration update creates a new immutable version; this operation lists
+  those versions for the connector you specify. You can optionally filter results
+  by version state. Use the `Marker` parameter from a previous response to
+  retrieve the next page of results.
+
+  Each item in the response includes the version-qualified ARN, version number,
+  current state, and last modified timestamp for that version. To retrieve the
+  current (latest) configuration of the connector, use `GetNetworkConnector`; to
+  inspect a specific version, call `GetNetworkConnector` with a version-qualified
+  identifier.
+  """
+  @spec list_network_connector_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_network_connector_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_connector_versions_errors()}
+  def list_network_connector_versions(
+        %Client{} = client,
+        identifier,
+        marker \\ nil,
+        max_items \\ nil,
+        state \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2026-04-04/network-connectors/#{AWS.Util.encode_uri(identifier)}/versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(state) do
+        [{"State", state} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -503,6 +655,11 @@ defmodule AWS.LambdaCore do
   transitions through `InProgress` to `Successful` or `Failed`. If the update
   fails, the `LastUpdateStatusReasonCode` field provides a specific error code for
   troubleshooting. This operation is idempotent when you provide a `ClientToken`.
+
+  Each successful configuration change creates a new immutable version. A
+  connector can have a limited number of versions; once that limit is reached,
+  further updates fail with `NetworkConnectorLimitExceededException` until you
+  delete older versions.
   """
   @spec update_network_connector(
           map(),

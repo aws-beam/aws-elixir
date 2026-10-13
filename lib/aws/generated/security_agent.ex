@@ -413,6 +413,96 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      batch_disassociate_finding_issue_error() :: %{
+        "code" => list(any()),
+        "findingId" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_disassociate_finding_issue_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_finding_issue_input() :: %{
+        optional("codeReviewJobId") => [String.t() | atom()],
+        optional("pentestJobId") => [String.t() | atom()],
+        required("agentSpaceId") => [String.t() | atom()],
+        required("findingIds") => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_disassociate_finding_issue_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_finding_issue_output() :: %{
+        "errors" => list(batch_disassociate_finding_issue_error())
+      }
+
+  """
+  @type batch_disassociate_finding_issue_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_export_finding_error() :: %{
+        "code" => list(any()),
+        "findingId" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_export_finding_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_export_finding_result() :: %{
+        "findingId" => [String.t() | atom()],
+        "linkedIssue" => linked_issue()
+      }
+
+  """
+  @type batch_export_finding_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_export_findings_input() :: %{
+        optional("codeReviewJobId") => [String.t() | atom()],
+        optional("pentestJobId") => [String.t() | atom()],
+        required("agentSpaceId") => [String.t() | atom()],
+        required("findingIds") => list([String.t() | atom()]()),
+        required("issueDestination") => issue_destination()
+      }
+
+  """
+  @type batch_export_findings_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_export_findings_output() :: %{
+        "errors" => list(batch_export_finding_error()),
+        "results" => list(batch_export_finding_result())
+      }
+
+  """
+  @type batch_export_findings_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_agent_spaces_input() :: %{
         required("agentSpaceIds") => list(String.t() | atom())
       }
@@ -1920,6 +2010,7 @@ defmodule AWS.SecurityAgent do
         "description" => [String.t() | atom()],
         "findingId" => [String.t() | atom()],
         "lastUpdatedBy" => [String.t() | atom()],
+        "linkedIssue" => linked_issue(),
         "name" => [String.t() | atom()],
         "originalFindingId" => [String.t() | atom()],
         "pentestId" => [String.t() | atom()],
@@ -2041,6 +2132,7 @@ defmodule AWS.SecurityAgent do
         "privateConnectionName" => String.t() | atom(),
         "provider" => list(any()),
         "providerType" => list(any()),
+        "siteUrl" => String.t() | atom(),
         "targetUrl" => String.t() | atom(),
         "webhookUrl" => [String.t() | atom()]
       }
@@ -2339,6 +2431,90 @@ defmodule AWS.SecurityAgent do
 
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      issue_destination() :: %{
+        "integrationId" => [String.t() | atom()],
+        "projectKey" => [String.t() | atom()]
+      }
+
+  """
+  @type issue_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jira_integration_input() :: %{
+        "code" => String.t() | atom(),
+        "installationId" => String.t() | atom(),
+        "siteUrl" => String.t() | atom(),
+        "state" => String.t() | atom()
+      }
+
+  """
+  @type jira_integration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jira_project_metadata() :: %{
+        "name" => String.t() | atom(),
+        "projectId" => [String.t() | atom()],
+        "projectKey" => [String.t() | atom()],
+        "projectName" => [String.t() | atom()],
+        "providerResourceId" => String.t() | atom()
+      }
+
+  """
+  @type jira_project_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jira_project_resource() :: %{
+        "name" => String.t() | atom(),
+        "projectId" => [String.t() | atom()],
+        "projectKey" => [String.t() | atom()],
+        "projectName" => [String.t() | atom()]
+      }
+
+  """
+  @type jira_project_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jira_resource_capabilities() :: %{
+        "commentIssue" => [boolean()],
+        "createIssue" => [boolean()]
+      }
+
+  """
+  @type jira_resource_capabilities() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      linked_issue() :: %{
+        "integrationId" => [String.t() | atom()],
+        "issueId" => [String.t() | atom()],
+        "issueKey" => [String.t() | atom()],
+        "issueUrl" => [String.t() | atom()],
+        "projectKey" => [String.t() | atom()],
+        "provider" => list(any()),
+        "siteUrl" => [String.t() | atom()]
+      }
+
+  """
+  @type linked_issue() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4464,6 +4640,24 @@ defmodule AWS.SecurityAgent do
           | conflict_exception()
           | access_denied_exception()
 
+  @type batch_disassociate_finding_issue_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type batch_export_findings_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type batch_get_artifact_metadata_errors() ::
           validation_exception()
           | throttling_exception()
@@ -4837,6 +5031,64 @@ defmodule AWS.SecurityAgent do
           | {:error, term()}
   def batch_delete_threat_models(%Client{} = client, input, options \\ []) do
     url_path = "/BatchDeleteThreatModels"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociates a batch of findings from their linked issues.
+  """
+  @spec batch_disassociate_finding_issue(map(), batch_disassociate_finding_issue_input(), list()) ::
+          {:ok, batch_disassociate_finding_issue_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_disassociate_finding_issue_errors()}
+  def batch_disassociate_finding_issue(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchDisassociateFindingIssue"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Exports a batch of findings to the connected issue tracker as issues.
+  """
+  @spec batch_export_findings(map(), batch_export_findings_input(), list()) ::
+          {:ok, batch_export_findings_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_export_findings_errors()}
+  def batch_export_findings(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchExportFindings"
     headers = []
     custom_headers = []
     query_params = []

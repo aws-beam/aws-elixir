@@ -179,6 +179,7 @@ defmodule AWS.BedrockAgentCore do
 
       batch_create_memory_records_input() :: %{
         optional("clientToken") => [String.t() | atom()],
+        optional("recordExpirySpecification") => list(),
         required("records") => list(memory_record_create_input())
       }
 
@@ -258,6 +259,7 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       batch_update_memory_records_input() :: %{
+        optional("recordExpirySpecification") => list(),
         required("records") => list(memory_record_update_input())
       }
 
@@ -3026,10 +3028,12 @@ defmodule AWS.BedrockAgentCore do
       memory_record() :: %{
         "content" => list(),
         "createdAt" => [non_neg_integer()],
+        "expiresAt" => [non_neg_integer()],
         "memoryRecordId" => String.t() | atom(),
         "memoryStrategyId" => String.t() | atom(),
         "metadata" => map(),
-        "namespaces" => list(String.t() | atom())
+        "namespaces" => list(String.t() | atom()),
+        "timestamp" => [non_neg_integer()]
       }
 
   """
@@ -3089,7 +3093,8 @@ defmodule AWS.BedrockAgentCore do
         "memoryStrategyId" => String.t() | atom(),
         "metadata" => map(),
         "namespaces" => list(String.t() | atom()),
-        "score" => [float()]
+        "score" => [float()],
+        "timestamp" => [non_neg_integer()]
       }
 
   """

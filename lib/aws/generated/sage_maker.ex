@@ -1701,6 +1701,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      billable_token_usage() :: %{
+        "PrefillTokenCount" => float(),
+        "SampleTokenCount" => float(),
+        "TrainingTokenCount" => float()
+      }
+      
+  """
+  @type billable_token_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       blue_green_update_policy() :: %{
         "MaximumExecutionTimeoutInSeconds" => integer(),
         "TerminationWaitInSeconds" => integer(),
@@ -4990,6 +5003,35 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_training_session_request() :: %{
+        optional("ModelPackageGroupArn") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("VpcConfig") => vpc_config(),
+        required("LoraConfig") => lora_config(),
+        required("ModelConfig") => training_session_model_config(),
+        required("OutputConfig") => training_session_output_config(),
+        required("RoleArn") => String.t() | atom(),
+        required("TrainingSessionName") => String.t() | atom()
+      }
+      
+  """
+  @type create_training_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_training_session_response() :: %{
+        "TrainingSessionArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_training_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_transform_job_request() :: %{
         optional("BatchStrategy") => list(any()),
         optional("DataCaptureConfig") => batch_data_capture_config(),
@@ -6291,6 +6333,26 @@ defmodule AWS.SageMaker do
       
   """
   @type delete_training_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_training_session_request() :: %{
+        required("TrainingSessionName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_training_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_training_session_response() :: %{}
+      
+  """
+  @type delete_training_session_response() :: %{}
 
   @typedoc """
 
@@ -8912,6 +8974,28 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_training_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_training_session_request() :: %{
+        required("TrainingSessionName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_training_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_training_session_response() :: %{
+        "TrainingSessionDetail" => training_session_detail()
+      }
+      
+  """
+  @type describe_training_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14583,6 +14667,34 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_training_sessions_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StatusEquals") => list(any())
+      }
+      
+  """
+  @type list_training_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_training_sessions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TrainingSessionSummaries" => list(training_session_summary())
+      }
+      
+  """
+  @type list_training_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_transform_jobs_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
@@ -14778,6 +14890,18 @@ defmodule AWS.SageMaker do
       
   """
   @type list_workteams_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lora_config() :: %{
+        "Alpha" => integer(),
+        "Rank" => integer()
+      }
+      
+  """
+  @type lora_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19286,6 +19410,26 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      stop_training_session_request() :: %{
+        required("TrainingSessionName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_training_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_training_session_response() :: %{}
+      
+  """
+  @type stop_training_session_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_transform_job_request() :: %{
         required("TransformJobName") => String.t() | atom()
       }
@@ -19895,6 +20039,81 @@ defmodule AWS.SageMaker do
       
   """
   @type training_repository_auth_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_session_detail() :: %{
+        "BillableTokenUsage" => billable_token_usage(),
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "ErrorDetails" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LastReceivedSequenceNumber" => integer(),
+        "LoraConfig" => lora_config(),
+        "ModelConfig" => training_session_model_config(),
+        "ModelPackageGroupArn" => String.t() | atom(),
+        "OutputConfig" => training_session_output_config(),
+        "RoleArn" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "TrainingSessionArn" => String.t() | atom(),
+        "TrainingSessionName" => String.t() | atom(),
+        "TrainingSessionStatus" => list(any()),
+        "VpcConfig" => vpc_config()
+      }
+      
+  """
+  @type training_session_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_session_model_config() :: %{
+        "AcceptEula" => boolean(),
+        "BaseModelArn" => String.t() | atom()
+      }
+      
+  """
+  @type training_session_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_session_output_config() :: %{
+        "S3Location" => training_session_s3_location()
+      }
+      
+  """
+  @type training_session_output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_session_s3_location() :: %{
+        "KmsKeyArn" => String.t() | atom(),
+        "Path" => String.t() | atom()
+      }
+      
+  """
+  @type training_session_s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_session_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "TrainingSessionArn" => String.t() | atom(),
+        "TrainingSessionStatus" => list(any())
+      }
+      
+  """
+  @type training_session_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -21971,6 +22190,9 @@ defmodule AWS.SageMaker do
   @type create_training_plan_errors() ::
           resource_not_found() | resource_limit_exceeded() | resource_in_use()
 
+  @type create_training_session_errors() ::
+          resource_not_found() | resource_limit_exceeded() | resource_in_use()
+
   @type create_transform_job_errors() ::
           resource_not_found() | resource_limit_exceeded() | resource_in_use()
 
@@ -22075,6 +22297,8 @@ defmodule AWS.SageMaker do
   @type delete_studio_lifecycle_config_errors() :: resource_not_found() | resource_in_use()
 
   @type delete_training_job_errors() :: resource_not_found() | resource_in_use()
+
+  @type delete_training_session_errors() :: resource_not_found()
 
   @type delete_trial_errors() :: resource_not_found()
 
@@ -22199,6 +22423,8 @@ defmodule AWS.SageMaker do
   @type describe_training_plan_errors() :: resource_not_found()
 
   @type describe_training_plan_extension_history_errors() :: resource_not_found()
+
+  @type describe_training_session_errors() :: resource_not_found()
 
   @type describe_transform_job_errors() :: resource_not_found()
 
@@ -22336,6 +22562,8 @@ defmodule AWS.SageMaker do
   @type stop_processing_job_errors() :: resource_not_found()
 
   @type stop_training_job_errors() :: resource_not_found()
+
+  @type stop_training_session_errors() :: resource_not_found()
 
   @type stop_transform_job_errors() :: resource_not_found()
 
@@ -24514,6 +24742,36 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates a training session in Amazon SageMaker.
+
+  A training session provisions compute resources for fine-tuning a foundation
+  model using Low-Rank Adaptation (LoRA). After the session is created, you can
+  submit training operations and sample inference requests through the Amazon
+  SageMaker Training Session Runtime API.
+
+  The following operations are related to `CreateTrainingSession`:
+
+    * `DescribeTrainingSession`
+
+    * `ListTrainingSessions`
+
+    * `StopTrainingSession`
+
+    * `DeleteTrainingSession`
+  """
+  @spec create_training_session(map(), create_training_session_request(), list()) ::
+          {:ok, create_training_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_training_session_errors()}
+  def create_training_session(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateTrainingSession", input, options)
+  end
+
+  @doc """
   Starts a transform job.
 
   A transform job uses a trained model to get inferences on a dataset and saves
@@ -25705,6 +25963,32 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "DeleteTrainingJob", input, options)
+  end
+
+  @doc """
+  Deletes a training session.
+
+  You must stop a running session before deleting it. Use the
+  `StopTrainingSession` operation to stop the session first.
+
+  The following operations are related to `DeleteTrainingSession`:
+
+    * `CreateTrainingSession`
+
+    * `DescribeTrainingSession`
+
+    * `StopTrainingSession`
+  """
+  @spec delete_training_session(map(), delete_training_session_request(), list()) ::
+          {:ok, delete_training_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_training_session_errors()}
+  def delete_training_session(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteTrainingSession", input, options)
   end
 
   @doc """
@@ -26999,6 +27283,33 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "DescribeTrainingPlanExtensionHistory", input, options)
+  end
+
+  @doc """
+  Retrieves detailed information about a training session, including its current
+  status, model configuration, Low-Rank Adaptation (LoRA) parameters, and
+  timestamps.
+
+  The following operations are related to `DescribeTrainingSession`:
+
+    * `CreateTrainingSession`
+
+    * `ListTrainingSessions`
+
+    * `StopTrainingSession`
+
+    * `DeleteTrainingSession`
+  """
+  @spec describe_training_session(map(), describe_training_session_request(), list()) ::
+          {:ok, describe_training_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_training_session_errors()}
+  def describe_training_session(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeTrainingSession", input, options)
   end
 
   @doc """
@@ -28657,6 +28968,30 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists training sessions in your account.
+
+  You can filter results by creation time, name, and status. The operation
+  paginates results. To retrieve additional results, use the `NextToken`
+  parameter.
+
+  The following operations are related to `ListTrainingSessions`:
+
+    * `CreateTrainingSession`
+
+    * `DescribeTrainingSession`
+  """
+  @spec list_training_sessions(map(), list_training_sessions_request(), list()) ::
+          {:ok, list_training_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_training_sessions(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListTrainingSessions", input, options)
+  end
+
+  @doc """
   Lists transform jobs.
   """
   @spec list_transform_jobs(map(), list_transform_jobs_request(), list()) ::
@@ -29444,6 +29779,32 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "StopTrainingJob", input, options)
+  end
+
+  @doc """
+  Stops a running training session and sets the session status to `Stopping`.
+
+  After the session stops, the status changes to `Stopped`. To delete a stopped
+  session, use the `DeleteTrainingSession` operation.
+
+  The following operations are related to `StopTrainingSession`:
+
+    * `CreateTrainingSession`
+
+    * `DescribeTrainingSession`
+
+    * `DeleteTrainingSession`
+  """
+  @spec stop_training_session(map(), stop_training_session_request(), list()) ::
+          {:ok, stop_training_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_training_session_errors()}
+  def stop_training_session(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StopTrainingSession", input, options)
   end
 
   @doc """

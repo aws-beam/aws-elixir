@@ -17,6 +17,12 @@ defmodule AWS.Lambda do
   application or backend service. For more information about the Lambda service,
   see [What is Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) in the **Lambda Developer Guide**.
 
+  Lambda Event Functions, previously known as Lambda functions, run your code in
+  response to events and API calls. Event Functions is a documentation name only.
+  In this API, the Amazon Web Services SDKs, and the CLI, Event Functions are
+  still called *functions*, for example in `CreateFunction` and `Invoke`. You
+  don't need to change any code.
+
   The *Lambda API Reference* provides information about each of the API methods,
   including details about the parameters in each API request and response.
 
@@ -5182,7 +5188,7 @@ defmodule AWS.Lambda do
   @doc """
   Creates an
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html)
-  for a Lambda function version.
+  for a Lambda Event Function version.
 
   Use aliases to provide clients with a function identifier that you can update to
   invoke a different version.
@@ -5218,7 +5224,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Creates a capacity provider that manages compute resources for Lambda functions
+  Creates a capacity provider that manages compute resources for Lambda Event
+  Functions
   """
   @spec create_capacity_provider(map(), create_capacity_provider_request(), list()) ::
           {:ok, create_capacity_provider_response(), any()}
@@ -5280,7 +5287,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Creates a mapping between an event source and an Lambda function.
+  Creates a mapping between an event source and an Lambda Event Function.
 
   Lambda reads items from the event source and invokes the function.
 
@@ -5368,7 +5375,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Creates a Lambda function.
+  Creates a Lambda Event Function.
 
   To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html)
   and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role).
@@ -5496,7 +5503,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Deletes a Lambda function
+  Deletes a Lambda Event Function
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
   """
   @spec delete_alias(
@@ -5652,7 +5659,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Deletes a Lambda function.
+  Deletes a Lambda Event Function.
 
   To delete a specific function version, use the `Qualifier` parameter. Otherwise,
   all versions and aliases are deleted. This doesn't require the user to have
@@ -5998,7 +6005,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Returns details about a Lambda function
+  Returns details about a Lambda Event Function
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
   """
   @spec get_alias(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -6312,7 +6319,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Returns the version-specific settings of a Lambda function or version.
+  Returns the version-specific settings of a Lambda Event Function or version.
 
   The output includes only options that can vary between versions of a function.
   To modify these settings, use `UpdateFunctionConfiguration`.
@@ -6652,7 +6659,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Invokes a Lambda function.
+  Invokes a Lambda Event Function.
 
   You can invoke a function synchronously (and wait for the response), or
   asynchronously. By default, Lambda invokes your function synchronously (i.e.
@@ -6791,7 +6798,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Configure your Lambda functions to stream response payloads back to clients.
+  Configure your Lambda Event Functions to stream response payloads back to
+  clients.
 
   For more information, see [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
 
@@ -6859,7 +6867,7 @@ defmodule AWS.Lambda do
   @doc """
   Returns a list of
   [aliases](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html)
-  for a Lambda function.
+  for a Lambda Event Function.
   """
   @spec list_aliases(
           map(),
@@ -7313,8 +7321,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Returns a list of Lambda functions, with the version-specific configuration of
-  each.
+  Returns a list of Lambda Event Functions, with the version-specific
+  configuration of each.
 
   Lambda returns up to 50 functions per call.
 
@@ -8451,7 +8459,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Updates the configuration of a Lambda function
+  Updates the configuration of a Lambda Event Function
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
   """
   @spec update_alias(
@@ -8659,7 +8667,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Updates a Lambda function's code.
+  Updates a Lambda Event Function's code.
 
   If code signing is enabled for the function, the code package must be signed by
   a trusted publisher. For more information, see [Configuring code signing for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
@@ -8710,7 +8718,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Modify the version-specific settings of a Lambda function.
+  Modifies the version-specific settings of a Lambda Event Function.
 
   When you update a function, Lambda provisions an instance of the function and
   its supporting resources. If your function connects to a VPC, this process can

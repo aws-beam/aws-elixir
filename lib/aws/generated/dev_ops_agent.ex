@@ -842,6 +842,7 @@ defmodule AWS.DevOpsAgent do
 
       get_account_usage_output() :: %{
         "monthlyAccountEvaluationHours" => usage_metric(),
+        "monthlyAccountGraderHours" => usage_metric(),
         "monthlyAccountInvestigationHours" => usage_metric(),
         "monthlyAccountOnDemandHours" => usage_metric(),
         "monthlyAccountSystemLearningHours" => usage_metric(),
@@ -856,10 +857,12 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
-      get_agent_space_input() :: %{}
+      get_agent_space_input() :: %{
+        optional("includedData") => list(any())
+      }
 
   """
-  @type get_agent_space_input() :: %{}
+  @type get_agent_space_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1284,6 +1287,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       list_agent_spaces_input() :: %{
+        optional("includedData") => list(any()),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom()
       }
@@ -1774,6 +1778,17 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      m_c_p_server_custom_headers_config() :: %{
+        "headers" => map()
+      }
+
+  """
+  @type m_c_p_server_custom_headers_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       m_c_p_server_datadog_configuration() :: %{
         "enabledElevatedTools" => list(m_c_p_tool_detail())
       }
@@ -2228,6 +2243,7 @@ defmodule AWS.DevOpsAgent do
       registered_m_c_p_server_details() :: %{
         "apiKeyHeader" => [String.t() | atom()],
         "authorizationMethod" => list(any()),
+        "customHeaderNames" => list(String.t() | atom()),
         "description" => String.t() | atom(),
         "endpoint" => [String.t() | atom()],
         "name" => [String.t() | atom()]
@@ -3658,7 +3674,10 @@ defmodule AWS.DevOpsAgent do
           | access_denied_exception()
 
   @type update_association_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_server_exception()
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
 
   @type update_backlog_task_errors() ::
           validation_exception()
@@ -4327,15 +4346,22 @@ defmodule AWS.DevOpsAgent do
   @doc """
   Retrieves detailed information about a specific AgentSpace.
   """
-  @spec get_agent_space(map(), String.t() | atom(), list()) ::
+  @spec get_agent_space(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_agent_space_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_agent_space_errors()}
-  def get_agent_space(%Client{} = client, agent_space_id, options \\ []) do
+  def get_agent_space(%Client{} = client, agent_space_id, included_data \\ nil, options \\ []) do
     url_path = "/v1/agentspaces/#{AWS.Util.encode_uri(agent_space_id)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(included_data) do
+        [{"includedData", included_data} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.")
 
@@ -4605,6 +4631,7 @@ defmodule AWS.DevOpsAgent do
 
     {query_params, input} =
       [
+        {"includedData", "includedData"},
         {"maxResults", "maxResults"},
         {"nextToken", "nextToken"}
       ]

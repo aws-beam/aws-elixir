@@ -621,6 +621,29 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      batch_get_data_quality_result_v2_request() :: %{
+        required("ResultIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_data_quality_result_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_data_quality_result_v2_response() :: %{
+        "Results" => list(data_quality_result_v2_item()),
+        "ResultsNotFound" => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_data_quality_result_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_get_data_quality_ruleset_evaluation_run_request() :: %{
         required("RunIds") => list(String.t() | atom())
       }
@@ -3467,6 +3490,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      data_quality_configuration_v2() :: %{
+        "ObservationMode" => list(any()),
+        "ObservationsEnabled" => list(any())
+      }
+      
+  """
+  @type data_quality_configuration_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       data_quality_encryption() :: %{
         "DataQualityEncryptionMode" => list(any()),
         "KmsKeyArn" => String.t() | atom()
@@ -3591,6 +3626,62 @@ defmodule AWS.Glue do
       
   """
   @type data_quality_result_filter_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_result_v2_item() :: %{
+        "AggregatedMetrics" => data_quality_aggregated_metrics(),
+        "AnalyzerResults" => list(data_quality_analyzer_result()),
+        "DataSource" => data_source(),
+        "Descriptors" => map(),
+        "Dimensions" => map(),
+        "EvaluationContext" => String.t() | atom(),
+        "ExecutionCompletedOn" => non_neg_integer(),
+        "ExecutionStartedOn" => non_neg_integer(),
+        "Observations" => list(data_quality_observation()),
+        "ResultId" => String.t() | atom(),
+        "ResultPublishedOn" => non_neg_integer(),
+        "RuleResults" => list(data_quality_rule_result()),
+        "RulesetName" => String.t() | atom(),
+        "Score" => float(),
+        "Tags" => map()
+      }
+      
+  """
+  @type data_quality_result_v2_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_results_v2_description() :: %{
+        "DataSource" => data_source(),
+        "Descriptors" => map(),
+        "Dimensions" => map(),
+        "EvaluationContext" => String.t() | atom(),
+        "ResultId" => String.t() | atom(),
+        "ResultPublishedOn" => non_neg_integer()
+      }
+      
+  """
+  @type data_quality_results_v2_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_results_v2_filter_criteria() :: %{
+        "DataSource" => data_source(),
+        "Dimensions" => map(),
+        "EvaluationContext" => String.t() | atom(),
+        "PublishedAfter" => non_neg_integer(),
+        "PublishedBefore" => non_neg_integer()
+      }
+      
+  """
+  @type data_quality_results_v2_filter_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3763,6 +3854,22 @@ defmodule AWS.Glue do
       
   """
   @type data_quality_target_table() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_telemetry() :: %{
+        optional("Engine") => list(any()),
+        optional("FlagsEnabled") => map(),
+        optional("HostRuntimeVersion") => String.t() | atom(),
+        optional("LibraryVersion") => String.t() | atom(),
+        optional("SparkVersion") => String.t() | atom(),
+        optional("VcpuHours") => float()
+      }
+      
+  """
+  @type data_quality_telemetry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6329,6 +6436,43 @@ defmodule AWS.Glue do
       
   """
   @type get_data_quality_result_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_result_v2_request() :: %{
+        required("ResultId") => String.t() | atom()
+      }
+      
+  """
+  @type get_data_quality_result_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_result_v2_response() :: %{
+        "AggregatedMetrics" => data_quality_aggregated_metrics(),
+        "AnalyzerResults" => list(data_quality_analyzer_result()),
+        "DataSource" => data_source(),
+        "Descriptors" => map(),
+        "Dimensions" => map(),
+        "EvaluationContext" => String.t() | atom(),
+        "ExecutionCompletedOn" => non_neg_integer(),
+        "ExecutionStartedOn" => non_neg_integer(),
+        "Observations" => list(data_quality_observation()),
+        "ProfileId" => String.t() | atom(),
+        "ResultId" => String.t() | atom(),
+        "ResultPublishedOn" => non_neg_integer(),
+        "RuleResults" => list(data_quality_rule_result()),
+        "RulesetName" => String.t() | atom(),
+        "Score" => float(),
+        "Tags" => map()
+      }
+      
+  """
+  @type get_data_quality_result_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9431,6 +9575,31 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      list_data_quality_results_v2_request() :: %{
+        optional("Filter") => data_quality_results_v2_filter_criteria(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_data_quality_results_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_results_v2_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Results" => list(data_quality_results_v2_description())
+      }
+      
+  """
+  @type list_data_quality_results_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_data_quality_rule_recommendation_runs_request() :: %{
         optional("Filter") => data_quality_rule_recommendation_run_filter(),
         optional("MaxResults") => integer(),
@@ -10910,6 +11079,44 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      publish_data_quality_result_v2_request() :: %{
+        optional("AggregatedMetrics") => data_quality_aggregated_metrics(),
+        optional("AnalyzerResults") => list(data_quality_analyzer_result()),
+        optional("ClientToken") => String.t() | atom(),
+        optional("DataQualitySecurityConfiguration") => String.t() | atom(),
+        optional("Descriptors") => map(),
+        optional("ExecutionCompletedOn") => non_neg_integer(),
+        optional("ExecutionStartedOn") => non_neg_integer(),
+        optional("Observations") => list(data_quality_observation()),
+        optional("RulesetName") => String.t() | atom(),
+        optional("RunConfiguration") => data_quality_configuration_v2(),
+        optional("Statistics") => list(statistic_summary()),
+        optional("Tags") => map(),
+        optional("Telemetry") => data_quality_telemetry(),
+        required("Dimensions") => map(),
+        required("EvaluationContext") => String.t() | atom(),
+        required("RuleResults") => list(data_quality_rule_result()),
+        required("Score") => float()
+      }
+      
+  """
+  @type publish_data_quality_result_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      publish_data_quality_result_v2_response() :: %{
+        "ResultId" => String.t() | atom()
+      }
+      
+  """
+  @type publish_data_quality_result_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_asset_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
@@ -11210,6 +11417,17 @@ defmodule AWS.Glue do
       
   """
   @type query_session_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      r_l_s_properties() :: %{
+        "DefaultRLSPolicy" => String.t() | atom()
+      }
+      
+  """
+  @type r_l_s_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13483,6 +13701,7 @@ defmodule AWS.Glue do
         "Owner" => String.t() | atom(),
         "Parameters" => map(),
         "PartitionKeys" => list(column()),
+        "RLSProperties" => r_l_s_properties(),
         "Retention" => integer(),
         "Status" => table_status(),
         "StorageDescriptor" => storage_descriptor(),
@@ -15217,6 +15436,9 @@ defmodule AWS.Glue do
   @type batch_get_data_quality_result_errors() ::
           operation_timeout_exception() | invalid_input_exception() | internal_service_exception()
 
+  @type batch_get_data_quality_result_v2_errors() ::
+          operation_timeout_exception() | invalid_input_exception() | internal_service_exception()
+
   @type batch_get_data_quality_ruleset_evaluation_run_errors() ::
           operation_timeout_exception() | invalid_input_exception() | internal_service_exception()
 
@@ -16028,6 +16250,12 @@ defmodule AWS.Glue do
           | internal_service_exception()
           | entity_not_found_exception()
 
+  @type get_data_quality_result_v2_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
   @type get_data_quality_rule_recommendation_run_errors() ::
           operation_timeout_exception()
           | invalid_input_exception()
@@ -16481,6 +16709,9 @@ defmodule AWS.Glue do
   @type list_data_quality_results_errors() ::
           operation_timeout_exception() | invalid_input_exception() | internal_service_exception()
 
+  @type list_data_quality_results_v2_errors() ::
+          operation_timeout_exception() | invalid_input_exception() | internal_service_exception()
+
   @type list_data_quality_rule_recommendation_runs_errors() ::
           operation_timeout_exception() | invalid_input_exception() | internal_service_exception()
 
@@ -16636,6 +16867,13 @@ defmodule AWS.Glue do
           | entity_not_found_exception()
           | conflict_exception()
           | access_denied_exception()
+
+  @type publish_data_quality_result_v2_errors() ::
+          resource_number_limit_exceeded_exception()
+          | operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | idempotent_parameter_mismatch_exception()
 
   @type put_asset_errors() ::
           throttling_exception()
@@ -17369,6 +17607,27 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "BatchGetDataQualityResult", input, options)
+  end
+
+  @doc """
+  Retrieves a list of data quality results for the specified result IDs.
+
+  You can specify up to 100 result IDs in a single request.
+  """
+  @spec batch_get_data_quality_result_v2(
+          map(),
+          batch_get_data_quality_result_v2_request(),
+          list()
+        ) ::
+          {:ok, batch_get_data_quality_result_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_data_quality_result_v2_errors()}
+  def batch_get_data_quality_result_v2(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "BatchGetDataQualityResultV2", input, options)
   end
 
   @doc """
@@ -19476,6 +19735,22 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Retrieves the result of a data quality rule evaluation published from any
+  supported data platform.
+  """
+  @spec get_data_quality_result_v2(map(), get_data_quality_result_v2_request(), list()) ::
+          {:ok, get_data_quality_result_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_data_quality_result_v2_errors()}
+  def get_data_quality_result_v2(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetDataQualityResultV2", input, options)
+  end
+
+  @doc """
   Gets the specified recommendation run that was used to generate rules.
   """
   @spec get_data_quality_rule_recommendation_run(
@@ -20737,6 +21012,24 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Returns a paginated list of data quality execution results for your account,
+  filtered by the specified criteria.
+
+  Use the `NextToken` parameter to retrieve additional results.
+  """
+  @spec list_data_quality_results_v2(map(), list_data_quality_results_v2_request(), list()) ::
+          {:ok, list_data_quality_results_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_quality_results_v2_errors()}
+  def list_data_quality_results_v2(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListDataQualityResultsV2", input, options)
+  end
+
+  @doc """
   Lists the recommendation runs meeting the filter criteria.
   """
   @spec list_data_quality_rule_recommendation_runs(
@@ -21204,6 +21497,26 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "ModifyIntegration", input, options)
+  end
+
+  @doc """
+
+  This operation is intended for internal use.
+
+  Do not call it directly.
+
+  AWS Glue Data Quality uses this operation to publish a data quality result.
+  """
+  @spec publish_data_quality_result_v2(map(), publish_data_quality_result_v2_request(), list()) ::
+          {:ok, publish_data_quality_result_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, publish_data_quality_result_v2_errors()}
+  def publish_data_quality_result_v2(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PublishDataQualityResultV2", input, options)
   end
 
   @doc """

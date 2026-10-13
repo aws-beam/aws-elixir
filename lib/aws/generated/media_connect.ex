@@ -313,6 +313,7 @@ defmodule AWS.MediaConnect do
         "MediaStreamOutputConfigurations" => list(media_stream_output_configuration_request()),
         "MinLatency" => [integer()],
         "Name" => [String.t() | atom()],
+        "NdiAudioReferenceLevel" => integer(),
         "NdiOutputTimecodeSource" => list(any()),
         "NdiProgramName" => [String.t() | atom()],
         "NdiSpeedHqQuality" => [integer()],
@@ -597,6 +598,19 @@ defmodule AWS.MediaConnect do
 
   """
   @type bridge_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      color_information() :: %{
+        "Colorimetry" => list(any()),
+        "MatrixCoefficients" => list(any()),
+        "TransferCharacteristics" => list(any())
+      }
+
+  """
+  @type color_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2508,6 +2522,7 @@ defmodule AWS.MediaConnect do
       ndi_media_stream_info() :: %{
         "Channels" => [integer()],
         "Codec" => [String.t() | atom()],
+        "Color" => color_information(),
         "FrameRate" => [String.t() | atom()],
         "FrameResolution" => frame_resolution(),
         "SampleRate" => [integer()],
@@ -2549,6 +2564,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       ndi_source_settings() :: %{
+        "AudioReferenceLevel" => integer(),
         "SourceName" => [String.t() | atom()]
       }
 
@@ -3649,6 +3665,7 @@ defmodule AWS.MediaConnect do
         "MaxLatency" => [integer()],
         "MaxSyncBuffer" => [integer()],
         "MinLatency" => [integer()],
+        "NdiAudioReferenceLevel" => integer(),
         "NdiOutputTimecodeSource" => list(any()),
         "NdiProgramName" => [String.t() | atom()],
         "NdiSourceSettings" => ndi_source_settings(),
@@ -3671,7 +3688,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       transport_media_info() :: %{
-        "Programs" => list(transport_stream_program())
+        "Programs" => list(transport_stream_program()),
+        "TsId" => [integer()]
       }
 
   """
@@ -3684,6 +3702,7 @@ defmodule AWS.MediaConnect do
       transport_stream() :: %{
         "Channels" => [integer()],
         "Codec" => [String.t() | atom()],
+        "Color" => color_information(),
         "FrameRate" => [String.t() | atom()],
         "FrameResolution" => frame_resolution(),
         "Pid" => [integer()],
@@ -3977,6 +3996,7 @@ defmodule AWS.MediaConnect do
         optional("MaxLatency") => [integer()],
         optional("MediaStreamOutputConfigurations") => list(media_stream_output_configuration_request()),
         optional("MinLatency") => [integer()],
+        optional("NdiAudioReferenceLevel") => integer(),
         optional("NdiOutputTimecodeSource") => list(any()),
         optional("NdiProgramName") => [String.t() | atom()],
         optional("NdiSpeedHqQuality") => [integer()],

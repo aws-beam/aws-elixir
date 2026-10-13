@@ -809,6 +809,7 @@ defmodule AWS.PCS do
         "endpoints" => list(endpoint()),
         "nodeID" => [String.t() | atom()],
         "nodeLifecycleActions" => node_lifecycle_actions(),
+        "schedulerVersion" => [String.t() | atom()],
         "sharedSecret" => String.t() | atom()
       }
       

@@ -4166,7 +4166,8 @@ defmodule AWS.Omics do
 
       vpc_config() :: %{
         "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom())
+        "subnetIds" => list(String.t() | atom()),
+        "vpcOwnerAccountId" => String.t() | atom()
       }
 
   """
@@ -4179,7 +4180,8 @@ defmodule AWS.Omics do
       vpc_config_response() :: %{
         "securityGroupIds" => list(String.t() | atom()),
         "subnetIds" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
+        "vpcId" => String.t() | atom(),
+        "vpcOwnerAccountId" => String.t() | atom()
       }
 
   """

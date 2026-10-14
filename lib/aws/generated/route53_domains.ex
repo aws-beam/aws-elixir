@@ -118,7 +118,8 @@ defmodule AWS.Route53Domains do
   ## Example:
       
       check_domain_availability_response() :: %{
-        "Availability" => list(any())
+        "Availability" => list(any()),
+        "Price" => price_with_currency()
       }
       
   """
@@ -142,6 +143,7 @@ defmodule AWS.Route53Domains do
       
       check_domain_transferability_response() :: %{
         "Message" => String.t() | atom(),
+        "Price" => price_with_currency(),
         "Transferability" => domain_transferability()
       }
       
@@ -366,7 +368,8 @@ defmodule AWS.Route53Domains do
       
       domain_suggestion() :: %{
         "Availability" => String.t() | atom(),
-        "DomainName" => String.t() | atom()
+        "DomainName" => String.t() | atom(),
+        "Price" => price_with_currency()
       }
       
   """
@@ -548,7 +551,30 @@ defmodule AWS.Route53Domains do
 
   ## Example:
       
+      get_domain_prices_request() :: %{
+        required("DomainName") => String.t() | atom()
+      }
+      
+  """
+  @type get_domain_prices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_domain_prices_response() :: %{
+        "DomainPrice" => domain_price()
+      }
+      
+  """
+  @type get_domain_prices_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_domain_suggestions_request() :: %{
+        optional("OnlyStandardPrices") => boolean(),
         required("DomainName") => String.t() | atom(),
         required("OnlyAvailable") => boolean(),
         required("SuggestionCount") => integer()
@@ -757,7 +783,8 @@ defmodule AWS.Route53Domains do
       
       price_with_currency() :: %{
         "Currency" => String.t() | atom(),
-        "Price" => float()
+        "Price" => float(),
+        "PriceType" => list(any())
       }
       
   """
@@ -782,6 +809,7 @@ defmodule AWS.Route53Domains do
       register_domain_request() :: %{
         optional("AutoRenew") => boolean(),
         optional("BillingContact") => contact_detail(),
+        optional("Consent") => consent(),
         optional("IdnLangCode") => String.t() | atom(),
         optional("PrivacyProtectAdminContact") => boolean(),
         optional("PrivacyProtectBillingContact") => boolean(),
@@ -839,6 +867,7 @@ defmodule AWS.Route53Domains do
   ## Example:
       
       renew_domain_request() :: %{
+        optional("Consent") => consent(),
         optional("DurationInYears") => integer(),
         required("CurrentExpiryYear") => integer(),
         required("DomainName") => String.t() | atom()
@@ -970,6 +999,7 @@ defmodule AWS.Route53Domains do
         optional("AuthCode") => String.t() | atom(),
         optional("AutoRenew") => boolean(),
         optional("BillingContact") => contact_detail(),
+        optional("Consent") => consent(),
         optional("DurationInYears") => integer(),
         optional("IdnLangCode") => String.t() | atom(),
         optional("Nameservers") => list(nameserver()),
@@ -1215,6 +1245,9 @@ defmodule AWS.Route53Domains do
           unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
 
   @type get_domain_detail_errors() :: unsupported_t_l_d() | invalid_input()
+
+  @type get_domain_prices_errors() ::
+          unsupported_t_l_d() | t_l_d_in_maintenance() | invalid_input()
 
   @type get_domain_suggestions_errors() ::
           unsupported_t_l_d() | t_l_d_in_maintenance() | invalid_input()
@@ -1668,6 +1701,45 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+  Returns the following prices for the specified domain:
+
+    *
+  Registration
+
+    *
+  Transfer
+
+    *
+  Owner change
+
+    *
+  Renewal
+
+    *
+  Restoration
+
+  For most domains, the prices match the standard prices for the TLD that the
+  [ListPrices](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListPrices.html)
+  operation returns.
+
+  For a premium domain, the registry sets the
+  price individually. Premium prices might differ from the standard prices and can
+  change
+  over time.
+  """
+  @spec get_domain_prices(map(), get_domain_prices_request(), list()) ::
+          {:ok, get_domain_prices_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_domain_prices_errors()}
+  def get_domain_prices(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetDomainPrices", input, options)
+  end
+
+  @doc """
   The GetDomainSuggestions operation returns a list of suggested domain names.
   """
   @spec get_domain_suggestions(map(), get_domain_suggestions_request(), list()) ::
@@ -1748,10 +1820,17 @@ defmodule AWS.Route53Domains do
   Owner change
 
     *
-  Domain renewal
+  Renewal
 
     *
-  Domain restoration
+  Restoration
+
+  The prices that `ListPrices` returns are the standard rates for a TLD.
+
+  `ListPrices` doesn't return registry premium prices, which apply to
+  individual domain names rather than to a TLD. To get accurate pricing for a
+  specific
+  domain name, including premium prices, call `GetDomainPrices`.
   """
   @spec list_prices(map(), list_prices_request(), list()) ::
           {:ok, list_prices_response(), any()}

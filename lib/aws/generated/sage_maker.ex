@@ -941,6 +941,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      athena_step_metadata() :: %{
+        "QueryExecutionId" => String.t() | atom(),
+        "S3OutputLocation" => String.t() | atom()
+      }
+      
+  """
+  @type athena_step_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       attach_cluster_node_network_interface_request() :: %{
         required("ClusterName") => String.t() | atom(),
         required("NetworkInterfaceId") => String.t() | atom(),
@@ -2122,6 +2134,32 @@ defmodule AWS.SageMaker do
       
   """
   @type clarify_text_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cleanup_failure() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "StepName" => String.t() | atom()
+      }
+      
+  """
+  @type cleanup_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cleanup_step_metadata() :: %{
+        "CleanedSteps" => list(String.t() | atom()),
+        "FailedSteps" => list(cleanup_failure()),
+        "SkippedSteps" => list(String.t() | atom())
+      }
+      
+  """
+  @type cleanup_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9752,6 +9790,20 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      emr_serverless_step_metadata() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "JobRunId" => String.t() | atom(),
+        "JobRunName" => String.t() | atom(),
+        "LogFilePath" => String.t() | atom()
+      }
+      
+  """
+  @type emr_serverless_step_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       emr_settings() :: %{
         "AssumableRoleArns" => list(String.t() | atom()),
         "ExecutionRoleArns" => list(String.t() | atom())
@@ -10364,6 +10416,35 @@ defmodule AWS.SageMaker do
       
   """
   @type flow_definition_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      for_each_selector_result() :: %{
+        "Index" => integer(),
+        "StepName" => String.t() | atom()
+      }
+      
+  """
+  @type for_each_selector_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      for_each_step_metadata() :: %{
+        "FailedStepCount" => integer(),
+        "InputItemCount" => integer(),
+        "Selector" => for_each_selector_result(),
+        "Status" => list(any()),
+        "StoppedStepCount" => integer(),
+        "SucceededStepCount" => integer(),
+        "TotalStepCount" => integer()
+      }
+      
+  """
+  @type for_each_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11762,6 +11843,19 @@ defmodule AWS.SageMaker do
       
   """
   @type integer_parameter_range_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iteration_context() :: %{
+        "Index" => integer(),
+        "Item" => String.t() | atom(),
+        "ParentStepName" => String.t() | atom()
+      }
+      
+  """
+  @type iteration_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16936,6 +17030,7 @@ defmodule AWS.SageMaker do
         "CacheHitResult" => cache_hit_result(),
         "EndTime" => non_neg_integer(),
         "FailureReason" => String.t() | atom(),
+        "IterationContext" => iteration_context(),
         "Metadata" => pipeline_execution_step_metadata(),
         "SelectiveExecutionResult" => selective_execution_result(),
         "StartTime" => non_neg_integer(),
@@ -16953,6 +17048,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       pipeline_execution_step_metadata() :: %{
+        "Athena" => athena_step_metadata(),
         "AutoMLJob" => auto_ml_job_step_metadata(),
         "BedrockCustomModel" => bedrock_custom_model_metadata(),
         "BedrockCustomModelDeployment" => bedrock_custom_model_deployment_metadata(),
@@ -16960,11 +17056,14 @@ defmodule AWS.SageMaker do
         "BedrockProvisionedModelThroughput" => bedrock_provisioned_model_throughput_metadata(),
         "Callback" => callback_step_metadata(),
         "ClarifyCheck" => clarify_check_step_metadata(),
+        "Cleanup" => cleanup_step_metadata(),
         "Condition" => condition_step_metadata(),
         "EMR" => emr_step_metadata(),
+        "EMRServerless" => emr_serverless_step_metadata(),
         "Endpoint" => endpoint_step_metadata(),
         "EndpointConfig" => endpoint_config_step_metadata(),
         "Fail" => fail_step_metadata(),
+        "ForEach" => for_each_step_metadata(),
         "InferenceComponent" => inference_component_metadata(),
         "Job" => job_step_metadata(),
         "Lambda" => lambda_step_metadata(),

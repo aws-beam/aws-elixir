@@ -8699,7 +8699,8 @@ defmodule AWS.Glue do
       integration_config() :: %{
         "ContinuousSync" => boolean(),
         "RefreshInterval" => String.t() | atom(),
-        "SourceProperties" => map()
+        "SourceProperties" => map(),
+        "TargetNamespace" => String.t() | atom()
       }
       
   """

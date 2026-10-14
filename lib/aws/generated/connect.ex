@@ -1979,6 +1979,41 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      contact_flow_alias_info() :: %{
+        "AliasId" => String.t() | atom(),
+        "ContactFlowArn" => String.t() | atom(),
+        "ContactFlowId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Version" => float()
+      }
+
+  """
+  @type contact_flow_alias_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_flow_alias_summary() :: %{
+        "AliasDescription" => String.t() | atom(),
+        "AliasId" => String.t() | atom(),
+        "AliasName" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Version" => float()
+      }
+
+  """
+  @type contact_flow_alias_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_flow_attribute_and_condition() :: %{
         "ContactFlowTypeCondition" => contact_flow_type_condition(),
         "TagConditions" => list(tag_condition())
@@ -2183,6 +2218,8 @@ defmodule AWS.Connect do
 
       contact_flow_version_summary() :: %{
         "Arn" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
         "Version" => float(),
         "VersionDescription" => String.t() | atom()
       }
@@ -2456,6 +2493,31 @@ defmodule AWS.Connect do
 
   """
   @type create_case_action_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_contact_flow_alias_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("AliasName") => String.t() | atom(),
+        required("ContactFlowVersion") => float()
+      }
+
+  """
+  @type create_contact_flow_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_contact_flow_alias_response() :: %{
+        "ContactFlowArn" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type create_contact_flow_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3977,6 +4039,24 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_contact_flow_alias_request() :: %{}
+
+  """
+  @type delete_contact_flow_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_contact_flow_alias_response() :: %{}
+
+  """
+  @type delete_contact_flow_alias_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_contact_flow_module_alias_request() :: %{}
 
   """
@@ -4598,6 +4678,26 @@ defmodule AWS.Connect do
 
   """
   @type describe_contact_evaluation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_contact_flow_alias_request() :: %{}
+
+  """
+  @type describe_contact_flow_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_contact_flow_alias_response() :: %{
+        "ContactFlowAlias" => contact_flow_alias_info()
+      }
+
+  """
+  @type describe_contact_flow_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8511,6 +8611,30 @@ defmodule AWS.Connect do
 
   """
   @type list_contact_evaluations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contact_flow_aliases_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_contact_flow_aliases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contact_flow_aliases_response() :: %{
+        "ContactFlowAliasSummaryList" => list(contact_flow_alias_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_contact_flow_aliases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15005,6 +15129,28 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_contact_flow_alias_request() :: %{
+        optional("ContactFlowVersion") => float(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_contact_flow_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_contact_flow_alias_response() :: %{}
+
+  """
+  @type update_contact_flow_alias_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_contact_flow_content_request() :: %{
         required("Content") => String.t() | atom()
       }
@@ -17277,6 +17423,16 @@ defmodule AWS.Connect do
           | internal_service_exception()
           | duplicate_resource_exception()
 
+  @type create_contact_flow_alias_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | duplicate_resource_exception()
+          | access_denied_exception()
+
   @type create_contact_flow_module_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -17652,6 +17808,14 @@ defmodule AWS.Connect do
           | internal_service_exception()
           | access_denied_exception()
 
+  @type delete_contact_flow_alias_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
   @type delete_contact_flow_module_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -17970,6 +18134,14 @@ defmodule AWS.Connect do
           | invalid_parameter_exception()
           | internal_service_exception()
           | contact_flow_not_published_exception()
+
+  @type describe_contact_flow_alias_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | access_denied_exception()
 
   @type describe_contact_flow_module_errors() ::
           throttling_exception()
@@ -18534,6 +18706,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | invalid_parameter_exception()
           | internal_service_exception()
+
+  @type list_contact_flow_aliases_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | access_denied_exception()
 
   @type list_contact_flow_module_aliases_errors() ::
           throttling_exception()
@@ -19547,6 +19727,16 @@ defmodule AWS.Connect do
           | resource_conflict_exception()
           | invalid_parameter_exception()
           | internal_service_exception()
+
+  @type update_contact_flow_alias_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | duplicate_resource_exception()
+          | conditional_operation_failed_exception()
+          | access_denied_exception()
 
   @type update_contact_flow_content_errors() ::
           throttling_exception()
@@ -21799,6 +21989,49 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates a named alias that points to a specific version of a flow.
+  """
+  @spec create_contact_flow_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_contact_flow_alias_request(),
+          list()
+        ) ::
+          {:ok, create_contact_flow_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_contact_flow_alias_errors()}
+  def create_contact_flow_alias(
+        %Client{} = client,
+        contact_flow_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/alias"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a flow module for the specified Connect Customer instance.
   """
   @spec create_contact_flow_module(
@@ -21926,9 +22159,7 @@ defmodule AWS.Connect do
 
   Versions are immutable and monotonically increasing. If the
   `FlowContentSha256` provided is different from the `FlowContentSha256` of the
-  `$LATEST` published flow content, then an error is returned. This API only
-  supports creating versions for
-  flows of type `Campaign`.
+  `$LATEST` published flow content, then an error is returned.
   """
   @spec create_contact_flow_version(
           map(),
@@ -23447,6 +23678,52 @@ defmodule AWS.Connect do
   def delete_contact_flow(%Client{} = client, contact_flow_id, instance_id, input, options \\ []) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an alias from a flow without deleting the version that the alias points
+  to.
+  """
+  @spec delete_contact_flow_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_contact_flow_alias_request(),
+          list()
+        ) ::
+          {:ok, delete_contact_flow_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_contact_flow_alias_errors()}
+  def delete_contact_flow_alias(
+        %Client{} = client,
+        alias_id,
+        contact_flow_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/alias/#{AWS.Util.encode_uri(alias_id)}"
 
     headers = []
     custom_headers = []
@@ -25224,6 +25501,39 @@ defmodule AWS.Connect do
   def describe_contact_flow(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns information about a specific flow alias, including the version that it
+  points to.
+  """
+  @spec describe_contact_flow_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, describe_contact_flow_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_contact_flow_alias_errors()}
+  def describe_contact_flow_alias(
+        %Client{} = client,
+        alias_id,
+        contact_flow_id,
+        instance_id,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/alias/#{AWS.Util.encode_uri(alias_id)}"
 
     headers = []
     query_params = []
@@ -28272,6 +28582,55 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(contact_id) do
         [{"contactId", contact_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the aliases associated with a flow, including the version that each alias
+  points to.
+  """
+  @spec list_contact_flow_aliases(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_contact_flow_aliases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_contact_flow_aliases_errors()}
+  def list_contact_flow_aliases(
+        %Client{} = client,
+        contact_flow_id,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/aliases"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -34413,6 +34772,51 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the name, description, or flow version associated with an alias.
+  """
+  @spec update_contact_flow_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_contact_flow_alias_request(),
+          list()
+        ) ::
+          {:ok, update_contact_flow_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_contact_flow_alias_errors()}
+  def update_contact_flow_alias(
+        %Client{} = client,
+        alias_id,
+        contact_flow_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/alias/#{AWS.Util.encode_uri(alias_id)}"
 
     headers = []
     custom_headers = []

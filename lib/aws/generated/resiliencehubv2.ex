@@ -338,6 +338,7 @@ defmodule AWS.Resiliencehubv2 do
         optional("clientToken") => String.t() | atom(),
         optional("dependencyDiscovery") => list(any()),
         optional("description") => String.t() | atom(),
+        optional("devOpsAgentConfiguration") => dev_ops_agent_configuration(),
         optional("kmsKeyId") => String.t() | atom(),
         optional("policyArn") => String.t() | atom(),
         optional("reportConfiguration") => service_report_configuration(),
@@ -745,6 +746,49 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
+      dev_ops_agent_configuration() :: %{
+        "agentSpaceArn" => String.t() | atom()
+      }
+
+  """
+  @type dev_ops_agent_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dev_ops_agent_configuration_view() :: %{
+        "agentSpaceArn" => String.t() | atom(),
+        "agentSpaceId" => String.t() | atom(),
+        "connectedAt" => [non_neg_integer()],
+        "operatorAppUrl" => [String.t() | atom()],
+        "region" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type dev_ops_agent_configuration_view() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dev_ops_agent_investigation() :: %{
+        "confidence" => list(any()),
+        "deepLink" => [String.t() | atom()],
+        "status" => list(any()),
+        "summary" => [String.t() | atom()],
+        "verdict" => list(any())
+      }
+
+  """
+  @type dev_ops_agent_investigation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disaster_recovery_source() :: %{
         "policyName" => String.t() | atom(),
         "source" => list(any()),
@@ -870,6 +914,7 @@ defmodule AWS.Resiliencehubv2 do
         "failureCategory" => list(any()),
         "findingId" => String.t() | atom(),
         "infrastructureAndCodeRecommendations" => list(infrastructure_and_code_recommendation()),
+        "investigationDeepLink" => [String.t() | atom()],
         "name" => [String.t() | atom()],
         "observabilityRecommendations" => list(observability_recommendation()),
         "policyComponent" => list(any()),
@@ -892,6 +937,7 @@ defmodule AWS.Resiliencehubv2 do
         "description" => String.t() | atom(),
         "failureCategory" => list(any()),
         "findingId" => String.t() | atom(),
+        "investigationDeepLink" => [String.t() | atom()],
         "name" => [String.t() | atom()],
         "policyComponent" => list(any()),
         "serviceArn" => String.t() | atom(),
@@ -2190,9 +2236,13 @@ defmodule AWS.Resiliencehubv2 do
   ## Example:
 
       resource() :: %{
+        "availabilityZoneId" => [String.t() | atom()],
+        "availabilityZoneName" => [String.t() | atom()],
         "awsAccountId" => String.t() | atom(),
         "awsRegion" => String.t() | atom(),
+        "containmentParentId" => [String.t() | atom()],
         "identifier" => [String.t() | atom()],
+        "logicalResourceGroupId" => [String.t() | atom()],
         "resourceType" => [String.t() | atom()]
       }
 
@@ -2273,6 +2323,7 @@ defmodule AWS.Resiliencehubv2 do
         "createdAt" => [non_neg_integer()],
         "dependencyDiscovery" => dependency_discovery_config(),
         "description" => String.t() | atom(),
+        "devOpsAgentConfiguration" => dev_ops_agent_configuration_view(),
         "effectivePolicyValues" => effective_policy_values(),
         "estimatedAssessmentCost" => assessment_cost(),
         "kmsKeyId" => String.t() | atom(),
@@ -2571,6 +2622,8 @@ defmodule AWS.Resiliencehubv2 do
         "associatedSystems" => list(associated_system()),
         "createdAt" => [non_neg_integer()],
         "dependencyDiscovery" => dependency_discovery_config(),
+        "devOpsAgentSpaceArn" => String.t() | atom(),
+        "devOpsAgentStatus" => list(any()),
         "name" => String.t() | atom(),
         "openFindingsCount" => [integer()],
         "organizationId" => String.t() | atom(),
@@ -3048,6 +3101,7 @@ defmodule AWS.Resiliencehubv2 do
 
       test_run() :: %{
         "accountTargeting" => list(any()),
+        "devOpsAgentInvestigation" => dev_ops_agent_investigation(),
         "endedAt" => [non_neg_integer()],
         "errorMessage" => [String.t() | atom()],
         "eventCount" => [integer()],
@@ -3453,6 +3507,7 @@ defmodule AWS.Resiliencehubv2 do
         optional("associatedSystems") => list(associated_system()),
         optional("dependencyDiscovery") => list(any()),
         optional("description") => String.t() | atom(),
+        optional("devOpsAgentConfiguration") => dev_ops_agent_configuration(),
         optional("permissionModel") => permission_model(),
         optional("policyArn") => String.t() | atom(),
         optional("regions") => list(String.t() | atom()),
@@ -3821,6 +3876,7 @@ defmodule AWS.Resiliencehubv2 do
 
   @type import_app_errors() ::
           validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -3828,6 +3884,7 @@ defmodule AWS.Resiliencehubv2 do
 
   @type import_policy_errors() ::
           validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()

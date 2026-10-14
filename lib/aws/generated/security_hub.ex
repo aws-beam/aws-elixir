@@ -455,6 +455,7 @@ defmodule AWS.SecurityHub do
       automation_rules_action_v2() :: %{
         "ExternalIntegrationConfiguration" => external_integration_configuration(),
         "FindingFieldsUpdate" => automation_rules_finding_fields_update_v2(),
+        "ResourceFieldsUpdate" => automation_rules_resource_fields_update_v2(),
         "Type" => list(any())
       }
 
@@ -602,6 +603,17 @@ defmodule AWS.SecurityHub do
 
   """
   @type automation_rules_metadata_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automation_rules_resource_fields_update_v2() :: %{
+        "Criticality" => list(any())
+      }
+
+  """
+  @type automation_rules_resource_fields_update_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9285,6 +9297,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      criticality_source() :: %{
+        "Reason" => String.t() | atom(),
+        "Source" => list(any())
+      }
+
+  """
+  @type criticality_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cspm_connector_summary() :: %{
         "ConnectorArn" => String.t() | atom(),
         "ConnectorId" => String.t() | atom(),
@@ -13085,6 +13109,7 @@ defmodule AWS.SecurityHub do
       resource_result() :: %{
         "AccountId" => String.t() | atom(),
         "AccountName" => String.t() | atom(),
+        "CriticalitySources" => list(criticality_source()),
         "DiscoveryType" => list(any()),
         "FindingsSummary" => list(resource_findings_summary()),
         "Region" => String.t() | atom(),
@@ -13092,6 +13117,7 @@ defmodule AWS.SecurityHub do
         "ResourceCloudPartition" => String.t() | atom(),
         "ResourceConfig" => any(),
         "ResourceCreationTimeDt" => String.t() | atom(),
+        "ResourceCriticality" => list(any()),
         "ResourceDetailCaptureTimeDt" => String.t() | atom(),
         "ResourceGuid" => String.t() | atom(),
         "ResourceId" => String.t() | atom(),

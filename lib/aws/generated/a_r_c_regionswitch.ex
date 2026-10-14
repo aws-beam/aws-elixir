@@ -1222,6 +1222,59 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      ssm_document_config() :: %{
+        "crossAccountRole" => String.t() | atom(),
+        "documentArn" => String.t() | atom(),
+        "documentVersion" => String.t() | atom(),
+        "externalId" => [String.t() | atom()],
+        "parameters" => map(),
+        "targets" => list(ssm_target())
+      }
+      
+  """
+  @type ssm_document_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ssm_send_command_configuration() :: %{
+        "regionDocuments" => map(),
+        "retryIntervalMinutes" => [float()],
+        "timeoutMinutes" => [integer()],
+        "ungraceful" => ssm_send_command_ungraceful()
+      }
+      
+  """
+  @type ssm_send_command_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ssm_send_command_ungraceful() :: %{
+        "behavior" => list(any())
+      }
+      
+  """
+  @type ssm_send_command_ungraceful() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ssm_target() :: %{
+        "key" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type ssm_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_plan_execution_request() :: %{
         optional("clientToken") => [String.t() | atom()],
         optional("comment") => String.t() | atom(),
@@ -1778,11 +1831,10 @@ defmodule AWS.ARCRegionswitch do
   Region or account in the plan.
 
   Returns the warnings for the plans that you own and for plans that are shared
-  with your account through AWS Resource Access Manager (AWS RAM). To return
-  warnings for specific plans, provide a list of plan Amazon Resource Names
-  (ARNs). Region switch ignores any plan ARN that you can't access. If you don't
-  provide any plan ARNs, Region switch returns the warnings for all of your
-  accessible plans.
+  with your account through Resource Access Manager (RAM). To return warnings for
+  specific plans, provide a list of plan Amazon Resource Names (ARNs). Region
+  switch ignores any plan ARN that you can't access. If you don't provide any plan
+  ARNs, Region switch returns the warnings for all of your accessible plans.
   """
   @spec list_service_quota_warnings(map(), list_service_quota_warnings_request(), list()) ::
           {:ok, list_service_quota_warnings_response(), any()}

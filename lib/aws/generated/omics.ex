@@ -3134,6 +3134,7 @@ defmodule AWS.Omics do
   ## Example:
 
       registry_mapping() :: %{
+        "credentialArn" => String.t() | atom(),
         "ecrAccountId" => String.t() | atom(),
         "ecrRepositoryPrefix" => String.t() | atom(),
         "upstreamRegistryUrl" => String.t() | atom(),

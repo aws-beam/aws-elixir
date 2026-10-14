@@ -112,6 +112,30 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      attach_r_l_s_policy_request() :: %{
+        optional("Condition") => condition(),
+        optional("Principal") => data_lake_principal(),
+        optional("SetDefault") => boolean(),
+        required("Name") => String.t() | atom(),
+        required("Resource") => resource()
+      }
+
+  """
+  @type attach_r_l_s_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attach_r_l_s_policy_response() :: %{}
+
+  """
+  @type attach_r_l_s_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       audit_context() :: %{
         "AdditionalAuditContext" => String.t() | atom()
       }
@@ -223,6 +247,18 @@ defmodule AWS.LakeFormation do
 
   """
   @type catalog_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -418,6 +454,28 @@ defmodule AWS.LakeFormation do
 
   """
   @type create_lake_formation_opt_in_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_r_l_s_policy_request() :: %{
+        required("AttachmentColumns") => list(column()),
+        required("FilterExpression") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_r_l_s_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_r_l_s_policy_response() :: %{}
+
+  """
+  @type create_r_l_s_policy_response() :: %{}
 
   @typedoc """
 
@@ -656,6 +714,26 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      delete_r_l_s_policy_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type delete_r_l_s_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_r_l_s_policy_response() :: %{}
+
+  """
+  @type delete_r_l_s_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       deregister_resource_request() :: %{
         required("ResourceArn") => String.t() | atom()
       }
@@ -747,6 +825,30 @@ defmodule AWS.LakeFormation do
 
   """
   @type describe_transaction_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detach_r_l_s_policy_request() :: %{
+        optional("Condition") => condition(),
+        optional("Principal") => data_lake_principal(),
+        optional("RemoveDefault") => boolean(),
+        required("Name") => String.t() | atom(),
+        required("Resource") => resource()
+      }
+
+  """
+  @type detach_r_l_s_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detach_r_l_s_policy_response() :: %{}
+
+  """
+  @type detach_r_l_s_policy_response() :: %{}
 
   @typedoc """
 
@@ -1041,6 +1143,28 @@ defmodule AWS.LakeFormation do
 
   """
   @type get_query_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_r_l_s_policy_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type get_r_l_s_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_r_l_s_policy_response() :: %{
+        "RLSPolicy" => r_l_s_policy()
+      }
+
+  """
+  @type get_r_l_s_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1535,6 +1659,57 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      list_r_l_s_policies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_r_l_s_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_r_l_s_policies_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RLSPolicies" => list(r_l_s_policy())
+      }
+
+  """
+  @type list_r_l_s_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_r_l_s_policy_attachments_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PolicyName") => String.t() | atom(),
+        optional("Principal") => data_lake_principal(),
+        optional("Resource") => resource()
+      }
+
+  """
+  @type list_r_l_s_policy_attachments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_r_l_s_policy_attachments_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RLSPolicyAttachments" => list(r_l_s_policy_attachment())
+      }
+
+  """
+  @type list_r_l_s_policy_attachments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_resources_request() :: %{
         optional("FilterConditionList") => list(filter_condition()),
         optional("MaxResults") => integer(),
@@ -1754,6 +1929,48 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      r_l_s_policy() :: %{
+        "AttachmentColumns" => list(column()),
+        "CatalogId" => String.t() | atom(),
+        "FilterExpression" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type r_l_s_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      r_l_s_policy_attachment() :: %{
+        "CatalogId" => String.t() | atom(),
+        "Condition" => condition(),
+        "DefaultRLSPolicy" => boolean(),
+        "PolicyName" => String.t() | atom(),
+        "Principal" => data_lake_principal(),
+        "Resource" => resource()
+      }
+
+  """
+  @type r_l_s_policy_attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      r_l_s_policy_resource() :: %{
+        "CatalogId" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type r_l_s_policy_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       redshift_connect() :: %{
         "Authorization" => list(any())
       }
@@ -1823,6 +2040,7 @@ defmodule AWS.LakeFormation do
         "LFTag" => l_f_tag_key_resource(),
         "LFTagExpression" => l_f_tag_expression_resource(),
         "LFTagPolicy" => l_f_tag_policy_resource(),
+        "RLSPolicy" => r_l_s_policy_resource(),
         "Table" => table_resource(),
         "TableWithColumns" => table_with_columns_resource()
       }
@@ -2275,6 +2493,27 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      update_r_l_s_policy_request() :: %{
+        optional("FilterExpression") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_r_l_s_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_r_l_s_policy_response() :: %{}
+
+  """
+  @type update_r_l_s_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_resource_request() :: %{
         optional("ExpectedResourceOwnerAccount") => String.t() | atom(),
         optional("HybridAccessEnabled") => boolean(),
@@ -2407,6 +2646,16 @@ defmodule AWS.LakeFormation do
           | entity_not_found_exception()
           | access_denied_exception()
 
+  @type attach_r_l_s_policy_errors() ::
+          resource_number_limit_exceeded_exception()
+          | operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | concurrent_modification_exception()
+          | already_exists_exception()
+          | access_denied_exception()
+
   @type batch_grant_permissions_errors() ::
           operation_timeout_exception() | invalid_input_exception()
 
@@ -2472,6 +2721,15 @@ defmodule AWS.LakeFormation do
           | concurrent_modification_exception()
           | access_denied_exception()
 
+  @type create_r_l_s_policy_errors() ::
+          resource_number_limit_exceeded_exception()
+          | operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | concurrent_modification_exception()
+          | already_exists_exception()
+          | access_denied_exception()
+
   @type delete_data_cells_filter_errors() ::
           operation_timeout_exception()
           | invalid_input_exception()
@@ -2519,6 +2777,14 @@ defmodule AWS.LakeFormation do
           | entity_not_found_exception()
           | concurrent_modification_exception()
 
+  @type delete_r_l_s_policy_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+
   @type deregister_resource_errors() ::
           operation_timeout_exception()
           | invalid_input_exception()
@@ -2543,6 +2809,14 @@ defmodule AWS.LakeFormation do
           | invalid_input_exception()
           | internal_service_exception()
           | entity_not_found_exception()
+
+  @type detach_r_l_s_policy_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
 
   @type extend_transaction_errors() ::
           transaction_committed_exception()
@@ -2595,6 +2869,13 @@ defmodule AWS.LakeFormation do
           | invalid_input_exception()
           | internal_service_exception()
           | expired_exception()
+          | access_denied_exception()
+
+  @type get_r_l_s_policy_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
           | access_denied_exception()
 
   @type get_resource_l_f_tags_errors() ::
@@ -2687,6 +2968,20 @@ defmodule AWS.LakeFormation do
   @type list_permissions_errors() ::
           operation_timeout_exception() | invalid_input_exception() | internal_service_exception()
 
+  @type list_r_l_s_policies_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | access_denied_exception()
+
+  @type list_r_l_s_policy_attachments_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | access_denied_exception()
+
   @type list_resources_errors() ::
           operation_timeout_exception() | invalid_input_exception() | internal_service_exception()
 
@@ -2775,6 +3070,15 @@ defmodule AWS.LakeFormation do
 
   @type update_lake_formation_identity_center_configuration_errors() ::
           operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+
+  @type update_r_l_s_policy_errors() ::
+          resource_number_limit_exceeded_exception()
+          | operation_timeout_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | entity_not_found_exception()
@@ -2890,6 +3194,38 @@ defmodule AWS.LakeFormation do
           | {:error, assume_decorated_role_with_saml_errors()}
   def assume_decorated_role_with_saml(%Client{} = client, input, options \\ []) do
     url_path = "/AssumeDecoratedRoleWithSAML"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Attaches a row-level security policy to a resource for a principal.
+
+  When the principal queries the resource, Lake Formation applies the policy's
+  filter expression so that only the permitted rows are returned.
+  """
+  @spec attach_r_l_s_policy(map(), attach_r_l_s_policy_request(), list()) ::
+          {:ok, attach_r_l_s_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, attach_r_l_s_policy_errors()}
+  def attach_r_l_s_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/AttachRLSPolicy"
     headers = []
     custom_headers = []
     query_params = []
@@ -3199,6 +3535,40 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  Creates a row-level security (RLS) policy.
+
+  A row-level security policy defines a filter expression that Lake Formation
+  evaluates to determine which rows of a table a principal is allowed to see. The
+  policy is created independently of any resource, and is later associated with a
+  resource and principal using `AttachRLSPolicy`.
+  """
+  @spec create_r_l_s_policy(map(), create_r_l_s_policy_request(), list()) ::
+          {:ok, create_r_l_s_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_r_l_s_policy_errors()}
+  def create_r_l_s_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateRLSPolicy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a data cell filter.
   """
   @spec delete_data_cells_filter(map(), delete_data_cells_filter_request(), list()) ::
@@ -3409,6 +3779,38 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  Deletes a row-level security policy.
+
+  Any active attachments of the policy are automatically removed as part of the
+  deletion, so you do not need to detach the policy first.
+  """
+  @spec delete_r_l_s_policy(map(), delete_r_l_s_policy_request(), list()) ::
+          {:ok, delete_r_l_s_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_r_l_s_policy_errors()}
+  def delete_r_l_s_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteRLSPolicy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deregisters the resource as managed by the Data Catalog.
 
   When you deregister a path, Lake Formation removes the path from the inline
@@ -3517,6 +3919,38 @@ defmodule AWS.LakeFormation do
           | {:error, describe_transaction_errors()}
   def describe_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeTransaction"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Detaches a row-level security policy from a resource for a principal.
+
+  After the policy is detached, its filter expression is no longer applied to the
+  principal's queries on that resource.
+  """
+  @spec detach_r_l_s_policy(map(), detach_r_l_s_policy_request(), list()) ::
+          {:ok, detach_r_l_s_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, detach_r_l_s_policy_errors()}
+  def detach_r_l_s_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/DetachRLSPolicy"
     headers = []
     custom_headers = []
     query_params = []
@@ -3804,6 +4238,36 @@ defmodule AWS.LakeFormation do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "query-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the definition of a row-level security policy, including its attachment
+  columns and filter expression.
+  """
+  @spec get_r_l_s_policy(map(), get_r_l_s_policy_request(), list()) ::
+          {:ok, get_r_l_s_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_r_l_s_policy_errors()}
+  def get_r_l_s_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/GetRLSPolicy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
 
     Request.request_rest(
       client,
@@ -4257,6 +4721,66 @@ defmodule AWS.LakeFormation do
           | {:error, list_permissions_errors()}
   def list_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/ListPermissions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the row-level security policies in the Data Catalog.
+  """
+  @spec list_r_l_s_policies(map(), list_r_l_s_policies_request(), list()) ::
+          {:ok, list_r_l_s_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_r_l_s_policies_errors()}
+  def list_r_l_s_policies(%Client{} = client, input, options \\ []) do
+    url_path = "/ListRLSPolicies"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the row-level security policy attachments in the Data Catalog.
+
+  You can filter the results by resource, principal, or policy name.
+  """
+  @spec list_r_l_s_policy_attachments(map(), list_r_l_s_policy_attachments_request(), list()) ::
+          {:ok, list_r_l_s_policy_attachments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_r_l_s_policy_attachments_errors()}
+  def list_r_l_s_policy_attachments(%Client{} = client, input, options \\ []) do
+    url_path = "/ListRLSPolicyAttachments"
     headers = []
     custom_headers = []
     query_params = []
@@ -4766,6 +5290,37 @@ defmodule AWS.LakeFormation do
         options \\ []
       ) do
     url_path = "/UpdateLakeFormationIdentityCenterConfiguration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the filter expression of an existing row-level security policy.
+
+  The change applies to all attachments of the policy.
+  """
+  @spec update_r_l_s_policy(map(), update_r_l_s_policy_request(), list()) ::
+          {:ok, update_r_l_s_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_r_l_s_policy_errors()}
+  def update_r_l_s_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateRLSPolicy"
     headers = []
     custom_headers = []
     query_params = []

@@ -849,6 +849,7 @@ defmodule AWS.AppStream do
         optional("EmbedHostDomains") => list(String.t() | atom()),
         optional("FeedbackURL") => String.t() | atom(),
         optional("RedirectURL") => String.t() | atom(),
+        optional("StorageConnectorAuthentication") => list(any()),
         optional("StorageConnectors") => list(storage_connector()),
         optional("StreamingExperienceSettings") => streaming_experience_settings(),
         optional("Tags") => map(),
@@ -2658,6 +2659,7 @@ defmodule AWS.AppStream do
         "Name" => String.t() | atom(),
         "RedirectURL" => String.t() | atom(),
         "StackErrors" => list(stack_error()),
+        "StorageConnectorAuthentication" => list(any()),
         "StorageConnectors" => list(storage_connector()),
         "StreamingExperienceSettings" => streaming_experience_settings(),
         "UserSettings" => list(user_setting())
@@ -3121,6 +3123,7 @@ defmodule AWS.AppStream do
         optional("EmbedHostDomains") => list(String.t() | atom()),
         optional("FeedbackURL") => String.t() | atom(),
         optional("RedirectURL") => String.t() | atom(),
+        optional("StorageConnectorAuthentication") => list(any()),
         optional("StorageConnectors") => list(storage_connector()),
         optional("StreamingExperienceSettings") => streaming_experience_settings(),
         optional("UserSettings") => list(user_setting()),

@@ -105,6 +105,7 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       auth_config() :: %{
+        "AudienceOverride" => String.t() | atom(),
         "AuthType" => list(any()),
         "CredentialProviderIdentifier" => String.t() | atom()
       }

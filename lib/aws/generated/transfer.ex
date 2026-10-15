@@ -287,6 +287,7 @@ defmodule AWS.Transfer do
         optional("EndpointDetails") => endpoint_details(),
         optional("EndpointType") => list(any()),
         optional("HostKey") => String.t() | atom(),
+        optional("HostKeyStorageType") => list(any()),
         optional("IdentityProviderDetails") => identity_provider_details(),
         optional("IdentityProviderType") => list(any()),
         optional("IpAddressType") => list(any()),
@@ -1030,6 +1031,8 @@ defmodule AWS.Transfer do
         "Description" => String.t() | atom(),
         "HostKeyFingerprint" => String.t() | atom(),
         "HostKeyId" => String.t() | atom(),
+        "SecretId" => String.t() | atom(),
+        "StorageType" => list(any()),
         "Tags" => list(tag()),
         "Type" => String.t() | atom()
       }
@@ -1354,6 +1357,8 @@ defmodule AWS.Transfer do
       
       import_host_key_request() :: %{
         optional("Description") => String.t() | atom(),
+        optional("KmsKey") => String.t() | atom(),
+        optional("StorageType") => list(any()),
         optional("Tags") => list(tag()),
         required("HostKeyBody") => String.t() | atom(),
         required("ServerId") => String.t() | atom()
@@ -1881,6 +1886,8 @@ defmodule AWS.Transfer do
         "Description" => String.t() | atom(),
         "Fingerprint" => String.t() | atom(),
         "HostKeyId" => String.t() | atom(),
+        "SecretId" => String.t() | atom(),
+        "StorageType" => list(any()),
         "Type" => String.t() | atom()
       }
       
@@ -2555,7 +2562,9 @@ defmodule AWS.Transfer do
   ## Example:
       
       update_host_key_request() :: %{
-        required("Description") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("KmsKey") => String.t() | atom(),
+        optional("StorageType") => list(any()),
         required("HostKeyId") => String.t() | atom(),
         required("ServerId") => String.t() | atom()
       }
@@ -4613,8 +4622,16 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Updates the description for the host key that's specified by the `ServerId` and
-  `HostKeyId` parameters.
+  Updates the host key that's specified by the `ServerId` and `HostKeyId`
+  parameters.
+
+  You can update the description of the host key, change where the host key is
+  stored by specifying the `StorageType`, and specify the KMS key used to encrypt
+  the host key when it's stored in Secrets Manager.
+
+  To change a host key's storage type from `SERVICE_MANAGED` to `SECRETS_MANAGER`,
+  you must have the `transfer:ExportHostKey` permission. `transfer:ExportHostKey`
+  is a permission-only action that has no corresponding API operation.
   """
   @spec update_host_key(map(), update_host_key_request(), list()) ::
           {:ok, update_host_key_response(), any()}

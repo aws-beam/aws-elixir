@@ -725,7 +725,8 @@ defmodule AWS.ARCRegionswitch do
       lambdas() :: %{
         "arn" => String.t() | atom(),
         "crossAccountRole" => String.t() | atom(),
-        "externalId" => [String.t() | atom()]
+        "externalId" => [String.t() | atom()],
+        "payload" => String.t() | atom()
       }
       
   """

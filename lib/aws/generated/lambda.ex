@@ -445,7 +445,8 @@ defmodule AWS.Lambda do
 
       chained_invoke_options() :: %{
         "FunctionName" => String.t() | atom(),
-        "TenantId" => String.t() | atom()
+        "TenantId" => String.t() | atom(),
+        "XAmznTraceId" => String.t() | atom()
       }
 
   """

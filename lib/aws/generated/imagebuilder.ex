@@ -101,6 +101,18 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      auto_scaling_group_configuration() :: %{
+        "capacityWaitTimeoutSeconds" => integer(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type auto_scaling_group_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       call_rate_limit_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -608,12 +620,14 @@ defmodule AWS.Imagebuilder do
         optional("instanceTypes") => list(String.t() | atom()),
         optional("keyPair") => String.t() | atom(),
         optional("logging") => logging(),
+        optional("parentInstance") => parent_instance_configuration(),
         optional("placement") => placement(),
         optional("resourceTags") => map(),
         optional("securityGroupIds") => list(String.t() | atom()),
         optional("snsTopicArn") => String.t() | atom(),
         optional("subnetId") => String.t() | atom(),
         optional("tags") => map(),
+        optional("terminateInstanceOnCompletion") => boolean(),
         optional("terminateInstanceOnFailure") => boolean(),
         required("clientToken") => String.t() | atom(),
         required("instanceProfileName") => String.t() | atom(),
@@ -2021,12 +2035,14 @@ defmodule AWS.Imagebuilder do
         "keyPair" => String.t() | atom(),
         "logging" => logging(),
         "name" => String.t() | atom(),
+        "parentInstance" => parent_instance_configuration(),
         "placement" => placement(),
         "resourceTags" => map(),
         "securityGroupIds" => list(String.t() | atom()),
         "snsTopicArn" => String.t() | atom(),
         "subnetId" => String.t() | atom(),
         "tags" => map(),
+        "terminateInstanceOnCompletion" => boolean(),
         "terminateInstanceOnFailure" => boolean()
       }
 
@@ -3088,6 +3104,17 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      parent_instance_configuration() :: %{
+        "autoScalingGroup" => auto_scaling_group_configuration()
+      }
+
+  """
+  @type parent_instance_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       pipeline_logging_configuration() :: %{
         "imageLogGroupName" => String.t() | atom(),
         "pipelineLogGroupName" => String.t() | atom()
@@ -3704,11 +3731,13 @@ defmodule AWS.Imagebuilder do
         optional("instanceTypes") => list(String.t() | atom()),
         optional("keyPair") => String.t() | atom(),
         optional("logging") => logging(),
+        optional("parentInstance") => parent_instance_configuration(),
         optional("placement") => placement(),
         optional("resourceTags") => map(),
         optional("securityGroupIds") => list(String.t() | atom()),
         optional("snsTopicArn") => String.t() | atom(),
         optional("subnetId") => String.t() | atom(),
+        optional("terminateInstanceOnCompletion") => boolean(),
         optional("terminateInstanceOnFailure") => boolean(),
         required("clientToken") => String.t() | atom(),
         required("infrastructureConfigurationArn") => String.t() | atom(),

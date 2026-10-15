@@ -101,6 +101,7 @@ defmodule AWS.DynamoDBStreams do
       
       get_shard_iterator_input() :: %{
         optional("SequenceNumber") => String.t() | atom(),
+        optional("Timestamp") => non_neg_integer(),
         required("ShardId") => String.t() | atom(),
         required("ShardIteratorType") => list(any()),
         required("StreamArn") => String.t() | atom()

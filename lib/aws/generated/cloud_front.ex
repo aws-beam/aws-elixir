@@ -8126,6 +8126,7 @@ defmodule AWS.CloudFront do
         "Arn" => String.t() | atom(),
         "HTTPPort" => integer(),
         "HTTPSPort" => integer(),
+        "IpAddressType" => list(any()),
         "Name" => String.t() | atom(),
         "OriginProtocolPolicy" => list(any()),
         "OriginSslProtocols" => origin_ssl_protocols()
@@ -8159,6 +8160,7 @@ defmodule AWS.CloudFront do
         "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "Id" => String.t() | atom(),
+        "IpAddressType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
         "OriginEndpointArn" => String.t() | atom(),

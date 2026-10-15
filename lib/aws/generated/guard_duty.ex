@@ -1641,6 +1641,39 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      detection_rule_ec2_requirements() :: %{
+        "MinAgentVersion" => String.t() | atom()
+      }
+
+  """
+  @type detection_rule_ec2_requirements() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detection_rule_ecs_fargate_requirements() :: %{
+        "MinAgentVersion" => String.t() | atom()
+      }
+
+  """
+  @type detection_rule_ecs_fargate_requirements() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detection_rule_eks_requirements() :: %{
+        "MinAgentVersion" => String.t() | atom()
+      }
+
+  """
+  @type detection_rule_eks_requirements() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       detection_rule_filter() :: %{
         "Condition" => list(any()),
         "Name" => list(any()),
@@ -1685,6 +1718,30 @@ defmodule AWS.GuardDuty do
 
   """
   @type detection_rule_org_configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detection_rule_runtime_monitoring_details() :: %{
+        "Platforms" => detection_rule_runtime_platforms()
+      }
+
+  """
+  @type detection_rule_runtime_monitoring_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detection_rule_runtime_platforms() :: %{
+        "Ec2" => detection_rule_ec2_requirements(),
+        "EcsFargate" => detection_rule_ecs_fargate_requirements(),
+        "Eks" => detection_rule_eks_requirements()
+      }
+
+  """
+  @type detection_rule_runtime_platforms() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2183,6 +2240,7 @@ defmodule AWS.GuardDuty do
         "AssociatedAttackSequenceArn" => String.t() | atom(),
         "Confidence" => float(),
         "CreatedAt" => String.t() | atom(),
+        "CustomDetectionRuleName" => String.t() | atom(),
         "Description" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "Partition" => String.t() | atom(),
@@ -4857,6 +4915,7 @@ defmodule AWS.GuardDuty do
         "Language" => list(any()),
         "Name" => String.t() | atom(),
         "RuleId" => String.t() | atom(),
+        "RuntimeMonitoringDetails" => detection_rule_runtime_monitoring_details(),
         "Schema" => list(any()),
         "Service" => String.t() | atom(),
         "Severity" => list(any()),

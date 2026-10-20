@@ -563,6 +563,7 @@ defmodule AWS.CodeDeploy do
         optional("blueGreenDeploymentConfiguration") => blue_green_deployment_configuration(),
         optional("deploymentConfigName") => String.t() | atom(),
         optional("deploymentStyle") => deployment_style(),
+        optional("ec2DeploymentOptions") => ec2_deployment_options(),
         optional("ec2TagFilters") => list(ec2_tag_filter()),
         optional("ec2TagSet") => ec2_tag_set(),
         optional("ecsServices") => list(e_c_s_service()),
@@ -602,6 +603,7 @@ defmodule AWS.CodeDeploy do
         optional("deploymentGroupName") => String.t() | atom(),
         optional("deploymentMode") => list(any()),
         optional("description") => String.t() | atom(),
+        optional("ec2DeploymentOptions") => ec2_deployment_options(),
         optional("fileExistsBehavior") => list(any()),
         optional("ignoreApplicationStopFailures") => boolean(),
         optional("overrideAlarmConfiguration") => alarm_configuration(),
@@ -843,6 +845,7 @@ defmodule AWS.CodeDeploy do
         "deploymentGroupId" => String.t() | atom(),
         "deploymentGroupName" => String.t() | atom(),
         "deploymentStyle" => deployment_style(),
+        "ec2DeploymentOptions" => ec2_deployment_options(),
         "ec2TagFilters" => list(ec2_tag_filter()),
         "ec2TagSet" => ec2_tag_set(),
         "ecsServices" => list(e_c_s_service()),
@@ -915,6 +918,7 @@ defmodule AWS.CodeDeploy do
         "deploymentStatusMessages" => list(String.t() | atom()),
         "deploymentStyle" => deployment_style(),
         "description" => String.t() | atom(),
+        "ec2DeploymentOptions" => ec2_deployment_options(),
         "errorInformation" => error_information(),
         "externalId" => String.t() | atom(),
         "fileExistsBehavior" => list(any()),
@@ -1160,6 +1164,17 @@ defmodule AWS.CodeDeploy do
       
   """
   @type e_lb_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_deployment_options() :: %{
+        "autoScalingGroupProcessesToSuspend" => list(list(any())())
+      }
+      
+  """
+  @type ec2_deployment_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1653,6 +1668,19 @@ defmodule AWS.CodeDeploy do
       
   """
   @type invalid_auto_scaling_group_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_auto_scaling_group_process_to_suspend_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_auto_scaling_group_process_to_suspend_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -3113,6 +3141,7 @@ defmodule AWS.CodeDeploy do
         optional("blueGreenDeploymentConfiguration") => blue_green_deployment_configuration(),
         optional("deploymentConfigName") => String.t() | atom(),
         optional("deploymentStyle") => deployment_style(),
+        optional("ec2DeploymentOptions") => ec2_deployment_options(),
         optional("ec2TagFilters") => list(ec2_tag_filter()),
         optional("ec2TagSet") => ec2_tag_set(),
         optional("ecsServices") => list(e_c_s_service()),
@@ -3254,6 +3283,7 @@ defmodule AWS.CodeDeploy do
           | invalid_deployment_group_name_exception()
           | invalid_deployment_config_name_exception()
           | invalid_compute_platform_exception()
+          | invalid_auto_scaling_group_process_to_suspend_exception()
           | invalid_auto_scaling_group_exception()
           | invalid_auto_rollback_config_exception()
           | invalid_application_name_exception()
@@ -3299,6 +3329,7 @@ defmodule AWS.CodeDeploy do
           | invalid_deployment_group_name_exception()
           | invalid_deployment_config_name_exception()
           | invalid_blue_green_deployment_configuration_exception()
+          | invalid_auto_scaling_group_process_to_suspend_exception()
           | invalid_auto_scaling_group_exception()
           | invalid_auto_rollback_config_exception()
           | invalid_application_name_exception()
@@ -3574,6 +3605,7 @@ defmodule AWS.CodeDeploy do
           | invalid_deployment_group_name_exception()
           | invalid_deployment_config_name_exception()
           | invalid_blue_green_deployment_configuration_exception()
+          | invalid_auto_scaling_group_process_to_suspend_exception()
           | invalid_auto_scaling_group_exception()
           | invalid_auto_rollback_config_exception()
           | invalid_application_name_exception()

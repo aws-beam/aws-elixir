@@ -68,6 +68,17 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      action_configuration() :: %{
+        "AlarmTagsPropagation" => alarm_tags_propagation()
+      }
+      
+  """
+  @type action_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       alarm_contributor() :: %{
         "ContributorAttributes" => map(),
         "ContributorId" => String.t() | atom(),
@@ -128,6 +139,19 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      alarm_tags_propagation() :: %{
+        "Enabled" => boolean(),
+        "ExcludedTagKeys" => list(String.t() | atom()),
+        "IncludedTagKeys" => list(String.t() | atom())
+      }
+      
+  """
+  @type alarm_tags_propagation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       anomaly_detector() :: %{
         "AnomalyDetectorId" => String.t() | atom(),
         "Configuration" => anomaly_detector_configuration(),
@@ -182,6 +206,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       composite_alarm() :: %{
+        "ActionConfiguration" => action_configuration(),
         "ActionsEnabled" => boolean(),
         "ActionsSuppressedBy" => list(any()),
         "ActionsSuppressedReason" => String.t() | atom(),
@@ -1362,6 +1387,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       log_alarm() :: %{
+        "ActionConfiguration" => action_configuration(),
         "ActionLogLineCount" => integer(),
         "ActionLogLineRoleArn" => String.t() | atom(),
         "ActionsEnabled" => boolean(),
@@ -1458,6 +1484,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       metric_alarm() :: %{
+        "ActionConfiguration" => action_configuration(),
         "ActionsEnabled" => boolean(),
         "AlarmActions" => list(String.t() | atom()),
         "AlarmArn" => String.t() | atom(),
@@ -1736,6 +1763,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       put_composite_alarm_input() :: %{
+        optional("ActionConfiguration") => action_configuration(),
         optional("ActionsEnabled") => boolean(),
         optional("ActionsSuppressor") => String.t() | atom(),
         optional("ActionsSuppressorExtensionPeriod") => integer(),
@@ -1805,6 +1833,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       put_log_alarm_input() :: %{
+        optional("ActionConfiguration") => action_configuration(),
         optional("ActionLogLineCount") => integer(),
         optional("ActionLogLineRoleArn") => String.t() | atom(),
         optional("ActionsEnabled") => boolean(),
@@ -1853,6 +1882,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       put_metric_alarm_input() :: %{
+        optional("ActionConfiguration") => action_configuration(),
         optional("ActionsEnabled") => boolean(),
         optional("AlarmActions") => list(String.t() | atom()),
         optional("AlarmDescription") => String.t() | atom(),
@@ -3493,6 +3523,13 @@ defmodule AWS.CloudWatch do
   could also retrieve images regularly, such as every minute, and create your own
   custom
   live dashboard.
+
+  `GetMetricWidgetImage` is not available in the Amazon Web Services
+  GovCloud (US) Regions. In those Regions, calls to this operation fail. For the
+  list
+  of Amazon CloudWatch features that are not available in Amazon Web Services
+  GovCloud (US), see [Amazon CloudWatch in Amazon Web Services GovCloud
+  (US)](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-cw.html).
 
   The graph you retrieve can include all CloudWatch metric graph features,
   including

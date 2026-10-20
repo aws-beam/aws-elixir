@@ -443,6 +443,7 @@ defmodule AWS.ObservabilityAdmin do
 
       destination_logs_configuration() :: %{
         "BackupConfiguration" => logs_backup_configuration(),
+        "LogGroupDeletionProtection" => list(any()),
         "LogGroupNameConfiguration" => log_group_name_configuration(),
         "LogsEncryptionConfiguration" => logs_encryption_configuration(),
         "TagPropagationConfiguration" => tag_propagation_configuration()

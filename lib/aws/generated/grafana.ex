@@ -1274,12 +1274,12 @@ defmodule AWS.Grafana do
   Creates a Grafana API key for the workspace.
 
   This key can be used to authenticate requests sent to the workspace's HTTP API.
-  See
-  [https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
-  for available APIs and example requests.
+  See [ for available APIs and example requests.](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
 
-  In workspaces compatible with Grafana version 9 or above, use workspace service
-  accounts instead of API keys. API keys will be removed in a future release.
+  [ In workspaces compatible with Grafana version 9 or above, use workspace service accounts instead of API keys. API keys will be removed in a future
+  release.
+
+  ](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
   """
   @spec create_workspace_api_key(
           map(),
@@ -1324,10 +1324,10 @@ defmodule AWS.Grafana do
   Grafana version 9 and above.
 
   For more information about service accounts, see [Service accounts](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html)
-  in the *Amazon Managed Grafana User Guide*.
+  in the * Amazon Managed Grafana User Guide*.
 
   For more information about the Grafana HTTP APIs, see [Using Grafana HTTP APIs](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
-  in the *Amazon Managed Grafana User Guide*.
+  in the * Amazon Managed Grafana User Guide*.
   """
   @spec create_workspace_service_account(
           map(),

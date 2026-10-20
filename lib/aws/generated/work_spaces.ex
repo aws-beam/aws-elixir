@@ -1903,6 +1903,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       import_custom_workspace_image_request() :: %{
+        optional("ImageValidationMode") => list(any()),
         optional("Tags") => list(tag()),
         required("ComputeType") => list(any()),
         required("ImageDescription") => String.t() | atom(),

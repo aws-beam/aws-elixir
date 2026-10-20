@@ -958,6 +958,66 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      create_retrieval_instruction_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("customerEncryptionKeyArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("instruction") => retrieval_instruction_content(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_retrieval_instruction_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_retrieval_instruction_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "lastTransitionStatus" => list(any()),
+        "name" => String.t() | atom(),
+        "retrievalInstructionArn" => String.t() | atom(),
+        "retrievalInstructionId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type create_retrieval_instruction_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_retrieval_instruction_version_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type create_retrieval_instruction_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_retrieval_instruction_version_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "retrievalInstructionArn" => String.t() | atom(),
+        "retrievalInstructionId" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type create_retrieval_instruction_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_vpc_configuration_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
@@ -1400,6 +1460,30 @@ defmodule AWS.BedrockAgent do
 
   """
   @type delete_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_retrieval_instruction_request() :: %{
+        optional("retrievalInstructionVersion") => String.t() | atom()
+      }
+
+  """
+  @type delete_retrieval_instruction_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_retrieval_instruction_response() :: %{
+        "retrievalInstructionArn" => String.t() | atom(),
+        "retrievalInstructionId" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type delete_retrieval_instruction_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2133,6 +2217,40 @@ defmodule AWS.BedrockAgent do
 
   """
   @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_retrieval_instruction_request() :: %{
+        optional("retrievalInstructionVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_retrieval_instruction_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_retrieval_instruction_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "instruction" => retrieval_instruction_content(),
+        "lastTransitionStatus" => list(any()),
+        "lastTransitionStatusReasons" => list(retrieval_instruction_failure_reason()),
+        "latestVersion" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "retrievalInstructionArn" => String.t() | atom(),
+        "retrievalInstructionId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type get_retrieval_instruction_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2914,6 +3032,55 @@ defmodule AWS.BedrockAgent do
 
   """
   @type list_prompts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retrieval_instruction_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_retrieval_instruction_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retrieval_instruction_versions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "retrievalInstructionVersionSummaries" => list(retrieval_instruction_version_summary())
+      }
+
+  """
+  @type list_retrieval_instruction_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retrieval_instructions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_retrieval_instructions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retrieval_instructions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "retrievalInstructionSummaries" => list(retrieval_instruction_summary())
+      }
+
+  """
+  @type list_retrieval_instructions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4010,6 +4177,63 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      retrieval_instruction_content() :: %{
+        "answerFormat" => String.t() | atom(),
+        "answerPolicy" => String.t() | atom(),
+        "persona" => String.t() | atom(),
+        "retrievalGuidance" => String.t() | atom()
+      }
+
+  """
+  @type retrieval_instruction_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieval_instruction_failure_reason() :: %{
+        "code" => list(any()),
+        "fieldName" => list(any()),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type retrieval_instruction_failure_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieval_instruction_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastTransitionStatus" => list(any()),
+        "name" => String.t() | atom(),
+        "retrievalInstructionArn" => String.t() | atom(),
+        "retrievalInstructionId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type retrieval_instruction_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieval_instruction_version_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type retrieval_instruction_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_content() :: %{
         "s3Location" => s3_location()
       }
@@ -4890,6 +5114,35 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      update_retrieval_instruction_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("instruction") => retrieval_instruction_content()
+      }
+
+  """
+  @type update_retrieval_instruction_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_retrieval_instruction_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "lastTransitionStatus" => list(any()),
+        "name" => String.t() | atom(),
+        "retrievalInstructionArn" => String.t() | atom(),
+        "retrievalInstructionId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_retrieval_instruction_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       url_configuration() :: %{
         "seedUrls" => list(seed_url())
       }
@@ -5254,6 +5507,23 @@ defmodule AWS.BedrockAgent do
           | conflict_exception()
           | access_denied_exception()
 
+  @type create_retrieval_instruction_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_retrieval_instruction_version_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_vpc_configuration_errors() ::
           validation_exception()
           | throttling_exception()
@@ -5351,6 +5621,14 @@ defmodule AWS.BedrockAgent do
           | access_denied_exception()
 
   @type delete_resource_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_retrieval_instruction_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -5488,6 +5766,13 @@ defmodule AWS.BedrockAgent do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_retrieval_instruction_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_vpc_configuration_errors() ::
           validation_exception()
           | throttling_exception()
@@ -5596,6 +5881,19 @@ defmodule AWS.BedrockAgent do
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_retrieval_instruction_versions_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_retrieval_instructions_errors() ::
+          validation_exception()
+          | throttling_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -5753,6 +6051,14 @@ defmodule AWS.BedrockAgent do
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_retrieval_instruction_errors() ::
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -6295,6 +6601,83 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Creates a new retrieval instruction.
+
+  The retrieval instruction is usable once its status becomes ACTIVE. Use
+  GetRetrievalInstruction to check whether it is ready.
+  """
+  @spec create_retrieval_instruction(map(), create_retrieval_instruction_request(), list()) ::
+          {:ok, create_retrieval_instruction_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_retrieval_instruction_errors()}
+  def create_retrieval_instruction(%Client{} = client, input, options \\ []) do
+    url_path = "/retrievalinstructions/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates an immutable numbered version from the retrieval instruction's current
+  reviewed content.
+
+  The service creates the version synchronously.
+
+  The service numbers versions from 1 and assigns them in order, never reusing a
+  number.
+  """
+  @spec create_retrieval_instruction_version(
+          map(),
+          String.t() | atom(),
+          create_retrieval_instruction_version_request(),
+          list()
+        ) ::
+          {:ok, create_retrieval_instruction_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_retrieval_instruction_version_errors()}
+  def create_retrieval_instruction_version(
+        %Client{} = client,
+        retrieval_instruction_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/retrievalinstructions/#{AWS.Util.encode_uri(retrieval_instruction_id)}/versions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a VPC configuration that lets a knowledge base connect to a resource in
   your private VPC.
 
@@ -6802,6 +7185,56 @@ defmodule AWS.BedrockAgent do
     {query_params, input} =
       [
         {"expectedRevisionId", "expectedRevisionId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a retrieval instruction or a single version of it.
+
+  Omit retrievalInstructionVersion to delete the retrieval instruction itself; the
+  service rejects that request with ConflictException while the retrieval
+  instruction has versions or while lastTransitionStatus is CREATING or UPDATING.
+  Specify retrievalInstructionVersion to delete only that version; the retrieval
+  instruction and its other versions are unaffected.
+  """
+  @spec delete_retrieval_instruction(
+          map(),
+          String.t() | atom(),
+          delete_retrieval_instruction_request(),
+          list()
+        ) ::
+          {:ok, delete_retrieval_instruction_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_retrieval_instruction_errors()}
+  def delete_retrieval_instruction(
+        %Client{} = client,
+        retrieval_instruction_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/retrievalinstructions/#{AWS.Util.encode_uri(retrieval_instruction_id)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"retrievalInstructionVersion", "retrievalInstructionVersion"}
       ]
       |> Request.build_params(input)
 
@@ -7386,6 +7819,38 @@ defmodule AWS.BedrockAgent do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a retrieval instruction.
+
+  Also used to poll the terminal reporting of an asynchronous create or update.
+  """
+  @spec get_retrieval_instruction(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
+          {:ok, get_retrieval_instruction_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_retrieval_instruction_errors()}
+  def get_retrieval_instruction(
+        %Client{} = client,
+        retrieval_instruction_id,
+        retrieval_instruction_version \\ nil,
+        options \\ []
+      ) do
+    url_path = "/retrievalinstructions/#{AWS.Util.encode_uri(retrieval_instruction_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(retrieval_instruction_version) do
+        [{"retrievalInstructionVersion", retrieval_instruction_version} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -7997,6 +8462,108 @@ defmodule AWS.BedrockAgent do
     query_params =
       if !is_nil(prompt_identifier) do
         [{"promptIdentifier", prompt_identifier} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the numbered versions of a retrieval instruction, newest first.
+
+  DRAFT is not listed; read it with GetRetrievalInstruction without
+  retrievalInstructionVersion. Results are paginated. Use the nextToken parameter
+  to retrieve additional results.
+  """
+  @spec list_retrieval_instruction_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_retrieval_instruction_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_retrieval_instruction_versions_errors()}
+  def list_retrieval_instruction_versions(
+        %Client{} = client,
+        retrieval_instruction_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/retrievalinstructions/#{AWS.Util.encode_uri(retrieval_instruction_id)}/versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the retrieval instructions in the caller's account.
+
+  Results are paginated. Use the nextToken parameter to retrieve additional
+  results.
+  """
+  @spec list_retrieval_instructions(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_retrieval_instructions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_retrieval_instructions_errors()}
+  def list_retrieval_instructions(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/retrievalinstructions/"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -8739,6 +9306,50 @@ defmodule AWS.BedrockAgent do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Updates the content of a retrieval instruction.
+
+  The update is processed asynchronously; the stored content is a candidate until
+  content review passes, and the served content does not change while the update
+  is in flight. The service rejects the request with ConflictException while
+  lastTransitionStatus is CREATING or UPDATING.
+  """
+  @spec update_retrieval_instruction(
+          map(),
+          String.t() | atom(),
+          update_retrieval_instruction_request(),
+          list()
+        ) ::
+          {:ok, update_retrieval_instruction_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_retrieval_instruction_errors()}
+  def update_retrieval_instruction(
+        %Client{} = client,
+        retrieval_instruction_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/retrievalinstructions/#{AWS.Util.encode_uri(retrieval_instruction_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

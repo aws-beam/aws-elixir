@@ -76,7 +76,7 @@ defmodule AWS.ControlTower do
       *
   [UntagResource](https://docs.aws.amazon.com/controltower/latest/APIReference/API_UntagResource.html) 
 
-  For more information about these types of resources, see the [ *Amazon Web
+  For more information about these types of resources, see the [ * Amazon Web
   Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html).
 
@@ -109,12 +109,12 @@ defmodule AWS.ControlTower do
   Amazon Web Services Region for each control. You can find the
   `controlIdentifier` for each Region and control in the [Tables of control metadata](https://docs.aws.amazon.com/controltower/latest/controlreference/control-metadata-tables.html)
   or the [Control availability by Region tables](https://docs.aws.amazon.com/controltower/latest/controlreference/control-region-tables.html)
-  in the *Amazon Web Services Control Tower Controls Reference Guide*.
+  in the * Amazon Web Services Control Tower Controls Reference Guide*.
 
   A quick-reference list of control identifers for the Amazon Web Services Control
   Tower legacy *Strongly recommended* and *Elective* controls is given in
   [Resource identifiers for APIs and controls](https://docs.aws.amazon.com/controltower/latest/controlreference/control-identifiers.html.html)
-  in the [ *Amazon Web Services Control Tower Controls Reference Guide*
+  in the [ * Amazon Web Services Control Tower Controls Reference Guide*
   ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-identifiers.html).
   Remember that *Mandatory* controls cannot be added or removed.
 
@@ -130,7 +130,7 @@ defmodule AWS.ControlTower do
      ## ARN format for Amazon Web Services Control Catalog:
   `arn:{PARTITION}:controlcatalog:::control/{CONTROL_CATALOG_OPAQUE_ID}`
 
-  You can find the `{CONTROL_CATALOG_OPAQUE_ID}` in the [ *Amazon Web Services Control Tower Controls Reference Guide*
+  You can find the `{CONTROL_CATALOG_OPAQUE_ID}` in the [ * Amazon Web Services Control Tower Controls Reference Guide*
   ](https://docs.aws.amazon.com/controltower/latest/controlreference/all-global-identifiers.html),
   or in the Amazon Web Services Control Tower console, on the ## Control details
   page.
@@ -166,7 +166,7 @@ defmodule AWS.ControlTower do
 
   You can apply the `AWSControlTowerBaseline` baseline to an organizational unit
   (OU) as a way to register the OU with Amazon Web Services Control Tower,
-  programmatically. For a general overview of this capability, see [Amazon Web Services Control Tower supports APIs for OU registration and configuration with
+  programmatically. For a general overview of this capability, see [ Amazon Web Services Control Tower supports APIs for OU registration and configuration with
   baselines](https://docs.aws.amazon.com/controltower/latest/userguide/2024-all.html#baseline-apis).
 
   You can call the baseline API operations to view the baselines that Amazon Web

@@ -2211,7 +2211,8 @@ defmodule AWS.Amplify do
   end-to-end Cypress tests for your Amplify
   application](https://docs.aws.amazon.com/amplify/latest/userguide/running-tests.html)
   in the
-  *Amplify Hosting User Guide*.
+  *
+  Amplify Hosting User Guide*.
   """
   @spec list_artifacts(
           map(),

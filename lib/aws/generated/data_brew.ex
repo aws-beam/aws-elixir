@@ -3,6 +3,7 @@
 
 defmodule AWS.DataBrew do
   @moduledoc """
+
   Glue DataBrew is a visual, cloud-scale data-preparation service.
 
   DataBrew

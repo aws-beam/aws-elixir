@@ -1619,6 +1619,7 @@ defmodule AWS.GuardDuty do
 
       destination_properties() :: %{
         "DestinationArn" => String.t() | atom(),
+        "ExpectedBucketOwner" => String.t() | atom(),
         "KmsKeyArn" => String.t() | atom()
       }
 

@@ -156,6 +156,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agentic_retrieve_applied_instruction() :: %{
+        "id" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type agentic_retrieve_applied_instruction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agentic_retrieve_bedrock_guardrail_configuration() :: %{
         "guardrailId" => [String.t() | atom()],
         "guardrailVersion" => [String.t() | atom()]
@@ -275,6 +287,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type agentic_retrieve_guardrail_warning() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_instruction_configuration() :: %{
+        "retrievalInstructionId" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type agentic_retrieve_instruction_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -459,6 +483,7 @@ defmodule AWS.BedrockAgentRuntime do
         optional("memoryConfiguration") => agentic_retrieve_memory_configuration(),
         optional("nextToken") => String.t() | atom(),
         optional("policyConfiguration") => agentic_retrieve_policy_configuration(),
+        optional("retrievalInstructionConfiguration") => agentic_retrieve_instruction_configuration(),
         optional("userContext") => user_context(),
         required("agenticRetrieveConfiguration") => agentic_retrieve_configuration(),
         required("messages") => list(agentic_retrieve_message()),
@@ -498,6 +523,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       agentic_retrieve_trace_event_attributes() :: %{
         "actions" => list(agentic_retrieve_action()),
+        "appliedInstruction" => agentic_retrieve_applied_instruction(),
         "failures" => list(agentic_retrieve_failure()),
         "message" => [String.t() | atom()],
         "retrievalMetadata" => list(agentic_retrieve_source_metadata()),

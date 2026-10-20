@@ -691,6 +691,37 @@ defmodule AWS.WorkspacesInstances do
 
   ## Example:
       
+      modify_volume_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Iops") => integer(),
+        optional("SizeInGB") => integer(),
+        optional("Throughput") => integer(),
+        optional("VolumeType") => list(any()),
+        required("VolumeId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_volume_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_volume_response() :: %{
+        "TargetIops" => integer(),
+        "TargetSize" => integer(),
+        "TargetThroughput" => integer(),
+        "TargetVolumeType" => list(any()),
+        "VolumeId" => String.t() | atom()
+      }
+      
+  """
+  @type modify_volume_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       placement() :: %{
         "Affinity" => String.t() | atom(),
         "AvailabilityZone" => String.t() | atom(),
@@ -918,6 +949,19 @@ defmodule AWS.WorkspacesInstances do
 
   ## Example:
       
+      volume_modification_rate_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type volume_modification_rate_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       workspace_instance() :: %{
         "EC2ManagedInstance" => ec2_managed_instance(),
         "ProvisionState" => list(any()),
@@ -1017,6 +1061,16 @@ defmodule AWS.WorkspacesInstances do
           validation_exception()
           | throttling_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type modify_volume_errors() ::
+          volume_modification_rate_exceeded_exception()
+          | validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type tag_resource_errors() ::
@@ -1217,6 +1271,39 @@ defmodule AWS.WorkspacesInstances do
       metadata()
 
     Request.request_post(client, meta, "ListWorkspaceInstances", input, options)
+  end
+
+  @doc """
+  Modifies the size, volume type, IOPS (input/output operations per second), or
+  throughput of a volume.
+
+  When you modify a volume, you must specify at least one of these parameters. You
+  can modify a volume only after any previous modification for that volume has
+  finished.
+
+  To track the progress of a modification, use the Amazon EC2
+  [DescribeVolumesModifications](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumesModifications.html) operation. For more information, see [Monitor the progress of Amazon EBS volume
+  modifications](https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html)
+  in the *Amazon EBS User Guide*.
+
+  After you increase the size of a volume, you must extend the partition and file
+  system to use the new storage capacity. For more information, see [Extend the file system after resizing an Amazon EBS
+  volume](https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html)
+  in the *Amazon EBS User Guide*, which covers both
+  [Linux](https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html#extend-linux) and
+  [Windows](https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html#extend-windows)
+  instances.
+  """
+  @spec modify_volume(map(), modify_volume_request(), list()) ::
+          {:ok, modify_volume_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, modify_volume_errors()}
+  def modify_volume(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ModifyVolume", input, options)
   end
 
   @doc """

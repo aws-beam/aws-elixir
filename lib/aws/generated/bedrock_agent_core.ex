@@ -1480,6 +1480,7 @@ defmodule AWS.BedrockAgentCore do
         "evaluators" => list(evaluator()),
         "executionSummaryResult" => execution_summary_clustering_result_content(),
         "failureAnalysisResult" => failure_analysis_result_content(),
+        "insightResults" => list(insight_result()),
         "insights" => list(insight()),
         "kmsKeyArn" => String.t() | atom(),
         "outputConfig" => list(),
@@ -2343,6 +2344,38 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_result() :: %{
+        "affectedSessionCount" => [integer()],
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "rootCauses" => list(insight_root_cause()),
+        "sampleSessions" => list(sample_session()),
+        "type" => list(any())
+      }
+
+  """
+  @type insight_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_root_cause() :: %{
+        "affectedSessionCount" => [integer()],
+        "explanation" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sampleSessions" => list(sample_session()),
+        "suggestedFix" => String.t() | atom()
+      }
+
+  """
+  @type insight_root_cause() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3662,6 +3695,19 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      sample_session() :: %{
+        "findings" => list(session_finding()),
+        "lastSeenAt" => [non_neg_integer()],
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type sample_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       save_browser_session_profile_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("traceId") => [String.t() | atom()],
@@ -3817,6 +3863,21 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type session_filter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_finding() :: %{
+        "category" => [String.t() | atom()],
+        "confidence" => [float()],
+        "description" => String.t() | atom(),
+        "targetId" => String.t() | atom(),
+        "targetType" => list(any())
+      }
+
+  """
+  @type session_finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

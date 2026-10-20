@@ -660,6 +660,8 @@ defmodule AWS.SocialMessaging do
       linked_whats_app_business_account() :: %{
         "arn" => String.t() | atom(),
         "datasetId" => String.t() | atom(),
+        "directSendEnforcementStatus" => String.t() | atom(),
+        "directSendEnforcementStatusExpiresAt" => non_neg_integer(),
         "eventDestinations" => list(whats_app_business_account_event_destination()),
         "id" => String.t() | atom(),
         "linkDate" => non_neg_integer(),
@@ -694,6 +696,8 @@ defmodule AWS.SocialMessaging do
       linked_whats_app_business_account_summary() :: %{
         "arn" => String.t() | atom(),
         "datasetId" => String.t() | atom(),
+        "directSendEnforcementStatus" => String.t() | atom(),
+        "directSendEnforcementStatusExpiresAt" => non_neg_integer(),
         "eventDestinations" => list(whats_app_business_account_event_destination()),
         "id" => String.t() | atom(),
         "linkDate" => non_neg_integer(),
@@ -1222,11 +1226,13 @@ defmodule AWS.SocialMessaging do
   ## Example:
 
       template_summary() :: %{
+        "correctCategory" => String.t() | atom(),
         "metaTemplateId" => String.t() | atom(),
         "templateCategory" => String.t() | atom(),
         "templateLanguage" => String.t() | atom(),
         "templateName" => String.t() | atom(),
         "templateQualityScore" => String.t() | atom(),
+        "templateSource" => String.t() | atom(),
         "templateStatus" => String.t() | atom()
       }
 

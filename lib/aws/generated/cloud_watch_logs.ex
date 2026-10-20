@@ -1021,6 +1021,7 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       describe_deliveries_request() :: %{
+        optional("deliverySourceNames") => list(String.t() | atom()),
         optional("limit") => integer(),
         optional("nextToken") => String.t() | atom()
       }
@@ -1046,6 +1047,7 @@ defmodule AWS.CloudWatchLogs do
       
       describe_delivery_destinations_request() :: %{
         optional("limit") => integer(),
+        optional("names") => list(String.t() | atom()),
         optional("nextToken") => String.t() | atom()
       }
       
@@ -1070,7 +1072,8 @@ defmodule AWS.CloudWatchLogs do
       
       describe_delivery_sources_request() :: %{
         optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom()
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceArns") => list(String.t() | atom())
       }
       
   """
@@ -8769,7 +8772,7 @@ defmodule AWS.CloudWatchLogs do
 
   **Supported principals** - Policy only applies when
   operations are invoked by Amazon Web Services service principals (not IAM
-  users, roles, or cross-account principals
+  users, roles, or cross-account principals)
 
     *
 

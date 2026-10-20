@@ -111,6 +111,17 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      cloud_watch_logs_configuration() :: %{
+        "SpansLogGroupKmsKeyId" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_logs_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_group_request() :: %{
         optional("FilterExpression") => String.t() | atom(),
         optional("InsightsConfiguration") => insights_configuration(),
@@ -1926,6 +1937,7 @@ defmodule AWS.XRay do
   ## Example:
 
       update_trace_segment_destination_request() :: %{
+        optional("CloudWatchLogsConfiguration") => cloud_watch_logs_configuration(),
         optional("Destination") => list(any())
       }
 

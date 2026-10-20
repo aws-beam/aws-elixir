@@ -3,9 +3,11 @@
 
 defmodule AWS.CodeCommit do
   @moduledoc """
+
   CodeCommit
 
-  This is the *CodeCommit API Reference*.
+  This is the *
+  CodeCommit API Reference*.
 
   This reference provides descriptions of the operations and data types for
   CodeCommit API along with usage examples.
@@ -436,7 +438,9 @@ defmodule AWS.CodeCommit do
   `TestRepositoryTriggers`, which tests the functionality of a repository trigger
   by sending data to the trigger target.
 
-  For information about how to use CodeCommit, see the [CodeCommit User Guide](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html).
+  For information about how to use CodeCommit, see the [
+  CodeCommit User
+  Guide](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html).
   """
 
   alias AWS.Client
@@ -7633,8 +7637,11 @@ defmodule AWS.CodeCommit do
   Gets information about Amazon Web Servicestags for a specified Amazon Resource
   Name (ARN) in CodeCommit.
 
-  For a list of valid resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
-  in the* CodeCommit User
+  For a list of valid resources in CodeCommit, see [
+  CodeCommit Resources and
+  Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
+  in the*
+  CodeCommit User
   Guide*.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
@@ -7881,8 +7888,11 @@ defmodule AWS.CodeCommit do
   Adds or updates tags for a resource in CodeCommit.
 
   For a list of valid resources
-  in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
-  in the *CodeCommit User
+  in CodeCommit, see [
+  CodeCommit Resources and
+  Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
+  in the *
+  CodeCommit User
   Guide*.
   """
   @spec tag_resource(map(), tag_resource_input(), list()) ::
@@ -7920,8 +7930,11 @@ defmodule AWS.CodeCommit do
   @doc """
   Removes tags for a resource in CodeCommit.
 
-  For a list of valid resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
-  in the *CodeCommit User
+  For a list of valid resources in CodeCommit, see [
+  CodeCommit Resources and
+  Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
+  in the *
+  CodeCommit User
   Guide*.
   """
   @spec untag_resource(map(), untag_resource_input(), list()) ::

@@ -7179,6 +7179,7 @@ defmodule AWS.Connect do
   ## Example:
 
       get_attached_file_request() :: %{
+        optional("UrlContentDisposition") => list(any()),
         optional("UrlExpiryInSeconds") => integer(),
         required("AssociatedResourceArn") => String.t() | atom()
       }
@@ -27353,6 +27354,7 @@ defmodule AWS.Connect do
           String.t() | atom(),
           String.t() | atom(),
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_attached_file_response(), any()}
@@ -27364,6 +27366,7 @@ defmodule AWS.Connect do
         file_id,
         instance_id,
         associated_resource_arn,
+        url_content_disposition \\ nil,
         url_expiry_in_seconds \\ nil,
         options \\ []
       ) do
@@ -27376,6 +27379,13 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(associated_resource_arn) do
         [{"associatedResourceArn", associated_resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(url_content_disposition) do
+        [{"urlContentDisposition", url_content_disposition} | query_params]
       else
         query_params
       end

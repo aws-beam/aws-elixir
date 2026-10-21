@@ -292,6 +292,18 @@ defmodule AWS.RDS do
 
   ## Example:
       
+      available_capacity_per_availability_zone() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailableCapacity" => integer()
+      }
+      
+  """
+  @type available_capacity_per_availability_zone() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       available_processor_feature() :: %{
         "AllowedValues" => String.t() | atom(),
         "DefaultValue" => String.t() | atom(),
@@ -380,6 +392,28 @@ defmodule AWS.RDS do
       
   """
   @type blue_green_deployment_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_db_capacity_reservation_request() :: %{
+        required("DBCapacityReservationIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_db_capacity_reservation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_db_capacity_reservation_response() :: %{
+        "DBCapacityReservation" => db_capacity_reservation()
+      }
+      
+  """
+  @type cancel_db_capacity_reservation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -738,6 +772,37 @@ defmodule AWS.RDS do
 
   ## Example:
       
+      create_db_capacity_reservation_request() :: %{
+        optional("CommitmentDuration") => float(),
+        optional("EndDate") => non_neg_integer(),
+        optional("LicenseModel") => String.t() | atom(),
+        optional("StartDate") => non_neg_integer(),
+        optional("Tags") => list(tag()),
+        required("AvailabilityZones") => list(String.t() | atom()),
+        required("CapacityPerAvailabilityZone") => integer(),
+        required("DBCapacityReservationName") => String.t() | atom(),
+        required("DBInstanceClass") => String.t() | atom(),
+        required("Engine") => String.t() | atom()
+      }
+      
+  """
+  @type create_db_capacity_reservation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_capacity_reservation_response() :: %{
+        "DBCapacityReservation" => db_capacity_reservation()
+      }
+      
+  """
+  @type create_db_capacity_reservation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_db_cluster_endpoint_message() :: %{
         optional("ExcludedMembers") => list(String.t() | atom()),
         optional("StaticMembers") => list(String.t() | atom()),
@@ -895,6 +960,7 @@ defmodule AWS.RDS do
         optional("CharacterSetName") => String.t() | atom(),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("CustomIamInstanceProfile") => String.t() | atom(),
+        optional("DBCapacityReservationIdentifier") => String.t() | atom(),
         optional("DBClusterIdentifier") => String.t() | atom(),
         optional("DBName") => String.t() | atom(),
         optional("DBParameterGroupName") => String.t() | atom(),
@@ -970,6 +1036,7 @@ defmodule AWS.RDS do
         optional("CACertificateIdentifier") => String.t() | atom(),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("CustomIamInstanceProfile") => String.t() | atom(),
+        optional("DBCapacityReservationIdentifier") => String.t() | atom(),
         optional("DBInstanceClass") => String.t() | atom(),
         optional("DBParameterGroupName") => String.t() | atom(),
         optional("DBSubnetGroupName") => String.t() | atom(),
@@ -1402,6 +1469,75 @@ defmodule AWS.RDS do
       
   """
   @type custom_db_engine_version_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_capacity_reservation() :: %{
+        "AvailableCapacityPerAvailabilityZoneList" => list(available_capacity_per_availability_zone()),
+        "CommitmentInfo" => db_capacity_reservation_commitment_info(),
+        "CreateDate" => non_neg_integer(),
+        "DBCapacityReservationArn" => String.t() | atom(),
+        "DBCapacityReservationIdentifier" => String.t() | atom(),
+        "DBCapacityReservationName" => String.t() | atom(),
+        "DBInstanceClass" => String.t() | atom(),
+        "EndDate" => non_neg_integer(),
+        "Engine" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
+        "ReservedCapacityPerAvailabilityZone" => integer(),
+        "StartDate" => non_neg_integer(),
+        "State" => list(any()),
+        "TagList" => list(tag())
+      }
+      
+  """
+  @type db_capacity_reservation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_capacity_reservation_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_capacity_reservation_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_capacity_reservation_commitment_info() :: %{
+        "CommitmentEndDate" => non_neg_integer(),
+        "CommittedCapacityPerAvailabilityZone" => integer()
+      }
+      
+  """
+  @type db_capacity_reservation_commitment_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_capacity_reservation_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_capacity_reservation_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_capacity_reservation_unsupported_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_capacity_reservation_unsupported_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2078,6 +2214,7 @@ defmodule AWS.RDS do
         "CopyTagsToSnapshot" => boolean(),
         "CustomIamInstanceProfile" => String.t() | atom(),
         "CustomerOwnedIpEnabled" => boolean(),
+        "DBCapacityReservationIdentifier" => String.t() | atom(),
         "DBClusterIdentifier" => String.t() | atom(),
         "DBInstanceArn" => String.t() | atom(),
         "DBInstanceAutomatedBackupsReplications" => list(db_instance_automated_backups_replication()),
@@ -3541,6 +3678,32 @@ defmodule AWS.RDS do
       
   """
   @type describe_certificates_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_db_capacity_reservations_request() :: %{
+        optional("DBCapacityReservationIdentifier") => String.t() | atom(),
+        optional("Filters") => list(filter()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type describe_db_capacity_reservations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_db_capacity_reservations_response() :: %{
+        "DBCapacityReservations" => list(db_capacity_reservation()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type describe_db_capacity_reservations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5047,6 +5210,17 @@ defmodule AWS.RDS do
 
   ## Example:
       
+      invalid_db_capacity_reservation_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_db_capacity_reservation_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_db_cluster_automated_backup_state_fault() :: %{
         "message" => String.t() | atom()
       }
@@ -5582,6 +5756,31 @@ defmodule AWS.RDS do
 
   ## Example:
       
+      modify_db_capacity_reservation_request() :: %{
+        optional("CapacityPerAvailabilityZone") => integer(),
+        optional("EndDate") => non_neg_integer(),
+        optional("EndDateType") => list(any()),
+        required("DBCapacityReservationIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type modify_db_capacity_reservation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_db_capacity_reservation_response() :: %{
+        "DBCapacityReservation" => db_capacity_reservation()
+      }
+      
+  """
+  @type modify_db_capacity_reservation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_db_cluster_endpoint_message() :: %{
         optional("EndpointType") => String.t() | atom(),
         optional("ExcludedMembers") => list(String.t() | atom()),
@@ -5715,6 +5914,7 @@ defmodule AWS.RDS do
         optional("CertificateRotationRestart") => boolean(),
         optional("CloudwatchLogsExportConfiguration") => cloudwatch_logs_export_configuration(),
         optional("CopyTagsToSnapshot") => boolean(),
+        optional("DBCapacityReservationIdentifier") => String.t() | atom(),
         optional("DBInstanceClass") => String.t() | atom(),
         optional("DBParameterGroupName") => String.t() | atom(),
         optional("DBPortNumber") => integer(),
@@ -6450,6 +6650,7 @@ defmodule AWS.RDS do
         "AutomationMode" => list(any()),
         "BackupRetentionPeriod" => integer(),
         "CACertificateIdentifier" => String.t() | atom(),
+        "DBCapacityReservationIdentifier" => String.t() | atom(),
         "DBInstanceClass" => String.t() | atom(),
         "DBInstanceIdentifier" => String.t() | atom(),
         "DBSubnetGroupName" => String.t() | atom(),
@@ -7236,6 +7437,7 @@ defmodule AWS.RDS do
         optional("CACertificateIdentifier") => String.t() | atom(),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("CustomIamInstanceProfile") => String.t() | atom(),
+        optional("DBCapacityReservationIdentifier") => String.t() | atom(),
         optional("DBClusterSnapshotIdentifier") => String.t() | atom(),
         optional("DBInstanceClass") => String.t() | atom(),
         optional("DBName") => String.t() | atom(),
@@ -7303,6 +7505,7 @@ defmodule AWS.RDS do
         optional("BackupRetentionPeriod") => integer(),
         optional("CACertificateIdentifier") => String.t() | atom(),
         optional("CopyTagsToSnapshot") => boolean(),
+        optional("DBCapacityReservationIdentifier") => String.t() | atom(),
         optional("DBName") => String.t() | atom(),
         optional("DBParameterGroupName") => String.t() | atom(),
         optional("DBSecurityGroups") => list(String.t() | atom()),
@@ -7380,6 +7583,7 @@ defmodule AWS.RDS do
         optional("CACertificateIdentifier") => String.t() | atom(),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("CustomIamInstanceProfile") => String.t() | atom(),
+        optional("DBCapacityReservationIdentifier") => String.t() | atom(),
         optional("DBInstanceClass") => String.t() | atom(),
         optional("DBName") => String.t() | atom(),
         optional("DBParameterGroupName") => String.t() | atom(),
@@ -7788,6 +7992,7 @@ defmodule AWS.RDS do
   ## Example:
       
       start_db_instance_message() :: %{
+        optional("DBCapacityReservationIdentifier") => String.t() | atom(),
         required("DBInstanceIdentifier") => String.t() | atom()
       }
       
@@ -7901,6 +8106,7 @@ defmodule AWS.RDS do
       
       stop_db_instance_message() :: %{
         optional("DBSnapshotIdentifier") => String.t() | atom(),
+        optional("DetachFromDBCapacityReservation") => boolean(),
         required("DBInstanceIdentifier") => String.t() | atom()
       }
       
@@ -8427,6 +8633,7 @@ defmodule AWS.RDS do
           | db_proxy_endpoint_not_found_fault()
           | db_instance_not_found_fault()
           | db_cluster_not_found_fault()
+          | db_capacity_reservation_not_found_fault()
           | blue_green_deployment_not_found_fault()
 
   @type apply_pending_maintenance_action_errors() ::
@@ -8442,6 +8649,10 @@ defmodule AWS.RDS do
 
   @type backtrack_db_cluster_errors() ::
           invalid_db_cluster_state_fault() | db_cluster_not_found_fault()
+
+  @type cancel_db_capacity_reservation_errors() ::
+          invalid_db_capacity_reservation_state_fault()
+          | db_capacity_reservation_not_found_fault()
 
   @type cancel_export_task_errors() ::
           invalid_export_task_state_fault() | export_task_not_found_fault()
@@ -8500,6 +8711,12 @@ defmodule AWS.RDS do
           | custom_db_engine_version_already_exists_fault()
           | create_custom_db_engine_version_fault()
 
+  @type create_db_capacity_reservation_errors() ::
+          insufficient_db_instance_capacity_fault()
+          | instance_quota_exceeded_fault()
+          | db_capacity_reservation_unsupported_fault()
+          | db_capacity_reservation_already_exists_fault()
+
   @type create_db_cluster_errors() ::
           vpc_encryption_control_violation_exception()
           | storage_type_not_supported_fault()
@@ -8557,6 +8774,7 @@ defmodule AWS.RDS do
           | invalid_vpc_network_state_fault()
           | invalid_subnet()
           | invalid_db_cluster_state_fault()
+          | invalid_db_capacity_reservation_state_fault()
           | insufficient_db_instance_capacity_fault()
           | instance_quota_exceeded_fault()
           | domain_not_found_fault()
@@ -8566,6 +8784,7 @@ defmodule AWS.RDS do
           | db_parameter_group_not_found_fault()
           | db_instance_already_exists_fault()
           | db_cluster_not_found_fault()
+          | db_capacity_reservation_not_found_fault()
           | certificate_not_found_fault()
           | backup_policy_not_found_fault()
           | authorization_not_found_fault()
@@ -8584,6 +8803,7 @@ defmodule AWS.RDS do
           | invalid_db_subnet_group_fault()
           | invalid_db_instance_state_fault()
           | invalid_db_cluster_state_fault()
+          | invalid_db_capacity_reservation_state_fault()
           | insufficient_db_instance_capacity_fault()
           | instance_quota_exceeded_fault()
           | domain_not_found_fault()
@@ -8595,6 +8815,7 @@ defmodule AWS.RDS do
           | db_instance_not_found_fault()
           | db_instance_already_exists_fault()
           | db_cluster_not_found_fault()
+          | db_capacity_reservation_not_found_fault()
           | certificate_not_found_fault()
 
   @type create_db_parameter_group_errors() ::
@@ -8771,6 +8992,8 @@ defmodule AWS.RDS do
 
   @type describe_certificates_errors() :: certificate_not_found_fault()
 
+  @type describe_db_capacity_reservations_errors() :: db_capacity_reservation_not_found_fault()
+
   @type describe_db_cluster_automated_backups_errors() ::
           db_cluster_automated_backup_not_found_fault()
 
@@ -8885,6 +9108,7 @@ defmodule AWS.RDS do
           | db_proxy_endpoint_not_found_fault()
           | db_instance_not_found_fault()
           | db_cluster_not_found_fault()
+          | db_capacity_reservation_not_found_fault()
           | blue_green_deployment_not_found_fault()
 
   @type modify_activity_stream_errors() ::
@@ -8902,6 +9126,12 @@ defmodule AWS.RDS do
   @type modify_custom_db_engine_version_errors() ::
           invalid_custom_db_engine_version_state_fault()
           | custom_db_engine_version_not_found_fault()
+
+  @type modify_db_capacity_reservation_errors() ::
+          invalid_db_capacity_reservation_state_fault()
+          | insufficient_db_instance_capacity_fault()
+          | instance_quota_exceeded_fault()
+          | db_capacity_reservation_not_found_fault()
 
   @type modify_db_cluster_errors() ::
           vpc_encryption_control_violation_exception()
@@ -8954,6 +9184,7 @@ defmodule AWS.RDS do
           | invalid_db_security_group_state_fault()
           | invalid_db_instance_state_fault()
           | invalid_db_cluster_state_fault()
+          | invalid_db_capacity_reservation_state_fault()
           | insufficient_db_instance_capacity_fault()
           | domain_not_found_fault()
           | db_upgrade_dependency_failure_fault()
@@ -8961,6 +9192,7 @@ defmodule AWS.RDS do
           | db_parameter_group_not_found_fault()
           | db_instance_not_found_fault()
           | db_instance_already_exists_fault()
+          | db_capacity_reservation_not_found_fault()
           | certificate_not_found_fault()
           | backup_policy_not_found_fault()
           | authorization_not_found_fault()
@@ -9105,6 +9337,7 @@ defmodule AWS.RDS do
           | db_proxy_endpoint_not_found_fault()
           | db_instance_not_found_fault()
           | db_cluster_not_found_fault()
+          | db_capacity_reservation_not_found_fault()
           | blue_green_deployment_not_found_fault()
 
   @type reset_db_cluster_parameter_group_errors() ::
@@ -9197,6 +9430,7 @@ defmodule AWS.RDS do
           | invalid_subnet()
           | invalid_restore_fault()
           | invalid_db_snapshot_state_fault()
+          | invalid_db_capacity_reservation_state_fault()
           | insufficient_db_instance_capacity_fault()
           | instance_quota_exceeded_fault()
           | domain_not_found_fault()
@@ -9207,6 +9441,7 @@ defmodule AWS.RDS do
           | db_parameter_group_not_found_fault()
           | db_instance_already_exists_fault()
           | db_cluster_snapshot_not_found_fault()
+          | db_capacity_reservation_not_found_fault()
           | certificate_not_found_fault()
           | backup_policy_not_found_fault()
           | authorization_not_found_fault()
@@ -9222,6 +9457,7 @@ defmodule AWS.RDS do
           | invalid_vpc_network_state_fault()
           | invalid_subnet()
           | invalid_s3_bucket_fault()
+          | invalid_db_capacity_reservation_state_fault()
           | insufficient_db_instance_capacity_fault()
           | instance_quota_exceeded_fault()
           | db_subnet_group_not_found_fault()
@@ -9229,6 +9465,7 @@ defmodule AWS.RDS do
           | db_security_group_not_found_fault()
           | db_parameter_group_not_found_fault()
           | db_instance_already_exists_fault()
+          | db_capacity_reservation_not_found_fault()
           | certificate_not_found_fault()
           | backup_policy_not_found_fault()
           | authorization_not_found_fault()
@@ -9247,6 +9484,7 @@ defmodule AWS.RDS do
           | invalid_subnet()
           | invalid_restore_fault()
           | invalid_db_instance_state_fault()
+          | invalid_db_capacity_reservation_state_fault()
           | insufficient_db_instance_capacity_fault()
           | instance_quota_exceeded_fault()
           | domain_not_found_fault()
@@ -9257,6 +9495,7 @@ defmodule AWS.RDS do
           | db_instance_not_found_fault()
           | db_instance_automated_backup_not_found_fault()
           | db_instance_already_exists_fault()
+          | db_capacity_reservation_not_found_fault()
           | certificate_not_found_fault()
           | backup_policy_not_found_fault()
           | authorization_not_found_fault()
@@ -9289,11 +9528,13 @@ defmodule AWS.RDS do
           | invalid_subnet()
           | invalid_db_instance_state_fault()
           | invalid_db_cluster_state_fault()
+          | invalid_db_capacity_reservation_state_fault()
           | insufficient_db_instance_capacity_fault()
           | db_subnet_group_not_found_fault()
           | db_subnet_group_does_not_cover_enough_a_zs()
           | db_instance_not_found_fault()
           | db_cluster_not_found_fault()
+          | db_capacity_reservation_not_found_fault()
           | authorization_not_found_fault()
 
   @type start_db_instance_automated_backups_replication_errors() ::
@@ -9333,6 +9574,7 @@ defmodule AWS.RDS do
           snapshot_quota_exceeded_fault()
           | invalid_db_instance_state_fault()
           | invalid_db_cluster_state_fault()
+          | invalid_db_capacity_reservation_state_fault()
           | db_snapshot_already_exists_fault()
           | db_instance_not_found_fault()
 
@@ -9524,6 +9766,43 @@ defmodule AWS.RDS do
       metadata()
 
     Request.request_post(client, meta, "BacktrackDBCluster", input, options)
+  end
+
+  @doc """
+  Cancels a DB capacity reservation.
+
+  Amazon RDS changes the state of the reservation to `cancelled` and stops
+  reporting available capacity for it. Amazon RDS then releases the reserved
+  capacity.
+
+  A DB instance that uses the reservation keeps running. It continues on
+  unreserved capacity, and Amazon RDS doesn't stop it or modify it. However,
+  Amazon RDS no longer reserves capacity for the DB instance. If Amazon RDS later
+  moves the DB instance to different hardware, for example during hardware
+  maintenance, that move can fail when the Amazon Web Services Region has
+  insufficient capacity for the DB instance class.
+
+  You can't cancel a reservation in the `active` state during a capacity
+  commitment. The response of `DescribeDBCapacityReservations` reports the end of
+  the commitment in `CommitmentInfo`.
+
+  Constraints:
+
+    * The reservation must be in the `active`, `assessing`, or `delayed`
+  state.
+
+    * The reservation must not be past its end date.
+  """
+  @spec cancel_db_capacity_reservation(map(), cancel_db_capacity_reservation_request(), list()) ::
+          {:ok, cancel_db_capacity_reservation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_db_capacity_reservation_errors()}
+  def cancel_db_capacity_reservation(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CancelDBCapacityReservation", input, options)
   end
 
   @doc """
@@ -9722,6 +10001,66 @@ defmodule AWS.RDS do
       metadata()
 
     Request.request_post(client, meta, "CreateCustomDBEngineVersion", input, options)
+  end
+
+  @doc """
+  Creates a DB capacity reservation.
+
+  A DB capacity reservation reserves compute and memory capacity for DB instances
+  of one DB instance class and one database engine. Amazon RDS reserves that
+  capacity in each Availability Zone that you specify.
+
+  Amazon RDS reserves the same amount of capacity in every Availability Zone in
+  the request. You set that amount with `CapacityPerAvailabilityZone`, and you set
+  the Availability Zones with `AvailabilityZones`. The total reserved capacity is
+  `CapacityPerAvailabilityZone` multiplied by the number of Availability Zones.
+
+  Specify `StartDate` and `CommitmentDuration` together to create a future-dated
+  reservation. A future-dated reservation reserves capacity for a period that
+  starts later. Amazon RDS holds that capacity for the length of the commitment.
+
+  A future-dated reservation has the following additional constraints:
+
+    * `DBInstanceClass` must be a `db.c`, `db.m`, `db.r`, `db.t`, or
+  `db.x` DB instance class. The letter after `db.` gives the DB instance class
+  family. For example, `db.x2g.xlarge` qualifies, and `db.z1d.xlarge` doesn't.
+
+    * If `DBInstanceClass` is a `db.m` or `db.r` DB instance class, it
+  must be from generation 7 or later. The digit after the family letter gives the
+  generation. For example, `db.m7g.xlarge` qualifies, and `db.m5.xlarge` doesn't.
+  A `db.c`, `db.t`, or `db.x` DB instance class has no generation requirement.
+
+    * The reserved capacity must total at least 32 vCPUs in each
+  Availability Zone. Multiply `CapacityPerAvailabilityZone` by the number of vCPUs
+  of the DB instance class. The product must be 32 or more.
+
+    * `CommitmentDuration` must be at least 14 days. For a `db.x` DB
+  instance class, it must be at least 84 days.
+
+    * `StartDate` must be from 5 to 120 days in the future.
+
+  Therefore, a DB instance class with 2 vCPUs needs a
+  `CapacityPerAvailabilityZone` of 16 or more, a class with 4 vCPUs needs 8 or
+  more, a class with 8 vCPUs needs 4 or more, and a class with 16 vCPUs needs 2 or
+  more. For the number of vCPUs of each DB instance class, see [DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
+  in the *Amazon RDS User Guide*.
+
+  You can't modify a future-dated reservation before it starts. You can't cancel a
+  future-dated reservation in the `scheduled` state. You can't cancel a
+  reservation in the `active` state during its capacity commitment. Therefore, you
+  can't cancel a future-dated reservation from the time that Amazon RDS schedules
+  it until the commitment ends.
+  """
+  @spec create_db_capacity_reservation(map(), create_db_capacity_reservation_request(), list()) ::
+          {:ok, create_db_capacity_reservation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_db_capacity_reservation_errors()}
+  def create_db_capacity_reservation(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateDBCapacityReservation", input, options)
   end
 
   @doc """
@@ -10717,6 +11056,34 @@ defmodule AWS.RDS do
       metadata()
 
     Request.request_post(client, meta, "DescribeCertificates", input, options)
+  end
+
+  @doc """
+  Describes one or more DB capacity reservations.
+
+  A DB capacity reservation reserves capacity for Amazon RDS DB instances in one
+  or more Availability Zones.
+
+  If you don't specify a `DBCapacityReservationIdentifier`, this operation returns
+  information about all DB capacity reservations for your Amazon Web Services
+  account.
+
+  This operation supports pagination.
+  """
+  @spec describe_db_capacity_reservations(
+          map(),
+          describe_db_capacity_reservations_request(),
+          list()
+        ) ::
+          {:ok, describe_db_capacity_reservations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_db_capacity_reservations_errors()}
+  def describe_db_capacity_reservations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeDBCapacityReservations", input, options)
   end
 
   @doc """
@@ -11928,6 +12295,33 @@ defmodule AWS.RDS do
       metadata()
 
     Request.request_post(client, meta, "ModifyCustomDBEngineVersion", input, options)
+  end
+
+  @doc """
+  Modifies a DB capacity reservation.
+
+  You can change the reserved capacity in each Availability Zone of the
+  reservation, and you can change the end date of the reservation. You can't
+  change the Availability Zones of an existing reservation.
+
+  The reservation must be in the `active` state. A future-dated reservation that
+  hasn't started isn't modifiable, and neither is a reservation that Amazon RDS is
+  already modifying.
+
+  You must specify `CapacityPerAvailabilityZone`, `EndDateType`, or `EndDate`. A
+  request that specifies none of the three changes nothing, and Amazon RDS rejects
+  it.
+  """
+  @spec modify_db_capacity_reservation(map(), modify_db_capacity_reservation_request(), list()) ::
+          {:ok, modify_db_capacity_reservation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, modify_db_capacity_reservation_errors()}
+  def modify_db_capacity_reservation(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ModifyDBCapacityReservation", input, options)
   end
 
   @doc """

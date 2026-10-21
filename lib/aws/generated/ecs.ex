@@ -81,6 +81,31 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      associate_gateway_with_cluster_request() :: %{
+        required("cluster") => String.t() | atom(),
+        required("gateway") => String.t() | atom()
+      }
+      
+  """
+  @type associate_gateway_with_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_gateway_with_cluster_response() :: %{
+        "clusterArn" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type associate_gateway_with_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       attachment() :: %{
         "details" => list(key_value_pair()),
         "id" => String.t() | atom(),
@@ -754,6 +779,36 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      create_gateway_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("deletionProtection") => boolean(),
+        optional("propagateTags") => list(any()),
+        optional("tags") => list(tag()),
+        required("configuration") => list(),
+        required("infrastructureRoleArn") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type create_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_gateway_response() :: %{
+        "gatewayArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type create_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_managed_instances_provider_configuration() :: %{
         "autoRepairConfiguration" => auto_repair_configuration(),
         "infrastructureOptimization" => infrastructure_optimization(),
@@ -779,6 +834,7 @@ defmodule AWS.ECS do
         optional("desiredCount") => integer(),
         optional("enableECSManagedTags") => boolean(),
         optional("enableExecuteCommand") => boolean(),
+        optional("gatewayConnectors") => list(gateway_connector()),
         optional("healthCheckGracePeriodSeconds") => integer(),
         optional("launchType") => list(any()),
         optional("loadBalancers") => list(load_balancer()),
@@ -1380,6 +1436,30 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      delete_gateway_request() :: %{
+        required("gateway") => String.t() | atom()
+      }
+      
+  """
+  @type delete_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_gateway_response() :: %{
+        "gatewayArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type delete_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_service_request() :: %{
         optional("cluster") => String.t() | atom(),
         optional("force") => boolean(),
@@ -1845,6 +1925,95 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      describe_gateway_alb_configuration() :: %{
+        "accessLogs" => gateway_elb_access_log_configuration(),
+        "currentAlbCount" => integer(),
+        "httpDesync" => list(any()),
+        "maxAlbCount" => integer(),
+        "networkConfiguration" => gateway_elb_network_configuration(),
+        "port" => integer(),
+        "protocol" => list(any()),
+        "scheme" => list(any()),
+        "testTrafficRules" => gateway_alb_test_traffic_rules(),
+        "webACLArn" => String.t() | atom()
+      }
+      
+  """
+  @type describe_gateway_alb_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_gateway_request() :: %{
+        required("gateway") => String.t() | atom()
+      }
+      
+  """
+  @type describe_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_gateway_resources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("gateway") => String.t() | atom()
+      }
+      
+  """
+  @type describe_gateway_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_gateway_resources_response() :: %{
+        "gatewayResources" => gateway_resources(),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_gateway_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_gateway_response() :: %{
+        "gateway" => gateway()
+      }
+      
+  """
+  @type describe_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_gateway_route_request() :: %{
+        required("gatewayRouteArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_gateway_route_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_gateway_route_response() :: %{
+        "gatewayRoute" => gateway_route()
+      }
+      
+  """
+  @type describe_gateway_route_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_service_deployments_request() :: %{
         required("serviceDeploymentArns") => list(String.t() | atom())
       }
@@ -2004,6 +2173,31 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      disassociate_gateway_from_cluster_request() :: %{
+        required("cluster") => String.t() | atom(),
+        required("gateway") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_gateway_from_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_gateway_from_cluster_response() :: %{
+        "clusterArn" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type disassociate_gateway_from_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       discover_poll_endpoint_request() :: %{
         optional("cluster") => String.t() | atom(),
         optional("containerInstance") => String.t() | atom()
@@ -2066,6 +2260,7 @@ defmodule AWS.ECS do
       
       e_c_s_managed_resources() :: %{
         "autoScaling" => managed_auto_scaling(),
+        "gatewayConnections" => list(gateway_connection()),
         "ingressPaths" => list(managed_ingress_path()),
         "logGroups" => list(managed_log_group()),
         "metricAlarms" => list(managed_metric_alarm()),
@@ -2114,6 +2309,20 @@ defmodule AWS.ECS do
       
   """
   @type ebs_tag_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      elb_gateway_resources() :: %{
+        "gatewayRouteArns" => list(String.t() | atom()),
+        "listenerArn" => String.t() | atom(),
+        "loadBalancerArn" => String.t() | atom(),
+        "securityGroup" => String.t() | atom()
+      }
+      
+  """
+  @type elb_gateway_resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2352,6 +2561,313 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      gateway() :: %{
+        "accessType" => list(any()),
+        "configuration" => list(),
+        "createdAt" => non_neg_integer(),
+        "deletionProtection" => boolean(),
+        "failures" => list(gateway_resource_failure()),
+        "gatewayArn" => String.t() | atom(),
+        "infrastructureRoleArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "propagateTags" => list(any()),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "tags" => list(tag()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type gateway() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_alb_test_traffic_rules() :: %{
+        "header" => gateway_test_traffic_header()
+      }
+      
+  """
+  @type gateway_alb_test_traffic_rules() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_cluster_association_summary() :: %{
+        "clusterArn" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type gateway_cluster_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_connection() :: %{
+        "accessType" => list(any()),
+        "gatewayArn" => String.t() | atom(),
+        "gatewayRouteArn" => String.t() | atom(),
+        "portName" => String.t() | atom(),
+        "resources" => list(),
+        "serviceUrl" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type gateway_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_connection_alb_resources() :: %{
+        "acmCertificateArn" => String.t() | atom(),
+        "alternateTargetGroupArn" => String.t() | atom(),
+        "listenerArn" => String.t() | atom(),
+        "listenerRuleArn" => String.t() | atom(),
+        "loadBalancerArn" => String.t() | atom(),
+        "loadBalancerSecurityGroupArns" => list(String.t() | atom()),
+        "targetGroupArn" => String.t() | atom(),
+        "testListenerRuleArn" => String.t() | atom()
+      }
+      
+  """
+  @type gateway_connection_alb_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_connector() :: %{
+        "filters" => gateway_connector_filters(),
+        "healthCheck" => gateway_connector_health_check(),
+        "portName" => String.t() | atom()
+      }
+      
+  """
+  @type gateway_connector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_connector_filters() :: %{
+        "accessTypes" => list(list(any())())
+      }
+      
+  """
+  @type gateway_connector_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_connector_health_check() :: %{
+        "healthCheckIntervalSeconds" => integer(),
+        "healthCheckPath" => String.t() | atom(),
+        "healthCheckPort" => integer(),
+        "healthCheckProtocol" => list(any()),
+        "healthCheckTimeoutSeconds" => integer(),
+        "healthyThresholdCount" => integer(),
+        "matcher" => gateway_connector_health_check_matcher(),
+        "unhealthyThresholdCount" => integer()
+      }
+      
+  """
+  @type gateway_connector_health_check() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_connector_health_check_matcher() :: %{
+        "grpcCode" => String.t() | atom(),
+        "httpCode" => String.t() | atom()
+      }
+      
+  """
+  @type gateway_connector_health_check_matcher() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_elb_access_log_configuration() :: %{
+        "destination" => list()
+      }
+      
+  """
+  @type gateway_elb_access_log_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_elb_access_log_s3_destination() :: %{
+        "bucket" => String.t() | atom(),
+        "prefix" => String.t() | atom()
+      }
+      
+  """
+  @type gateway_elb_access_log_s3_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_elb_network_configuration() :: %{
+        "inboundSecurityGroup" => String.t() | atom(),
+        "ipAddressType" => list(any()),
+        "subnets" => list(String.t() | atom())
+      }
+      
+  """
+  @type gateway_elb_network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type gateway_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_operation_error() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "operation" => String.t() | atom()
+      }
+      
+  """
+  @type gateway_operation_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_resource_failure() :: %{
+        "arn" => String.t() | atom(),
+        "errors" => list(gateway_operation_error())
+      }
+      
+  """
+  @type gateway_resource_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_resources() :: %{
+        "gatewayArn" => String.t() | atom(),
+        "resources" => list()
+      }
+      
+  """
+  @type gateway_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_route() :: %{
+        "gatewayRouteArn" => String.t() | atom(),
+        "resources" => list(),
+        "serviceArn" => String.t() | atom(),
+        "serviceContainerPortName" => String.t() | atom(),
+        "serviceUrl" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type gateway_route() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_route_alb_resources() :: %{
+        "acmCertificateArn" => String.t() | atom(),
+        "listenerArn" => String.t() | atom(),
+        "listenerRuleArn" => String.t() | atom(),
+        "loadBalancerArn" => String.t() | atom(),
+        "loadBalancerSecurityGroups" => list(gateway_route_load_balancer_security_group()),
+        "serviceSecurityGroupArn" => String.t() | atom(),
+        "testListenerRuleArns" => list(String.t() | atom())
+      }
+      
+  """
+  @type gateway_route_alb_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_route_load_balancer_security_group() :: %{
+        "arn" => String.t() | atom(),
+        "ruleArns" => list(String.t() | atom())
+      }
+      
+  """
+  @type gateway_route_load_balancer_security_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_route_summary() :: %{
+        "clusterArn" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "gatewayRouteArn" => String.t() | atom(),
+        "serviceArn" => String.t() | atom(),
+        "serviceContainerPortName" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type gateway_route_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "gatewayArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type gateway_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_test_traffic_header() :: %{
+        "name" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type gateway_test_traffic_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_task_protection_request() :: %{
         optional("tasks") => list(String.t() | atom()),
         required("cluster") => String.t() | atom()
@@ -2398,6 +2914,25 @@ defmodule AWS.ECS do
       
   """
   @type host_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      host_shared_alb_configuration() :: %{
+        "accessLogs" => gateway_elb_access_log_configuration(),
+        "httpDesync" => list(any()),
+        "maxAlbCount" => integer(),
+        "networkConfiguration" => gateway_elb_network_configuration(),
+        "port" => integer(),
+        "protocol" => list(any()),
+        "scheme" => list(any()),
+        "testTrafficRules" => gateway_alb_test_traffic_rules(),
+        "webACLArn" => String.t() | atom()
+      }
+      
+  """
+  @type host_shared_alb_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2807,6 +3342,88 @@ defmodule AWS.ECS do
       
   """
   @type list_daemons_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_gateway_cluster_associations_request() :: %{
+        optional("cluster") => String.t() | atom(),
+        optional("gateway") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(list(any())())
+      }
+      
+  """
+  @type list_gateway_cluster_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_gateway_cluster_associations_response() :: %{
+        "gatewayClusterAssociations" => list(gateway_cluster_association_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_gateway_cluster_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_gateway_routes_request() :: %{
+        optional("cluster") => String.t() | atom(),
+        optional("gateway") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("service") => String.t() | atom(),
+        optional("serviceContainerPortName") => String.t() | atom(),
+        optional("status") => list(list(any())())
+      }
+      
+  """
+  @type list_gateway_routes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_gateway_routes_response() :: %{
+        "gatewayRoutes" => list(gateway_route_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_gateway_routes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_gateways_request() :: %{
+        optional("maxResults") => integer(),
+        optional("names") => list(String.t() | atom()),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(list(any())())
+      }
+      
+  """
+  @type list_gateways_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_gateways_response() :: %{
+        "gateways" => list(gateway_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_gateways_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4313,6 +4930,7 @@ defmodule AWS.ECS do
         "createdAt" => non_neg_integer(),
         "ecsManagedResources" => e_c_s_managed_resources(),
         "fargateEphemeralStorage" => deployment_ephemeral_storage(),
+        "gatewayConnectors" => list(gateway_connector()),
         "guardDutyEnabled" => boolean(),
         "launchType" => list(any()),
         "loadBalancers" => list(load_balancer()),
@@ -5155,6 +5773,61 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      update_gateway_alb_configuration() :: %{
+        "accessLogs" => gateway_elb_access_log_configuration(),
+        "httpDesync" => list(any()),
+        "maxAlbCount" => integer(),
+        "networkConfiguration" => update_gateway_network_configuration(),
+        "testTrafficRules" => gateway_alb_test_traffic_rules(),
+        "webACLArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_gateway_alb_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_gateway_network_configuration() :: %{
+        "inboundSecurityGroup" => String.t() | atom()
+      }
+      
+  """
+  @type update_gateway_network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_gateway_request() :: %{
+        optional("configuration") => list(),
+        optional("deletionProtection") => boolean(),
+        optional("infrastructureRoleArn") => String.t() | atom(),
+        optional("propagateTags") => list(any()),
+        required("gateway") => String.t() | atom()
+      }
+      
+  """
+  @type update_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_gateway_response() :: %{
+        "gatewayArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type update_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_in_progress_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -5215,6 +5888,7 @@ defmodule AWS.ECS do
         optional("enableECSManagedTags") => boolean(),
         optional("enableExecuteCommand") => boolean(),
         optional("forceNewDeployment") => boolean(),
+        optional("gatewayConnectors") => list(gateway_connector()),
         optional("healthCheckGracePeriodSeconds") => integer(),
         optional("loadBalancers") => list(load_balancer()),
         optional("monitoring") => monitoring_configuration(),
@@ -5394,6 +6068,15 @@ defmodule AWS.ECS do
   """
   @type vpc_lattice_configuration() :: %{(String.t() | atom()) => any()}
 
+  @type associate_gateway_with_cluster_errors() ::
+          unsupported_feature_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | gateway_not_found_exception()
+          | cluster_not_found_exception()
+          | client_exception()
+          | access_denied_exception()
+
   @type continue_service_deployment_errors() ::
           unsupported_feature_exception()
           | service_deployment_not_found_exception()
@@ -5435,6 +6118,13 @@ defmodule AWS.ECS do
           | platform_task_definition_incompatibility_exception()
           | invalid_parameter_exception()
           | cluster_not_found_exception()
+          | client_exception()
+          | access_denied_exception()
+
+  @type create_gateway_errors() ::
+          unsupported_feature_exception()
+          | server_exception()
+          | invalid_parameter_exception()
           | client_exception()
           | access_denied_exception()
 
@@ -5521,6 +6211,14 @@ defmodule AWS.ECS do
           | server_exception()
           | invalid_parameter_exception()
           | cluster_not_found_exception()
+          | client_exception()
+          | access_denied_exception()
+
+  @type delete_gateway_errors() ::
+          unsupported_feature_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | gateway_not_found_exception()
           | client_exception()
           | access_denied_exception()
 
@@ -5624,6 +6322,30 @@ defmodule AWS.ECS do
           | client_exception()
           | access_denied_exception()
 
+  @type describe_gateway_errors() ::
+          unsupported_feature_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | gateway_not_found_exception()
+          | client_exception()
+          | access_denied_exception()
+
+  @type describe_gateway_resources_errors() ::
+          unsupported_feature_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | gateway_not_found_exception()
+          | client_exception()
+          | access_denied_exception()
+
+  @type describe_gateway_route_errors() ::
+          unsupported_feature_exception()
+          | server_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
+          | client_exception()
+          | access_denied_exception()
+
   @type describe_service_deployments_errors() ::
           unsupported_feature_exception()
           | service_not_found_exception()
@@ -5668,6 +6390,16 @@ defmodule AWS.ECS do
   @type describe_tasks_errors() ::
           server_exception()
           | invalid_parameter_exception()
+          | cluster_not_found_exception()
+          | client_exception()
+          | access_denied_exception()
+
+  @type disassociate_gateway_from_cluster_errors() ::
+          unsupported_feature_exception()
+          | server_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_exception()
+          | gateway_not_found_exception()
           | cluster_not_found_exception()
           | client_exception()
           | access_denied_exception()
@@ -5740,6 +6472,28 @@ defmodule AWS.ECS do
           | server_exception()
           | invalid_parameter_exception()
           | cluster_not_found_exception()
+          | client_exception()
+          | access_denied_exception()
+
+  @type list_gateway_cluster_associations_errors() ::
+          unsupported_feature_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | client_exception()
+          | access_denied_exception()
+
+  @type list_gateway_routes_errors() ::
+          unsupported_feature_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | gateway_not_found_exception()
+          | client_exception()
+          | access_denied_exception()
+
+  @type list_gateways_errors() ::
+          unsupported_feature_exception()
+          | server_exception()
+          | invalid_parameter_exception()
           | client_exception()
           | access_denied_exception()
 
@@ -5981,6 +6735,14 @@ defmodule AWS.ECS do
           | client_exception()
           | access_denied_exception()
 
+  @type update_gateway_errors() ::
+          unsupported_feature_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | gateway_not_found_exception()
+          | client_exception()
+          | access_denied_exception()
+
   @type update_service_errors() ::
           unsupported_feature_exception()
           | service_not_found_exception()
@@ -6040,6 +6802,26 @@ defmodule AWS.ECS do
       signing_name: "ecs",
       target_prefix: "AmazonEC2ContainerServiceV20141113"
     }
+  end
+
+  @doc """
+  Associates a gateway with an Amazon ECS cluster.
+
+  After a cluster is associated with a gateway, services in that cluster can use
+  the gateway for ingress. No changes take effect until you update a service in
+  the cluster to use the gateway. A single cluster can be associated with up to 5
+  gateways.
+  """
+  @spec associate_gateway_with_cluster(map(), associate_gateway_with_cluster_request(), list()) ::
+          {:ok, associate_gateway_with_cluster_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_gateway_with_cluster_errors()}
+  def associate_gateway_with_cluster(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AssociateGatewayWithCluster", input, options)
   end
 
   @doc """
@@ -6171,6 +6953,31 @@ defmodule AWS.ECS do
       metadata()
 
     Request.request_post(client, meta, "CreateExpressGatewayService", input, options)
+  end
+
+  @doc """
+  Creates a gateway.
+
+  A gateway defines and dynamically manages ingress paths for your Amazon ECS
+  services, handling traffic routing and infrastructure across multiple services
+  while optimizing infrastructure usage. `CreateGateway` is a synchronous
+  operation and the gateway is returned with a status of `ACTIVE`. The load
+  balancers and other infrastructure that a gateway manages aren't created until a
+  service in an associated cluster begins using the gateway.
+
+  To use this operation, you must have the `iam:PassRole` permission for the
+  infrastructure role that you specify in `infrastructureRoleArn`.
+  """
+  @spec create_gateway(map(), create_gateway_request(), list()) ::
+          {:ok, create_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_gateway_errors()}
+  def create_gateway(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateGateway", input, options)
   end
 
   @doc """
@@ -6562,6 +7369,27 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Deletes a gateway.
+
+  Before you can delete a gateway, deletion protection must be disabled and the
+  gateway must not have any cluster associations that are in the `ACTIVE` or
+  `DISASSOCIATING` state. If associations exist, the operation fails; disassociate
+  all clusters first. `DeleteGateway` is a synchronous operation. After you delete
+  a gateway, subsequent requests for it return a `GatewayNotFoundException`.
+  """
+  @spec delete_gateway(map(), delete_gateway_request(), list()) ::
+          {:ok, delete_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_gateway_errors()}
+  def delete_gateway(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteGateway", input, options)
+  end
+
+  @doc """
   Deletes a specified service within a cluster.
 
   You can delete a service if you have no running tasks in it and the desired task
@@ -6873,6 +7701,61 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Describes a gateway, including its configuration, status, and the type-specific
+  infrastructure settings that it uses.
+  """
+  @spec describe_gateway(map(), describe_gateway_request(), list()) ::
+          {:ok, describe_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_gateway_errors()}
+  def describe_gateway(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeGateway", input, options)
+  end
+
+  @doc """
+  Returns the infrastructure that a gateway has created and manages, so that you
+  can follow the traffic path from top-level shared resources, such as load
+  balancers, to the service-specific resources represented as gateway routes.
+
+  Responses include only the Amazon Resource Names (ARNs) of gateway-managed
+  infrastructure. For the current state of a resource, describe it with the
+  corresponding Amazon Web Services service (Elastic Load Balancing, Amazon EC2,
+  or Amazon Web Services Certificate Manager). The results are paginated.
+  """
+  @spec describe_gateway_resources(map(), describe_gateway_resources_request(), list()) ::
+          {:ok, describe_gateway_resources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_gateway_resources_errors()}
+  def describe_gateway_resources(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeGatewayResources", input, options)
+  end
+
+  @doc """
+  Describes a gateway route, including its status, the service it routes traffic
+  to, and the service-specific infrastructure, such as target groups and listener
+  rules, that the gateway manages for it.
+  """
+  @spec describe_gateway_route(map(), describe_gateway_route_request(), list()) ::
+          {:ok, describe_gateway_route_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_gateway_route_errors()}
+  def describe_gateway_route(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeGatewayRoute", input, options)
+  end
+
+  @doc """
   Describes one or more of your service deployments.
 
   A service deployment happens when you release a software update for the service.
@@ -6987,6 +7870,31 @@ defmodule AWS.ECS do
       metadata()
 
     Request.request_post(client, meta, "DescribeTasks", input, options)
+  end
+
+  @doc """
+  Removes the association between a gateway and an Amazon ECS cluster.
+
+  The association remains in the `DISASSOCIATING` state until you remove all of
+  the gateway routes for the cluster by updating the associated services. You can
+  use `ListGatewayRoutes` with a cluster filter to determine which routes are
+  preventing disassociation. No infrastructure changes are made until the affected
+  services are updated.
+  """
+  @spec disassociate_gateway_from_cluster(
+          map(),
+          disassociate_gateway_from_cluster_request(),
+          list()
+        ) ::
+          {:ok, disassociate_gateway_from_cluster_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_gateway_from_cluster_errors()}
+  def disassociate_gateway_from_cluster(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DisassociateGatewayFromCluster", input, options)
   end
 
   @doc """
@@ -7169,6 +8077,69 @@ defmodule AWS.ECS do
       metadata()
 
     Request.request_post(client, meta, "ListDaemons", input, options)
+  end
+
+  @doc """
+  Returns a list of the associations between gateways and clusters.
+
+  You can filter the results by gateway, cluster, and status. The results are
+  paginated. We recommend that you use pagination to ensure that the operation
+  returns quickly and successfully.
+  """
+  @spec list_gateway_cluster_associations(
+          map(),
+          list_gateway_cluster_associations_request(),
+          list()
+        ) ::
+          {:ok, list_gateway_cluster_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_gateway_cluster_associations_errors()}
+  def list_gateway_cluster_associations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListGatewayClusterAssociations", input, options)
+  end
+
+  @doc """
+  Returns a list of gateway routes.
+
+  A gateway route represents the association between a service and a gateway and
+  the service-specific infrastructure the gateway manages for it. You can filter
+  the results by gateway, cluster, service, container port name, and status. The
+  results are paginated. We recommend that you use pagination to ensure that the
+  operation returns quickly and successfully.
+  """
+  @spec list_gateway_routes(map(), list_gateway_routes_request(), list()) ::
+          {:ok, list_gateway_routes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_gateway_routes_errors()}
+  def list_gateway_routes(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListGatewayRoutes", input, options)
+  end
+
+  @doc """
+  Returns a list of gateways in your account.
+
+  You can filter the results by gateway name and status. The results are
+  paginated. We recommend that you use pagination to ensure that the operation
+  returns quickly and successfully.
+  """
+  @spec list_gateways(map(), list_gateways_request(), list()) ::
+          {:ok, list_gateways_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_gateways_errors()}
+  def list_gateways(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListGateways", input, options)
   end
 
   @doc """
@@ -7940,6 +8911,35 @@ defmodule AWS.ECS do
       metadata()
 
     Request.request_post(client, meta, "UpdateExpressGatewayService", input, options)
+  end
+
+  @doc """
+  Modifies the configuration of a gateway.
+
+  You can change only the properties that can be applied without interrupting
+  traffic, and the configuration variant that you provide must match the gateway's
+  type. `UpdateGateway` is an asynchronous operation: the changes are applied to
+  each load balancer the gateway manages, and the gateway reports a status of
+  `UPDATE_IN_PROGRESS` until the update completes. If Amazon ECS can't update one
+  or more resources, it makes a best effort to update the rest and the gateway
+  status changes to `UPDATE_FAILED`. Use `DescribeGateway` to inspect the
+  gateway's `statusReason` and failures list, which gives the ARN of each load
+  balancer that was not updated and the operation, error code, and message for
+  each failure.
+
+  If you specify `infrastructureRoleArn`, you must have the `iam:PassRole`
+  permission for that role.
+  """
+  @spec update_gateway(map(), update_gateway_request(), list()) ::
+          {:ok, update_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_gateway_errors()}
+  def update_gateway(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateGateway", input, options)
   end
 
   @doc """

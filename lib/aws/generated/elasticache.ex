@@ -631,7 +631,8 @@ defmodule AWS.ElastiCache do
       
       complete_migration_message() :: %{
         optional("Force") => boolean(),
-        required("ReplicationGroupId") => String.t() | atom()
+        optional("ReplicationGroupId") => String.t() | atom(),
+        optional("ServerlessCacheName") => String.t() | atom()
       }
       
   """
@@ -642,7 +643,8 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       complete_migration_response() :: %{
-        "ReplicationGroup" => replication_group()
+        "ReplicationGroup" => replication_group(),
+        "ServerlessCache" => serverless_cache()
       }
       
   """
@@ -2292,6 +2294,30 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
+      migration_health_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type migration_health_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      migration_summary() :: %{
+        "CutoverMode" => String.t() | atom(),
+        "MigrationEndpoint" => endpoint(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type migration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_cache_cluster_message() :: %{
         optional("AZMode") => list(any()),
         optional("ApplyImmediately") => boolean(),
@@ -2774,6 +2800,31 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
+      prepare_migration_request() :: %{
+        optional("SourceAuthenticationConfiguration") => source_authentication_configuration(),
+        optional("SourceTlsConfiguration") => source_tls_configuration(),
+        required("CustomerNodeEndpointList") => list(customer_node_endpoint()),
+        required("ServerlessCacheName") => String.t() | atom()
+      }
+      
+  """
+  @type prepare_migration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      prepare_migration_response() :: %{
+        "ServerlessCache" => serverless_cache()
+      }
+      
+  """
+  @type prepare_migration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       processed_update_action() :: %{
         "CacheClusterId" => String.t() | atom(),
         "ReplicationGroupId" => String.t() | atom(),
@@ -3197,6 +3248,17 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
+      secret_manager_auth_config() :: %{
+        "SecretArn" => String.t() | atom()
+      }
+      
+  """
+  @type secret_manager_auth_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       security_group_membership() :: %{
         "SecurityGroupId" => String.t() | atom(),
         "Status" => String.t() | atom()
@@ -3221,6 +3283,7 @@ defmodule AWS.ElastiCache do
         "FullEngineVersion" => String.t() | atom(),
         "KmsKeyId" => String.t() | atom(),
         "MajorEngineVersion" => String.t() | atom(),
+        "Migration" => migration_summary(),
         "NetworkType" => list(any()),
         "ReaderEndpoint" => endpoint(),
         "SecurityGroupIds" => list(String.t() | atom()),
@@ -3250,6 +3313,17 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
+      serverless_cache_already_under_migration_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_cache_already_under_migration_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       serverless_cache_configuration() :: %{
         "Engine" => String.t() | atom(),
         "MajorEngineVersion" => String.t() | atom(),
@@ -3269,6 +3343,17 @@ defmodule AWS.ElastiCache do
       
   """
   @type serverless_cache_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_cache_not_under_migration_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_cache_not_under_migration_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3487,9 +3572,35 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
+      source_authentication_configuration() :: %{
+        "SecretManagerConfig" => secret_manager_auth_config()
+      }
+      
+  """
+  @type source_authentication_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_tls_configuration() :: %{
+        "SourceTlsCertificate" => String.t() | atom(),
+        "SourceTlsMode" => list(any())
+      }
+      
+  """
+  @type source_tls_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_migration_message() :: %{
-        required("CustomerNodeEndpointList") => list(customer_node_endpoint()),
-        required("ReplicationGroupId") => String.t() | atom()
+        optional("AutoCutover") => boolean(),
+        optional("ClearTargetCacheData") => boolean(),
+        optional("CustomerNodeEndpointList") => list(customer_node_endpoint()),
+        optional("ReplicationGroupId") => String.t() | atom(),
+        optional("ServerlessCacheName") => String.t() | atom()
       }
       
   """
@@ -3500,11 +3611,34 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       start_migration_response() :: %{
-        "ReplicationGroup" => replication_group()
+        "ReplicationGroup" => replication_group(),
+        "ServerlessCache" => serverless_cache()
       }
       
   """
   @type start_migration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_migration_request() :: %{
+        required("ServerlessCacheName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_migration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_migration_response() :: %{
+        "ServerlessCache" => serverless_cache()
+      }
+      
+  """
+  @type stop_migration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3895,9 +4029,16 @@ defmodule AWS.ElastiCache do
           service_update_not_found_fault() | invalid_parameter_value_exception()
 
   @type complete_migration_errors() ::
-          replication_group_not_under_migration_fault()
+          serverless_cache_not_under_migration_fault()
+          | serverless_cache_not_found_fault()
+          | replication_group_not_under_migration_fault()
           | replication_group_not_found_fault()
+          | migration_health_fault()
+          | invalid_serverless_cache_state_fault()
           | invalid_replication_group_state_fault()
+          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | invalid_cache_cluster_state_fault()
 
   @type copy_serverless_cache_snapshot_errors() ::
           tag_quota_per_resource_exceeded()
@@ -4366,6 +4507,12 @@ defmodule AWS.ElastiCache do
           | duplicate_user_name_fault()
           | default_user_required()
 
+  @type prepare_migration_errors() ::
+          serverless_cache_not_found_fault()
+          | serverless_cache_already_under_migration_fault()
+          | invalid_serverless_cache_state_fault()
+          | invalid_parameter_value_exception()
+
   @type purchase_reserved_cache_nodes_offering_errors() ::
           tag_quota_per_resource_exceeded()
           | reserved_cache_nodes_offering_not_found_fault()
@@ -4417,9 +4564,21 @@ defmodule AWS.ElastiCache do
           | authorization_not_found_fault()
 
   @type start_migration_errors() ::
-          replication_group_not_found_fault()
+          serverless_cache_not_under_migration_fault()
+          | serverless_cache_not_found_fault()
+          | replication_group_not_found_fault()
           | replication_group_already_under_migration_fault()
+          | migration_health_fault()
+          | invalid_serverless_cache_state_fault()
           | invalid_replication_group_state_fault()
+          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | invalid_cache_cluster_state_fault()
+
+  @type stop_migration_errors() ::
+          serverless_cache_not_under_migration_fault()
+          | serverless_cache_not_found_fault()
+          | invalid_serverless_cache_state_fault()
           | invalid_parameter_value_exception()
 
   @type test_failover_errors() ::
@@ -4438,6 +4597,8 @@ defmodule AWS.ElastiCache do
           | replication_group_already_under_migration_fault()
           | invalid_replication_group_state_fault()
           | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | invalid_cache_cluster_state_fault()
 
   def metadata do
     %{
@@ -4557,7 +4718,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Complete the migration of data.
+  Completes the migration of data.
   """
   @spec complete_migration(map(), complete_migration_message(), list()) ::
           {:ok, complete_migration_response(), any()}
@@ -6026,6 +6187,22 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
+  Prepares the serverless cache for data migration by validating the configuration
+  and setting up the migration resources.
+  """
+  @spec prepare_migration(map(), prepare_migration_request(), list()) ::
+          {:ok, prepare_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, prepare_migration_errors()}
+  def prepare_migration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PrepareMigration", input, options)
+  end
+
+  @doc """
   Allows you to purchase a reserved cache node offering.
 
   Reserved nodes are not eligible
@@ -6173,7 +6350,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Start the migration of data.
+  Starts the migration of data.
   """
   @spec start_migration(map(), start_migration_message(), list()) ::
           {:ok, start_migration_response(), any()}
@@ -6185,6 +6362,27 @@ defmodule AWS.ElastiCache do
       metadata()
 
     Request.request_post(client, meta, "StartMigration", input, options)
+  end
+
+  @doc """
+  Stops an ongoing data sync between the source and the serverless cache.
+
+  The migration remains
+  open and the data sync can be restarted. This operation is valid only while the
+  migration is
+  syncing; during cutover it returns
+  `InvalidServerlessCacheStateFault`.
+  """
+  @spec stop_migration(map(), stop_migration_request(), list()) ::
+          {:ok, stop_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_migration_errors()}
+  def stop_migration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StopMigration", input, options)
   end
 
   @doc """

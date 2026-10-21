@@ -703,6 +703,7 @@ defmodule AWS.MarketplaceCatalog do
         "EntityArn" => String.t() | atom(),
         "EntityId" => String.t() | atom(),
         "EntityType" => String.t() | atom(),
+        "ExpressPrivateOfferConfigurationSummary" => express_private_offer_configuration_summary(),
         "LastModifiedDate" => String.t() | atom(),
         "MachineLearningProductSummary" => machine_learning_product_summary(),
         "Name" => String.t() | atom(),
@@ -739,6 +740,80 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type error_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      express_private_offer_configuration_entity_id_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type express_private_offer_configuration_entity_id_filter() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      express_private_offer_configuration_filters() :: %{
+        "EntityId" => express_private_offer_configuration_entity_id_filter(),
+        "ProductId" => express_private_offer_configuration_product_id_filter(),
+        "State" => express_private_offer_configuration_state_filter()
+      }
+
+  """
+  @type express_private_offer_configuration_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      express_private_offer_configuration_product_id_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type express_private_offer_configuration_product_id_filter() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      express_private_offer_configuration_sort() :: %{
+        "SortBy" => list(any()),
+        "SortOrder" => list(any())
+      }
+
+  """
+  @type express_private_offer_configuration_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      express_private_offer_configuration_state_filter() :: %{
+        "ValueList" => list(list(any())())
+      }
+
+  """
+  @type express_private_offer_configuration_state_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      express_private_offer_configuration_summary() :: %{
+        "ProductId" => String.t() | atom(),
+        "State" => list(any())
+      }
+
+  """
+  @type express_private_offer_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -1037,6 +1037,7 @@ defmodule AWS.CleanRooms do
         "name" => String.t() | atom(),
         "selectedAnalysisMethods" => list(list(any())()),
         "tableReference" => list(),
+        "tableType" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
 
@@ -1179,6 +1180,7 @@ defmodule AWS.CleanRooms do
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "selectedAnalysisMethods" => list(list(any())()),
+        "tableType" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
 
@@ -1641,6 +1643,32 @@ defmodule AWS.CleanRooms do
 
   """
   @type data_encryption_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      databricks_delta_sharing_connection() :: %{
+        "deltaShareEndpoint" => String.t() | atom(),
+        "shareName" => String.t() | atom()
+      }
+
+  """
+  @type databricks_delta_sharing_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      databricks_table_reference() :: %{
+        "connectionType" => list(),
+        "schemaName" => String.t() | atom(),
+        "tableName" => String.t() | atom(),
+        "workspaceUrl" => String.t() | atom()
+      }
+
+  """
+  @type databricks_table_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

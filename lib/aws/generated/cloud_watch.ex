@@ -173,8 +173,10 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       anomaly_detector_configuration() :: %{
+        "AdaptationSpeed" => list(any()),
         "ExcludedTimeRanges" => list(range()),
-        "MetricTimezone" => String.t() | atom()
+        "MetricTimezone" => String.t() | atom(),
+        "OutlierFilteringStrength" => list(any())
       }
       
   """

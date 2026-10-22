@@ -53,6 +53,22 @@ defmodule AWS.AutoScaling do
 
   ## Example:
       
+      account_setting() :: %{
+        "DefaultValue" => String.t() | atom(),
+        "EnforcedValue" => String.t() | atom(),
+        "EnforcementDate" => non_neg_integer(),
+        "EnforcementType" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type account_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       active_instance_refresh_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
@@ -757,6 +773,31 @@ defmodule AWS.AutoScaling do
       
   """
   @type describe_account_limits_answer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_settings_answer() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("Settings") => list(account_setting())
+      }
+      
+  """
+  @type describe_account_settings_answer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_settings_type() :: %{
+        optional("MaxRecords") => integer(),
+        optional("Name") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_account_settings_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2173,6 +2214,27 @@ defmodule AWS.AutoScaling do
 
   ## Example:
       
+      put_account_setting_answer() :: %{}
+      
+  """
+  @type put_account_setting_answer() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_account_setting_type() :: %{
+        required("Name") => String.t() | atom(),
+        required("Value") => String.t() | atom()
+      }
+      
+  """
+  @type put_account_setting_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_lifecycle_hook_answer() :: %{}
       
   """
@@ -2873,6 +2935,8 @@ defmodule AWS.AutoScaling do
           | limit_exceeded_fault()
 
   @type describe_account_limits_errors() :: resource_contention_fault()
+
+  @type describe_account_settings_errors() :: invalid_next_token()
 
   @type describe_adjustment_types_errors() :: resource_contention_fault()
 
@@ -3601,6 +3665,27 @@ defmodule AWS.AutoScaling do
       metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
+  end
+
+  @doc """
+
+  Describes the current Amazon EC2 Auto Scaling account settings for your account.
+
+  Account settings are a framework that allows you to enable or disable features
+  for your account. The framework also gives you visibility into features that
+  will be enforced by a given date, providing a time window to prepare for
+  backwards-incompatible changes.
+  """
+  @spec describe_account_settings(map(), describe_account_settings_type(), list()) ::
+          {:ok, describe_account_settings_answer(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_account_settings_errors()}
+  def describe_account_settings(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeAccountSettings", input, options)
   end
 
   @doc """
@@ -4421,6 +4506,28 @@ defmodule AWS.AutoScaling do
       metadata()
 
     Request.request_post(client, meta, "LaunchInstances", input, options)
+  end
+
+  @doc """
+
+  Modifies an account setting for your account.
+
+  You can use this operation to opt in or opt out of features provided through
+  account settings when permitted. Account settings give you control over features
+  that might have backwards-incompatible changes. When Amazon EC2 Auto Scaling
+  introduces such changes, account settings allow you to test and adopt new
+  features. Some account settings are enforced after a specified date. This means
+  that after the enforcement date, you can no longer modify the setting.
+  """
+  @spec put_account_setting(map(), put_account_setting_type(), list()) ::
+          {:ok, put_account_setting_answer(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def put_account_setting(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutAccountSetting", input, options)
   end
 
   @doc """

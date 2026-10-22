@@ -1937,6 +1937,43 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      m_s_teams_channel() :: %{
+        "channelId" => String.t() | atom(),
+        "channelName" => [String.t() | atom()]
+      }
+
+  """
+  @type m_s_teams_channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      m_s_teams_configuration() :: %{
+        "teamId" => String.t() | atom(),
+        "teamName" => [String.t() | atom()],
+        "transmissionTarget" => m_s_teams_transmission_target()
+      }
+
+  """
+  @type m_s_teams_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      m_s_teams_transmission_target() :: %{
+        "opsOncallTarget" => m_s_teams_channel(),
+        "opsSRETarget" => m_s_teams_channel()
+      }
+
+  """
+  @type m_s_teams_transmission_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       monthly_recurrence() :: %{
         "dayOfMonth" => [integer()]
       }
@@ -3341,6 +3378,7 @@ defmodule AWS.DevOpsAgent do
 
   @type associate_service_errors() ::
           validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | invalid_parameter_exception()
           | internal_server_exception()
@@ -3675,6 +3713,7 @@ defmodule AWS.DevOpsAgent do
 
   @type update_association_errors() ::
           validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()

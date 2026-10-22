@@ -10,6 +10,10 @@ defmodule AWS.Polly do
   high-quality speech from plain text and Speech Synthesis Markup Language
   (SSML), along with managing pronunciations lexicons that enable you to get
   the best results for your application domain.
+
+  Authenticated API calls must be signed using the Signature Version 4 Signing
+  Process. For more information, see [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html)
+  in the *IAM User Guide*.
   """
 
   alias AWS.Client
@@ -1055,7 +1059,7 @@ defmodule AWS.Polly do
 
     *
 
-  [SynthesizeSpeech](https://docs.aws.amazon.com/polly/latest/API/API_SynthesizeSpeech.html)
+  [SynthesizeSpeech](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html)
   """
   @spec start_speech_synthesis_stream(map(), start_speech_synthesis_stream_input(), list()) ::
           {:ok, start_speech_synthesis_stream_output(), any()}

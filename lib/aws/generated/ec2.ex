@@ -848,6 +848,23 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      analysis_transit_gateway_policy_table_entry() :: %{
+        "DestinationCidr" => String.t() | atom(),
+        "DestinationPortRange" => port_range(),
+        "Protocol" => String.t() | atom(),
+        "RuleNumber" => integer(),
+        "SourceCidr" => String.t() | atom(),
+        "SourcePortRange" => port_range(),
+        "TargetRouteTableId" => String.t() | atom()
+      }
+      
+  """
+  @type analysis_transit_gateway_policy_table_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       application_status() :: %{
         "Details" => list(application_status_detail()),
         "ResumeAt" => non_neg_integer(),
@@ -17652,6 +17669,8 @@ defmodule AWS.EC2 do
         "SubnetRouteTable" => analysis_component(),
         "TransitGateway" => analysis_component(),
         "TransitGatewayAttachment" => analysis_component(),
+        "TransitGatewayPolicyTable" => analysis_component(),
+        "TransitGatewayPolicyTableEntry" => analysis_transit_gateway_policy_table_entry(),
         "TransitGatewayRouteTable" => analysis_component(),
         "TransitGatewayRouteTableRoute" => transit_gateway_route_table_route(),
         "Vpc" => analysis_component(),
@@ -22488,6 +22507,7 @@ defmodule AWS.EC2 do
         "InstanceStatus" => instance_status_summary(),
         "Operator" => operator_response(),
         "OutpostArn" => String.t() | atom(),
+        "PerformanceStatus" => performance_status_summary(),
         "SystemStatus" => instance_status_summary()
       }
       
@@ -28371,6 +28391,7 @@ defmodule AWS.EC2 do
         "SourceVpc" => analysis_component(),
         "Subnet" => analysis_component(),
         "TransitGateway" => analysis_component(),
+        "TransitGatewayPolicyTableEntry" => analysis_transit_gateway_policy_table_entry(),
         "TransitGatewayRouteTableRoute" => transit_gateway_route_table_route(),
         "Vpc" => analysis_component()
       }
@@ -28529,6 +28550,19 @@ defmodule AWS.EC2 do
       
   """
   @type performance_factor_reference_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      performance_status_summary() :: %{
+        "ImpairedSince" => non_neg_integer(),
+        "Remediation" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type performance_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

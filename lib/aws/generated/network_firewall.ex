@@ -46,9 +46,9 @@ defmodule AWS.NetworkFirewall do
   gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules
   that are compatible
   with Suricata, a free, open source network analysis and threat detection engine.
-  Network Firewall supports Suricata version 7.0.8. For information about
+  Network Firewall supports Suricata version 8.0.3. For information about
   Suricata,
-  see the [Suricata website](https://suricata.io/) and the [Suricata User Guide](https://suricata.readthedocs.io/en/suricata-7.0.8/).
+  see the [Suricata website](https://suricata.io/) and the [Suricata User Guide](https://suricata.readthedocs.io/en/suricata-8.0.3/).
 
   You can use Network Firewall to monitor and protect your VPC traffic in a number
   of ways.
@@ -1183,6 +1183,7 @@ defmodule AWS.NetworkFirewall do
       
       describe_flow_operation_request() :: %{
         optional("AvailabilityZone") => String.t() | atom(),
+        optional("AvailabilityZoneId") => String.t() | atom(),
         optional("VpcEndpointAssociationArn") => String.t() | atom(),
         optional("VpcEndpointId") => String.t() | atom(),
         required("FirewallArn") => String.t() | atom(),
@@ -1198,6 +1199,7 @@ defmodule AWS.NetworkFirewall do
       
       describe_flow_operation_response() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "FirewallArn" => String.t() | atom(),
         "FlowOperation" => flow_operation(),
         "FlowOperationId" => String.t() | atom(),
@@ -1677,6 +1679,7 @@ defmodule AWS.NetworkFirewall do
       firewall_policy() :: %{
         "EnableTLSSessionHolding" => boolean(),
         "PolicyVariables" => policy_variables(),
+        "Route53ResolvedIPValidation" => route53_resolved_ip_validation(),
         "StatefulDefaultActions" => list(String.t() | atom()),
         "StatefulEngineOptions" => stateful_engine_options(),
         "StatefulRuleGroupReferences" => list(stateful_rule_group_reference()),
@@ -1689,6 +1692,19 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type firewall_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_policy_error() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom()
+      }
+      
+  """
+  @type firewall_policy_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1712,12 +1728,14 @@ defmodule AWS.NetworkFirewall do
         "ConsumedStatelessRuleCapacity" => integer(),
         "Description" => String.t() | atom(),
         "EncryptionConfiguration" => encryption_configuration(),
+        "Errors" => list(firewall_policy_error()),
         "FirewallPolicyArn" => String.t() | atom(),
         "FirewallPolicyId" => String.t() | atom(),
         "FirewallPolicyName" => String.t() | atom(),
         "FirewallPolicyStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "NumberOfAssociations" => integer(),
+        "StatusMessage" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
@@ -2083,6 +2101,7 @@ defmodule AWS.NetworkFirewall do
       
       list_flow_operation_results_request() :: %{
         optional("AvailabilityZone") => String.t() | atom(),
+        optional("AvailabilityZoneId") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("VpcEndpointAssociationArn") => String.t() | atom(),
@@ -2100,6 +2119,7 @@ defmodule AWS.NetworkFirewall do
       
       list_flow_operation_results_response() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "FirewallArn" => String.t() | atom(),
         "FlowOperationId" => String.t() | atom(),
         "FlowOperationStatus" => list(any()),
@@ -2120,6 +2140,7 @@ defmodule AWS.NetworkFirewall do
       
       list_flow_operations_request() :: %{
         optional("AvailabilityZone") => String.t() | atom(),
+        optional("AvailabilityZoneId") => String.t() | atom(),
         optional("FlowOperationType") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -2781,6 +2802,21 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      route53_resolved_ip_validation() :: %{
+        "Action" => list(any()),
+        "BypassDestinationValidationIPRanges" => list(address()),
+        "DNSExpiryExceptionPolicy" => list(any()),
+        "DNSFirewallRuleGroupId" => String.t() | atom(),
+        "SourceIPRanges" => list(address())
+      }
+      
+  """
+  @type route53_resolved_ip_validation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       rule_definition() :: %{
         "Actions" => list(String.t() | atom()),
         "MatchAttributes" => match_attributes()
@@ -2988,6 +3024,7 @@ defmodule AWS.NetworkFirewall do
       
       start_flow_capture_request() :: %{
         optional("AvailabilityZone") => String.t() | atom(),
+        optional("AvailabilityZoneId") => String.t() | atom(),
         optional("MinimumFlowAgeInSeconds") => integer(),
         optional("VpcEndpointAssociationArn") => String.t() | atom(),
         optional("VpcEndpointId") => String.t() | atom(),
@@ -3017,6 +3054,7 @@ defmodule AWS.NetworkFirewall do
       
       start_flow_flush_request() :: %{
         optional("AvailabilityZone") => String.t() | atom(),
+        optional("AvailabilityZoneId") => String.t() | atom(),
         optional("MinimumFlowAgeInSeconds") => integer(),
         optional("VpcEndpointAssociationArn") => String.t() | atom(),
         optional("VpcEndpointId") => String.t() | atom(),
@@ -4008,6 +4046,7 @@ defmodule AWS.NetworkFirewall do
           throttling_exception()
           | limit_exceeded_exception()
           | invalid_request_exception()
+          | invalid_operation_exception()
           | internal_server_error()
           | insufficient_capacity_exception()
 
@@ -4376,6 +4415,7 @@ defmodule AWS.NetworkFirewall do
   @type update_container_association_errors() ::
           throttling_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
           | invalid_token_exception()
           | invalid_request_exception()
           | internal_server_error()
@@ -4415,6 +4455,7 @@ defmodule AWS.NetworkFirewall do
           | resource_not_found_exception()
           | invalid_token_exception()
           | invalid_request_exception()
+          | invalid_operation_exception()
           | internal_server_error()
 
   @type update_firewall_policy_change_protection_errors() ::

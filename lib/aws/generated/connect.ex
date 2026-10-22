@@ -13483,7 +13483,8 @@ defmodule AWS.Connect do
         "OrganizationResourceId" => String.t() | atom(),
         "SecurityProfileName" => String.t() | atom(),
         "TagRestrictedResources" => list(String.t() | atom()),
-        "Tags" => map()
+        "Tags" => map(),
+        "Type" => list(any())
       }
 
   """
@@ -13523,7 +13524,8 @@ defmodule AWS.Connect do
         "Id" => String.t() | atom(),
         "OrganizationResourceId" => String.t() | atom(),
         "SecurityProfileName" => String.t() | atom(),
-        "Tags" => map()
+        "Tags" => map(),
+        "Type" => list(any())
       }
 
   """
@@ -13538,7 +13540,8 @@ defmodule AWS.Connect do
         "Id" => String.t() | atom(),
         "LastModifiedRegion" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom()
+        "Name" => String.t() | atom(),
+        "Type" => list(any())
       }
 
   """

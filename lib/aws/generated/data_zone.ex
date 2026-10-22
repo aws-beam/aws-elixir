@@ -1417,6 +1417,40 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_designation_input() :: %{
+        optional("deletionProtection") => [boolean()],
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type create_designation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_designation_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "deletionProtection" => [boolean()],
+        "description" => String.t() | atom(),
+        "designationType" => list(any()),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "policy" => String.t() | atom()
+      }
+
+  """
+  @type create_designation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_domain_input() :: %{
         optional("clientToken") => [String.t() | atom()],
         optional("description") => [String.t() | atom()],
@@ -1936,6 +1970,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_project_membership_input() :: %{
+        optional("userCreatedDesignationId") => String.t() | atom(),
         required("designation") => list(any()),
         required("member") => list()
       }
@@ -2621,6 +2656,24 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      delete_designation_input() :: %{}
+
+  """
+  @type delete_designation_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_designation_output() :: %{}
+
+  """
+  @type delete_designation_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_domain_input() :: %{
         optional("cascadeDelete") => [boolean()],
         optional("clientToken") => [String.t() | atom()],
@@ -3009,6 +3062,25 @@ defmodule AWS.DataZone do
 
   """
   @type deployment_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      designation_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "deletionProtection" => [boolean()],
+        "description" => String.t() | atom(),
+        "designationType" => list(any()),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type designation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3838,6 +3910,35 @@ defmodule AWS.DataZone do
 
   """
   @type get_data_source_run_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_designation_input() :: %{}
+
+  """
+  @type get_designation_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_designation_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "deletionProtection" => [boolean()],
+        "description" => String.t() | atom(),
+        "designationType" => list(any()),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "policy" => String.t() | atom()
+      }
+
+  """
+  @type get_designation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5784,6 +5885,30 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_designations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_designations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_designations_output() :: %{
+        "items" => list(designation_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_designations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_domain_units_for_parent_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -7115,7 +7240,8 @@ defmodule AWS.DataZone do
 
       project_member() :: %{
         "designation" => list(any()),
-        "memberDetails" => list()
+        "memberDetails" => list(),
+        "userCreatedDesignationId" => String.t() | atom()
       }
 
   """
@@ -7127,7 +7253,8 @@ defmodule AWS.DataZone do
 
       project_membership_assignment() :: %{
         "designation" => list(any()),
-        "member" => list()
+        "member" => list(),
+        "userCreatedDesignationId" => String.t() | atom()
       }
 
   """
@@ -7140,7 +7267,8 @@ defmodule AWS.DataZone do
       project_policy_grant_principal() :: %{
         "projectDesignation" => list(any()),
         "projectGrantFilter" => list(),
-        "projectIdentifier" => String.t() | atom()
+        "projectIdentifier" => String.t() | atom(),
+        "userCreatedDesignationId" => String.t() | atom()
       }
 
   """
@@ -9138,6 +9266,40 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      update_designation_input() :: %{
+        optional("deletionProtection") => [boolean()],
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("policy") => String.t() | atom()
+      }
+
+  """
+  @type update_designation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_designation_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "deletionProtection" => [boolean()],
+        "description" => String.t() | atom(),
+        "designationType" => list(any()),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "policy" => String.t() | atom()
+      }
+
+  """
+  @type update_designation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_domain_input() :: %{
         optional("clientToken") => [String.t() | atom()],
         optional("description") => [String.t() | atom()],
@@ -10079,6 +10241,15 @@ defmodule AWS.DataZone do
           | conflict_exception()
           | access_denied_exception()
 
+  @type create_designation_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_domain_errors() ::
           validation_exception()
           | throttling_exception()
@@ -10301,6 +10472,14 @@ defmodule AWS.DataZone do
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_designation_errors() ::
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -10543,6 +10722,13 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
+          | access_denied_exception()
+
+  @type get_designation_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type get_domain_errors() ::
@@ -10819,6 +11005,13 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
+          | access_denied_exception()
+
+  @type list_designations_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type list_domain_units_for_parent_errors() ::
@@ -11192,6 +11385,14 @@ defmodule AWS.DataZone do
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_designation_errors() ::
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -12211,6 +12412,37 @@ defmodule AWS.DataZone do
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a new user-defined designation with a Cedar permit policy.
+
+  The designation defines a named role that can be assigned to project members.
+  """
+  @spec create_designation(map(), String.t() | atom(), create_designation_input(), list()) ::
+          {:ok, create_designation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_designation_errors()}
+  def create_designation(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/designations"
     headers = []
     custom_headers = []
     query_params = []
@@ -13313,6 +13545,46 @@ defmodule AWS.DataZone do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes a designation.
+
+  Managed designations cannot be deleted.
+  This operation is idempotent.
+  """
+  @spec delete_designation(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_designation_input(),
+          list()
+        ) ::
+          {:ok, delete_designation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_designation_errors()}
+  def delete_designation(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/designations/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -14624,6 +14896,26 @@ defmodule AWS.DataZone do
   def get_data_source_run(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-source-runs/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the details of a designation, including its Cedar policy.
+  """
+  @spec get_designation(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_designation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_designation_errors()}
+  def get_designation(%Client{} = client, domain_identifier, identifier, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/designations/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
     query_params = []
@@ -16121,6 +16413,53 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(type) do
         [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the designations in a domain.
+
+  Returns system-managed designations
+  first, followed by user-created designations sorted alphabetically by name.
+  """
+  @spec list_designations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_designations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_designations_errors()}
+  def list_designations(
+        %Client{} = client,
+        domain_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/designations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -19326,6 +19665,45 @@ defmodule AWS.DataZone do
   def update_data_source(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing designation.
+
+  Managed designations cannot be modified.
+  """
+  @spec update_designation(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_designation_input(),
+          list()
+        ) ::
+          {:ok, update_designation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_designation_errors()}
+  def update_designation(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/designations/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
     custom_headers = []

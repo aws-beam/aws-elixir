@@ -6143,7 +6143,10 @@ defmodule AWS.QuickSight do
         "CredentialPair" => credential_pair(),
         "KeyPairCredentials" => key_pair_credentials(),
         "OAuthClientCredentials" => o_auth_client_credentials(),
+        "OneDriveClientCredentials" => one_drive_client_credentials(),
         "SecretArn" => String.t() | atom(),
+        "ServiceAccountCredentials" => service_account_credentials(),
+        "SharePointClientCredentials" => share_point_client_credentials(),
         "WebProxyCredentials" => web_proxy_credentials()
       }
 
@@ -15287,6 +15290,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      one_drive_client_credentials() :: %{
+        "CertThumbprint" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type one_drive_client_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       one_drive_parameters() :: %{
         "AuthType" => list(any()),
         "ClientId" => String.t() | atom(),
@@ -18195,6 +18210,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      service_account_credentials() :: %{
+        "AdminAccountEmail" => String.t() | atom(),
+        "ClientEmail" => String.t() | atom(),
+        "ServiceAccountPrivateKey" => String.t() | atom()
+      }
+
+  """
+  @type service_account_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_now_parameters() :: %{
         "SiteBaseUrl" => String.t() | atom()
       }
@@ -18248,6 +18276,18 @@ defmodule AWS.QuickSight do
 
   """
   @type shape_conditional_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      share_point_client_credentials() :: %{
+        "CertThumbprint" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type share_point_client_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
